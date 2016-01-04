@@ -16,8 +16,8 @@ class Kernel extends ConsoleKernel
 	 * @var array
 	 */
 	protected $commands = [
-		'subscriptions:rebill' => SubscriptionRebillCommand::class,
-		'sitemap:generate'     => GenerateSitemapCommand::class
+		SubscriptionRebillCommand::class,
+		GenerateSitemapCommand::class
 	];
 
 	/**

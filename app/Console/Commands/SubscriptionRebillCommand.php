@@ -11,19 +11,17 @@ class SubscriptionRebillCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'subscriptions:rebill';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Charges customers cards';
 
     /**
      * Create a new command instance.
-     *
-     * @return void
      */
     public function __construct()
     {
