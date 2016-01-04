@@ -14,7 +14,8 @@ class UserSeeder extends Seeder
 		\App\User::create([
 			'name'     => 'John Doe',
 			'email'    => 'admin@takedaily.app',
-			'password' => Hash::make('admin-account')
+			'password' => Hash::make('admin-account'),
+			'type'     => 'admin'
 		]);
 	}
 }

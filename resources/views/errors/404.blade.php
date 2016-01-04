@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('pageClass', 'error error-503')
+@section('pageClass', 'error error-404')
 
 @section('content')
-	503
+	404
 @endsection

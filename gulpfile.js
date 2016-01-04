@@ -14,4 +14,13 @@ var elixir = require('laravel-elixir');
 elixir(function (mix)
 {
 	mix.sass('app.sass', false, {indentedSyntax: true});
+
+	mix.scripts([
+		'/vendor/jquery.min.js',
+		'/vendor/vue.min.js',
+		'/vendor/pickadate/picker.js',
+		'/vendor/pickadate/picker.date.js',
+		'/vendor/pickadate/legacy.js',
+		'/app.js',
+	], 'public/js/app.js');
 });
