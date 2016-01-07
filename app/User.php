@@ -41,4 +41,25 @@ class User extends Authenticatable
 	{
 		return $this->type == 'user';
 	}
+
+	/**
+	 * @return bool|\Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function customer()
+	{
+		return $this->belongsTo('App\Customer', 'id', 'user_id');
+	}
+
+	/**
+	 * @return bool|\Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function getCustomer()
+	{
+		if( !$this->isUser() )
+		{
+			return false;
+		}
+
+		return $this->customer()->first();
+	}
 }

@@ -3,5 +3,8 @@
 @section('pageClass', 'account account-transactions')
 
 @section('content')
-	Transactions!
+	@foreach($orders as $order)
+		{{ $order }}
+		<hr/>
+	@endforeach
 @endsection

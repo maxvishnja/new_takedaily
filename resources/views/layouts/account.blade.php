@@ -1,6 +1,6 @@
 @include('includes.app.header')
 <div class="container">
-	<aside>
+	<aside class="sidebar sidebar--account">
 		@include('includes.app.account-sidebar')
 	</aside>
 

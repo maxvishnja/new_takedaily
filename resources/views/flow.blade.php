@@ -13,8 +13,8 @@
 		}
 
 		.step .sub_step {
-			position: relative;
-			display: none;
+			position:   relative;
+			display:    none;
 			text-align: center;
 		}
 
@@ -23,18 +23,17 @@
 		}
 
 		h2 {
-
 		}
 
 		h3 {
-			height: 50px;
+			height:     50px;
 			background: #eee;
 		}
 
 		.container {
-			width: 1140px;
+			width:     1140px;
 			max-width: 100%;
-			margin: 10% auto;
+			margin:    10% auto;
 		}
 
 		.navigation {
@@ -43,45 +42,43 @@
 		}
 
 		.progress {
-			margin: 0 0 20px;
+			margin:     0 0 20px;
 			background: #eee;
 		}
 
 		label {
-			cursor: pointer;
-			padding: 15px;
-			background: #579dfa;
+			cursor:        pointer;
+			padding:       15px;
+			background:    #579dfa;
 			border-radius: 4px;
-			display: inline-block;
+			display:       inline-block;
 		}
 
 		label:hover {
 			background: #406fb3;
 		}
 
-		label input[type="radio"]
-		{
-			display: inline-block;
-			background: #fff;
-			border-radius: 50%;
-			margin: 0 2px 0 0;
-			width: 14px;
-			height: 14px;
+		label input[type="radio"] {
+			display:            inline-block;
+			background:         #fff;
+			border-radius:      50%;
+			margin:             0 2px 0 0;
+			width:              14px;
+			height:             14px;
 			-webkit-appearance: none;
-			appearance: none;
+			appearance:         none;
 		}
 
 		label input[type="radio"]:checked:after,
 		label input[type="radio"]:hover:after,
-		label:hover input[type="radio"]:after
-		{
-			display: block;
-			content: '';
-			width: 8px;
-			height: 8px;
-			margin: 3px;
+		label:hover input[type="radio"]:after {
+			display:       block;
+			content:       '';
+			width:         8px;
+			height:        8px;
+			margin:        3px;
 			border-radius: 50%;
-			background: #579DFA;
+			background:    #579DFA;
 		}
 	</style>
 	<noscript>
@@ -94,6 +91,8 @@
 
 	<div id="app" class=container>
 		<form method="post" action="">
+
+			@{{ randomshit }}
 			<div class="progress">@{{ step }} - @{{ sub_step }}</div>
 			<div data-step="1" data-first-sub-step="1" class="step step--active">
 				<h2>About you</h2>
@@ -101,48 +100,62 @@
 				<div data-sub-step="1" class="sub_step sub_step--active">
 					<h3>What is your gender?</h3>
 					<label>
-						<input type="radio" name="step[1][1]" value="1" v-model="user_data.gender" v-on:click="nextStep();" /> Male</label>
+						<input type="radio" name="step[1][1]" value="1" v-model="user_data.gender" v-on:click="nextStep();"/>
+						Male</label>
 					<label>
-						<input type="radio" name="step[1][1]" value="2" v-model="user_data.gender" v-on:click="nextStep();" /> Female</label>
+						<input type="radio" name="step[1][1]" value="2" v-model="user_data.gender" v-on:click="nextStep();"/>
+						Female</label>
 
-					<p class="explanation">Men and women need different levels of vitamins en minerals. For example vitamin D. Vitamin D is an important vitamin for strong bones and muscles.</p>
+					<p class="explanation">Men and women need different levels of vitamins en minerals. For example
+						vitamin D. Vitamin D is an important vitamin for strong bones and muscles.</p>
 				</div>
 
 				<div data-sub-step="2" class="sub_step">
 					<h3>What is your age?</h3>
 					<div style="display: inline-block;">
-						<label>Your birthdate:<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" placeholder="Your birthdate" /></label>
+						<label>Your
+							birthdate:<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" placeholder="Your birthdate"/></label>
 						<div id="datepicker-container"></div>
 					</div>
 					<template v-if="temp_age">
 						<br/>
 						<span style="margin-left: 10px; display: inline-block;">Are you <strong>@{{ temp_age }}</strong> years old?</span>
-						<input type="button" v-on:click="nextStep();" value="Yes" />
+						<input type="button" v-on:click="nextStep();" value="Yes"/>
 					</template>
 
-					<p class="explanation">Your requirement for vitamins, minerals is agerelated. As we get older the need for vitamin D, vitamin B12 and calcium changing.  Vitamin B12 plays an important role in the body: it gives energy, is important for our nerve- and immune system and our psychological function.</p>
+					<p class="explanation">Your requirement for vitamins, minerals is agerelated. As we get older the
+						need for vitamin D, vitamin B12 and calcium changing. Vitamin B12 plays an important role in the
+						body: it gives energy, is important for our nerve- and immune system and our psychological
+						function.</p>
 				</div>
 
 				<div data-sub-step="3" class="sub_step">
 					<h3>What is the color of your skin?</h3>
 					<label>
-						<input type="radio" name="step[1][3]" value="1" v-model="user_data.skin" v-on:click="nextStep();" /> White</label>
+						<input type="radio" name="step[1][3]" value="1" v-model="user_data.skin" v-on:click="nextStep();"/>
+						White</label>
 					<label>
-						<input type="radio" name="step[1][3]" value="2" v-model="user_data.skin" v-on:click="nextStep();" /> Mediterranean</label>
+						<input type="radio" name="step[1][3]" value="2" v-model="user_data.skin" v-on:click="nextStep();"/>
+						Mediterranean</label>
 					<label>
-						<input type="radio" name="step[1][3]" value="3" v-model="user_data.skin" v-on:click="nextStep();" /> Black</label>
+						<input type="radio" name="step[1][3]" value="3" v-model="user_data.skin" v-on:click="nextStep();"/>
+						Black</label>
 
-					<p class="explanation">A white skin can produce more vitamin D during sun exposure. That’s why people with a Meditarranean or black skin need extra vitamin D.</p>
+					<p class="explanation">A white skin can produce more vitamin D during sun exposure. That’s why
+						people with a Meditarranean or black skin need extra vitamin D.</p>
 				</div>
 
 				<div data-sub-step="4" class="sub_step">
 					<h3>Are your outside between 11 and 15 every day?</h3>
 					<label>
-						<input type="radio" name="step[1][4]" value="1" v-model="user_data.outside" v-on:click="nextStep();" /> Yes</label>
+						<input type="radio" name="step[1][4]" value="1" v-model="user_data.outside" v-on:click="nextStep();"/>
+						Yes</label>
 					<label>
-						<input type="radio" name="step[1][4]" value="2" v-model="user_data.outside" v-on:click="nextStep();" /> No</label>
+						<input type="radio" name="step[1][4]" value="2" v-model="user_data.outside" v-on:click="nextStep();"/>
+						No</label>
 
-					<p class="explanation">You have to be outside for 15 minutes till 30 minutes daily to make enough vitamin D during sun exposure.</p>
+					<p class="explanation">You have to be outside for 15 minutes till 30 minutes daily to make enough
+						vitamin D during sun exposure.</p>
 				</div>
 			</div>
 
@@ -152,23 +165,37 @@
 				<div data-sub-step="1" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--active': user_data.gender == 2 }">
 					<h3>Are you pregnant or do you have a pregnancy wish?</h3>
 					<label>
-						<input type="radio" name="step[2][1]" value="1" v-model="user_data.pregnant" v-on:click="nextStep();" /> Yes</label>
+						<input type="radio" name="step[2][1]" value="1" v-model="user_data.pregnant" v-on:click="nextStep();"/>
+						Yes</label>
 					<label>
-						<input type="radio" name="step[2][1]" value="2" v-model="user_data.pregnant" v-on:click="nextStep();" /> No</label>
+						<input type="radio" name="step[2][1]" value="2" v-model="user_data.pregnant" v-on:click="nextStep();"/>
+						No</label>
 
-					<p class="explanation">If you have a pregnancy whish, the first thing you need a good supply of vitamins and minerals. The health authorities reccomend taking extra vitamin B9 (folic acid ) which takes care of the development of the baby. If you take folic acid tablets in early pregnancy you reduce the risk of having a baby born with a spinal cord problem such as spina bifida.<br/>
-						During the whole pregnancy specific vitamins, such as vitamin D is important for the development of the bones and musles. Other nutrients as fish oil play an important role in development of the baby.
+					<p class="explanation">If you have a pregnancy whish, the first thing you need a good supply of
+						vitamins and minerals. The health authorities reccomend taking extra vitamin B9 (folic acid )
+						which takes care of the development of the baby. If you take folic acid tablets in early
+						pregnancy you reduce the risk of having a baby born with a spinal cord problem such as spina
+						bifida.<br/>
+						During the whole pregnancy specific vitamins, such as vitamin D is important for the development
+						of the bones and musles. Other nutrients as fish oil play an important role in development of
+						the baby.
 					</p>
 				</div>
 
 				<div data-sub-step="2" class="sub_step" v-bind:class="{ 'sub_step--active': user_data.gender == 1 }">
 					<h3>Are you on a slimming diet?</h3>
 					<label>
-						<input type="radio" name="step[2][2]" value="1" v-model="user_data.diet" v-on:click="nextStep();" /> Yes</label>
+						<input type="radio" name="step[2][2]" value="1" v-model="user_data.diet" v-on:click="nextStep();"/>
+						Yes</label>
 					<label>
-						<input type="radio" name="step[2][2]" value="2" v-model="user_data.diet" v-on:click="nextStep();" /> No</label>
+						<input type="radio" name="step[2][2]" value="2" v-model="user_data.diet" v-on:click="nextStep();"/>
+						No</label>
 
-					<p class="explanation">When you are losing weight it is important to get an extra dose of some vitamins and minerals. Because your diet might not be healthy enough in the past you need some extra vitamins. For example vitamin A. This is a important vitamin for your skin an your immune system. Together with vitamin C it takes care of a good immune system. You need more vitamin C when your weight is higher.
+					<p class="explanation">When you are losing weight it is important to get an extra dose of some
+						vitamins and minerals. Because your diet might not be healthy enough in the past you need some
+						extra vitamins. For example vitamin A. This is a important vitamin for your skin an your immune
+						system. Together with vitamin C it takes care of a good immune system. You need more vitamin C
+						when your weight is higher.
 						You also need more vitamin K for your blood. B-vitamines are important for your energy level.
 					</p>
 				</div>
@@ -176,89 +203,116 @@
 				<div data-sub-step="3" class="sub_step">
 					<h3>How often do you practice physical sporting activity?</h3>
 					<label>
-						<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" v-on:click="nextStep();" /> Seldom</label>
+						<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" v-on:click="nextStep();"/>
+						Seldom</label>
 					<label>
-						<input type="radio" name="step[2][3]" value="2" v-model="user_data.sports" v-on:click="nextStep();" /> Once a week</label>
+						<input type="radio" name="step[2][3]" value="2" v-model="user_data.sports" v-on:click="nextStep();"/>
+						Once a week</label>
 					<label>
-						<input type="radio" name="step[2][3]" value="3" v-model="user_data.sports" v-on:click="nextStep();" /> Twice a week</label>
+						<input type="radio" name="step[2][3]" value="3" v-model="user_data.sports" v-on:click="nextStep();"/>
+						Twice a week</label>
 					<label>
-						<input type="radio" name="step[2][3]" value="4" v-model="user_data.sports" v-on:click="nextStep();" /> More often</label>
+						<input type="radio" name="step[2][3]" value="4" v-model="user_data.sports" v-on:click="nextStep();"/>
+						More often</label>
 
-					<p class="explanation">Sports are good for your health, if you are a frequent athlete you need some extra vitamins and minerals. B-vitamins take care of your energymetabolism and performance. Iron is also involved in producing energy.</p>
+					<p class="explanation">Sports are good for your health, if you are a frequent athlete you need some
+						extra vitamins and minerals. B-vitamins take care of your energymetabolism and performance. Iron
+						is also involved in producing energy.</p>
 				</div>
 
 				<div data-sub-step="4" class="sub_step">
 					<h3>How is your life at this moment?</h3>
 					<label>
-						<input type="radio" name="step[2][4]" value="1" v-model="user_data.stressed" v-on:click="nextStep();" /> Stressful</label>
+						<input type="radio" name="step[2][4]" value="1" v-model="user_data.stressed" v-on:click="nextStep();"/>
+						Stressful</label>
 					<label>
-						<input type="radio" name="step[2][4]" value="2" v-model="user_data.stressed" v-on:click="nextStep();" /> Quiet</label>
+						<input type="radio" name="step[2][4]" value="2" v-model="user_data.stressed" v-on:click="nextStep();"/>
+						Quiet</label>
 
-					<p class="explanation">In a stressful period extra vitamins and minerals can help you to relax. B-vitamins are important for the nervous system and a normal psychological function.</p>
+					<p class="explanation">In a stressful period extra vitamins and minerals can help you to relax.
+						B-vitamins are important for the nervous system and a normal psychological function.</p>
 				</div>
 
 				<div data-sub-step="5" class="sub_step">
 					<h3>Do you often feel tired, or lacking energy?</h3>
 					<label>
-						<input type="radio" name="step[2][5]" value="1" v-model="user_data.lacks_energy" v-on:click="nextStep();" /> Every day</label>
+						<input type="radio" name="step[2][5]" value="1" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
+						Every day</label>
 					<label>
-						<input type="radio" name="step[2][5]" value="2" v-model="user_data.lacks_energy" v-on:click="nextStep();" /> Sometimes</label>
+						<input type="radio" name="step[2][5]" value="2" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
+						Sometimes</label>
 					<label>
-						<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" v-on:click="nextStep();" /> Never</label>
+						<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
+						Never</label>
 
-					<p class="explanation">The B vitamins (B1, B2 , B3, B5 , B6 ) play a crucial role in energy metabolism. A lack of these vitamins can cause tiredness and a low energy level.</p>
+					<p class="explanation">The B vitamins (B1, B2 , B3, B5 , B6 ) play a crucial role in energy
+						metabolism. A lack of these vitamins can cause tiredness and a low energy level.</p>
 				</div>
 
 				<div data-sub-step="6" class="sub_step">
 					<h3>Would you like to boost your immune system?</h3>
 					<label>
-						<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" v-on:click="nextStep();" /> Yes</label>
+						<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" v-on:click="nextStep();"/>
+						Yes</label>
 					<label>
-						<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" v-on:click="nextStep();" /> No</label>
+						<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" v-on:click="nextStep();"/>
+						No</label>
 
 					<p class="explanation">Special vitamins can help to give your immune system a boost!<br/>
-						Vitamin C is an important anti-illness vitamin, because it helps your body to produce white bloodcells. But also vitamin A and D are anti-infection vitamins.
+						Vitamin C is an important anti-illness vitamin, because it helps your body to produce white
+						bloodcells. But also vitamin A and D are anti-infection vitamins.
 					</p>
 				</div>
 
 				<div data-sub-step="7" class="sub_step">
 					<h3>Do you smoke?</h3>
 					<label>
-						<input type="radio" name="step[2][7]" value="1" v-model="user_data.smokes" v-on:click="nextStep();" /> Yes</label>
+						<input type="radio" name="step[2][7]" value="1" v-model="user_data.smokes" v-on:click="nextStep();"/>
+						Yes</label>
 					<label>
-						<input type="radio" name="step[2][7]" value="2" v-model="user_data.smokes" v-on:click="nextStep();" /> No</label>
+						<input type="radio" name="step[2][7]" value="2" v-model="user_data.smokes" v-on:click="nextStep();"/>
+						No</label>
 
-					<p class="explanation">It has been scientifically established that the need for vitamin C is considerably higher for smokers.</p>
+					<p class="explanation">It has been scientifically established that the need for vitamin C is
+						considerably higher for smokers.</p>
 				</div>
 
 				<div data-sub-step="8" class="sub_step">
 					<h3>Are you a vegetarian?</h3>
 					<label>
-						<input type="radio" name="step[2][8]" value="1" v-model="user_data.vegetarian" v-on:click="nextStep();" /> Yes</label>
+						<input type="radio" name="step[2][8]" value="1" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
+						Yes</label>
 					<label>
-						<input type="radio" name="step[2][8]" value="2" v-model="user_data.vegetarian" v-on:click="nextStep();" /> No</label>
+						<input type="radio" name="step[2][8]" value="2" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
+						No</label>
 
-					<p class="explanation">Meat is rich in vitamin B1, B12 and iron. You need these vitamins for your energy metabolism.</p>
+					<p class="explanation">Meat is rich in vitamin B1, B12 and iron. You need these vitamins for your
+						energy metabolism.</p>
 				</div>
 
 				<div data-sub-step="9" class="sub_step">
 					<h3>Do you have problems with your musles/joint?</h3>
 					<label>
-						<input type="radio" name="step[2][9]" value="1" v-model="user_data.joints" v-on:click="nextStep();" /> Yes</label>
+						<input type="radio" name="step[2][9]" value="1" v-model="user_data.joints" v-on:click="nextStep();"/>
+						Yes</label>
 					<label>
-						<input type="radio" name="step[2][9]" value="2" v-model="user_data.joints" v-on:click="nextStep();" /> No</label>
+						<input type="radio" name="step[2][9]" value="2" v-model="user_data.joints" v-on:click="nextStep();"/>
+						No</label>
 
-					<p class="explanation">Some nutrients support your joints and muscles. Vitamin D makes you musles strong and takes care of your balance. Glucosamin/chondoitin also play and important role.</p>
+					<p class="explanation">Some nutrients support your joints and muscles. Vitamin D makes you musles
+						strong and takes care of your balance. Glucosamin/chondoitin also play and important role.</p>
 				</div>
 
 				<div data-sub-step="10" class="sub_step">
 					<h3>Do you use any supplements?</h3>
 					<label>
-						<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();" /> Yes</label>
+						<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();"/> Yes</label>
 					<label>
-						<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();" /> No</label>
+						<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();"/> No</label>
 
-					<p class="explanation">The result of this test is based on your diet and your lifestyle. Take Daily takes care that you get all the vitamins and minerals you need.  When using supplements of Take Daily it is not necessary to take other supplements as well.</p>
+					<p class="explanation">The result of this test is based on your diet and your lifestyle. Take Daily
+						takes care that you get all the vitamins and minerals you need. When using supplements of Take
+						Daily it is not necessary to take other supplements as well.</p>
 				</div>
 			</div>
 
@@ -268,82 +322,112 @@
 				<div data-sub-step="1" class="sub_step sub_step--active">
 					<h3>How many portions of vegetables do you take daily?</h3>
 					<label>
-						<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables" v-on:click="nextStep();" /> I don't eat vegetables</label>
+						<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+						I don't eat vegetables</label>
 					<label>
-						<input type="radio" name="step[3][1]" value="2" v-model="user_data.foods.vegetables" v-on:click="nextStep();" /> 1 portion (50 gram)</label>
+						<input type="radio" name="step[3][1]" value="2" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+						1 portion (50 gram)</label>
 					<label>
-						<input type="radio" name="step[3][1]" value="3" v-model="user_data.foods.vegetables" v-on:click="nextStep();" /> 2 portions (100 gram)</label>
+						<input type="radio" name="step[3][1]" value="3" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+						2 portions (100 gram)</label>
 					<label>
-						<input type="radio" name="step[3][1]" value="4" v-model="user_data.foods.vegetables" v-on:click="nextStep();" /> 3 portions (150 gram)</label>
+						<input type="radio" name="step[3][1]" value="4" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+						3 portions (150 gram)</label>
 					<label>
-						<input type="radio" name="step[3][1]" value="5" v-model="user_data.foods.vegetables" v-on:click="nextStep();" /> 4 portions or more (200 gram or more)</label>
+						<input type="radio" name="step[3][1]" value="5" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+						4 portions or more (200 gram or more)</label>
 
-					<p class="explanation">Vegetables are an important source of vitamin C, folic acid and potassium. One vegetable serving spoon equals 50 grams.</p>
+					<p class="explanation">Vegetables are an important source of vitamin C, folic acid and potassium.
+						One vegetable serving spoon equals 50 grams.</p>
 				</div>
 
 				<div data-sub-step="2" class="sub_step">
 					<h3>How many portions of fruit/fruit juice do you take daily? </h3>
 					<label>
-						<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="1" v-on:click="nextStep();" /> I don't eat fruit or drink fruit juices</label>
+						<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="1" v-on:click="nextStep();"/>
+						I don't eat fruit or drink fruit juices</label>
 					<label>
-						<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="2" v-on:click="nextStep();" /> 1 piece / drink</label>
+						<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="2" v-on:click="nextStep();"/>
+						1 piece / drink</label>
 					<label>
-						<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="3" v-on:click="nextStep();" /> 2 or more pieces / drinks</label>
+						<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="3" v-on:click="nextStep();"/>
+						2 or more pieces / drinks</label>
 
-					<p class="explanation">Fruit is an important source of vitamin C. Count two small pieces (mandarin, kiwi) or a  bowl with small fruits strawberry, grapes etc. as one.</p>
+					<p class="explanation">Fruit is an important source of vitamin C. Count two small pieces (mandarin,
+						kiwi) or a bowl with small fruits strawberry, grapes etc. as one.</p>
 				</div>
 
 				<div data-sub-step="3" class="sub_step">
-					<h3>How many slices of bread/bread substitutes (like cereals, oat porridge, crackers) do you take daily?</h3>
+					<h3>How many slices of bread/bread substitutes (like cereals, oat porridge, crackers) do you take
+						daily?</h3>
 					<label>
-						<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread" v-on:click="nextStep();" /> I don't eat bread</label>
+						<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+						I don't eat bread</label>
 					<label>
-						<input type="radio" name="step[3][3]" value="2" v-model="user_data.foods.bread" v-on:click="nextStep();" /> 1-2 pieces</label>
+						<input type="radio" name="step[3][3]" value="2" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+						1-2 pieces</label>
 					<label>
-						<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread" v-on:click="nextStep();" /> 3-4 pieces</label>
+						<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+						3-4 pieces</label>
 					<label>
-						<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" v-on:click="nextStep();" /> 5-6 pieces</label>
+						<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+						5-6 pieces</label>
 					<label>
-						<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" v-on:click="nextStep();" /> 7 pieces or more</label>
+						<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+						7 pieces or more</label>
 
-					<p class="explanation">Bread is an important sources of B vitamins, iron and fibre. It is important to eat a sufficient amount of bread or bread substitutes. B-vitamines and iron give you energy.</p>
+					<p class="explanation">Bread is an important sources of B vitamins, iron and fibre. It is important
+						to eat a sufficient amount of bread or bread substitutes. B-vitamines and iron give you
+						energy.</p>
 				</div>
 
 				<div data-sub-step="4" class="sub_step">
 					<h3>Do you put butter or margarine your bread?
 						<br/>Do you use margarine for backing/preparing food?</h3>
 					<label>
-						<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" v-on:click="nextStep();" /> Yes</label>
+						<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
+						Yes</label>
 					<label>
-						<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" v-on:click="nextStep();" /> No</label>
+						<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
+						No</label>
 					<label>
-						<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" v-on:click="nextStep();" /> Sometimes</label>
+						<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
+						Sometimes</label>
 
-					<p class="explanation">Margarine and halvarine are important sources of vitamin A and vitamin D.Both vitamins are important for example for  your imunesystem.</p>
+					<p class="explanation">Margarine and halvarine are important sources of vitamin A and vitamin D.Both
+						vitamins are important for example for your imunesystem.</p>
 				</div>
 
 				<div data-sub-step="5" class="sub_step">
 					<h3>How many portions of pasta, rice, couscous, quinoa etc do you take daily?</h3>
 					<label>
-						<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat" v-on:click="nextStep();" /> I don't eat pasta and rice</label>
+						<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
+						I don't eat pasta and rice</label>
 					<label>
-						<input type="radio" name="step[3][5]" value="2" v-model="user_data.foods.wheat" v-on:click="nextStep();" /> 1-2 portions (50-100 gram)</label>
+						<input type="radio" name="step[3][5]" value="2" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
+						1-2 portions (50-100 gram)</label>
 					<label>
-						<input type="radio" name="step[3][5]" value="3" v-model="user_data.foods.wheat" v-on:click="nextStep();" /> 3-4 portions (150-300 gram)</label>
+						<input type="radio" name="step[3][5]" value="3" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
+						3-4 portions (150-300 gram)</label>
 					<label>
-						<input type="radio" name="step[3][5]" value="4" v-model="user_data.foods.wheat" v-on:click="nextStep();" /> 5 portions or more (250 gram or more)</label>
+						<input type="radio" name="step[3][5]" value="4" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
+						5 portions or more (250 gram or more)</label>
 
-					<p class="explanation">Pasta and rice are an important source of B vitamins and minerals. One serving spoon potatoes equals 50 grams.</p>
+					<p class="explanation">Pasta and rice are an important source of B vitamins and minerals. One
+						serving spoon potatoes equals 50 grams.</p>
 				</div>
 
 				<div data-sub-step="6" class="sub_step">
 					<h3>How many portions of meat do you take daily?</h3>
 					<label>
-						<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat" v-on:click="nextStep();" /> 0-75 gram</label>
+						<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
+						0-75 gram</label>
 					<label>
-						<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" v-on:click="nextStep();" /> 76-150 gram</label>
+						<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
+						76-150 gram</label>
 					<label>
-						<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat" v-on:click="nextStep();" /> 151 gram or more</label>
+						<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
+						151 gram or more</label>
 
 					<p class="explanation">Meat is rich in B-vitamins en iron.</p>
 				</div>
@@ -351,11 +435,14 @@
 				<div data-sub-step="7" class="sub_step">
 					<h3>How often do you eat fish?</h3>
 					<label>
-						<input type="radio" name="step[3][7]" value="1" v-model="user_data.foods.fish" v-on:click="nextStep();" /> I don't eat fish</label>
+						<input type="radio" name="step[3][7]" value="1" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
+						I don't eat fish</label>
 					<label>
-						<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" v-on:click="nextStep();" /> Once a week</label>
+						<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
+						Once a week</label>
 					<label>
-						<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish" v-on:click="nextStep();" /> Twice a week or more</label>
+						<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
+						Twice a week or more</label>
 
 					<p class="explanation">Fish is rich in fish-oil (omega-3) and vitamin D.</p>
 				</div>
@@ -363,38 +450,82 @@
 				<div data-sub-step="8" class="sub_step">
 					<h3>How many portions of dairy do you take daily?</h3>
 					<label>
-						<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy" v-on:click="nextStep();" /> I don't eat/drink dairy</label>
+						<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
+						I don't eat/drink dairy</label>
 					<label>
-						<input type="radio" name="step[3][8]" value="2" v-model="user_data.foods.dairy" v-on:click="nextStep();" /> 1-2 portions</label>
+						<input type="radio" name="step[3][8]" value="2" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
+						1-2 portions</label>
 					<label>
-						<input type="radio" name="step[3][8]" value="3" v-model="user_data.foods.dairy" v-on:click="nextStep();" /> 3 portions or more</label>
+						<input type="radio" name="step[3][8]" value="3" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
+						3 portions or more</label>
 
-					<p class="explanation">Milk is an important source of vitamine B2, B12 and calcium that makes for strong bones and joints. The Recommended Daily Allowance (RDA) for calcium varies depending on your age.</p>
+					<p class="explanation">Milk is an important source of vitamine B2, B12 and calcium that makes for
+						strong bones and joints. The Recommended Daily Allowance (RDA) for calcium varies depending on
+						your age.</p>
 				</div>
 			</div>
 
 			<div data-step="4" data-first-sub-step="1" class="step">
 				<div class="group" data-group="1">
-					<div class="advise" data-advise="1.3" data-group="1" v-if="user_data.age >= 70">Basic +20 D</div>
-					<div class="advise" data-advise="1.2" data-group="2" v-if="(!adviseShown(1.3) && (( ( user_data.age >= 50 && user_data.age <= 70 ) && user_data.gender == 2) || (user_data.skin > 1) || (outside == 2)))">Basic +10 D</div>
-					<div class="advise" data-advise="1.1" data-group="3" v-if="(( !adviseShown(1.2) && !adviseShown(1.3) ) && ( (user_data.age < 50 && user_data.gender == 2 && user_data.pregnant == 2)  || (user_data.age > 70 && user_data.gender == 1) ))">Basic</div>
+					<div class="advise" data-advise="1.3" data-group="3" v-if="user_data.age >= 70" transition="setAdviseOne">Basic +20 D
+					</div>
+
+					<div class="advise" data-advise="1.2" data-group="2" v-if="(!adviseShown(1.3) && (( ( user_data.age >= 50 && user_data.age <= 70 ) && user_data.gender == 2) || (user_data.skin > 1) || (outside == 2)))" transition="setAdviseOne">
+						Basic +10 D
+					</div>
+
+					<div class="advise" data-advise="1.1" data-group="1" v-if="(( !adviseShown(1.2) && !adviseShown(1.3) ) && ( (user_data.age < 50 && user_data.gender == 2 && user_data.pregnant == 2)  || (user_data.age < 70 && user_data.gender == 1) ))" transition="setAdviseOne">
+						Basic
+					</div>
 				</div>
 
 				<div class="group" data-group="2">
-					<div class="advise" data-advise="2.1" data-group="A" v-if="user_data.pregnant == 1">A</div>
-					<div class="advise" data-advise="2.2" data-group="B" v-if="user_data.diet == 1">B</div>
-					<div class="advise" data-advise="2.3" data-group="C" v-if="user_data.sports == 4 || user_data.lacks_energy < 3 || user_data.stressed == 1">C</div>
-					<div class="advise" data-advise="2.4" data-group="D" v-if="user_data.immune_system == 1 || user_data.smokes == 1 || user_data.vegetarian == 1">D</div>
-					<div class="advise" data-advise="2.5" data-group="E" v-if="user_data.joints == 1">E</div>
+					<div class="advise" data-advise="2.1" data-group="A" v-if="(isCombinationPossible(current_advise_one, 'A', null)) && user_data.pregnant == 1" transition="setAdviseTwo">
+						A
+					</div>
+
+					<div class="advise" data-advise="2.2" data-group="B" v-if="(isCombinationPossible(current_advise_one, 'B', null)) && (isAlone(2, 2.2)) && (user_data.diet == 1)" transition="setAdviseTwo">
+						B
+					</div>
+
+					<div class="advise" data-advise="2.3" data-group="C" v-if="(isCombinationPossible(current_advise_one, 'C', null)) && (isAlone(2, 2.3)) && (user_data.sports == 4 || user_data.lacks_energy < 3 || user_data.stressed == 1)" transition="setAdviseTwo">
+						C
+					</div>
+
+					<div class="advise" data-advise="2.4" data-group="D" v-if="(isCombinationPossible(current_advise_one, 'D', null)) && (isAlone(2, 2.4)) && (user_data.immune_system == 1 || user_data.smokes == 1 || user_data.vegetarian == 1)" transition="setAdviseTwo">
+						D
+					</div>
+
+					<div class="advise" data-advise="2.5" data-group="E" v-if="(isCombinationPossible(current_advise_one, 'E', null)) && (isAlone(2, 2.5)) && (user_data.joints == 1)" transition="setAdviseTwo">
+						E
+					</div>
 				</div>
 
 				<div class="group" data-group="3">
-					<div class="advise" data-advise="3.1" data-group="a" v-if="user_data.foods.fruits == 1 || user_data.foods.vegetables == 1">A</div>
-					<div class="advise" data-advise="3.2" data-group="b" v-if="user_data.foods.bread == 1 || user_data.foods.wheat == 1">B</div>
-					<div class="advise" data-advise="3.3" data-group="c" v-if="user_data.foods.dairy == 1">C</div>
-					<div class="advise" data-advise="3.4" data-group="d" v-if="user_data.foods.meat == 1">D</div>
-					<div class="advise" data-advise="3.5" data-group="e" v-if="user_data.foods.fish == 1">E</div>
-					<div class="advise" data-advise="3.6" data-group="f" v-if="user_data.foods.butter == 1">F</div>
+					<div class="advise" data-advise="3.1" data-group="a" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'a')) && user_data.foods.fruits == 1 || user_data.foods.vegetables == 1" transition="setAdviseThree">
+						a
+					</div>
+
+					<div class="advise" data-advise="3.2" data-group="b" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'b')) && (isAlone(3, 3.2)) && (user_data.foods.bread == 1 || user_data.foods.wheat == 1)" transition="setAdviseThree">
+						b
+					</div>
+
+					<div class="advise" data-advise="3.3" data-group="c" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'c')) && (isAlone(3, 3.3)) && (user_data.foods.dairy == 1)" transition="setAdviseThree">
+						c
+					</div>
+
+					<div class="advise" data-advise="3.4" data-group="d" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'd')) && (isAlone(3, 3.4)) && (user_data.foods.meat == 1)" transition="setAdviseThree">
+						d
+					</div>
+
+					<div class="advise" data-advise="3.5" data-group="e" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'e')) && (isAlone(3, 3.5)) && (user_data.foods.fish == 1)" transition="setAdviseThree">
+						e
+					</div>
+
+					<div class="advise" data-advise="3.6" data-group="f" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'f')) && (isAlone(3, 3.6)) && (user_data.foods.butter == 1)" transition="setAdviseThree">
+						f
+					</div>
+					<!-- Todo: fix so isAlone(..,..) actuall works (3.5 and 3.6 has problems)-->
 				</div>
 			</div>
 
@@ -411,119 +542,123 @@
 			el: '#app',
 			data: {
 				step: 1,
+				randomshit: null,
 				sub_step: 1,
+				current_advise_one: null,
+				current_advise_two: null,
+				current_advise_three: null,
 				temp_age: null,
 				combinations: {
 					"1": {
 						"A": {
 							"a": true,
-								"b": true,
-								"c": true,
-								"d": true,
-								"e": false,
-								"f": false
+							"b": true,
+							"c": true,
+							"d": true,
+							"e": false,
+							"f": false
 						},
 						"B": {
 							"a": false,
-								"b": false,
-								"c": false,
-								"d": false,
-								"e": true,
-								"f": true
+							"b": false,
+							"c": false,
+							"d": false,
+							"e": true,
+							"f": true
 						},
 						"C": {
 							"a": false,
-								"b": false,
-								"c": false,
-								"d": false,
-								"e": true,
-								"f": true
+							"b": false,
+							"c": false,
+							"d": false,
+							"e": true,
+							"f": true
 						},
 						"D": {
 							"a": false,
-								"b": false,
-								"c": false,
-								"d": false,
-								"e": false,
-								"f": false
+							"b": false,
+							"c": false,
+							"d": false,
+							"e": false,
+							"f": false
 						},
 						"E": {
 							"a": false,
-								"b": true,
-								"c": true,
-								"d": true,
-								"e": true,
-								"f": true
+							"b": true,
+							"c": true,
+							"d": true,
+							"e": true,
+							"f": true
 						}
 					},
 					"2": {
 						"A": false,
-							"B": {
+						"B": {
 							"a": false,
-								"b": true,
-								"c": true,
-								"d": false,
-								"e": false,
-								"f": false
+							"b": true,
+							"c": true,
+							"d": false,
+							"e": false,
+							"f": false
 						},
 						"C": {
 							"a": true,
-								"b": false,
-								"c": false,
-								"d": false,
-								"e": true,
-								"f": true
+							"b": false,
+							"c": false,
+							"d": false,
+							"e": true,
+							"f": true
 						},
 						"D": {
 							"a": false,
-								"b": true,
-								"c": true,
-								"d": true,
-								"e": true,
-								"f": false
+							"b": true,
+							"c": true,
+							"d": true,
+							"e": true,
+							"f": false
 						},
 						"E": {
 							"a": true,
-								"b": true,
-								"c": true,
-								"d": true,
-								"e": true,
-								"f": true
+							"b": true,
+							"c": true,
+							"d": true,
+							"e": true,
+							"f": true
 						}
 					},
 					"3": {
 						"A": false,
-							"B": {
+						"B": {
 							"a": false,
-								"b": true,
-								"c": true,
-								"d": false,
-								"e": true,
-								"f": true
+							"b": true,
+							"c": true,
+							"d": false,
+							"e": true,
+							"f": true
 						},
 						"C": {
 							"a": true,
-								"b": false,
-								"c": true,
-								"d": false,
-								"e": true,
-								"f": true
+							"b": false,
+							"c": true,
+							"d": false,
+							"e": true,
+							"f": true
 						},
 						"D": {
 							"a": false,
-								"b": true,
-								"c": true,
-								"d": true,
-								"e": false,
-								"f": false
+							"b": true,
+							"c": true,
+							"d": true,
+							"e": false,
+							"f": false
 						},
 						"E": {
 							"a": true,
-								"b": true,
-								"c": true,
-								"d": true,
-								"e": true,
-								"f": true
+							"b": true,
+							"c": true,
+							"d": true,
+							"e": true,
+							"f": true
 						}
 					}
 				},
@@ -561,13 +696,15 @@
 				}
 			},
 			methods: {
-				nextStep: function() {
+				nextStep: function ()
+				{
 					var currentStep = $(".step[data-step='" + this.step + "']");
 					var nextStep = $(".step[data-step='" + (this.step + 1) + "']");
 					var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
 					var nextSubStep = currentStep.find(".sub_step[data-sub-step='" + (this.sub_step + 1) + "']");
 
-					if (nextSubStep[0]) {
+					if (nextSubStep[0])
+					{
 						this.sub_step = nextSubStep.attr("data-sub-step") * 1;
 						currentSubStep.removeClass("sub_step--active");
 						nextSubStep.addClass("sub_step--active");
@@ -584,8 +721,10 @@
 					return true;
 				},
 
-				previousStep: function() {
-					if (this.sub_step == 1 && this.step == 1) {
+				previousStep: function ()
+				{
+					if (this.sub_step == 1 && this.step == 1)
+					{
 						return false;
 					}
 
@@ -594,7 +733,8 @@
 					var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
 					var previousSubStep = currentStep.find(".sub_step[data-sub-step='" + (this.sub_step - 1) + "']");
 
-					if (previousSubStep[0]) {
+					if (previousSubStep[0])
+					{
 						this.sub_step = previousSubStep.attr("data-sub-step") * 1;
 						currentSubStep.removeClass("sub_step--active");
 						previousSubStep.addClass("sub_step--active");
@@ -613,8 +753,9 @@
 					return true;
 				},
 
-				getAge: function() {
-					if( this.user_data.birthdate === null )
+				getAge: function ()
+				{
+					if (this.user_data.birthdate === null)
 					{
 						return null;
 					}
@@ -623,11 +764,12 @@
 					var birthDate = new Date(this.user_data.birthdate);
 					var age = today.getFullYear() - birthDate.getFullYear();
 					var m = today.getMonth() - birthDate.getMonth();
-					if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+					if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
+					{
 						age--;
 					}
 
-					if( age !== undefined && age > 0 )
+					if (age !== undefined && age > 0)
 					{
 						this.user_data.age = age;
 
@@ -637,12 +779,14 @@
 					return false;
 				},
 
-				adviseShown: function(adviseId) {
+				adviseShown: function (adviseId)
+				{
 					return $(".advise[data-advise='" + adviseId + "']")[0] !== undefined;
 				},
 
-				shouldJumpToNext: function(elementId, length, event) {
-					if( length === false || event.target.value.length >= length )
+				shouldJumpToNext: function (elementId, length, event)
+				{
+					if (length === false || event.target.value.length >= length)
 					{
 						$("#" + elementId).select();
 						return true;
@@ -651,7 +795,15 @@
 					return false;
 				},
 
-				isCombinationPossible: function(groupOne, groupTwo, groupThree)
+				isAlone: function (groupNum, currentAdvise)
+				{
+					return $(".group[data-group='" + groupNum + "']").find(".advise").filter(function (index, element)
+						{
+							return ( $(element).data("advise") * 1 ) < currentAdvise;
+						}).length <= 0;
+				},
+
+				isCombinationPossible: function (groupOne, groupTwo, groupThree)
 				{
 					var firstGroup = this.combinations[groupOne];
 
@@ -669,7 +821,7 @@
 							return false;
 						}
 
-						if (groupThree !== false)
+						if (groupThree !== false && groupThree !== null)
 						{
 							var thirdGroup = secondGroup[groupThree];
 
@@ -708,8 +860,27 @@
 			hiddenName: true,
 			formatSubmit: 'yyyy-mm-dd',
 			container: '#datepicker-container',
-			onSet: function () {
+			onSet: function ()
+			{
 				app.user_data.birthdate = this.get('select', 'yyyy-mm-dd');
+			}
+		});
+
+		Vue.transition('setAdviseOne', {
+			enter: function (el) {
+				this.current_advise_one = $(el).data('group');
+			}
+		});
+
+		Vue.transition('setAdviseTwo', {
+			enter: function (el) {
+				this.current_advise_two = $(el).data('group');
+			}
+		});
+
+		Vue.transition('setAdviseThree', {
+			enter: function (el) {
+				this.current_advise_three = $(el).data('group');
 			}
 		});
 	</script>

@@ -3,5 +3,5 @@
 @section('pageClass', 'account account-info')
 
 @section('content')
-	Info
+	{{ $customer }}
 @endsection
