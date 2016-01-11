@@ -78,6 +78,8 @@ class AccountController extends Controller
 			$this->customer->customerAttributes()->where('id', $attributeId)->update([ 'value' => $attributeValue ]);
 		}
 
+		// Todo: save new settings (non-attributes)
+		// Todo: allow editing password too
 
 		return \Redirect::to('/account/settings/basic')->with('success', 'Opdateret!'); // todo: translate
 	}

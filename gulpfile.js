@@ -11,6 +11,8 @@ var elixir = require('laravel-elixir');
  |
  */
 
+//elixir.extend('sourcemaps', false);
+
 elixir(function (mix)
 {
 	mix.sass('app.sass', false, {indentedSyntax: true});
@@ -21,6 +23,7 @@ elixir(function (mix)
 		'/vendor/pickadate/picker.js',
 		'/vendor/pickadate/picker.date.js',
 		'/vendor/pickadate/legacy.js',
+		'/vendor/sweetalert.min.js',
 		'/app.js',
 	], 'public/js/app.js');
 });

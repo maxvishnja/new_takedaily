@@ -5,5 +5,14 @@
 	'address_country' => 'Country',
 	'address_postal'  => 'Zipcode',
 	'address_state'   => 'State',
-	'phone'           => 'Phone'
+	'phone'           => 'Phone',
+	'email'           => 'E-mail address',
+	'name'            => 'Name',
+	'gender'          => 'Gender',
+	'birthday'        => 'Birthday',
+	'newsletters'     => 'Newsletters',
+	'new_password'    => 'New password?',
+	'flow'            => [
+
+	]
 ];

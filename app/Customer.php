@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer id
  * @property integer user_id
  * @property integer plan_id
+ * @property integer newsletters
  * @property mixed   birthday
  * @property string  gender
  * @property integer order_count
@@ -182,6 +183,11 @@ class Customer extends Model
 	public function charge()
 	{
 
+	}
+
+	public function acceptNewsletters()
+	{
+		return $this->newsletters == 1;
 	}
 
 }
