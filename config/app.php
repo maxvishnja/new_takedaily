@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'env'             => env('APP_ENV', 'production'),
+	'env' => env('APP_ENV', 'production'),
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode
@@ -25,7 +25,7 @@ return [
 	|
 	*/
 
-	'debug'           => env('APP_DEBUG', false),
+	'debug' => env('APP_DEBUG', false),
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL
@@ -37,7 +37,7 @@ return [
 	|
 	*/
 
-	'url'             => 'http://localhost',
+	'url' => 'http://localhost',
 	/*
 	|--------------------------------------------------------------------------
 	| Application Timezone
@@ -49,7 +49,7 @@ return [
 	|
 	*/
 
-	'timezone'        => 'Europe/Copenhagen',
+	'timezone' => 'Europe/Copenhagen',
 	/*
 	|--------------------------------------------------------------------------
 	| Application Locale Configuration
@@ -61,7 +61,7 @@ return [
 	|
 	*/
 
-	'locale'          => 'da',
+	'locale' => 'da',
 	/*
 	|--------------------------------------------------------------------------
 	| Application Fallback Locale
@@ -85,8 +85,8 @@ return [
 	|
 	*/
 
-	'key'             => env('APP_KEY'),
-	'cipher'          => 'AES-256-CBC',
+	'key'    => env('APP_KEY'),
+	'cipher' => 'AES-256-CBC',
 	/*
 	|--------------------------------------------------------------------------
 	| Logging Configuration
@@ -100,7 +100,7 @@ return [
 	|
 	*/
 
-	'log'             => env('APP_LOG', 'single'),
+	'log' => env('APP_LOG', 'single'),
 	/*
 	|--------------------------------------------------------------------------
 	| Autoloaded Service Providers
@@ -112,7 +112,7 @@ return [
 	|
 	*/
 
-	'providers'       => [
+	'providers' => [
 
 		/*
 		 * Laravel Framework Service Providers...
@@ -152,7 +152,14 @@ return [
 		Barryvdh\Debugbar\ServiceProvider::class,
 		Intervention\Image\ImageServiceProvider::class,
 		Barryvdh\DomPDF\ServiceProvider::class,
+
+		\App\Providers\AccountServiceProvider::class,
+		\App\Providers\CustomerServiceProvider::class,
+		\App\Providers\OrderServiceProvider::class,
+		\App\Providers\OrderLineServiceProvider::class,
+		\App\Providers\PlanServiceProvider::class
 	],
+
 	/*
 	|--------------------------------------------------------------------------
 	| Class Aliases
@@ -164,7 +171,7 @@ return [
 	|
 	*/
 
-	'aliases'         => [
+	'aliases' => [
 
 		'App'       => Illuminate\Support\Facades\App::class,
 		'Artisan'   => Illuminate\Support\Facades\Artisan::class,
@@ -197,7 +204,8 @@ return [
 		'Validator' => Illuminate\Support\Facades\Validator::class,
 		'View'      => Illuminate\Support\Facades\View::class,
 		'Image'     => Intervention\Image\Facades\Image::class,
-		'PDF'       => Barryvdh\DomPDF\Facade::class,
+		'PDF'       => Barryvdh\DomPDF\Facade::class
+
 	],
 
 ];

@@ -16,17 +16,25 @@ class OrderLine extends Model
 	protected $table = 'order_lines';
 	
 	/**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
 	protected $fillable = [ ];
 	
 	/**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
 	protected $hidden = [ ];
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function products()
+	{
+		return $this->hasMany('App\OrderLineProduct', 'order_line_id', 'id');
+	}
 
 }

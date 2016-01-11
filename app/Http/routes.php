@@ -20,9 +20,28 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('flow');
 	});
 
+	Route::post('flow', function ()
+	{
+		$userData = json_decode(Request::get('user_data'));
+
+		dd($userData);
+	});
+
+	Route::get('signup', function ()
+	{
+		return view('signup'); // todo
+	});
+
+	Route::post('signup', function ()
+	{
+		return '';
+	});
+
 	Route::get('pick-and-mix', function ()
 	{
-		return view('products');
+		return view('products', [
+			'products' => \App\Product::all()
+		]);
 	});
 
 	Route::get('cart', function ()
@@ -32,7 +51,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 	Route::get('checkout', function ()
 	{
-		return view('checkout');
+		return view('checkout'); // todo: HTTPS only
 	});
 
 	/*
@@ -48,11 +67,22 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 		Route::get('/', 'AccountController@getHome');
 		Route::get('info', 'AccountController@getInfo');
+
 		Route::get('transactions', 'AccountController@getTransactions');
 		Route::get('transactions/{id}', 'AccountController@getTransaction');
-		Route::get('settings/basic', 'AccountController@getSettingsBasic');  // Todo: add newsletter field to database
+
+		Route::get('settings/basic', 'AccountController@getSettingsBasic');
+		Route::post('settings/basic', 'AccountController@postSettingsBasic');  // Todo
+
 		Route::get('settings/subscription', 'AccountController@getSettingsSubscription');
+		Route::get('settings/subscription/pause', 'AccountController@getSettingsSubscriptionPause'); // todo
+		Route::get('settings/subscription/cancel', 'AccountController@getSettingsSubscriptionCancel'); // todo
+
 		Route::get('settings/billing', 'AccountController@getSettingsBilling');
+		Route::get('settings/billing/delete', 'AccountController@getSettingsBillingDelete'); // todo
+		Route::get('settings/billing/edit', 'AccountController@getSettingsBillingEdit'); // todo
+		Route::post('settings/billing/edit', 'AccountController@postSettingsBillingEdit'); // todo
+
 		Route::get('settings/delete', 'AccountController@getSettingsDelete');
 		Route::post('settings/delete', 'AccountController@postSettingsDelete');
 	});

@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+	use SoftDeletes;
 
 	/**
 	 * The database table for the model
@@ -51,7 +54,7 @@ class User extends Authenticatable
 	}
 
 	/**
-	 * @return bool|\Illuminate\Database\Eloquent\Relations\BelongsTo
+	 * @return Customer
 	 */
 	public function getCustomer()
 	{
@@ -60,6 +63,11 @@ class User extends Authenticatable
 			return false;
 		}
 
-		return $this->customer()->first();
+		return $this->customer;
+	}
+
+	public function getName()
+	{
+		return $this->name;
 	}
 }

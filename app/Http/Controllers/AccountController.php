@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Customer;
+use Illuminate\Http\Request;
 use App\User;
 
 class AccountController extends Controller
@@ -19,7 +20,7 @@ class AccountController extends Controller
 	function __construct()
 	{
 		$this->middleware('user');
-		$this->user = \Auth::user();
+		$this->user     = \Auth::user();
 		$this->customer = $this->user->getCustomer();
 
 		\View::share('customer', $this->customer);
@@ -44,12 +45,17 @@ class AccountController extends Controller
 
 	function getTransaction($id)
 	{
-		if ( 1 == 1 )
+		$order = $this->customer->getOrderById($id);
+
+		if ( !$order )
 		{
-			// todo: check if order exists and belongs to customer
+			return \Redirect::to('/account/transactions')->withErrors([
+				'Ordren findes ikke!' // todo: translate
+			]);
 		}
+
 		return view('account.transaction', [
-			'order' => '' // todo: the order
+			'order' => $order
 		]);
 	}
 
@@ -60,7 +66,20 @@ class AccountController extends Controller
 
 	function getSettingsBasic()
 	{
-		return view('account.settings.basic');
+		return view('account.settings.basic', [
+			'attributes' => $this->customer->getCustomerAttributes(true)
+		]);
+	}
+
+	function postSettingsBasic(Request $request)
+	{
+		foreach ( $request->input('attributes') as $attributeId => $attributeValue )
+		{
+			$this->customer->customerAttributes()->where('id', $attributeId)->update([ 'value' => $attributeValue ]);
+		}
+
+
+		return \Redirect::to('/account/settings/basic')->with('success', 'Opdateret!'); // todo: translate
 	}
 
 	function getSettingsSubscription()
@@ -75,7 +94,7 @@ class AccountController extends Controller
 
 	function postSettingsDelete()
 	{
-		return 'delete!';
+		return 'delete account!';
 	}
 	
 }

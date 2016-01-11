@@ -44,6 +44,14 @@ class Plan extends Model
 	 */
 	protected $hidden = [ ];
 
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+	public function products()
+	{
+		return $this->hasMany('App\PlanProduct', 'plan_id', 'id');
+	}
+
 	public function isActive()
 	{
 		return !$this->isPaused() && !$this->isCancelled();
@@ -72,6 +80,16 @@ class Plan extends Model
 	public function getSubscriptionStartedAt()
 	{
 		return $this->subscription_started_at;
+	}
+
+	public function getTotal()
+	{
+		return $this->price + $this->price_shipping;
+	}
+
+	public function getStripeToken()
+	{
+		return $this->stripe_token;
 	}
 
 }

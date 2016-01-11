@@ -526,12 +526,17 @@
 						f
 					</div>
 					<!-- Todo: fix so isAlone(..,..) actuall works (3.5 and 3.6 has problems)-->
+
+					<textarea name="user_data" style="display: none;">@{{ $data.user_data | json }}</textarea>
+					<button type="submit">Continue</button>
 				</div>
 			</div>
 
 			<div class="navigation">
 				<a href="#" v-on:click="previousStep();" v-if="step > 1 || sub_step > 1">Back</a>
 			</div>
+
+			{{ csrf_field() }}
 		</form>
 	</div>
 @endsection
@@ -542,7 +547,6 @@
 			el: '#app',
 			data: {
 				step: 1,
-				randomshit: null,
 				sub_step: 1,
 				current_advise_one: null,
 				current_advise_two: null,

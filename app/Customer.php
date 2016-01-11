@@ -1,10 +1,8 @@
 <?php namespace App;
 
+use App\Apricot\Libraries\StripeLibrary;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Stripe\Charge;
-use Stripe\Error;
-use Stripe\Stripe;
 
 /**
  * Class Customer
@@ -13,7 +11,6 @@ use Stripe\Stripe;
  * @property integer id
  * @property integer user_id
  * @property integer plan_id
- * @property string  name
  * @property mixed   birthday
  * @property string  gender
  * @property integer order_count
@@ -75,7 +72,7 @@ class Customer extends Model
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
 	 */
-	public function attributes()
+	public function customerAttributes()
 	{
 		return $this->hasMany('App\CustomerAttribute', 'customer_id', 'id');
 	}
@@ -85,7 +82,7 @@ class Customer extends Model
 	 */
 	public function getPlan()
 	{
-		return $this->plan()->first();
+		return $this->plan;
 	}
 
 	/**
@@ -93,7 +90,7 @@ class Customer extends Model
 	 */
 	public function getUser()
 	{
-		return $this->user()->first();
+		return $this->user;
 	}
 
 	/**
@@ -101,7 +98,7 @@ class Customer extends Model
 	 */
 	public function getOrders()
 	{
-		return $this->orders()->get();
+		return $this->orders;
 	}
 
 	public function isSubscribed()
@@ -109,14 +106,41 @@ class Customer extends Model
 		return $this->getPlan()->isActive();
 	}
 
-	public function getAttribute($name)
+	public function getSubscriptionPrice()
 	{
-		return $this->attributes()->where('identifier', $name)->first();
+		return $this->getPlan()->getTotalPrice();
+	}
+
+	public function getStripeToken()
+	{
+		return $this->getPlan()->getStripeToken();
+	}
+
+	public function getCustomerAttribute($name, $default = '')
+	{
+		if ( !$attribute = $this->customerAttributes()->where('identifier', $name)->first() )
+		{
+			return $default;
+		}
+
+		return $attribute->value;
+	}
+
+	public function getCustomerAttributes($onlyEditable = false)
+	{
+		$attributes = $this->customerAttributes();
+
+		if( $onlyEditable )
+		{
+			$attributes = $attributes->editable();
+		}
+
+		return $attributes->get();
 	}
 
 	public function getName()
 	{
-		return $this->name;
+		return $this->getUser()->getName();
 	}
 
 	public function getBirthday()
@@ -139,69 +163,25 @@ class Customer extends Model
 		if ( !$this->isSubscribed() )
 		{
 			return false;
-
 		}
 
-		try
-		{
-			Stripe::setApiKey(env('STRIPE_API_SECRET_KEY'));
+		$lib = new StripeLibrary();
+		return $lib->chargeCustomer($this, 'asdasd', 10);
+	}
 
-			Charge::create([
-				'amount'               => 400,
-				'currency'             => 'dkk',
-				'source'               => $this->getAttribute('stripe_token'),
-				'description'          => 'Betaling for ordre #' . str_pad(1, 11, 0, STR_PAD_LEFT),
-				'statement_descriptor' => substr('Takedaily #' . str_pad(1, 11, 0, STR_PAD_LEFT), 0, 22),
-				// todo: get order id
-				'shipping'             => [
-					'address'         => [
-						'city'        => $this->getAttribute('address_city'),  // todo: add to customer
-						'country'     => $this->getAttribute('address_country'),  // todo: add to customer
-						'line1'       => $this->getAttribute('address_line1'),  // todo: add to customer
-						'line2'       => $this->getAttribute('address_line2'),  // todo: add to customer
-						'postal_code' => $this->getAttribute('address_postal'),  // todo: add to customer
-						'state'       => $this->getAttribute('address_state') // todo: add to customer
-					],
-					'name'            => $this->getName(),
-					'phone'           => $this->getAttribute('phone'), // todo: add to customer
-					'carrier'         => '', // todo: add carrier to order
-					'tracking_number' => '' // todo: add tracking number to order
-				]
-			]);
+	public function getOrderById($id)
+	{
+		return $this->orders()->where('id', $id)->first();
+	}
 
-		} catch( Error\Card $e )
-		{
-			// Since it's a decline, \Stripe\Error\Card will be caught
-			$body = $e->getJsonBody();
-			$err  = $body['error'];
+	public function makeOrder()
+	{
 
-			print('Status is:' . $e->getHttpStatus() . "\n");
-			print('Type is:' . $err['type'] . "\n");
-			print('Code is:' . $err['code'] . "\n");
-			// param is '' in this case
-			print('Param is:' . $err['param'] . "\n");
-			print('Message is:' . $err['message'] . "\n");
-		} catch( Error\RateLimit $e )
-		{
-			// Too many requests made to the API too quickly
-		} catch( Error\InvalidRequest $e )
-		{
-			// Invalid parameters were supplied to Stripe's API
-		} catch( Error\Authentication $e )
-		{
-			// Authentication with Stripe's API failed
-			// (maybe you changed API keys recently)
-		} catch( Error\ApiConnection $e )
-		{
-			// Network communication with Stripe failed
-		} catch( Error\Base $e )
-		{
-			// Display a very generic error to the user, and maybe send
-			// yourself an email
-		} catch( Exception $e )
-		{
-			// Something else happened, completely unrelated to Stripe
-		}
+	}
+
+	public function charge()
+	{
+
 	}
 
 }

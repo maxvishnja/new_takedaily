@@ -17,7 +17,7 @@ class CustomerAttribute extends Model
      *
      * @var array
      */
-	protected $fillable = [ ];
+	protected $fillable = [ 'identifier', 'value', 'editable' ];
 	
 	/**
      * The attributes excluded from the model's JSON form.
@@ -25,5 +25,10 @@ class CustomerAttribute extends Model
      * @var array
      */
 	protected $hidden = [ ];
+
+	public function scopeEditable($query)
+	{
+		return $query->where('editable', 1);
+	}
 
 }

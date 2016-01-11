@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Customer;
+use App\Plan;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
