@@ -4,7 +4,7 @@
 		<ul>
 			<li><a href="/account">My account</a></li>
 			<li><a href="/account/info">Information</a></li>
-			<li><a href="/account/transactions">Transactions</a></li>
+			<li><a href="/account/transactions">Orders</a></li>
 		</ul>
 	</li>
 

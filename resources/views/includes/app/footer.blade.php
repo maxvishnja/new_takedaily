@@ -3,6 +3,9 @@
 </footer>
 
 <script src="{{ asset('js/app.js') }}"></script>
+<!--[if lt IE 9]>
+<script src="/js/placeholders.min.js"></script>
+<![endif]-->
 @yield('footer_scripts')
 
 @if($errors->has())
@@ -34,5 +37,5 @@
 		});
 	</script>
 	@endif
-</body>
-</html>
+	</body>
+	</html>

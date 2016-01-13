@@ -1,7 +1,6 @@
 <?php namespace App\Apricot\Libraries;
 
 use App\Customer;
-use Stripe\Charge;
 use Stripe\Stripe;
 
 class StripeLibrary
@@ -12,14 +11,27 @@ class StripeLibrary
 		Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
 	}
 
+	/**
+	 * @param \App\Customer $customer
+	 *
+	 * @return \Stripe\Customer
+	 */
+	public function getCustomer(Customer $customer)
+	{
+		return $customer = \Cache::remember('stripe_customer_for_customer_' . $customer->id, 10, function () use($customer)
+		{
+			return \Stripe\Customer::retrieve($customer->getPlan()->getStripeToken());
+		});
+	}
+
 	public function chargeCustomer(Customer $customer, $token = null, $amount = null)
 	{
 		try
 		{
 			return dd([
-				'amount'               => $amount ?: $customer->getSubscriptionPrice() * 100,
+				'amount'               => $amount ? : $customer->getSubscriptionPrice() * 100,
 				'currency'             => 'dkk',
-				'source'               => $token ?: $customer->getStripeToken(),
+				'source'               => $token ? : $customer->getStripeToken(),
 				'description'          => 'Betaling for ordre #' . str_pad(1, 11, 0, STR_PAD_LEFT),
 				'statement_descriptor' => substr('Takedaily #' . str_pad(1, 11, 0, STR_PAD_LEFT), 0, 22),
 				// todo: get order id

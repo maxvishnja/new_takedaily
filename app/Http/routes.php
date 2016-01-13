@@ -49,9 +49,12 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('cart');
 	});
 
-	Route::get('checkout', function ()
+	Route::group([ 'middleware' => 'secure' ], function ()
 	{
-		return view('checkout'); // todo: HTTPS only
+		Route::get('checkout', function ()
+		{
+			return view('checkout');
+		});
 	});
 
 	/*
@@ -75,13 +78,13 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::post('settings/basic', 'AccountController@postSettingsBasic');  // Todo
 
 		Route::get('settings/subscription', 'AccountController@getSettingsSubscription');
-		Route::get('settings/subscription/pause', 'AccountController@getSettingsSubscriptionPause'); // todo
+		Route::get('settings/subscription/pause', 'AccountController@getSettingsSubscriptionPause');
+		Route::get('settings/subscription/start', 'AccountController@getSettingsSubscriptionStart');
 		Route::get('settings/subscription/cancel', 'AccountController@getSettingsSubscriptionCancel'); // todo
 
 		Route::get('settings/billing', 'AccountController@getSettingsBilling');
-		Route::get('settings/billing/delete', 'AccountController@getSettingsBillingDelete'); // todo
-		Route::get('settings/billing/edit', 'AccountController@getSettingsBillingEdit'); // todo
-		Route::post('settings/billing/edit', 'AccountController@postSettingsBillingEdit'); // todo
+		Route::get('settings/billing/delete', 'AccountController@getSettingsBillingRemove');
+		Route::get('settings/billing/add', 'AccountController@getSettingsBillingAdd');
 
 		Route::get('settings/delete', 'AccountController@getSettingsDelete');
 		Route::post('settings/delete', 'AccountController@postSettingsDelete');

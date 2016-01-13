@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Jenssegers\Date\Date;
 
 /**
  * Class Plan
@@ -14,6 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property mixed subscription_started_at
  * @property mixed subscription_cancelled_at
  * @property mixed subscription_paused_at
+ * @property mixed subscription_rebill_at
  * @property mixed created_at
  * @property mixed updated_at
  * @property mixed deleted_at
@@ -52,6 +54,14 @@ class Plan extends Model
 		return $this->hasMany('App\PlanProduct', 'plan_id', 'id');
 	}
 
+	/**
+	 * @return mixed
+	 */
+	public function getProducts()
+	{
+		return $this->products;
+	}
+
 	public function isActive()
 	{
 		return !$this->isPaused() && !$this->isCancelled();
@@ -59,12 +69,30 @@ class Plan extends Model
 
 	public function isCancelled()
 	{
-		return is_null($this->getSubscriptionCancelledAt());
+		return !is_null($this->getSubscriptionCancelledAt());
 	}
 
 	public function isPaused()
 	{
-		return is_null($this->getSubscriptionPausedAt());
+		return !is_null($this->getSubscriptionPausedAt());
+	}
+
+	public function pause()
+	{
+		$this->subscription_paused_at = Date::now();
+		$this->save();
+
+		return true;
+	}
+
+	public function start()
+	{
+		$this->subscription_paused_at = null;
+		$this->subscription_cancelled_at = null;
+		$this->subscription_rebill_at = Date::now()->addMonth();
+		$this->save();
+
+		return true;
 	}
 
 	public function getSubscriptionPausedAt()
@@ -82,9 +110,24 @@ class Plan extends Model
 		return $this->subscription_started_at;
 	}
 
+	public function getRebillAt()
+	{
+		return $this->subscription_rebill_at;
+	}
+
 	public function getTotal()
 	{
-		return $this->price + $this->price_shipping;
+		return $this->getPrice() + $this->getShippingPrice();
+	}
+
+	public function getPrice()
+	{
+		return $this->price;
+	}
+
+	public function getShippingPrice()
+	{
+		return $this->price_shipping;
 	}
 
 	public function getStripeToken()

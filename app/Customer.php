@@ -3,6 +3,7 @@
 use App\Apricot\Libraries\StripeLibrary;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Stripe\Card;
 
 /**
  * Class Customer
@@ -11,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer id
  * @property integer user_id
  * @property integer plan_id
- * @property integer newsletters
+ * @property integer accept_newletters
  * @property mixed   birthday
  * @property string  gender
  * @property integer order_count
@@ -166,8 +167,49 @@ class Customer extends Model
 			return false;
 		}
 
+		// Todo check if should rebill?
+
 		$lib = new StripeLibrary();
 		return $lib->chargeCustomer($this, 'asdasd', 10);
+	}
+
+	public function getStripeCustomer()
+	{
+		$lib = new StripeLibrary();
+
+		return $lib->getCustomer($this);
+	}
+
+	/**
+	 * @return Card
+	 */
+	public function getStripePaymentSource()
+	{
+		$stripeCustomer = $this->getStripeCustomer();
+
+		if( $stripeCustomer->sources->total_count <= 0 || ! $source = $stripeCustomer->sources->data[0] )
+		{
+			$source = null;
+		}
+
+		return $source;
+	}
+
+	public function removePaymentOption()
+	{
+		$stripeCustomer = $this->getStripeCustomer();
+		$stripeSource = $this->getStripePaymentSource();
+
+		if( ! $stripeSource )
+		{
+			return false;
+		}
+
+		if( $stripeCustomer->sources->retrieve($stripeSource->id)->delete() ) {
+			\Cache::forget('stripe_customer_for_customer_' . $this->id);
+		}
+
+		return true;
 	}
 
 	public function getOrderById($id)
@@ -187,7 +229,7 @@ class Customer extends Model
 
 	public function acceptNewsletters()
 	{
-		return $this->newsletters == 1;
+		return $this->accept_newletters == 1;
 	}
 
 }

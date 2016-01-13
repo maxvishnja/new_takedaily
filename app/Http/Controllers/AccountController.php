@@ -20,10 +20,13 @@ class AccountController extends Controller
 	function __construct()
 	{
 		$this->middleware('user');
-		$this->user     = \Auth::user();
-		$this->customer = $this->user->getCustomer();
+		$this->user = \Auth::user();
+		if ( $this->user && $this->user->getCustomer() )
+		{
+			$this->customer = $this->user->getCustomer();
+			\View::share('customer', $this->customer);
+		}
 
-		\View::share('customer', $this->customer);
 	}
 
 	function getHome()
@@ -49,9 +52,7 @@ class AccountController extends Controller
 
 		if ( !$order )
 		{
-			return \Redirect::to('/account/transactions')->withErrors([
-				'Ordren findes ikke!' // todo: translate
-			]);
+			return \Redirect::to('/account/transactions')->withErrors(trans('messages.errors.transactions.not_found'));
 		}
 
 		return view('account.transaction', [
@@ -61,7 +62,26 @@ class AccountController extends Controller
 
 	function getSettingsBilling()
 	{
-		return view('account.settings.billing');
+		$source = $this->customer->getStripePaymentSource();
+
+		return view('account.settings.billing', [
+			'source' => $source
+		]);
+	}
+
+	function getSettingsBillingRemove()
+	{
+		if( ! $this->customer->removePaymentOption() )
+		{
+			return redirect()->action('AccountController@getSettingsBilling')->withErrors(trans('messages.successes.billing.removing-failed'));
+		}
+
+		return redirect()->action('AccountController@getSettingsBilling')->with('success', trans('messages.successes.billing.removed'));
+	}
+
+	function getSettingsBillingAdd()
+	{
+		// todo
 	}
 
 	function getSettingsBasic()
@@ -78,15 +98,51 @@ class AccountController extends Controller
 			$this->customer->customerAttributes()->where('id', $attributeId)->update([ 'value' => $attributeValue ]);
 		}
 
-		// Todo: save new settings (non-attributes)
-		// Todo: allow editing password too
+		$this->validate($request, [
+			'email'    => 'required|email|unique:users,email,' . $this->user->id,
+			'name'     => 'required',
+			'gender'   => 'required|in:male,female',
+			'birthday' => 'date',
+			'password' => 'confirmed'
+		]);
 
-		return \Redirect::to('/account/settings/basic')->with('success', 'Opdateret!'); // todo: translate
+		$this->customer->birthday          = $request->get('birthday');
+		$this->customer->accept_newletters = $request->get('newsletters', 0);
+		$this->customer->gender            = $request->get('gender', 'Male');
+		$this->user->email                 = $request->get('email');
+		$this->user->name                  = $request->get('name');
+
+		if ( $request->get('password') != '' )
+		{
+			$this->user->password = bcrypt($request->get('password'));
+		}
+
+		$this->customer->save();
+		$this->user->save();
+
+		return \Redirect::to('/account/settings/basic')->with('success', trans('messages.successes.profile.updated'));
 	}
 
 	function getSettingsSubscription()
 	{
-		return view('account.settings.subscription');
+		return view('account.settings.subscription', [
+			'plan'         => $this->customer->getPlan(),
+			'planProducts' => $this->customer->getPlan()->getProducts()->load('product')
+		]);
+	}
+
+	function getSettingsSubscriptionPause()
+	{
+		$this->customer->getPlan()->pause();
+
+		return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.paused'));
+	}
+
+	function getSettingsSubscriptionStart()
+	{
+		$this->customer->getPlan()->start();
+
+		return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.started'));
 	}
 
 	function getSettingsDelete()

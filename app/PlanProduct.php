@@ -13,17 +13,22 @@ class PlanProduct extends Model
 	protected $table = 'plan_products';
 	
 	/**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
 	protected $fillable = [ ];
 	
 	/**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
 	protected $hidden = [ ];
+
+	public function product()
+	{
+		return $this->hasOne('App\Product', 'id', 'product_id');
+	}
 
 }

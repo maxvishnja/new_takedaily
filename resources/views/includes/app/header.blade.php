@@ -13,8 +13,8 @@
 	<link rel="icon" type="image/png" href="/favicon.png"/>
 
 	<!--[if lt IE 9]>
-		<script src="/js/respond.min.js"></script> todo: Get these!
-		<script src="/js/html5shiv.min.js"></script> todo: Get these!
+		<script src="/js/respond.min.js"></script>
+		<script src="/js/html5shiv.min.js"></script>
 	<![endif]-->
 </head>
 <body class="@yield('pageClass', 'index')">

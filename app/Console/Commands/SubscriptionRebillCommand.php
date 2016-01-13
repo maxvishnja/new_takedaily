@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Customer;
 use Illuminate\Console\Command;
+use App\Apricot\Repositories\CustomerRepository;
 
 class SubscriptionRebillCommand extends Command
 {
@@ -35,6 +37,14 @@ class SubscriptionRebillCommand extends Command
      */
     public function handle()
     {
-        //
+		$repo = new CustomerRepository();
+
+		$customers = $repo->rebillAble();
+
+		foreach($customers as $customer)
+		{
+			/* @var $customer Customer */
+			$customer->rebill();
+		}
     }
 }
