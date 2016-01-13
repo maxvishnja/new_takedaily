@@ -84,6 +84,13 @@ class AccountController extends Controller
 		// todo
 	}
 
+	function getSettingsBillingRefresh()
+	{
+		\Cache::forget('stripe_customer_for_customer_' . $this->customer->id);
+
+		return redirect()->action('AccountController@getSettingsBilling')->with('success', trans('messages.successes.billing.refreshed'));
+	}
+
 	function getSettingsBasic()
 	{
 		return view('account.settings.basic', [

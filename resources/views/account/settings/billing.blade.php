@@ -5,7 +5,7 @@
 @section('content')
 	<h1>Betalingsmetode</h1>
 	@if( ! $source )
-		<h3>Ingen betalingsmetode fundet!</h3>
+		<h3>Ingen betalingsmetode fundet! <a href="{{ URL::action('AccountController@getSettingsBillingRefresh') }}">Opdater</a></h3>
 		<a href="{{ URL::action('AccountController@getSettingsBillingAdd') }}">Tilføj nyt kort</a>
 	@else
 		<h3>{{ $source->brand }} (···· ···· ···· {{ $source->last4 }})</h3>
