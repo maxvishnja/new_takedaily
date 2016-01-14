@@ -3,6 +3,7 @@
 use App\Apricot\Libraries\StripeLibrary;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Jenssegers\Date\Date;
 use Stripe\Card;
 
 /**
@@ -230,6 +231,11 @@ class Customer extends Model
 	public function acceptNewsletters()
 	{
 		return $this->accept_newletters == 1;
+	}
+
+	public function scopeToday($query)
+	{
+		return $query->whereBetween('created_at', [Date::today()->setTime(0, 0, 0), Date::today()->setTime(23, 59, 59)]);
 	}
 
 }

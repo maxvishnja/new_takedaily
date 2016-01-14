@@ -96,10 +96,22 @@ Route::group([ 'middleware' => 'web' ], function ()
 	 */
 	Route::group([ 'middleware' => 'admin', 'prefix' => 'dashboard' ], function ()
 	{
+		$orderRepo    = new \App\Apricot\Repositories\OrderRepository();
+		$customerRepo = new \App\Apricot\Repositories\CustomerRepository();
+
+		view()->share('sidebar_numOrders', $orderRepo->getNew()->count());
+
 		Route::get('login', 'Auth\DashboardAuthController@showLoginForm');
 		Route::post('login', 'Auth\DashboardAuthController@login');
 
-		Route::get('/', function () { return view('admin.home'); });
+		Route::get('/', function () use ($orderRepo, $customerRepo)
+		{
+			return view('admin.home', [
+				'orders_today'    => $orderRepo->getToday()->count(),
+				'customers_today' => $customerRepo->getToday()->count(),
+				'money_today' => $orderRepo->getToday()->sum('total')
+			]);
+		});
 		Route::resource('customers', 'Dashboard\CustomerController');
 		Route::resource('orders', 'Dashboard\OrderController');
 		Route::resource('coupons', 'Dashboard\CouponController');

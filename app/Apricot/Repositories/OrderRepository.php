@@ -1,6 +1,7 @@
 <?php namespace App\Apricot\Repositories;
 
 use App\Order;
+use Jenssegers\Date\Date;
 
 class OrderRepository
 {
@@ -11,6 +12,11 @@ class OrderRepository
 
 	public function getNew()
 	{
-		return Order::where('status', 'new');
+		return Order::where('state', 'new');
+	}
+
+	public function getToday()
+	{
+		return Order::today();
 	}
 }

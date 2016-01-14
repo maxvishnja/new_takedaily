@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Jenssegers\Date\Date;
 
 class Order extends Model
 {
@@ -67,6 +68,11 @@ class Order extends Model
 
 	public function getTotalTaxes() {
 		return $this->total_taxes;
+	}
+
+	public function scopeToday($query)
+	{
+		return $query->whereBetween('created_at', [Date::today()->setTime(0, 0, 0), Date::today()->setTime(23, 59, 59)]);
 	}
 
 

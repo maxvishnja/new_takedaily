@@ -2,6 +2,7 @@
 
 
 use App\Customer;
+use Jenssegers\Date\Date;
 
 class CustomerRepository
 {
@@ -13,5 +14,10 @@ class CustomerRepository
 	public function rebillAble()
 	{
 		return Customer::all(); // todo
+	}
+
+	public function getToday()
+	{
+		return Customer::today();
 	}
 }

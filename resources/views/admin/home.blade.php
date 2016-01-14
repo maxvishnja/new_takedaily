@@ -3,16 +3,16 @@
 @section('content')
 	<div class="btn-controls">
 		<div class="btn-box-row row-fluid">
-			<a href="#" class="btn-box big span4"><i class=" icon-random"></i><b>12%</b>
-				<p class="text-muted">Konvertering</p>
+			<a href="#" class="btn-box big span4"><i class=" icon-shopping-cart"></i><b>{{ $orders_today }}</b>
+				<p class="text-muted">Ordre i dag</p>
 			</a>
 
-			<a href="#" class="btn-box big span4"><i class="icon-group"></i><b>15</b>
-				<p class="text-muted">Kunder</p>
+			<a href="#" class="btn-box big span4"><i class="icon-group"></i><b>{{ $customers_today }}</b>
+				<p class="text-muted">Nye kunder i dag</p>
 			</a>
 
-			<a href="#" class="btn-box big span4"><i class="icon-money"></i><b>15.152,91</b>
-				<p class="text-muted">DKK i salg</p>
+			<a href="#" class="btn-box big span4"><i class="icon-money"></i><b>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($money_today, 2) }}</b>
+				<p class="text-muted">DKK i dag</p>
 			</a>
 		</div>
 	</div>
