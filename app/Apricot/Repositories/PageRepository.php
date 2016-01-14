@@ -1,13 +1,13 @@
 <?php namespace App\Apricot\Repositories;
 
+use App\Page;
+
 class PageRepository
 {
 
-	public function generateIdentifier($title)
+	public function all()
 	{
-		$identifier = $title;
-
-		return substr($identifier, 0, 50);
+		return Page::all();
 	}
 	
 }

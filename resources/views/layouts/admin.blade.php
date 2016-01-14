@@ -40,4 +40,6 @@
 <script src="/admin/js/datatables/jquery.dataTables.js" type="text/javascript"></script>
 <script src="/admin/js/common.js" type="text/javascript"></script>
 
+@yield('scripts')
+
 </body>
