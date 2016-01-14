@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -30,8 +31,6 @@ class DashboardAuthController extends Controller
 
 	/**
 	 * Create a new authentication controller instance.
-	 *
-	 * @return void
 	 */
 	public function __construct()
 	{

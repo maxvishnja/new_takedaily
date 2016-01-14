@@ -61,8 +61,11 @@
 				"</select>" +
 				"<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
 				"</form>",
-				type: "info",
+				type: "",
 				html: true,
+				confirmButtonText: "Snooze",
+				cancelButtonText: "Annuller",
+				confirmButtonColor: "#777",
 				allowOutsideClick: true,
 				showCancelButton: true,
 				closeOnConfirm: false,
