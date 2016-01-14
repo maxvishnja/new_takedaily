@@ -14,7 +14,7 @@ use Jenssegers\Date\Date;
  * @property integer price_shipping
  * @property mixed subscription_started_at
  * @property mixed subscription_cancelled_at
- * @property mixed subscription_paused_at
+ * @property mixed subscription_snoozed_until
  * @property mixed subscription_rebill_at
  * @property mixed created_at
  * @property mixed updated_at
@@ -64,7 +64,7 @@ class Plan extends Model
 
 	public function isActive()
 	{
-		return !$this->isPaused() && !$this->isCancelled();
+		return !$this->isCancelled();
 	}
 
 	public function isCancelled()
@@ -72,22 +72,41 @@ class Plan extends Model
 		return !is_null($this->getSubscriptionCancelledAt());
 	}
 
-	public function isPaused()
+	public function isSnoozed()
 	{
-		return !is_null($this->getSubscriptionPausedAt());
+		if( !is_null($this->getSubscriptionSnoozedUntil()) && Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionSnoozedUntil())->diffInSeconds() <= 0 )
+		{
+			$this->subscription_snoozed_until = null;
+			$this->save();
+		}
+
+		return !is_null($this->getSubscriptionSnoozedUntil());
 	}
 
-	public function pause()
+	public function snooze($days = 7)
 	{
-		$this->subscription_paused_at = Date::now();
+		$newDate = Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->addDays($days);
+
+		$this->subscription_snoozed_until = $newDate;
+		$this->subscription_rebill_at = $newDate;
 		$this->save();
 
 		return true;
 	}
 
+	public function isSnoozeable()
+	{
+		return $this->isActive() && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() > 7; // consider should only be allowed once?
+	}
+
+	public function isCancelable()
+	{
+		return Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 1;
+	}
+
 	public function start()
 	{
-		$this->subscription_paused_at = null;
+		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at = null;
 		$this->subscription_rebill_at = Date::now()->addMonth();
 		$this->save();
@@ -95,9 +114,9 @@ class Plan extends Model
 		return true;
 	}
 
-	public function getSubscriptionPausedAt()
+	public function getSubscriptionSnoozedUntil()
 	{
-		return $this->subscription_paused_at;
+		return $this->subscription_snoozed_until;
 	}
 
 	public function getSubscriptionCancelledAt()

@@ -9,7 +9,8 @@
 			'updated' => 'Your profile was updated!'
 		],
 		'subscription' => [
-			'paused'  => 'Subscription paused!',
+			'snoozed'  => 'Subscription snoozed for :days days!',
+			'not-snoozed'  => 'Subscription could not be snoozed!',
 			'started' => 'Subscription activated again!',
 		],
 		'billing'      => [

@@ -71,7 +71,7 @@ class AccountController extends Controller
 
 	function getSettingsBillingRemove()
 	{
-		if( ! $this->customer->removePaymentOption() )
+		if ( !$this->customer->removePaymentOption() )
 		{
 			return redirect()->action('AccountController@getSettingsBilling')->withErrors(trans('messages.successes.billing.removing-failed'));
 		}
@@ -138,11 +138,16 @@ class AccountController extends Controller
 		]);
 	}
 
-	function getSettingsSubscriptionPause()
+	function postSettingsSubscriptionSnooze(Request $request)
 	{
-		$this->customer->getPlan()->pause();
+		if ( !$this->customer->getPlan()->isSnoozeable() )
+		{
+			return redirect()->action('AccountController@getSettingsSubscription')->withErrors(trans('messages.errors.subscription.not-snoozed'));
+		}
 
-		return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.paused'));
+		$this->customer->getPlan()->snooze($request->get('days', 7));
+
+		return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.snoozed', [ 'days' => $request->get('days', 7) ]));
 	}
 
 	function getSettingsSubscriptionStart()

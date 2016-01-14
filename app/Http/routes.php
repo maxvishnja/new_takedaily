@@ -78,7 +78,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::post('settings/basic', 'AccountController@postSettingsBasic');  // Todo
 
 		Route::get('settings/subscription', 'AccountController@getSettingsSubscription');
-		Route::get('settings/subscription/pause', 'AccountController@getSettingsSubscriptionPause');
+		Route::post('settings/subscription/snooze', 'AccountController@postSettingsSubscriptionSnooze');
 		Route::get('settings/subscription/start', 'AccountController@getSettingsSubscriptionStart');
 		Route::get('settings/subscription/cancel', 'AccountController@getSettingsSubscriptionCancel'); // todo
 
