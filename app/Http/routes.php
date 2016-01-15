@@ -125,7 +125,16 @@ Route::group([ 'middleware' => 'web' ], function ()
 	 */
 	Route::get('{identifier}', function ($identifier)
 	{
-		echo 'Load CMS page, if exists - otherwise, abort 404: ' . $identifier;
-		//abort(404, 'Siden blev ikke fundet');
+		$repo = new \App\Apricot\Repositories\PageRepository();
+		$page = $repo->findByIdentifier($identifier)->first();
+
+		if( ! $page )
+		{
+			abort(404);
+		}
+
+		return view('page', [
+			'page' => $page
+		]);
 	});
 });

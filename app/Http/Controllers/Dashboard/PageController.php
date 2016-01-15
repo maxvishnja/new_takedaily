@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Apricot\Repositories\PageRepository;
+use App\Page;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -30,6 +31,17 @@ class PageController extends Controller
 	function edit($id)
 	{
 		echo $id;
+	}
+
+	function create()
+	{
+		return view('admin.cms.create');
+	}
+
+	function store(Request $request)
+	{
+		$page = new Page();
+		dd($page->generateIdentifier($request->get('title')));
 	}
 
 	function destroy($id)

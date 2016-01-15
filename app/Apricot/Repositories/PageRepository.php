@@ -9,5 +9,10 @@ class PageRepository
 	{
 		return Page::all();
 	}
+
+	public function findByIdentifier($identifier)
+	{
+		return Page::where('url_identifier', $identifier)->get();
+	}
 	
 }
