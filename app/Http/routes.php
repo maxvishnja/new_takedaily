@@ -94,12 +94,15 @@ Route::group([ 'middleware' => 'web' ], function ()
 	/*
 	 * Dashboard routes
 	 */
-	Route::group([ 'middleware' => 'admin', 'prefix' => 'dashboard' ], function ()
+	Route::group([ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	{
 		$orderRepo    = new \App\Apricot\Repositories\OrderRepository();
 		$customerRepo = new \App\Apricot\Repositories\CustomerRepository();
 
-		view()->share('sidebar_numOrders', $orderRepo->getNew()->count());
+		view()->composer('admin.sidebar', function ($view) use ($orderRepo)
+		{
+			$view->with('sidebar_numOrders', $orderRepo->getNew()->count());
+		});
 
 		Route::get('login', 'Auth\DashboardAuthController@showLoginForm');
 		Route::post('login', 'Auth\DashboardAuthController@login');
@@ -109,7 +112,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 			return view('admin.home', [
 				'orders_today'    => $orderRepo->getToday()->count(),
 				'customers_today' => $customerRepo->getToday()->count(),
-				'money_today' => $orderRepo->getToday()->sum('total')
+				'money_today'     => $orderRepo->getToday()->sum('total')
 			]);
 		});
 		Route::resource('customers', 'Dashboard\CustomerController');
@@ -128,7 +131,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		$repo = new \App\Apricot\Repositories\PageRepository();
 		$page = $repo->findByIdentifier($identifier)->first();
 
-		if( ! $page )
+		if ( !$page )
 		{
 			abort(404);
 		}

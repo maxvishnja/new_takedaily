@@ -153,7 +153,6 @@ return [
 		Intervention\Image\ImageServiceProvider::class,
 		Barryvdh\DomPDF\ServiceProvider::class,
 		\Jenssegers\Date\DateServiceProvider::class,
-
 		/*
 		 * App vendor providers
 		 */

@@ -18,6 +18,11 @@ class StripeLibrary
 	 */
 	public function getCustomer(Customer $customer)
 	{
+		if( is_null($customer->getPlan()->getStripeToken()) || empty($customer->getPlan()->getStripeToken()) )
+		{
+			return false;
+		}
+
 		return $customer = \Cache::remember('stripe_customer_for_customer_' . $customer->id, 10, function () use($customer)
 		{
 			return \Stripe\Customer::retrieve($customer->getPlan()->getStripeToken());

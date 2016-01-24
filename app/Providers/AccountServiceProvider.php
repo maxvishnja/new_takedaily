@@ -18,15 +18,19 @@ class AccountServiceProvider extends ServiceProvider
 	{
 		User::created(function ($user)
 		{
-			$customer = new Customer();
+			if ( $user->type == 'user' )
+			{
+				$customer = new Customer();
 
-			$customer->user_id = $user->id;
-			$customer->plan_id = Plan::create()->id;
+				$customer->user_id = $user->id;
+				$customer->plan_id = Plan::create()->id;
 
-			$customer->save();
+				$customer->save();
+			}
 		});
 
-		User::deleting(function($user) {
+		User::deleting(function ($user)
+		{
 			$user->customer->delete();
 		});
 	}

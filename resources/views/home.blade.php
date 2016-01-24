@@ -3,5 +3,5 @@
 @section('pageClass', 'index')
 
 @section('content')
-Home
+	Home
 @endsection

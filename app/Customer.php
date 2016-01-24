@@ -188,7 +188,7 @@ class Customer extends Model
 	{
 		$stripeCustomer = $this->getStripeCustomer();
 
-		if( $stripeCustomer->sources->total_count <= 0 || ! $source = $stripeCustomer->sources->data[0] )
+		if( ! $stripeCustomer || $stripeCustomer->sources->total_count <= 0 || ! $source = $stripeCustomer->sources->data[0] )
 		{
 			$source = null;
 		}

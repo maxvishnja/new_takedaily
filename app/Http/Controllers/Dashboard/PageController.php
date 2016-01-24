@@ -30,6 +30,7 @@ class PageController extends Controller
 
 	function edit($id)
 	{
+		// todo
 		echo $id;
 	}
 
@@ -40,12 +41,15 @@ class PageController extends Controller
 
 	function store(Request $request)
 	{
+		// todo: validate
 		$page = new Page();
-		dd($page->generateIdentifier($request->get('title')));
+		// todo: append data (+ upload image)
+		$page->save();
 	}
 
 	function destroy($id)
 	{
+		// todo
 		echo $id;
 	}
 
