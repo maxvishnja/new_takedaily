@@ -3,6 +3,7 @@
 @section('pageClass', 'cms page')
 
 @section('content')
+	<img src="{{ $page->meta_image }}" />
 	<article>
 		<h1>{{ $page->title }}</h1>
 		@if( $page->sub_title != '')

@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>TakeDaily Admin</title>
-	<link type="text/css" href="/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link type="text/css" href="/admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-	<link type="text/css" href="/admin/css/theme.css" rel="stylesheet">
-	<link type="text/css" href="/admin/images/icons/css/font-awesome.css" rel="stylesheet">
-	<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
-		  rel='stylesheet'>
-</head>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>TakeDaily Admin</title>
+		<link type="text/css" href="/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link type="text/css" href="/admin/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link type="text/css" href="/admin/css/theme.css" rel="stylesheet">
+		<link type="text/css" href="/admin/images/icons/css/font-awesome.css" rel="stylesheet">
+		<link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
+			  rel='stylesheet'>
+	</head>
 <body>
 @include('admin.navigation')
-<!-- /navbar -->
+	<!-- /navbar -->
 <div class="wrapper">
 	<div class="container">
 		<div class="row">
 			@include('admin.sidebar')
-			<!--/.span3-->
+				<!--/.span3-->
 			<div class="span9">
 				<div class="content">
+					@if( $errors->has() )
+						@foreach($errors->all() as $error)
+							<div class="alert alert-error">
+								{ $error }}
+							</div>
+						@endforeach
+					@endif
+
+					@if( session('success') )
+						<div class="alert alert-success">
+							{{ session('success') }}
+						</div>
+					@endif
 					@yield('content')
 				</div>
 				<!--/.content-->
