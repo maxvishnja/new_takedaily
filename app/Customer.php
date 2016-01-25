@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\StripeLibrary;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -113,7 +114,7 @@ class Customer extends Model
 
 	public function getSubscriptionPrice()
 	{
-		return $this->getPlan()->getTotalPrice();
+		return $this->getPlan()->getTotal();
 	}
 
 	public function getStripeToken()
@@ -155,6 +156,11 @@ class Customer extends Model
 		return $this->getUser()->getName();
 	}
 
+	public function getEmail()
+	{
+		return $this->getUser()->getEmail();
+	}
+
 	public function getBirthday()
 	{
 		return $this->birthday;
@@ -175,7 +181,7 @@ class Customer extends Model
 		return $this->order_count;
 	}
 
-	public function rebill()
+	public function rebill($amount = null)
 	{
 		if ( !$this->isSubscribed() )
 		{
@@ -186,7 +192,7 @@ class Customer extends Model
 
 		$lib = new StripeLibrary();
 
-		return $lib->chargeCustomer($this, 'asdasd', 10);
+		return $lib->chargeCustomer($this, null, MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice());
 	}
 
 	public function getStripeCustomer()

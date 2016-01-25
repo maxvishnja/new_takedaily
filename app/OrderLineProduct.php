@@ -26,4 +26,9 @@ class OrderLineProduct extends Model
      */
 	protected $hidden = [ ];
 
+	public function product()
+	{
+		return $this->hasOne('App\Product', 'id', 'product_id');
+	}
+
 }

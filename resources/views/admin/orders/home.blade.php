@@ -6,12 +6,6 @@
 			<h3>Ordre / Leverancer</h3>
 		</div>
 
-		<div class="module-option clearfix">
-			<div class="pull-right">
-				<a href="{{ URL::action('Dashboard\PageController@create') }}" class="btn btn-primary">Opret ny</a>
-			</div>
-		</div>
-
 		<div class="module-body table">
 			<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	display" width="100%">
 				<thead>

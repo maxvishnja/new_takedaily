@@ -64,7 +64,7 @@ class Plan extends Model
 
 	public function isActive()
 	{
-		return !$this->isCancelled();
+		return !$this->isCancelled() && !is_null($this->getRebillAt());
 	}
 
 	public function isCancelled()

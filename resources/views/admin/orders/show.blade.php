@@ -13,6 +13,9 @@
 				@if($order->state == 'paid' )
 					<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@edit', [ 'id' => $order->id ]) }}"><i class="icon-truck"></i>
 						Marker som sendt</a> <!-- todo -->
+
+					<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@edit', [ 'id' => $order->id ]) }}"><i class="icon-money"></i>
+						Refunder</a> <!-- todo -->
 				@endif
 			</div>
 			<div class="clear"></div>
@@ -49,18 +52,25 @@
 			<hr/>
 			<table class="table table-striped">
 				<thead>
-					<tr>
-						<th>Beskrivelse</th>
-						<th>Beløb</th>
-						<th>Moms</th>
-						<th>Total</th>
-					</tr>
+					@if(count($order->lines) > 0)
+						<tr>
+							<th>Beskrivelse</th>
+							<th>Beløb</th>
+							<th>Moms</th>
+							<th>Total</th>
+						</tr>
+					@endif
 				</thead>
 
 				<tbody>
 					@foreach($order->lines as $line)
 						<tr>
-							<td>{{ $line->description }}</td>
+							<td>{{ $line->description }}
+								@if(count($line->products) > 0)
+									@foreach($line->products as $productItem)
+										<br/>- <a href="{{ URL::action('Dashboard\ProductController@show', [$productItem->product->id]) }}">{{ $productItem->product->name }}</a>
+									@endforeach
+								@endif</td>
 							<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true) }} kr.</td>
 							<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true) }} kr.</td>
 							<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true) }} kr.</td>

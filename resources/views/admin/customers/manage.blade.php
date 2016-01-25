@@ -34,7 +34,7 @@
 		</div>
 	</div><!--/.module-->
 	<div>
-		<form method="POST" action="{{ URL::action('Dashboard\OrderController@destroy', [ $order->id ]) }}" onsubmit="return confirm('Er du sikker på at du slette denne ordre?');">
+		<form method="POST" action="{{ URL::action('Dashboard\OrderController@destroy', [ $order->id ]) }}">
 			<button type="submit" class="btn btn-link">Slet ordren</button>
 			{{ csrf_field() }}
 			{{ method_field('DELETE') }}

@@ -96,26 +96,31 @@ Route::group([ 'middleware' => 'web' ], function ()
 	 */
 	Route::group([ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	{
-		$orderRepo    = new \App\Apricot\Repositories\OrderRepository();
-		$customerRepo = new \App\Apricot\Repositories\CustomerRepository();
-
-		view()->composer('admin.sidebar', function ($view) use ($orderRepo)
+		view()->composer('admin.sidebar', function ($view)
 		{
+			$orderRepo    = new \App\Apricot\Repositories\OrderRepository();
 			$view->with('sidebar_numOrders', $orderRepo->getNew()->count());
 		});
 
 		Route::get('login', 'Auth\DashboardAuthController@showLoginForm');
 		Route::post('login', 'Auth\DashboardAuthController@login');
 
-		Route::get('/', function () use ($orderRepo, $customerRepo)
+		Route::get('/', function ()
 		{
+			$orderRepo    = new \App\Apricot\Repositories\OrderRepository();
+			$customerRepo = new \App\Apricot\Repositories\CustomerRepository();
+
 			return view('admin.home', [
 				'orders_today'    => $orderRepo->getToday()->count(),
 				'customers_today' => $customerRepo->getToday()->count(),
-				'money_today'     => $orderRepo->getToday()->sum('total')
+				'money_today'     => $orderRepo->getToday()->whereNotIn('state', ['new','cancelled'])->sum('total')
 			]);
 		});
 		Route::resource('customers', 'Dashboard\CustomerController');
+		Route::get('customers/newpass/{id}', 'Dashboard\CustomerController@newPass');
+		Route::get('customers/bill/{id}', 'Dashboard\CustomerController@bill');
+		Route::get('customers/cancel/{id}', 'Dashboard\CustomerController@cancel');
+
 		Route::resource('orders', 'Dashboard\OrderController');
 		Route::resource('coupons', 'Dashboard\CouponController');
 		Route::resource('settings', 'Dashboard\SettingController');

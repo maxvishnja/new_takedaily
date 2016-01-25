@@ -1,6 +1,7 @@
 <?php namespace App\Apricot\Libraries;
 
 use App\Customer;
+use Stripe\Charge;
 use Stripe\Stripe;
 
 class StripeLibrary
@@ -18,21 +19,29 @@ class StripeLibrary
 	 */
 	public function getCustomer(Customer $customer)
 	{
-		if( is_null($customer->getPlan()->getStripeToken()) || empty($customer->getPlan()->getStripeToken()) )
+		if ( is_null($customer->getPlan()->getStripeToken()) || empty($customer->getPlan()->getStripeToken()) )
 		{
 			return false;
 		}
 
-		return $customer = \Cache::remember('stripe_customer_for_customer_' . $customer->id, 10, function () use($customer)
+		return $customer = \Cache::remember('stripe_customer_for_customer_' . $customer->id, 10, function () use ($customer)
 		{
 			return \Stripe\Customer::retrieve($customer->getPlan()->getStripeToken());
 		});
 	}
 
-	public function chargeCustomer(Customer $customer, $token = null, $amount = null)
+	public function chargeCustomer(Customer $customer, $token = null, $amount = null, $description = 'Subscription')
 	{
 		try
 		{
+			return Charge::create([
+				'amount' => $amount,
+				'currency' => 'dkk',
+				'customer' => $token ?: $customer->getStripeToken(),
+				'description' => $description
+			]);
+
+
 			return dd([
 				'amount'               => $amount ? : $customer->getSubscriptionPrice() * 100,
 				'currency'             => 'dkk',
@@ -42,12 +51,12 @@ class StripeLibrary
 				// todo: get order id
 				'shipping'             => [
 					'address'         => [
-						'city'        => $customer->getCustomerAttribute('address_city'),  // todo: add to customer
-						'country'     => $customer->getCustomerAttribute('address_country'),  // todo: add to customer
-						'line1'       => $customer->getCustomerAttribute('address_line1'),  // todo: add to customer
-						'line2'       => $customer->getCustomerAttribute('address_line2'),  // todo: add to customer
-						'postal_code' => $customer->getCustomerAttribute('address_postal'),  // todo: add to customer
-						'state'       => $customer->getCustomerAttribute('address_state') // todo: add to customer
+						'city'        => $customer->getCustomerAttribute('address_city'),
+						'country'     => $customer->getCustomerAttribute('address_country'),
+						'line1'       => $customer->getCustomerAttribute('address_line1'),
+						'line2'       => $customer->getCustomerAttribute('address_line2'),
+						'postal_code' => $customer->getCustomerAttribute('address_postal'),
+						'state'       => $customer->getCustomerAttribute('address_state')
 					],
 					'name'            => $customer->getName(),
 					'phone'           => $customer->getCustomerAttribute('phone'), // todo: add to customer

@@ -6,7 +6,7 @@
 			@if( ! isset( $page ) )
 				<h3>Opret ny side</h3>
 			@else
-				<h3>Rediger side: {{ $page->title }}</h3>
+				<h3>Rediger side: {{ $page->title }} (/{{ $page->url_identifier }})</h3>
 			@endif
 		</div>
 
@@ -26,10 +26,12 @@
 								<label for="page_title" class="control-label">Sidens titel</label>
 								<div class="controls">
 									<input type="text" class="form-control span8" name="title" id="page_title" value="{{ Request::old('title', isset($page) ? $page->title : '' ) }}" placeholder="Sidens titel"/>
-									<p class="help-block">Sidens url bliver:
-										<mark id="page_handle_preview">
-											/{{ isset($page) ? $page->url_identifier : '' }}</mark>
-									</p>
+									@if(!isset($page) || (isset($page) && $page->url_identifier != 'home'))
+										<p class="help-block">Sidens url bliver:
+											<mark id="page_handle_preview">
+												/{{ isset($page) ? $page->url_identifier : '' }}</mark>
+										</p>
+									@endif
 								</div>
 							</div>
 
@@ -98,15 +100,12 @@
 			</form>
 		</div>
 	</div><!--/.module-->
-	@if( isset($page) )
+	@if( isset($page) && $page->url_identifier != 'home' )
 		<div>
-			<form method="POST" action="{{ URL::action('Dashboard\PageController@destroy', [ $page->id ]) }}">
+			<form method="POST" action="{{ URL::action('Dashboard\PageController@destroy', [ $page->id ]) }}" onsubmit="return confirm('Er du sikker på at du slette denne side?');">
 				<button type="submit" class="btn btn-link">Slet siden</button>
 				{{ csrf_field() }}
-
-				@if(isset($page))
-					{{ method_field('DELETE') }}
-				@endif
+				{{ method_field('DELETE') }}
 			</form>
 		</div>
 	@endif
@@ -114,35 +113,36 @@
 
 @section('scripts')
 	<script>
-		$("#page_title").on('input', function ()
-		{
-			generateSlug($(this).val());
-		});
+		@if(!isset($page) || (isset($page) && $page->url_identifier != 'home'))
+			$("#page_title").on('input', function ()
+			{
+				generateSlug($(this).val());
+			});
 
-		function generateSlug(value)
-		{
-			var handle = value;
-			handle = handle.trim(' ');
-			handle = handle.toLowerCase();
-			handle = handle.replace(/(å)/g, 'aa');
-			handle = handle.replace(/(ø)/g, 'oe');
-			handle = handle.replace(/(æ)/g, 'ae');
-			handle = handle.replace(/\s\s+/g, ' ');
-			handle = handle.replace(/( )/g, '-');
-			handle = handle.replace(/([^a-z0-9-])/g, '');
-			handle = handle.replace(/\-\-+/g, '-');
-			handle = handle.substr(0, 50);
+			function generateSlug(value)
+			{
+				var handle = value;
+				handle = handle.trim(' ');
+				handle = handle.toLowerCase();
+				handle = handle.replace(/(å)/g, 'aa');
+				handle = handle.replace(/(ø)/g, 'oe');
+				handle = handle.replace(/(æ)/g, 'ae');
+				handle = handle.replace(/\s\s+/g, ' ');
+				handle = handle.replace(/( )/g, '-');
+				handle = handle.replace(/([^a-z0-9-])/g, '');
+				handle = handle.replace(/\-\-+/g, '-');
+				handle = handle.substr(0, 50);
 
-			$("#page_handle_preview").text('/' + handle);
-		}
+				$("#page_handle_preview").text('/' + handle);
+			}
+
+			generateSlug($("#page_title").val());
+		@endif
 
 		CKEDITOR.replace('page_body', {
 			height: 300,
 			language: "da",
 			filebrowserImageUploadUrl: '/dashboard/upload/image' // todo
 		});
-
-
-		generateSlug($("#page_title").val());
 	</script>
 @endsection
