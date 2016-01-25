@@ -104,6 +104,16 @@ class Plan extends Model
 		return Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 1;
 	}
 
+	public function cancel()
+	{
+		$this->subscription_snoozed_until = null;
+		$this->subscription_cancelled_at = Date::now();
+		$this->subscription_rebill_at = null;
+		$this->save();
+
+		return true;
+	}
+
 	public function start()
 	{
 		$this->subscription_snoozed_until = null;

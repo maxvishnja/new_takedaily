@@ -65,8 +65,14 @@ class CustomerController extends Controller
 
 	function cancel($id)
 	{
-
 		// todo verify exists
+
+		if( ! Customer::find($id)->cancelSubscription(true) )
+		{
+			return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->withErrors('Kundens abonnent kunne ikke opsiges, fordi det allerede er opsagt.');
+		}
+
+		return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', 'Kundens abonnent er blevet opsagt.');
 	}
 
 	function bill($id)

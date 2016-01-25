@@ -25,7 +25,7 @@
 					@if( $errors->has() )
 						@foreach($errors->all() as $error)
 							<div class="alert alert-error">
-								{ $error }}
+								{{ $error }}
 							</div>
 						@endforeach
 					@endif

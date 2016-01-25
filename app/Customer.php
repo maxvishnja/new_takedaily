@@ -27,7 +27,7 @@ class Customer extends Model
 
 	use SoftDeletes;
 
-	private $customer_attributes = [];
+	private $customer_attributes = [ ];
 
 	/**
 	 * The database table for the model
@@ -97,6 +97,16 @@ class Customer extends Model
 	public function getUser()
 	{
 		return $this->user;
+	}
+
+	public function cancelSubscription($force = false)
+	{
+		if ( ( !$this->getPlan()->isCancelable() && !$force) || $this->getPlan()->isCancelled() )
+		{
+			return false;
+		}
+
+		return $this->getPlan()->cancel();
 	}
 
 	/**
@@ -192,7 +202,7 @@ class Customer extends Model
 
 		$lib = new StripeLibrary();
 
-		return $lib->chargeCustomer($this, null, MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice());
+		return $lib->chargeCustomer($this, null, MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice());
 	}
 
 	public function getStripeCustomer()
