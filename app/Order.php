@@ -45,6 +45,11 @@ class Order extends Model
 		return $this->hasMany('App\OrderLine', 'order_id', 'id');
 	}
 
+	public function customer()
+	{
+		return $this->hasOne('App\Customer', 'id', 'customer_id');
+	}
+
 	public function getPaddedId()
 	{
 		return str_pad($this->id, 11, 0, STR_PAD_LEFT);
@@ -73,6 +78,31 @@ class Order extends Model
 	public function scopeToday($query)
 	{
 		return $query->whereBetween('created_at', [Date::today()->setTime(0, 0, 0), Date::today()->setTime(23, 59, 59)]);
+	}
+
+	public function stateToColor()
+	{
+		switch($this->state)
+		{
+			case 'new':
+				$color = 'warning';
+				break;
+			case 'sent':
+				$color = 'info';
+				break;
+			case 'cancelled':
+				$color = 'important';
+				break;
+			case 'paid':
+				$color = 'success';
+				break;
+			case 'completed':
+			default:
+				$color = 'inverse';
+				break;
+		}
+
+		return $color;
 	}
 
 

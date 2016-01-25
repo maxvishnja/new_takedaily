@@ -26,6 +26,8 @@ class Customer extends Model
 
 	use SoftDeletes;
 
+	private $customer_attributes = [];
+
 	/**
 	 * The database table for the model
 	 *
@@ -121,10 +123,17 @@ class Customer extends Model
 
 	public function getCustomerAttribute($name, $default = '')
 	{
+		if ( isset($this->customer_attributes[ $name ]) )
+		{
+			return $this->customer_attributes[ $name ];
+		}
+
 		if ( !$attribute = $this->customerAttributes()->where('identifier', $name)->first() )
 		{
 			return $default;
 		}
+
+		$this->customer_attributes[ $name ] = $attribute->value;
 
 		return $attribute->value;
 	}
@@ -133,7 +142,7 @@ class Customer extends Model
 	{
 		$attributes = $this->customerAttributes();
 
-		if( $onlyEditable )
+		if ( $onlyEditable )
 		{
 			$attributes = $attributes->editable();
 		}
@@ -149,6 +158,11 @@ class Customer extends Model
 	public function getBirthday()
 	{
 		return $this->birthday;
+	}
+
+	public function getAge()
+	{
+		return Date::createFromFormat('Y-m-d', $this->getBirthday())->diffInYears();
 	}
 
 	public function getGender()
@@ -171,6 +185,7 @@ class Customer extends Model
 		// Todo check if should rebill?
 
 		$lib = new StripeLibrary();
+
 		return $lib->chargeCustomer($this, 'asdasd', 10);
 	}
 
@@ -188,7 +203,7 @@ class Customer extends Model
 	{
 		$stripeCustomer = $this->getStripeCustomer();
 
-		if( ! $stripeCustomer || $stripeCustomer->sources->total_count <= 0 || ! $source = $stripeCustomer->sources->data[0] )
+		if ( !$stripeCustomer || $stripeCustomer->sources->total_count <= 0 || !$source = $stripeCustomer->sources->data[0] )
 		{
 			$source = null;
 		}
@@ -199,14 +214,15 @@ class Customer extends Model
 	public function removePaymentOption()
 	{
 		$stripeCustomer = $this->getStripeCustomer();
-		$stripeSource = $this->getStripePaymentSource();
+		$stripeSource   = $this->getStripePaymentSource();
 
-		if( ! $stripeSource )
+		if ( !$stripeSource )
 		{
 			return false;
 		}
 
-		if( $stripeCustomer->sources->retrieve($stripeSource->id)->delete() ) {
+		if ( $stripeCustomer->sources->retrieve($stripeSource->id)->delete() )
+		{
 			\Cache::forget('stripe_customer_for_customer_' . $this->id);
 		}
 
@@ -235,7 +251,10 @@ class Customer extends Model
 
 	public function scopeToday($query)
 	{
-		return $query->whereBetween('created_at', [Date::today()->setTime(0, 0, 0), Date::today()->setTime(23, 59, 59)]);
+		return $query->whereBetween('created_at', [
+			Date::today()->setTime(0, 0, 0),
+			Date::today()->setTime(23, 59, 59)
+		]);
 	}
 
 }

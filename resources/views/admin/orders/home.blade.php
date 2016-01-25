@@ -3,7 +3,7 @@
 @section('content')
 	<div class="module">
 		<div class="module-head">
-			<h3>Sider</h3>
+			<h3>Ordre / Leverancer</h3>
 		</div>
 
 		<div class="module-option clearfix">
@@ -17,28 +17,33 @@
 				<thead>
 				<tr>
 					<th>#</th>
-					<th>Url</th>
-					<th>Titel</th>
+					<th>Status</th>
+					<th>Total</th>
 					<th>Oprettet d.</th>
 					<th>Opdateret d.</th>
 					<th></th>
 				</tr>
 				</thead>
 				<tbody>
-				@foreach($pages as $page)
+				@foreach($orders as $order)
 					<tr>
-						<td>{{ $page->id }}</td>
-						<td>/{{ $page->url_identifier }}@if($page->url_identifier == 'home')
-								<span class="badge badge-info small">Forsiden</span> @endif</td>
-						<td>{{ $page->title }}</td>
-						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $page->created_at)->format('j. M Y H:i') }}</td>
-						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $page->updated_at)->format('j. M Y H:i') }}</td>
+						<td><a href="{{ URL::action('Dashboard\OrderController@show', [ 'id' => $order->id ]) }}">{{ $order->getPaddedId() }}</a></td>
+						<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
+						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true) }} kr.</td>
+						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
+						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->updated_at)->format('j. M Y H:i') }}</td>
 						<td>
 							<div class="btn-group">
-								<a class="btn btn-info" href="{{ URL::action('Dashboard\PageController@edit', [ 'id' => $page->id ]) }}"><i class="icon-pencil"></i>
+								<a class="btn btn-info" href="{{ URL::action('Dashboard\OrderController@edit', [ 'id' => $order->id ]) }}"><i class="icon-pencil"></i>
 									Rediger</a>
-								<a class="btn btn-default" href="/@if($page->url_identifier != 'home'){{ $page->url_identifier }}@endif" target="_blank"><i class="icon-eye-open"></i>
-									Vis</a>
+
+								@if($order->state == 'paid' )
+									<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@edit', [ 'id' => $order->id ]) }}"><i class="icon-truck"></i>
+										Marker som sendt</a> <!-- todo -->
+								@else
+									<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@show', [ 'id' => $order->id ]) }}"><i class="icon-eye-open"></i>
+										Vis</a>
+								@endif
 							</div>
 						</td>
 					</tr>
@@ -61,7 +66,7 @@
 						"searchable": false
 					},
 					{
-						"targets": [3,4],
+						"targets": [2,3,4],
 						"searchable": false
 					}
 				]

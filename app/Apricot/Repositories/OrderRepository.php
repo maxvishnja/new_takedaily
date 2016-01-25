@@ -7,7 +7,7 @@ class OrderRepository
 {
 	public function all()
 	{
-		return Order::all();
+		return Order::orderBy('created_at', 'DESC')->get();
 	}
 
 	public function getNew()

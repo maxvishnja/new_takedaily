@@ -7,7 +7,7 @@ class PageRepository
 
 	public function all()
 	{
-		return Page::all();
+		return Page::orderBy('created_at', 'DESC')->get();
 	}
 
 	public function findByIdentifier($identifier)

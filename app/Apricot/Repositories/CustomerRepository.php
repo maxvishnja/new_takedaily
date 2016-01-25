@@ -8,7 +8,7 @@ class CustomerRepository
 {
 	public function all()
 	{
-		return Customer::all();
+		return Customer::orderBy('created_at', 'DESC')->get();
 	}
 
 	public function rebillAble()

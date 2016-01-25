@@ -39,6 +39,8 @@ class PageController extends Controller
 
 	function update(Request $request, $id)
 	{
+		// todo: validate if page exists
+
 		$page = Page::find($id);
 		$page->title = $request->get('title');
 		$page->url_identifier = $page->generateIdentifier($request->get('title'));
@@ -122,6 +124,8 @@ class PageController extends Controller
 
 	function destroy($id)
 	{
+		// todo: validate if page exists
+
 		Page::find($id)->delete();
 
 		return \Redirect::action('Dashboard\PageController@index')->with('success', 'Siden blev slettet!');
