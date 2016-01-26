@@ -29,4 +29,24 @@ class Product extends Model
      */
 	protected $hidden = [ ];
 
+	public function orderLineProducts()
+	{
+		return $this->hasMany('App\OrderLineProduct', 'product_id', 'id');
+	}
+
+	public function planProducts()
+	{
+		return $this->hasMany('App\PlanProduct', 'product_id', 'id');
+	}
+
+	public function getImageFull()
+	{
+		return "/uploads/products/full/{$this->image_url}";
+	}
+
+	public function getImageThumb()
+	{
+		return "/uploads/products/thumbs/{$this->image_url}";
+	}
+
 }

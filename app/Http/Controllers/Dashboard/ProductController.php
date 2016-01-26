@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Apricot\Libraries\MoneyLibrary;
+use App\Apricot\Libraries\SlugLibrary;
 use App\Apricot\Repositories\ProductRepository;
+use App\Product;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -24,33 +27,106 @@ class ProductController extends Controller
 		]);
 	}
 
-	function show($id)
-	{
-
-	}
-
 	function edit($id)
 	{
-
+		// todo verify exists
+		return view('admin.products.manage', [
+			'product' => Product::find($id)
+		]);
 	}
 
 	function create()
 	{
-
+		return view('admin.products.manage');
 	}
 
-	function store()
+	function store(Request $request)
 	{
+		// todo validate slug unique (else add ID)
+		$product = new Product();
 
+		$product->name = $request->get('name');
+		$product->slug = SlugLibrary::generate($request->get('name'));
+		$product->description = $request->get('description');
+		$product->price_default = MoneyLibrary::toCents($request->get('price'));
+		$product->price_special = MoneyLibrary::toCents($request->get('price_special'));
+
+		if( $img = $request->file('picture'))
+		{
+			$imgPath = public_path('uploads/products/');
+			$imgName = str_random(40) . '.' . $img->getClientOriginalExtension();
+
+			$fileIsUnique = false;
+			while(!$fileIsUnique)
+			{
+				if( \File::exists("$imgPath/$imgName") )
+				{
+					$imgName = str_random(40) . '.' . $img->getClientOriginalExtension();
+				}
+				else
+				{
+					$fileIsUnique = true;
+				}
+			}
+
+			$img = $request->file('picture')->move($imgPath . 'full/', $imgName);
+			\Image::make($img->getRealPath())->fit(300)->save("{$imgPath}thumbs/{$imgName}", 100);
+
+			$product->image_url = "$imgName";
+		}
+
+		$product->save();
+
+		return \Redirect::action('Dashboard\ProductController@index')->with('success', 'Produktet blev oprettet!');
 	}
 
-	function update($id)
+	function update($id, Request $request)
 	{
+		// todo verify exists
+		// todo validate slug unique (else add ID)
+		$product = Product::find($id);
 
+		$product->name = $request->get('name');
+		$product->description = $request->get('description');
+		$product->slug = SlugLibrary::generate($request->get('name'));
+		$product->price_default = MoneyLibrary::toCents($request->get('price'));
+		$product->price_special = MoneyLibrary::toCents($request->get('price_special'));
+
+		if( $img = $request->file('picture'))
+		{
+			$imgPath = public_path('uploads/products/');
+			$imgName = str_random(40) . '.' . $img->getClientOriginalExtension();
+
+			$fileIsUnique = false;
+			while(!$fileIsUnique)
+			{
+				if( \File::exists("$imgPath/$imgName") )
+				{
+					$imgName = str_random(40) . '.' . $img->getClientOriginalExtension();
+				}
+				else
+				{
+					$fileIsUnique = true;
+				}
+			}
+
+			$img = $request->file('picture')->move($imgPath . 'full/', $imgName);
+			\Image::make($img->getRealPath())->fit(300)->save("{$imgPath}thumbs/{$imgName}", 100);
+
+			$product->image_url = "$imgName";
+		}
+
+		$product->save();
+
+		return \Redirect::action('Dashboard\ProductController@index')->with('success', 'Produktet blev opdateret!');
 	}
 
 	function destroy($id)
 	{
+		// todo verify exists
 
+		Product::find($id)->delete();
+
+		return \Redirect::action('Dashboard\ProductController@index')->with('success', 'Produktet blev slettet!');
 	}
 }

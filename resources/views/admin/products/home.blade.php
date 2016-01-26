@@ -38,6 +38,9 @@
 							<div class="btn-group">
 								<a class="btn btn-info" href="{{ URL::action('Dashboard\ProductController@edit', [ 'id' => $product->id ]) }}"><i class="icon-pencil"></i>
 									Rediger</a>
+
+								<a class="btn btn-default" target="_blank" href="{{ URL::to('/product', [ 'slug' => $product->slug ]) }}"><i class="icon-eye-open"></i>
+									Vis</a>
 							</div>
 						</td>
 					</tr>
