@@ -13,7 +13,7 @@ class CustomerRepository
 
 	public function rebillAble()
 	{
-		return Customer::all(); // todo
+		return Customer::rebillable();
 	}
 
 	public function getToday()

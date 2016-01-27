@@ -2,6 +2,7 @@
 
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\StripeLibrary;
+use App\Events\CustomerWasBilled;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jenssegers\Date\Date;
@@ -198,9 +199,7 @@ class Customer extends Model
 			return false;
 		}
 
-		$lib = new StripeLibrary();
-
-		return $lib->chargeCustomer($this, null, MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice());
+		$this->charge(MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice());
 	}
 
 	public function getStripeCustomer()
@@ -248,14 +247,39 @@ class Customer extends Model
 		return $this->orders()->where('id', $id)->first();
 	}
 
-	public function makeOrder()
+	public function makeOrder($amount = 100, $stripeChargeToken = null, $shipping = null)
 	{
+		$shipping = $shipping ? : $this->getPlan()->getShippingPrice();
+		$taxes    = $amount * 0.25;
 
+		$this->order_count++;
+		$this->save();
+
+		return $this->orders()->create([
+			'reference'           => (str_random(8) . '-' . str_random(2) . '-' . str_pad($this->getOrders()->count() + 1, 4, '0', STR_PAD_LEFT)),
+			'stripe_charge_token' => $stripeChargeToken ?: '',
+			'state'               => ($stripeChargeToken ? 'paid' : 'new'),
+			'total'               => $amount,
+			'total_shipping'      => $shipping,
+			'sub_total'           => $amount - $shipping - $taxes,
+			'total_taxes'         => $taxes
+		]);
 	}
 
-	public function charge()
+	public function charge($amount)
 	{
+		$lib = new StripeLibrary();
 
+		$charge = $lib->chargeCustomer($this, null, MoneyLibrary::toCents($amount));
+
+		if( ! $charge )
+		{
+			return false;
+		}
+
+		\Event::fire(new CustomerWasBilled($this, $amount, $charge->id));
+
+		return $charge;
 	}
 
 	public function acceptNewsletters()
@@ -269,6 +293,15 @@ class Customer extends Model
 			Date::today()->setTime(0, 0, 0),
 			Date::today()->setTime(23, 59, 59)
 		]);
+	}
+
+	public function scopeRebillable($query)
+	{
+		return $query->join('plans', 'plans.id', '=', 'customers.plan_id')
+					 ->whereNull('plans.deleted_at')
+					 ->whereNull('plans.subscription_cancelled_at')
+					 ->whereNotNull('plans.subscription_rebill_at')
+					 ->where('plans.subscription_rebill_at', '<=', Date::now());
 	}
 
 }

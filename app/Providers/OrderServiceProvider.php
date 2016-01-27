@@ -19,6 +19,9 @@ class OrderServiceProvider extends ServiceProvider
 			{
 				$line->delete();
 			}
+
+			$order->customer->order_count--;
+			$order->customer->save();
 		});
     }
 

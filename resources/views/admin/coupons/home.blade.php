@@ -42,11 +42,8 @@
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $coupon->valid_to)->diffForHumans(null, true) }}</td>
 						<td>
 							<div class="btn-group">
-								<a class="btn btn-info" href="{{ URL::action('Dashboard\ProductController@edit', [ 'id' => $coupon->id ]) }}"><i class="icon-pencil"></i>
+								<a class="btn btn-info" href="{{ URL::action('Dashboard\CouponController@edit', [ 'id' => $coupon->id ]) }}"><i class="icon-pencil"></i>
 									Rediger</a>
-
-								<a class="btn btn-default" target="_blank" href="{{ URL::to('/product', [ 'slug' => $coupon->slug ]) }}"><i class="icon-eye-open"></i>
-									Vis</a>
 							</div>
 						</td>
 					</tr>

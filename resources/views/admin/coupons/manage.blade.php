@@ -3,82 +3,103 @@
 @section('content')
 	<div class="module">
 		<div class="module-head">
-			@if( ! isset( $product ) )
-				<h3>Opret nyt produkt</h3>
+			@if( ! isset( $coupon ) )
+				<h3>Opret ny kupon</h3>
 			@else
-				<h3>Rediger produkt: {{ $product->name }} ({{ $product->id }})</h3>
+				<h3>Rediger kupon: {{ $coupon->code }} ({{ $coupon->id }})</h3>
 			@endif
 		</div>
 
 		<div class="module-body">
 
-			<form method="POST" class="form-horizontal row-fluid" action="{{ isset( $product ) ? URL::action('Dashboard\ProductController@update', [ $product->id ]) : URL::action('Dashboard\ProductController@store') }}" enctype="multipart/form-data">
+			<form method="POST" class="form-horizontal row-fluid" action="{{ isset( $coupon ) ? URL::action('Dashboard\CouponController@update', [ $coupon->id ]) : URL::action('Dashboard\CouponController@store') }}">
 				<div class="clear"></div>
 
 				<div class="control-group">
-					<label for="page_title" class="control-label">Navn</label>
+					<label for="code" class="control-label">Kode</label>
 					<div class="controls">
-						<input type="text" class="form-control span8" name="name" id="product_name" value="{{ Request::old('title', isset($product) ? $product->name : '' ) }}" placeholder="Produktets navn"/>
-						<p class="help-block">Produktets url bliver:
-							<mark id="slug_preview">
-								/product/{{ isset($product) ? $product->slug: '' }}</mark>
-						</p>
+						<input type="text" class="form-control span8" name="code" id="code" value="{{ Request::old('code', isset($coupon) ? $coupon->code : '' ) }}" placeholder="Kuponkode (eks.: GRATIS-FRAGT)"/>
 					</div>
 				</div>
 
 				<div class="control-group">
-					<label for="page_title" class="control-label">Normalpris</label>
+					<label for="description" class="control-label">Beskrivelse</label>
 					<div class="controls">
-						<input type="text" class="form-control span8" name="price" id="product_price" value="{{ Request::old('price', isset($product) ? \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price_default, true) : '' ) }}" placeholder="Pris (eks.: 399,00)"/>
-						kr.
+						<textarea name="description" id="description" class="form-control span8" rows="5">{!! Request::old('description', isset($coupon) ? $coupon->description : '' ) !!}</textarea>
 					</div>
 				</div>
 
 				<div class="control-group">
-					<label for="page_title" class="control-label">Nuværende pris</label>
+					<label for="type" class="control-label">Type</label>
 					<div class="controls">
-						<input type="text" class="form-control span8" name="price_special" id="product_price_special" value="{{ Request::old('price_special', isset($product) ? \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price_special, true) : '' ) }}" placeholder="Pris (eks.: 299,00)"/>
-						kr.
+						<select name="type" id="type" onchange="if($(this).val() == 'free_shipping') { $('#discount_element').hide(); } else { $('#discount_element').show(); if( $(this).val() == 'percentage' ) { $('#discount_text').text('%') } else { $('#discount_text').text('kr.') } }">
+							@foreach(['percentage', 'amount', 'free_shipping'] as $option)
+								<option value="{{ $option }}" @if(isset($coupon) && $coupon->discount_type == $option) selected="selected" @endif>{{ $option }}</option>
+							@endforeach
+						</select>
+					</div>
+				</div>
+
+				<div class="control-group" id="discount_element">
+					<label for="discount" class="control-label">Værdi</label>
+					<div class="controls">
+						<input type="text" class="form-control span8" name="discount" id="discount" value="{{ Request::old('discount', isset($coupon) ? $coupon->discount : '' ) }}" placeholder="Eks.: 80 for 80 kr./procent rabat"/>
+						<span id="discount_text">kr. / procent</span>
+					</div>
+				</div>
+
+				<div class="control-group" id="uses_left_element">
+					<label for="uses_left" class="control-label">Antal brug tilbage</label>
+					<div class="controls">
+						<input type="text" class="form-control span8" name="uses_left" id="uses_left" value="{{ Request::old('uses_left', isset($coupon) ? $coupon->uses_left : '' ) }}" placeholder="Eks.: 100"/>
+						<p class="help-block">For uendeligt antal brug, <a href="#uses_left_element" title="Uendeligt antal brug = -1" onclick="$('#uses_left').val(-1);">tryk her</a>.</p>
 					</div>
 				</div>
 
 				<div class="control-group">
-					<label for="page_title" class="control-label">Beskrivelse</label>
+					<label for="applies_to" class="control-label">Gyldig på</label>
 					<div class="controls">
-						<textarea name="description" id="product_description" class="form-control span8" rows="5">{!! Request::old('description', isset($product) ? $product->description : '' ) !!}</textarea>
+						<select name="applies_to" id="applies_to">
+							@foreach(['order', 'plan'] as $option)
+								<option value="{{ $option }}" @if(isset($coupon) && $coupon->applies_to == $option) selected="selected" @endif>{{ $option }}</option>
+							@endforeach
+						</select>
+						<p class="help-block"><strong>Abonnent:</strong> hele abonnentet og alle fremtidige betalinger<br/>
+							<strong>Ordre:</strong> kun denne ordre.</p>
 					</div>
 				</div>
 
-				<div class="control-group">
-					<label for="page_title" class="control-label">Billede</label>
+				<div class="control-group" id="uses_left_element">
+					<label for="valid_to" class="control-label">Gyldig fra</label>
 					<div class="controls">
-						<input type="file" class="form-control span8" name="picture" id="product_picture"/>
-						@if( isset( $product ) && $product->image_url)
-							<div class="clear"></div>
-							<img src="{{ $product->getImageThumb() }}" height="100" width="100"/>
-						@endif
+						<input type="text" class="form-control span8 datepicker" name="valid_to" id="valid_to" value="{{ Request::old('valid_to', isset($coupon) ? $coupon->valid_to : '' ) }}"/>
+					</div>
+					<br/>
+					<label for="valid_from" class="control-label">Gyldig til</label>
+					<div class="controls">
+						<input type="text" class="form-control span8 datepicker" name="valid_from" id="valid_from" value="{{ Request::old('valid_from', isset($coupon) ? $coupon->valid_from : '' ) }}"/>
 					</div>
 				</div>
 
 				<div class="control-group">
 					<div class="controls clearfix">
-						<a href="{{ URL::action('Dashboard\ProductController@index') }}" class="btn btn-default pull-right">Annuller</a>
-						<button type="submit" class="btn btn-primary btn-large pull-left">@if(isset($product)) Gem @else
+						<a href="{{ URL::action('Dashboard\CouponController@index') }}" class="btn btn-default pull-right">Annuller</a>
+						<button type="submit" class="btn btn-primary btn-large pull-left">@if(isset($coupon)) Gem @else
 								Opret @endif</button>
 					</div>
 				</div>
 				{{ csrf_field() }}
 
-				@if(isset($product))
+				@if(isset($coupon))
 					{{ method_field('PUT') }}
 				@endif
 			</form>
 		</div>
 	</div><!--/.module-->
-	@if( isset($product) )
+	@if( isset($coupon) )
 		<div>
-			<form method="POST" action="{{ URL::action('Dashboard\ProductController@destroy', [ $product->id ]) }}" onsubmit="return confirm('Er du sikker på at du slette dette produkt? Alle ordre-linjer og abonnenter med produktet, mister produktet. Dette betyder f.eks. at kundens nuværende ordre, og abonnent, ikke kommer til at indeholde produktet længere');">
-				<button type="submit" class="btn btn-link">Slet produktet</button>
+			<form method="POST" action="{{ URL::action('Dashboard\CouponController@destroy', [ $coupon->id ]) }}" onsubmit="return confirm('Er du sikker på at du slette denne kupon?');">
+				<button type="submit" class="btn btn-link">Slet kuponnen</button>
 				{{ csrf_field() }}
 				{{ method_field('DELETE') }}
 			</form>
@@ -88,33 +109,8 @@
 
 @section('scripts')
 	<script>
-		$("#product_name").on('input', function ()
-		{
-			generateSlug($(this).val());
-		});
-
-		function generateSlug(value)
-		{
-			var handle = value;
-			handle = handle.trim(' ');
-			handle = handle.toLowerCase();
-			handle = handle.replace(/(å)/g, 'aa');
-			handle = handle.replace(/(ø)/g, 'oe');
-			handle = handle.replace(/(æ)/g, 'ae');
-			handle = handle.replace(/\s\s+/g, ' ');
-			handle = handle.replace(/( )/g, '-');
-			handle = handle.replace(/([^a-z0-9-])/g, '');
-			handle = handle.replace(/\-\-+/g, '-');
-			handle = handle.substr(0, 50);
-
-			$("#slug_preview").text('/product/' + handle);
-		}
-
-		generateSlug($("#product_name").val());
-
-		CKEDITOR.replace('product_description', {
-			height: 300,
-			language: "da"
+		$(function() {
+			$( ".datepicker" ).datepicker();
 		});
 	</script>
 @endsection

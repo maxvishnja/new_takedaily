@@ -100,7 +100,7 @@ class CustomerController extends Controller
 
 		if ( $charge = $customer->rebill() )
 		{
-		// todo this.
+			return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', "Der blev trukket {} kr. på kundens konto, og en ny ordre (#{}) blev oprettet. <a href=\"..\">Vis ordre</a>"); // todo
 		}
 	}
 
