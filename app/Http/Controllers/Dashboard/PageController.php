@@ -34,7 +34,7 @@ class PageController extends Controller
 
 		if( ! $page )
 		{
-			return \Redirect::back()->withErrors("Siden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Siden (#{$id}) kunne ikke findes!");
 		}
 
 		return view('admin.cms.manage', [
@@ -48,7 +48,7 @@ class PageController extends Controller
 
 		if( ! $page )
 		{
-			return \Redirect::back()->withErrors("Siden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Siden (#{$id}) kunne ikke findes!");
 		}
 
 		$page->title = $request->get('title');
@@ -137,7 +137,7 @@ class PageController extends Controller
 
 		if( ! $page )
 		{
-			return \Redirect::back()->withErrors("Siden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Siden (#{$id}) kunne ikke findes!");
 		}
 
 		$page->delete();

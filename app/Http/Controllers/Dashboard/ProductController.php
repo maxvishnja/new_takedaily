@@ -33,7 +33,7 @@ class ProductController extends Controller
 
 		if( ! $product )
 		{
-			return \Redirect::back()->withErrors("Produktet (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Produktet (#{$id}) kunne ikke findes!");
 		}
 
 		return view('admin.products.manage', [
@@ -93,7 +93,7 @@ class ProductController extends Controller
 
 		if( ! $product )
 		{
-			return \Redirect::back()->withErrors("Produktet (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Produktet (#{$id}) kunne ikke findes!");
 		}
 
 		$product->name = $request->get('name');
@@ -137,7 +137,7 @@ class ProductController extends Controller
 
 		if( ! $product )
 		{
-			return \Redirect::back()->withErrors("Produktet (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Produktet (#{$id}) kunne ikke findes!");
 		}
 
 		$product->delete();

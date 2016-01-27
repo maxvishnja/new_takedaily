@@ -34,7 +34,7 @@ class OrderController extends Controller
 
 		if ( !$order )
 		{
-			return \Redirect::back()->withErrors("Ordren (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
 		}
 
 		$order->load('lines.products.product');
@@ -51,7 +51,7 @@ class OrderController extends Controller
 
 		if ( !$order )
 		{
-			return \Redirect::back()->withErrors("Ordren (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
 		}
 
 		return view('admin.orders.manage', [
@@ -65,7 +65,7 @@ class OrderController extends Controller
 
 		if ( !$order )
 		{
-			return \Redirect::back()->withErrors("Ordren (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
 		}
 
 		$order->state = $request->get('state');
@@ -80,7 +80,7 @@ class OrderController extends Controller
 
 		if ( !$order )
 		{
-			return \Redirect::back()->withErrors("Ordren (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
 		}
 
 		$order->delete();

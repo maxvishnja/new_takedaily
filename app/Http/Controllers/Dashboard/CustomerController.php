@@ -37,7 +37,7 @@ class CustomerController extends Controller
 
 		if( ! $customer )
 		{
-			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders' ]);
@@ -53,7 +53,7 @@ class CustomerController extends Controller
 
 		if( ! $customer )
 		{
-			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
 		$customer->load('user');
@@ -78,7 +78,7 @@ class CustomerController extends Controller
 
 		if( ! $customer )
 		{
-			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
 		if( ! $customer->cancelSubscription(true) )
@@ -95,7 +95,7 @@ class CustomerController extends Controller
 
 		if( ! $customer )
 		{
-			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
 		if ( $charge = $customer->rebill() )
@@ -112,7 +112,7 @@ class CustomerController extends Controller
 
 		if( ! $customer )
 		{
-			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 	}
 
@@ -124,7 +124,7 @@ class CustomerController extends Controller
 
 		if( ! $customer )
 		{
-			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 	}
 
@@ -134,7 +134,7 @@ class CustomerController extends Controller
 
 		if( ! $customer )
 		{
-			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
 		$customer->delete();
