@@ -96,7 +96,7 @@ class Plan extends Model
 
 	public function isSnoozeable()
 	{
-		return $this->isActive() && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() > 7; // consider should only be allowed once?
+		return $this->isActive() && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() > 7;
 	}
 
 	public function isCancelable()

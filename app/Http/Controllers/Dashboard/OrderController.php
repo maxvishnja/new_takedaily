@@ -30,9 +30,13 @@ class OrderController extends Controller
 
 	function show($id)
 	{
-		// todo check if exists
-
 		$order = Order::find($id);
+
+		if ( !$order )
+		{
+			return \Redirect::back()->withErrors("Ordren (#{$id} kunne ikke findes!");
+		}
+
 		$order->load('lines.products.product');
 		$order->load('customer.customerAttributes');
 
@@ -43,9 +47,12 @@ class OrderController extends Controller
 
 	function edit($id)
 	{
-		// todo check if exists
-
 		$order = Order::find($id);
+
+		if ( !$order )
+		{
+			return \Redirect::back()->withErrors("Ordren (#{$id} kunne ikke findes!");
+		}
 
 		return view('admin.orders.manage', [
 			'order' => $order
@@ -54,9 +61,13 @@ class OrderController extends Controller
 
 	function update($id, Request $request)
 	{
-		// todo check if exists
+		$order = Order::find($id);
 
-		$order        = Order::find($id);
+		if ( !$order )
+		{
+			return \Redirect::back()->withErrors("Ordren (#{$id} kunne ikke findes!");
+		}
+
 		$order->state = $request->get('state');
 		$order->save();
 
@@ -65,9 +76,14 @@ class OrderController extends Controller
 
 	function destroy($id)
 	{
-		// todo check if exists
+		$order = Order::find($id);
 
-		Order::find($id)->delete();
+		if ( !$order )
+		{
+			return \Redirect::back()->withErrors("Ordren (#{$id} kunne ikke findes!");
+		}
+
+		$order->delete();
 
 		return \Redirect::action('Dashboard\OrderController@index')->with('success', 'Ordren blev slettet!');
 	}

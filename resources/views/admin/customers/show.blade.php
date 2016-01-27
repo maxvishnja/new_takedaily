@@ -12,14 +12,14 @@
 					Rediger</a>
 
 				<a class="btn btn-warning" href="{{ URL::action('Dashboard\CustomerController@newPass', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du vil sende en ny adgangskode til brugeren? Den nuværende adgangskode bliver ugyldig.');"><i class="icon-key"></i>
-					Send ny adgangskode</a><!-- todo -->
+					Send ny adgangskode</a>
 
 				@if( $customer->plan->isActive() )
 					<a class="btn btn-success" href="{{ URL::action('Dashboard\CustomerController@bill', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du vil trække penge og oprette en ny ordre?');"><i class="icon-credit-card"></i>
-						Træk penge ({{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($customer->plan->price, true) }} kr.)</a><!-- todo -->
+						Træk penge ({{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($customer->plan->price, true) }} kr.)</a>
 
 					<a class="btn btn-danger" href="{{ URL::action('Dashboard\CustomerController@cancel', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du ønsker at opsige kundens abonnent?');"><i class="icon-remove"></i>
-						Opsig</a><!-- todo -->
+						Opsig</a>
 					@endif
 			</div>
 

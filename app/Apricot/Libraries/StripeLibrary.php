@@ -59,7 +59,7 @@ class StripeLibrary
 						'state'       => $customer->getCustomerAttribute('address_state')
 					],
 					'name'            => $customer->getName(),
-					'phone'           => $customer->getCustomerAttribute('phone'), // todo: add to customer
+					'phone'           => $customer->getCustomerAttribute('phone'),
 					'carrier'         => '', // todo: add carrier to order
 					'tracking_number' => '' // todo: add tracking number to order
 				]

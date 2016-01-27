@@ -198,8 +198,6 @@ class Customer extends Model
 			return false;
 		}
 
-		// Todo check if should rebill?
-
 		$lib = new StripeLibrary();
 
 		return $lib->chargeCustomer($this, null, MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice());

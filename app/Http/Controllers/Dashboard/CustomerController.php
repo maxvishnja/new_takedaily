@@ -33,9 +33,13 @@ class CustomerController extends Controller
 
 	function show($id)
 	{
-		// todo verify exists
-
 		$customer = Customer::find($id);
+
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+		}
+
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders' ]);
 
 		return view('admin.customers.show', [
@@ -45,8 +49,13 @@ class CustomerController extends Controller
 
 	function newPass($id)
 	{
-		// todo verify exists
 		$customer = Customer::find($id);
+
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+		}
+
 		$customer->load('user');
 		$password = str_random(8);
 
@@ -65,9 +74,14 @@ class CustomerController extends Controller
 
 	function cancel($id)
 	{
-		// todo verify exists
+		$customer = Customer::find($id);
 
-		if( ! Customer::find($id)->cancelSubscription(true) )
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+		}
+
+		if( ! $customer->cancelSubscription(true) )
 		{
 			return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->withErrors('Kundens abonnent kunne ikke opsiges, fordi det allerede er opsagt.');
 		}
@@ -77,8 +91,14 @@ class CustomerController extends Controller
 
 	function bill($id)
 	{
-		// todo verify exists
-		if ( $charge = Customer::find($id)->rebill() )
+		$customer = Customer::find($id);
+
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+		}
+
+		if ( $charge = $customer->rebill() )
 		{
 		// todo this.
 		}
@@ -87,18 +107,39 @@ class CustomerController extends Controller
 	function edit($id)
 	{
 
-		// todo verify exists
+		// todo
+		$customer = Customer::find($id);
+
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+		}
 	}
 
 	function update($id)
 	{
 
-		// todo verify exists
+		// todo
+		$customer = Customer::find($id);
+
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+		}
 	}
 
 	function destroy($id)
 	{
+		$customer = Customer::find($id);
 
-		// todo verify exists
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id} kunne ikke findes!");
+		}
+
+		$customer->delete();
+
+		return \Redirect::action('Dashboard\CustomerController@index')->with('success', 'Kunden blev slettet.');
+
 	}
 }

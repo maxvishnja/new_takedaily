@@ -29,9 +29,15 @@ class ProductController extends Controller
 
 	function edit($id)
 	{
-		// todo verify exists
+		$product = Product::find($id);
+
+		if( ! $product )
+		{
+			return \Redirect::back()->withErrors("Produktet (#{$id} kunne ikke findes!");
+		}
+
 		return view('admin.products.manage', [
-			'product' => Product::find($id)
+			'product' => $product
 		]);
 	}
 
@@ -82,9 +88,13 @@ class ProductController extends Controller
 
 	function update($id, Request $request)
 	{
-		// todo verify exists
 		// todo validate slug unique (else add ID)
 		$product = Product::find($id);
+
+		if( ! $product )
+		{
+			return \Redirect::back()->withErrors("Produktet (#{$id} kunne ikke findes!");
+		}
 
 		$product->name = $request->get('name');
 		$product->description = $request->get('description');
@@ -123,9 +133,14 @@ class ProductController extends Controller
 
 	function destroy($id)
 	{
-		// todo verify exists
+		$product = Product::find($id);
 
-		Product::find($id)->delete();
+		if( ! $product )
+		{
+			return \Redirect::back()->withErrors("Produktet (#{$id} kunne ikke findes!");
+		}
+
+		$product->delete();
 
 		return \Redirect::action('Dashboard\ProductController@index')->with('success', 'Produktet blev slettet!');
 	}

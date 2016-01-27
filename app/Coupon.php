@@ -1,4 +1,4 @@
-<?php namespace App; 
+<?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -25,5 +25,25 @@ class Coupon extends Model
      * @var array
      */
 	protected $hidden = [ ];
+
+	function usage()
+	{
+		return $this->applies_to == 'order' ? 'ordren' : 'abonnentet'; // todo translate
+	}
+
+	function isAmount()
+	{
+		return $this->discount_type == 'amount';
+	}
+
+	function isPercentage()
+	{
+		return $this->discount_type == 'percentage';
+	}
+
+	function isFreeShipping()
+	{
+		return $this->discount_type == 'free_shipping';
+	}
 
 }

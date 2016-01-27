@@ -30,18 +30,27 @@ class PageController extends Controller
 
 	function edit($id)
 	{
-		// todo: validate if page exists
+		$page = Page::find($id);
+
+		if( ! $page )
+		{
+			return \Redirect::back()->withErrors("Siden (#{$id} kunne ikke findes!");
+		}
 
 		return view('admin.cms.manage', [
-			'page' => Page::find($id)
+			'page' => $page
 		]);
 	}
 
 	function update(Request $request, $id)
 	{
-		// todo: validate if page exists
-
 		$page = Page::find($id);
+
+		if( ! $page )
+		{
+			return \Redirect::back()->withErrors("Siden (#{$id} kunne ikke findes!");
+		}
+
 		$page->title = $request->get('title');
 		$page->url_identifier = $page->generateIdentifier($request->get('title'));
 		$page->sub_title = $request->get('sub_title');
@@ -84,7 +93,7 @@ class PageController extends Controller
 
 	function store(Request $request)
 	{
-		// todo: validate (especially if exists)
+		// todo: validate (especially if exists already - slug.)
 
 		$page = new Page();
 		$page->title = $request->get('title');
@@ -124,9 +133,14 @@ class PageController extends Controller
 
 	function destroy($id)
 	{
-		// todo: validate if page exists
+		$page = Page::find($id);
 
-		Page::find($id)->delete();
+		if( ! $page )
+		{
+			return \Redirect::back()->withErrors("Siden (#{$id} kunne ikke findes!");
+		}
+
+		$page->delete();
 
 		return \Redirect::action('Dashboard\PageController@index')->with('success', 'Siden blev slettet!');
 	}
