@@ -20,13 +20,13 @@
 					<th>Beskrivelse</th>
 					<th>Værdi</th>
 					<th>Anvendelser</th>
-					<th>Gyldighed</th>
+					<th>Udløb</th>
 					<th></th>
 				</tr>
 				</thead>
 				<tbody>
 				@foreach($coupons as $coupon)
-					<tr>
+					<tr @if($coupon->valid_to <= date('Y-m-d')) style="color: #aaa; background: #eee;" @endif>
 						<td>{{ $coupon->code }}</td>
 						<td>{{ $coupon->description }}</td>
 						<td>
@@ -39,7 +39,7 @@
 							@endif
 						</td>
 						<td>{{ $coupon->uses_left >= 0 ? $coupon->uses_left : '&infin;' }}</td>
-						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $coupon->valid_to)->diffForHumans(null, true) }}</td>
+						<td>{{ $coupon->valid_to == '0000-00-00' ? '-' : \Jenssegers\Date\Date::createFromFormat('Y-m-d', $coupon->valid_to)->diffForHumans(null) }}</td>
 						<td>
 							<div class="btn-group">
 								<a class="btn btn-info" href="{{ URL::action('Dashboard\CouponController@edit', [ 'id' => $coupon->id ]) }}"><i class="icon-pencil"></i>

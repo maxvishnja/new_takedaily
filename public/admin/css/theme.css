@@ -1694,3 +1694,23 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', end
 	border-radius: 0 0 3px 0
 }
 @media(max-width:767px){body{padding:0!important}.wrapper{padding:20px 15px}}
+
+.ui-datepicker {
+	padding: 15px;
+	background: #fff;
+	border: 1px solid #ddd;
+	text-align: center;
+}
+
+table.ui-datepicker-calendar {
+	width: 300px;
+	margin-top: 20px;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+	float: left;
+}
+
+.ui-datepicker .ui-datepicker-next {
+	float: right;
+}

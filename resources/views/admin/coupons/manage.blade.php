@@ -34,7 +34,7 @@
 					<div class="controls">
 						<select name="type" id="type" onchange="if($(this).val() == 'free_shipping') { $('#discount_element').hide(); } else { $('#discount_element').show(); if( $(this).val() == 'percentage' ) { $('#discount_text').text('%') } else { $('#discount_text').text('kr.') } }">
 							@foreach(['percentage', 'amount', 'free_shipping'] as $option)
-								<option value="{{ $option }}" @if(isset($coupon) && $coupon->discount_type == $option) selected="selected" @endif>{{ $option }}</option>
+								<option value="{{ $option }}" @if(isset($coupon) && $coupon->discount_type == $option) selected="selected" @endif>{{ trans("coupons.type.$option") }}</option>
 							@endforeach
 						</select>
 					</div>
@@ -61,7 +61,7 @@
 					<div class="controls">
 						<select name="applies_to" id="applies_to">
 							@foreach(['order', 'plan'] as $option)
-								<option value="{{ $option }}" @if(isset($coupon) && $coupon->applies_to == $option) selected="selected" @endif>{{ $option }}</option>
+								<option value="{{ $option }}" @if(isset($coupon) && $coupon->applies_to == $option) selected="selected" @endif>{{ trans("coupons.applies.$option") }}</option>
 							@endforeach
 						</select>
 						<p class="help-block"><strong>Abonnent:</strong> hele abonnentet og alle fremtidige betalinger<br/>
@@ -70,14 +70,14 @@
 				</div>
 
 				<div class="control-group" id="uses_left_element">
-					<label for="valid_to" class="control-label">Gyldig fra</label>
-					<div class="controls">
-						<input type="text" class="form-control span8 datepicker" name="valid_to" id="valid_to" value="{{ Request::old('valid_to', isset($coupon) ? $coupon->valid_to : '' ) }}"/>
-					</div>
-					<br/>
-					<label for="valid_from" class="control-label">Gyldig til</label>
+					<label for="valid_from" class="control-label">Gyldig fra</label>
 					<div class="controls">
 						<input type="text" class="form-control span8 datepicker" name="valid_from" id="valid_from" value="{{ Request::old('valid_from', isset($coupon) ? $coupon->valid_from : '' ) }}"/>
+					</div>
+					<br/>
+					<label for="valid_to" class="control-label">Gyldig til</label>
+					<div class="controls">
+						<input type="text" class="form-control span8 datepicker" name="valid_to" id="valid_to" value="{{ Request::old('valid_to', isset($coupon) ? $coupon->valid_to : '' ) }}"/>
 					</div>
 				</div>
 
@@ -110,7 +110,9 @@
 @section('scripts')
 	<script>
 		$(function() {
-			$( ".datepicker" ).datepicker();
+			$( ".datepicker" ).datepicker({
+				dateFormat: "yy-mm-dd"
+			});
 		});
 	</script>
 @endsection
