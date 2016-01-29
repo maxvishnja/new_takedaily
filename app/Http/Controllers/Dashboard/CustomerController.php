@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use App\User;
@@ -98,10 +99,15 @@ class CustomerController extends Controller
 			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
-		if ( $charge = $customer->rebill() )
+		if ( ! $charge = $customer->rebill() )
 		{
-			return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', "Der blev trukket {} kr. på kundens konto, og en ny ordre (#{}) blev oprettet. <a href=\"..\">Vis ordre</a>"); // todo
+			return \Redirect::back()->withErrors("Der kunne ikke trækkes penge fra kunden!");
 		}
+
+		$amount = MoneyLibrary::toMoneyFormat($charge->amount, true);
+		$lastOrder = $customer->orders()->latest()->first();
+
+		return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', "Der blev trukket {$amount} kr. på kundens konto, og en ny ordre (#{$lastOrder->id}) blev oprettet. <a href=\"" . \URL::action('Dashboard\OrderController@show', [ $lastOrder->id ]) . "\">Vis ordre</a>");
 	}
 
 	function edit($id)

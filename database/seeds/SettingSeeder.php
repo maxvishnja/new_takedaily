@@ -15,5 +15,10 @@ class SettingSeeder extends Seeder
 			'identifier' => 'analytics-code',
 			'value'      => ''
 		]);
+
+		\App\Setting::create([
+			'identifier' => 'share-coupon',
+			'value'      => ''
+		]);
 	}
 }

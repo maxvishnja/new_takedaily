@@ -199,7 +199,7 @@ class Customer extends Model
 			return false;
 		}
 
-		$this->charge(MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice());
+		return $this->charge(MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice());
 	}
 
 	public function getStripeCustomer()
@@ -252,12 +252,12 @@ class Customer extends Model
 		$shipping = $shipping ? : $this->getPlan()->getShippingPrice();
 		$taxes    = $amount * 0.25;
 
-		$this->order_count++;
+		$this->order_count ++;
 		$this->save();
 
 		return $this->orders()->create([
 			'reference'           => (str_random(8) . '-' . str_random(2) . '-' . str_pad($this->getOrders()->count() + 1, 4, '0', STR_PAD_LEFT)),
-			'stripe_charge_token' => $stripeChargeToken ?: '',
+			'stripe_charge_token' => $stripeChargeToken ? : '',
 			'state'               => ($stripeChargeToken ? 'paid' : 'new'),
 			'total'               => $amount,
 			'total_shipping'      => $shipping,
@@ -266,18 +266,21 @@ class Customer extends Model
 		]);
 	}
 
-	public function charge($amount)
+	public function charge($amount, $makeOrder = true)
 	{
 		$lib = new StripeLibrary();
 
-		$charge = $lib->chargeCustomer($this, null, MoneyLibrary::toCents($amount));
+		$charge = $lib->chargeCustomer($this, null, $amount);
 
-		if( ! $charge )
+		if ( !$charge )
 		{
 			return false;
 		}
 
-		\Event::fire(new CustomerWasBilled($this, $amount, $charge->id));
+		if ( $makeOrder )
+		{
+			\Event::fire(new CustomerWasBilled($this, $amount, $charge->id));
+		}
 
 		return $charge;
 	}

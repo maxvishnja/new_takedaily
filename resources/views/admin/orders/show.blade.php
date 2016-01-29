@@ -11,8 +11,8 @@
 					Rediger</a>
 
 				@if($order->state == 'paid' )
-					<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@edit', [ 'id' => $order->id ]) }}"><i class="icon-truck"></i>
-						Marker som sendt</a> <!-- todo -->
+					<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@markSent', [ 'id' => $order->id ]) }}"><i class="icon-truck"></i>
+						Marker som sendt</a>
 
 					<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@edit', [ 'id' => $order->id ]) }}"><i class="icon-money"></i>
 						Refunder</a> <!-- todo -->

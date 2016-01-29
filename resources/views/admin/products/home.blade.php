@@ -66,7 +66,8 @@
 						"targets": [2,3,4,5],
 						"searchable": false
 					}
-				]
+				],
+				"aaSorting": [[0, 'desc']]
 			});
 			$('.dataTables_paginate').addClass('btn-group datatable-pagination');
 			$('.dataTables_paginate > a').wrapInner('<span />');

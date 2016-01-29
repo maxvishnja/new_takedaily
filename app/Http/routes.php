@@ -122,6 +122,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::get('customers/cancel/{id}', 'Dashboard\CustomerController@cancel');
 
 		Route::resource('orders', 'Dashboard\OrderController');
+		Route::get('orders/mark-sent/{id}', 'Dashboard\OrderController@markSent');
 		Route::resource('coupons', 'Dashboard\CouponController');
 		Route::resource('settings', 'Dashboard\SettingController');
 		Route::resource('products', 'Dashboard\ProductController');

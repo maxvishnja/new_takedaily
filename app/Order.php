@@ -80,6 +80,16 @@ class Order extends Model
 		return $query->whereBetween('created_at', [Date::today()->setTime(0, 0, 0), Date::today()->setTime(23, 59, 59)]);
 	}
 
+	public function markSent()
+	{
+		$this->state = 'sent';
+		$this->save();
+
+		// todo send mail to customer
+
+		return true;
+	}
+
 	public function stateToColor()
 	{
 		switch($this->state)

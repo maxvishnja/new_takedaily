@@ -25,14 +25,14 @@
 					@if( $errors->has() )
 						@foreach($errors->all() as $error)
 							<div class="alert alert-error">
-								{{ $error }}
+								{!! $error !!}
 							</div>
 						@endforeach
 					@endif
 
 					@if( session('success') )
 						<div class="alert alert-success">
-							{{ session('success') }}
+							{!! session('success') !!}
 						</div>
 					@endif
 					@yield('content')

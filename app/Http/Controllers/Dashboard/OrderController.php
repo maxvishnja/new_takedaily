@@ -59,6 +59,20 @@ class OrderController extends Controller
 		]);
 	}
 
+	function markSent($id)
+	{
+		$order = Order::find($id);
+
+		if ( !$order )
+		{
+			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
+		}
+
+		$order->markSent();
+
+		return \Redirect::action('Dashboard\OrderController@index')->with('success', 'Ordren blev markeret som afsendt, og kunden har fået besked!');
+	}
+
 	function update($id, Request $request)
 	{
 		$order = Order::find($id);
