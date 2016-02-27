@@ -27,7 +27,8 @@ class Page extends Model
 		'body',
 		'meta_title',
 		'meta_description',
-		'meta_image'
+		'meta_image',
+		'is_locked'
 	];
 
 	/**
@@ -40,5 +41,10 @@ class Page extends Model
 	public function generateIdentifier($title)
 	{
 		return SlugLibrary::generate($title);
+	}
+
+	public function isLocked()
+	{
+		return $this->is_locked == 1;
 	}
 }

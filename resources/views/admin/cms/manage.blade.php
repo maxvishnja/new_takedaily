@@ -26,12 +26,10 @@
 								<label for="page_title" class="control-label">Sidens titel</label>
 								<div class="controls">
 									<input type="text" class="form-control span8" name="title" id="page_title" value="{{ Request::old('title', isset($page) ? $page->title : '' ) }}" placeholder="Sidens titel"/>
-									@if(!isset($page) || (isset($page) && $page->url_identifier != 'home'))
-										<p class="help-block">Sidens url bliver:
-											<mark id="page_handle_preview">
-												/{{ isset($page) ? $page->url_identifier : '' }}</mark>
-										</p>
-									@endif
+									<p class="help-block">Sidens url bliver:
+										<mark @if(!isset($page) || (isset($page) && !$page->isLocked())) id="page_handle_preview" @endif>
+											/{{ isset($page) ? $page->url_identifier : '' }}</mark>
+									</p>
 								</div>
 							</div>
 
@@ -100,7 +98,7 @@
 			</form>
 		</div>
 	</div><!--/.module-->
-	@if( isset($page) && $page->url_identifier != 'home' )
+	@if( isset($page) && !$page->isLocked() )
 		<div>
 			<form method="POST" action="{{ URL::action('Dashboard\PageController@destroy', [ $page->id ]) }}" onsubmit="return confirm('Er du sikker på at du slette denne side?');">
 				<button type="submit" class="btn btn-link">Slet siden</button>
@@ -115,28 +113,28 @@
 	<script>
 		@if(!isset($page) || (isset($page) && $page->url_identifier != 'home'))
 			$("#page_title").on('input', function ()
-			{
-				generateSlug($(this).val());
-			});
+		{
+			generateSlug($(this).val());
+		});
 
-			function generateSlug(value)
-			{
-				var handle = value;
-				handle = handle.trim(' ');
-				handle = handle.toLowerCase();
-				handle = handle.replace(/(å)/g, 'aa');
-				handle = handle.replace(/(ø)/g, 'oe');
-				handle = handle.replace(/(æ)/g, 'ae');
-				handle = handle.replace(/\s\s+/g, ' ');
-				handle = handle.replace(/( )/g, '-');
-				handle = handle.replace(/([^a-z0-9-])/g, '');
-				handle = handle.replace(/\-\-+/g, '-');
-				handle = handle.substr(0, 50);
+		function generateSlug(value)
+		{
+			var handle = value;
+			handle = handle.trim(' ');
+			handle = handle.toLowerCase();
+			handle = handle.replace(/(å)/g, 'aa');
+			handle = handle.replace(/(ø)/g, 'oe');
+			handle = handle.replace(/(æ)/g, 'ae');
+			handle = handle.replace(/\s\s+/g, ' ');
+			handle = handle.replace(/( )/g, '-');
+			handle = handle.replace(/([^a-z0-9-])/g, '');
+			handle = handle.replace(/\-\-+/g, '-');
+			handle = handle.substr(0, 50);
 
-				$("#page_handle_preview").text('/' + handle);
-			}
+			$("#page_handle_preview").text('/' + handle);
+		}
 
-			generateSlug($("#page_title").val());
+		generateSlug($("#page_title").val());
 		@endif
 
 		CKEDITOR.replace('page_body', {

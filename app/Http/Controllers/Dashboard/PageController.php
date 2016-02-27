@@ -16,7 +16,7 @@ class PageController extends Controller
 	 */
 	private $repo;
 
-    function __construct(PageRepository $repo)
+	function __construct(PageRepository $repo)
 	{
 		$this->repo = $repo;
 	}
@@ -32,7 +32,7 @@ class PageController extends Controller
 	{
 		$page = Page::find($id);
 
-		if( ! $page )
+		if ( !$page )
 		{
 			return \Redirect::back()->withErrors("Siden (#{$id}) kunne ikke findes!");
 		}
@@ -46,27 +46,30 @@ class PageController extends Controller
 	{
 		$page = Page::find($id);
 
-		if( ! $page )
+		if ( !$page )
 		{
 			return \Redirect::back()->withErrors("Siden (#{$id}) kunne ikke findes!");
 		}
 
 		$page->title = $request->get('title');
-		$page->url_identifier = $page->generateIdentifier($request->get('title'));
-		$page->sub_title = $request->get('sub_title');
-		$page->body = $request->get('body');
-		$page->meta_title = $request->get('meta_title');
+		if ( !$page->isLocked() )
+		{
+			$page->url_identifier = $page->generateIdentifier($request->get('title'));
+		}
+		$page->sub_title        = $request->get('sub_title');
+		$page->body             = $request->get('body');
+		$page->meta_title       = $request->get('meta_title');
 		$page->meta_description = substr($request->get('meta_description'), 0, 200);
 
-		if( $img = $request->file('meta_image') )
+		if ( $img = $request->file('meta_image') )
 		{
 			$imgPath = public_path('uploads/cms/meta/');
 			$imgName = str_random(40) . '.' . $img->getClientOriginalExtension();
 
 			$fileIsUnique = false;
-			while(!$fileIsUnique)
+			while( !$fileIsUnique )
 			{
-				if( \File::exists("$imgPath/$imgName") )
+				if ( \File::exists("$imgPath/$imgName") )
 				{
 					$imgName = str_random(40) . '.' . $img->getClientOriginalExtension();
 				}
@@ -95,23 +98,23 @@ class PageController extends Controller
 	{
 		// todo: validate (especially if exists already - slug.)
 
-		$page = new Page();
-		$page->title = $request->get('title');
-		$page->url_identifier = $page->generateIdentifier($request->get('title'));
-		$page->sub_title = $request->get('sub_title');
-		$page->body = $request->get('body');
-		$page->meta_title = $request->get('meta_title');
+		$page                   = new Page();
+		$page->title            = $request->get('title');
+		$page->url_identifier   = $page->generateIdentifier($request->get('title'));
+		$page->sub_title        = $request->get('sub_title');
+		$page->body             = $request->get('body');
+		$page->meta_title       = $request->get('meta_title');
 		$page->meta_description = substr($request->get('meta_description'), 0, 200);
 
-		if( $img = $request->file('meta_image') )
+		if ( $img = $request->file('meta_image') )
 		{
 			$imgPath = public_path('uploads/cms/meta/');
 			$imgName = str_random(40) . '.' . $img->getClientOriginalExtension();
 
 			$fileIsUnique = false;
-			while(!$fileIsUnique)
+			while( !$fileIsUnique )
 			{
-				if( \File::exists("$imgPath/$imgName") )
+				if ( \File::exists("$imgPath/$imgName") )
 				{
 					$imgName = str_random(40) . '.' . $img->getClientOriginalExtension();
 				}
@@ -135,7 +138,7 @@ class PageController extends Controller
 	{
 		$page = Page::find($id);
 
-		if( ! $page )
+		if ( !$page )
 		{
 			return \Redirect::back()->withErrors("Siden (#{$id}) kunne ikke findes!");
 		}
