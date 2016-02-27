@@ -23,6 +23,11 @@ class OrderServiceProvider extends ServiceProvider
 			$order->customer->order_count--;
 			$order->customer->save();
 		});
+
+        Order::created( function ($order) {
+			$order->customer->order_count++;
+			$order->customer->save();
+		});
     }
 
     /**

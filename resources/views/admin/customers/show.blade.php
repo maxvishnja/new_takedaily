@@ -89,6 +89,35 @@
 				@endforeach
 				</tbody>
 			</table>
+
+			@if($customer->getOrderCount() > 0)
+				<h3>Ordre</h3>
+				<table class="table table-striped">
+					<thead>
+					<tr>
+					<tr>
+						<th>#</th>
+						<th>Status</th>
+						<th>Total</th>
+						<th>Oprettet d.</th>
+						<th>Opdateret d.</th>
+					</tr>
+					</thead>
+					<tbody>
+					@foreach($customer->orders as $order)
+						<tr>
+						<td>
+							<a href="{{ URL::action('Dashboard\OrderController@show', [ 'id' => $order->id ]) }}">{{ $order->getPaddedId() }}</a>
+						</td>
+						<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
+						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true) }} kr.</td>
+						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
+						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->updated_at)->format('j. M Y H:i') }}</td>
+						</tr>
+					@endforeach
+					</tbody>
+				</table>
+			@endif
 		</div>
 	</div><!--/.module-->
 @stop
