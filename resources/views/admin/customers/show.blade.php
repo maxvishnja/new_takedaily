@@ -3,7 +3,7 @@
 @section('content')
 	<div class="module">
 		<div class="module-head">
-			<h3 >Kunde (#{{ $customer->id }})</h3>
+			<h3>Kunde (#{{ $customer->id }})</h3>
 		</div>
 
 		<div class="module-body">
@@ -16,11 +16,12 @@
 
 				@if( $customer->plan->isActive() )
 					<a class="btn btn-success" href="{{ URL::action('Dashboard\CustomerController@bill', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du vil trække penge og oprette en ny ordre?');"><i class="icon-credit-card"></i>
-						Træk penge ({{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($customer->plan->price, true) }} kr.)</a>
+						Træk penge
+						({{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($customer->plan->price, true) }} kr.)</a>
 
 					<a class="btn btn-danger" href="{{ URL::action('Dashboard\CustomerController@cancel', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du ønsker at opsige kundens abonnent?');"><i class="icon-remove"></i>
 						Opsig</a>
-					@endif
+				@endif
 			</div>
 
 			<div class="clear"></div>
@@ -28,59 +29,64 @@
 
 			<table class="table table-striped">
 				<tbody>
-					<tr>
-						<td>Id</td>
-						<td>{{ $customer->id }}</td>
-					</tr>
+				<tr>
+					<td>Id</td>
+					<td>{{ $customer->id }}</td>
+				</tr>
 
-					<tr>
-						<td>Navn</td>
-						<td>{{ $customer->getName() }}</td>
-					</tr>
+				<tr>
+					<td>Navn</td>
+					<td>{{ $customer->getName() }}</td>
+				</tr>
 
-					<tr>
-						<td>E-mail</td>
-						<td><a href="mailto:{{ $customer->getEmail() }}">{{ $customer->getEmail() }}</a></td>
-					</tr>
+				<tr>
+					<td>E-mail</td>
+					<td><a href="mailto:{{ $customer->getEmail() }}">{{ $customer->getEmail() }}</a></td>
+				</tr>
 
-					<tr>
-						<td>Køn</td>
-						<td>{{ $customer->gender }}</td>
-					</tr>
+				<tr>
+					<td>Køn</td>
+					<td>{{ $customer->gender }}</td>
+				</tr>
 
-					<tr>
-						<td>Modtag nyhedsbreve</td>
-						<td>{{ $customer->acceptNewsletters() ? 'Ja' : 'Nej' }}</td>
-					</tr>
+				<tr>
+					<td>Modtag nyhedsbreve</td>
+					<td>{{ $customer->acceptNewsletters() ? 'Ja' : 'Nej' }}</td>
+				</tr>
 
+				@if($customer->hasBirthday())
 					<tr>
 						<td>Fødselsdag</td>
 						<td>{{ $customer->getBirthday() }} ({{ $customer->getAge() }} år)</td>
 					</tr>
+				@endif
 
+				<tr>
+					<td>Antal ordre</td>
+					<td>{{ $customer->getOrderCount() }}</td>
+				</tr>
+
+				<tr>
+					<td>Abonnent aktivt</td>
+					<td>{{ $customer->plan->isActive() ? 'Ja' : 'Nej' }}</td>
+				</tr>
+
+				@if( $customer->plan->isActive() )
 					<tr>
-						<td>Antal ordre</td>
-						<td>{{ $customer->getOrderCount() }}</td>
+						<td>Næste ordre/trækning</td>
+						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('j. M Y H:i') }}
+							({{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->diffForHumans() }}
+							)
+						</td>
 					</tr>
+				@endif
 
+				@foreach($customer->customerAttributes as $attribute)
 					<tr>
-						<td>Abonnent aktivt</td>
-						<td>{{ $customer->plan->isActive() ? 'Ja' : 'Nej' }}</td>
+						<td>{{ trans("attributes.{$attribute->identifier}") }}</td>
+						<td>{{ $attribute->value }}</td>
 					</tr>
-
-					@if( $customer->plan->isActive() )
-						<tr>
-							<td>Næste ordre/trækning</td>
-							<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('j. M Y H:i') }} ({{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->diffForHumans() }})</td>
-						</tr>
-					@endif
-
-					@foreach($customer->customerAttributes as $attribute)
-						<tr>
-							<td>{{ trans("attributes.{$attribute->identifier}") }}</td>
-							<td>{{ $attribute->value }}</td>
-						</tr>
-					@endforeach
+				@endforeach
 				</tbody>
 			</table>
 		</div>

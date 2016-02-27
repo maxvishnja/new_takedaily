@@ -172,6 +172,11 @@ class Customer extends Model
 		return $this->getUser()->getEmail();
 	}
 
+	public function hasBirthday()
+	{
+		return !is_null($this->birthday);
+	}
+
 	public function getBirthday()
 	{
 		return $this->birthday;
@@ -179,6 +184,11 @@ class Customer extends Model
 
 	public function getAge()
 	{
+		if ( is_null($this->getBirthday()) )
+		{
+			return false;
+		}
+
 		return Date::createFromFormat('Y-m-d', $this->getBirthday())->diffInYears();
 	}
 
