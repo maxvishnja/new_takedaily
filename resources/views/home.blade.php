@@ -4,4 +4,5 @@
 
 @section('content')
 	Home
+	<div class="logo-color"></div>
 @endsection

@@ -2,27 +2,27 @@
 <html lang="da">
 	<head>
 		<title>Take Daily</title>
-	
+
 		<meta charset="UTF-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport"
 			  content="width=device-width, initial-scale=1.0, minimum-scale=1, user-scalable=no, maximum-scale=1.0"/>
-	
+
 		<script src="https://use.typekit.net/feb1teb.js"></script>
 		<script>try{Typekit.load({ async: true });}catch(e){}</script>
 		<link rel="stylesheet" href="app.css"/>
-		
+
 		<link rel="mask-icon" sizes="any" href="/mask.svg" color="#000000"> <!-- todo -->
-		
+
 		<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 		<link rel="icon" type="image/png" href="/favicon.png"/>
-	
+
 		<!--[if lt IE 9]>
 			<script src="/js/vendor/respond.1.4.2.min.js"></script>
 			<script src="/js/vendor/html5shiv.3.7.3.min.js"></script>
 		<![endif]-->
 	</head>
-	
+
 	<body>
 		<header>
 			<div class="container-fluid">
@@ -63,9 +63,72 @@
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus magni nulla laborum nam sunt laboriosam veritatis, minus ullam sit consequatur neque tempore. Dolorum omnis vero facilis sequi nihil delectus voluptatibus.</p>
 			</div>
 		</main>
-			
+
 		<footer>
-			
+			<div class="main">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4 text-center">
+							<h3 class="footer_title">Nyhedsbreve</h3>
+							<p>Vil du gerne være med, men har ikke tid til en konsultation lige nu, så indtast din e-mail herunder.</p>
+							<form method="post" action="/signup-mailchimp">
+								<input type="email" name="email" id="input_newsletters_email" placeholder="Indtast din e-mail adresse" />
+								<button type="submit">Send</button>
+								<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+							</form>
+							<p class="text-left">Så er du allerede lidt i gang...</p>
+						</div>
+						<div class="col-md-4 text-center">
+							<h3 class="footer_title">Følg Take Daily</h3>
+							<a href="#fb"><span class="icon icon-facebook"></span></a>
+							<a href="#ig"><span class="icon icon-instagram"></span></a>
+							<a href="#tw"><span class="icon icon-twitter"></span></a>
+
+							<div class="logo logo-color"></div>
+						</div>
+						<div class="col-md-4 text-center">
+							<h3 class="footer_title">Kontakt os</h3>
+							<p>Send en mail og få svar inden 24 timer. Du kan ringe til os alle hverdage 09-16</p>
+							<p>
+								+45 1234 5678<br/>
+								<a href="mailto:support@takedaily.dk">support@takedaily.dk</a>
+							</p>
+							<p>
+							<address>
+								TakeDaily · DK 1234 5678<br/>
+								Vimmelskaftet 43 · København 1111
+							</address>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="bottom">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-5">
+							&copy; 2016 Take Daily.
+							<span class="icon icon-card-mastercard" title="Mastercard"></span>
+							<span class="icon icon-card-visa" title="Visa"></span>
+						</div>
+						<div class="col-md-6">
+							<ul>
+								<li class="dropdown selector"><a href="#">Danmark</a> <span class="icon icon-arrow-up"></span>
+									<ul>
+										<li><a href="#dk">Danmark</a></li>
+										<li><a href="#no">Norge</a></li>
+										<li><a href="#sv">Sverige</a></li>
+									</ul>
+								</li>
+								<li><a href="/om-take-daily">Om Take Daily</a></li>
+								<li><a href="/privacy">Fortrolighed & cookies</a></li>
+								<li><a href="/terms">Vilkår og betingelser</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 		</footer>
 
 		<script type="text/javascript" src="/js/app.min.js"></script>
