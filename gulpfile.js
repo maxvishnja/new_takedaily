@@ -20,24 +20,6 @@ require('laravel-elixir-spritesmith');
 
 elixir(function (mix)
 {
-	svgSpriteConfig = {
-		mode: {
-			css: {
-				bust: false,
-				dest: 'images',
-				render: {
-					scss: {
-						dest: '../../resources/assets/sass/_svg-sprites'
-					}
-				},
-				sprite: '../images/svg-sprite.svg'
-			},
-		}
-	};
-	gulp.src('resources/assets/sprites/*.svg')
-		.pipe(svgSprite(svgSpriteConfig))
-		.pipe(gulp.dest('public/'));
-
 	mix.spritesmith('resources/assets/sprites', {
 		retinaSrcFilter: 'resources/assets/sprites/*@2x.png',
 		imgOutput: 'public/images',

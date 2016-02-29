@@ -197,6 +197,121 @@ img {
 
   @include sprites($spritesheet-sprites)
   */
+.svg-icon-arrow-down-small, .svg-icon-arrow-left, .svg-icon-arrow-right, .svg-icon-arrow-up-small, .svg-icon-box, .svg-icon-card-mastercard, .svg-icon-card-visa, .svg-icon-facebook, .svg-icon-instagram, .svg-icon-play, .svg-icon-truck, .svg-icon-twitter, .svg-icon-user-information, .svg-logo-black, .svg-logo-color, .svg-logo-white {
+  background: url("../images/svg-sprite.svg") no-repeat; }
+
+.svg-icon-arrow-down-small {
+  background-position: 96.21212121212122% 28.571428571428573%; }
+
+.svg-icon-arrow-down-small-dims {
+  width: 22px;
+  height: 4px; }
+
+.svg-icon-arrow-left {
+  background-position: 98.49056603773585% 50.442477876106196%; }
+
+.svg-icon-arrow-left-dims {
+  width: 21px;
+  height: 44px; }
+
+.svg-icon-arrow-right {
+  background-position: 90.56603773584905% 50.442477876106196%; }
+
+.svg-icon-arrow-right-dims {
+  width: 21px;
+  height: 44px; }
+
+.svg-icon-arrow-up-small {
+  background-position: 96.21212121212122% 27.06766917293233%; }
+
+.svg-icon-arrow-up-small-dims {
+  width: 22px;
+  height: 4px; }
+
+.svg-icon-box {
+  background-position: 100% 0; }
+
+.svg-icon-box-dims {
+  width: 120px;
+  height: 72px; }
+
+.svg-icon-card-mastercard {
+  background-position: 65.35433070866142% 28.8%; }
+
+.svg-icon-card-mastercard-dims {
+  width: 32px;
+  height: 20px; }
+
+.svg-icon-card-visa {
+  background-position: 77.95275590551181% 28.8%; }
+
+.svg-icon-card-visa-dims {
+  width: 32px;
+  height: 20px; }
+
+.svg-icon-facebook {
+  background-position: 91.6030534351145% 64.22764227642277%; }
+
+.svg-icon-facebook-dims {
+  width: 24px;
+  height: 24px; }
+
+.svg-icon-instagram {
+  background-position: 30.53435114503817% 77.23577235772358%; }
+
+.svg-icon-instagram-dims {
+  width: 24px;
+  height: 24px; }
+
+.svg-icon-play {
+  background-position: 0 100%; }
+
+.svg-icon-play-dims {
+  width: 80px;
+  height: 80px; }
+
+.svg-icon-truck {
+  background-position: 0 58.76288659793814%; }
+
+.svg-icon-truck-dims {
+  width: 120px;
+  height: 76px; }
+
+.svg-icon-twitter {
+  background-position: 87.78625954198473% 28.8%; }
+
+.svg-icon-twitter-dims {
+  width: 24px;
+  height: 20px; }
+
+.svg-icon-user-information {
+  background-position: 72.28915662650603% 57.57575757575758%; }
+
+.svg-icon-user-information-dims {
+  width: 120px;
+  height: 72px; }
+
+.svg-logo-black {
+  background-position: 0 16.379310344827587%; }
+
+.svg-logo-black-dims {
+  width: 166px;
+  height: 38px; }
+
+.svg-logo-color {
+  background-position: 0 32.758620689655174%; }
+
+.svg-logo-color-dims {
+  width: 166px;
+  height: 38px; }
+
+.svg-logo-white {
+  background-position: 0 0; }
+
+.svg-logo-white-dims {
+  width: 166px;
+  height: 38px; }
+
 .picker, .picker__holder {
   width: 100%;
   position: absolute; }
