@@ -16,19 +16,10 @@
 	</div>
 </header>
 
-<main @if(!isset($mainClasses)) class="m-t-50 m-b-50" @else class="{{ $mainClasses }}" @endif>
+<main class="m-b-50">
+	@include('includes.app.account-nav')
 	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<aside>
-					@include('includes.app.account-sidebar')
-				</aside>
-			</div>
-
-			<div class="col-md-8">
-				@yield('content')
-			</div>
-		</div>
+		@yield('content')
 	</div>
 </main>
 

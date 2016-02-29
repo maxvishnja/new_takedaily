@@ -1,3 +1,30 @@
 body.account
-	aside
+	nav.account_nav
 		background: $lightest-grey
+
+		ul
+			li
+				float: left
+
+				a
+					display: inline-block
+					font-size: 20px
+					padding: 28px 40px
+					color: $warm-grey
+					text-decoration: none !important
+
+				&:hover
+					background: $lighter-grey
+
+				&.active
+					background: #fff
+					color: $greyish-brown
+					font-weight: $weight-semibold
+
+@media all and (max-width: 1199px)
+	body.account
+		nav.account_nav
+			ul
+				li
+					a
+						padding: 28px 28px

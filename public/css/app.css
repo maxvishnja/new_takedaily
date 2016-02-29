@@ -2594,15 +2594,15 @@ header {
   header .header_top_tb {
     padding: 39px 0; }
 
-nav {
+nav[role="navigation"] {
   float: right; }
-  nav ul {
+  nav[role="navigation"] ul {
     list-style: none;
     margin: 0;
     padding: 0; }
-    nav ul li {
+    nav[role="navigation"] ul li {
       display: inline-block; }
-      nav ul li a {
+      nav[role="navigation"] ul li a {
         text-transform: uppercase;
         color: #fff;
         font-size: 16px;
@@ -2611,7 +2611,7 @@ nav {
         text-decoration: none;
         display: inline-block;
         border-bottom: 1px solid transparent; }
-        nav ul li a:hover {
+        nav[role="navigation"] ul li a:hover {
           color: #fff;
           text-decoration: none;
           border-bottom: 1px solid #fff; }
@@ -2652,7 +2652,7 @@ footer .bottom {
 @media all and (max-width: 767px) {
   header {
     height: 79px; }
-    header .header_top {
+    header .header_top, header .header_top_tb {
       padding: 21px 0 19px; } }
 
 header.header--landing {
@@ -2837,7 +2837,25 @@ header.header--landing {
   .selector:hover ul {
     display: block; }
 
-body.account aside {
+body.account nav.account_nav {
   background: #eee; }
+  body.account nav.account_nav ul li {
+    float: left; }
+    body.account nav.account_nav ul li a {
+      display: inline-block;
+      font-size: 20px;
+      padding: 28px 40px;
+      color: #777;
+      text-decoration: none !important; }
+    body.account nav.account_nav ul li:hover {
+      background: #ddd; }
+    body.account nav.account_nav ul li.active {
+      background: #fff;
+      color: #555;
+      font-weight: 600; }
+
+@media all and (max-width: 1199px) {
+  body.account nav.account_nav ul li a {
+    padding: 28px 28px; } }
 
 /*# sourceMappingURL=app.css.map */
