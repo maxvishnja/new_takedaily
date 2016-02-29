@@ -20,7 +20,7 @@ body {
 	height: 0;
 }
 
-.clear&:after {
+.clear:after {
 	clear: both;
 	display: block;
 	overflow: hidden;

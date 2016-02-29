@@ -1,6 +1,4 @@
 var elixir = require('laravel-elixir');
-var gulp = require('gulp');
-var svgSprite = require('gulp-svg-sprite');
 require('laravel-elixir-spritesmith');
 
 
@@ -24,7 +22,6 @@ elixir(function (mix)
 		retinaSrcFilter: 'resources/assets/sprites/*@2x.png',
 		imgOutput: 'public/images',
 		cssOutput: 'resources/assets/sass/',
-		cssFormat: 'sass',
 		cssName: '_sprites.sass',
 		imgPath: '/images/sprite.png',
 		retinaImgName: 'sprite@2x.png',
