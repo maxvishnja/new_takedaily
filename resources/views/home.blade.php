@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.landing')
 
 @section('pageClass', 'index')
 
 @section('content')
 
-	<header class="header--with-bg">
+	<header class="header--landing header--with-large-bg">
 		<div class="container-fluid">
 			<div class="header_top">
 				<div class="row">
@@ -15,8 +15,37 @@
 					<div class="col-md-9 col-xs-4">
 						@include('includes.app.nav')
 					</div>
+				</div>
 			</div>
+		</div>
+
+		<div class="container">
+			<div class="header_content">
+				<div class="header_slider">
+					<div class="header_slide">
+						<div class="row">
+							<div class="col-md-6">
+								<h1>Nu bliver det nemt,<br/>
+									at få din krop i balance.</h1>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam distinctio
+									eligendi.</p>
+								<a href="#" class="button button--double button--rounded button--green">
+									<strong>Tryk her for at starte nu</strong>
+									<span>Fra 149 kr. Ingen binding</span>
+								</a>
+							</div>
+							<div class="col-md-6">
+								<img src="/images/product_small.png" alt="Take Daily box">
+							</div>
+						</div>
+					</div>
+					<div class="header_slide"></div>
+				</div>
 			</div>
+		</div>
+
+		<div class="header_footer hidden-sm hidden-xs">
+			<a href="#">Start selv</a> i dag eller giv Take Daily <a href="#">i gave</a>
 		</div>
 	</header>
 

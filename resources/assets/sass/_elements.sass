@@ -1,11 +1,23 @@
+.label
+	&.label--full
+		display: block
+		width: 100%
+		margin-bottom: 5px
+		margin-top: 20px
+
+		&:first-of-type
+			margin-top: 0
+
 .button
 	vertical-align: middle
 	display: inline-block
 	text-align: center
+	text-decoration: none !important
 	font-weight: $weight-semibold
 	font-size: 15px
 	line-height: 1.4
 	border-radius: 0
+	padding: 7px 14px
 	border: none
 	-webkit-appearance: none
 	-moz-appearance: none
@@ -16,12 +28,43 @@
 		height: 40px
 		padding: 8px 30px
 
+	&.button--large
+		height: 52px
+		padding: 12px 40px
+		font-size: 20px
+
+	&.button--rounded
+		border-radius: 3px
+
+	&.button--double
+		line-height: 1.2
+		height: 70px
+		padding: 14px 50px
+
+		strong, span
+			display: block
+
+		strong
+			font-size: 21px
+			font-weight: $weight-bold
+
+		span
+			font-size: 15px
+			font-weight: $weight-default
+
 	&.button--green
 		background: $main-green
 		color: #fff
 
 		&:hover
 			background: $main-green-dark
+
+	&.button--white
+		background: $white
+		color: $main-green
+
+		&:hover
+			background: $lightest-grey
 
 .input
 	vertical-align: middle
@@ -46,6 +89,10 @@
 
 	&.input--regular
 		height: 40px
+
+	&.input--full
+		width: 100%
+		display: block
 
 	&.input--plain
 		border: none !important

@@ -60,7 +60,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 	/*
 	 * Account routes
 	 */
-	Route::group([ 'middleware' => 'user', 'prefix' => 'account' ], function ()
+	Route::group([ 'middleware' => [ 'auth', 'user' ], 'prefix' => 'account' ], function ()
 	{
 		Route::get('settings', function ()
 		{

@@ -3,7 +3,9 @@
 		<li><a href="/fra-a-til-zink">Fra A til Zink</a></li>
 		<li><a href="/saadan-virker-det">Sådan virker det</a></li>
 		<li><a href="/test-og-kvalitet">Test &amp; Kvalitet</a></li>
-		<li><a href="/account"><strong>Mit Take Daily</strong></a></li>
+		@if(Auth::guest() || Auth::user()->isUser())
+			<li><a href="/account"><strong>Mit Take Daily</strong></a></li>
+		@endif
 	</ul>
 
 	<div class="visible-sm visible-xs">

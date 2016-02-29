@@ -1,13 +1,35 @@
 @include('includes.app.header')
-<div class="container">
-	<aside class="sidebar sidebar--account">
-		@include('includes.app.account-sidebar')
-	</aside>
 
-	<main>
-		@yield('content')
-	</main>
+<header class="header--with-bg">
+	<div class="container">
+		<div class="header_top_tb">
+			<div class="row">
+				<div class="col-md-3 col-xs-8">
+					<a href="/" class="logo logo-white"></a>
+				</div>
 
-	<div class="clear"></div>
-</div>
+				<div class="col-md-9 col-xs-4">
+					@include('includes.app.nav')
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<main @if(!isset($mainClasses)) class="m-t-50 m-b-50" @else class="{{ $mainClasses }}" @endif>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<aside>
+					@include('includes.app.account-sidebar')
+				</aside>
+			</div>
+
+			<div class="col-md-8">
+				@yield('content')
+			</div>
+		</div>
+	</div>
+</main>
+
 @include('includes.app.footer')

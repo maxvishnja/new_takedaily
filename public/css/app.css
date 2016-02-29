@@ -2587,10 +2587,12 @@ header {
   background-position: center center; }
   header.header--with-bg {
     background-image: url(/images/header_bg_small.jpg); }
-  header.header--with-big-bg {
+  header.header--with-large-bg {
     background-image: url(/images/header_bg.jpg); }
   header .header_top {
     padding: 39px 35px; }
+  header .header_top_tb {
+    padding: 39px 0; }
 
 nav {
   float: right; }
@@ -2653,14 +2655,53 @@ footer .bottom {
     header .header_top {
       padding: 21px 0 19px; } }
 
+header.header--landing {
+  height: 100vh;
+  position: relative;
+  min-height: 760px; }
+  header.header--landing .header_content {
+    color: #fff;
+    margin-top: 20vh; }
+    header.header--landing .header_content h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin: 0 0 20px; }
+    header.header--landing .header_content p {
+      font-size: 17px;
+      line-height: 1.8;
+      margin: 0 0 50px; }
+  header.header--landing .header_footer {
+    background: rgba(23, 170, 102, 0.8);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    text-align: center;
+    padding: 55px;
+    font-size: 32px; }
+    header.header--landing .header_footer a {
+      color: #fff;
+      text-decoration: underline; }
+
+.label.label--full {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 20px; }
+  .label.label--full:first-of-type {
+    margin-top: 0; }
+
 .button {
   vertical-align: middle;
   display: inline-block;
   text-align: center;
+  text-decoration: none !important;
   font-weight: 600;
   font-size: 15px;
   line-height: 1.4;
   border-radius: 0;
+  padding: 7px 14px;
   border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -2669,11 +2710,34 @@ footer .bottom {
   .button.button--regular {
     height: 40px;
     padding: 8px 30px; }
+  .button.button--large {
+    height: 52px;
+    padding: 12px 40px;
+    font-size: 20px; }
+  .button.button--rounded {
+    border-radius: 3px; }
+  .button.button--double {
+    line-height: 1.2;
+    height: 70px;
+    padding: 14px 50px; }
+    .button.button--double strong, .button.button--double span {
+      display: block; }
+    .button.button--double strong {
+      font-size: 21px;
+      font-weight: 700; }
+    .button.button--double span {
+      font-size: 15px;
+      font-weight: 400; }
   .button.button--green {
     background: #17aa66;
     color: #fff; }
     .button.button--green:hover {
       background: #186141; }
+  .button.button--white {
+    background: #fff;
+    color: #17aa66; }
+    .button.button--white:hover {
+      background: #eee; }
 
 .input {
   vertical-align: middle;
@@ -2695,6 +2759,9 @@ footer .bottom {
     font-weight: 600; }
   .input.input--regular {
     height: 40px; }
+  .input.input--full {
+    width: 100%;
+    display: block; }
   .input.input--plain {
     border: none !important; }
   .input a {
@@ -2771,11 +2838,6 @@ footer .bottom {
     display: block; }
 
 body.account aside {
-  float: left;
-  width: 30%; }
-
-body.account main {
-  float: right;
-  width: 70%; }
+  background: #eee; }
 
 /*# sourceMappingURL=app.css.map */
