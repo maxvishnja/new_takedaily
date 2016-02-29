@@ -23,12 +23,14 @@ elixir(function (mix)
 	svgSpriteConfig = {
 		mode: {
 			css: {
+				bust: false,
+				dest: 'images',
 				render: {
 					scss: {
 						dest: '../../resources/assets/sass/_svg-sprites'
 					}
 				},
-				sprite: 'images/svg-sprite.svg'
+				sprite: '../images/svg-sprite.svg'
 			},
 		}
 	};
