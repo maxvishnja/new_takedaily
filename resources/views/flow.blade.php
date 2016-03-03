@@ -159,7 +159,7 @@
 				</div>
 			</div>
 
-			<div data-step="2" data-first-sub-step="@{{ user_data.gender == 2 ? 1 : 2 }}" class="step">
+			<div data-step="2" v-bind="{ 'data-first-sub-step': user_data.gender == 2 ? 1 : 2 }" class="step">
 				<h2>Your lifestyle</h2>
 
 				<div data-sub-step="1" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--active': user_data.gender == 2 }">
@@ -467,65 +467,214 @@
 
 			<div data-step="4" data-first-sub-step="1" class="step">
 				<div class="group" data-group="1">
-					<div class="advise" data-advise="1.3" data-group="3" v-if="user_data.age >= 70" transition="setAdviseOne">Basic +20 D
+
+					<div class="advise" data-advise="1.1" data-group="1" v-if="( (user_data.age < 50 && user_data.gender == 2 && user_data.pregnant == 2)  || (user_data.age < 70 && user_data.gender == 1) )" transition="setAdviseOne">
+						Basic
+						<p>This basic supplement ensures that you're getting all the vitamins and minerals in addition
+							to your daily diet.</p>
 					</div>
 
-					<div class="advise" data-advise="1.2" data-group="2" v-if="(!adviseShown(1.3) && (( ( user_data.age >= 50 && user_data.age <= 70 ) && user_data.gender == 2) || (user_data.skin > 1) || (outside == 2)))" transition="setAdviseOne">
+					<div class="advise" data-advise="1.2" data-group="1" v-if="(isAlone(1, 1.2)) && (( ( user_data.age >= 50 && user_data.age <= 70 ) && user_data.gender == 2) || (user_data.skin > 1)))" transition="setAdviseOne">
+						Basic +10 D
+						<p>Your Take Daily basic supplement ensures that you're getting all the vitamins and minerals in
+							addition to your daily diet.</p>
+						<p>Besides that the supplement contains extra vitamin D. Because of your age and/or your skin
+							colour you need extra vitamin D.</p>
+					</div>
+
+					<div class="advise" data-advise="1.3" data-group="1" v-if="(isAlone(1, 1.3)) && (outside == 2)" transition="setAdviseOne">
 						Basic +10 D
 					</div>
 
-					<div class="advise" data-advise="1.1" data-group="1" v-if="(( !adviseShown(1.2) && !adviseShown(1.3) ) && ( (user_data.age < 50 && user_data.gender == 2 && user_data.pregnant == 2)  || (user_data.age < 70 && user_data.gender == 1) ))" transition="setAdviseOne">
-						Basic
+					<div class="advise" data-advise="1.4" data-group="1" v-if="((user_data.age > 70 && user_data.gender == 1) || (user_data.age > 50 && user_data.gender == 2) ) && isAlone(1, 1.4)" transition="setAdviseOne">
+						Basic +20 D
+						<p>Your Take Daily basic supplement ensures that you're getting all the vitamins and minerals in
+							addition to your daily diet.</p>
+						<p>Besides that the supplement contains extra vitamin D. Because of your age you need extra
+							vitamin D.</p>
 					</div>
 				</div>
 
 				<div class="group" data-group="2">
 					<div class="advise" data-advise="2.1" data-group="A" v-if="(isCombinationPossible(current_advise_one, 'A', null)) && user_data.pregnant == 1" transition="setAdviseTwo">
 						A
+						<p>
+							You have a pregnancy whish. In this special period in your life Take Daily ensures that you
+							get enough vitamins before or during your pregnancy. This special supplement contains the
+							extra vitamins, minerals and other nutrients you need right now.
+							<br/><br/>
+							If you have a pregnancy whish, the first thing you need a good supply of vitamins and
+							minerals. The health authorities reccomend taking extra vitamin B9 (folic acid ) which takes
+							care of the development of the baby. If you take folic acid tablets in early pregnancy you
+							reduce the risk of having a baby born with a spinal cord problem such as spina bifida.
+						</p>
+
+						<p>
+							You are pregnant. In this special period in your life Take Daily ensures that you get enough
+							vitamins before or during your pregnancy. This special supplement contains the extra
+							vitamins, minerals and other nutrients you need right now.
+							<br/><br/>
+							During the whole pregnancy specific vitamins, such as vitamin D is important for the
+							development of the bones and musles. Other nutrients as fish oil play an important role in
+							development of the baby.
+						</p>
 					</div>
 
 					<div class="advise" data-advise="2.2" data-group="B" v-if="(isCombinationPossible(current_advise_one, 'B', null)) && (isAlone(2, 2.2)) && (user_data.diet == 1)" transition="setAdviseTwo">
 						B
+						<p>At this moment you are on a slimming diet.
+							We give you a special supplement. Besides that is important to avoid stress, sleep and
+							exercise. You can do it: good luck!
+							<br/><br/>
+							When you are losing weight it is important to get an extra dose of some vitamins and
+							minerals. Because your diet might not be healthy enough in the past you need some extra
+							vitamins. For example vitamin A. This is a important vitamin for your skin an your immune
+							system. Together with vitamin C it takes care of a good immune system. You need more vitamin
+							C when your weight is higher.
+							You also need more vitamin K for your blood. B-vitamines are important for your energy
+							level.
+						</p>
 					</div>
 
 					<div class="advise" data-advise="2.3" data-group="C" v-if="(isCombinationPossible(current_advise_one, 'C', null)) && (isAlone(2, 2.3)) && (user_data.sports == 4 || user_data.lacks_energy < 3 || user_data.stressed == 1)" transition="setAdviseTwo">
 						C
+						<p v-show="user_data.sports == 4">
+							You are exercising more than 2 times a week. Your body needs extra vitamins and minerals.
+							That’s why you get this special Take Daily sports supplement.
+							<br/><br/>
+							Sports are good for your health, if you are a frequent athlete you need some extra vitamins
+							and minerals. B-vitamins take care of your energymetabolism and performance. Iron is also
+							involved in producing energy.
+						</p>
+						<p v-show="user_data.lacks_energy < 3 || user_data.stressed == 1">
+							Your energy level is (too) low at this moment and you feel tired.
+							<br/><br/>
+							The B vitamins (B1, B2 , B3, B5 , B6 ) play a crucial role in energy metabolism. A lack of
+							these vitamins can cause tiredness and a low energy level.
+						</p>
 					</div>
 
 					<div class="advise" data-advise="2.4" data-group="D" v-if="(isCombinationPossible(current_advise_one, 'D', null)) && (isAlone(2, 2.4)) && (user_data.immune_system == 1 || user_data.smokes == 1 || user_data.vegetarian == 1)" transition="setAdviseTwo">
 						D
+						<p v-show="user_data.immune_system == 1">
+							You need an immune system boost
+							Vitamins and minerals help you to boost your immune system.
+							<br/><br/>
+							Special vitamins can help to give your immune system a boost!
+							Vitamin C is an important anti-illness vitamin, because it helps your body to produce white
+							bloodcells. But also vitamin A and D are anti-infection vitamins.
+						</p>
+
+						<p v-show="user_data.smokes == 1">
+							You need an immune system boost
+							Vitamins and minerals help you to boost your immune system.
+							<br/><br/>
+							Special vitamins can help to give your immune system a boost!
+							Vitamin C is an important anti-illness vitamin, because it helps your body to produce white
+							bloodcells. But also vitamin A and D are anti-infection vitamins.
+						</p>
+
+						<p v-show="user_data.vegetarian == 1">
+							You do not eat meat . That’s why Take Daily gives you some specific vitamins and minerals.
+							<br/><br/>
+							Meat is rich in vitamin B1, B12 and iron. You need these vitamins for your energy
+							metabolism.
+						</p>
 					</div>
 
 					<div class="advise" data-advise="2.5" data-group="E" v-if="(isCombinationPossible(current_advise_one, 'E', null)) && (isAlone(2, 2.5)) && (user_data.joints == 1)" transition="setAdviseTwo">
 						E
+						<p>
+							You need some extra support for your muscles and joints.
+							Some nutrients support your joints and muscles. Vitamin D makes you musles strong and takes
+							care of your balance. Glucosamin/chondoitin also play and important role.
+						</p>
 					</div>
 				</div>
 
 				<div class="group" data-group="3">
 					<div class="advise" data-advise="3.1" data-group="a" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'a')) && user_data.foods.fruits == 1 || user_data.foods.vegetables == 1" transition="setAdviseThree">
 						a
+						<p v-show="user_data.foods.fruits == 1">
+							You don’t eat enough fruit. That’s why you can get a lack of some important vitamins, like
+							vitamin C.
+							<br/>
+							Vegetables are an important source of vitamin C, folic acid and potassium. One vegetable
+							serving spoon equals 50 grams.
+						</p>
+
+						<p v-show="user_data.foods.vegetables == 1">
+							You don’t eat enough vegetables. That’s why you can get a lack of some important vitamins,
+							like vitamin B9.
+							<br/>
+							Fruit is an important source of vitamin C, B9 and potassium.
+						</p>
 					</div>
 
 					<div class="advise" data-advise="3.2" data-group="b" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'b')) && (isAlone(3, 3.2)) && (user_data.foods.bread == 1 || user_data.foods.wheat == 1)" transition="setAdviseThree">
 						b
+						<p v-show="user_data.foods.bread == 1">
+							The amount of bread you take is not enough to get all the important vitamins and minerals
+							you need.
+							<br/>
+							Bread is an important sources of B vitamins, iron and fibre. It is important to eat a
+							sufficient amount of bread or bread substitutes. B-vitamines and iron give you energy.
+						</p>
+
+						<p v-show="user_data.foods.wheat == 1">
+							The amount of rice/pasta you take is not enough to get all the important vitamins and
+							minerals you need.
+							<br/>
+							Pasta and rice are an important source of B vitamins and minerals.
+						</p>
 					</div>
 
 					<div class="advise" data-advise="3.3" data-group="c" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'c')) && (isAlone(3, 3.3)) && (user_data.foods.dairy == 1)" transition="setAdviseThree">
 						c
+						<p>
+							You don’t eat enough dairy. That’s why you can get a lack of Calcium and vitamin B2.
+							<br/>
+							Milk and milk products are an important source of vitamin B2, B12 and calcium that makes for
+							strong bones and joints. The Recommended Daily Allowance (RDA) for calcium varies depending
+							on your age.
+						</p>
 					</div>
 
 					<div class="advise" data-advise="3.4" data-group="d" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'd')) && (isAlone(3, 3.4)) && (user_data.foods.meat == 1)" transition="setAdviseThree">
 						d
+						<p>
+							You don’t eat (enough) meat. That’s why you can get a lack of some important vitamins and
+							minerals like iron.
+							<br/>
+							Meat is rich in B-vitamins en iron.
+						</p>
 					</div>
 
 					<div class="advise" data-advise="3.5" data-group="e" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'e')) && (isAlone(3, 3.5)) && (user_data.foods.fish == 1)" transition="setAdviseThree">
 						e
+						<p>
+							The amount of fish you take is not enough to get all the important vitamins, minerals and
+							fish oil.
+							<br/>
+							Fish is rich in fish-oil (omega-3) and vitamin D.
+						</p>
 					</div>
 
-					<div class="advise" data-advise="3.6" data-group="f" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'f')) && (isAlone(3, 3.6)) && (user_data.foods.butter == 1)" transition="setAdviseThree">
+					<div class="advise" data-advise="3.6" data-group="f" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'f')) && (isAlone(3, 3.6)) && (user_data.foods.butter == 2)" transition="setAdviseThree">
 						f
+						<p>
+							You don’t use any butter or margarine. That’s why your intake of vitamin A en D is too low.
+							<br/>
+							Margarine and halvarine are important sources of vitamin A and vitamin D.Both vitamins are
+							important for example for your immune system.
+						</p>
 					</div>
-					<!-- Todo: fix so isAlone(..,..) actuall works (3.5 and 3.6 has problems)-->
+
+					<div class="advise" data-advise="3.7" data-group="" transition="setAdviseThree" v-if="isGroupEmpty(3) && isGroupEmpty(2)">
+						Congratulations, your lifestyle is excellent and your diet is perfect. The only advice we have
+						is: take daily basic. Because there might be days that your lifestyle and diet are not healthy
+						enough.
+					</div>
 
 					<textarea name="user_data" style="display: none;">@{{ $data.user_data | json }}</textarea>
 					<button type="submit">Continue</button>
@@ -732,18 +881,23 @@
 						return false;
 					}
 
+
 					var currentStep = $(".step[data-step='" + this.step + "']");
 					var previousStep = $(".step[data-step='" + (this.step - 1) + "']");
-					var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
-					var previousSubStep = currentStep.find(".sub_step[data-sub-step='" + (this.sub_step - 1) + "']");
 
-					if (previousSubStep[0])
+					if (this.sub_step > ( currentStep.attr('data-first-sub-step') * 1 ) )
 					{
-						this.sub_step = previousSubStep.attr("data-sub-step") * 1;
-						currentSubStep.removeClass("sub_step--active");
-						previousSubStep.addClass("sub_step--active");
+						var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
+						var previousSubStep = currentStep.find(".sub_step[data-sub-step='" + (this.sub_step - 1) + "']");
 
-						return true;
+						if (previousSubStep[0])
+						{
+							this.sub_step = previousSubStep.attr("data-sub-step") * 1;
+							currentSubStep.removeClass("sub_step--active");
+							previousSubStep.addClass("sub_step--active");
+
+							return true;
+						}
 					}
 
 					var numberOfSubStepsInPreviousStep = previousStep.find(".sub_step").length;
@@ -805,6 +959,11 @@
 						{
 							return ( $(element).data("advise") * 1 ) < currentAdvise;
 						}).length <= 0;
+				},
+
+				isGroupEmpty: function (groupNum)
+				{
+					return $(".group[data-group='" + groupNum + "']").find(".advise").length == 0;
 				},
 
 				isCombinationPossible: function (groupOne, groupTwo, groupThree)
@@ -871,19 +1030,22 @@
 		});
 
 		Vue.transition('setAdviseOne', {
-			enter: function (el) {
+			enter: function (el)
+			{
 				this.current_advise_one = $(el).data('group');
 			}
 		});
 
 		Vue.transition('setAdviseTwo', {
-			enter: function (el) {
+			enter: function (el)
+			{
 				this.current_advise_two = $(el).data('group');
 			}
 		});
 
 		Vue.transition('setAdviseThree', {
-			enter: function (el) {
+			enter: function (el)
+			{
 				this.current_advise_three = $(el).data('group');
 			}
 		});

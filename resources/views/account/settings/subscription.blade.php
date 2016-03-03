@@ -5,7 +5,7 @@
 @section('content')
 	<h1>Dit abonnent</h1>
 	<p>Pris pr. md.: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true) }} kr.</p>
-	<p>- Heraf fragt: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getShippingPrice(), true) }} kr</p>
+	{{--<p>- Heraf fragt: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getShippingPrice(), true) }} kr</p>--}}
 	<p>Startet.: {{ $plan->getSubscriptionStartedAt() }}</p>
 	@if( $plan->isActive() )
 		<p>Næste trækning.: {{ $plan->getRebillAt() }}
