@@ -16,7 +16,7 @@
 	</div>
 </header>
 
-<main @if(!isset($mainClasses)) class="m-t-50 m-b-50" @else class="{{ $mainClasses }}" @endif>
+<main @if(!isset($mainClasses)) class="@yield('mainClasses', 'm-t-50 m-b-50')" @else class="{{ $mainClasses }}" @endif>
 	@yield('content')
 </main>
 

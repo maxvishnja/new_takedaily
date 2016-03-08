@@ -4,26 +4,22 @@
 	<div class="main">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 text-center">
-					<h3 class="footer_title">Nyhedsbreve</h3>
-					<p>Vil du gerne være med, men har ikke tid til en konsultation lige nu, så indtast din e-mail
-						herunder.</p>
+				<div class="col-md-4 footer_column text-center">
+					<h3 class="footer_title">Tilmeld nyheder fra Take Daily</h3>
 					<form method="post" action="/signup-mailchimp" class="m-t-20 m-b-10">
-						<input type="email" name="email" id="input_newsletters_email" placeholder="Indtast din e-mail adresse" class="input input--regular input--plain"/>
-						<button type="submit" class="button button--regular button--green">Send</button>
+						<div class="row">
+							<div class="col-sm-8"><input type="email" name="email" id="input_newsletters_email" placeholder="min@mailadresse.dk" class="input input--regular input--full input--plain"/></div>
+							<div class="col-sm-4"><button type="submit" class="button button--regular button--full button--green">Send</button></div>
+						</div>
 						<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 					</form>
-					<p class="text-left">Så er du allerede lidt i gang...</p>
 				</div>
-				<div class="col-md-4 text-center">
+				<div class="col-md-4 footer_column text-center">
 					<h3 class="footer_title">Følg Take Daily</h3>
-					<a href="#fb"><span class="icon icon-facebook v-a-m "></span></a>
-					<a href="#ig"><span class="icon icon-instagram v-a-m m-l-20 m-r-20"></span></a>
-					<a href="#tw"><span class="icon icon-twitter v-a-m "></span></a>
-
-					<div class="m-t-30"><span class="logo logo-color"></span></div>
+					<a href="#fb"><span class="icon icon-facebook v-a-m m-r-10 "></span></a>
+					<a href="#ig"><span class="icon icon-instagram v-a-m m-l-10"></span></a>
 				</div>
-				<div class="col-md-4 text-center">
+				<div class="col-md-4 footer_column text-center">
 					<h3 class="footer_title">Kontakt os</h3>
 					<p>Send en mail og få svar inden 24 timer. Du kan ringe til os alle hverdage 09-16</p>
 					<div class="m-b-10 m-t-10">
@@ -32,10 +28,6 @@
 							<a href="mailto:support@takedaily.dk">support@takedaily.dk</a>
 						</p>
 					</div>
-					<address>
-						TakeDaily · DK 1234 5678<br/>
-						Vimmelskaftet 43 · København 1111
-					</address>
 				</div>
 			</div>
 		</div>
@@ -51,12 +43,13 @@
 				</div>
 				<div class="col-lg-9 col-md-8 text-right">
 					<ul class="footer_bottom_links">
-						<li class="input input--semibold selector selector--up">Danmark
+						<li class="input input--semibold selector selector--up">Dansk
 							<span class="icon icon-arrow-up-small v-a-m m-l-5"></span>
 							<ul>
-								<li><a href="#dk">Danmark</a></li>
-								<li><a href="#no">Norge</a></li>
-								<li><a href="#sv">Sverige</a></li>
+								<li><a href="#dk">Dansk</a></li>
+								<li><a href="#en">English</a></li>
+								<li><a href="#no">Norsk</a></li>
+								<li><a href="#sv">Svensk</a></li>
 							</ul>
 						</li>
 						<li><a href="/om-take-daily">Om Take Daily</a></li>

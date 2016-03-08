@@ -1,0 +1,134 @@
+body.page-flow
+	.flow-container
+		h3.substep-title
+			font-weight: normal
+			font-size: 26px
+			color: $greyish-brown
+			margin: 20px 0 30px
+
+		p.substep-explanation
+			font-weight: normal
+			font-size: 14px
+			line-height: 1.3
+			color: $warm-grey
+			margin: 30px 0 0
+
+		.step
+			display: none
+
+			&.step--active
+				display: block
+
+			.sub_step
+				position: relative
+				display: none
+				text-align: center
+
+				&.sub_step--active
+					display: block
+
+			label
+				position: relative
+				cursor: pointer
+				padding: 15px
+				background: #f5f5f5
+				border-radius: 4px
+				display: inline-block
+
+			label:hover:after
+				content: ''
+				display: block
+				position: absolute
+				width: 100%
+				height: 100%
+				left: 0
+				top: 0
+				border-radius: 4px
+				background: rgba($main-green, .9)
+
+			label input[type="radio"]
+				display: none
+
+.flow-step-back
+	margin: 20px 0
+
+	a
+		opacity: 0.5
+		cursor: not-allowed
+		padding: 10px
+		display: inline-block
+		color: #AAA
+
+	&.clickable
+		a
+			opacity: 1
+			cursor: pointer
+
+.flow-progress
+	text-align: center
+	background: $pale-grey
+	border-bottom: 1px solid $pale-grey-border
+
+	.flow-step
+		background: $white
+		height: 66px
+		padding: 25px 50px
+		display: inline-block
+		text-align: center
+		margin-right: -4px
+		border-right: 1px solid $pale-grey-border
+
+		&:first-child
+			border-left: 1px solid $pale-grey-border
+
+		.flow-step-check
+			display: none
+
+		.flow-step-progress
+			margin-right: 12px
+			width: 26px
+			height: 2px
+			display: inline-block
+			vertical-align: middle
+			background: $lighter-grey
+
+			.flow-step-progress-bar
+				background: $main-green
+				height: 2px
+				display: block
+				transition: width 300ms
+
+		.flow-step-title
+			display: inline-block
+			vertical-align: middle
+			font-weight: 600
+			font-size: 14px
+			letter-spacing: 1px
+			color: $warm-grey
+
+		&.flow-step--inactive
+			background: transparent
+
+			.flow-step-progress
+				background: #aaa
+				width: 2px
+
+				.flow-step-progress-bar
+					display: none
+
+			.flow-step-title
+				color: $greyish
+
+		&.flow-step--completed
+			background: #fff
+
+			.flow-step-title
+				color: $warm-grey
+
+			.flow-step-progress
+				display: none
+
+			.flow-step-check
+				margin-right: 12px
+				display: inline-block
+				display: inline-block
