@@ -37,14 +37,60 @@ body.index
 		&.block--one
 			padding: 120px 0
 
+			h2
+				font-size: 40px
+				color: $main-green-dark
+				margin: 0 0 20px
+
+			p
+				font-size: 15px
+				line-height: 2
+				color: $greyish-brown
+				margin: 10px 0 0
+
+				&.sub_header
+					margin: 0 auto 60px
+					max-width: 500px
+
+			h3
+				margin: 20px 0 10px
+				color: $main-green-dark
+				font-size: 22px
+				font-weight: normal
+
 		&.block--two
-			color: #fff
+			color: $white
 			background: url(/images/block-two-bg.jpg) no-repeat center center
 			background-size: cover
 			padding: 200px 0
 
+			h2
+				font-weight: 600
+				font-size: 40px
+				line-height: 1.2
+				margin: 0 0 30px
+
+			p
+				font-size: 16px
+				line-height: 1.5
+				color: $white
+				margin: 0 0 30px
+
 		&.block--three
 			padding: 150px 0
+
+			blockquote
+				margin: 0 0 70px
+				padding: 50px 50px 0
+				font-size: 26px
+				line-height: 1.5
+				color: $greyish-brown
+
+			span.dietist-name
+				margin: 20px 0 0
+				display: block
+				color: $greyish-brown
+				font-size: 16px
 
 		&.block--four
 			padding: 200px 0
@@ -58,25 +104,76 @@ body.index
 				width: 30vw
 				height: 20vw
 
+			p
+				max-width: 680px
+				font-size: 18px
+				line-height: 1.8
+				color: $greyish-brown
+				margin: 0 auto 20px
+
 			.block_content
 				float: right
 				width: 70vw
 				height: 20vw
-				padding: 4vw 12vw
+				padding: 5vw
 				background: $almost-white
 
 		&.block--six
-			color: #fff
+			color: $white
 			padding: 190px 0
 			background: url(/images/block-six-bg.jpg) no-repeat center center
 			background-size: cover
+
+			h2
+				font-weight: normal
+				font-size: 34px
+				margin: 0 0 100px
+
+			p
+				line-height: 1.5
+				font-size: 16px
+				margin: 0 0 20px
+
 
 		&.block--seven
 			background: $almost-white
 			padding: 90px 0
 
+			h2
+				font-weight: 700
+				font-size: 40px
+				color: $greyish-brown
+				margin: 0 0 10px
+
+			h3
+				font-size: 26px
+				color: $greyish-brown
+				margin: 0 0 20px
+				font-weight: normal
+
+			p
+				font-size: 15px
+				line-height: 2
+				color: $greyish-brown
+				margin: 0 0 20px
+
 		&.block--eight
 			padding: 150px 0
+
+			img
+				margin-left: -20%
+
+			h2
+				font-weight: 700
+				font-size: 40px
+				color: $main-green-dark
+				margin: 30px 0 20px
+
+			p
+				font-size: 15px
+				line-height: 2
+				color: $greyish-brown
+				margin: 0 0 20px
 
 	.slider_container
 		overflow: hidden
@@ -98,7 +195,6 @@ body.index
 			top: 50%
 			margin-top: -22px
 
-
 		.slider
 			max-width: none
 
@@ -113,6 +209,23 @@ body.index
 					width: 100%
 					padding: 10px 0
 
+@media all and (max-width: 1599px)
+	body.index
+		.block
+			&.block--five
+				.block_content
+					padding: 3vw
+
+@media all and (max-width: 1299px)
+	body.index
+		.block
+			&.block--five
+				.block_content
+					padding: 1vw
+
+				p
+					line-height: 1.5
+
 @media all and (max-width: 991px)
 	body.index
 		.block
@@ -124,4 +237,11 @@ body.index
 					width: 100%
 
 				.block_content
-					padding: 5vw 30px
+					padding: 5vw
+
+			&.block--one
+				.block_item
+					margin-bottom: 30px
+
+					&:last-of-type
+						margin-bottom: 0
