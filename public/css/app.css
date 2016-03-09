@@ -2907,23 +2907,23 @@ footer .bottom {
       margin: 10px 0;
       text-align: center; } }
 
-header.header--landing {
+body.index header.header--landing {
   height: 100vh;
   position: relative;
   min-height: 760px; }
-  header.header--landing .header_content {
+  body.index header.header--landing .header_content {
     color: #fff;
     margin-top: 20vh; }
-    header.header--landing .header_content h1 {
+    body.index header.header--landing .header_content h1 {
       font-size: 50px;
       font-weight: 700;
       margin: 0 0 20px; }
-    header.header--landing .header_content p {
+    body.index header.header--landing .header_content p {
       font-size: 17px;
       line-height: 1.8;
       margin: 0 0 50px; }
-  header.header--landing .header_footer {
-    background: rgba(23, 170, 102, 0.8);
+  body.index header.header--landing .header_footer {
+    background: rgba(51, 51, 51, 0.75);
     width: 100%;
     position: absolute;
     left: 0;
@@ -2932,9 +2932,88 @@ header.header--landing {
     text-align: center;
     padding: 55px;
     font-size: 32px; }
-    header.header--landing .header_footer a {
+    body.index header.header--landing .header_footer a {
       color: #fff;
       text-decoration: underline; }
+
+body.index .block.block--one {
+  padding: 120px 0; }
+
+body.index .block.block--two {
+  color: #fff;
+  background: url(/images/block-two-bg.jpg) no-repeat center center;
+  background-size: cover;
+  padding: 200px 0; }
+
+body.index .block.block--three {
+  padding: 150px 0; }
+
+body.index .block.block--four {
+  padding: 200px 0;
+  background: #186141; }
+
+body.index .block.block--five {
+  background: #f5f5f5; }
+  body.index .block.block--five img {
+    float: left;
+    width: 30vw;
+    height: 20vw; }
+  body.index .block.block--five .block_content {
+    float: right;
+    width: 70vw;
+    height: 20vw;
+    padding: 4vw 12vw;
+    background: #f5f5f5; }
+
+body.index .block.block--six {
+  color: #fff;
+  padding: 190px 0;
+  background: url(/images/block-six-bg.jpg) no-repeat center center;
+  background-size: cover; }
+
+body.index .block.block--seven {
+  background: #f5f5f5;
+  padding: 90px 0; }
+
+body.index .block.block--eight {
+  padding: 150px 0; }
+
+body.index .slider_container {
+  overflow: hidden;
+  position: relative; }
+  body.index .slider_container .slider-arrow-left,
+  body.index .slider_container .slider-arrow-right {
+    position: absolute;
+    z-index: 1;
+    cursor: pointer; }
+  body.index .slider_container .slider-arrow-left {
+    left: 50px;
+    top: 50%;
+    margin-top: -22px; }
+  body.index .slider_container .slider-arrow-right {
+    right: 50px;
+    top: 50%;
+    margin-top: -22px; }
+  body.index .slider_container .slider {
+    max-width: none; }
+    body.index .slider_container .slider .slide_container {
+      transition: -webkit-transform 450ms;
+      transition: transform 450ms; }
+      body.index .slider_container .slider .slide_container .slide {
+        overflow: hidden;
+        position: relative;
+        float: left;
+        width: 100%;
+        padding: 10px 0; }
+
+@media all and (max-width: 991px) {
+  body.index .block.block--five img,
+  body.index .block.block--five .block_content {
+    float: none;
+    height: auto;
+    width: 100%; }
+  body.index .block.block--five .block_content {
+    padding: 5vw 30px; } }
 
 .label.label--full {
   display: block;
@@ -2968,6 +3047,10 @@ header.header--landing {
     height: 52px;
     padding: 12px 40px;
     font-size: 20px; }
+  .button.button--huge {
+    height: 65px;
+    padding: 18px 60px;
+    font-size: 21px; }
   .button.button--rounded {
     border-radius: 3px; }
   .button.button--double {
@@ -2992,6 +3075,8 @@ header.header--landing {
     color: #17aa66; }
     .button.button--white:hover {
       background: #eeeeee; }
+  .button.button--text-grey {
+    color: #555555; }
 
 .input {
   vertical-align: middle;
@@ -3092,6 +3177,9 @@ header.header--landing {
       margin-left: -6px; }
   .selector:hover ul {
     display: block; }
+
+.img.img--rounded {
+  border-radius: 100%; }
 
 body.account nav.account_nav {
   background: #eeeeee; }

@@ -37,6 +37,7 @@ elixir(function (mix)
 		'/vendor/pickadate/picker.date.js',
 		'/vendor/pickadate/legacy.js',
 		'/vendor/sweetalert.min.js',
+		'/vendor/slider.js',
 		'/app.js',
 	], 'public/js/app.js');
 });

@@ -1,34 +1,127 @@
-header.header--landing
-	height: 100vh
-	position: relative
-	min-height: 760px
+body.index
+	header.header--landing
+		height: 100vh
+		position: relative
+		min-height: 760px
 
-	.header_content
-		color: #fff
-		margin-top: 20vh
-
-		h1
-			font-size: 50px
-			font-weight: $weight-bold
-			margin: 0 0 20px
-
-		p
-			font-size: 17px
-			line-height: 1.8
-			margin: 0 0 50px
-
-
-	.header_footer
-		background: rgba($main-green, 0.8)
-		width: 100%
-		position: absolute
-		left: 0
-		bottom: 0
-		color: #fff
-		text-align: center
-		padding: 55px
-		font-size: 32px
-
-		a
+		.header_content
 			color: #fff
-			text-decoration: underline
+			margin-top: 20vh
+
+			h1
+				font-size: 50px
+				font-weight: $weight-bold
+				margin: 0 0 20px
+
+			p
+				font-size: 17px
+				line-height: 1.8
+				margin: 0 0 50px
+
+		.header_footer
+			background: rgba($dark-grey, 0.75)
+			width: 100%
+			position: absolute
+			left: 0
+			bottom: 0
+			color: #fff
+			text-align: center
+			padding: 55px
+			font-size: 32px
+
+			a
+				color: #fff
+				text-decoration: underline
+
+	.block
+		&.block--one
+			padding: 120px 0
+
+		&.block--two
+			color: #fff
+			background: url(/images/block-two-bg.jpg) no-repeat center center
+			background-size: cover
+			padding: 200px 0
+
+		&.block--three
+			padding: 150px 0
+
+		&.block--four
+			padding: 200px 0
+			background: $main-green-dark
+
+		&.block--five
+			background: $almost-white
+
+			img
+				float: left
+				width: 30vw
+				height: 20vw
+
+			.block_content
+				float: right
+				width: 70vw
+				height: 20vw
+				padding: 4vw 12vw
+				background: $almost-white
+
+		&.block--six
+			color: #fff
+			padding: 190px 0
+			background: url(/images/block-six-bg.jpg) no-repeat center center
+			background-size: cover
+
+		&.block--seven
+			background: $almost-white
+			padding: 90px 0
+
+		&.block--eight
+			padding: 150px 0
+
+	.slider_container
+		overflow: hidden
+		position: relative
+
+		.slider-arrow-left,
+		.slider-arrow-right
+			position: absolute
+			z-index: 1
+			cursor: pointer
+
+		.slider-arrow-left
+			left: 50px
+			top: 50%
+			margin-top: -22px
+
+		.slider-arrow-right
+			right: 50px
+			top: 50%
+			margin-top: -22px
+
+
+		.slider
+			max-width: none
+
+			.slide_container
+				transition: -webkit-transform 450ms
+				transition: transform 450ms
+
+				.slide
+					overflow: hidden
+					position: relative
+					float: left
+					width: 100%
+					padding: 10px 0
+
+@media all and (max-width: 991px)
+	body.index
+		.block
+			&.block--five
+				img,
+				.block_content
+					float: none
+					height: auto
+					width: 100%
+
+				.block_content
+					padding: 5vw 30px
