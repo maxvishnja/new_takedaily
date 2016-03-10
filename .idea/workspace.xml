@@ -5,10 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css.map" afterPath="$PROJECT_DIR$/public/css/app.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/sprite.png" afterPath="$PROJECT_DIR$/public/images/sprite.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/sprite@2x.png" afterPath="$PROJECT_DIR$/public/images/sprite@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-pregnant-no.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-pregnant-no.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-pregnant-no@2x.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-pregnant-no@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-pregnant-yes.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-pregnant-yes.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-pregnant-yes@2x.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-pregnant-yes@2x.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="$PROJECT_DIR$/public/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/_sprites.sass" afterPath="$PROJECT_DIR$/resources/assets/sass/_sprites.sass" />
@@ -47,8 +43,8 @@
       <file leaf-file-name="flow.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64447695">
-              <caret line="159" column="82" selection-start-line="159" selection-start-column="82" selection-end-line="159" selection-end-column="82" />
+            <state vertical-scroll-proportion="0.38112655">
+              <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -485,7 +481,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457534237113</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Two more icon sets">
+      <created>1457602485357</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1457602485357</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -493,6 +495,7 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24486572" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
@@ -513,7 +516,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861477" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -574,7 +576,8 @@
     <MESSAGE value="Icons. Mobile menu. Flow design. responsive improvements in general" />
     <MESSAGE value="Added slider and most of the landing stuff" />
     <MESSAGE value="Almost the entire homepage. Fixed female icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="Almost the entire homepage. Fixed female icon" />
+    <MESSAGE value="Two more icon sets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Two more icon sets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -842,6 +845,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.333001">
           <caret line="2749" column="8" selection-start-line="2749" selection-start-column="8" selection-end-line="2749" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -926,8 +930,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64447695">
-          <caret line="159" column="82" selection-start-line="159" selection-start-column="82" selection-end-line="159" selection-end-column="82" />
+        <state vertical-scroll-proportion="0.38112655">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding />
         </state>
       </provider>

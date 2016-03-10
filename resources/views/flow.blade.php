@@ -179,10 +179,10 @@
 						<h3 class="substep-title">How is your life at this moment?</h3>
 						<label>
 							<input type="radio" name="step[2][4]" value="1" v-model="user_data.stressed" v-on:click="nextStep();"/>
-							Stressful</label>
+							<span class="icon icon-stress" title="Stressful"></span></label>
 						<label>
 							<input type="radio" name="step[2][4]" value="2" v-model="user_data.stressed" v-on:click="nextStep();"/>
-							Quiet</label>
+							<span class="icon icon-joy" title="Quiet"></span></label>
 
 						<p class="substep-explanation">In a stressful period extra vitamins and minerals can help you to relax.
 							B-vitamins are important for the nervous system and a normal psychological function.</p>
