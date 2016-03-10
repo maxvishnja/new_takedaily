@@ -192,13 +192,13 @@
 						<h3 class="substep-title">Do you often feel tired, or lacking energy?</h3>
 						<label>
 							<input type="radio" name="step[2][5]" value="1" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-							Every day</label>
+							<span class="icon icon-tired" title="Every day"></span></label>
 						<label>
 							<input type="radio" name="step[2][5]" value="2" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-							Sometimes</label>
+							<span class="icon icon-awake" title="Sometimes"></span></label>
 						<label>
 							<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-							Never</label>
+							<span class="icon icon-fresh" title="Never"></span></label>
 
 						<p class="substep-explanation">The B vitamins (B1, B2 , B3, B5 , B6 ) play a crucial role in energy
 							metabolism. A lack of these vitamins can cause tiredness and a low energy level.</p>
