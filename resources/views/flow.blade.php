@@ -223,10 +223,10 @@
 						<h3 class="substep-title">Do you smoke?</h3>
 						<label>
 							<input type="radio" name="step[2][7]" value="1" v-model="user_data.smokes" v-on:click="nextStep();"/>
-							Yes</label>
+							<span class="icon icon-smoke"></span></label>
 						<label>
 							<input type="radio" name="step[2][7]" value="2" v-model="user_data.smokes" v-on:click="nextStep();"/>
-							No</label>
+							<span class="icon icon-smoke-no"></span></label>
 
 						<p class="substep-explanation">It has been scientifically established that the need for vitamin C is
 							considerably higher for smokers.</p>
