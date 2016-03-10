@@ -135,10 +135,10 @@
 						<h3 class="substep-title">Are you on a slimming diet?</h3>
 						<label>
 							<input type="radio" name="step[2][2]" value="1" v-model="user_data.diet" v-on:click="nextStep();"/>
-							Yes</label>
+							<span class="icon icon-diet-pear"></span></label>
 						<label>
 							<input type="radio" name="step[2][2]" value="2" v-model="user_data.diet" v-on:click="nextStep();"/>
-							No</label>
+							<span class="icon icon-diet-burger"></span></label>
 
 						<p class="substep-explanation">When you are losing weight it is important to get an extra dose of some
 							vitamins and minerals. Because your diet might not be healthy enough in the past you need
@@ -157,16 +157,16 @@
 						<h3 class="substep-title">How often do you practice physical sporting activity?</h3>
 						<label>
 							<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" v-on:click="nextStep();"/>
-							Seldom</label>
+							<span class="icon icon-activity-seldom" title="Seldom"Two more icon sets.></span></label>
 						<label>
 							<input type="radio" name="step[2][3]" value="2" v-model="user_data.sports" v-on:click="nextStep();"/>
-							Once a week</label>
+							<span class="icon icon-activity-once" title="Once a week"></span></label>
 						<label>
 							<input type="radio" name="step[2][3]" value="3" v-model="user_data.sports" v-on:click="nextStep();"/>
-							Twice a week</label>
+							<span class="icon icon-activity-twice" title="Twice a week"></span></label>
 						<label>
 							<input type="radio" name="step[2][3]" value="4" v-model="user_data.sports" v-on:click="nextStep();"/>
-							More often</label>
+							<span class="icon icon-activity-more" title="More often"></span></label>
 
 						<p class="substep-explanation">Sports are good for your health, if you are a frequent athlete you need
 							some
