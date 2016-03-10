@@ -208,10 +208,10 @@
 						<h3 class="substep-title">Would you like to boost your immune system?</h3>
 						<label>
 							<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" v-on:click="nextStep();"/>
-							Yes</label>
+							<span class="icon icon-immune-boost"></span></label>
 						<label>
 							<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" v-on:click="nextStep();"/>
-							No</label>
+							<span class="icon icon-immune-ignore"></span></label>
 
 						<p class="substep-explanation">Special vitamins can help to give your immune system a boost!<br/>
 							Vitamin C is an important anti-illness vitamin, because it helps your body to produce white
