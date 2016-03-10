@@ -236,10 +236,10 @@
 						<h3 class="substep-title">Are you a vegetarian?</h3>
 						<label>
 							<input type="radio" name="step[2][8]" value="1" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
-							Yes</label>
+							<span class="icon icon-vegetarian-yes"></span></label>
 						<label>
 							<input type="radio" name="step[2][8]" value="2" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
-							No</label>
+							<span class="icon icon-meat"></span></label>
 
 						<p class="substep-explanation">Meat is rich in vitamin B1, B12 and iron. You need these vitamins for
 							your

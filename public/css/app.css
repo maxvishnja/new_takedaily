@@ -1138,7 +1138,7 @@ hr {
 
 .icon-awake {
   background-image: url(/images/sprite.png);
-  background-position: -90px -334px;
+  background-position: 0px -334px;
   width: 45px;
   height: 51px; }
 
@@ -1150,13 +1150,13 @@ hr {
 
 .icon-card-mastercard {
   background-image: url(/images/sprite.png);
-  background-position: -240px -190px;
+  background-position: -272px -190px;
   width: 32px;
   height: 20px; }
 
 .icon-card-visa {
   background-image: url(/images/sprite.png);
-  background-position: -272px -190px;
+  background-position: -240px -190px;
   width: 32px;
   height: 20px; }
 
@@ -1174,7 +1174,7 @@ hr {
 
 .icon-cross-large {
   background-image: url(/images/sprite.png);
-  background-position: -380px -228px;
+  background-position: -204px -148px;
   width: 24px;
   height: 24px; }
 
@@ -1192,13 +1192,13 @@ hr {
 
 .icon-facebook {
   background-image: url(/images/sprite.png);
-  background-position: -204px -148px;
+  background-position: -204px -172px;
   width: 24px;
   height: 24px; }
 
 .icon-fresh {
   background-image: url(/images/sprite.png);
-  background-position: -180px -334px;
+  background-position: -90px -334px;
   width: 45px;
   height: 51px; }
 
@@ -1216,7 +1216,7 @@ hr {
 
 .icon-immune-boost {
   background-image: url(/images/sprite.png);
-  background-position: -330px -228px;
+  background-position: -50px -284px;
   width: 50px;
   height: 50px; }
 
@@ -1228,7 +1228,7 @@ hr {
 
 .icon-instagram {
   background-image: url(/images/sprite.png);
-  background-position: -204px -172px;
+  background-position: -380px -228px;
   width: 24px;
   height: 24px; }
 
@@ -1238,6 +1238,12 @@ hr {
   width: 45px;
   height: 51px; }
 
+.icon-meat {
+  background-image: url(/images/sprite.png);
+  background-position: -100px -284px;
+  width: 50px;
+  height: 50px; }
+
 .icon-play {
   background-image: url(/images/sprite.png);
   background-position: 0px -148px;
@@ -1246,43 +1252,43 @@ hr {
 
 .icon-pregnant-no {
   background-image: url(/images/sprite.png);
-  background-position: -194px -284px;
+  background-position: -294px -284px;
   width: 43px;
   height: 43px; }
 
 .icon-pregnant-yes {
   background-image: url(/images/sprite.png);
-  background-position: -237px -284px;
+  background-position: -337px -284px;
   width: 43px;
   height: 43px; }
 
 .icon-skin-dark {
   background-image: url(/images/sprite.png);
-  background-position: -98px -284px;
+  background-position: -198px -284px;
   width: 48px;
   height: 48px; }
 
 .icon-skin-mediterranean {
   background-image: url(/images/sprite.png);
-  background-position: -50px -284px;
+  background-position: -150px -284px;
   width: 48px;
   height: 48px; }
 
 .icon-skin-white {
   background-image: url(/images/sprite.png);
-  background-position: -146px -284px;
+  background-position: -246px -284px;
   width: 48px;
   height: 48px; }
 
 .icon-smoke-no {
   background-image: url(/images/sprite.png);
-  background-position: -280px -228px;
+  background-position: -330px -228px;
   width: 50px;
   height: 50px; }
 
 .icon-smoke {
   background-image: url(/images/sprite.png);
-  background-position: -188px -76px;
+  background-position: -280px -228px;
   width: 50px;
   height: 50px; }
 
@@ -1306,7 +1312,7 @@ hr {
 
 .icon-tired {
   background-image: url(/images/sprite.png);
-  background-position: 0px -334px;
+  background-position: -180px -334px;
   width: 45px;
   height: 51px; }
 
@@ -1327,6 +1333,12 @@ hr {
   background-position: -120px 0px;
   width: 120px;
   height: 72px; }
+
+.icon-vegetarian-yes {
+  background-image: url(/images/sprite.png);
+  background-position: -188px -76px;
+  width: 50px;
+  height: 50px; }
 
 .logo-black {
   background-image: url(/images/sprite.png);
@@ -1428,7 +1440,7 @@ hr {
 
 .icon-awake {
   background-image: url(/images/sprite.png);
-  background-position: -90px -334px;
+  background-position: 0px -334px;
   width: 45px;
   height: 51px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1448,7 +1460,7 @@ hr {
 
 .icon-card-mastercard {
   background-image: url(/images/sprite.png);
-  background-position: -240px -190px;
+  background-position: -272px -190px;
   width: 32px;
   height: 20px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1458,7 +1470,7 @@ hr {
 
 .icon-card-visa {
   background-image: url(/images/sprite.png);
-  background-position: -272px -190px;
+  background-position: -240px -190px;
   width: 32px;
   height: 20px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1488,7 +1500,7 @@ hr {
 
 .icon-cross-large {
   background-image: url(/images/sprite.png);
-  background-position: -380px -228px;
+  background-position: -204px -148px;
   width: 24px;
   height: 24px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1518,7 +1530,7 @@ hr {
 
 .icon-facebook {
   background-image: url(/images/sprite.png);
-  background-position: -204px -148px;
+  background-position: -204px -172px;
   width: 24px;
   height: 24px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1528,7 +1540,7 @@ hr {
 
 .icon-fresh {
   background-image: url(/images/sprite.png);
-  background-position: -180px -334px;
+  background-position: -90px -334px;
   width: 45px;
   height: 51px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1558,7 +1570,7 @@ hr {
 
 .icon-immune-boost {
   background-image: url(/images/sprite.png);
-  background-position: -330px -228px;
+  background-position: -50px -284px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1578,7 +1590,7 @@ hr {
 
 .icon-instagram {
   background-image: url(/images/sprite.png);
-  background-position: -204px -172px;
+  background-position: -380px -228px;
   width: 24px;
   height: 24px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1596,6 +1608,16 @@ hr {
       background-image: url(/images/sprite@2x.png);
       background-size: 406px 385px; } }
 
+.icon-meat {
+  background-image: url(/images/sprite.png);
+  background-position: -100px -284px;
+  width: 50px;
+  height: 50px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-meat {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 406px 385px; } }
+
 .icon-play {
   background-image: url(/images/sprite.png);
   background-position: 0px -148px;
@@ -1608,7 +1630,7 @@ hr {
 
 .icon-pregnant-no {
   background-image: url(/images/sprite.png);
-  background-position: -194px -284px;
+  background-position: -294px -284px;
   width: 43px;
   height: 43px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1618,7 +1640,7 @@ hr {
 
 .icon-pregnant-yes {
   background-image: url(/images/sprite.png);
-  background-position: -237px -284px;
+  background-position: -337px -284px;
   width: 43px;
   height: 43px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1628,7 +1650,7 @@ hr {
 
 .icon-skin-dark {
   background-image: url(/images/sprite.png);
-  background-position: -98px -284px;
+  background-position: -198px -284px;
   width: 48px;
   height: 48px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1638,7 +1660,7 @@ hr {
 
 .icon-skin-mediterranean {
   background-image: url(/images/sprite.png);
-  background-position: -50px -284px;
+  background-position: -150px -284px;
   width: 48px;
   height: 48px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1648,7 +1670,7 @@ hr {
 
 .icon-skin-white {
   background-image: url(/images/sprite.png);
-  background-position: -146px -284px;
+  background-position: -246px -284px;
   width: 48px;
   height: 48px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1658,7 +1680,7 @@ hr {
 
 .icon-smoke-no {
   background-image: url(/images/sprite.png);
-  background-position: -280px -228px;
+  background-position: -330px -228px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1668,7 +1690,7 @@ hr {
 
 .icon-smoke {
   background-image: url(/images/sprite.png);
-  background-position: -188px -76px;
+  background-position: -280px -228px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1708,7 +1730,7 @@ hr {
 
 .icon-tired {
   background-image: url(/images/sprite.png);
-  background-position: 0px -334px;
+  background-position: -180px -334px;
   width: 45px;
   height: 51px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -1743,6 +1765,16 @@ hr {
   height: 72px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-user-information {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 406px 385px; } }
+
+.icon-vegetarian-yes {
+  background-image: url(/images/sprite.png);
+  background-position: -188px -76px;
+  width: 50px;
+  height: 50px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-vegetarian-yes {
       background-image: url(/images/sprite@2x.png);
       background-size: 406px 385px; } }
 

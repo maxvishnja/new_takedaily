@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css.map" afterPath="$PROJECT_DIR$/public/css/app.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/sprite.png" afterPath="$PROJECT_DIR$/public/images/sprite.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/sprite@2x.png" afterPath="$PROJECT_DIR$/public/images/sprite@2x.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="$PROJECT_DIR$/public/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/_sprites.sass" afterPath="$PROJECT_DIR$/resources/assets/sass/_sprites.sass" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/flow.blade.php" afterPath="$PROJECT_DIR$/resources/views/flow.blade.php" />
     </list>
@@ -41,8 +43,8 @@
       <file leaf-file-name="flow.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32003987">
-              <caret line="198" column="31" selection-start-line="198" selection-start-column="31" selection-end-line="198" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.7088734">
+              <caret line="246" column="26" selection-start-line="246" selection-start-column="26" selection-end-line="246" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -376,7 +378,19 @@
       <option name="project" value="LOCAL" />
       <updated>1457609790252</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Immune icon">
+      <created>1457610411909</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1457610411909</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Smoke icon">
+      <created>1457610954002</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1457610954002</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -469,7 +483,8 @@
     <MESSAGE value="New icon (stressful/quiet?)" />
     <MESSAGE value="New icons" />
     <MESSAGE value="Immune icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="Immune icon" />
+    <MESSAGE value="Smoke icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Smoke icon" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -729,6 +744,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.333001">
           <caret line="2749" column="8" selection-start-line="2749" selection-start-column="8" selection-end-line="2749" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -820,8 +836,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32003987">
-          <caret line="198" column="31" selection-start-line="198" selection-start-column="31" selection-end-line="198" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.7088734">
+          <caret line="246" column="26" selection-start-line="246" selection-start-column="26" selection-end-line="246" selection-end-column="26" />
           <folding />
         </state>
       </provider>
