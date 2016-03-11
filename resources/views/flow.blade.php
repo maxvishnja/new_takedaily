@@ -16,18 +16,27 @@
 	<div id="app" class="flow-container">
 		<div class="flow-progress">
 			<div class="flow-step" step="1" v-bind:class="{ 'flow-step--inactive': step !== 1, 'flow-step--completed': step > 1 }">
-				<div class="flow-step-progress"><span class="flow-step-progress-bar" v-bind:style="{ width: ( sub_step / getSubStepsForStep() * 100 ) + '%' }"></span></div>
-				<div class="flow-step-check"><div class="icon icon-check"></div></div>
+				<div class="flow-step-progress">
+					<span class="flow-step-progress-bar" v-bind:style="{ width: ( sub_step / getSubStepsForStep() * 100 ) + '%' }"></span></div>
+				<div class="flow-step-check">
+					<div class="icon icon-check"></div>
+				</div>
 				<div class="flow-step-title">PERSONLIGT</div>
 			</div>
 			<div class="flow-step flow-step--inactive" step="2" v-bind:class="{ 'flow-step--inactive': step !== 2, 'flow-step--completed': step > 2 }">
-				<div class="flow-step-progress"><span class="flow-step-progress-bar" v-bind:style="{ width: ( sub_step / getSubStepsForStep() * 100 ) + '%' }"></span></div>
-				<div class="flow-step-check"><div class="icon icon-check"></div></div>
+				<div class="flow-step-progress">
+					<span class="flow-step-progress-bar" v-bind:style="{ width: ( sub_step / getSubStepsForStep() * 100 ) + '%' }"></span></div>
+				<div class="flow-step-check">
+					<div class="icon icon-check"></div>
+				</div>
 				<div class="flow-step-title">HELBRED</div>
 			</div>
 			<div class="flow-step flow-step--inactive" step="3" v-bind:class="{ 'flow-step--inactive': step !== 3, 'flow-step--completed': step > 3 }">
-				<div class="flow-step-progress"><span class="flow-step-progress-bar" v-bind:style="{ width: ( sub_step / getSubStepsForStep() * 100 ) + '%' }"></span></div>
-				<div class="flow-step-check"><div class="icon icon-check"></div></div>
+				<div class="flow-step-progress">
+					<span class="flow-step-progress-bar" v-bind:style="{ width: ( sub_step / getSubStepsForStep() * 100 ) + '%' }"></span></div>
+				<div class="flow-step-check">
+					<div class="icon icon-check"></div>
+				</div>
 				<div class="flow-step-title">KOST OG VANER</div>
 			</div>
 			<div class="flow-step flow-step--inactive" step="4" v-bind:class="{ 'flow-step--inactive': step !== 4 }">
@@ -47,10 +56,14 @@
 						<h3 class="substep-title">Hvilket køn er du?</h3>
 						<label>
 							<input type="radio" name="step[1][1]" value="1" v-model="user_data.gender" v-on:click="nextStep();"/>
-							<span class="icon icon-gender-male"></span></label>
+							<span class="icon icon-gender-male"></span>
+							<br/>Mand
+						</label>
 						<label>
 							<input type="radio" name="step[1][1]" value="2" v-model="user_data.gender" v-on:click="nextStep();"/>
-							<span class="icon icon-gender-female"></span></label>
+							<span class="icon icon-gender-female"></span>
+							<br/>Kvinde
+						</label>
 
 						<p class="substep-explanation">Men and women need different levels of vitamins en minerals. For example
 							vitamin D. Vitamin D is an important vitamin for strong bones and muscles.</p>
@@ -58,14 +71,22 @@
 
 					<div data-sub-step="2" class="sub_step">
 						<h3 class="substep-title">Hvor gammel er du?</h3>
+
 						<div style="display: inline-block;">
-							<label><input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" placeholder="Your birthdate"/></label>
+							<label for="birthdate-picker" class="text-center">
+								<span class="icon calendar-icon" style="vertical-align: middle; margin-right: 6px;"></span>
+								<span>Vælg din fødselsdagsdato</span>
+							</label>
+
+							<br/>
+
+							<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" style="visibility: hidden; height: 0px !important;" placeholder="Din fødselsdagsdato"/>
 							<div id="datepicker-container"></div>
 						</div>
+
 						<template v-if="temp_age">
 							<br/>
-							<span style="margin-left: 10px; display: inline-block;">Er du <strong>@{{ temp_age }}</strong> år gammel?</span>
-							<input type="button" v-on:click="nextStep();" value="Yes"/>
+							<button v-on:click="nextStep();" type="button" class="button button--rounded button--medium button--green">Ja, jeg er <strong>@{{ temp_age }}</strong> år gammel</button>
 						</template>
 
 						<p class="substep-explanation">Your requirement for vitamins, minerals is agerelated. As we get older
@@ -80,13 +101,19 @@
 						<h3 class="substep-title">Hvilken hudfarve har du?</h3>
 						<label>
 							<input type="radio" name="step[1][3]" value="1" v-model="user_data.skin" v-on:click="nextStep();"/>
-							<span class="icon icon-skin-white"></span></label>
+							<span class="icon icon-skin-white"></span>
+							<br/>Lys
+						</label>
 						<label>
 							<input type="radio" name="step[1][3]" value="2" v-model="user_data.skin" v-on:click="nextStep();"/>
-							<span class="icon icon-skin-mediterranean"></span></label>
+							<span class="icon icon-skin-mediterranean"></span>
+							<br/>Mørk
+						</label>
 						<label>
 							<input type="radio" name="step[1][3]" value="3" v-model="user_data.skin" v-on:click="nextStep();"/>
-							<span class="icon icon-skin-dark"></span></label>
+							<span class="icon icon-skin-dark"></span>
+							<br/>Sort
+						</label>
 
 						<p class="substep-explanation">A white skin can produce more vitamin D during sun exposure. That’s why
 							people with a Meditarranean or black skin need extra vitamin D.</p>
@@ -96,10 +123,14 @@
 						<h3 class="substep-title">Er du udenfor mellem 11:00 og 15:00 hver dag?</h3>
 						<label>
 							<input type="radio" name="step[1][4]" value="1" v-model="user_data.outside" v-on:click="nextStep();"/>
-							<span class="icon icon-sun-yes"></span></label>
+							<span class="icon icon-sun-yes"></span>
+							<br/>Ja
+						</label>
 						<label>
 							<input type="radio" name="step[1][4]" value="2" v-model="user_data.outside" v-on:click="nextStep();"/>
-							<span class="icon icon-sun-no"></span></label>
+							<span class="icon icon-sun-no"></span>
+							<br/>Nej
+						</label>
 
 						<p class="substep-explanation">You have to be outside for 15 minutes till 30 minutes daily to make
 							enough
@@ -112,10 +143,14 @@
 						<h3 class="substep-title">Er du gravid, eller ønsker at blive det?</h3>
 						<label>
 							<input type="radio" name="step[2][1]" value="1" v-model="user_data.pregnant" v-on:click="nextStep();"/>
-							<span class="icon icon-pregnant-yes"></span></label>
+							<span class="icon icon-pregnant-yes"></span>
+							<br/>Ja
+						</label>
 						<label>
 							<input type="radio" name="step[2][1]" value="2" v-model="user_data.pregnant" v-on:click="nextStep();"/>
-							<span class="icon icon-pregnant-no"></span></label>
+							<span class="icon icon-pregnant-no"></span>
+							<br/>Nej
+						</label>
 
 						<p class="substep-explanation">If you have a pregnancy whish, the first thing you need a good supply of
 							vitamins and minerals. The health authorities reccomend taking extra vitamin B9 (folic acid
@@ -135,10 +170,14 @@
 						<h3 class="substep-title">Er du på en diæt for vægttab?</h3>
 						<label>
 							<input type="radio" name="step[2][2]" value="1" v-model="user_data.diet" v-on:click="nextStep();"/>
-							<span class="icon icon-diet-pear"></span></label>
+							<span class="icon icon-diet-pear"></span>
+							<br/>Ja
+						</label>
 						<label>
 							<input type="radio" name="step[2][2]" value="2" v-model="user_data.diet" v-on:click="nextStep();"/>
-							<span class="icon icon-diet-burger"></span></label>
+							<span class="icon icon-diet-burger"></span>
+							<br/>Nej
+						</label>
 
 						<p class="substep-explanation">When you are losing weight it is important to get an extra dose of some
 							vitamins and minerals. Because your diet might not be healthy enough in the past you need
@@ -157,16 +196,24 @@
 						<h3 class="substep-title">Hvor ofte er du fysisk aktiv?</h3>
 						<label>
 							<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" v-on:click="nextStep();"/>
-							<span class="icon icon-activity-seldom" title="Seldom"Two more icon sets.></span></label>
+							<span class="icon icon-activity-seldom" title="Seldom"></span>
+							<br/>Sjældent
+						</label>
 						<label>
 							<input type="radio" name="step[2][3]" value="2" v-model="user_data.sports" v-on:click="nextStep();"/>
-							<span class="icon icon-activity-once" title="Once a week"></span></label>
+							<span class="icon icon-activity-once" title="Once a week"></span>
+							<br/>Én gang om ugen
+						</label>
 						<label>
 							<input type="radio" name="step[2][3]" value="3" v-model="user_data.sports" v-on:click="nextStep();"/>
-							<span class="icon icon-activity-twice" title="Twice a week"></span></label>
+							<span class="icon icon-activity-twice" title="Twice a week"></span>
+							<br/>To gange om ugen
+						</label>
 						<label>
 							<input type="radio" name="step[2][3]" value="4" v-model="user_data.sports" v-on:click="nextStep();"/>
-							<span class="icon icon-activity-more" title="More often"></span></label>
+							<span class="icon icon-activity-more" title="More often"></span>
+							<br/>Oftere
+						</label>
 
 						<p class="substep-explanation">Sports are good for your health, if you are a frequent athlete you need
 							some
@@ -179,10 +226,14 @@
 						<h3 class="substep-title">Hvordan er dit liv i øjeblikket?</h3>
 						<label>
 							<input type="radio" name="step[2][4]" value="1" v-model="user_data.stressed" v-on:click="nextStep();"/>
-							<span class="icon icon-stress" title="Stressful"></span></label>
+							<span class="icon icon-stress" title="Stressful"></span>
+							<br/>Stresset
+						</label>
 						<label>
 							<input type="radio" name="step[2][4]" value="2" v-model="user_data.stressed" v-on:click="nextStep();"/>
-							<span class="icon icon-joy" title="Quiet"></span></label>
+							<span class="icon icon-joy" title="Quiet"></span>
+							<br/>Roligt
+						</label>
 
 						<p class="substep-explanation">In a stressful period extra vitamins and minerals can help you to relax.
 							B-vitamins are important for the nervous system and a normal psychological function.</p>
@@ -192,13 +243,19 @@
 						<h3 class="substep-title">Føler du dig tit træt, eller mangler energi?</h3>
 						<label>
 							<input type="radio" name="step[2][5]" value="1" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-							<span class="icon icon-tired" title="Every day"></span></label>
+							<span class="icon icon-tired" title="Every day"></span>
+							<br/>Hver dag
+						</label>
 						<label>
 							<input type="radio" name="step[2][5]" value="2" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-							<span class="icon icon-awake" title="Sometimes"></span></label>
+							<span class="icon icon-awake" title="Sometimes"></span>
+							<br/>Af og til
+						</label>
 						<label>
 							<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-							<span class="icon icon-fresh" title="Never"></span></label>
+							<span class="icon icon-fresh" title="Never"></span>
+							<br/>Aldrig
+						</label>
 
 						<p class="substep-explanation">The B vitamins (B1, B2 , B3, B5 , B6 ) play a crucial role in energy
 							metabolism. A lack of these vitamins can cause tiredness and a low energy level.</p>
@@ -208,10 +265,14 @@
 						<h3 class="substep-title">Ønsker du at forbedre dit immunsystem?</h3>
 						<label>
 							<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" v-on:click="nextStep();"/>
-							<span class="icon icon-immune-boost"></span></label>
+							<span class="icon icon-immune-boost"></span>
+							<br/>Ja
+						</label>
 						<label>
 							<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" v-on:click="nextStep();"/>
-							<span class="icon icon-immune-ignore"></span></label>
+							<span class="icon icon-immune-ignore"></span>
+							<br/>Nej
+						</label>
 
 						<p class="substep-explanation">Special vitamins can help to give your immune system a boost!<br/>
 							Vitamin C is an important anti-illness vitamin, because it helps your body to produce white
@@ -223,10 +284,14 @@
 						<h3 class="substep-title">Ryger du?</h3>
 						<label>
 							<input type="radio" name="step[2][7]" value="1" v-model="user_data.smokes" v-on:click="nextStep();"/>
-							<span class="icon icon-smoke"></span></label>
+							<span class="icon icon-smoke"></span>
+							<br/>Ja
+						</label>
 						<label>
 							<input type="radio" name="step[2][7]" value="2" v-model="user_data.smokes" v-on:click="nextStep();"/>
-							<span class="icon icon-smoke-no"></span></label>
+							<span class="icon icon-smoke-no"></span>
+							<br/>Nej
+						</label>
 
 						<p class="substep-explanation">It has been scientifically established that the need for vitamin C is
 							considerably higher for smokers.</p>
@@ -236,10 +301,14 @@
 						<h3 class="substep-title">Er du vegetar?</h3>
 						<label>
 							<input type="radio" name="step[2][8]" value="1" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
-							<span class="icon icon-vegetarian-yes"></span></label>
+							<span class="icon icon-vegetarian-yes"></span>
+							<br/>Ja
+						</label>
 						<label>
 							<input type="radio" name="step[2][8]" value="2" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
-							<span class="icon icon-meat"></span></label>
+							<span class="icon icon-meat"></span>
+							<br/>Nej
+						</label>
 
 						<p class="substep-explanation">Meat is rich in vitamin B1, B12 and iron. You need these vitamins for
 							your
@@ -250,10 +319,14 @@
 						<h3 class="substep-title">Har du problemer med muskler eller led?</h3>
 						<label>
 							<input type="radio" name="step[2][9]" value="1" v-model="user_data.joints" v-on:click="nextStep();"/>
-							<span class="icon icon-joint-yes"></span></label>
+							<span class="icon icon-joint-yes"></span>
+							<br/>Ja
+						</label>
 						<label>
 							<input type="radio" name="step[2][9]" value="2" v-model="user_data.joints" v-on:click="nextStep();"/>
-							<span class="icon icon-joint-no"></span></label>
+							<span class="icon icon-joint-no"></span>
+							<br/>Nej
+						</label>
 
 						<p class="substep-explanation">Some nutrients support your joints and muscles. Vitamin D makes you
 							musles
@@ -265,10 +338,14 @@
 						<h3 class="substep-title">Tager du nogle vitaminer eller mineraler allerede?</h3>
 						<label>
 							<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();"/>
-							<span class="icon icon-supplement-yes"></span></label>
+							<span class="icon icon-supplement-yes"></span>
+							<br/> Ja
+						</label>
 						<label>
 							<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();"/>
-							<span class="icon icon-supplement-no"></span></label>
+							<span class="icon icon-supplement-no"></span>
+							<br/> Nej
+						</label>
 
 						<p class="substep-explanation">The result of this test is based on your diet and your lifestyle. Take
 							Daily
@@ -280,22 +357,27 @@
 
 				<div data-step="3" data-first-sub-step="1" class="step">
 					<div data-sub-step="1" class="sub_step sub_step--active">
-						<h3 class="substep-title">How many portions of vegetables do you take daily?</h3>
+						<h3 class="substep-title">Hvor mange grønsager spiser du dagligt?</h3>
 						<label>
 							<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-1"></span> I don't eat vegetables</label>
+							<span class="icon icon-portion-vegetables-1"></span>
+							<br/>Ingen</label>
 						<label>
 							<input type="radio" name="step[3][1]" value="2" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-2"></span> 1 portion (50 gram)</label>
+							<span class="icon icon-portion-vegetables-2"></span>
+							<br/>1 portion (50 gram)</label>
 						<label>
 							<input type="radio" name="step[3][1]" value="3" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-3"></span> 2 portions (100 gram)</label>
+							<span class="icon icon-portion-vegetables-3"></span>
+							<br/>2 portioner (100 gram)</label>
 						<label>
 							<input type="radio" name="step[3][1]" value="4" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-4"></span> 3 portions (150 gram)</label>
+							<span class="icon icon-portion-vegetables-4"></span>
+							<br/>3 portioner (150 gram)</label>
 						<label>
 							<input type="radio" name="step[3][1]" value="5" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-5"></span> 4 portions or more (200 gram or more)</label>
+							<span class="icon icon-portion-vegetables-5"></span>
+							<br/>+4 portioner (+200 gram)</label>
 
 						<p class="substep-explanation">Vegetables are an important source of vitamin C, folic acid and
 							potassium.
@@ -303,16 +385,19 @@
 					</div>
 
 					<div data-sub-step="2" class="sub_step">
-						<h3 class="substep-title">How many portions of fruit/fruit juice do you take daily? </h3>
+						<h3 class="substep-title">Hvor meget frugt spiser du / frugt juice drikker du? </h3>
 						<label>
 							<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="1" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fruit-1"></span> I don't eat fruit or drink fruit juices</label>
+							<span class="icon icon-portion-fruit-1"></span>
+							<br/>Intet</label>
 						<label>
 							<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="2" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fruit-2"></span> 1 piece / drink</label>
+							<span class="icon icon-portion-fruit-2"></span>
+							<br/>1 stk. / glas</label>
 						<label>
 							<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="3" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fruit-3"></span> 2 or more pieces / drinks</label>
+							<span class="icon icon-portion-fruit-3"></span>
+							<br/>+2 stk. / glas</label>
 
 						<p class="substep-explanation">Fruit is an important source of vitamin C. Count two small pieces
 							(mandarin,
@@ -320,24 +405,27 @@
 					</div>
 
 					<div data-sub-step="3" class="sub_step">
-						<h3 class="substep-title">How many slices of bread/bread substitutes (like cereals, oat porridge, crackers) do you
-							take
-							daily?</h3>
+						<h3 class="substep-title">Hvor meget brød spiser du dagligt?</h3>
 						<label>
 							<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-1"></span> I don't eat bread</label>
+							<span class="icon icon-portion-bread-1"></span>
+							<br/>Intet</label>
 						<label>
 							<input type="radio" name="step[3][3]" value="2" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-2"></span> 1-2 pieces</label>
+							<span class="icon icon-portion-bread-2"></span>
+							<br/>1-2 stk.</label>
 						<label>
 							<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-3"></span> 3-4 pieces</label>
+							<span class="icon icon-portion-bread-3"></span>
+							<br/>3-4 stk.</label>
 						<label>
 							<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-4"></span> 5-6 pieces</label>
+							<span class="icon icon-portion-bread-4"></span>
+							<br/>5-6 stk.</label>
 						<label>
 							<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-5"></span> 7 pieces or more</label>
+							<span class="icon icon-portion-bread-5"></span>
+							<br/>+7 stk.</label>
 
 						<p class="substep-explanation">Bread is an important sources of B vitamins, iron and fibre. It is
 							important
@@ -346,17 +434,22 @@
 					</div>
 
 					<div data-sub-step="4" class="sub_step">
-						<h3 class="substep-title">Do you put butter or margarine your bread?
-							<br/>Do you use margarine for backing/preparing food?</h3>
+						<h3 class="substep-title">Bruger du smør eller margarine på dit brød eller ved madlavning?</h3>
 						<label>
 							<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-butter-yes"></span></label>
+							<span class="icon icon-portion-butter-yes"></span>
+							<br/>Ja
+						</label>
 						<label>
 							<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-butter-no"></span></label>
+							<span class="icon icon-portion-butter-no"></span>
+							<br/>Nej
+						</label>
 						<label>
 							<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-butter-sometimes"></span></label>
+							<span class="icon icon-portion-butter-sometimes"></span>
+							<br/>Af og til
+						</label>
 
 						<p class="substep-explanation">Margarine and halvarine are important sources of vitamin A and vitamin
 							D.Both
@@ -364,65 +457,84 @@
 					</div>
 
 					<div data-sub-step="5" class="sub_step">
-						<h3 class="substep-title">How many portions of pasta, rice, couscous, quinoa etc do you take daily?</h3>
+						<h3 class="substep-title">Hvor meget pasta, kartofler eller ris spiser du dagligt?</h3>
 						<label>
 							<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-pasta-1"></span>I don't eat pasta and rice</label>
+							<span class="icon icon-portion-pasta-1"></span>
+							<br/>Intet</label>
 						<label>
 							<input type="radio" name="step[3][5]" value="2" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-pasta-2"></span>1-2 portions (50-100 gram)</label>
+							<span class="icon icon-portion-pasta-2"></span>
+							<br/>1-2 portioner (50-100 gram)</label>
 						<label>
 							<input type="radio" name="step[3][5]" value="3" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-pasta-3"></span>3-4 portions (150-300 gram)</label>
+							<span class="icon icon-portion-pasta-3"></span>
+							<br/>3-4 portioner (150-200 gram)</label>
 						<label>
 							<input type="radio" name="step[3][5]" value="4" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-pasta-4"></span>5 portions or more (250 gram or more)</label>
+							<span class="icon icon-portion-pasta-4"></span>
+							<br/>+5 portioner (+250 gram)</label>
 
 						<p class="substep-explanation">Pasta and rice are an important source of B vitamins and minerals. One
 							serving spoon potatoes equals 50 grams.</p>
 					</div>
 
 					<div data-sub-step="6" class="sub_step">{{-- consider hide if vegeratian --}}
-						<h3 class="substep-title">How many portions of meat do you take daily?</h3>
+						<h3 class="substep-title">Hvor meget kød spiser du dagligt?</h3>
 						<label>
 							<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-meat-1"></span>0-75 gram</label>
+							<span class="icon icon-portion-meat-1"></span>
+							<br/>0-75 gram</label>
 						<label>
 							<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-meat-2"></span>76-150 gram</label>
+							<span class="icon icon-portion-meat-2"></span>
+							<br/>76-150 gram</label>
 						<label>
 							<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-meat-3"></span>151 gram or more</label>
+							<span class="icon icon-portion-meat-3"></span>
+							<br/>+151 gram</label>
 
 						<p class="substep-explanation">Meat is rich in B-vitamins en iron.</p>
 					</div>
 
 					<div data-sub-step="7" class="sub_step">
-						<h3 class="substep-title">How often do you eat fish?</h3>
+						<h3 class="substep-title">Hvor ofte spiser du fisk?</h3>
 						<label>
 							<input type="radio" name="step[3][7]" value="1" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fish-1"></span>I don't eat fish</label>
+							<span class="icon icon-portion-fish-1"></span>
+							<br/>Aldrig / sjældent
+						</label>
 						<label>
 							<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fish-2"></span>Once a week</label>
+							<span class="icon icon-portion-fish-2"></span>
+							<br/>En gang om ugen
+						</label>
 						<label>
 							<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fish-3"></span>Twice a week or more</label>
+							<span class="icon icon-portion-fish-3"></span>
+							<br/>To, eller flere, gange om ugen
+						</label>
 
 						<p class="substep-explanation">Fish is rich in fish-oil (omega-3) and vitamin D.</p>
 					</div>
 
 					<div data-sub-step="8" class="sub_step">
-						<h3 class="substep-title">How many portions of dairy do you take daily?</h3>
+						<h3 class="substep-title">Hvor mange portioner mælkeprodukter får du dagligt?</h3>
 						<label>
 							<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-milk-1"></span>I don't eat/drink dairy</label>
+							<span class="icon icon-portion-milk-1"></span>
+							<br/>Ingen
+						</label>
 						<label>
 							<input type="radio" name="step[3][8]" value="2" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-milk-2"></span>1-2 portions</label>
+							<span class="icon icon-portion-milk-2"></span>
+							<br/>1-2 portioner
+						</label>
 						<label>
 							<input type="radio" name="step[3][8]" value="3" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-milk-3"></span>3 portions or more</label>
+							<span class="icon icon-portion-milk-3"></span>
+							<br/>+3 portioner
+						</label>
 
 						<p class="substep-explanation">Milk is an important source of vitamine B2, B12 and calcium that makes
 							for
@@ -869,7 +981,7 @@
 					return true;
 				},
 
-				getSubStepsForStep: function()
+				getSubStepsForStep: function ()
 				{
 					return $(".step[data-step='" + this.step + "']").find(".sub_step").length;
 				},
@@ -1000,7 +1112,7 @@
 			}
 		});
 
-		$("#birthdate-picker").pickadate({
+		var $birthdayPicker = $("#birthdate-picker").pickadate({
 			// Strings and translations
 			monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
 			monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -1048,6 +1160,12 @@
 			{
 				this.current_advise_three = $(el).data('group');
 			}
+		});
+
+		$("#openPicker").click(function (e)
+		{
+			e.preventDefault();
+			$birthdayPicker.pickadate('picker').open();
 		});
 	</script>
 @endsection
