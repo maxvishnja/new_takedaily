@@ -350,13 +350,13 @@
 							<br/>Do you use margarine for backing/preparing food?</h3>
 						<label>
 							<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							<span class="icon-portion-butter-yes"></span></label>
+							<span class="icon icon-portion-butter-yes"></span></label>
 						<label>
 							<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							<span class="icon-portion-butter-no"></span></label>
+							<span class="icon icon-portion-butter-no"></span></label>
 						<label>
 							<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							<span class="icon-portion-butter-sometimes"></span></label>
+							<span class="icon icon-portion-butter-sometimes"></span></label>
 
 						<p class="substep-explanation">Margarine and halvarine are important sources of vitamin A and vitamin
 							D.Both
@@ -367,32 +367,32 @@
 						<h3 class="substep-title">How many portions of pasta, rice, couscous, quinoa etc do you take daily?</h3>
 						<label>
 							<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							I don't eat pasta and rice</label>
+							<span class="icon icon-portion-pasta-1"></span>I don't eat pasta and rice</label>
 						<label>
 							<input type="radio" name="step[3][5]" value="2" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							1-2 portions (50-100 gram)</label>
+							<span class="icon icon-portion-pasta-2"></span>1-2 portions (50-100 gram)</label>
 						<label>
 							<input type="radio" name="step[3][5]" value="3" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							3-4 portions (150-300 gram)</label>
+							<span class="icon icon-portion-pasta-3"></span>3-4 portions (150-300 gram)</label>
 						<label>
 							<input type="radio" name="step[3][5]" value="4" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							5 portions or more (250 gram or more)</label>
+							<span class="icon icon-portion-pasta-4"></span>5 portions or more (250 gram or more)</label>
 
 						<p class="substep-explanation">Pasta and rice are an important source of B vitamins and minerals. One
 							serving spoon potatoes equals 50 grams.</p>
 					</div>
 
-					<div data-sub-step="6" class="sub_step">
+					<div data-sub-step="6" class="sub_step">{{-- consider hide if vegeratian --}}
 						<h3 class="substep-title">How many portions of meat do you take daily?</h3>
 						<label>
 							<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
-							0-75 gram</label>
+							<span class="icon icon-portion-meat-1"></span>0-75 gram</label>
 						<label>
 							<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
-							76-150 gram</label>
+							<span class="icon icon-portion-meat-2"></span>76-150 gram</label>
 						<label>
 							<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
-							151 gram or more</label>
+							<span class="icon icon-portion-meat-3"></span>151 gram or more</label>
 
 						<p class="substep-explanation">Meat is rich in B-vitamins en iron.</p>
 					</div>
@@ -401,13 +401,13 @@
 						<h3 class="substep-title">How often do you eat fish?</h3>
 						<label>
 							<input type="radio" name="step[3][7]" value="1" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
-							I don't eat fish</label>
+							<span class="icon icon-portion-fish-1"></span>I don't eat fish</label>
 						<label>
 							<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
-							Once a week</label>
+							<span class="icon icon-portion-fish-2"></span>Once a week</label>
 						<label>
 							<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
-							Twice a week or more</label>
+							<span class="icon icon-portion-fish-3"></span>Twice a week or more</label>
 
 						<p class="substep-explanation">Fish is rich in fish-oil (omega-3) and vitamin D.</p>
 					</div>
@@ -416,13 +416,13 @@
 						<h3 class="substep-title">How many portions of dairy do you take daily?</h3>
 						<label>
 							<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
-							I don't eat/drink dairy</label>
+							<span class="icon icon-portion-milk-1"></span>I don't eat/drink dairy</label>
 						<label>
 							<input type="radio" name="step[3][8]" value="2" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
-							1-2 portions</label>
+							<span class="icon icon-portion-milk-2"></span>1-2 portions</label>
 						<label>
 							<input type="radio" name="step[3][8]" value="3" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
-							3 portions or more</label>
+							<span class="icon icon-portion-milk-3"></span>3 portions or more</label>
 
 						<p class="substep-explanation">Milk is an important source of vitamine B2, B12 and calcium that makes
 							for

@@ -31,9 +31,13 @@ body.page-flow
 				position: relative
 				cursor: pointer
 				padding: 15px
-				background: #f5f5f5
+				background: #f9f9f9
 				border-radius: 4px
 				display: inline-block
+				margin-right: 10px
+
+				&:last-of-type
+					margin-right: 0
 
 			label:hover:after
 				content: ''
@@ -68,14 +72,14 @@ body.page-flow
 	text-align: center
 	background: $pale-grey
 	border-bottom: 1px solid $pale-grey-border
+	font-size: 0
 
 	.flow-step
 		background: $white
 		height: 66px
-		padding: 25px 50px
+		padding: 28px 50px
 		display: inline-block
 		text-align: center
-		margin-right: -4px
 		border-right: 1px solid $pale-grey-border
 
 		&:first-child
@@ -91,6 +95,7 @@ body.page-flow
 			display: inline-block
 			vertical-align: middle
 			background: $lighter-grey
+			transition: width 300ms
 
 			.flow-step-progress-bar
 				background: $main-green
@@ -121,6 +126,11 @@ body.page-flow
 
 		&.flow-step--completed
 			background: #fff
+			background: linear-gradient(to right, #fff 33%, rgba($main-green,.4) 50%, #fff 66%)
+			background-size: 300% 100%
+			animation-name: flow_step_success
+			animation-duration: 500ms
+			animation-iteration-count: 1
 
 			.flow-step-title
 				color: $warm-grey
@@ -132,3 +142,19 @@ body.page-flow
 				margin-right: 12px
 				display: inline-block
 				display: inline-block
+				position: relative
+
+
+@-webkit-keyframes flow_step_success
+	0%
+		background-position: right bottom
+
+	100%
+		background-position: left bottom
+
+@keyframes flow_step_success
+	0%
+		background-position: right bottom
+
+	100%
+		background-position: left bottom
