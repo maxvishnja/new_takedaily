@@ -93,7 +93,7 @@
 					</div>
 
 					<div data-sub-step="4" class="sub_step">
-						<h3 class="substep-title">Are your outside between 11 and 15 every day?</h3>
+						<h3 class="substep-title">Er du udenfor mellem 11:00 og 15:00 hver dag?</h3>
 						<label>
 							<input type="radio" name="step[1][4]" value="1" v-model="user_data.outside" v-on:click="nextStep();"/>
 							<span class="icon icon-sun-yes"></span></label>
@@ -109,7 +109,7 @@
 
 				<div data-step="2" v-bind="{ 'data-first-sub-step': user_data.gender == 2 ? 1 : 2 }" class="step">
 					<div data-sub-step="1" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--active': user_data.gender == 2 }">
-						<h3 class="substep-title">Are you pregnant or do you have a pregnancy wish?</h3>
+						<h3 class="substep-title">Er du gravid, eller ønsker at blive det?</h3>
 						<label>
 							<input type="radio" name="step[2][1]" value="1" v-model="user_data.pregnant" v-on:click="nextStep();"/>
 							<span class="icon icon-pregnant-yes"></span></label>
@@ -132,7 +132,7 @@
 					</div>
 
 					<div data-sub-step="2" class="sub_step" v-bind:class="{ 'sub_step--active': user_data.gender == 1 }">
-						<h3 class="substep-title">Are you on a slimming diet?</h3>
+						<h3 class="substep-title">Er du på en diæt for vægttab?</h3>
 						<label>
 							<input type="radio" name="step[2][2]" value="1" v-model="user_data.diet" v-on:click="nextStep();"/>
 							<span class="icon icon-diet-pear"></span></label>
@@ -154,7 +154,7 @@
 					</div>
 
 					<div data-sub-step="3" class="sub_step">
-						<h3 class="substep-title">How often do you practice physical sporting activity?</h3>
+						<h3 class="substep-title">Hvor ofte er du fysisk aktiv?</h3>
 						<label>
 							<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" v-on:click="nextStep();"/>
 							<span class="icon icon-activity-seldom" title="Seldom"Two more icon sets.></span></label>
@@ -176,7 +176,7 @@
 					</div>
 
 					<div data-sub-step="4" class="sub_step">
-						<h3 class="substep-title">How is your life at this moment?</h3>
+						<h3 class="substep-title">Hvordan er dit liv i øjeblikket?</h3>
 						<label>
 							<input type="radio" name="step[2][4]" value="1" v-model="user_data.stressed" v-on:click="nextStep();"/>
 							<span class="icon icon-stress" title="Stressful"></span></label>
@@ -189,7 +189,7 @@
 					</div>
 
 					<div data-sub-step="5" class="sub_step">
-						<h3 class="substep-title">Do you often feel tired, or lacking energy?</h3>
+						<h3 class="substep-title">Føler du dig tit træt, eller mangler energi?</h3>
 						<label>
 							<input type="radio" name="step[2][5]" value="1" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
 							<span class="icon icon-tired" title="Every day"></span></label>
@@ -205,7 +205,7 @@
 					</div>
 
 					<div data-sub-step="6" class="sub_step">
-						<h3 class="substep-title">Would you like to boost your immune system?</h3>
+						<h3 class="substep-title">Ønsker du at forbedre dit immunsystem?</h3>
 						<label>
 							<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" v-on:click="nextStep();"/>
 							<span class="icon icon-immune-boost"></span></label>
@@ -220,7 +220,7 @@
 					</div>
 
 					<div data-sub-step="7" class="sub_step">
-						<h3 class="substep-title">Do you smoke?</h3>
+						<h3 class="substep-title">Ryger du?</h3>
 						<label>
 							<input type="radio" name="step[2][7]" value="1" v-model="user_data.smokes" v-on:click="nextStep();"/>
 							<span class="icon icon-smoke"></span></label>
@@ -233,7 +233,7 @@
 					</div>
 
 					<div data-sub-step="8" class="sub_step">
-						<h3 class="substep-title">Are you a vegetarian?</h3>
+						<h3 class="substep-title">Er du vegetar?</h3>
 						<label>
 							<input type="radio" name="step[2][8]" value="1" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
 							<span class="icon icon-vegetarian-yes"></span></label>
@@ -247,13 +247,13 @@
 					</div>
 
 					<div data-sub-step="9" class="sub_step">
-						<h3 class="substep-title">Do you have problems with your musles/joint?</h3>
+						<h3 class="substep-title">Har du problemer med muskler eller led?</h3>
 						<label>
 							<input type="radio" name="step[2][9]" value="1" v-model="user_data.joints" v-on:click="nextStep();"/>
-							Yes</label>
+							<span class="icon icon-joint-yes"></span></label>
 						<label>
 							<input type="radio" name="step[2][9]" value="2" v-model="user_data.joints" v-on:click="nextStep();"/>
-							No</label>
+							<span class="icon icon-joint-no"></span></label>
 
 						<p class="substep-explanation">Some nutrients support your joints and muscles. Vitamin D makes you
 							musles
@@ -262,11 +262,13 @@
 					</div>
 
 					<div data-sub-step="10" class="sub_step">
-						<h3 class="substep-title">Do you use any supplements?</h3>
+						<h3 class="substep-title">Tager du nogle vitaminer eller mineraler allerede?</h3>
 						<label>
-							<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();"/> Yes</label>
+							<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();"/>
+							<span class="icon icon-supplement-yes"></span></label>
 						<label>
-							<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();"/> No</label>
+							<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();"/>
+							<span class="icon icon-supplement-no"></span></label>
 
 						<p class="substep-explanation">The result of this test is based on your diet and your lifestyle. Take
 							Daily
@@ -281,19 +283,19 @@
 						<h3 class="substep-title">How many portions of vegetables do you take daily?</h3>
 						<label>
 							<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							I don't eat vegetables</label>
+							<span class="icon icon-portion-vegetables-1"></span> I don't eat vegetables</label>
 						<label>
 							<input type="radio" name="step[3][1]" value="2" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							1 portion (50 gram)</label>
+							<span class="icon icon-portion-vegetables-2"></span> 1 portion (50 gram)</label>
 						<label>
 							<input type="radio" name="step[3][1]" value="3" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							2 portions (100 gram)</label>
+							<span class="icon icon-portion-vegetables-3"></span> 2 portions (100 gram)</label>
 						<label>
 							<input type="radio" name="step[3][1]" value="4" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							3 portions (150 gram)</label>
+							<span class="icon icon-portion-vegetables-4"></span> 3 portions (150 gram)</label>
 						<label>
 							<input type="radio" name="step[3][1]" value="5" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							4 portions or more (200 gram or more)</label>
+							<span class="icon icon-portion-vegetables-5"></span> 4 portions or more (200 gram or more)</label>
 
 						<p class="substep-explanation">Vegetables are an important source of vitamin C, folic acid and
 							potassium.
@@ -304,13 +306,13 @@
 						<h3 class="substep-title">How many portions of fruit/fruit juice do you take daily? </h3>
 						<label>
 							<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="1" v-on:click="nextStep();"/>
-							I don't eat fruit or drink fruit juices</label>
+							<span class="icon icon-portion-fruit-1"></span> I don't eat fruit or drink fruit juices</label>
 						<label>
 							<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="2" v-on:click="nextStep();"/>
-							1 piece / drink</label>
+							<span class="icon icon-portion-fruit-2"></span> 1 piece / drink</label>
 						<label>
 							<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="3" v-on:click="nextStep();"/>
-							2 or more pieces / drinks</label>
+							<span class="icon icon-portion-fruit-3"></span> 2 or more pieces / drinks</label>
 
 						<p class="substep-explanation">Fruit is an important source of vitamin C. Count two small pieces
 							(mandarin,
@@ -323,19 +325,19 @@
 							daily?</h3>
 						<label>
 							<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							I don't eat bread</label>
+							<span class="icon icon-portion-bread-1"></span> I don't eat bread</label>
 						<label>
 							<input type="radio" name="step[3][3]" value="2" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							1-2 pieces</label>
+							<span class="icon icon-portion-bread-2"></span> 1-2 pieces</label>
 						<label>
 							<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							3-4 pieces</label>
+							<span class="icon icon-portion-bread-3"></span> 3-4 pieces</label>
 						<label>
 							<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							5-6 pieces</label>
+							<span class="icon icon-portion-bread-4"></span> 5-6 pieces</label>
 						<label>
 							<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							7 pieces or more</label>
+							<span class="icon icon-portion-bread-5"></span> 7 pieces or more</label>
 
 						<p class="substep-explanation">Bread is an important sources of B vitamins, iron and fibre. It is
 							important
@@ -348,13 +350,13 @@
 							<br/>Do you use margarine for backing/preparing food?</h3>
 						<label>
 							<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							Yes</label>
+							<span class="icon-portion-butter-yes"></span></label>
 						<label>
 							<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							No</label>
+							<span class="icon-portion-butter-no"></span></label>
 						<label>
 							<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							Sometimes</label>
+							<span class="icon-portion-butter-sometimes"></span></label>
 
 						<p class="substep-explanation">Margarine and halvarine are important sources of vitamin A and vitamin
 							D.Both
@@ -697,23 +699,23 @@
 				combinations: {
 					"1": {
 						"A": {
-							"a": true,
-							"b": true,
+							"a": false,
+							"b": false,
 							"c": true,
 							"d": true,
-							"e": false,
+							"e": true,
 							"f": false
 						},
 						"B": {
 							"a": false,
 							"b": false,
-							"c": false,
+							"c": true,
 							"d": false,
 							"e": true,
 							"f": true
 						},
 						"C": {
-							"a": false,
+							"a": true,
 							"b": false,
 							"c": false,
 							"d": false,
@@ -723,9 +725,9 @@
 						"D": {
 							"a": false,
 							"b": false,
-							"c": false,
+							"c": true,
 							"d": false,
-							"e": false,
+							"e": true,
 							"f": false
 						},
 						"E": {
@@ -734,18 +736,18 @@
 							"c": true,
 							"d": true,
 							"e": true,
-							"f": true
+							"f": false
 						}
 					},
 					"2": {
 						"A": false,
 						"B": {
 							"a": false,
-							"b": true,
+							"b": false,
 							"c": true,
 							"d": false,
-							"e": false,
-							"f": false
+							"e": true,
+							"f": true
 						},
 						"C": {
 							"a": true,
@@ -757,54 +759,54 @@
 						},
 						"D": {
 							"a": false,
+							"b": false,
+							"c": true,
+							"d": false,
+							"e": true,
+							"f": false
+						},
+						"E": {
+							"a": false,
 							"b": true,
 							"c": true,
 							"d": true,
 							"e": true,
 							"f": false
-						},
-						"E": {
-							"a": true,
-							"b": true,
-							"c": true,
-							"d": true,
-							"e": true,
-							"f": true
 						}
 					},
 					"3": {
 						"A": false,
 						"B": {
 							"a": false,
-							"b": true,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": true
-						},
-						"C": {
-							"a": true,
 							"b": false,
 							"c": true,
 							"d": false,
 							"e": true,
-							"f": true
+							"f": false
+						},
+						"C": {
+							"a": true,
+							"b": false,
+							"c": false,
+							"d": false,
+							"e": true,
+							"f": false
 						},
 						"D": {
 							"a": false,
-							"b": true,
-							"c": true,
-							"d": true,
+							"b": false,
+							"c": false,
+							"d": false,
 							"e": false,
 							"f": false
 						},
 						"E": {
-							"a": true,
-							"b": true,
-							"c": true,
-							"d": true,
-							"e": true,
-							"f": true
+							"a": false,
+							"b": false,
+							"c": false,
+							"d": false,
+							"e": false,
+							"f": false
 						}
 					}
 				},

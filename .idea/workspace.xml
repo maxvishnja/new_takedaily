@@ -2,47 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-activity-more.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-activity-more@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-activity-once.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-activity-once@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-activity-seldom.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-activity-seldom@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-activity-twice.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-activity-twice@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-awake.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-awake@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-burger.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-burger@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-pear.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-pear@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-fresh.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-fresh@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-immune-boost.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-immune-boost@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-immune-ignore.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-immune-ignore@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-no.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-no@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-yes.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-yes@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joy@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-meat.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-meat@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-smoke-no.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-smoke-no@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-smoke.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-smoke@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-stress.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-stress@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-tired.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-tired@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-vegetarian-yes.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-vegetarian-yes@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/block-six-bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/block-two-bg.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/dietist.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-1@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-2@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-3@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-4@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-5@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-butter-no.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-butter-no@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-butter-sometimes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-butter-sometimes@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-butter-yes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-butter-yes@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-fruit-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-fruit-1@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-fruit-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-fruit-2@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-fruit-3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-fruit-3@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-1@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-2@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-3@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-4@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-5@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-supplement-no.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-supplement-no@2x.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-supplement-yes.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-supplement-yes@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css.map" afterPath="$PROJECT_DIR$/public/css/app.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/sprite.png" afterPath="$PROJECT_DIR$/public/images/sprite.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/sprite@2x.png" afterPath="$PROJECT_DIR$/public/images/sprite@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-burger.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-burger.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-burger@2x.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-burger@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-pear.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-pear.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-pear@2x.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-diet-pear@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-no.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-no.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-no@2x.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-no@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-yes.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-yes.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-yes@2x.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-joint-yes@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-meat.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-meat.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-meat@2x.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-meat@2x.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-vegetarian-yes.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-vegetarian-yes.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sprites/icon-vegetarian-yes@2x.png" afterPath="$PROJECT_DIR$/resources/assets/sprites/icon-vegetarian-yes@2x.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="$PROJECT_DIR$/public/css/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/_sprites.sass" afterPath="$PROJECT_DIR$/resources/assets/sass/_sprites.sass" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/flow.blade.php" afterPath="$PROJECT_DIR$/resources/views/flow.blade.php" />
     </list>
     <ignored path="TakeDaily.iws" />
@@ -78,18 +94,8 @@
       <file leaf-file-name="flow.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47058824">
-              <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_landing.sass" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/sass/_landing.sass">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="220" column="14" selection-start-line="220" selection-start-column="14" selection-end-line="220" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.7687296">
+              <caret line="817" column="34" selection-start-line="817" selection-start-column="34" selection-end-line="817" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -149,8 +155,8 @@
         <option value="$PROJECT_DIR$/resources/assets/js/vendor/slider.js" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_elements.sass" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/assets/sass/_landing.sass" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/buffer1" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/_landing.sass" />
         <option value="$PROJECT_DIR$/resources/views/flow.blade.php" />
       </list>
     </option>
@@ -193,7 +199,7 @@
       <selected-paths>
         <path>
           <id value="$PROJECT_DIR$/gulpfile.js" />
-          <id value="watch" />
+          <id value="default" />
         </path>
       </selected-paths>
     </layout>
@@ -282,8 +288,18 @@
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sprites" />
+              <option name="myItemId" value="TakeDaily" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TakeDaily" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -297,11 +313,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -316,7 +332,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;defa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;_el&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;gulp&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/gulpfile.js&#10;app.sass&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;_defa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;acc&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/account.blade.php&#10;accoun&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/account.blade.php&#10;app.css&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/public/css/app.css&#10;app.j&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/app.js&#10;app.sas&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;_de&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;nav&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/nav.blade.php&#10;app.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/app.blade.php&#10;elem&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;foot&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;routes.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;o&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;PageCon&#9;null&#9;null&#10;page&#9;null&#9;null&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;PageSe&#9;null&#9;null&#10;lock_som&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/database/migrations/2016_02_27_181014_lock_some_cms_pages.php&#10;Customer.php&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/app/Customer.php&#10;Carbon.&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/vendor/nesbot/carbon/src/Carbon/Carbon.php&#10;compiled.php&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/bootstrap/cache/compiled.php&#10;dfc6529185b1afe607e333bddbf0c4a0460b3423&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/storage/framework/views/dfc6529185b1afe607e333bddbf0c4a0460b3423.php&#10;CustomerCon&#9;null&#9;null&#10;Plan&#9;null&#9;null&#10;CustomerS&#9;null&#9;null&#10;show.blade.php&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/resources/views/admin/customers/show.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;defa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;_el&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;gulp&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/gulpfile.js&#10;app.sass&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;_defa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;acc&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/account.blade.php&#10;accoun&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/account.blade.php&#10;app.css&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/public/css/app.css&#10;app.j&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/app.js&#10;app.sas&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;_de&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;nav&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/nav.blade.php&#10;app.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/app.blade.php&#10;elem&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;foot&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;routes.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;o&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;PageCon&#9;null&#9;null&#10;page&#9;null&#9;null&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;PageSe&#9;null&#9;null&#10;lock_som&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/database/migrations/2016_02_27_181014_lock_some_cms_pages.php&#10;Customer.php&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/app/Customer.php&#10;Carbon.&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/vendor/nesbot/carbon/src/Carbon/Carbon.php&#10;compiled.php&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/bootstrap/cache/compiled.php&#10;dfc6529185b1afe607e333bddbf0c4a0460b3423&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/storage/framework/views/dfc6529185b1afe607e333bddbf0c4a0460b3423.php&#10;CustomerCon&#9;null&#9;null&#10;Plan&#9;null&#9;null&#10;CustomerS&#9;null&#9;null&#10;show.blade.php&#9;FILE&#9;file:///Users/lasserafn/Code/TakeDaily/resources/views/admin/customers/show.blade.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -514,7 +530,13 @@
       <option name="project" value="LOCAL" />
       <updated>1457613950728</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="New icons and texts">
+      <created>1457689882792</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1457689882792</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -522,10 +544,11 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24486572" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3773036" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3773036" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
       <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18164252" sideWeight="0.42801046" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15903106" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -542,7 +565,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861477" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -610,41 +632,14 @@
     <MESSAGE value="Smoke icon" />
     <MESSAGE value="Vegetarian" />
     <MESSAGE value="Compressed images" />
-    <option name="LAST_COMMIT_MESSAGE" value="Compressed images" />
+    <MESSAGE value="New icons and texts" />
+    <option name="LAST_COMMIT_MESSAGE" value="New icons and texts" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/uploads/products/thumbs/.gitkeep">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/products/full/.gitkeep">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/cms/meta/.gitkeep">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/.gitkeep">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/images/.gitkeep">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -657,11 +652,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/sprite@2x.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/sass/_sprites.sass">
@@ -826,11 +816,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/sprite.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53838485">
@@ -951,18 +936,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_landing.sass">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47058824">
-          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.042871386">
+          <caret line="220" column="14" selection-start-line="220" selection-start-column="14" selection-end-line="220" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_landing.sass">
+    <entry file="file://$PROJECT_DIR$/resources/assets/sprites/icon-portion-vegetables-2@2x.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-5.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sprites/icon-portion-bread-5@2x.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/sprite@2x.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/images/sprite.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="220" column="14" selection-start-line="220" selection-start-column="14" selection-end-line="220" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.7687296">
+          <caret line="817" column="34" selection-start-line="817" selection-start-column="34" selection-end-line="817" selection-end-column="34" />
           <folding />
         </state>
       </provider>
