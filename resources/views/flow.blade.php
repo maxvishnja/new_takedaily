@@ -31,7 +31,7 @@
 				<div class="flow-step-title">KOST OG VANER</div>
 			</div>
 			<div class="flow-step flow-step--inactive" step="4" v-bind:class="{ 'flow-step--inactive': step !== 4 }">
-				<div class="flow-step-title">BESTILLING</div>
+				<div class="flow-step-title">ANBEFALING</div>
 			</div>
 		</div>
 
