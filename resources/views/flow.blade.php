@@ -251,7 +251,7 @@
 						<label>
 							<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" v-on:click="nextStep();"/>
 							<span class="icon icon-immune-boost"></span>
-							<br/>Ja, jeg vil gerne trækkes lidt op
+							<br/>Ja, jeg vil gerne beskyttes bedre
 						</label>
 						<label>
 							<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" v-on:click="nextStep();"/>
@@ -518,26 +518,28 @@
 				<div data-step="4" data-first-sub-step="1" class="step">
 					<div class="group" data-group="1">
 
-						<div class="advise" data-advise="1.1" data-group="1" v-if="( (user_data.age < 50 && user_data.gender == 2 && user_data.pregnant == 2)  || (user_data.age < 70 && user_data.gender == 1) )" transition="setAdviseOne">
+						<div class="advise" data-advise="1.1" data-group="1" v-if="( (user_data.age < '50 '&& user_data.gender == '2 '&& user_data.pregnant == '2') || (user_data.age < '70 '&& user_data.gender == '1') )" transition="setAdviseOne">
 							Basic
 							<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis</p>
 						</div>
 
-						<div class="advise" data-advise="1.2" data-group="1" v-if="(isAlone(1, 1.2)) && (( ( user_data.age >= 50 && user_data.age <= 70 ) && user_data.gender == 2) || (user_data.skin > 1)))" transition="setAdviseOne">
+						@{{ user_data.age }}
+
+						<div class="advise" data-advise="1.2" data-group="1" v-if="(isAlone(1, 1.2)) && (( ( user_data.age >= '50' && user_data.age <= '70' ) && user_data.gender == '2)' || (user_data.skin > '1')))" transition="setAdviseOne">
 							Basic +10 D
 							<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
-							<p>Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= 50 && user_data.age <= 70 )">din alder</span>
-								<span v-show="( user_data.age >= 50 && user_data.age <= 70 ) && user_data.skin > 1">og</span> <span v-show="user_data.skin > 1">mørke hudfarve</span>.
+							<p>Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= '50' && user_data.age <= '70' )">din alder</span>
+								<span v-show="( user_data.age >= '50'&& user_data.age <= '70') && user_data.skin > '1'">og</span> <span v-show="user_data.skin > '1'">mørke hudfarve</span>.
 								Det sørger vi for.</p>
 						</div>
 
-						<div class="advise" data-advise="1.3" data-group="1" v-if="(isAlone(1, 1.3)) && (outside == 2)" transition="setAdviseOne">
+						<div class="advise" data-advise="1.3" data-group="1" v-if="(isAlone(1, 1.3)) && (outside == '2')" transition="setAdviseOne">
 							Basic +10 D
 							<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
 							<p>Du skal fx have lidt ekstra D-vitamin, fordi du ikke kommer så meget ud i solen. Det sørger vi for.</p>
 						</div>
 
-						<div class="advise" data-advise="1.4" data-group="1" v-if="((user_data.age > 70 && user_data.gender == 1) || (user_data.age > 50 && user_data.gender == 2) ) && isAlone(1, 1.4)" transition="setAdviseOne">
+						<div class="advise" data-advise="1.4" data-group="1" v-if="((user_data.age >= '70 '&& user_data.gender == '1') || (user_data.age >= '50' && user_data.gender == '2') ) && isAlone(1, 1.4)" transition="setAdviseOne">
 							Basic +20 D
 							<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
 							<p>I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.</p>
@@ -545,7 +547,7 @@
 					</div>
 
 					<div class="group" data-group="2">
-						<div class="advise" data-advise="2.1" data-group="A" v-if="(isCombinationPossible(current_advise_one, 'A', null)) && user_data.pregnant == 1" transition="setAdviseTwo">
+						<div class="advise" data-advise="2.1" data-group="A" v-if="(isCombinationPossible(current_advise_one, 'A', null)) && user_data.pregnant == '1'" transition="setAdviseTwo">
 							A
 							<p>
 								Du er gravid. Tillykke! I den søde ventetid, sørger Take Daily for, at du og din baby får de særlige tilskud, I har brug for.
@@ -562,7 +564,7 @@
 							</p>
 						</div>
 
-						<div class="advise" data-advise="2.2" data-group="B" v-if="(isCombinationPossible(current_advise_one, 'B', null)) && (isAlone(2, 2.2)) && (user_data.diet == 1)" transition="setAdviseTwo">
+						<div class="advise" data-advise="2.2" data-group="B" v-if="(isCombinationPossible(current_advise_one, 'B', null)) && (isAlone(2, 2.2)) && (user_data.diet == '1')" transition="setAdviseTwo">
 							B
 							<p>Når du er på slankekur, har du brug for lidt ekstra vitaminer og mineraler. Take Daily giver dig det helt rigtige miks. Husk også
 								at slappe af, sove og dyrke motion.
@@ -575,7 +577,7 @@
 							</p>
 						</div>
 
-						<div class="advise" data-advise="2.3" data-group="C" v-if="(isCombinationPossible(current_advise_one, 'C', null)) && (isAlone(2, 2.3)) && (user_data.sports == 4 || user_data.lacks_energy < 3 || user_data.stressed == 1)" transition="setAdviseTwo">
+						<div class="advise" data-advise="2.3" data-group="C" v-if="(isCombinationPossible(current_advise_one, 'C', null)) && (isAlone(2, 2.3)) && (user_data.sports == '4' || user_data.lacks_energy < '3' || user_data.stressed == '1')" transition="setAdviseTwo">
 							C
 							<p v-show="user_data.sports == 4">
 								Når du motionerer så meget, som du gør lige nu, har du brug for ekstra vitaminer og mineraler. Vi har sammensat lige det, din
@@ -590,7 +592,7 @@
 							</p>
 						</div>
 
-						<div class="advise" data-advise="2.4" data-group="D" v-if="(isCombinationPossible(current_advise_one, 'D', null)) && (isAlone(2, 2.4)) && (user_data.immune_system == 1 || user_data.smokes == 1 || user_data.vegetarian == 1)" transition="setAdviseTwo">
+						<div class="advise" data-advise="2.4" data-group="D" v-if="(isCombinationPossible(current_advise_one, 'D', null)) && (isAlone(2, 2.4)) && (user_data.immune_system == '1' || user_data.smokes == '1' || user_data.vegetarian == '1')" transition="setAdviseTwo">
 							D
 							<p v-show="user_data.immune_system == 1">
 								De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit immunforsvar, fordi det hjælper
@@ -611,7 +613,7 @@
 							</p>
 						</div>
 
-						<div class="advise" data-advise="2.5" data-group="E" v-if="(isCombinationPossible(current_advise_one, 'E', null)) && (isAlone(2, 2.5)) && (user_data.joints == 1)" transition="setAdviseTwo">
+						<div class="advise" data-advise="2.5" data-group="E" v-if="(isCombinationPossible(current_advise_one, 'E', null)) && (isAlone(2, 2.5)) && (user_data.joints == '1')" transition="setAdviseTwo">
 							E
 							<p>
 								Når du har ømme muskler og led har du brug for nogle gode næringsstoffer. Mangel på D-vitamin kan ligefrem give svage muskler og
@@ -621,7 +623,7 @@
 					</div>
 
 					<div class="group" data-group="3">
-						<div class="advise" data-advise="3.1" data-group="a" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'a')) && user_data.foods.fruits == 1 || user_data.foods.vegetables == 1" transition="setAdviseThree">
+						<div class="advise" data-advise="3.1" data-group="a" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'a')) && user_data.foods.fruits == '1' || user_data.foods.vegetables == '1'" transition="setAdviseThree">
 							a
 							<p v-show="user_data.foods.fruits == 1">
 								Frugt er en vigtig kilde til C-vitamin. Din krop får ikke nok frugt, og derfor heller ikke nok C-vitamin. Take Daily sørger for,
@@ -641,7 +643,7 @@
 							</p>
 						</div>
 
-						<div class="advise" data-advise="3.2" data-group="b" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'b')) && (isAlone(3, 3.2)) && (user_data.foods.bread == 1 || user_data.foods.wheat == 1)" transition="setAdviseThree">
+						<div class="advise" data-advise="3.2" data-group="b" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'b')) && (isAlone(3, 3.2)) && (user_data.foods.bread == '1' || user_data.foods.wheat == '1')" transition="setAdviseThree">
 							b
 							<p v-show="user_data.foods.bread == 1">
 								Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Du spiser ikke nok brød i hverdagen, så du har brug for lidt ekstra
@@ -662,7 +664,7 @@
 							</p>
 						</div>
 
-						<div class="advise" data-advise="3.3" data-group="c" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'c')) && (isAlone(3, 3.3)) && (user_data.foods.dairy == 1)" transition="setAdviseThree">
+						<div class="advise" data-advise="3.3" data-group="c" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'c')) && (isAlone(3, 3.3)) && (user_data.foods.dairy == '1')" transition="setAdviseThree">
 							c
 							<p>
 								Du får ikke mejerprodukter nok, og derfor heller ikke nok kalcium og B2-vitamin. Begge dele har dine knogler og led brug for. Vi sørger for at afstemme din dosis efter din alder. Den har nemlig indflydelse på, hvor meget kalcium og B2-vitamin din krop har behov for.
@@ -671,7 +673,7 @@
 							</p>
 						</div>
 
-						<div class="advise" data-advise="3.4" data-group="d" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'd')) && (isAlone(3, 3.4)) && (user_data.foods.meat == 1)" transition="setAdviseThree">
+						<div class="advise" data-advise="3.4" data-group="d" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'd')) && (isAlone(3, 3.4)) && (user_data.foods.meat == '1')" transition="setAdviseThree">
 							d
 							<p>
 								Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
@@ -680,7 +682,7 @@
 							</p>
 						</div>
 
-						<div class="advise" data-advise="3.5" data-group="e" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'e')) && (isAlone(3, 3.5)) && (user_data.foods.fish == 1)" transition="setAdviseThree">
+						<div class="advise" data-advise="3.5" data-group="e" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'e')) && (isAlone(3, 3.5)) && (user_data.foods.fish == '1')" transition="setAdviseThree">
 							e
 							<p>
 								Du spiser ikke nok fisk, og derfor bliver din krop snydt for sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
@@ -689,7 +691,7 @@
 							</p>
 						</div>
 
-						<div class="advise" data-advise="3.6" data-group="f" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'f')) && (isAlone(3, 3.6)) && (user_data.foods.butter == 2)" transition="setAdviseThree">
+						<div class="advise" data-advise="3.6" data-group="f" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'f')) && (isAlone(3, 3.6)) && (user_data.foods.butter == '2')" transition="setAdviseThree">
 							f
 							<p>
 								Din daglige kost indeholder ikke nok smør, margarine eller olie, som er vigtige kilder til A-vitamin og D-vitamin. Du har brug for begge vitaminer. Blandt andet for at styrke dit immunforsvar. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
