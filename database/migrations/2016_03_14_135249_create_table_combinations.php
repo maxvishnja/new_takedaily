@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablePlanProducts extends Migration
+class CreateTableCombinations extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,13 @@ class CreateTablePlanProducts extends Migration
      */
     public function up()
     {
-        Schema::create('plan_products', function (Blueprint $table) {
+        Schema::create('combinations', function (Blueprint $table) {
             $table->increments('id');
-			$table->integer('plan_id')->index()->unsigned();
-			$table->integer('product_id')->index()->unsigned();
+			$table->string('group_1', 2);
+			$table->string('group_2', 2);
+			$table->string('group_3', 2);
+			$table->boolean('combination_possible')->default(1);
+			$table->string('combination_result', 8);
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateTablePlanProducts extends Migration
      */
     public function down()
     {
-        Schema::drop('plan_products');
+        Schema::drop('combinations');
     }
 }

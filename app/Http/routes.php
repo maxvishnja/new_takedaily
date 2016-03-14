@@ -20,11 +20,13 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('flow');
 	});
 
-	Route::post('flow', function ()
+	Route::post('flow', function (\App\Apricot\Libraries\CombinationLibrary $combinationLibrary, \Illuminate\Http\Request $request)
 	{
-		$userData = json_decode(Request::get('user_data'));
+		$userData = json_decode($request->get('user_data'));
 
-		dd($userData);
+		$combinationLibrary->generateResult($userData);
+
+		dd($combinationLibrary->getResult());
 	});
 
 	Route::get('signup', function ()
