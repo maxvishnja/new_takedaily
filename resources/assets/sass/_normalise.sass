@@ -193,7 +193,19 @@ hr
 	margin-top: 20px
 	margin-bottom: 20px
 	border: 0
+	background: transparent
 	border-top: 1px solid #eee
+
+	&.hr--dashed
+		background: transparent
+		border-top: dashed 2px $hr-dashed-color
+
+	&.hr--double
+		background: transparent
+		border-width: 2px
+
+	&.hr--small-margin
+		margin: 10px 0 20px
 
 .sr-only
 	position: absolute

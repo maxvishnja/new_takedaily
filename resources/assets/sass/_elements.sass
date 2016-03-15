@@ -91,6 +91,7 @@
 	border-radius: 0
 	line-height: 1.4
 	border: 1px solid $lighter-grey
+	background: $white
 	-webkit-appearance: none
 	-moz-appearance: none
 	appearance: none
@@ -109,6 +110,13 @@
 	&.input--regular
 		height: 40px
 
+	&.input--medium
+		height: 50px
+		padding: 13px 15px
+
+	&.input--spacing
+		letter-spacing: 1px
+
 	&.input--full
 		width: 100%
 		display: block
@@ -116,9 +124,51 @@
 	&.input--plain
 		border: none !important
 
-	a
-		color: $greyish-brown
-		text-decoration: none
+.select
+	vertical-align: middle
+	display: inline-block
+	padding: 8px 15px
+	color: $greyish-brown
+	font-size: 15px
+	border-radius: 0
+	line-height: 1.4
+	border: 1px solid $lighter-grey
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	outline: none
+	background: $white url(/images/icons/icon-arrow-down-small.png) no-repeat right center
+
+	&:focus
+		box-shadow: 0 0 4px rgba(0,0,0,.3)
+		border: 1px solid $greyish
+
+	&.select--full
+		width: 100%
+
+	&.select--semibold
+		font-weight: $weight-semibold
+
+	&.select--regular
+		height: 40px
+
+	&.select--medium
+		height: 50px
+		padding: 13px 15px
+
+	&.select--spacing
+		letter-spacing: 1px
+
+	&.select--full
+		width: 100%
+		display: block
+
+	&.select--plain
+		border: none !important
+
+a
+	color: $greyish-brown
+	text-decoration: none
 
 .selector
 	position: relative
@@ -203,6 +253,23 @@
 		ul
 			display: block
 
+.card
+	border-radius: 2px
+	background-color: $white
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1)
+	border: solid 1px $lighter-grey
+	padding: 20px
+
+	&.card--large
+		padding: 40px
+
+	.card_title
+		margin: 0 0 10px
+		display: block
+		font-weight: $weight-semibold
+		font-size: 20px
+		color: $greyish-brown
+
 .img
 	&.img--rounded
 		border-radius: 100%
@@ -219,3 +286,8 @@
 		&.button--full-mobile
 			width: 100%
 			display: block
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+	.select
+		background-image: url(/images/icons/icon-arrow-down-small@2x.png)
+		background-size: 22px 4px

@@ -53,7 +53,7 @@
 		<div class="container">
 
 			<div class="flow-step-back" v-bind:class="{ 'clickable': step > 1 || sub_step > 1}">
-				<a href="#" v-on:click="previousStep();">&larr; Tilbage til tidligere spørgsmål</a>
+				<a href="#" v-on:click="previousStep();">&lsaquo; Tilbage til tidligere spørgsmål</a>
 			</div>
 
 			<form method="post" action="">

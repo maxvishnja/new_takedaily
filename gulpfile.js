@@ -38,6 +38,7 @@ elixir(function (mix)
 		'/vendor/pickadate/legacy.js',
 		'/vendor/sweetalert.min.js',
 		'/vendor/slider.js',
+		'/vendor/payment.jquery.js',
 		'/app.js',
 	], 'public/js/app.js');
 });
