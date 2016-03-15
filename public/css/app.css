@@ -4151,7 +4151,10 @@ body.page-flow .flow-container .step {
     background: #f9f9f9;
     border-radius: 4px;
     display: inline-block;
-    margin-right: 10px; }
+    margin-right: 10px;
+    font-weight: 600; }
+    body.page-flow .flow-container .step label .icon {
+      margin-bottom: 10px; }
     body.page-flow .flow-container .step label:last-of-type {
       margin-right: 0; }
   body.page-flow .flow-container .step label:hover:after {
@@ -4184,10 +4187,12 @@ body.page-flow .flow-container .step {
   background: #f3f6f8;
   border-bottom: 1px solid #e5e9ec;
   font-size: 0; }
+  .flow-progress .hamburger {
+    display: none; }
   .flow-progress .flow-step {
     background: #ffffff;
     height: 66px;
-    padding: 28px 50px;
+    padding: 25px 50px;
     display: inline-block;
     text-align: center;
     border-right: 1px solid #e5e9ec; }
@@ -4255,5 +4260,31 @@ body.page-flow .flow-container .step {
     background-position: right bottom; }
   100% {
     background-position: left bottom; } }
+
+@media all and (max-width: 991px) {
+  .flow-progress {
+    border-bottom: none !important;
+    position: relative; }
+    .flow-progress .hamburger {
+      display: block;
+      position: absolute;
+      right: 15px;
+      top: 14px; }
+    .flow-progress .flow-step {
+      width: 100%;
+      padding: 25px 15px;
+      border-right: none !important;
+      border-left: none !important;
+      border-bottom: 1px solid #e5e9ec;
+      text-align: left;
+      transition: height 300ms, padding 300ms, border 300ms; }
+      .flow-progress .flow-step.flow-step--inactive .flow-step-progress {
+        display: none; }
+    .flow-progress.flow-progress--closed .flow-step.flow-step--inactive {
+      height: 0;
+      overflow: hidden;
+      padding-top: 0;
+      padding-bottom: 0;
+      border: none; } }
 
 /*# sourceMappingURL=app.css.map */

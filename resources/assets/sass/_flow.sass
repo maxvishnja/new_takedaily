@@ -35,6 +35,10 @@ body.page-flow
 				border-radius: 4px
 				display: inline-block
 				margin-right: 10px
+				font-weight: 600
+
+				.icon
+					margin-bottom: 10px
 
 				&:last-of-type
 					margin-right: 0
@@ -74,10 +78,13 @@ body.page-flow
 	border-bottom: 1px solid $pale-grey-border
 	font-size: 0
 
+	.hamburger
+		display: none
+
 	.flow-step
 		background: $white
 		height: 66px
-		padding: 28px 50px
+		padding: 25px 50px
 		display: inline-block
 		text-align: center
 		border-right: 1px solid $pale-grey-border
@@ -158,3 +165,37 @@ body.page-flow
 
 	100%
 		background-position: left bottom
+
+
+@media all and (max-width: 991px)
+	.flow-progress
+		border-bottom: none !important
+		position: relative
+
+		.hamburger
+			display: block
+			position: absolute
+			right: 15px
+			top: 14px
+
+		.flow-step
+			width: 100%
+			padding: 25px 15px
+			border-right: none !important
+			border-left: none !important
+			border-bottom: 1px solid $pale-grey-border
+			text-align: left
+			-webkit-transition: height 300ms, padding 300ms, border 300ms
+			transition: height 300ms, padding 300ms, border 300ms
+
+			&.flow-step--inactive .flow-step-progress
+				display: none
+
+		&.flow-progress--closed
+			.flow-step
+				&.flow-step--inactive
+					height: 0
+					overflow: hidden
+					padding-top: 0
+					padding-bottom: 0
+					border: none

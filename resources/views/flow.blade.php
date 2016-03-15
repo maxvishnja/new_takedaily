@@ -14,7 +14,13 @@
 	</noscript>
 
 	<div id="app" class="flow-container">
-		<div class="flow-progress">
+		<div class="flow-progress flow-progress--closed">
+			<span class="hamburger" id="flow-toggler">
+				<span class="meat"></span>
+				<span class="meat"></span>
+				<span class="meat meat--last"></span>
+			</span>
+
 			<div class="flow-step" step="1" v-bind:class="{ 'flow-step--inactive': step !== 1, 'flow-step--completed': step > 1 }">
 				<div class="flow-step-progress">
 					<span class="flow-step-progress-bar" v-bind:style="{ width: ( sub_step / getSubStepsForStep() * 100 ) + '%' }"></span></div>
@@ -1082,6 +1088,11 @@
 		{
 			e.preventDefault();
 			$birthdayPicker.pickadate('picker').open();
+		});
+
+		$("#flow-toggler").click( function (e)
+		{
+			$(".flow-progress").toggleClass('flow-progress--closed');
 		});
 	</script>
 @endsection

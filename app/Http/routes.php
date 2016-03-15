@@ -23,12 +23,17 @@ Route::group([ 'middleware' => 'web' ], function ()
 	Route::post('flow', function (\App\Apricot\Libraries\CombinationLibrary $combinationLibrary, \Illuminate\Http\Request $request)
 	{
 		$userData = json_decode($request->get('user_data'));
-
 		$combinationLibrary->generateResult($userData);
 
-		dd($combinationLibrary->getResult());
+		$request->session()->put('my_combination', $combinationLibrary->getResult());
+		$request->session()->put('user_data', $userData);
+
+		return Redirect::action('CheckoutController@getCheckout');
 	});
 
+	/*
+	 * Signup
+	 */
 	Route::get('signup', function ()
 	{
 		return view('signup'); // todo
@@ -39,24 +44,13 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return '';
 	});
 
-	Route::get('pick-and-mix', function ()
-	{
-		return view('products', [
-			'products' => \App\Product::all()
-		]);
-	});
-
-	Route::get('cart', function ()
-	{
-		return view('cart');
-	});
-
+	/*
+	 * Checkout
+	 */
 	Route::group([ 'middleware' => 'secure' ], function ()
 	{
-		Route::get('checkout', function ()
-		{
-			return view('checkout');
-		});
+		Route::get('checkout', 'CheckoutController@getCheckout');
+		Route::post('checkout', 'CheckoutController@postCheckout');
 	});
 
 	/*
