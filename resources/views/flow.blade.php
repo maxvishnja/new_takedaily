@@ -763,7 +763,7 @@
 						</div>
 
 						<textarea name="user_data" type="hidden" style="display: none;">@{{ $data.user_data | json }}</textarea>
-						<button type="submit">Continue</button>
+						<button type="submit" class="button button--green button--medium button--full-mobile">Bestil Take Daily</button>
 					</div>
 				</div>
 

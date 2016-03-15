@@ -4101,6 +4101,11 @@ body.index .slider_container {
 .anchor.anchor--inline {
   display: inline-block; }
 
+@media all and (max-width: 767px) {
+  .button.button--full-mobile {
+    width: 100%;
+    display: block; } }
+
 body.account nav.account_nav {
   background: #eeeeee; }
   body.account nav.account_nav ul li {
@@ -4156,7 +4161,11 @@ body.page-flow .flow-container .step {
     border-radius: 4px;
     display: inline-block;
     margin-right: 10px;
-    font-weight: 600; }
+    font-weight: 600;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
     body.page-flow .flow-container .step label .icon {
       margin-bottom: 10px; }
     body.page-flow .flow-container .step label:last-of-type {
