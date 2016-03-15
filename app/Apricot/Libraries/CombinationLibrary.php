@@ -28,7 +28,7 @@ class CombinationLibrary
 
 	function combinationIsPossible($groupOne, $groupTwo = null, $groupThree = null)
 	{
-		$combination = \Cache::remember("combination_possible_{$groupOne}{$groupTwo}{$groupThree}", 30, function () use ($groupOne, $groupTwo, $groupThree)
+		$combination = \Cache::remember("combination_{$groupOne}{$groupTwo}{$groupThree}", 30, function () use ($groupOne, $groupTwo, $groupThree)
 		{
 			return Combination::where(function ($query) use ($groupOne, $groupTwo, $groupThree)
 			{
@@ -43,12 +43,23 @@ class CombinationLibrary
 				{
 					$query->where('group_3', "$groupThree");
 				}
+				else
+				{
+					$query->whereNull('group_3');
+				}
 			})->first();
 		});
 
 		if ( !$combination )
 		{
-			return false;
+			if( !is_null($groupThree))
+			{
+				return false;
+			}
+			else
+			{
+				return true; // consider a fix
+			}
 		}
 
 		return $combination->isPossible();
@@ -75,7 +86,7 @@ class CombinationLibrary
 		/*
 		 * Group 2
 		 */
-		if ( $this->combinationIsPossible($this->groupOne, 'A') && $data->pregnant == '1' )
+		if ( $this->combinationIsPossible($this->groupOne, 'A') && ($data->pregnant == '1') )
 		{
 			$this->groupTwo = 'A';
 		}
