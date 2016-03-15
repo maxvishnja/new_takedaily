@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/_defaults.sass" afterPath="$PROJECT_DIR$/resources/assets/sass/_defaults.sass" />
     </list>
     <ignored path="TakeDaily.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -684,7 +683,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458040511748</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="hamburger fix">
+      <created>1458040539902</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1458040539902</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -759,7 +764,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Keep public folders" />
     <MESSAGE value="Default markup and such" />
     <MESSAGE value="Default setup + markup + fixes" />
     <MESSAGE value="Fixed flow and added nav to account" />
@@ -784,7 +788,8 @@
     <MESSAGE value="Fixed backend combinations (almost?)" />
     <MESSAGE value="Mobile flow" />
     <MESSAGE value="Mobile answers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mobile answers" />
+    <MESSAGE value="hamburger fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="hamburger fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
