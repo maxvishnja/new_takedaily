@@ -4122,6 +4122,9 @@ body.account nav.account_nav {
   body.account nav.account_nav ul li a {
     padding: 28px 28px; } }
 
+body.page-flow .datepicker-container-block {
+  display: inline-block; }
+
 body.page-flow .flow-container h3.substep-title {
   font-weight: normal;
   font-size: 26px;
@@ -4263,6 +4266,8 @@ body.page-flow .flow-container .step {
     background-position: left bottom; } }
 
 @media all and (max-width: 991px) {
+  body.page-flow .datepicker-container-block {
+    display: block; }
   body.page-flow .flow-progress {
     border-bottom: none !important;
     position: relative; }

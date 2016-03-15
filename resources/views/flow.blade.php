@@ -82,7 +82,7 @@
 						<h3 class="substep-title" v-show="user_data.gender == 2">Vi ved det godt. Man spørger ikke en kvinde om hendes alder, men vi lover, vi
 							ikke siger det til nogen.</h3>
 
-						<div style="display: inline-block;">
+						<div class="datepicker-container-block">
 							<label for="birthdate-picker" class="text-center">
 								<span class="icon calendar-icon" style="vertical-align: middle; margin-right: 6px;"></span>
 								<span>Vælg din fødselsdagsdato</span>
