@@ -4161,18 +4161,12 @@ body.page-flow .flow-container .step {
       margin-bottom: 10px; }
     body.page-flow .flow-container .step label:last-of-type {
       margin-right: 0; }
-  body.page-flow .flow-container .step label:hover:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    border-radius: 4px;
-    background: rgba(23, 170, 102, 0.9); }
-  body.page-flow .flow-container .step label input[type="radio"] {
-    display: none; }
+    body.page-flow .flow-container .step label.flow_label_noclick .icon {
+      margin: 0; }
+    body.page-flow .flow-container .step label:hover {
+      background: #e5e5e5; }
+    body.page-flow .flow-container .step label input[type="radio"] {
+      display: none; }
 
 .flow-step-back {
   margin: 20px 0; }

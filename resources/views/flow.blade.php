@@ -83,7 +83,7 @@
 							ikke siger det til nogen.</h3>
 
 						<div class="datepicker-container-block">
-							<label for="birthdate-picker" class="text-center">
+							<label for="birthdate-picker" class="text-center flow_label_noclick">
 								<span class="icon calendar-icon" style="vertical-align: middle; margin-right: 6px;"></span>
 								<span>Vælg din fødselsdagsdato</span>
 							</label>
