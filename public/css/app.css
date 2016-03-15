@@ -4213,44 +4213,43 @@ body.account nav.account_nav {
   body.account nav.account_nav ul li a {
     padding: 28px 28px; } }
 
-body.page-checkout .label.checkout--label {
-  font-weight: 600;
-  font-size: 16px;
-  color: #777777;
-  margin: 0 0 10px; }
-
-body.page-checkout .secured_server {
-  color: #186141;
-  font-weight: 600;
-  font-size: 14px;
-  text-align: right; }
-  body.page-checkout .secured_server span.icon {
-    margin-right: 2px;
-    vertical-align: baseline; }
-
-body.page-checkout table {
-  width: 100%; }
-  body.page-checkout table tbody tr td {
-    color: #777777;
+body.page-checkout {
+  background: #fafafa; }
+  body.page-checkout .label.checkout--label {
+    font-weight: 600;
     font-size: 16px;
-    padding: 20px 0;
-    border-bottom: 1px solid #dddddd; }
-    body.page-checkout table tbody tr td:last-child {
-      text-align: right;
-      font-weight: 600;
-      color: #555555; }
-  body.page-checkout table tbody tr.row--total {
-    font-weight: 600; }
-    body.page-checkout table tbody tr.row--total td {
-      border-bottom: 3px double #dddddd; }
-      body.page-checkout table tbody tr.row--total td:last-child {
-        font-size: 20px;
-        color: #11834e; }
-
-body.page-checkout .checkout_description {
-  font-size: 13px;
-  color: #999999;
-  margin: 30px 0 0; }
+    color: #777777;
+    margin: 0 0 10px; }
+  body.page-checkout .secured_server {
+    color: #186141;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: right; }
+    body.page-checkout .secured_server span.icon {
+      margin-right: 2px;
+      vertical-align: baseline; }
+  body.page-checkout table {
+    width: 100%; }
+    body.page-checkout table tbody tr td {
+      color: #777777;
+      font-size: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid #dddddd; }
+      body.page-checkout table tbody tr td:last-child {
+        text-align: right;
+        font-weight: 600;
+        color: #555555; }
+    body.page-checkout table tbody tr.row--total {
+      font-weight: 600; }
+      body.page-checkout table tbody tr.row--total td {
+        border-bottom: 3px double #dddddd; }
+        body.page-checkout table tbody tr.row--total td:last-child {
+          font-size: 20px;
+          color: #11834e; }
+  body.page-checkout .checkout_description {
+    font-size: 13px;
+    color: #999999;
+    margin: 30px 0 0; }
 
 body.page-flow .datepicker-container-block {
   display: inline-block; }
