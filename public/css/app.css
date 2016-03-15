@@ -4177,7 +4177,7 @@ body.page-flow .flow-container .step {
     cursor: not-allowed;
     padding: 10px;
     display: inline-block;
-    color: #AAA; }
+    color: #aaa; }
   .flow-step-back.clickable a {
     opacity: 1;
     cursor: pointer; }
@@ -4262,15 +4262,15 @@ body.page-flow .flow-container .step {
     background-position: left bottom; } }
 
 @media all and (max-width: 991px) {
-  .flow-progress {
+  body.page-flow .flow-progress {
     border-bottom: none !important;
     position: relative; }
-    .flow-progress .hamburger {
+    body.page-flow .flow-progress .hamburger {
       display: block;
       position: absolute;
       right: 15px;
       top: 14px; }
-    .flow-progress .flow-step {
+    body.page-flow .flow-progress .flow-step {
       width: 100%;
       padding: 25px 15px;
       border-right: none !important;
@@ -4278,13 +4278,18 @@ body.page-flow .flow-container .step {
       border-bottom: 1px solid #e5e9ec;
       text-align: left;
       transition: height 300ms, padding 300ms, border 300ms; }
-      .flow-progress .flow-step.flow-step--inactive .flow-step-progress {
+      body.page-flow .flow-progress .flow-step.flow-step--inactive .flow-step-progress {
         display: none; }
-    .flow-progress.flow-progress--closed .flow-step.flow-step--inactive {
+    body.page-flow .flow-progress.flow-progress--closed .flow-step.flow-step--inactive {
       height: 0;
       overflow: hidden;
       padding-top: 0;
       padding-bottom: 0;
-      border: none; } }
+      border: none; }
+  body.page-flow .flow-container .step .sub_step .sub_step_answers {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap; } }
 
 /*# sourceMappingURL=app.css.map */

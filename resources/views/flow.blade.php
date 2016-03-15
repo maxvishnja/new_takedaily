@@ -60,16 +60,18 @@
 				<div data-step="1" data-first-sub-step="1" class="step step--active">
 					<div data-sub-step="1" class="sub_step sub_step--active">
 						<h3 class="substep-title">Hvilket køn er du?</h3>
-						<label>
-							<input type="radio" name="step[1][1]" value="1" v-model="user_data.gender" v-on:click="nextStep();"/>
-							<span class="icon icon-gender-male"></span>
-							<br/>Mand
-						</label>
-						<label>
-							<input type="radio" name="step[1][1]" value="2" v-model="user_data.gender" v-on:click="nextStep();"/>
-							<span class="icon icon-gender-female"></span>
-							<br/>Kvinde
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[1][1]" value="1" v-model="user_data.gender" v-on:click="nextStep();"/>
+								<span class="icon icon-gender-male"></span>
+								<br/>Mand
+							</label>
+							<label>
+								<input type="radio" name="step[1][1]" value="2" v-model="user_data.gender" v-on:click="nextStep();"/>
+								<span class="icon icon-gender-female"></span>
+								<br/>Kvinde
+							</label>
+						</div>
 
 						<p class="substep-explanation">Mænd og kvinder har ikke brug for den samme mængde vitaminer og mineraler. Fx har store knogler og stærke
 							muskler brug for mere D-vitamin.</p>
@@ -105,21 +107,23 @@
 
 					<div data-sub-step="3" class="sub_step">
 						<h3 class="substep-title">Hvilken hudfarve matcher din bedst?</h3>
-						<label>
-							<input type="radio" name="step[1][3]" value="1" v-model="user_data.skin" v-on:click="nextStep();"/>
-							<span class="icon icon-skin-white"></span>
-							<br/>Lys
-						</label>
-						<label>
-							<input type="radio" name="step[1][3]" value="2" v-model="user_data.skin" v-on:click="nextStep();"/>
-							<span class="icon icon-skin-mediterranean"></span>
-							<br/>Mørk
-						</label>
-						<label>
-							<input type="radio" name="step[1][3]" value="3" v-model="user_data.skin" v-on:click="nextStep();"/>
-							<span class="icon icon-skin-dark"></span>
-							<br/>Sort
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[1][3]" value="1" v-model="user_data.skin" v-on:click="nextStep();"/>
+								<span class="icon icon-skin-white"></span>
+								<br/>Lys
+							</label>
+							<label>
+								<input type="radio" name="step[1][3]" value="2" v-model="user_data.skin" v-on:click="nextStep();"/>
+								<span class="icon icon-skin-mediterranean"></span>
+								<br/>Mørk
+							</label>
+							<label>
+								<input type="radio" name="step[1][3]" value="3" v-model="user_data.skin" v-on:click="nextStep();"/>
+								<span class="icon icon-skin-dark"></span>
+								<br/>Sort
+							</label>
+						</div>
 
 						<p class="substep-explanation">Er du meget lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud
 							er mørk. Så har du ikke en helt lys hudfarve, kan du have brug for D-vitamin-tilskud.</p>
@@ -127,16 +131,18 @@
 
 					<div data-sub-step="4" class="sub_step">
 						<h3 class="substep-title">Er du udenfor hver dag, efter solen er stået op, og før den går ned?</h3>
-						<label>
-							<input type="radio" name="step[1][4]" value="1" v-model="user_data.outside" v-on:click="nextStep();"/>
-							<span class="icon icon-sun-yes"></span>
-							<br/>Ja
-						</label>
-						<label>
-							<input type="radio" name="step[1][4]" value="2" v-model="user_data.outside" v-on:click="nextStep();"/>
-							<span class="icon icon-sun-no"></span>
-							<br/>Nej
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[1][4]" value="1" v-model="user_data.outside" v-on:click="nextStep();"/>
+								<span class="icon icon-sun-yes"></span>
+								<br/>Ja
+							</label>
+							<label>
+								<input type="radio" name="step[1][4]" value="2" v-model="user_data.outside" v-on:click="nextStep();"/>
+								<span class="icon icon-sun-no"></span>
+								<br/>Nej
+							</label>
+						</div>
 
 						<p class="substep-explanation">Du skal være udenfor i 15-30 minutter hver dag, hvis du vil være sikker på, at din krop producerer
 							D-vitamin nok. Har du en langærmet trøje og lange bukser på, tæller turen i det fri ikke, hvis målet er at få nok D-vitamin.</p>
@@ -146,16 +152,18 @@
 				<div data-step="2" v-bind="{ 'data-first-sub-step': user_data.gender == 2 ? 1 : 2 }" class="step">
 					<div data-sub-step="1" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--active': user_data.gender == 2 }">
 						<h3 class="substep-title">Er du gravid, eller drømmer du om at blive det?</h3>
-						<label>
-							<input type="radio" name="step[2][1]" value="1" v-model="user_data.pregnant" v-on:click="nextStep();"/>
-							<span class="icon icon-pregnant-yes"></span>
-							<br/>Ja
-						</label>
-						<label>
-							<input type="radio" name="step[2][1]" value="2" v-model="user_data.pregnant" v-on:click="nextStep();"/>
-							<span class="icon icon-pregnant-no"></span>
-							<br/>Nej
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][1]" value="1" v-model="user_data.pregnant" v-on:click="nextStep();"/>
+								<span class="icon icon-pregnant-yes"></span>
+								<br/>Ja
+							</label>
+							<label>
+								<input type="radio" name="step[2][1]" value="2" v-model="user_data.pregnant" v-on:click="nextStep();"/>
+								<span class="icon icon-pregnant-no"></span>
+								<br/>Nej
+							</label>
+						</div>
 
 						<p class="substep-explanation">Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
 							Sundhedsstyrelsen anbefaler, at du tager tilskud af folsyre, som er et B-vitamin, allerede fra du tænker på at blive gravid til 12
@@ -167,17 +175,18 @@
 
 					<div data-sub-step="2" class="sub_step" v-bind:class="{ 'sub_step--active': user_data.gender == 1 }">
 						<h3 class="substep-title">Er du på slankekur?</h3>
-						<label>
-							<input type="radio" name="step[2][2]" value="1" v-model="user_data.diet" v-on:click="nextStep();"/>
-							<span class="icon icon-diet-pear"></span>
-							<br/>Ja
-						</label>
-						<label>
-							<input type="radio" name="step[2][2]" value="2" v-model="user_data.diet" v-on:click="nextStep();"/>
-							<span class="icon icon-diet-burger"></span>
-							<br/>Nej
-						</label>
-
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][2]" value="1" v-model="user_data.diet" v-on:click="nextStep();"/>
+								<span class="icon icon-diet-pear"></span>
+								<br/>Ja
+							</label>
+							<label>
+								<input type="radio" name="step[2][2]" value="2" v-model="user_data.diet" v-on:click="nextStep();"/>
+								<span class="icon icon-diet-burger"></span>
+								<br/>Nej
+							</label>
+						</div>
 						<p class="substep-explanation">Når din kost bliver mere fedtfattig, bliver den måske også mere ensidig, end den plejer. Og så er det
 							vigtigt, at du stadig får de vitaminer og mineraler, som du måske normalt indtager igennem din kost. A-vitamin er godt for din hud
 							og dit immunsystem. Mens C-vitamin øger kroppens evne til at nedbryde fedt. Så ingen af delene skal du have for lidt af, når du
@@ -186,26 +195,28 @@
 
 					<div data-sub-step="3" class="sub_step">
 						<h3 class="substep-title">Hvor meget og hvor ofte motionerer du?</h3>
-						<label>
-							<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" v-on:click="nextStep();"/>
-							<span class="icon icon-activity-seldom" title="Seldom"></span>
-							<br/>Sjældent
-						</label>
-						<label>
-							<input type="radio" name="step[2][3]" value="2" v-model="user_data.sports" v-on:click="nextStep();"/>
-							<span class="icon icon-activity-once" title="Once a week"></span>
-							<br/>Én gang om ugen
-						</label>
-						<label>
-							<input type="radio" name="step[2][3]" value="3" v-model="user_data.sports" v-on:click="nextStep();"/>
-							<span class="icon icon-activity-twice" title="Twice a week"></span>
-							<br/>To gange om ugen
-						</label>
-						<label>
-							<input type="radio" name="step[2][3]" value="4" v-model="user_data.sports" v-on:click="nextStep();"/>
-							<span class="icon icon-activity-more" title="More often"></span>
-							<br/>Oftere
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" v-on:click="nextStep();"/>
+								<span class="icon icon-activity-seldom" title="Seldom"></span>
+								<br/>Sjældent
+							</label>
+							<label>
+								<input type="radio" name="step[2][3]" value="2" v-model="user_data.sports" v-on:click="nextStep();"/>
+								<span class="icon icon-activity-once" title="Once a week"></span>
+								<br/>Én gang om ugen
+							</label>
+							<label>
+								<input type="radio" name="step[2][3]" value="3" v-model="user_data.sports" v-on:click="nextStep();"/>
+								<span class="icon icon-activity-twice" title="Twice a week"></span>
+								<br/>To gange om ugen
+							</label>
+							<label>
+								<input type="radio" name="step[2][3]" value="4" v-model="user_data.sports" v-on:click="nextStep();"/>
+								<span class="icon icon-activity-more" title="More often"></span>
+								<br/>Oftere
+							</label>
+						</div>
 
 						<p class="substep-explanation">Motion er både godt for din sundhed og dit velbefindende. Hvis du dyrker meget motion, har du brug for
 							nogle ekstra vitaminer og mineraler. B-vitamin sørger fx for, at du kan præstere mere ved højintensitetstræning og er med til at
@@ -215,16 +226,18 @@
 
 					<div data-sub-step="4" class="sub_step">
 						<h3 class="substep-title">Hvordan har du det, når dagen er slut?</h3>
-						<label>
-							<input type="radio" name="step[2][4]" value="1" v-model="user_data.stressed" v-on:click="nextStep();"/>
-							<span class="icon icon-stress" title="Stressful"></span>
-							<br/>Jeg føler mig lidt stresset
-						</label>
-						<label>
-							<input type="radio" name="step[2][4]" value="2" v-model="user_data.stressed" v-on:click="nextStep();"/>
-							<span class="icon icon-joy" title="Quiet"></span>
-							<br/>Jeg har det fint og er naturligt træt
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][4]" value="1" v-model="user_data.stressed" v-on:click="nextStep();"/>
+								<span class="icon icon-stress" title="Stressful"></span>
+								<br/>Jeg føler mig lidt stresset
+							</label>
+							<label>
+								<input type="radio" name="step[2][4]" value="2" v-model="user_data.stressed" v-on:click="nextStep();"/>
+								<span class="icon icon-joy" title="Quiet"></span>
+								<br/>Jeg har det fint og er naturligt træt
+							</label>
+						</div>
 
 						<p class="substep-explanation">I en stresset periode har du brug for lidt ekstra vitaminer, som kan hjælpe dig med at slappe mere af.
 							B-vitamin giver ro på og hjælper dit nervesystem og immunforsvar med at fungere optimalt.</p>
@@ -232,21 +245,23 @@
 
 					<div data-sub-step="5" class="sub_step">
 						<h3 class="substep-title">Føler du dig tit træt, eller mangler du energi?</h3>
-						<label>
-							<input type="radio" name="step[2][5]" value="1" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-							<span class="icon icon-tired" title="Every day"></span>
-							<br/>Hver dag
-						</label>
-						<label>
-							<input type="radio" name="step[2][5]" value="2" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-							<span class="icon icon-awake" title="Sometimes"></span>
-							<br/>Af og til
-						</label>
-						<label>
-							<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-							<span class="icon icon-fresh" title="Never"></span>
-							<br/>Aldrig
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][5]" value="1" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
+								<span class="icon icon-tired" title="Every day"></span>
+								<br/>Hver dag
+							</label>
+							<label>
+								<input type="radio" name="step[2][5]" value="2" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
+								<span class="icon icon-awake" title="Sometimes"></span>
+								<br/>Af og til
+							</label>
+							<label>
+								<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
+								<span class="icon icon-fresh" title="Never"></span>
+								<br/>Aldrig
+							</label>
+						</div>
 
 						<p class="substep-explanation">B-vitaminerne (B1, B2 , B3, B5 og B6) spiller en afgørende rolle for dit energiniveau. Mangler du de
 							vitaminer, kan du føle dig træt og savne energi.</p>
@@ -254,16 +269,18 @@
 
 					<div data-sub-step="6" class="sub_step">
 						<h3 class="substep-title">Vil du gerne styrke dit immunforsvar?</h3>
-						<label>
-							<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" v-on:click="nextStep();"/>
-							<span class="icon icon-immune-boost"></span>
-							<br/>Ja, jeg vil gerne beskyttes bedre
-						</label>
-						<label>
-							<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" v-on:click="nextStep();"/>
-							<span class="icon icon-immune-ignore"></span>
-							<br/>Nej, det behøver jeg ikke
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" v-on:click="nextStep();"/>
+								<span class="icon icon-immune-boost"></span>
+								<br/>Ja, jeg vil gerne beskyttes bedre
+							</label>
+							<label>
+								<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" v-on:click="nextStep();"/>
+								<span class="icon icon-immune-ignore"></span>
+								<br/>Nej, det behøver jeg ikke
+							</label>
+						</div>
 
 						<p class="substep-explanation">De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit
 							immunforsvar, fordi det hjælper kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil
@@ -273,16 +290,18 @@
 
 					<div data-sub-step="7" class="sub_step">
 						<h3 class="substep-title">Ryger du?</h3>
-						<label>
-							<input type="radio" name="step[2][7]" value="1" v-model="user_data.smokes" v-on:click="nextStep();"/>
-							<span class="icon icon-smoke"></span>
-							<br/>Ja
-						</label>
-						<label>
-							<input type="radio" name="step[2][7]" value="2" v-model="user_data.smokes" v-on:click="nextStep();"/>
-							<span class="icon icon-smoke-no"></span>
-							<br/>Nej
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][7]" value="1" v-model="user_data.smokes" v-on:click="nextStep();"/>
+								<span class="icon icon-smoke"></span>
+								<br/>Ja
+							</label>
+							<label>
+								<input type="radio" name="step[2][7]" value="2" v-model="user_data.smokes" v-on:click="nextStep();"/>
+								<span class="icon icon-smoke-no"></span>
+								<br/>Nej
+							</label>
+						</div>
 
 						<p class="substep-explanation">Det er videnskabeligt bevist, at behovet for C-vitamin er større, hvis du ryger, fordi tobaksrøg ilter og
 							ødelægger vitaminet.</p>
@@ -290,16 +309,18 @@
 
 					<div data-sub-step="8" class="sub_step">
 						<h3 class="substep-title">Spiser du som en kanin?</h3>
-						<label>
-							<input type="radio" name="step[2][8]" value="1" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
-							<span class="icon icon-vegetarian-yes"></span>
-							<br/>Ja, jeg er vegetar
-						</label>
-						<label>
-							<input type="radio" name="step[2][8]" value="2" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
-							<span class="icon icon-meat"></span>
-							<br/>Nej, jeg spiser også kød og fisk
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][8]" value="1" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
+								<span class="icon icon-vegetarian-yes"></span>
+								<br/>Ja, jeg er vegetar
+							</label>
+							<label>
+								<input type="radio" name="step[2][8]" value="2" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
+								<span class="icon icon-meat"></span>
+								<br/>Nej, jeg spiser også kød og fisk
+							</label>
+						</div>
 
 						<p class="substep-explanation">Kød indeholder masser af jern, B1- og B12-vitamin. Begge vitaminer er vigtige komponenter i dit
 							energistofskifte. B1 omsætter fx kulhydrat til druesukker. Når druesukker forbrændes i kroppen skabes energi.</p>
@@ -307,16 +328,18 @@
 
 					<div data-sub-step="9" class="sub_step">
 						<h3 class="substep-title">Har du ømme muskler eller ondt i dine led?</h3>
-						<label>
-							<input type="radio" name="step[2][9]" value="1" v-model="user_data.joints" v-on:click="nextStep();"/>
-							<span class="icon icon-joint-yes"></span>
-							<br/>Ja
-						</label>
-						<label>
-							<input type="radio" name="step[2][9]" value="2" v-model="user_data.joints" v-on:click="nextStep();"/>
-							<span class="icon icon-joint-no"></span>
-							<br/>Nej
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][9]" value="1" v-model="user_data.joints" v-on:click="nextStep();"/>
+								<span class="icon icon-joint-yes"></span>
+								<br/>Ja
+							</label>
+							<label>
+								<input type="radio" name="step[2][9]" value="2" v-model="user_data.joints" v-on:click="nextStep();"/>
+								<span class="icon icon-joint-no"></span>
+								<br/>Nej
+							</label>
+						</div>
 
 						<p class="substep-explanation">Nogle næringsstoffer er gode for dine led og muskler. Mangel på D-vitamin kan ligefrem give svage muskler
 							og muskelsmerter.</p>
@@ -324,16 +347,18 @@
 
 					<div data-sub-step="10" class="sub_step">
 						<h3 class="substep-title">Tager du allerede vitaminer og/eller mineraler?</h3>
-						<label>
-							<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();"/>
-							<span class="icon icon-supplement-yes"></span>
-							<br/> Ja
-						</label>
-						<label>
-							<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();"/>
-							<span class="icon icon-supplement-no"></span>
-							<br/> Nej
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();"/>
+								<span class="icon icon-supplement-yes"></span>
+								<br/> Ja
+							</label>
+							<label>
+								<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();"/>
+								<span class="icon icon-supplement-no"></span>
+								<br/> Nej
+							</label>
+						</div>
 
 						<p class="substep-explanation">Testresultatet er baseret på din kost og din livsstil. Take Daily sørger for, at du får alle de vitaminer
 							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre tilskud. </p>
@@ -343,44 +368,48 @@
 				<div data-step="3" data-first-sub-step="1" class="step">
 					<div data-sub-step="1" class="sub_step sub_step--active">
 						<h3 class="substep-title">Hvor mange grønsager spiser du dagligt?</h3>
-						<label>
-							<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-1"></span>
-							<br/>Ingen</label>
-						<label>
-							<input type="radio" name="step[3][1]" value="2" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-2"></span>
-							<br/>1 portion (50 gram)</label>
-						<label>
-							<input type="radio" name="step[3][1]" value="3" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-3"></span>
-							<br/>2 portioner (100 gram)</label>
-						<label>
-							<input type="radio" name="step[3][1]" value="4" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-4"></span>
-							<br/>3 portioner (150 gram)</label>
-						<label>
-							<input type="radio" name="step[3][1]" value="5" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-vegetables-5"></span>
-							<br/>+4 portioner (+200 gram)</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-vegetables-1"></span>
+								<br/>Ingen</label>
+							<label>
+								<input type="radio" name="step[3][1]" value="2" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-vegetables-2"></span>
+								<br/>1 portion (50 gram)</label>
+							<label>
+								<input type="radio" name="step[3][1]" value="3" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-vegetables-3"></span>
+								<br/>2 portioner (100 gram)</label>
+							<label>
+								<input type="radio" name="step[3][1]" value="4" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-vegetables-4"></span>
+								<br/>3 portioner (150 gram)</label>
+							<label>
+								<input type="radio" name="step[3][1]" value="5" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-vegetables-5"></span>
+								<br/>+4 portioner (+200 gram)</label>
+						</div>
 
 						<p class="substep-explanation">Grøntsager er en vigtig kilde til C-vitamin, folsyre og kalium.</p>
 					</div>
 
 					<div data-sub-step="2" class="sub_step">
 						<h3 class="substep-title">Hvor meget frugt spiser/drikker du om dagen? </h3>
-						<label>
-							<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="1" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fruit-1"></span>
-							<br/>Intet</label>
-						<label>
-							<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="2" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fruit-2"></span>
-							<br/>1 stk. / glas</label>
-						<label>
-							<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="3" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fruit-3"></span>
-							<br/>+2 stk. / glas</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="1" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-fruit-1"></span>
+								<br/>Intet</label>
+							<label>
+								<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="2" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-fruit-2"></span>
+								<br/>1 stk. / glas</label>
+							<label>
+								<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="3" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-fruit-3"></span>
+								<br/>+2 stk. / glas</label>
+						</div>
 
 						<p class="substep-explanation">Frugt er en vigtig kilde til C-vitamin. Frugtjuice kan kun tælle for ét stykke frugt om dagen. Så du kan
 							fint nøjes med et enkelt glas.</p>
@@ -388,26 +417,28 @@
 
 					<div data-sub-step="3" class="sub_step">
 						<h3 class="substep-title">Hvor mange skiver brød spiser du om dagen?</h3>
-						<label>
-							<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-1"></span>
-							<br/>Intet</label>
-						<label>
-							<input type="radio" name="step[3][3]" value="2" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-2"></span>
-							<br/>1-2 stk.</label>
-						<label>
-							<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-3"></span>
-							<br/>3-4 stk.</label>
-						<label>
-							<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-4"></span>
-							<br/>5-6 stk.</label>
-						<label>
-							<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-bread-5"></span>
-							<br/>+7 stk.</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-bread-1"></span>
+								<br/>Intet</label>
+							<label>
+								<input type="radio" name="step[3][3]" value="2" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-bread-2"></span>
+								<br/>1-2 stk.</label>
+							<label>
+								<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-bread-3"></span>
+								<br/>3-4 stk.</label>
+							<label>
+								<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-bread-4"></span>
+								<br/>5-6 stk.</label>
+							<label>
+								<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-bread-5"></span>
+								<br/>+7 stk.</label>
+						</div>
 
 						<p class="substep-explanation">Havregrød eller lign. tæller for én skive brød.</p>
 						<p class="substep-explanation">Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Vælg fuldkorn. Det mætter rigtig godt. Det får
@@ -416,21 +447,23 @@
 
 					<div data-sub-step="4" class="sub_step">
 						<h3 class="substep-title">Kommer du smør på brødet eller bruger du margarine, smør eller olie, når du laver mad?</h3>
-						<label>
-							<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-butter-yes"></span>
-							<br/>Ja
-						</label>
-						<label>
-							<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-butter-no"></span>
-							<br/>Nej
-						</label>
-						<label>
-							<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-butter-sometimes"></span>
-							<br/>Nogle gange
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-butter-yes"></span>
+								<br/>Ja
+							</label>
+							<label>
+								<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-butter-no"></span>
+								<br/>Nej
+							</label>
+							<label>
+								<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-butter-sometimes"></span>
+								<br/>Nogle gange
+							</label>
+						</div>
 
 						<p class="substep-explanation">Smør, margarine og olie er vigtige kilder til A-vitamin og D-vitamin. Du har brug for begge vitaminer.
 							Blandt immunforsvar.</p>
@@ -438,22 +471,24 @@
 
 					<div data-sub-step="5" class="sub_step">
 						<h3 class="substep-title">Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser du om dagen?</h3>
-						<label>
-							<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-pasta-1"></span>
-							<br/>Ingen</label>
-						<label>
-							<input type="radio" name="step[3][5]" value="2" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-pasta-2"></span>
-							<br/>1-2 portioner (50-100 gram)</label>
-						<label>
-							<input type="radio" name="step[3][5]" value="3" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-pasta-3"></span>
-							<br/>3-4 portioner (150-200 gram)</label>
-						<label>
-							<input type="radio" name="step[3][5]" value="4" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-pasta-4"></span>
-							<br/>+5 portioner (+250 gram)</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-pasta-1"></span>
+								<br/>Ingen</label>
+							<label>
+								<input type="radio" name="step[3][5]" value="2" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-pasta-2"></span>
+								<br/>1-2 portioner (50-100 gram)</label>
+							<label>
+								<input type="radio" name="step[3][5]" value="3" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-pasta-3"></span>
+								<br/>3-4 portioner (150-200 gram)</label>
+							<label>
+								<input type="radio" name="step[3][5]" value="4" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-pasta-4"></span>
+								<br/>+5 portioner (+250 gram)</label>
+						</div>
 
 						<p class="substep-explanation">Pasta, ris, kartofler og lignende er fyldt med gode kulhydrater og indeholder næsten ingen fedt. Og så er
 							de en vigtig kilde til B-vitamin og mineraler. </p>
@@ -461,60 +496,66 @@
 
 					<div data-sub-step="6" class="sub_step">{{-- consider hide if vegeratian --}}
 						<h3 class="substep-title">Hvor meget kød spiser du om dagen?</h3>
-						<label>
-							<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-meat-1"></span>
-							<br/>0-75 gram</label>
-						<label>
-							<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-meat-2"></span>
-							<br/>76-150 gram</label>
-						<label>
-							<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-meat-3"></span>
-							<br/>+150 gram</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-meat-1"></span>
+								<br/>0-75 gram</label>
+							<label>
+								<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-meat-2"></span>
+								<br/>76-150 gram</label>
+							<label>
+								<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-meat-3"></span>
+								<br/>+150 gram</label>
+						</div>
 
 						<p class="substep-explanation">Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern.</p>
 					</div>
 
 					<div data-sub-step="7" class="sub_step">
 						<h3 class="substep-title">Hvor ofte spiser du fisk?</h3>
-						<label>
-							<input type="radio" name="step[3][7]" value="1" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fish-1"></span>
-							<br/>Aldrig / sjældent
-						</label>
-						<label>
-							<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fish-2"></span>
-							<br/>En gang om ugen
-						</label>
-						<label>
-							<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-fish-3"></span>
-							<br/>To, eller flere, gange om ugen
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[3][7]" value="1" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-fish-1"></span>
+								<br/>Aldrig / sjældent
+							</label>
+							<label>
+								<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-fish-2"></span>
+								<br/>En gang om ugen
+							</label>
+							<label>
+								<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-fish-3"></span>
+								<br/>To, eller flere, gange om ugen
+							</label>
+						</div>
 
 						<p class="substep-explanation">Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.</p>
 					</div>
 
 					<div data-sub-step="8" class="sub_step">
 						<h3 class="substep-title">Hvor meget mælk drikker du om dagen?</h3>
-						<label>
-							<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-milk-1"></span>
-							<br/>Ingen
-						</label>
-						<label>
-							<input type="radio" name="step[3][8]" value="2" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-milk-2"></span>
-							<br/>1-2 glas
-						</label>
-						<label>
-							<input type="radio" name="step[3][8]" value="3" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
-							<span class="icon icon-portion-milk-3"></span>
-							<br/>+3 glas
-						</label>
+						<div class="sub_step_answers">
+							<label>
+								<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-milk-1"></span>
+								<br/>Ingen
+							</label>
+							<label>
+								<input type="radio" name="step[3][8]" value="2" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-milk-2"></span>
+								<br/>1-2 glas
+							</label>
+							<label>
+								<input type="radio" name="step[3][8]" value="3" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
+								<span class="icon icon-portion-milk-3"></span>
+								<br/>+3 glas
+							</label>
+						</div>
 
 						<p class="substep-explanation">Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
 							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.</p>
@@ -533,7 +574,8 @@
 							Basic +10 D
 							<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
 							<p>Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= '50' && user_data.age <= '70' )">din alder</span>
-								<span v-show="( user_data.age >= '50'&& user_data.age <= '70') && user_data.skin > '1'">og</span> <span v-show="user_data.skin > '1'">mørke hudfarve</span>.
+								<span v-show="( user_data.age >= '50'&& user_data.age <= '70') && user_data.skin > '1'">og</span>
+								<span v-show="user_data.skin > '1'">mørke hudfarve</span>.
 								Det sørger vi for.</p>
 						</div>
 
@@ -671,41 +713,53 @@
 						<div class="advise" data-advise="3.3" data-group="c" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'c')) && (isAlone(3, 3.3)) && (user_data.foods.dairy == '1')" transition="setAdviseThree">
 							c
 							<p>
-								Du får ikke mejerprodukter nok, og derfor heller ikke nok kalcium og B2-vitamin. Begge dele har dine knogler og led brug for. Vi sørger for at afstemme din dosis efter din alder. Den har nemlig indflydelse på, hvor meget kalcium og B2-vitamin din krop har behov for.
+								Du får ikke mejerprodukter nok, og derfor heller ikke nok kalcium og B2-vitamin. Begge dele har dine knogler og led brug for. Vi
+								sørger for at afstemme din dosis efter din alder. Den har nemlig indflydelse på, hvor meget kalcium og B2-vitamin din krop har
+								behov for.
 								<br/><br/>
-								Begynder du at få flere mejeriprodukter i din daglige kost, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
+								Begynder du at få flere mejeriprodukter i din daglige kost, skal du huske at ændre din profil på
+								<a href="/account" target="_blank">Mit Take Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
+								indeholder lige præcis de doser, du har brug for.
 							</p>
 						</div>
 
 						<div class="advise" data-advise="3.4" data-group="d" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'd')) && (isAlone(3, 3.4)) && (user_data.foods.meat == '1')" transition="setAdviseThree">
 							d
 							<p>
-								Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
+								Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. Take Daily sørger for, at du får det,
+								du behøver – og så kan du fortsætte med at spise, som du gør nu.
 								<br/><br/>
-								Begynder du at spise kød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
+								Begynder du at spise kød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så er du
+								sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
 							</p>
 						</div>
 
 						<div class="advise" data-advise="3.5" data-group="e" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'e')) && (isAlone(3, 3.5)) && (user_data.foods.fish == '1')" transition="setAdviseThree">
 							e
 							<p>
-								Du spiser ikke nok fisk, og derfor bliver din krop snydt for sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
+								Du spiser ikke nok fisk, og derfor bliver din krop snydt for sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som
+								D-vitamin, jod og selen. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 								<br/><br/>
-								Begynder du at spise mere fisk, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
+								Begynder du at spise mere fisk, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så
+								er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
 							</p>
 						</div>
 
 						<div class="advise" data-advise="3.6" data-group="f" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'f')) && (isAlone(3, 3.6)) && (user_data.foods.butter == '2')" transition="setAdviseThree">
 							f
 							<p>
-								Din daglige kost indeholder ikke nok smør, margarine eller olie, som er vigtige kilder til A-vitamin og D-vitamin. Du har brug for begge vitaminer. Blandt andet for at styrke dit immunforsvar. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
+								Din daglige kost indeholder ikke nok smør, margarine eller olie, som er vigtige kilder til A-vitamin og D-vitamin. Du har brug
+								for begge vitaminer. Blandt andet for at styrke dit immunforsvar. Take Daily sørger for, at du får det, du behøver – og så kan
+								du fortsætte med at spise, som du gør nu.
 								<br/><br/>
-								Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
+								Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>.
+								Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
 							</p>
 						</div>
 
 						<div class="advise" data-advise="3.7" data-group="" transition="setAdviseThree" v-if="isGroupEmpty(3) && isGroupEmpty(2)">
-							Du har en sund livsstil og passer godt på din krop. Take Daily giver dig det mest basale, så din krop også får, hvad den har brug for de dage, hvor du slapper af og synder lidt.
+							Du har en sund livsstil og passer godt på din krop. Take Daily giver dig det mest basale, så din krop også får, hvad den har brug
+							for de dage, hvor du slapper af og synder lidt.
 						</div>
 
 						<textarea name="user_data" type="hidden" style="display: none;">@{{ $data.user_data | json }}</textarea>
@@ -1090,7 +1144,7 @@
 			$birthdayPicker.pickadate('picker').open();
 		});
 
-		$("#flow-toggler").click( function (e)
+		$("#flow-toggler").click(function (e)
 		{
 			$(".flow-progress").toggleClass('flow-progress--closed');
 		});
