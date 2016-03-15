@@ -15,7 +15,7 @@ class SecureOnly
      */
     public function handle($request, Closure $next)
     {
-		if( !$request->isSecure() )
+		if( !$request->isSecure() && \App::environment() == 'production' )
 		{
 			if ( $request->ajax() )
 			{
