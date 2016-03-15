@@ -3576,7 +3576,8 @@ div.logo, div.icon {
   display: inline-block;
   width: 50px;
   height: 38px;
-  padding: 11px 10px 10px; }
+  padding: 11px 10px 10px;
+  cursor: pointer; }
   .hamburger .meat {
     background: #333333;
     height: 3px;
@@ -4290,6 +4291,8 @@ body.page-flow .flow-container .step {
     -webkit-overflow-scrolling: touch;
     overflow-x: scroll;
     overflow-y: hidden;
-    white-space: nowrap; } }
+    white-space: nowrap; }
+    body.page-flow .flow-container .step .sub_step .sub_step_answers label {
+      min-width: 40%; } }
 
 /*# sourceMappingURL=app.css.map */
