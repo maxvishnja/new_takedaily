@@ -41,7 +41,6 @@ class StripeLibrary
 				'description' => $description
 			]);
 
-
 			return dd([
 				'amount'               => $amount ? : $customer->getSubscriptionPrice() * 100,
 				'currency'             => 'dkk',

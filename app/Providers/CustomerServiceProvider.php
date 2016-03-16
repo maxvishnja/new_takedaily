@@ -15,7 +15,7 @@ class CustomerServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		Customer::created(function ($customer)
+		Customer::created(function (Customer $customer)
 		{
 			$customer->customerAttributes()->saveMany([
 				new CustomerAttribute([ 'identifier' => 'address_city', 'value' => '', 'editable' => 1 ]),
@@ -26,17 +26,25 @@ class CustomerServiceProvider extends ServiceProvider
 				new CustomerAttribute([ 'identifier' => 'address_state', 'value' => '', 'editable' => 1 ]),
 				new CustomerAttribute([ 'identifier' => 'phone', 'value' => '', 'editable' => 1 ]),
 			]);
+
+			// todo create Stripe customer and set below
+			$customer->getPlan()->update([
+				'stripe_token' => ''
+			]);
 		});
 
-		Customer::deleting(function ($customer) {
+		Customer::deleting(function ($customer)
+		{
 			$customer->plan->delete();
 
 
-			foreach($customer->orders as $order) {
+			foreach ( $customer->orders as $order )
+			{
 				$order->delete();
 			}
 
-			foreach($customer->customerAttributes as $attribute) {
+			foreach ( $customer->customerAttributes as $attribute )
+			{
 				$attribute->delete();
 			}
 		});

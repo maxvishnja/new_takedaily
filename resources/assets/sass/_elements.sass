@@ -1,3 +1,76 @@
+.form
+	&.form--loading
+		position: relative
+
+		.spinner
+			display: block
+			position: absolute
+			width: 110%
+			height: 110%
+			max-height: 110%
+			max-width: 110%
+			left: -5%
+			top: -5%
+
+			> div
+				height: 40px
+				position: relative
+				top: 50%
+				margin-top: -20px
+
+.spinner
+	display: none
+	width: 50px
+	height: 40px
+	text-align: center
+	font-size: 10px
+	background: rgba(255, 255, 255, 0.75)
+	z-index: 1
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+
+	&.spinner--visible
+		display: block
+
+	> div
+		background-color: #333
+		height: 100%
+		width: 6px
+		display: inline-block
+		-webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out
+		animation: sk-stretchdelay 1.2s infinite ease-in-out
+
+	.rect2
+		-webkit-animation-delay: -1.1s
+		animation-delay: -1.1s
+	.rect3
+		-webkit-animation-delay: -1.0s
+		animation-delay: -1.0s
+	.rect4
+		-webkit-animation-delay: -0.9s
+		animation-delay: -0.9s
+	.rect5
+		-webkit-animation-delay: -0.8s
+		animation-delay: -0.8s
+
+@-webkit-keyframes sk-stretchdelay
+	0%, 40%, 100%
+		-webkit-transform: scaleY(0.4)
+
+	20%
+		-webkit-transform: scaleY(1)
+
+@keyframes sk-stretchdelay
+	0%, 40%, 100%
+		transform: scaleY(0.4)
+		-webkit-transform: scaleY(0.4)
+
+	20%
+		transform: scaleY(1)
+		-webkit-transform: scaleY(1)
+
 .label
 	&.label--full
 		display: block
@@ -103,7 +176,7 @@
 	outline: none
 
 	&:focus
-		box-shadow: 0 0 4px rgba(0,0,0,.3)
+		box-shadow: 0 0 4px rgba(0, 0, 0, .3)
 		border: 1px solid $greyish
 
 	&.input--full
@@ -140,14 +213,14 @@
 		border-color: rgba($main-green, 0.5)
 
 		&:focus
-			box-shadow: 0 0 4px rgba($main-green,.3)
+			box-shadow: 0 0 4px rgba($main-green, .3)
 
 	&.input--error
 		background: lighten($error-color, 60%)
 		border-color: rgba($error-color, 0.5)
 
 		&:focus
-			box-shadow: 0 0 4px rgba($error-color,.3)
+			box-shadow: 0 0 4px rgba($error-color, .3)
 
 .select
 	vertical-align: middle
@@ -165,7 +238,7 @@
 	background: $white url(/images/icons/icon-arrow-down-small.png) no-repeat right center
 
 	&:focus
-		box-shadow: 0 0 4px rgba(0,0,0,.3)
+		box-shadow: 0 0 4px rgba(0, 0, 0, .3)
 		border: 1px solid $greyish
 
 	&.select--full
@@ -196,14 +269,14 @@
 		border-color: rgba($main-green, 0.5)
 
 		&:focus
-			box-shadow: 0 0 4px rgba($main-green,.3)
+			box-shadow: 0 0 4px rgba($main-green, .3)
 
 	&.select--error
 		background-color: lighten($error-color, 60%)
 		border-color: rgba($error-color, 0.5)
 
 		&:focus
-			box-shadow: 0 0 4px rgba($error-color,.3)
+			box-shadow: 0 0 4px rgba($error-color, .3)
 
 a
 	color: $greyish-brown
@@ -241,13 +314,13 @@ a
 
 		&:after
 			border-color: rgba(255, 255, 255, 0)
-			border-bottom-color: #ffffff
+			border-bottom-color: #fff
 			border-width: 5px
 			margin-left: -5px
 
 		&:before
 			border-color: rgba(187, 187, 187, 0)
-			border-bottom-color: #bbbbbb
+			border-bottom-color: #bbb
 			border-width: 6px
 			margin-left: -6px
 
@@ -278,13 +351,13 @@ a
 
 			&:after
 				border-color: rgba(255, 255, 255, 0)
-				border-top-color: #ffffff
+				border-top-color: #fff
 				border-width: 5px
 				margin-left: -5px
 
 			&:before
 				border-color: rgba(187, 187, 187, 0)
-				border-top-color: #bbbbbb
+				border-top-color: #bbb
 				border-width: 6px
 				margin-left: -6px
 

@@ -29,12 +29,5 @@ class OrderLine extends Model
 	 */
 	protected $hidden = [ ];
 
-	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
-	 */
-	public function products()
-	{
-		return $this->hasMany('App\OrderLineProduct', 'order_line_id', 'id');
-	}
 
 }

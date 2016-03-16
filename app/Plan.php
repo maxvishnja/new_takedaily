@@ -9,16 +9,16 @@ use Jenssegers\Date\Date;
  * @package App
  *
  * @property integer id
- * @property string stripe_token
+ * @property string  stripe_token
  * @property integer price
  * @property integer price_shipping
- * @property mixed subscription_started_at
- * @property mixed subscription_cancelled_at
- * @property mixed subscription_snoozed_until
- * @property mixed subscription_rebill_at
- * @property mixed created_at
- * @property mixed updated_at
- * @property mixed deleted_at
+ * @property mixed   subscription_started_at
+ * @property mixed   subscription_cancelled_at
+ * @property mixed   subscription_snoozed_until
+ * @property mixed   subscription_rebill_at
+ * @property mixed   created_at
+ * @property mixed   updated_at
+ * @property mixed   deleted_at
  */
 class Plan extends Model
 {
@@ -37,7 +37,13 @@ class Plan extends Model
 	 *
 	 * @var array
 	 */
-	protected $fillable = [ ];
+	protected $fillable = [
+		'stripe_token',
+		'price',
+		'price_shipping',
+		'subscription_started_at',
+		'subscription_rebill_at'
+	];
 	
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -45,22 +51,6 @@ class Plan extends Model
 	 * @var array
 	 */
 	protected $hidden = [ ];
-
-	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
-	 */
-	public function products()
-	{
-		return $this->hasMany('App\PlanProduct', 'plan_id', 'id');
-	}
-
-	/**
-	 * @return mixed
-	 */
-	public function getProducts()
-	{
-		return $this->products;
-	}
 
 	public function isActive()
 	{
@@ -74,7 +64,7 @@ class Plan extends Model
 
 	public function isSnoozed()
 	{
-		if( !is_null($this->getSubscriptionSnoozedUntil()) && Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionSnoozedUntil())->diffInSeconds() <= 0 )
+		if ( !is_null($this->getSubscriptionSnoozedUntil()) && Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionSnoozedUntil())->diffInSeconds() <= 0 )
 		{
 			$this->subscription_snoozed_until = null;
 			$this->save();
@@ -88,7 +78,7 @@ class Plan extends Model
 		$newDate = Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->addDays($days);
 
 		$this->subscription_snoozed_until = $newDate;
-		$this->subscription_rebill_at = $newDate;
+		$this->subscription_rebill_at     = $newDate;
 		$this->save();
 
 		return true;
@@ -107,8 +97,8 @@ class Plan extends Model
 	public function cancel()
 	{
 		$this->subscription_snoozed_until = null;
-		$this->subscription_cancelled_at = Date::now();
-		$this->subscription_rebill_at = null;
+		$this->subscription_cancelled_at  = Date::now();
+		$this->subscription_rebill_at     = null;
 		$this->save();
 
 		return true;
@@ -117,8 +107,8 @@ class Plan extends Model
 	public function start()
 	{
 		$this->subscription_snoozed_until = null;
-		$this->subscription_cancelled_at = null;
-		$this->subscription_rebill_at = Date::now()->addMonth();
+		$this->subscription_cancelled_at  = null;
+		$this->subscription_rebill_at     = Date::now()->addMonth();
 		$this->save();
 
 		return true;

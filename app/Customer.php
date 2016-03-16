@@ -28,8 +28,6 @@ class Customer extends Model
 
 	use SoftDeletes;
 
-	private $customer_attributes = [ ];
-
 	/**
 	 * The database table for the model
 	 *
@@ -135,17 +133,10 @@ class Customer extends Model
 
 	public function getCustomerAttribute($name, $default = '')
 	{
-		if ( isset($this->customer_attributes[ $name ]) )
-		{
-			return $this->customer_attributes[ $name ];
-		}
-
-		if ( !$attribute = $this->customerAttributes()->where('identifier', $name)->first() )
+		if ( !$attribute = $this->customerAttributes->where('identifier', $name)->first() )
 		{
 			return $default;
 		}
-
-		$this->customer_attributes[ $name ] = $attribute->value;
 
 		return $attribute->value;
 	}
@@ -232,6 +223,21 @@ class Customer extends Model
 		}
 
 		return $source;
+	}
+
+	public function setCustomerAttribute($identifier, $value)
+	{
+		return $this->customerAttributes()->where('identifier', $identifier)->update([ 'value' => $value ]);
+	}
+
+	public function setCustomerAttributes($attributes = [ ])
+	{
+		foreach($attributes as $identifier => $value)
+		{
+			$this->setCustomerAttribute($identifier, $value);
+		}
+
+		return true;
 	}
 
 	public function removePaymentOption()

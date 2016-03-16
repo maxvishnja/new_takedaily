@@ -76,7 +76,15 @@
 			<div class="col-md-8 col-md-pull-4">
 				<h1>Bestilling</h1>
 
-				<form method="post" action="{{ URL::action('CheckoutController@postCheckout') }}" id="checkout-form" autocomplete="on">
+				<form method="post" action="{{ URL::action('CheckoutController@postCheckout') }}" id="checkout-form" autocomplete="on" class="form">
+					<div class="spinner" id="form-loader">
+						<div class="rect1"></div>
+						<div class="rect2"></div>
+						<div class="rect3"></div>
+						<div class="rect4"></div>
+						<div class="rect5"></div>
+					</div>
+
 					<div class="card card--large m-b-30">
 						<fieldset>
 							<legend class="card_title">Dine oplysninger</legend>
@@ -112,6 +120,7 @@
 									<input class="input input--medium input--semibold input--full" id="input_info_email" data-validate="true" placeholder="lars-jensen@gmail.com" name="info[email]" required="required" aria-required="true"/>
 								</div>
 							</div>
+							<input name="info[address_country]" type="hidden" value="Denmark"/>
 						</fieldset>
 					</div>
 
@@ -223,7 +232,7 @@
 			{
 				var $form = $(this);
 
-				if( ! validateFormInput($form) )
+				if (!validateFormInput($form))
 				{
 					return false;
 				}
@@ -422,7 +431,7 @@
 			var form = $(this);
 			var button = form.find('button');
 
-			if( ! validateFormInput(form) )
+			if (!validateFormInput(form))
 			{
 				return false;
 			}
