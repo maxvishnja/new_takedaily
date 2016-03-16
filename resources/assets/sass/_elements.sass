@@ -135,6 +135,20 @@
 	&.input--plain
 		border: none !important
 
+	&.input--success
+		background: lighten($main-green, 60%)
+		border-color: rgba($main-green, 0.5)
+
+		&:focus
+			box-shadow: 0 0 4px rgba($main-green,.3)
+
+	&.input--error
+		background: lighten($error-color, 60%)
+		border-color: rgba($error-color, 0.5)
+
+		&:focus
+			box-shadow: 0 0 4px rgba($error-color,.3)
+
 .select
 	vertical-align: middle
 	display: inline-block
@@ -176,6 +190,20 @@
 
 	&.select--plain
 		border: none !important
+
+	&.select--success
+		background-color: lighten($main-green, 60%)
+		border-color: rgba($main-green, 0.5)
+
+		&:focus
+			box-shadow: 0 0 4px rgba($main-green,.3)
+
+	&.select--error
+		background-color: lighten($error-color, 60%)
+		border-color: rgba($error-color, 0.5)
+
+		&:focus
+			box-shadow: 0 0 4px rgba($error-color,.3)
 
 a
 	color: $greyish-brown

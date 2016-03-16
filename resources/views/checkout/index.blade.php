@@ -78,43 +78,43 @@
 
 				<form method="post" action="{{ URL::action('CheckoutController@postCheckout') }}" id="checkout-form" autocomplete="on">
 					<div class="card card--large m-b-30">
-						<fieldset name="info">
+						<fieldset>
 							<legend class="card_title">Dine oplysninger</legend>
 							<hr class="hr--dashed hr--small-margin"/>
 
 							<div class="row m-b-50">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_name">Dit fulde navn</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_name" placeholder="Lars Jensen" name="name"/>
+									<input class="input input--regular input--semibold input--full" id="input_info_name" placeholder="Lars Jensen" name="info[name]"/>
 								</div>
 							</div>
 
 							<div class="row m-b-50">
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_street">Din adresse</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_address_street" placeholder="Søndre Skovvej 123" name="address_street"/>
+									<input class="input input--regular input--semibold input--full" id="input_info_address_street" placeholder="Søndre Skovvej 123" name="info[address_street]"/>
 								</div>
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_zipcode">Postnummer</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_address_zipcode" placeholder="9400" name="address_zipcode"/>
+									<input class="input input--regular input--semibold input--full" id="input_info_address_zipcode" placeholder="9400" name="info[address_zipcode]"/>
 								</div>
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_city">By</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_address_city" placeholder="Aalborg" name="address_city"/>
+									<input class="input input--regular input--semibold input--full" id="input_info_address_city" placeholder="Aalborg" name="info[address_city]"/>
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_email">Din e-mail adresse</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_email" placeholder="lars-jensen@gmail.com" name="email"/>
+									<input class="input input--regular input--semibold input--full" id="input_info_email" placeholder="lars-jensen@gmail.com" name="info[email]"/>
 								</div>
 							</div>
 						</fieldset>
 					</div>
 
 					<div class="card card--large">
-						<fieldset name="card">
+						<fieldset id="payment-fieldset">
 							<legend class="card_title pull-left">Kortoplysninger</legend>
 							<div class="pull-right secured_server">
 								<span class="icon icon-lock"></span> Sikret forbindelse
@@ -171,11 +171,15 @@
 						</fieldset>
 					</div>
 
-					<button class="button button--huge button--green button--rounded pull-right m-t-20" type="submit">Bestil nu</button>
+					<button class="button button--huge button--green button--rounded pull-right m-t-20" type="submit" id="button-submit">Bestil nu</button>
 
 					{{ csrf_field() }}
 
-					<input type="hidden" name="coupon" id="input-coupon-field" v-model="discount.code"/>
+					<div class="hidden">
+						<input type="hidden" name="coupon" v-model="discount.code"/>
+						<textarea name="combinations">{{ json_encode(Session::get('my_combination', [])) }}</textarea>
+						<textarea name="user_data">{{ json_encode(Session::get('user_data', [])) }}</textarea>
+					</div>
 				</form>
 			</div><!-- /Form-->
 		</div>
@@ -236,53 +240,37 @@
 		{
 			$error = false;
 
-			if ($("#payment_source").val() == "-1")
+			$.each($("#checkout-form #payment-fieldset").find('input'), function (i, element)
 			{
-				$.each($("#checkout-form #payment-fieldset").find('input'), function (i, element)
+				if ($(element).val() == '')
 				{
-					if ($(element).val() == '')
-					{
-						$error = true;
-					}
+					$error = true;
+				}
 
-					switch ($(element).attr('id'))
-					{
-						case 'cc-number':
-							if (!$.payment.validateCardNumber($(element).val()))
-							{
-								$error = true;
-							}
+				switch ($(element).attr('id'))
+				{
+					case 'cc-number':
+						if (!$.payment.validateCardNumber($(element).val()))
+						{
+							$error = true;
+						}
 
-							break;
+						break;
 
-						case 'cc-cvc':
-							if (!$.payment.validateCardCVC($(element).val()))
-							{
-								$error = true;
-							}
+					case 'cc-cvc':
+						if (!$.payment.validateCardCVC($(element).val()))
+						{
+							$error = true;
+						}
 
-							break;
+						break;
+				}
+			});
 
-						case 'cc-expiry':
-							$expire = $.payment.cardExpiryVal($(element).val());
-							if (!$.payment.validateCardExpiry($expire.month, $expire.year))
-							{
-								$error = true;
-							}
-
-							break;
-					}
-				});
-			}
-			else
-			{
-				error = false;
-			}
-
-			$("button#button-submit").prop('disabled', $error);
+			$("#checkout-form button#button-submit").prop('disabled', $error);
 		}
 
-		$("#cc-number").on('change input', function ()
+		$("#cc-number").on('change', function ()
 		{
 			$validated = $.payment.validateCardNumber($(this).val());
 
@@ -316,22 +304,21 @@
 			checkErrors();
 		});
 
-		$("#cc-expiry").on('input', function ()
+		$("#cc-month, #cc-year").on('change', function ()
 		{
-			$expire = $.payment.cardExpiryVal($(this).val());
-			$validated = $.payment.validateCardExpiry($expire.month, $expire.year);
+			$validated = $.payment.validateCardExpiry($("#cc-month").val(), $("#cc-year").val());
 
-			if ($validated)
+			if ($("#cc-month").val() !== null && $("#cc-year").val() !== null)
 			{
-				$(this).removeClass('input--error').addClass('input--success');
+				if ($validated)
+				{
+					$("#cc-month, #cc-year").removeClass('select--error').addClass('select--success');
+				}
+				else
+				{
+					$("#cc-month, #cc-year").addClass('select--error').removeClass('select--success');
+				}
 			}
-			else
-			{
-				$(this).addClass('input--error').removeClass('input--success');
-			}
-
-			$("#input-cc-month").val($expire.month);
-			$("#input-cc-year").val($expire.year);
 
 			checkErrors();
 		});
@@ -471,7 +458,6 @@
 
 	<script>
 		$("input#cc-number").payment("formatCardNumber");
-		$("input#cc-expiry").payment("formatCardExpiry");
 		$("input#cc-cvc").payment("formatCardCVC");
 	</script>
 @endsection
