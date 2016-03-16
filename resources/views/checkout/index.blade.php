@@ -12,7 +12,7 @@
 				<h3>Ordreoversigt</h3>
 				<hr class="hr--double"/>
 
-				<table>
+				<table v-cloack>
 					<tbody>
 					<tr>
 						<td>Take Daily abonnement</td>
@@ -51,7 +51,7 @@
 				<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="display: none;">
 					<div class="row">
 						<div class="col-md-7">
-							<input type="text" name="coupon" placeholder="Din kuponkode" class="input input--regular input--uppercase input--spacing input--full input--semibold"/>
+							<input type="text" name="coupon" maxlength="20" placeholder="Din kuponkode" class="input input--regular input--uppercase input--spacing input--full input--semibold"/>
 						</div>
 						<div class="col-md-5">
 							<button type="submit" class="button button--regular button--full button--green">Anvend</button>
@@ -65,7 +65,9 @@
 
 				<hr/>
 
-				<p class="checkout_description">Dette er et abonnement, vi trækker derfor 149 DKK på dit kort hver 28 dage.</p>
+				<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">@{{ total_subscription }}
+						DKK</span><strong v-show="price !== total_subscription">@{{ total_subscription }} DKK</strong> på dit kort hver 28 dage.
+				</p>
 
 				<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>
 
@@ -382,6 +384,30 @@
 				total: function ()
 				{
 					return this.total_sub - this.total_discount;
+				},
+				total_subscription: function ()
+				{
+					var amount = this.total_sub;
+
+					if (this.discount.applied)
+					{
+						if (this.discount.applies_to == 'plan')
+						{
+							var discount = 0;
+							if (this.discount.type == 'percentage')
+							{
+								discount = this.total_sub * (this.discount.amount / 100);
+							}
+							else if (this.discount.type == 'amount')
+							{
+								discount = this.discount.amount;
+							}
+
+							amount -= discount;
+						}
+					}
+
+					return amount;
 				}
 			}
 		});
