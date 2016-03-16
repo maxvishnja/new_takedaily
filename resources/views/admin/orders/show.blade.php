@@ -65,12 +65,7 @@
 				<tbody>
 					@foreach($order->lines as $line)
 						<tr>
-							<td>{{ $line->description }}
-								@if(count($line->products) > 0)
-									@foreach($line->products as $productItem)
-										<br/>- <a href="{{ URL::action('Dashboard\ProductController@show', [$productItem->product->id]) }}">{{ $productItem->product->name }}</a>
-									@endforeach
-								@endif</td>
+							<td>{{ $line->description }}</td>
 							<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true) }} kr.</td>
 							<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true) }} kr.</td>
 							<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true) }} kr.</td>

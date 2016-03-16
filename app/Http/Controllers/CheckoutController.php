@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\User;
 use Illuminate\Http\Request;
@@ -40,7 +41,7 @@ class CheckoutController extends Controller
 			}
 			elseif ( $coupon->discount_type == 'amount' )
 			{
-				$orderPrice -= $coupon->amount;
+				$orderPrice -= MoneyLibrary::toMoneyFormat($coupon->amount);
 			}
 		}
 

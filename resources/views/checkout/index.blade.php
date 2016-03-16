@@ -377,7 +377,7 @@
 					}
 					else if (this.discount.type == 'amount')
 					{
-						var discount = this.discount.amount;
+						var discount = (this.discount.amount / 100);
 					}
 
 					return discount;
@@ -401,7 +401,7 @@
 							}
 							else if (this.discount.type == 'amount')
 							{
-								discount = this.discount.amount;
+								discount = (this.discount.amount / 100);
 							}
 
 							amount -= discount;

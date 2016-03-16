@@ -8,7 +8,7 @@
 		<!--/.widget-nav-->
 		<ul class="widget widget-menu unstyled">
 			<li><a href="/dashboard/pages"><i class="menu-icon icon-edit"></i>CMS</a></li>
-			<li><a href="/dashboard/products"><i class="menu-icon icon-list"></i>Produkter</a></li>
+			{{--<li><a href="/dashboard/products"><i class="menu-icon icon-list"></i>Produkter</a></li>--}}
 			<li><a href="/dashboard/coupons"><i class="menu-icon icon-barcode"></i>Kuponkoder</a></li>
 			<li><a href="/dashboard/settings"><i class="menu-icon icon-cog"></i>Indstillinger</a></li>
 		</ul>
