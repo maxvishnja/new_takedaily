@@ -18,14 +18,14 @@
 				<div class="control-group">
 					<label for="code" class="control-label">Kode</label>
 					<div class="controls">
-						<input type="text" class="form-control span8" name="code" id="code" value="{{ Request::old('code', isset($coupon) ? $coupon->code : '' ) }}" placeholder="Kuponkode (eks.: GRATIS-FRAGT)"/>
+						<input type="text" class="form-control span8" name="code" id="code" value="{{ Request::old('code', isset($coupon) ? $coupon->code : '' ) }}" placeholder="Kuponkode (eks.: FREE-MONTH)" style="text-transform: uppercase"/>
 					</div>
 				</div>
 
 				<div class="control-group">
 					<label for="description" class="control-label">Beskrivelse</label>
 					<div class="controls">
-						<textarea name="description" id="description" class="form-control span8" rows="5">{!! Request::old('description', isset($coupon) ? $coupon->description : '' ) !!}</textarea>
+						<textarea name="description" id="description" class="form-control span8" rows="5" placeholder="Vises på siden">{!! Request::old('description', isset($coupon) ? $coupon->description : '' ) !!}</textarea>
 					</div>
 				</div>
 
