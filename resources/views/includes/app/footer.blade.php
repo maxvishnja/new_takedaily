@@ -43,7 +43,7 @@
 				</div>
 				<div class="col-lg-9 col-md-8 text-right">
 					<ul class="footer_bottom_links">
-						<li class="input input--semibold selector selector--up">Dansk
+						<li class="input input--semibold input--transparent selector selector--up">Dansk
 							<span class="icon icon-arrow-up-small v-a-m m-l-5"></span>
 							<ul>
 								<li><a href="#dk">Dansk</a></li>

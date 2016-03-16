@@ -6,7 +6,7 @@
 @section('title', 'Betaling - Take Daily')
 
 @section('content')
-	<div class="container">
+	<div class="container" id="app">
 		<div class="row">
 			<div class="col-md-4 col-md-push-8">
 				<h3>Ordreoversigt</h3>
@@ -16,26 +16,54 @@
 					<tbody>
 					<tr>
 						<td>Take Daily abonnement</td>
-						<td>149,00 kr.</td>
+						<td>@{{ price | currency '' }} kr.</td>
 					</tr>
 					<tr>
 						<td>Fragt</td>
-						<td>Gratis</td>
+						<td>
+							<span v-show="shipping == 0">Gratis</span>
+							<span v-show="shipping > 0">@{{ shipping | currency '' }} kr.</span>
+						</td>
 					</tr>
 					<tr>
 						<td>Subtotal</td>
-						<td>149,00 kr.</td>
+						<td>@{{ total_sub | currency '' }} kr.</td>
 					</tr>
 					<tr>
 						<td>- heraf moms</td>
-						<td>29,80 kr.</td>
+						<td>@{{ total_taxes | currency '' }} kr.</td>
+					</tr>
+					<tr v-show="discount.applied">
+						<td>@{{ discount.code }}: @{{ discount.description }}</td>
+						<td>-@{{ total_discount | currency '' }} kr.</td>
 					</tr>
 					<tr class="row--total">
 						<td>Total</td>
-						<td>149,00 kr.</td>
+						<td>@{{ total | currency '' }} kr.</td>
 					</tr>
 					</tbody>
 				</table>
+
+				<div class="m-t-20 m-b-20">
+					<a href="#coupon-form" id="toggle-coupon-form">Har du en rabatkode?</a>
+				</div>
+
+				<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="display: none;">
+					<div class="row">
+						<div class="col-md-7">
+							<input type="text" name="coupon" placeholder="Din kuponkode" class="input input--regular input--uppercase input--spacing input--full input--semibold"/>
+						</div>
+						<div class="col-md-5">
+							<button type="submit" class="button button--regular button--full button--green">Anvend</button>
+						</div>
+					</div>
+					{{ csrf_field() }}
+
+					<div id="coupon-form-successes" class="m-t-10"></div>
+					<div id="coupon-form-errors" class="m-t-10"></div>
+				</form>
+
+				<hr/>
 
 				<p class="checkout_description">Dette er et abonnement, vi trækker derfor 149 DKK på dit kort hver 28 dage.</p>
 
@@ -103,8 +131,8 @@
 								<div class="col-md-5">
 									<label class="label label--full checkout--label">&nbsp;</label>
 									<div style="padding: 15px 0">
-									<span class="icon icon-card-mastercard m-r-5 v-a-m" title="Mastercard"></span>
-									<span class="icon icon-card-visa m-l-5 v-a-m" title="Visa"></span>
+										<span class="icon icon-card-mastercard m-r-5 v-a-m" title="Mastercard"></span>
+										<span class="icon icon-card-visa m-l-5 v-a-m" title="Visa"></span>
 									</div>
 								</div>
 							</div>
@@ -143,8 +171,9 @@
 
 					<button class="button button--huge button--green button--rounded pull-right m-t-20" type="submit">Bestil nu</button>
 
-
 					{{ csrf_field() }}
+
+					<input type="hidden" name="coupon" id="input-coupon-field" v-model="discount.code"/>
 				</form>
 			</div><!-- /Form-->
 		</div>
@@ -306,6 +335,112 @@
 		});
 
 		checkErrors();
+	</script>
+
+	<script>
+		var app = new Vue({
+			'el': '#app',
+			data: {
+				shipping: 0,
+				price: 149,
+				discount: {
+					applied: false,
+					type: null,
+					amount: 0,
+					applies_to: null,
+					description: '',
+					code: ''
+				}
+			},
+			computed: {
+				total_taxes: function ()
+				{
+					return this.total_sub * 0.2;
+				},
+				total_sub: function ()
+				{
+					return this.price;
+				},
+				total_discount: function ()
+				{
+					if (!this.discount.applied)
+					{
+						return 0;
+					}
+
+					if (this.discount.type == 'percentage')
+					{
+						var discount = this.total_sub * (this.discount.amount / 100);
+					}
+					else if (this.discount.type == 'amount')
+					{
+						var discount = this.discount.amount;
+					}
+
+					return discount;
+				},
+				total: function ()
+				{
+					return this.total_sub - this.total_discount;
+				}
+			}
+		});
+	</script>
+
+	<script>
+		/*
+		 * Coupon
+		 */
+		$("#toggle-coupon-form").click(function (e)
+		{
+			e.preventDefault();
+
+			$("#coupon-form").toggle();
+		});
+
+		$("#coupon-form").submit(function (e)
+		{
+			e.preventDefault();
+			var form = $(this);
+			var button = form.find('button');
+
+			$.ajax({
+				url: form.attr('action'),
+				method: form.attr('method'),
+				data: form.serialize(),
+				headers: {
+					'X-CSRF-TOKEN': form.find('[name="_token"]').val()
+				},
+				dataType: 'JSON',
+				beforeSend: function ()
+				{
+					button.text('Vent...').prop('disabled', true);
+				},
+				complete: function ()
+				{
+					button.text('Anvend').prop('disabled', false);
+				},
+				success: function (response)
+				{
+					$("#coupon-form-successes").text(response.message);
+					$("#coupon-form-errors").text('');
+
+					app.discount.applied = true;
+					app.discount.type = response.coupon.discount_type;
+					app.discount.amount = response.coupon.discount;
+					app.discount.applies_to = response.coupon.applies_to;
+					app.discount.description = response.coupon.description;
+					app.discount.code = response.coupon.code;
+				},
+				error: function (response)
+				{
+					$("#coupon-form-errors").text(response.responseJSON.message);
+					$("#coupon-form-successes").text('');
+
+					app.discount.applied = false;
+				}
+			});
+		});
 	</script>
 
 	<script>

@@ -3992,6 +3992,10 @@ body.index .slider_container {
     font-size: 21px; }
   .button.button--rounded {
     border-radius: 3px; }
+  .button:disabled {
+    cursor: not-allowed;
+    background: #dddddd !important;
+    color: #aaaaaa !important; }
   .button.button--double {
     line-height: 1.2;
     height: 70px;
@@ -4040,6 +4044,8 @@ body.index .slider_container {
     font-weight: 600; }
   .input.input--regular {
     height: 40px; }
+  .input.input--transparent {
+    background: transparent; }
   .input.input--medium {
     height: 50px;
     padding: 13px 15px; }
@@ -4048,6 +4054,8 @@ body.index .slider_container {
   .input.input--full {
     width: 100%;
     display: block; }
+  .input.input--uppercase {
+    text-transform: uppercase; }
   .input.input--plain {
     border: none !important; }
 

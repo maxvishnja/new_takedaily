@@ -49,6 +49,11 @@
 	&.button--rounded
 		border-radius: 3px
 
+	&:disabled
+		cursor: not-allowed
+		background: $lighter-grey !important
+		color: $greyish !important
+
 	&.button--double
 		line-height: 1.2
 		height: 70px
@@ -110,6 +115,9 @@
 	&.input--regular
 		height: 40px
 
+	&.input--transparent
+		background: transparent
+
 	&.input--medium
 		height: 50px
 		padding: 13px 15px
@@ -120,6 +128,9 @@
 	&.input--full
 		width: 100%
 		display: block
+
+	&.input--uppercase
+		text-transform: uppercase
 
 	&.input--plain
 		border: none !important

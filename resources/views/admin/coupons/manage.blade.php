@@ -33,7 +33,7 @@
 					<label for="type" class="control-label">Type</label>
 					<div class="controls">
 						<select name="type" id="type" onchange="if($(this).val() == 'free_shipping') { $('#discount_element').hide(); } else { $('#discount_element').show(); if( $(this).val() == 'percentage' ) { $('#discount_text').text('%') } else { $('#discount_text').text('kr.') } }">
-							@foreach(['percentage', 'amount', 'free_shipping'] as $option)
+							@foreach(['percentage', 'amount'] as $option)
 								<option value="{{ $option }}" @if(isset($coupon) && $coupon->discount_type == $option) selected="selected" @endif>{{ trans("coupons.type.$option") }}</option>
 							@endforeach
 						</select>

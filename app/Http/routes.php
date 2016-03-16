@@ -47,10 +47,11 @@ Route::group([ 'middleware' => 'web' ], function ()
 	/*
 	 * Checkout
 	 */
-	Route::group([ 'middleware' => 'secure' ], function ()
+	Route::group([ 'middleware' => 'secure', 'prefix' => 'checkout' ], function ()
 	{
-		Route::get('checkout', 'CheckoutController@getCheckout');
-		Route::post('checkout', 'CheckoutController@postCheckout');
+		Route::get('', 'CheckoutController@getCheckout');
+		Route::post('', 'CheckoutController@postCheckout');
+		Route::post('apply-coupon', 'CheckoutController@applyCoupon');
 	});
 
 	/*

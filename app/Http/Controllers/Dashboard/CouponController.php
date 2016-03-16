@@ -33,7 +33,7 @@ class CouponController extends Controller
 	function store(Request $request) {
 		$coupon = new Coupon();
 
-		$coupon->code = $request->get('code');
+		$coupon->code = strtoupper($request->get('code'));
 		$coupon->description = $request->get('description');
 		$coupon->discount_type = $request->get('type');
 		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
@@ -70,7 +70,7 @@ class CouponController extends Controller
 			return \Redirect::back()->withErrors("Kuponkoden (#{$id}) kunne ikke findes!");
 		}
 
-		$coupon->code = $request->get('code');
+		$coupon->code = strtoupper($request->get('code'));
 		$coupon->description = $request->get('description');
 		$coupon->discount_type = $request->get('type');
 		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
