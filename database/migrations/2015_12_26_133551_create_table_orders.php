@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateTableOrders extends Migration
 {
@@ -24,7 +24,7 @@ class CreateTableOrders extends Migration
 			$table->integer('total_taxes')->default(0);
 			$table->integer('sub_total_taxes')->default(0);
 			$table->timestamps();
-			$table->softDeletes();w
+			$table->softDeletes();
 		});
 	}
 
