@@ -9,7 +9,7 @@
 	<div class="container" id="app">
 		<div class="row">
 			<div class="col-md-4 col-md-push-8">
-				<h3>Ordreoversigt</h3>
+				<h3 class="m-b-35">Ordreoversigt</h3>
 				<hr class="hr--double"/>
 
 				<table v-cloack>
@@ -51,7 +51,7 @@
 				<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="display: none;">
 					<div class="row">
 						<div class="col-md-7">
-							<input type="text" name="coupon" maxlength="20" placeholder="Din kuponkode" class="input input--regular input--uppercase input--spacing input--full input--semibold"/>
+							<input type="text" name="coupon" maxlength="20" placeholder="Din kuponkode" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" required="required"/>
 						</div>
 						<div class="col-md-5">
 							<button type="submit" class="button button--regular button--full button--green">Anvend</button>
@@ -95,10 +95,12 @@
 									<input class="input input--medium input--semibold input--full" id="input_info_address_street" data-validate="true" placeholder="Søndre Skovvej 123" name="info[address_street]" required="required" aria-required="true"/>
 								</div>
 								<div class="col-md-4">
+									<div class="visible-xs visible-sm m-t-50"></div>
 									<label class="label label--full checkout--label" for="input_info_address_zipcode">Postnummer</label>
 									<input class="input input--medium input--semibold input--full" id="input_info_address_zipcode" data-validate="true" placeholder="9400" name="info[address_zipcode]" required="required" aria-required="true"/>
 								</div>
 								<div class="col-md-4">
+									<div class="visible-xs visible-sm m-t-50"></div>
 									<label class="label label--full checkout--label" for="input_info_address_city">By</label>
 									<input class="input input--medium input--semibold input--full" id="input_info_address_city" data-validate="true" placeholder="Aalborg" name="info[address_city]" required="required" aria-required="true"/>
 								</div>
@@ -130,7 +132,7 @@
 									<label class="label label--full checkout--label" for="cc-number">Kortnummer</label>
 									<input type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-number" autocomplete="cc-number" size="20" maxlength="20" placeholder="4111 1111 1111 1111" class="card-number form-control" data-stripe="number" pattern="\d*" required="required"/>
 								</div>
-								<div class="col-md-5">
+								<div class="col-md-5 hidden-xs hidden-sm">
 									<label class="label label--full checkout--label">&nbsp;</label>
 									<div style="padding: 15px 0">
 										<span class="icon icon-card-mastercard m-r-5 v-a-m" title="Mastercard"></span>
@@ -151,6 +153,7 @@
 									</select>
 								</div>
 								<div class="col-md-4">
+									<div class="visible-xs visible-sm m-t-50"></div>
 									<!-- Expiry Year -->
 									<label class="label label--full checkout--label" for="cc-year">År</label>
 									<select class="select select--full select--semibold select--spacing select--medium" id="cc-year" data-stripe="exp-year">
@@ -161,9 +164,9 @@
 									</select>
 								</div>
 								<div class="col-md-4">
+									<div class="visible-xs visible-sm m-t-50"></div>
 									<!-- CVV/CVC -->
-									<label class="label label--full checkout--label" for="cc-cvc">Kontrolnummer (CVV /
-										CVC)</label>
+									<label class="label label--full checkout--label" for="cc-cvc" title="CVV/CVC">Kontrolnummer</label>
 									<input type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-cvc" autocomplete="off" size="4" maxlength="4" placeholder="123" class="card-cvc form-control" data-stripe="cvc" required="required" pattern="\d*"/>
 								</div>
 							</div>
@@ -418,6 +421,11 @@
 			e.preventDefault();
 			var form = $(this);
 			var button = form.find('button');
+
+			if( ! validateFormInput(form) )
+			{
+				return false;
+			}
 
 			$.ajax({
 				url: form.attr('action'),
