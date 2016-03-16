@@ -85,29 +85,29 @@
 							<div class="row m-b-50">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_name">Dit fulde navn</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_name" placeholder="Lars Jensen" name="info[name]"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_name" data-validate="true" placeholder="Lars Jensen" name="info[name]" required="required" aria-required="true"/>
 								</div>
 							</div>
 
 							<div class="row m-b-50">
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_street">Din adresse</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_address_street" placeholder="Søndre Skovvej 123" name="info[address_street]"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_address_street" data-validate="true" placeholder="Søndre Skovvej 123" name="info[address_street]" required="required" aria-required="true"/>
 								</div>
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_zipcode">Postnummer</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_address_zipcode" placeholder="9400" name="info[address_zipcode]"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_address_zipcode" data-validate="true" placeholder="9400" name="info[address_zipcode]" required="required" aria-required="true"/>
 								</div>
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_city">By</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_address_city" placeholder="Aalborg" name="info[address_city]"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_address_city" data-validate="true" placeholder="Aalborg" name="info[address_city]" required="required" aria-required="true"/>
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_email">Din e-mail adresse</label>
-									<input class="input input--regular input--semibold input--full" id="input_info_email" placeholder="lars-jensen@gmail.com" name="info[email]"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_email" data-validate="true" placeholder="lars-jensen@gmail.com" name="info[email]" required="required" aria-required="true"/>
 								</div>
 							</div>
 						</fieldset>
@@ -190,7 +190,7 @@
 	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
 	<script>
-		Stripe.setPublishableKey('{{ App::environment() == 'production' ? env('STRIPE_PUBLISHABLE_KEY') : env('STRIPE_TEST_PUBLISHABLE_KEY') }}');
+		Stripe.setPublishableKey('{{ env('STRIPE_API_PUBLISHABLE_KEY') }}');
 
 		function stripeResponseHandler(status, response)
 		{
@@ -218,19 +218,21 @@
 		{
 			$("#checkout-form").submit(function (event)
 			{
-				if ($("#payment_source").val() == "-1")
+				var $form = $(this);
+
+				if( ! validateFormInput($form) )
 				{
-					var $form = $(this);
-
-					// Disable the submit button to prevent repeated clicks
-					$form.find('button#button-submit').prop('disabled', true);
-					$form.addClass('form--loading');
-
-					Stripe.card.createToken($form, stripeResponseHandler);
-					// Prevent the form from submitting with the default action
-					event.preventDefault();
 					return false;
 				}
+
+				// Disable the submit button to prevent repeated clicks
+				$form.find('button#button-submit').prop('disabled', true);
+				$form.addClass('form--loading');
+
+				Stripe.card.createToken($form, stripeResponseHandler);
+				// Prevent the form from submitting with the default action
+				event.preventDefault();
+				return false;
 			});
 		});
 	</script>
