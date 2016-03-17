@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Jenssegers\Date\Date;
 use Stripe\Customer;
+use Stripe\Error\Card;
 use Stripe\Stripe;
 
 class CheckoutController extends Controller
@@ -26,6 +27,8 @@ class CheckoutController extends Controller
 
 	function postCheckout(CouponRepository $couponRepository, Request $request)
 	{
+
+		// todo data validation
 		Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
 
 		$stripeToken  = $request->get('stripeToken');
@@ -71,10 +74,21 @@ class CheckoutController extends Controller
 			'address_postal'  => $info['address_zipcode']
 		]);
 
-		$stripeCustomer = Customer::create([
-			"description" => "Customer for {$user->getEmail()}",
-			"source"      => $stripeToken
-		]);
+		try {
+			$stripeCustomer = Customer::create([
+				"description" => "Customer for {$user->getEmail()}",
+				"source"      => $stripeToken
+			]);
+		} catch( Card $ex )
+		{
+			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+		} catch( \Exception $ex )
+		{
+			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+		} catch( \Error $ex )
+		{
+			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+		}
 
 		$user->getCustomer()->getPlan()->update([
 			'stripe_token'            => $stripeCustomer->id,
@@ -88,7 +102,7 @@ class CheckoutController extends Controller
 
 		if ( !$stripeCharge )
 		{
-			return \Redirect::back()->withErrors([ ])->withInput();
+			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
 		}
 
 		if( $coupon )
