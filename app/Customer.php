@@ -366,6 +366,14 @@ class Customer extends Model
 		return $combinationLibrary->getResult();
 	}
 
+	/**
+	 * @return \PDF
+	 */
+	public function generateLabel()
+	{
+		return \PDF::loadView('pdf.label', [ 'customer' => $this ])->setPaper([ 0, 0, 570, 262 ])->setOrientation('landscape');
+	}
+
 	public function scopeRebillable($query)
 	{
 		return $query->join('plans', 'plans.id', '=', 'customers.plan_id')

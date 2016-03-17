@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Customer;
-use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
@@ -32,11 +32,6 @@ class AccountController extends Controller
 	function getHome()
 	{
 		return view('account.home');
-	}
-
-	function getInfo()
-	{
-		return view('account.info');
 	}
 
 	function getTransactions()
@@ -133,7 +128,7 @@ class AccountController extends Controller
 	function getSettingsSubscription()
 	{
 		return view('account.settings.subscription', [
-			'plan'         => $this->customer->getPlan()
+			'plan' => $this->customer->getPlan()
 		]);
 	}
 

@@ -4392,8 +4392,7 @@ body.page-checkout {
     width: 260px;
     height: 262px;
     padding: 50px 30px;
-    background: #17aa66;
-    color: #ffffff; }
+    color: #333333; }
     .print_label .print_label_right .print_label_info_line {
       margin-bottom: 10px;
       font-size: 15px; }

@@ -71,7 +71,6 @@ Route::group([ 'middleware' => 'web' ], function ()
 		});
 
 		Route::get('/', 'AccountController@getHome');
-		Route::get('info', 'AccountController@getInfo');
 
 		Route::get('transactions', 'AccountController@getTransactions');
 		Route::get('transactions/{id}', 'AccountController@getTransaction');
