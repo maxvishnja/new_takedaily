@@ -51,7 +51,7 @@
 				<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="display: none;">
 					<div class="row">
 						<div class="col-md-7">
-							<input type="text" name="coupon" maxlength="20" placeholder="Din kuponkode" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" required="required"/>
+							<input type="text" name="coupon" maxlength="20" placeholder="Din kuponkode" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('combinations') }}" required="required"/>
 						</div>
 						<div class="col-md-5">
 							<button type="submit" class="button button--regular button--full button--green">Anvend</button>
@@ -188,9 +188,9 @@
 					{{ csrf_field() }}
 
 					<div class="hidden">
-						<input type="hidden" name="coupon" v-model="discount.code" autocomplete="off" />
-						<textarea name="combinations">{{ json_encode(Session::get('my_combination', [])) }}</textarea>
-						<textarea name="user_data">{{ json_encode(Session::get('user_data', [])) }}</textarea>
+						<input type="hidden" name="coupon" v-model="discount.code" value="{{ Request::old('combinations') }}" autocomplete="off"/>
+						<textarea name="combinations">{{ json_encode(Session::get('my_combination', Request::old('combinations', []))) }}</textarea>
+						<textarea name="user_data">{{ json_encode(Session::get('user_data', Request::old('user_data', []))) }}</textarea>
 					</div>
 				</form>
 			</div><!-- /Form-->
@@ -260,26 +260,22 @@
 				{
 					$error = true;
 				}
-
-				switch ($(element).attr('id'))
-				{
-					case 'cc-number':
-						if (!$.payment.validateCardNumber($(element).val()))
-						{
-							$error = true;
-						}
-
-						break;
-
-					case 'cc-cvc':
-						if (!$.payment.validateCardCVC($(element).val()))
-						{
-							$error = true;
-						}
-
-						break;
-				}
 			});
+
+			if (!$.payment.validateCardNumber($("#cc-number").val()))
+			{
+				$error = true;
+			}
+
+			if (!$.payment.validateCardCVC($("#cc-cvc").val()))
+			{
+				$error = true;
+			}
+
+			if (!$.payment.validateCardExpiry($("#cc-month").val(), $("#cc-year").val()))
+			{
+				$error = true;
+			}
 
 			$("#checkout-form button#button-submit").prop('disabled', $error);
 		}

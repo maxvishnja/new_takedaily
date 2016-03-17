@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Success page">
+    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Success page. Label design. getCombinations. More checkout fixes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Customer.php" afterPath="$PROJECT_DIR$/app/Customer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/checkout/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/checkout/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/checkout/success.blade.php" afterPath="$PROJECT_DIR$/resources/views/checkout/success.blade.php" />
     </list>
     <ignored path="TakeDaily.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,13 +25,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CheckoutController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35074627">
+              <caret line="266" column="30" selection-start-line="266" selection-start-column="30" selection-end-line="266" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckoutController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53035843">
-              <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding>
-                <element signature="e#39#84#0#PHP" expanded="true" />
+                <element signature="e#39#78#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,11 +156,11 @@
         <option value="$PROJECT_DIR$/app/Apricot/Libraries/StripeLibrary.php" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_checkout.sass" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/resources/views/checkout/index.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/checkout/success.blade.php" />
         <option value="$PROJECT_DIR$/app/Customer.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
+        <option value="$PROJECT_DIR$/resources/views/checkout/index.blade.php" />
       </list>
     </option>
   </component>
@@ -393,7 +398,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="Cust&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;DatabaseS&#9;null&#9;null&#10;Combin&#9;null&#9;null&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;app.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/app.blade.php&#10;inde&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;header.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/header.blade.php&#10;Customer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Coupon&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Repositories/CouponRepository.php&#10;Coupo&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Coupon.php&#10;AccountCon&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/AccountController.php&#10;Subscript&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/account/settings/subscription.blade.php&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;userS&#9;null&#9;null&#10;Coup&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Coupon.php&#10;OrderLineS&#9;null&#9;null&#10;Plan&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/coupons/manage.blade.php&#10;r&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;filesystems.p&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/filesystems.php&#10;app.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/app.php&#10;session.p&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/session.php&#10;_ele&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;foote&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;Secure.ph&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Middleware/SecureOnly.php&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;_de&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;_el&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;_e&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;nav&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/nav.blade.php&#10;_fl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;flo&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;2016_03_14_131329_create_table_supplements&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_14_131329_create_table_supplements.php&#10;_&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;defa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;gulp&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/gulpfile.js&#10;app.sass&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;_defa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;acc&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/account.blade.php&#10;accoun&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/account.blade.php&#10;app.css&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/public/css/app.css&#10;app.j&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/app.js&#10;app.sas&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;elem&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;foot&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;routes.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php" />
+    <property name="SearchEverywhereHistoryKey" value="index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;Cust&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;DatabaseS&#9;null&#9;null&#10;Combin&#9;null&#9;null&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;app.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/app.blade.php&#10;inde&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;header.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/header.blade.php&#10;Customer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Coupon&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Repositories/CouponRepository.php&#10;Coupo&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Coupon.php&#10;AccountCon&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/AccountController.php&#10;Subscript&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/account/settings/subscription.blade.php&#10;userS&#9;null&#9;null&#10;Coup&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Coupon.php&#10;OrderLineS&#9;null&#9;null&#10;Plan&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/coupons/manage.blade.php&#10;r&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;filesystems.p&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/filesystems.php&#10;app.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/app.php&#10;session.p&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/session.php&#10;_ele&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;foote&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;Secure.ph&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Middleware/SecureOnly.php&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;_de&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;_el&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;_e&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;nav&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/nav.blade.php&#10;_fl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;flo&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;2016_03_14_131329_create_table_supplements&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_14_131329_create_table_supplements.php&#10;_&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;defa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;gulp&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/gulpfile.js&#10;app.sass&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;_defa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;acc&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/account.blade.php&#10;accoun&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/layouts/account.blade.php&#10;app.css&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/public/css/app.css&#10;app.j&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/app.js&#10;app.sas&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;elem&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;foot&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;routes.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -464,12 +469,6 @@
       <created>1456591092063</created>
       <option name="number" value="Default" />
       <updated>1456591092063</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Working on sprites and such.">
-      <created>1456703570594</created>
-      <option name="number" value="00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1456703570594</updated>
     </task>
     <task id="LOCAL-00005" summary="Working on SVG sprites">
       <created>1456706502953</created>
@@ -759,7 +758,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458210498976</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Success page. Label design. getCombinations. More checkout fixes">
+      <created>1458216679060</created>
+      <option name="number" value="00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1458216679060</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView">
@@ -843,7 +848,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fixed flow #2" />
     <MESSAGE value="Added combination generation in PHP" />
     <MESSAGE value="Fixed backend combinations (almost?)" />
     <MESSAGE value="Mobile flow" />
@@ -868,7 +872,8 @@
     <MESSAGE value="migration bug fix" />
     <MESSAGE value="Charging" />
     <MESSAGE value="Success page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Success page" />
+    <MESSAGE value="Success page. Label design. getCombinations. More checkout fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Success page. Label design. getCombinations. More checkout fixes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1209,14 +1214,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47768837">
-          <caret line="196" column="14" selection-start-line="196" selection-start-column="14" selection-end-line="196" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5654718">
@@ -1253,19 +1250,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.89027065">
           <caret line="365" column="48" selection-start-line="365" selection-start-column="48" selection-end-line="365" selection-end-column="48" />
-          <folding>
-            <element signature="e#22#67#0#PHP" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53035843">
-          <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
           <folding>
-            <element signature="e#39#84#0#PHP" expanded="true" />
+            <element signature="e#39#78#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35074627">
+          <caret line="266" column="30" selection-start-line="266" selection-start-column="30" selection-end-line="266" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
