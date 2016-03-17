@@ -9,23 +9,14 @@
 	<div class="container">
 		<div class="print_label print_label--shadow hidden-xs">
 			<div class="print_label_left">
-				<div class="print_label_line">
-					<div class="print_label_line_left">Vitamin D</div>
-					<div class="print_label_line_right">1.a.6.B.d</div>
-					<div class="clear"></div>
-				</div>
 
-				<div class="print_label_line">
-					<div class="print_label_line_left">Vitamin D</div>
-					<div class="print_label_line_right">1.a.6.B.d</div>
-					<div class="clear"></div>
-				</div>
-
-				<div class="print_label_line">
-					<div class="print_label_line_left">Vitamin D</div>
-					<div class="print_label_line_right">1.a.6.B.d</div>
-					<div class="clear"></div>
-				</div>
+				@foreach($combinations as $combinationKey => $combinationValue)
+					<div class="print_label_line">
+						<div class="print_label_line_left">{{ $combinationKey }}</div>
+						<div class="print_label_line_right">{{ $combinationValue }}</div>
+						<div class="clear"></div>
+					</div>
+				@endforeach
 
 				<div class="text-center">
 					<span class="logo logo-color m-t-50"></span>

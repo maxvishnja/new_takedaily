@@ -188,7 +188,7 @@
 					{{ csrf_field() }}
 
 					<div class="hidden">
-						<input type="hidden" name="coupon" v-model="discount.code"/>
+						<input type="hidden" name="coupon" v-model="discount.code" autocomplete="off" />
 						<textarea name="combinations">{{ json_encode(Session::get('my_combination', [])) }}</textarea>
 						<textarea name="user_data">{{ json_encode(Session::get('user_data', [])) }}</textarea>
 					</div>

@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use App\Apricot\Libraries\CombinationLibrary;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\StripeLibrary;
 use App\Events\CustomerWasBilled;
@@ -227,7 +228,19 @@ class Customer extends Model
 
 	public function setCustomerAttribute($identifier, $value)
 	{
-		return $this->customerAttributes()->where('identifier', $identifier)->update([ 'value' => $value ]);
+		$attribute = $this->customerAttributes()->where('identifier', $identifier)->first();
+
+		if ( !$attribute )
+		{
+			$this->customerAttributes()->create([
+				'identifier' => $identifier,
+				'value'      => $value ?: ''
+			]);
+
+			return true;
+		}
+
+		return $attribute->update([ 'value' => $value ?: '' ]);
 	}
 
 	public function setCustomerAttributes($attributes = [ ])
@@ -319,6 +332,38 @@ class Customer extends Model
 			Date::today()->setTime(0, 0, 0),
 			Date::today()->setTime(23, 59, 59)
 		]);
+	}
+
+	public function getCombinations()
+	{
+		$combinationLibrary = new CombinationLibrary();
+
+		$attributes = $this->customerAttributes()->where('identifier', 'LIKE', 'user_data.%')->get();
+
+		$data = new \stdClass();
+
+		foreach ( $attributes as $attribute )
+		{
+			$attributePoints = explode('.', $attribute->identifier);
+
+			if ( count($attributePoints) > 2 )
+			{
+				if ( !isset($data->{$attributePoints[1]}) )
+				{
+					$data->{$attributePoints[1]} = new \stdClass();
+				}
+
+				$data->{$attributePoints[1]}->{$attributePoints[2]} = $attribute->value;
+			}
+			else
+			{
+				$data->{$attributePoints[1]} = $attribute->value;
+			}
+		}
+
+		$combinationLibrary->generateResult($data);
+
+		return $combinationLibrary->getResult();
 	}
 
 	public function scopeRebillable($query)

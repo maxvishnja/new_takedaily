@@ -38,7 +38,7 @@ class CheckoutController extends Controller
 		$info         = $request->get('info');
 		$password     = str_random(8);
 
-		$orderPrice = 149; // todo DON'T HARDCODE IT
+		$orderPrice        = 149; // todo DON'T HARDCODE IT
 		$subscriptionPrice = 149; // todo DON'T HARDCODE IT
 
 		if ( $coupon )
@@ -52,7 +52,7 @@ class CheckoutController extends Controller
 				$orderPrice -= MoneyLibrary::toMoneyFormat($coupon->discount);
 			}
 
-			if( $coupon->applies_to == 'plan' )
+			if ( $coupon->applies_to == 'plan' )
 			{
 				$subscriptionPrice = $orderPrice;
 			}
@@ -74,7 +74,13 @@ class CheckoutController extends Controller
 			'address_postal'  => $info['address_zipcode']
 		]);
 
-		try {
+		$user->getCustomer()->update([
+			'birthdate' => $userData->birthdate,
+			'gender'    => $userData->gender == 1 ? 'male' : 'female'
+		]);
+
+		try
+		{
 			$stripeCustomer = Customer::create([
 				"description" => "Customer for {$user->getEmail()}",
 				"source"      => $stripeToken
@@ -98,6 +104,31 @@ class CheckoutController extends Controller
 			'subscription_rebill_at'  => Date::now()->addMonth()
 		]);
 
+		$user->getCustomer()->setCustomerAttributes([
+			'user_data.gender'           => $userData->gender,
+			'user_data.birthdate'        => $userData->birthdate,
+			'user_data.age'              => $userData->age, // todo update this each month
+			'user_data.skin'             => $userData->skin,
+			'user_data.outside'          => $userData->outside,
+			'user_data.pregnant'         => $userData->pregnant,
+			'user_data.diet'             => $userData->diet,
+			'user_data.sports'           => $userData->sports,
+			'user_data.lacks_energy'     => $userData->lacks_energy,
+			'user_data.smokes'           => $userData->smokes,
+			'user_data.immune_system'    => $userData->immune_system,
+			'user_data.vegetarian'       => $userData->vegetarian,
+			'user_data.joints'           => $userData->joints,
+			'user_data.stressed'         => $userData->stressed,
+			'user_data.foods.fruits'     => $userData->foods->fruits,
+			'user_data.foods.vegetables' => $userData->foods->vegetables,
+			'user_data.foods.bread'      => $userData->foods->bread,
+			'user_data.foods.wheat'      => $userData->foods->wheat,
+			'user_data.foods.dairy'      => $userData->foods->dairy,
+			'user_data.foods.meat'       => $userData->foods->meat,
+			'user_data.foods.fish'       => $userData->foods->fish,
+			'user_data.foods.butter'     => $userData->foods->butter
+		]);
+
 		$stripeCharge = $user->getCustomer()->charge(MoneyLibrary::toCents($orderPrice), true);
 
 		if ( !$stripeCharge )
@@ -105,7 +136,7 @@ class CheckoutController extends Controller
 			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
 		}
 
-		if( $coupon )
+		if ( $coupon )
 		{
 			$coupon->reduceUsagesLeft();
 		}
@@ -115,7 +146,9 @@ class CheckoutController extends Controller
 
 	function getSuccess()
 	{
-		return view('checkout.success');
+		$combinations = \Auth::user()->getCustomer()->getCombinations();
+
+		return view('checkout.success', [ 'combinations' => $combinations ]);
 	}
 
 	function applyCoupon(CouponRepository $couponRepository, Request $request)
