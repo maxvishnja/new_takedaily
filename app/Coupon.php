@@ -46,4 +46,13 @@ class Coupon extends Model
 		return $this->discount_type == 'free_shipping';
 	}
 
+	function reduceUsagesLeft()
+	{
+		if( $this->uses_left > 0 )
+		{
+			$this->uses_left--;
+			$this->save();
+		}
+	}
+
 }

@@ -157,7 +157,7 @@
 									<select class="select select--full select--semibold select--spacing select--medium" id="cc-month" data-stripe="exp-month">
 										<option value="-1" selected="selected" disabled="disabled">Måned</option>
 										@for($i = 1; $i<=12; $i++)
-											<option value="{{ $i }}">{{ $i }}</option>
+											<option value="{{ $i }}">{{ str_pad($i, 2, 0, STR_PAD_LEFT) }}</option>
 										@endfor
 									</select>
 								</div>

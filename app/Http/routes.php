@@ -52,6 +52,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::get('', 'CheckoutController@getCheckout');
 		Route::post('', 'CheckoutController@postCheckout');
 		Route::post('apply-coupon', 'CheckoutController@applyCoupon');
+		Route::get('success', 'CheckoutController@getSuccess');
 	});
 
 	/*

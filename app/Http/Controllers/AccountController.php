@@ -133,8 +133,7 @@ class AccountController extends Controller
 	function getSettingsSubscription()
 	{
 		return view('account.settings.subscription', [
-			'plan'         => $this->customer->getPlan(),
-			'planProducts' => $this->customer->getPlan()->getProducts()->load('product')
+			'plan'         => $this->customer->getPlan()
 		]);
 	}
 

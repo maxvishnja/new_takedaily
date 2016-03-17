@@ -17,27 +17,6 @@
 	<p>
 		Status: {{ $plan->isActive() ? 'Aktiv' : ($plan->isCancelled() ? 'Afsluttet' : '')  }}
 	</p>
-
-
-	<h2>Produkter</h2>
-	<table>
-		<thead>
-		<tr>
-			<th>Navn</th>
-			<th>Pris</th>
-		</tr>
-		</thead>
-		<tbody>
-		@foreach($planProducts as $productitem )
-			<tr>
-				<td>{{ $productitem->product->name }}</td>
-				<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($productitem->product->price_special, true) }}
-					kr
-				</td>
-			</tr>
-		@endforeach
-		</tbody>
-	</table>
 @endsection
 
 @section('footer_scripts')

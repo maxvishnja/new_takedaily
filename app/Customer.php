@@ -232,7 +232,7 @@ class Customer extends Model
 
 	public function setCustomerAttributes($attributes = [ ])
 	{
-		foreach($attributes as $identifier => $value)
+		foreach ( $attributes as $identifier => $value )
 		{
 			$this->setCustomerAttribute($identifier, $value);
 		}
@@ -286,19 +286,26 @@ class Customer extends Model
 	{
 		$lib = new StripeLibrary();
 
-		$charge = $lib->chargeCustomer($this, null, $amount);
+		$chargeId = '';
 
-		if ( !$charge )
+		if ( $amount > 0 )
 		{
-			return false;
+			$charge = $lib->chargeCustomer($this, null, $amount);
+
+			if ( !$charge )
+			{
+				return false;
+			}
+
+			$chargeId = $charge->id;
 		}
 
 		if ( $makeOrder )
 		{
-			\Event::fire(new CustomerWasBilled($this, $amount, $charge->id));
+			\Event::fire(new CustomerWasBilled($this, $amount, $chargeId));
 		}
 
-		return $charge;
+		return true;
 	}
 
 	public function acceptNewsletters()

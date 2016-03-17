@@ -26,11 +26,6 @@ class CustomerServiceProvider extends ServiceProvider
 				new CustomerAttribute([ 'identifier' => 'address_state', 'value' => '', 'editable' => 1 ]),
 				new CustomerAttribute([ 'identifier' => 'phone', 'value' => '', 'editable' => 1 ]),
 			]);
-
-			// todo create Stripe customer and set below
-			$customer->getPlan()->update([
-				'stripe_token' => ''
-			]);
 		});
 
 		Customer::deleting(function ($customer)

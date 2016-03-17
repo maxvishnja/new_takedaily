@@ -5,6 +5,8 @@ use App\Apricot\Repositories\CouponRepository;
 use App\User;
 use Illuminate\Http\Request;
 use Jenssegers\Date\Date;
+use Stripe\Customer;
+use Stripe\Stripe;
 
 class CheckoutController extends Controller
 {
@@ -24,6 +26,8 @@ class CheckoutController extends Controller
 
 	function postCheckout(CouponRepository $couponRepository, Request $request)
 	{
+		Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
+
 		$stripeToken  = $request->get('stripeToken');
 		$coupon       = $couponRepository->findByCoupon($request->get('coupon', ''));
 		$userData     = json_decode($request->get('user_data', '{}'));
@@ -32,16 +36,22 @@ class CheckoutController extends Controller
 		$password     = str_random(8);
 
 		$orderPrice = 149; // todo DON'T HARDCODE IT
+		$subscriptionPrice = 149; // todo DON'T HARDCODE IT
 
 		if ( $coupon )
 		{
 			if ( $coupon->discount_type == 'percentage' )
 			{
-				$orderPrice -= $orderPrice * ($coupon->amount / 100);
+				$orderPrice -= $orderPrice * ($coupon->discount / 100);
 			}
 			elseif ( $coupon->discount_type == 'amount' )
 			{
-				$orderPrice -= MoneyLibrary::toMoneyFormat($coupon->amount);
+				$orderPrice -= MoneyLibrary::toMoneyFormat($coupon->discount);
+			}
+
+			if( $coupon->applies_to == 'plan' )
+			{
+				$subscriptionPrice = $orderPrice;
 			}
 		}
 
@@ -61,14 +71,37 @@ class CheckoutController extends Controller
 			'address_postal'  => $info['address_zipcode']
 		]);
 
+		$stripeCustomer = Customer::create([
+			"description" => "Customer for {$user->getEmail()}",
+			"source"      => $stripeToken
+		]);
+
 		$user->getCustomer()->getPlan()->update([
-			'price'                   => '',
+			'stripe_token'            => $stripeCustomer->id,
+			'price'                   => MoneyLibrary::toCents($subscriptionPrice),
 			'price_shipping'          => 0,
 			'subscription_started_at' => Date::now(),
 			'subscription_rebill_at'  => Date::now()->addMonth()
 		]);
 
-		$stripeCharge = $user->getCustomer()->charge($orderPrice, true);
+		$stripeCharge = $user->getCustomer()->charge(MoneyLibrary::toCents($orderPrice), true);
+
+		if ( !$stripeCharge )
+		{
+			return \Redirect::back()->withErrors([ ])->withInput();
+		}
+
+		if( $coupon )
+		{
+			$coupon->reduceUsagesLeft();
+		}
+
+		return \Redirect::action('CheckoutController@getSuccess');
+	}
+
+	function getSuccess()
+	{
+		return view('checkout.success');
 	}
 
 	function applyCoupon(CouponRepository $couponRepository, Request $request)
