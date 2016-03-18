@@ -19,36 +19,39 @@ class CheckoutController extends Controller
 
 	function getCheckout(Request $request)
 	{
+		if ( !$request->session()->has('user_data') )
+		{
+			return \Redirect::to('/flow')->withErrors([ 'Vi skal finde dine vitaminer før du kan handle.' ]);
+		}
+
 		return view('checkout.index', [
-			'combinations' => $request->session()->get('my_combinations'),
-			'user_data'    => $request->session()->get('user_data')
+			'user_data' => $request->session()->get('user_data')
 		]);
 	}
 
 	function postCheckout(CouponRepository $couponRepository, Request $request)
 	{
 		$this->validate($request, [
-			'info.email'           => 'email|required|unique:users,email',
+			'info.email'           => 'email|required|unique:users,email' . (\Auth::user() ? (',' . \Auth::user()->id) : ''),
 			'info.name'            => 'required',
 			'info.address_street'  => 'required',
 			'info.address_zipcode' => 'required',
 			'info.address_city'    => 'required',
 			'info.address_country' => 'required',
 			'stripeToken'          => 'required'
-		],[
+		], [
 			'info.email.unique' => 'E-mail adressen er allerede taget.',
-			'info.email.email' => 'E-mail adressen er ikke gyldig.',
+			'info.email.email'  => 'E-mail adressen er ikke gyldig.',
 		]);
 
 
 		Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
 
-		$stripeToken  = $request->get('stripeToken');
-		$coupon       = $couponRepository->findByCoupon($request->get('coupon', ''));
-		$userData     = json_decode($request->get('user_data', '{}'));
-		$combinations = json_decode($request->get('combinations', '{"one":null,"two":null,"three":null}'));
-		$info         = $request->get('info');
-		$password     = str_random(8);
+		$stripeToken = $request->get('stripeToken');
+		$coupon      = $couponRepository->findByCoupon($request->get('coupon', ''));
+		$userData    = json_decode($request->get('user_data', '{}'));
+		$info        = $request->get('info');
+		$password    = str_random(8);
 
 		$orderPrice        = 149; // todo DON'T HARDCODE IT
 		$subscriptionPrice = 149; // todo DON'T HARDCODE IT
@@ -70,14 +73,68 @@ class CheckoutController extends Controller
 			}
 		}
 
-		$user = User::create([
-			'name'     => ucwords($info['name']),
-			'email'    => strtolower($info['email']),
-			'password' => bcrypt($password),
-			'type'     => 'user'
-		]);
+		if ( \Auth::guest() )
+		{
+			$email = strtolower($info['email']);
 
-		\Auth::login($user, true);
+			try
+			{
+				$stripeCustomer = Customer::create([
+					"description" => "Customer for {$email}",
+					"source"      => $stripeToken
+				]);
+			} catch( Card $ex )
+			{
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+			} catch( \Exception $ex )
+			{
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+			} catch( \Error $ex )
+			{
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+			}
+
+			$user = User::create([
+				'name'     => ucwords($info['name']),
+				'email'    => $email,
+				'password' => bcrypt($password),
+				'type'     => 'user'
+			]);
+
+			\Auth::login($user, true);
+		}
+		else
+		{
+			$user = \Auth::user();
+		}
+
+		if ( $user->getCustomer()->getPlan()->hasNoStripeCustomer() )
+		{
+			try
+			{
+				$stripeCustomer = Customer::create([
+					"description" => "Customer for {$email}",
+					"source"      => $stripeToken
+				]);
+
+				$user->getCustomer()->getPlan()->update([
+					'stripe_token' => $stripeCustomer->id
+				]);
+			} catch( Card $ex )
+			{
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+			} catch( \Exception $ex )
+			{
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+			} catch( \Error $ex )
+			{
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+			}
+		}
+		else
+		{
+			$stripeCustomer = $user->getCustomer()->getStripeCustomer();
+		}
 
 		$user->getCustomer()->setCustomerAttributes([
 			'address_city'    => $info['address_city'],
@@ -90,23 +147,6 @@ class CheckoutController extends Controller
 			'birthdate' => $userData->birthdate,
 			'gender'    => $userData->gender == 1 ? 'male' : 'female'
 		]);
-
-		try
-		{
-			$stripeCustomer = Customer::create([
-				"description" => "Customer for {$user->getEmail()}",
-				"source"      => $stripeToken
-			]);
-		} catch( Card $ex )
-		{
-			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
-		} catch( \Exception $ex )
-		{
-			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
-		} catch( \Error $ex )
-		{
-			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
-		}
 
 		$user->getCustomer()->getPlan()->update([
 			'stripe_token'            => $stripeCustomer->id,

@@ -93,34 +93,34 @@
 							<div class="row m-b-50">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_name">Dit fulde navn</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_name" data-validate="true" placeholder="Lars Jensen" name="info[name]" required="required" aria-required="true" value="{{ Request::old('info.name') }}"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_name" data-validate="true" placeholder="Lars Jensen" name="info[name]" required="required" aria-required="true" value="{{ Request::old('info.name', (Auth::user() ? Auth::user()->name: '')) }}"/>
 								</div>
 							</div>
 
 							<div class="row m-b-50">
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_street">Din adresse</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_address_street" data-validate="true" placeholder="Søndre Skovvej 123" name="info[address_street]" required="required" aria-required="true" value="{{ Request::old('info.address_street') }}"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_address_street" data-validate="true" placeholder="Søndre Skovvej 123" name="info[address_street]" required="required" aria-required="true" value="{{ Request::old('info.address_street', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_line1') : '')) }}"/>
 								</div>
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50"></div>
 									<label class="label label--full checkout--label" for="input_info_address_zipcode">Postnummer</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_address_zipcode" data-validate="true" placeholder="9400" name="info[address_zipcode]" required="required" aria-required="true" value="{{ Request::old('info.address_zipcode') }}"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_address_zipcode" data-validate="true" placeholder="9400" name="info[address_zipcode]" required="required" aria-required="true" value="{{ Request::old('info.address_zipcode', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 								</div>
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50"></div>
 									<label class="label label--full checkout--label" for="input_info_address_city">By</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_address_city" data-validate="true" placeholder="Aalborg" name="info[address_city]" required="required" aria-required="true" value="{{ Request::old('info.address_city') }}"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_address_city" data-validate="true" placeholder="Aalborg" name="info[address_city]" required="required" aria-required="true" value="{{ Request::old('info.address_city', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_email">Din e-mail adresse</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_email" data-validate="true" placeholder="lars-jensen@gmail.com" name="info[email]" required="required" aria-required="true" value="{{ Request::old('info.email') }}"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_email" data-validate="true" placeholder="lars-jensen@gmail.com" name="info[email]" required="required" aria-required="true" value="{{ Request::old('info.email', (Auth::user() ? Auth::user()->email : '')) }}"/>
 								</div>
 							</div>
-							<input name="info[address_country]" type="hidden" value="Denmark"/>
+							<input name="info[address_country]" type="hidden" value="{{ Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Denmark')) }}"/>
 						</fieldset>
 					</div>
 
@@ -189,7 +189,6 @@
 
 					<div class="hidden">
 						<input type="hidden" name="coupon" v-bind:value="discount.code" value="{{ Request::old('coupon') }}" autocomplete="off"/>
-						<textarea name="combinations">{{ json_encode(Session::get('my_combination', Request::old('combinations', []))) }}</textarea>
 						<textarea name="user_data">{{ json_encode(Session::get('user_data', Request::old('user_data', []))) }}</textarea>
 					</div>
 				</form>

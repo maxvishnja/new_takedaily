@@ -154,4 +154,9 @@ class Plan extends Model
 		return $this->stripe_token;
 	}
 
+	public function hasNoStripeCustomer()
+	{
+		return $this->getStripeToken() == '';
+	}
+
 }

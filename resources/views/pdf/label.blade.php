@@ -1,4 +1,4 @@
-<link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ ('/public/css/app.css') }}" rel="stylesheet" type="text/css"/>
 <style>
 	th, td, p, div, b { margin: 0; padding: 0; page-break-inside: avoid; }
 
@@ -56,7 +56,9 @@
 					<td colspan="2" style="width: 100%;">
 						<br/>
 						<br/>
-						<div style="margin: 0 auto;" class="logo logo-color"></div>
+						<div style="margin: 0 auto;width: 166px; height: 38px;">
+							<img width="166" height="38" src="{{ asset('/images/pdf-logo.png') }}" />
+						</div>
 					</td>
 				</tr>
 				</tbody>
