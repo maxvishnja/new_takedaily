@@ -10,6 +10,9 @@
 	@else
 		<h3>{{ $source->brand }} (···· ···· ···· {{ $source->last4 }})</h3>
 		<p>Udløb: {{ str_pad($source->exp_month, 2, 0, STR_PAD_LEFT) }}/{{ $source->exp_year }}</p>
-		<a href="{{ URL::action('AccountController@getSettingsBillingRemove') }}">Fjern kort</a>
+
+		<div class="m-t-50">
+			<a href="{{ URL::action('AccountController@getSettingsBillingRemove') }}" class="button button--small button--light button--rounded m-t-50">Fjern kort</a>
+		</div>
 	@endif
 @endsection

@@ -3,20 +3,19 @@
 @section('pageClass', 'account account-settings account-settings-subscription')
 
 @section('content')
-	<h1>Dit abonnent</h1>
-	<p>Pris pr. md.: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true) }} kr.</p>
-	{{--<p>- Heraf fragt: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getShippingPrice(), true) }} kr</p>--}}
-	<p>Startet.: {{ $plan->getSubscriptionStartedAt() }}</p>
+	<h1>Dit abonnoment er <span style="text-decoration: underline">{{ $plan->isActive() ? 'aktivt' : ($plan->isCancelled() ? 'afsluttet' : '')  }}</span></h1>
+	<h2><span class="color--brand">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true) }} kr.</span><small> / måned</small></h2>
 	@if( $plan->isActive() )
-		<p>Næste trækning.: {{ $plan->getRebillAt() }}
-			({{ Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->diffForHumans() }})</p>
+		<p>Næste trækningsdato: {{ Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y H:i') }}</p>
 		@if($plan->isSnoozeable())
-			<a href="#snooze-toggle" id="snooze-toggle">Snooze</a>
+			<a href="#snooze-toggle" id="snooze-toggle" class="m-t-20 button button--regular button--green button--rounded">Udskyd næste forsendelse</a>
 		@endif
+
+		<div class="m-t-50">
+			<a href="{{ URL::action('AccountController@getSettingsSubscriptionCancel') }}" class="button button--small button--light button--rounded m-t-50">Opsig
+				abonnomentet</a>
+		</div>
 	@endif
-	<p>
-		Status: {{ $plan->isActive() ? 'Aktiv' : ($plan->isCancelled() ? 'Afsluttet' : '')  }}
-	</p>
 @endsection
 
 @section('footer_scripts')

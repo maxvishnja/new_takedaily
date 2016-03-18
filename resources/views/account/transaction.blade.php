@@ -22,7 +22,7 @@
 	@endif
 	{{ $order->customer->getCustomerAttribute('address_country') }}<br/>
 
-	<table class="table table--full table--striped">
+	<table class="table table--full text-left table--striped m-t-40">
 		<thead>
 		@if(count($order->lines) > 0)
 			<tr>
@@ -40,7 +40,7 @@
 				<td>{{ $line->description }}</td>
 				<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true) }} kr.</td>
 				<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true) }} kr.</td>
-				<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true) }} kr.</td>
+				<td><strong>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true) }} kr.</strong></td>
 			</tr>
 		@endforeach
 		</tbody>

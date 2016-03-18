@@ -100,10 +100,11 @@
 	&.button--regular
 		height: 40px
 		padding: 8px 30px
+		line-height: 1.5
 
 	&.button--small
 		height: 36px
-		padding: 9px 20px
+		padding: 8px 20px
 		font-size: 14px
 
 	&.button--full
@@ -161,6 +162,13 @@
 
 		&:hover
 			background: $greyish-brown
+
+	&.button--light
+		background: $lightest-grey
+		color: $warm-grey
+
+		&:hover
+			background: $lighter-grey
 
 	&.button--white
 		background: $white
@@ -431,7 +439,7 @@ table.table
 				padding: 15px
 				border-bottom: 1px solid $lighter-grey
 
-	tbody
+	tbody, tfoot
 		tr
 			td
 				padding: 15px

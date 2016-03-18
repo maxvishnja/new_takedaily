@@ -928,6 +928,9 @@ hr {
 .v-a-m {
   vertical-align: middle; }
 
+.color--brand {
+  color: #17aa66; }
+
 .m-t-5 {
   margin-top: 5px; }
 
@@ -4040,10 +4043,11 @@ body.index .slider_container {
   outline: none; }
   .button.button--regular {
     height: 40px;
-    padding: 8px 30px; }
+    padding: 8px 30px;
+    line-height: 1.5; }
   .button.button--small {
     height: 36px;
-    padding: 9px 20px;
+    padding: 8px 20px;
     font-size: 14px; }
   .button.button--full {
     width: 100%; }
@@ -4087,6 +4091,11 @@ body.index .slider_container {
     color: #f3f6f8; }
     .button.button--grey:hover {
       background: #555555; }
+  .button.button--light {
+    background: #eeeeee;
+    color: #777777; }
+    .button.button--light:hover {
+      background: #dddddd; }
   .button.button--white {
     background: #ffffff;
     color: #17aa66; }
@@ -4302,7 +4311,7 @@ table.table thead tr th {
   padding: 15px;
   border-bottom: 1px solid #dddddd; }
 
-table.table tbody tr td {
+table.table tbody tr td, table.table tfoot tr td {
   padding: 15px; }
 
 table.table.table--full {
