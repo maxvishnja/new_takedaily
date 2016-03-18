@@ -101,6 +101,11 @@
 		height: 40px
 		padding: 8px 30px
 
+	&.button--small
+		height: 36px
+		padding: 9px 20px
+		font-size: 14px
+
 	&.button--full
 		width: 100%
 
@@ -149,6 +154,13 @@
 
 		&:hover
 			background: $main-green-dark
+
+	&.button--grey
+		background: $dark-grey
+		color: $pale-grey
+
+		&:hover
+			background: $greyish-brown
 
 	&.button--white
 		background: $white
@@ -365,6 +377,35 @@ a
 		ul
 			display: block
 
+.state-label
+	padding: 6px 8px
+	font-size: 14px
+	font-weight: $weight-semibold
+	border-radius: 4px
+	border: 1px solid transparent
+
+	&.state-label--new
+		background: $lightest-grey
+		color: $dark-grey
+
+	&.state-label--paid
+		border-color: $main-green
+		color: $main-green
+
+	&.state-label--sent
+		background: $yellow-color
+		color: #fff
+
+	&.state-label--completed
+		background: $main-green
+		color: #fff
+
+	&.state-label--cancelled
+		background: $error-color
+		color: #fff
+
+
+
 .card
 	border-radius: 2px
 	background-color: $white
@@ -381,6 +422,33 @@ a
 		font-weight: $weight-semibold
 		font-size: 20px
 		color: $greyish-brown
+
+table.table
+	thead
+		tr
+			th
+				font-weight: $weight-semibold
+				padding: 15px
+				border-bottom: 1px solid $lighter-grey
+
+	tbody
+		tr
+			td
+				padding: 15px
+
+	&.table--full
+		width: 100%
+
+	&.table--striped
+		tbody
+			tr
+				td
+					background: $white
+
+				&:nth-child(2n+2)
+					td
+						background: $almost-white
+
 
 .img
 	&.img--rounded

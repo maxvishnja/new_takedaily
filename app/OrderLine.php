@@ -20,7 +20,7 @@ class OrderLine extends Model
 	 *
 	 * @var array
 	 */
-	protected $fillable = [ ];
+	protected $fillable = [ 'description', 'order_id', 'amount', 'tax_amount', 'total_amount' ];
 	
 	/**
 	 * The attributes excluded from the model's JSON form.

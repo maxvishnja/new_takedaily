@@ -27,8 +27,20 @@ class CheckoutController extends Controller
 
 	function postCheckout(CouponRepository $couponRepository, Request $request)
 	{
+		$this->validate($request, [
+			'info.email'           => 'email|required|unique:users,email',
+			'info.name'            => 'required',
+			'info.address_street'  => 'required',
+			'info.address_zipcode' => 'required',
+			'info.address_city'    => 'required',
+			'info.address_country' => 'required',
+			'stripeToken'          => 'required'
+		],[
+			'info.email.unique' => 'E-mail adressen er allerede taget.',
+			'info.email.email' => 'E-mail adressen er ikke gyldig.',
+		]);
 
-		// todo data validation
+
 		Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
 
 		$stripeToken  = $request->get('stripeToken');

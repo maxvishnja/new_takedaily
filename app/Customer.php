@@ -234,13 +234,13 @@ class Customer extends Model
 		{
 			$this->customerAttributes()->create([
 				'identifier' => $identifier,
-				'value'      => $value ?: ''
+				'value'      => $value ? : ''
 			]);
 
 			return true;
 		}
 
-		return $attribute->update([ 'value' => $value ?: '' ]);
+		return $attribute->update([ 'value' => $value ? : '' ]);
 	}
 
 	public function setCustomerAttributes($attributes = [ ])
@@ -279,12 +279,9 @@ class Customer extends Model
 	public function makeOrder($amount = 100, $stripeChargeToken = null, $shipping = null)
 	{
 		$shipping = $shipping ? : $this->getPlan()->getShippingPrice();
-		$taxes    = $amount * 0.25;
+		$taxes    = $amount * 0.25; // todo dynamic
 
-		$this->order_count ++;
-		$this->save();
-
-		return $this->orders()->create([
+		$order = $this->orders()->create([
 			'reference'           => (str_random(8) . '-' . str_random(2) . '-' . str_pad($this->getOrders()->count() + 1, 4, '0', STR_PAD_LEFT)),
 			'stripe_charge_token' => $stripeChargeToken ? : '',
 			'state'               => ($stripeChargeToken ? 'paid' : 'new'),
@@ -293,6 +290,25 @@ class Customer extends Model
 			'sub_total'           => $amount - $shipping - $taxes,
 			'total_taxes'         => $taxes
 		]);
+
+		$order->lines()->create([
+			'description'  => 'Abonnent', // todo translate
+			'amount'       => $amount - $taxes,
+			'tax_amount'   => $taxes,
+			'total_amount' => $amount
+		]);
+
+		if ( $shipping > 0 )
+		{
+			$order->lines()->create([
+				'description'  => 'Fragt', // todo translate
+				'amount'       => $shipping,
+				'tax_amount'   => 0,
+				'total_amount' => $shipping
+			]);
+		}
+
+		return $order;
 	}
 
 	public function charge($amount, $makeOrder = true)

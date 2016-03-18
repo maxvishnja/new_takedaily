@@ -4041,6 +4041,10 @@ body.index .slider_container {
   .button.button--regular {
     height: 40px;
     padding: 8px 30px; }
+  .button.button--small {
+    height: 36px;
+    padding: 9px 20px;
+    font-size: 14px; }
   .button.button--full {
     width: 100%; }
   .button.button--medium {
@@ -4078,6 +4082,11 @@ body.index .slider_container {
     color: #fff; }
     .button.button--green:hover {
       background: #186141; }
+  .button.button--grey {
+    background: #333333;
+    color: #f3f6f8; }
+    .button.button--grey:hover {
+      background: #555555; }
   .button.button--white {
     background: #ffffff;
     color: #17aa66; }
@@ -4251,6 +4260,28 @@ a {
   .selector:hover ul {
     display: block; }
 
+.state-label {
+  padding: 6px 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  border: 1px solid transparent; }
+  .state-label.state-label--new {
+    background: #eeeeee;
+    color: #333333; }
+  .state-label.state-label--paid {
+    border-color: #17aa66;
+    color: #17aa66; }
+  .state-label.state-label--sent {
+    background: #9caa2a;
+    color: #fff; }
+  .state-label.state-label--completed {
+    background: #17aa66;
+    color: #fff; }
+  .state-label.state-label--cancelled {
+    background: #AA1118;
+    color: #fff; }
+
 .card {
   border-radius: 2px;
   background-color: #ffffff;
@@ -4265,6 +4296,23 @@ a {
     font-weight: 600;
     font-size: 20px;
     color: #555555; }
+
+table.table thead tr th {
+  font-weight: 600;
+  padding: 15px;
+  border-bottom: 1px solid #dddddd; }
+
+table.table tbody tr td {
+  padding: 15px; }
+
+table.table.table--full {
+  width: 100%; }
+
+table.table.table--striped tbody tr td {
+  background: #ffffff; }
+
+table.table.table--striped tbody tr:nth-child(2n+2) td {
+  background: #f5f5f5; }
 
 .img.img--rounded {
   border-radius: 100%; }

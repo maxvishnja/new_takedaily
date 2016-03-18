@@ -48,10 +48,10 @@
 					<a href="#coupon-form" id="toggle-coupon-form">Har du en rabatkode?</a>
 				</div>
 
-				<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="display: none;">
+				<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="@if(!Request::old('coupon')) display: none; @endif">
 					<div class="row">
 						<div class="col-md-7">
-							<input type="text" name="coupon" maxlength="20" placeholder="Din kuponkode" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('combinations') }}" required="required"/>
+							<input type="text" name="coupon" maxlength="20" placeholder="Din kuponkode" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon') }}" required="required"/>
 						</div>
 						<div class="col-md-5">
 							<button type="submit" class="button button--regular button--full button--green">Anvend</button>
@@ -93,31 +93,31 @@
 							<div class="row m-b-50">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_name">Dit fulde navn</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_name" data-validate="true" placeholder="Lars Jensen" name="info[name]" required="required" aria-required="true"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_name" data-validate="true" placeholder="Lars Jensen" name="info[name]" required="required" aria-required="true" value="{{ Request::old('info.name') }}"/>
 								</div>
 							</div>
 
 							<div class="row m-b-50">
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_street">Din adresse</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_address_street" data-validate="true" placeholder="Søndre Skovvej 123" name="info[address_street]" required="required" aria-required="true"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_address_street" data-validate="true" placeholder="Søndre Skovvej 123" name="info[address_street]" required="required" aria-required="true" value="{{ Request::old('info.address_street') }}"/>
 								</div>
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50"></div>
 									<label class="label label--full checkout--label" for="input_info_address_zipcode">Postnummer</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_address_zipcode" data-validate="true" placeholder="9400" name="info[address_zipcode]" required="required" aria-required="true"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_address_zipcode" data-validate="true" placeholder="9400" name="info[address_zipcode]" required="required" aria-required="true" value="{{ Request::old('info.address_zipcode') }}"/>
 								</div>
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50"></div>
 									<label class="label label--full checkout--label" for="input_info_address_city">By</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_address_city" data-validate="true" placeholder="Aalborg" name="info[address_city]" required="required" aria-required="true"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_address_city" data-validate="true" placeholder="Aalborg" name="info[address_city]" required="required" aria-required="true" value="{{ Request::old('info.address_city') }}"/>
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_email">Din e-mail adresse</label>
-									<input class="input input--medium input--semibold input--full" id="input_info_email" data-validate="true" placeholder="lars-jensen@gmail.com" name="info[email]" required="required" aria-required="true"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_email" data-validate="true" placeholder="lars-jensen@gmail.com" name="info[email]" required="required" aria-required="true" value="{{ Request::old('info.email') }}"/>
 								</div>
 							</div>
 							<input name="info[address_country]" type="hidden" value="Denmark"/>
@@ -188,7 +188,7 @@
 					{{ csrf_field() }}
 
 					<div class="hidden">
-						<input type="hidden" name="coupon" v-model="discount.code" value="{{ Request::old('combinations') }}" autocomplete="off"/>
+						<input type="hidden" name="coupon" v-bind:value="discount.code" value="{{ Request::old('coupon') }}" autocomplete="off"/>
 						<textarea name="combinations">{{ json_encode(Session::get('my_combination', Request::old('combinations', []))) }}</textarea>
 						<textarea name="user_data">{{ json_encode(Session::get('user_data', Request::old('user_data', []))) }}</textarea>
 					</div>
@@ -280,7 +280,7 @@
 			$("#checkout-form button#button-submit").prop('disabled', $error);
 		}
 
-		$("#cc-number").on('change', function ()
+		$("#cc-number").on('change input', function ()
 		{
 			$validated = $.payment.validateCardNumber($(this).val());
 
@@ -292,8 +292,6 @@
 			{
 				$(this).addClass('input--error').removeClass('input--success');
 			}
-
-			$("#input-cardtype").val($.payment.cardType($(this).val()));
 
 			checkErrors();
 		});
@@ -333,6 +331,7 @@
 			checkErrors();
 		});
 
+		$("#checkout-form button#button-submit").prop('disabled', true);
 		checkErrors();
 	</script>
 
@@ -348,7 +347,7 @@
 					amount: 0,
 					applies_to: null,
 					description: '',
-					code: ''
+					code: '{{ Request::old('coupon') }}'
 				}
 			},
 			computed: {
@@ -469,6 +468,11 @@
 				}
 			});
 		});
+
+		if (validateFormInput($("#coupon-form")))
+		{
+			$("#coupon-form").submit();
+		}
 	</script>
 
 	<script>
