@@ -4126,7 +4126,8 @@ body.index .slider_container {
   .input.input--semibold {
     font-weight: 600; }
   .input.input--regular {
-    height: 40px; }
+    height: 40px;
+    padding: 8px 12px; }
   .input.input--transparent {
     background: transparent; }
   .input.input--medium {
@@ -4358,6 +4359,11 @@ body.account nav.account_nav {
       background: #fff;
       color: #555555;
       font-weight: 600; }
+
+body.account.account-settings-basic form.account-form label span {
+  display: block;
+  font-weight: 600;
+  margin: 30px 0 4px; }
 
 @media all and (max-width: 1199px) {
   body.account nav.account_nav ul li a {

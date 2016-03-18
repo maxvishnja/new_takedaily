@@ -3,7 +3,7 @@
 @section('pageClass', 'account account-settings account-settings-subscription')
 
 @section('content')
-	<h1>Dit abonnoment er <span style="text-decoration: underline">{{ $plan->isActive() ? 'aktivt' : ($plan->isCancelled() ? 'afsluttet' : '')  }}</span></h1>
+	<h1>Dit abonnement er <span style="text-decoration: underline">{{ $plan->isActive() ? 'aktivt' : ($plan->isCancelled() ? 'afsluttet' : '')  }}</span></h1>
 	<h2><span class="color--brand">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true) }} kr.</span><small> / måned</small></h2>
 	@if( $plan->isActive() )
 		<p>Næste trækningsdato: {{ Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y H:i') }}</p>
@@ -13,7 +13,7 @@
 
 		<div class="m-t-50">
 			<a href="{{ URL::action('AccountController@getSettingsSubscriptionCancel') }}" class="button button--small button--light button--rounded m-t-50">Opsig
-				abonnomentet</a>
+				abonnementet</a>
 		</div>
 	@endif
 @endsection
