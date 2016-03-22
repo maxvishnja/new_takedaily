@@ -99,7 +99,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 	{
 		view()->composer('admin.sidebar', function ($view)
 		{
-			$orderRepo    = new \App\Apricot\Repositories\OrderRepository();
+			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
 			$view->with('sidebar_numOrders', $orderRepo->getNew()->count());
 		});
 
@@ -114,7 +114,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 			return view('admin.home', [
 				'orders_today'    => $orderRepo->getToday()->count(),
 				'customers_today' => $customerRepo->getToday()->count(),
-				'money_today'     => $orderRepo->getToday()->whereNotIn('state', ['new','cancelled'])->sum('total')
+				'money_today'     => $orderRepo->getToday()->whereNotIn('state', [ 'new', 'cancelled' ])->sum('total')
 			]);
 		});
 		Route::resource('customers', 'Dashboard\CustomerController');
@@ -128,6 +128,19 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::resource('settings', 'Dashboard\SettingController');
 		Route::resource('products', 'Dashboard\ProductController');
 		Route::resource('pages', 'Dashboard\PageController');
+	});
+
+	Route::group([ 'middleware' => 'ajax' ], function ()
+	{
+		Route::post('call-me', function (Request $request)
+		{
+			$request->get('phone');
+			$request->get('period');
+
+			// todo store this in DB and show in admin! fixme
+
+			return Response::json([ 'message' => 'Tak, vi ringer til dig snarest!' ]);
+		});
 	});
 
 	/*

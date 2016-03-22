@@ -39,6 +39,7 @@ elixir(function (mix)
 		'/vendor/sweetalert.min.js',
 		'/vendor/slider.js',
 		'/vendor/payment.jquery.js',
+		'/vendor/js.cookie.js',
 		'/app.js',
 	], 'public/js/app.js');
 });

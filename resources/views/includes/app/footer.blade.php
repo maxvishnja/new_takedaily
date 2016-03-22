@@ -8,8 +8,12 @@
 					<h3 class="footer_title">Tilmeld nyheder fra Take Daily</h3>
 					<form method="post" action="/signup-mailchimp" class="m-t-20 m-b-10">
 						<div class="row">
-							<div class="col-sm-8"><input type="email" name="email" id="input_newsletters_email" placeholder="min@mailadresse.dk" class="input input--regular input--full input--plain"/></div>
-							<div class="col-sm-4"><button type="submit" class="button button--regular button--full button--green">Send</button></div>
+							<div class="col-sm-8">
+								<input type="email" name="email" id="input_newsletters_email" placeholder="min@mailadresse.dk" class="input input--regular input--full input--plain"/>
+							</div>
+							<div class="col-sm-4">
+								<button type="submit" class="button button--regular button--full button--green">Send</button>
+							</div>
 						</div>
 						<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 					</form>
@@ -66,6 +70,15 @@
 <!--[if lt IE 9]>
 <script src="/js/placeholders.min.js"></script>
 <![endif]-->
+
+<script>
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': '{{ csrf_token() }}'
+		}
+	});
+</script>
+
 @yield('footer_scripts')
 
 @if($errors->has())
@@ -96,6 +109,41 @@
 			timer: 3000
 		});
 	</script>
-	@endif
+@endif
+
+@if( ! isset($_COOKIE['call-me-hidden'])  )
+
+	<script>
+		$("#call-me-form-hider").click(function ()
+		{
+			$(".call-cta").slideUp();
+			$("body").css('padding-bottom', 0);
+			Cookies.set('call-me-hidden', 1, { expires : 3 });
+		});
+
+		$("#call-me-form").submit( function(e)
+		{
+			e.preventDefault();
+
+			var form = $(this);
+
+			$.ajax({
+				url: form.attr('action'),
+				method: form.attr('method'),
+				dataType: 'JSON',
+				data: form.serialize(),
+				success: function(response)
+				{
+					$(".call-cta").html('<strong>' + response.message + '</strong>');
+					setTimeout(function () {
+						$(".call-cta").slideUp();
+						$("body").css('padding-bottom', 0);
+						Cookies.set('call-me-hidden', 1, { expires : 3 });
+					}, 2500);
+				}
+			});
+		});
+	</script>
+@endif
 	</body>
 	</html>

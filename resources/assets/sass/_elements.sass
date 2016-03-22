@@ -243,10 +243,15 @@
 		&:focus
 			box-shadow: 0 0 4px rgba($error-color, .3)
 
+	&.input--no-number::-webkit-outer-spin-button,
+	&.input--no-number::-webkit-inner-spin-button
+		-webkit-appearance: none
+		margin: 0
+
 .select
 	vertical-align: middle
 	display: inline-block
-	padding: 8px 15px
+	padding: 8px 30px 8px 15px
 	color: $greyish-brown
 	font-size: 15px
 	border-radius: 0
@@ -273,7 +278,7 @@
 
 	&.select--medium
 		height: 50px
-		padding: 13px 15px
+		padding: 13px 30px 13px 15px
 
 	&.select--spacing
 		letter-spacing: 1px
@@ -473,6 +478,16 @@ table.table
 @media all and (max-width: 767px)
 	.button
 		&.button--full-mobile
+			width: 100%
+			display: block
+
+	.input
+		&.input--full-mobile
+			width: 100%
+			display: block
+
+	.select
+		&.select--full-mobile
 			width: 100%
 			display: block
 
