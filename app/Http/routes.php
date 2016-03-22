@@ -132,7 +132,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 	Route::group([ 'middleware' => 'ajax' ], function ()
 	{
-		Route::post('call-me', function (Request $request)
+		Route::post('call-me', function (\Illuminate\Http\Request $request)
 		{
 			$request->get('phone');
 			$request->get('period');
