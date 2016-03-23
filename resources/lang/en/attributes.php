@@ -13,6 +13,6 @@
 	'newsletters'     => 'Newsletters',
 	'new_password'    => 'New password?',
 	'flow'            => [
-
+	
 	]
 ];

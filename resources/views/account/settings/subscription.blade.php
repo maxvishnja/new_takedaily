@@ -28,7 +28,7 @@
 				title: "Snooze abonnent",
 				text: "Hvor langt tid?" +
 				"<form method=\"post\" action=\"{{ URL::action('AccountController@postSettingsSubscriptionSnooze') }}\" id=\"snooze_form\">" +
-				"<select name=\"days\">" +
+				"<select class=\"select select--regular m-t-10\" name=\"days\">" +
 				"<option value=\"1\">1 dag</option>" +
 				"<option value=\"2\">2 dage</option>" +
 				"<option value=\"3\">3 dage</option>" +

@@ -4058,6 +4058,7 @@ body.index .slider_container {
   border-radius: 0;
   padding: 7px 14px;
   border: none;
+  cursor: pointer;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -4066,24 +4067,34 @@ body.index .slider_container {
     height: 40px;
     padding: 8px 30px;
     line-height: 1.5; }
+    .button.button--regular.button--small-padding {
+      padding: 8px 15px; }
   .button.button--small {
     height: 36px;
     padding: 8px 20px;
     font-size: 14px; }
+    .button.button--small.button--small-padding {
+      padding: 8px 10px; }
   .button.button--full {
     width: 100%; }
   .button.button--medium {
     height: 46px;
     padding: 10px 35px;
     font-size: 17px; }
+    .button.button--medium.button--small-padding {
+      padding: 10px 18px; }
   .button.button--large {
     height: 52px;
     padding: 12px 40px;
     font-size: 20px; }
+    .button.button--large.button--small-padding {
+      padding: 12px 20px; }
   .button.button--huge {
     height: 65px;
     padding: 18px 60px;
     font-size: 21px; }
+    .button.button--huge.button--small-padding {
+      padding: 18px 30px; }
   .button.button--rounded {
     border-radius: 3px; }
   .button:disabled {
@@ -4117,6 +4128,16 @@ body.index .slider_container {
     color: #777777; }
     .button.button--light:hover {
       background: #dddddd; }
+  .button.button--grey-light {
+    background: #dddddd;
+    color: #777777; }
+    .button.button--grey-light:hover {
+      background: #cccccc; }
+    .button.button--grey-light.button--border {
+      background: transparent;
+      border: 1px solid #dddddd; }
+      .button.button--grey-light.button--border:hover {
+        background: #dddddd; }
   .button.button--white {
     background: #ffffff;
     color: #17aa66; }

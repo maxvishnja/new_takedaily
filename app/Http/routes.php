@@ -71,6 +71,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		});
 
 		Route::get('/', 'AccountController@getHome');
+		Route::post('/update-preferences', 'AccountController@updatePreferences');
 
 		Route::get('transactions', 'AccountController@getTransactions');
 		Route::get('transactions/{id}', 'AccountController@getTransaction');

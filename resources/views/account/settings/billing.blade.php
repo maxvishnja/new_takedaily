@@ -8,7 +8,8 @@
 		<h3>Ingen betalingsmetode fundet! <a href="{{ URL::action('AccountController@getSettingsBillingRefresh') }}">Opdater</a></h3>
 		<a href="{{ URL::action('AccountController@getSettingsBillingAdd') }}">Tilføj nyt kort</a>
 	@else
-		<h3>{{ $source->brand }} (···· ···· ···· {{ $source->last4 }})</h3>
+		<span class="icon icon-card-{{ strtolower($source->brand) }}"></span>
+		<h3>···· ···· ···· {{ $source->last4 }}</h3>
 		<p>Udløb: {{ str_pad($source->exp_month, 2, 0, STR_PAD_LEFT) }}/{{ $source->exp_year }}</p>
 
 		<div class="m-t-50">

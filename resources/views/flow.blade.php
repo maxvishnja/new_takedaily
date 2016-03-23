@@ -349,12 +349,12 @@
 						<h3 class="substep-title">Tager du allerede vitaminer og/eller mineraler?</h3>
 						<div class="sub_step_answers">
 							<label>
-								<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();"/>
+								<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();" v-model="user_data.supplements"/>
 								<span class="icon icon-supplement-yes"></span>
 								<br/> Ja
 							</label>
 							<label>
-								<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();"/>
+								<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();" v-model="user_data.supplements"/>
 								<span class="icon icon-supplement-no"></span>
 								<br/> Nej
 							</label>
@@ -910,6 +910,7 @@
 					lacks_energy: null,
 					smokes: null,
 					immune_system: null,
+					supplements: null,
 					vegetarian: null,
 					joints: null,
 					stressed: null,

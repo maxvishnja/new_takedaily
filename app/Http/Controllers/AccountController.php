@@ -34,6 +34,44 @@ class AccountController extends Controller
 		return view('account.home');
 	}
 
+
+	function updatePreferences(Request $request)
+	{
+		$userData    = json_decode($request->get('user_data', '{}'));
+
+		\Auth::user()->getCustomer()->update([
+			'birthdate' => $userData->birthdate,
+			'gender'    => $userData->gender == 1 ? 'male' : 'female'
+		]);
+
+		\Auth::user()->getCustomer()->setCustomerAttributes([
+			'user_data.gender'           => $userData->gender,
+			'user_data.birthdate'        => $userData->birthdate,
+			'user_data.age'              => $userData->age, // todo update this each month
+			'user_data.skin'             => $userData->skin,
+			'user_data.outside'          => $userData->outside,
+			'user_data.pregnant'         => $userData->pregnant,
+			'user_data.diet'             => $userData->diet,
+			'user_data.sports'           => $userData->sports,
+			'user_data.lacks_energy'     => $userData->lacks_energy,
+			'user_data.smokes'           => $userData->smokes,
+			'user_data.immune_system'    => $userData->immune_system,
+			'user_data.vegetarian'       => $userData->vegetarian,
+			'user_data.joints'           => $userData->joints,
+			'user_data.stressed'         => $userData->stressed,
+			'user_data.foods.fruits'     => $userData->foods->fruits,
+			'user_data.foods.vegetables' => $userData->foods->vegetables,
+			'user_data.foods.bread'      => $userData->foods->bread,
+			'user_data.foods.wheat'      => $userData->foods->wheat,
+			'user_data.foods.dairy'      => $userData->foods->dairy,
+			'user_data.foods.meat'       => $userData->foods->meat,
+			'user_data.foods.fish'       => $userData->foods->fish,
+			'user_data.foods.butter'     => $userData->foods->butter
+		]);
+
+		return \Redirect::action('AccountController@getHome')->with('success', 'Dine præferencer blev gemt!');
+	}
+
 	function getTransactions()
 	{
 		return view('account.transactions', [
