@@ -84,7 +84,7 @@ header
 
 .call-cta
 	position: fixed
-	bottom: 0
+	bottom: -165px
 	left: 0
 	width: 100%
 	background: rgba($main-green, 0.95)
@@ -92,6 +92,7 @@ header
 	text-align: center
 	padding: 20px 0
 	z-index: 3
+	transition: bottom 350ms
 
 	strong
 		font-size: 26px
@@ -101,10 +102,29 @@ header
 	span
 		font-size: 16px
 		display: block
-		margin: 0 0 15px
+		margin: 20px 0 15px
 
 	.icon-cross-large
 		cursor: pointer
+		margin-top: 0px
+		opacity: 0.5
+		transition: opacity 350ms
+
+	&:hover,
+	&.call-cta--visible
+		bottom: 0
+
+		.icon-cross-large
+			opacity: 1
+
+@media all and (max-width: 767px)
+	.call-cta
+		bottom: -220px
+
+		strong
+			font-size: 20px
+			display: block
+			margin: 0 0 10px
 
 nav[role="navigation"]
 	float: right

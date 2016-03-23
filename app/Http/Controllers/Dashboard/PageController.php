@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Apricot\Repositories\PageRepository;
-use App\Page;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Page;
+use App\UrlRewrite;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -51,6 +51,8 @@ class PageController extends Controller
 			return \Redirect::back()->withErrors("Siden (#{$id}) kunne ikke findes!");
 		}
 
+		$oldIdentifier = $page->url_identifier;
+
 		$page->title = $request->get('title');
 		if ( !$page->isLocked() )
 		{
@@ -85,6 +87,16 @@ class PageController extends Controller
 		}
 
 		$page->save();
+
+		if( $oldIdentifier != $page->url_identifier )
+		{
+			UrlRewrite::create([
+				'requested_path' => '/' . $oldIdentifier,
+				'actual_path' => '/' . $page->url_identifier
+			]);
+
+			\Cache::tags('url_rewrites')->flush();
+		}
 
 		return \Redirect::action('Dashboard\PageController@index')->with('success', 'Siden blev gemt!');
 	}

@@ -121,6 +121,11 @@
 			Cookies.set('call-me-hidden', 1, { expires : 3 });
 		});
 
+		$("#call-me-form-toggler").click(function ()
+		{
+			$(".call-cta").toggleClass('call-cta--visible');
+		});
+
 		$("#call-me-form").submit( function(e)
 		{
 			e.preventDefault();

@@ -12,6 +12,5 @@
 			@endif
 			{!! $page->body !!}
 		</article>
-		@endsection
 	</div>
 @endsection

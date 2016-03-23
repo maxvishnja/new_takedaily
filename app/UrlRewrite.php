@@ -18,7 +18,11 @@ class UrlRewrite extends Model
 	 *
 	 * @var array
 	 */
-	protected $fillable = [ ];
+	protected $fillable = [
+		'requested_path',
+		'actual_path',
+		'redirect_type'
+	];
 
 	/**
 	 * The attributes excluded from the model's JSON form.

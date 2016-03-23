@@ -22,6 +22,8 @@
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<link rel="icon" type="image/png" href="/favicon.png"/>
 
+	<!-- todo add meta image from page.blade.php -->
+
 	<!--[if lt IE 9]>
 	<script src="/js/respond.min.js"></script>
 	<script src="/js/html5shiv.min.js"></script>

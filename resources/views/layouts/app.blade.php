@@ -23,7 +23,7 @@
 		<style>
 			body { padding-bottom: 190px;}
 		</style>
-		<div class="call-cta">
+		<div class="call-cta" id="call-me-form-toggler">
 			<div class="container">
 				<span title="Ellers tak" id="call-me-form-hider" class="icon icon-cross-large pull-right"></span>
 				<strong>Har du ikke tid til at udfylde formularen?</strong>

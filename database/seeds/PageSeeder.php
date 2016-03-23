@@ -58,17 +58,5 @@ class PageSeeder extends Seeder
 			'meta_image'       => '',
 			'is_locked'        => 1
 		]);
-
-		// Order success page
-		\App\Page::create([
-			'url_identifier'   => 'success',
-			'title'            => 'Ordren blev godkendt!',
-			'sub_title'        => 'Tak for din ordre',
-			'body'             => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque beatae consequuntur cum cumque doloremque exercitationem expedita facilis iusto magnam neque perferendis quae quam quisquam ratione, sapiente veniam, veritatis voluptate?</p>',
-			'meta_title'       => 'Kontakt os',
-			'meta_description' => 'Hjælp',
-			'meta_image'       => '',
-			'is_locked'        => 1
-		]);
 	}
 }
