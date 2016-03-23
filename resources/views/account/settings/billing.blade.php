@@ -2,6 +2,8 @@
 
 @section('pageClass', 'account account-settings account-settings-billing')
 
+@section('title', 'Fakturering - Take Daily')
+
 @section('content')
 	<h1>Betalingsmetode</h1>
 	@if( ! $source )

@@ -2,6 +2,8 @@
 
 @section('pageClass', 'account account-transactions')
 
+@section('title', 'Leveringer - Take Daily')
+
 @section('content')
 	<h1>Dine leveringer</h1>
 	@if($orders->count() == 0 )

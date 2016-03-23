@@ -32,7 +32,7 @@
 
 		<label style="display: block;">
 			<span>{{ trans("attributes.newsletters") }}</span>
-			<input type="checkbox" name="newsletters" id="newsletters" class="input input--full input--regular" data-original="{{ $customer->acceptNewsletters() ? 1 : 0 }}" @if(Request::old('newsletters') || $customer->acceptNewsletters()) checked="checked" @endif />
+			<input type="checkbox" name="newsletters" id="newsletters" data-original="{{ $customer->acceptNewsletters() ? 1 : 0 }}" @if(Request::old('newsletters') || $customer->acceptNewsletters()) checked="checked" @endif /> Get newsletters
 		</label>
 
 		<label style="display: block;">

@@ -2,6 +2,8 @@
 
 @section('pageClass', 'account account-settings account-settings-subscription')
 
+@section('title', 'Abonnement - Take Daily')
+
 @section('content')
 	<h1>Dit abonnement er <span style="text-decoration: underline">{{ $plan->isActive() ? 'aktivt' : ($plan->isCancelled() ? 'afsluttet' : '')  }}</span></h1>
 	<h2><span class="color--brand">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true) }} kr.</span><small> / måned</small></h2>

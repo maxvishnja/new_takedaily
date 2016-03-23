@@ -188,15 +188,5 @@ class AccountController extends Controller
 
 		return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.started'));
 	}
-
-	function getSettingsDelete()
-	{
-		return view('account.settings.delete');
-	}
-
-	function postSettingsDelete()
-	{
-		return 'delete account!';
-	}
 	
 }

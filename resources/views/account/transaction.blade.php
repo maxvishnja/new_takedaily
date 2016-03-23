@@ -2,6 +2,8 @@
 
 @section('pageClass', 'account account-transactions account-transaction')
 
+@section('title', "Levering #{$order->getPaddedId()} - Take Daily")
+
 @section('content')
 	<h1>Levering #{{ $order->getPaddedId() }}</h1>
 

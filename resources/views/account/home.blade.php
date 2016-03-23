@@ -2,6 +2,8 @@
 
 @section('pageClass', 'account page-account-home')
 
+@section('title', 'Mit Take Daily - Take Daily')
+
 @section('content')
 	<form method="post" action="{{ URL::action('AccountController@updatePreferences') }}" id="app">
 		<h3>Hvilket køn er du?</h3>
