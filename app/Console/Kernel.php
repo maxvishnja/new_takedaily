@@ -2,11 +2,10 @@
 
 namespace App\Console;
 
+use App\Console\Commands\GenerateSitemapCommand;
+use App\Console\Commands\SubscriptionRebillCommand;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-
-use App\Console\Commands\SubscriptionRebillCommand;
-use App\Console\Commands\GenerateSitemapCommand;
 
 class Kernel extends ConsoleKernel
 {
@@ -31,10 +30,5 @@ class Kernel extends ConsoleKernel
 	{
 		$schedule->call('subscriptions:rebill')
 				 ->dailyAt('12:00');
-
-		$schedule->call('sitemap:generate')
-				 ->weekly()
-				 ->sundays()
-				 ->at('00:00');
 	}
 }
