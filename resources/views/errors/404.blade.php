@@ -3,5 +3,7 @@
 @section('pageClass', 'error error-404')
 
 @section('content')
-	404
+	<div class="container">
+		<h1>Siden kunne ikke findes!</h1>
+	</div>
 @endsection
