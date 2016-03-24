@@ -52,6 +52,8 @@ class CheckoutController extends Controller
 		$userData    = json_decode($request->get('user_data', '{}'));
 		$info        = $request->get('info');
 		$password    = str_random(8);
+		$email       = strtolower($info['email']);
+
 
 		$orderPrice        = 149; // todo DON'T HARDCODE IT
 		$subscriptionPrice = 149; // todo DON'T HARDCODE IT
@@ -75,8 +77,6 @@ class CheckoutController extends Controller
 
 		if ( \Auth::guest() )
 		{
-			$email = strtolower($info['email']);
-
 			try
 			{
 				$stripeCustomer = Customer::create([
@@ -85,13 +85,13 @@ class CheckoutController extends Controller
 				]);
 			} catch( Card $ex )
 			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
 			} catch( \Exception $ex )
 			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
 			} catch( \Error $ex )
 			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
 			}
 
 			$user = User::create([
@@ -122,13 +122,13 @@ class CheckoutController extends Controller
 				]);
 			} catch( Card $ex )
 			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
 			} catch( \Exception $ex )
 			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
 			} catch( \Error $ex )
 			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
 			}
 		}
 		else
@@ -140,7 +140,8 @@ class CheckoutController extends Controller
 			'address_city'    => $info['address_city'],
 			'address_line1'   => $info['address_street'],
 			'address_country' => $info['address_country'],
-			'address_postal'  => $info['address_zipcode']
+			'address_postal'  => $info['address_zipcode'],
+			'company'         => $info['company'] ?: '',
 		]);
 
 		$user->getCustomer()->update([
@@ -185,7 +186,7 @@ class CheckoutController extends Controller
 
 		if ( !$stripeCharge )
 		{
-			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen!' ])->withInput();
+			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . \Session::get('error_message') ])->withInput();
 		}
 
 		if ( $coupon )

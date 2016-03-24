@@ -25,18 +25,15 @@
 			<div class="row">
 				<div class="span4">
 					<h3>Leveringsadresse</h3>
-					@if($order->customer->getCustomerAttribute('company'))
-						{{ $order->customer->getCustomerAttribute('company') }}<br/>
-						c/o: {{ $order->customer->getName() }}<br/>
+					@if($order->shipping_company != '')
+						{{ $order->shipping_company }}<br/>
+						c/o: {{ $order->shipping_name }}<br/>
 					@else
-						{{ $order->customer->getName() }}<br/>
+						{{ $order->shipping_name }}<br/>
 					@endif
-					{{ $order->customer->getCustomerAttribute('address_line1') }}<br/>
-					@if($order->customer->getCustomerAttribute('address_line2'))
-						{{ $order->customer->getCustomerAttribute('address_line2') }}<br/>
-					@endif
-					{{ $order->customer->getCustomerAttribute('address_city') }}, {{ $order->customer->getCustomerAttribute('address_postal') }}<br/>
-					{{ $order->customer->getCustomerAttribute('address_state') }}, {{ $order->customer->getCustomerAttribute('address_country') }}<br/>
+					{{ $order->shipping_street }}<br/>
+					{{ $order->shipping_city }}, {{ $order->shipping_zipcode }}<br/>
+					{{ $order->shipping_country }}<br/>
 				</div>
 
 				<div class="span4">

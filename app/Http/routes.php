@@ -20,6 +20,11 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('flow');
 	});
 
+	Route::get('gifting', function ()
+	{
+		return view('gifting');
+	});
+
 	Route::post('flow', function (\App\Apricot\Libraries\CombinationLibrary $combinationLibrary, \Illuminate\Http\Request $request)
 	{
 		$userData = json_decode($request->get('user_data'));
@@ -98,7 +103,10 @@ Route::group([ 'middleware' => 'web' ], function ()
 		view()->composer('admin.sidebar', function ($view)
 		{
 			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
-			$view->with('sidebar_numOrders', $orderRepo->getNew()->count());
+			$view->with('sidebar_numOrders', $orderRepo->getNotShipped()->count());
+
+			$callRepo = new \App\Apricot\Repositories\CallRepository();
+			$view->with('sidebar_numCalls', $callRepo->getRequests()->count());
 		});
 
 		Route::get('login', 'Auth\DashboardAuthController@showLoginForm');
@@ -120,6 +128,10 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::get('customers/bill/{id}', 'Dashboard\CustomerController@bill');
 		Route::get('customers/cancel/{id}', 'Dashboard\CustomerController@cancel');
 
+
+		Route::resource('calls', 'Dashboard\CallController');
+		Route::get('calls/mark-done/{id}', 'Dashboard\CallController@markDone');
+
 		Route::resource('orders', 'Dashboard\OrderController');
 		Route::get('orders/mark-sent/{id}', 'Dashboard\OrderController@markSent');
 		Route::resource('coupons', 'Dashboard\CouponController');
@@ -132,10 +144,12 @@ Route::group([ 'middleware' => 'web' ], function ()
 	{
 		Route::post('call-me', function (\Illuminate\Http\Request $request)
 		{
-			$request->get('phone');
-			$request->get('period');
-
-			// todo store this in DB and show in admin! fixme
+			// todo validate
+			\App\Call::create([
+				'phone'  => $request->get('phone'),
+				'period' => $request->get('period'),
+				'status' => 'requested'
+			]);
 
 			return Response::json([ 'message' => 'Tak, vi ringer til dig snarest!' ]);
 		});

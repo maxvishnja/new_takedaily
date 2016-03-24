@@ -31,10 +31,10 @@
 				<form method="post" action="/call-me" id="call-me-form">
 					<input type="number" pattern="\d." maxlength="14" name="phone" class="input input--regular input--plain input--no-number input--spacing input--full-mobile m-t-10" placeholder="12 34 56 78" required="required"/>
 					<select class="select select--regular select--spacing select--plain select--full-mobile m-t-10" name="period">
-						<option value="09-11">09:00 - 11:00</option>
-						<option value="11-13">11:00 - 13:00</option>
-						<option value="13-15">13:00 - 15:00</option>
-						<option value="15-17">15:00 - 17:00</option>
+						<option value="09:00 - 11:00">09:00 - 11:00</option>
+						<option value="11:00 - 13:00">11:00 - 13:00</option>
+						<option value="13:00 - 15:00">13:00 - 15:00</option>
+						<option value="15:00 - 17:00">15:00 - 17:00</option>
 					</select>
 					<div class="m-t-10">
 						<button type="submit" class="button button--white button--large button--full-mobile">Ring mig op</button>

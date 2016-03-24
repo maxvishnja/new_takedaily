@@ -29,8 +29,13 @@ class Order extends Model
 		'total',
 		'sub_total',
 		'total_shipping',
-		'sub_total_shipping',
-		'total_taxes'
+		'total_taxes',
+		'shipping_name',
+		'shipping_street',
+		'shipping_city',
+		'shipping_country',
+		'shipping_zipcode',
+		'shipping_company',
 	];
 	
 	/**
@@ -55,29 +60,34 @@ class Order extends Model
 		return str_pad($this->id, 11, 0, STR_PAD_LEFT);
 	}
 
-	public function getTotal() {
+	public function getTotal()
+	{
 		return $this->total;
 	}
 
-	public function getSubTotal() {
+	public function getSubTotal()
+	{
 		return $this->sub_total;
 	}
 
-	public function getTotalShipping() {
+	public function getTotalShipping()
+	{
 		return $this->total_shipping;
 	}
 
-	public function getSubTotalShipping() {
+	public function getSubTotalShipping()
+	{
 		return $this->sub_total_shipping;
 	}
 
-	public function getTotalTaxes() {
+	public function getTotalTaxes()
+	{
 		return $this->total_taxes;
 	}
 
 	public function scopeToday($query)
 	{
-		return $query->whereBetween('created_at', [Date::today()->setTime(0, 0, 0), Date::today()->setTime(23, 59, 59)]);
+		return $query->whereBetween('created_at', [ Date::today()->setTime(0, 0, 0), Date::today()->setTime(23, 59, 59) ]);
 	}
 
 	public function markSent()
@@ -92,7 +102,7 @@ class Order extends Model
 
 	public function stateToColor()
 	{
-		switch($this->state)
+		switch ( $this->state )
 		{
 			case 'new':
 				$color = 'warning';

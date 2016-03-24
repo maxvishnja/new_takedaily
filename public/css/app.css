@@ -4438,6 +4438,10 @@ body.account.account-settings-basic form.account-form label span {
 
 body.page-checkout {
   background: #fafafa; }
+  body.page-checkout .required {
+    color: #AA1118; }
+  body.page-checkout .optional {
+    font-size: 13px; }
   body.page-checkout .label.checkout--label {
     font-weight: 600;
     font-size: 16px;

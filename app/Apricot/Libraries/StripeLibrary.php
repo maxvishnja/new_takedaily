@@ -44,35 +44,43 @@ class StripeLibrary
 			]);
 		} catch( Card $e )
 		{
+			\Session::flash('error_message', $e->getMessage());
 			return false;
 		} catch( RateLimit $e )
 		{
+			\Session::flash('error_message', $e->getMessage());
 			return false;
 			// Too many requests made to the API too quickly
 		} catch( InvalidRequest $e )
 		{
+			\Session::flash('error_message', $e->getMessage());
 			return false;
 			// Invalid parameters were supplied to Stripe's API
 		} catch( Authentication $e )
 		{
+			\Session::flash('error_message', $e->getMessage());
 			return false;
 			// Authentication with Stripe's API failed
 			// (maybe you changed API keys recently)
 		} catch( ApiConnection $e )
 		{
+			\Session::flash('error_message', $e->getMessage());
 			return false;
 			// Network communication with Stripe failed
 		} catch( Base $e )
 		{
+			\Session::flash('error_message', $e->getMessage());
 			return false;
 			// Display a very generic error to the user, and maybe send
 			// yourself an email
 		} catch( Exception $e )
 		{
+			\Session::flash('error_message', $e->getMessage());
 			return false;
 			// Something else happened, completely unrelated to Stripe
 		} catch ( \Error $e )
 		{
+			\Session::flash('error_message', $e->getMessage());
 			return false;
 		}
 	}

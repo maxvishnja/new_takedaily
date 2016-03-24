@@ -288,7 +288,13 @@ class Customer extends Model
 			'total'               => $amount,
 			'total_shipping'      => $shipping,
 			'sub_total'           => $amount - $shipping - $taxes,
-			'total_taxes'         => $taxes
+			'total_taxes'         => $taxes,
+			'shipping_name'       => $this->getName(),
+			'shipping_street'     => $this->getCustomerAttribute('address_line1'),
+			'shipping_city'       => $this->getCustomerAttribute('address_city'),
+			'shipping_country'    => $this->getCustomerAttribute('address_country'),
+			'shipping_zipcode'    => $this->getCustomerAttribute('address_postal'),
+			'shipping_company'    => $this->getCustomerAttribute('company')
 		]);
 
 		$order->lines()->create([
