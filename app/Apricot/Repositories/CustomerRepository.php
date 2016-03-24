@@ -2,7 +2,6 @@
 
 
 use App\Customer;
-use Jenssegers\Date\Date;
 
 class CustomerRepository
 {
@@ -19,5 +18,12 @@ class CustomerRepository
 	public function getToday()
 	{
 		return Customer::today();
+	}
+
+	public function getMonthlyNew()
+	{
+		return Customer::selectRaw("YEAR(created_at) as year, MONTH(created_at) as month, COUNT(DISTINCT id) as total")
+					->groupBy(\DB::raw("YEAR(created_at), MONTH(created_at)"))
+					->get();
 	}
 }

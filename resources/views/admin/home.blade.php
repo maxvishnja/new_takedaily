@@ -54,18 +54,18 @@
 	<script>
 		var d1 = [
 			@for($i = 0; $i <= 12; $i++)
-				[ {{ 12 - $i }} , {{ $sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first() ? $sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total / 100 : 0 }} ],
+				[ {{ 12 - $i }} , {{ $sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first() ? number_format($sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total / 100 / 100, 2, '.', '') : 0 }} ],
 			@endfor
 		];
 
 		var d2 = [
 			@for($i = 0; $i <= 12; $i++)
-				[ {{ 12 - $i }} , {{ $sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first() ? 0 : 0 }} ],
+				[ {{ 12 - $i }} , {{ $customers_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first() ? $customers_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total : 0 }} ],
 			@endfor
 		];
 
 		var plot = $.plot($('#placeholder2'),
-			[{data: d1, label: 'Salg i kr.'}, {data: d2, label: 'Kunder'}], {
+			[{data: d1, label: 'Salg i hundrede kr.'}, {data: d2, label: 'Kunder'}], {
 				xaxis: {ticks:
 					[
 						@for($i = 0; $i <= 12; $i++)
@@ -94,6 +94,7 @@
 				},
 				colors: ['#55f3c0', '#0db37e', '#b4fae3', '#e0d1cb'],
 				shadowSize: 0
+				// todo fix tooltips (and rounding!) fixme
 			});
 
 		function showTooltip(x, y, contents)

@@ -118,13 +118,14 @@ Route::group([ 'middleware' => 'web' ], function ()
 			$customerRepo = new \App\Apricot\Repositories\CustomerRepository();
 
 			$salesYear = $orderRepo->getMonthlySales();
+			$customersYear = $customerRepo->getMonthlyNew();
 
 			return view('admin.home', [
 				'orders_today'    => $orderRepo->getToday()->count(),
 				'customers_today' => $customerRepo->getToday()->count(),
 				'money_today'     => $orderRepo->getToday()->whereNotIn('state', [ 'new', 'cancelled' ])->sum('total'),
 				'sales_year'      => $salesYear,
-				'customers_year'  => ''
+				'customers_year'  => $customersYear
 			]);
 		});
 		Route::resource('customers', 'Dashboard\CustomerController');
