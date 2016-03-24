@@ -28,4 +28,11 @@ class OrderRepository
 	{
 		return Order::today();
 	}
+
+	public function getMonthlySales()
+	{
+		return Order::selectRaw("YEAR(created_at) as year, MONTH(created_at) as month, sum(total) as total")
+					->groupBy(\DB::raw("YEAR(created_at), MONTH(created_at)"))
+					->get();
+	}
 }
