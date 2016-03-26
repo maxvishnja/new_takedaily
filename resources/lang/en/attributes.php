@@ -4,6 +4,7 @@
 	'address_line2'   => 'Street 2',
 	'address_country' => 'Country',
 	'address_postal'  => 'Zipcode',
+	'company'         => 'Company',
 	'address_state'   => 'State',
 	'phone'           => 'Phone',
 	'email'           => 'E-mail address',

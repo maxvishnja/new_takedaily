@@ -33,7 +33,7 @@
 		<tbody>
 		@foreach($order->lines as $line)
 			<tr>
-				<td>{{ $line->description }}</td>
+				<td>{{ trans("products.{$line->description}") }}</td>
 				<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true) }} kr.</td>
 				<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true) }} kr.</td>
 				<td><strong>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true) }} kr.</strong></td>
@@ -56,7 +56,7 @@
 
 		<tr>
 			<td colspan="2" style="border: none;"></td>
-			<td style="border: none; text-align: right;">Heraf moms</td>
+			<td style="border: none; text-align: right;">Moms</td>
 			<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_taxes, true) }} kr.</td>
 		</tr>
 

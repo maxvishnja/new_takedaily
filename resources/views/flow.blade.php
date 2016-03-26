@@ -768,6 +768,7 @@
 				</div>
 
 				{{ csrf_field() }}
+				<input type="hidden" name="product_name" value="subscription" />
 			</form>
 		</div>
 	</div>

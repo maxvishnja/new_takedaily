@@ -3,8 +3,6 @@
 namespace App\Listeners;
 
 use App\Events\CustomerWasBilled;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class OrderCreateCustomer
 {
@@ -26,6 +24,6 @@ class OrderCreateCustomer
      */
     public function handle(CustomerWasBilled $event)
     {
-		$event->customer->makeOrder($event->orderAmount, $event->stripeToken);
+		$event->customer->makeOrder($event->orderAmount, $event->stripeToken, null, $event->product);
     }
 }

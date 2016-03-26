@@ -276,10 +276,10 @@ class Customer extends Model
 		return $this->orders()->where('id', $id)->first();
 	}
 
-	public function makeOrder($amount = 100, $stripeChargeToken = null, $shipping = null)
+	public function makeOrder($amount = 100, $stripeChargeToken = null, $shipping = null, $product_name = 'subscription')
 	{
 		$shipping = $shipping ? : $this->getPlan()->getShippingPrice();
-		$taxes    = $amount * 0.25; // todo dynamic
+		$taxes    = $amount * 0.20; // todo dynamic
 
 		$order = $this->orders()->create([
 			'reference'           => (str_random(8) . '-' . str_random(2) . '-' . str_pad($this->getOrders()->count() + 1, 4, '0', STR_PAD_LEFT)),
@@ -298,7 +298,7 @@ class Customer extends Model
 		]);
 
 		$order->lines()->create([
-			'description'  => 'Abonnent', // todo translate
+			'description'  => $product_name,
 			'amount'       => $amount - $taxes,
 			'tax_amount'   => $taxes,
 			'total_amount' => $amount
@@ -307,7 +307,7 @@ class Customer extends Model
 		if ( $shipping > 0 )
 		{
 			$order->lines()->create([
-				'description'  => 'Fragt', // todo translate
+				'description'  => 'shipping',
 				'amount'       => $shipping,
 				'tax_amount'   => 0,
 				'total_amount' => $shipping
@@ -317,7 +317,7 @@ class Customer extends Model
 		return $order;
 	}
 
-	public function charge($amount, $makeOrder = true)
+	public function charge($amount, $makeOrder = true, $product = 'subscription')
 	{
 		$lib = new StripeLibrary();
 
@@ -337,7 +337,7 @@ class Customer extends Model
 
 		if ( $makeOrder )
 		{
-			\Event::fire(new CustomerWasBilled($this, $amount, $chargeId));
+			\Event::fire(new CustomerWasBilled($this, $amount, $chargeId, $product));
 		}
 
 		return true;

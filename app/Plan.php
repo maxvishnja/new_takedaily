@@ -42,6 +42,8 @@ class Plan extends Model
 		'price',
 		'price_shipping',
 		'subscription_started_at',
+		'subscription_cancelled_at',
+		'subscription_snoozed_until',
 		'subscription_rebill_at'
 	];
 	

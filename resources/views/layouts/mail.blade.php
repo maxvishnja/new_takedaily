@@ -1210,7 +1210,7 @@
 					<tr>
 						<td class="logo emb-logo-padding-box" style="padding: 0;vertical-align: top;mso-line-height-rule: at-least;width: 280px;padding-top: 24px;padding-bottom: 24px;">
 							<div class="logo-left" style="font-weight: 700;font-family: Roboto,Tahoma,sans-serif;color: #44a8c7;font-size: 24px !important;line-height: 30px !important;" align="left" id="emb-email-header">
-								TakeDaily
+								Take Daily
 							</div>
 						</td>
 					</tr>
@@ -1288,9 +1288,7 @@
 						<td style="padding: 0;vertical-align: top;color: #b9b9b9;font-size: 12px;line-height: 22px;text-align: left;width: 400px;">
 
 							<div class="address" style='font-family: "Open Sans",sans-serif;Margin-bottom: 18px;'>
-								<div>TakeDaily ApS<br/>
-									&#169; 2016. Alle rettigheder forbeholdes.
-								</div>
+								<div>TakeDaily ApS</div>
 							</div>
 							<div class="permission" style='font-family: "Open Sans",sans-serif;'>
 								<div>Du f&#229;r denne mail fordi du er kunde hos os.</div>

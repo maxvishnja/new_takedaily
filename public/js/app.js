@@ -243,25 +243,39 @@ $(".toggle-mobile-nav").click(function (e)
 	$($(this).attr('href')).toggleClass('active');
 });
 
-function validateFormInput(form) {
+function validateFormInput(form, addClasses)
+{
 	var errors = [];
 
-	form.find("[data-validate='true']").each(function (i, input) {
-		if( $(input).attr('required') === 'required' && $(input).val() === '' )
+	if (addClasses === undefined)
+	{
+		addClasses = true;
+	}
+
+	form.find("[data-validate='true']").each(function (i, input)
+	{
+		if ($(input).attr('required') === 'required' && $(input).val() === '')
 		{
 			errors.push(input);
-			$(input).addClass('input--error');
+
+			if (addClasses)
+			{
+				$(input).addClass('input--error');
+			}
 		}
 		else
 		{
-			$(input).removeClass('input--error');
-			$(input).addClass('input--success');
+			if (addClasses)
+			{
+				$(input).removeClass('input--error');
+				$(input).addClass('input--success');
+			}
 		}
 	});
 
 	// todo something with the errors.
 
-	if( errors.length > 0 )
+	if (errors.length > 0)
 	{
 		return false;
 	}

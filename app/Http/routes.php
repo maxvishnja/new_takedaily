@@ -32,6 +32,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 		$request->session()->put('my_combination', $combinationLibrary->getResult());
 		$request->session()->put('user_data', $userData);
+		$request->session()->put('product_name', $request->get('product_name'));
 
 		return Redirect::action('CheckoutController@getCheckout');
 	});
@@ -49,6 +50,18 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return '';
 	});
 
+	Route::get('gc/{token}', function ($token)
+	{
+		$giftcard = \App\Giftcard::where('token', $token)->where('is_used', 0)->first();
+
+		if ( !$giftcard )
+		{
+			abort(404);
+		}
+
+		return $giftcard;
+	});
+
 	/*
 	 * Checkout
 	 */
@@ -61,6 +74,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::group([ 'middleware' => [ 'auth', 'user' ] ], function ()
 		{
 			Route::get('success', 'CheckoutController@getSuccess');
+			Route::get('success-giftcard/{token}', 'CheckoutController@getSuccessNonSubscription');
 		});
 	});
 
@@ -117,7 +131,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 			$orderRepo    = new \App\Apricot\Repositories\OrderRepository();
 			$customerRepo = new \App\Apricot\Repositories\CustomerRepository();
 
-			$salesYear = $orderRepo->getMonthlySales();
+			$salesYear     = $orderRepo->getMonthlySales();
 			$customersYear = $customerRepo->getMonthlyNew();
 
 			return view('admin.home', [

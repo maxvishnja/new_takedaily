@@ -15,27 +15,25 @@
 				<table v-cloack>
 					<tbody>
 					<tr>
-						<td>Take Daily abonnement</td>
+						<td>{{ trans("products.{$product->name}") }}</td>
 						<td>@{{ price | currency '' }} kr.</td>
 					</tr>
-					<tr>
-						<td>Fragt</td>
-						<td>
-							<span v-show="shipping == 0">Gratis</span>
-							<span v-show="shipping > 0">@{{ shipping | currency '' }} kr.</span>
-						</td>
-					</tr>
-					<tr>
-						<td>Subtotal</td>
-						<td>@{{ total_sub | currency '' }} kr.</td>
-					</tr>
-					<tr>
-						<td>- heraf moms</td>
-						<td>@{{ total_taxes | currency '' }} kr.</td>
-					</tr>
+					@if($product->is_subscription == 1)
+						<tr>
+							<td>Fragt</td>
+							<td>
+								<span v-show="shipping == 0">Gratis</span>
+								<span v-show="shipping > 0">@{{ shipping | currency '' }} kr.</span>
+							</td>
+						</tr>
+					@endif
 					<tr v-show="discount.applied">
 						<td>@{{ discount.code }}: @{{ discount.description }}</td>
 						<td>-@{{ total_discount | currency '' }} kr.</td>
+					</tr>
+					<tr>
+						<td>Heraf moms</td>
+						<td>@{{ total_taxes | currency '' }} kr.</td>
 					</tr>
 					<tr class="row--total">
 						<td>Total</td>
@@ -63,13 +61,14 @@
 					<div id="coupon-form-errors" class="m-t-10"></div>
 				</form>
 
-				<hr/>
+				@if($product->is_subscription == 1)
+					<hr/>
+					<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">@{{ total_subscription }}
+							DKK</span><strong v-show="price !== total_subscription">@{{ total_subscription }} DKK</strong> på dit kort hver 28 dage.
+					</p>
 
-				<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">@{{ total_subscription }}
-						DKK</span><strong v-show="price !== total_subscription">@{{ total_subscription }} DKK</strong> på dit kort hver 28 dage.
-				</p>
-
-				<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>
+					<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>
+				@endif
 
 			</div><!-- /Totals-->
 
@@ -92,14 +91,16 @@
 
 							<div class="row m-b-50">
 								<div class="col-md-12">
-									<label class="label label--full checkout--label" for="input_info_name">Dit fulde navn <span class="required">*</span></label>
+									<label class="label label--full checkout--label" for="input_info_name">Dit fulde navn
+										<span class="required">*</span></label>
 									<input class="input input--medium input--semibold input--full" id="input_info_name" data-validate="true" placeholder="Lars Jensen" name="info[name]" required="required" aria-required="true" value="{{ Request::old('info.name', (Auth::user() ? Auth::user()->name: '')) }}"/>
 								</div>
 							</div>
 
 							<div class="row m-b-50">
 								<div class="col-md-12">
-									<label class="label label--full checkout--label" for="input_info_email">Din e-mail adresse <span class="required">*</span></label>
+									<label class="label label--full checkout--label" for="input_info_email">Din e-mail adresse
+										<span class="required">*</span></label>
 									<input class="input input--medium input--semibold input--full" id="input_info_email" data-validate="true" placeholder="lars-jensen@gmail.com" name="info[email]" required="required" aria-required="true" value="{{ Request::old('info.email', (Auth::user() ? Auth::user()->email : '')) }}"/>
 								</div>
 							</div>
@@ -123,19 +124,32 @@
 
 							<div class="row">
 								<div class="col-md-6">
-									<label class="label label--full checkout--label" for="input_info_address_country">Land <span class="required">*</span></label>
+									<label class="label label--full checkout--label" for="input_info_address_country">Land
+										<span class="required">*</span></label>
 									<select name="info[address_country]" class="select select--medium select--semibold select--full" required="required" aria-required="true" data-validate="true">
-										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Danmark' ) selected="selected" @endif value="Danmark">Danmark</option>
-										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Norge' ) selected="selected" @endif value="Norge">Norge</option>
-										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Sverige' ) selected="selected" @endif value="Sverige">Sverige</option>
-										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Holland' ) selected="selected" @endif value="Holland">Holland</option>
-										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Tyskland' ) selected="selected" @endif value="Tyskland">Tyskland</option>
-										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Polen' ) selected="selected" @endif value="Polen">Polen</option>
+										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Danmark' ) selected="selected" @endif value="Danmark">
+											Danmark
+										</option>
+										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Norge' ) selected="selected" @endif value="Norge">
+											Norge
+										</option>
+										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Sverige' ) selected="selected" @endif value="Sverige">
+											Sverige
+										</option>
+										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Holland' ) selected="selected" @endif value="Holland">
+											Holland
+										</option>
+										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Tyskland' ) selected="selected" @endif value="Tyskland">
+											Tyskland
+										</option>
+										<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country') : 'Danmark')) == 'Polen' ) selected="selected" @endif value="Polen">
+											Polen
+										</option>
 									</select>
 								</div>
 								<div class="col-md-6">
 									<label class="label label--full checkout--label" for="input_info_company">CVR / Firma <span class="optional pull-right">valgfrit</span></label>
-									<input class="input input--medium input--semibold input--full" id="input_info_company"  placeholder="DK-12345678" name="info[company]" value="{{ Request::old('info.company', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
+									<input class="input input--medium input--semibold input--full" id="input_info_company" placeholder="DK-12345678" name="info[company]" value="{{ Request::old('info.company', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
 								</div>
 							</div>
 						</fieldset>
@@ -205,6 +219,7 @@
 					{{ csrf_field() }}
 
 					<div class="hidden">
+						<input type="hidden" name="product_name" value="{{ Request::old('product_name', Request::get('product_name', session('product_name', 'subscription'))) }}" autocomplete="off"/>
 						<input type="hidden" name="coupon" v-bind:value="discount.code" value="{{ Request::old('coupon') }}" autocomplete="off"/>
 						<textarea name="user_data">{{ json_encode(Session::get('user_data', Request::old('user_data', []))) }}</textarea>
 					</div>
@@ -356,7 +371,7 @@
 			'el': '#app',
 			data: {
 				shipping: 0,
-				price: 149,
+				price: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
 				discount: {
 					applied: false,
 					type: null,
@@ -371,9 +386,13 @@
 				{
 					return this.total_sub * 0.2;
 				},
-				total_sub: function ()
+				subtotal: function ()
 				{
 					return this.price;
+				},
+				total_sub: function ()
+				{
+					return this.price - this.total_discount;
 				},
 				total_discount: function ()
 				{
@@ -384,7 +403,7 @@
 
 					if (this.discount.type == 'percentage')
 					{
-						var discount = this.total_sub * (this.discount.amount / 100);
+						var discount = this.subtotal * (this.discount.amount / 100);
 					}
 					else if (this.discount.type == 'amount')
 					{
@@ -395,7 +414,7 @@
 				},
 				total: function ()
 				{
-					return this.total_sub - this.total_discount;
+					return this.subtotal - this.total_discount;
 				},
 				total_subscription: function ()
 				{
@@ -442,7 +461,7 @@
 			var form = $(this);
 			var button = form.find('button');
 
-			if (!validateFormInput(form))
+			if (!validateFormInput(form, false))
 			{
 				return false;
 			}
@@ -485,7 +504,7 @@
 			});
 		});
 
-		if (validateFormInput($("#coupon-form")))
+		if (validateFormInput($("#coupon-form"), false))
 		{
 			$("#coupon-form").submit();
 		}

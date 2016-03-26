@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Apricot\Repositories\OrderRepository;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
 use App\Order;
 use Illuminate\Http\Request;
 
@@ -37,7 +36,6 @@ class OrderController extends Controller
 			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
 		}
 
-		$order->load('lines.products.product');
 		$order->load('customer.customerAttributes');
 
 		return view('admin.orders.show', [
