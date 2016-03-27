@@ -21,16 +21,27 @@ class CheckoutController extends Controller
 
 	function getCheckout(Request $request)
 	{
-		if ( $request->get('product_name') == 'subscription' && !$request->session()->has('user_data') )
+		$request->session()->set('product_name', $request->get('product_name', $request->session()->get('product_name', 'subscription')));
+
+		if ( $request->session()->get('product_name') == 'subscription' && !$request->session()->has('user_data') )
 		{
 			return \Redirect::to('/flow')->withErrors([ 'Vi skal finde dine vitaminer før du kan handle.' ]);
 		}
 
-		\Session::set('product_name', $request->get('product_name', \Session::get('product_name', 'subscription')));
+		$giftcard = null;
+
+		if ( $request->session()->has('giftcard_id') && $request->session()->has('giftcard_token') && $request->session()->get('product_name') == 'subscription' )
+		{
+			$giftcard = Giftcard::where('id', $request->session()->get('giftcard_id'))
+								->where('token', $request->session()->get('giftcard_token'))
+								->where('is_used', 0)
+								->first();
+		}
 
 		return view('checkout.index', [
 			'user_data' => $request->session()->get('user_data'),
-			'product'   => Product::where('name', \Session::get('product_name', 'subscription'))->first()
+			'product'   => Product::where('name', \Session::get('product_name', 'subscription'))->first(),
+			'giftcard'  => $giftcard
 		]);
 	}
 
@@ -49,7 +60,6 @@ class CheckoutController extends Controller
 			'info.email.email'  => 'E-mail adressen er ikke gyldig.',
 		]);
 
-
 		Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
 
 		$stripeToken = $request->get('stripeToken');
@@ -61,7 +71,6 @@ class CheckoutController extends Controller
 		$password    = str_random(8);
 		$email       = strtolower($info['email']);
 		$userCreated = false;
-
 
 		$orderPrice        = MoneyLibrary::toMoneyFormat($productItem->price);
 		$subscriptionPrice = $productItem->is_subscription == 1 ? MoneyLibrary::toMoneyFormat($productItem->price) : 0;
@@ -87,13 +96,23 @@ class CheckoutController extends Controller
 			}
 		}
 
+		$giftcard = null;
+
+		if ( $request->session()->has('giftcard_id') && $request->session()->has('giftcard_token') && $request->session()->get('product_name') == 'subscription' )
+		{
+			$giftcard = Giftcard::where('id', $request->session()->get('giftcard_id'))
+								->where('token', $request->session()->get('giftcard_token'))
+								->where('is_used', 0)
+								->first();
+		}
+
 		if ( \Auth::guest() )
 		{
 			try
 			{
 				$stripeCustomer = Customer::create([
-					"description" => "Customer for {$email}",
-					"source"      => $stripeToken
+					"description"     => "Customer for {$email}",
+					"source"          => $stripeToken
 				]);
 			} catch( Card $ex )
 			{
@@ -212,6 +231,11 @@ class CheckoutController extends Controller
 			]);
 		}
 
+		if( $giftcard )
+		{
+			$user->getCustomer()->setBalance($giftcard->worth);
+		}
+
 		$stripeCharge = $user->getCustomer()->charge(MoneyLibrary::toCents($orderPrice), true, $product);
 
 		if ( !$stripeCharge )
@@ -223,13 +247,18 @@ class CheckoutController extends Controller
 		{
 			$giftcard = Giftcard::create([
 				'token' => strtoupper(str_random()),
-				'worth' => MoneyLibrary::toCents($orderPrice)
+				'worth' => $productItem->price
 			]);
 		}
 
 		if ( $coupon )
 		{
 			$coupon->reduceUsagesLeft();
+		}
+
+		if( $giftcard )
+		{
+			$giftcard->markUsed();
 		}
 
 		$data = [

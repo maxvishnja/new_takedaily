@@ -42,7 +42,7 @@ class Customer extends Model
 	 * @var array
 	 */
 
-	protected $fillable = [ 'user_id', 'plan_id' ];
+	protected $fillable = [ 'user_id', 'plan_id', 'balance' ];
 	
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -317,11 +317,29 @@ class Customer extends Model
 		return $order;
 	}
 
+	public function setBalance($amount)
+	{
+		$this->balance = $amount;
+		$this->save();
+	}
+
+	public function deductBalance($amount)
+	{
+		$this->setBalance($this->balance -= $amount);
+	}
+
 	public function charge($amount, $makeOrder = true, $product = 'subscription')
 	{
 		$lib = new StripeLibrary();
 
 		$chargeId = '';
+
+		if ( $this->balance > 0 )
+		{
+			$prevAmount = $amount;
+			$amount -= ($this->balance > $amount ? $amount : $this->balance);
+			$this->deductBalance($this->balance > $prevAmount ? $prevAmount : $this->balance);
+		}
 
 		if ( $amount > 0 )
 		{

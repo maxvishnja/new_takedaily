@@ -31,4 +31,10 @@ class Giftcard extends Model
 	 * @var array
 	 */
 	protected $hidden = [ ];
+
+	public function markUsed()
+	{
+		$this->is_used = 1;
+		$this->save();
+	}
 }

@@ -50,7 +50,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return '';
 	});
 
-	Route::get('gc/{token}', function ($token)
+	Route::get('gc/{token}', function ($token, \Illuminate\Http\Request $request)
 	{
 		$giftcard = \App\Giftcard::where('token', $token)->where('is_used', 0)->first();
 
@@ -59,7 +59,10 @@ Route::group([ 'middleware' => 'web' ], function ()
 			abort(404);
 		}
 
-		return $giftcard;
+		$request->session()->put('giftcard_id', $giftcard->id);
+		$request->session()->put('giftcard_token', $giftcard->token);
+
+		return Redirect::to('flow')->with('success', 'Du skal udfylde dette spørgeskema for at gøre brug af gavekortet. Det tager 2 minutter');
 	});
 
 	/*

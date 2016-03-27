@@ -16,7 +16,7 @@
 					<tbody>
 					<tr>
 						<td>{{ trans("products.{$product->name}") }}</td>
-						<td>@{{ price | currency '' }} kr.</td>
+						<td>@{{ sub_price | currency '' }} kr.</td>
 					</tr>
 					@if($product->is_subscription == 1)
 						<tr>
@@ -27,7 +27,17 @@
 							</td>
 						</tr>
 					@endif
+					@if($giftcard)
+						<tr>
+							<td>Gavekort værdi</td>
+							<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth, true, 2, '.') }} kr.</td>
+						</tr>
+					@endif
 					<tr v-show="discount.applied">
+						<td>@{{ discount.code }}: @{{ discount.description }}</td>
+						<td>-@{{ total_discount | currency '' }} kr.</td>
+					</tr>
+					<tr v-show="giftcard">
 						<td>@{{ discount.code }}: @{{ discount.description }}</td>
 						<td>-@{{ total_discount | currency '' }} kr.</td>
 					</tr>
@@ -42,29 +52,32 @@
 					</tbody>
 				</table>
 
-				<div class="m-t-20 m-b-20">
-					<a href="#coupon-form" id="toggle-coupon-form">Har du en rabatkode?</a>
-				</div>
-
-				<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="@if(!Request::old('coupon')) display: none; @endif">
-					<div class="row">
-						<div class="col-md-7">
-							<input type="text" name="coupon" maxlength="20" placeholder="Din kuponkode" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon') }}" required="required"/>
-						</div>
-						<div class="col-md-5">
-							<button type="submit" class="button button--regular button--full button--green">Anvend</button>
-						</div>
+				@if ( ! $giftcard )
+					<div class="m-t-20 m-b-20">
+						<a href="#coupon-form" id="toggle-coupon-form">Har du en rabatkode?</a>
 					</div>
-					{{ csrf_field() }}
 
-					<div id="coupon-form-successes" class="m-t-10"></div>
-					<div id="coupon-form-errors" class="m-t-10"></div>
-				</form>
+					<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="@if(!Request::old('coupon')) display: none; @endif">
+						<div class="row">
+							<div class="col-md-7">
+								<input type="text" name="coupon" maxlength="20" placeholder="Din kuponkode" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon') }}" required="required"/>
+							</div>
+							<div class="col-md-5">
+								<button type="submit" class="button button--regular button--full button--green">Anvend</button>
+							</div>
+						</div>
+						{{ csrf_field() }}
+
+						<div id="coupon-form-successes" class="m-t-10"></div>
+						<div id="coupon-form-errors" class="m-t-10"></div>
+					</form>
+
+					<hr/>
+				@endif
 
 				@if($product->is_subscription == 1)
-					<hr/>
 					<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">@{{ total_subscription }}
-							DKK</span><strong v-show="price !== total_subscription">@{{ total_subscription }} DKK</strong> på dit kort hver 28 dage.
+							DKK</span><strong v-show="price !== total_subscription">@{{ total_subscription }} DKK</strong> på dit kort hver måned. Første trækning er d. {{ \Jenssegers\Date\Date::now()->addMonths($giftcard ? round($giftcard->worth / $product->price) : 1)->format('j. M Y') }}
 					</p>
 
 					<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>
@@ -371,7 +384,8 @@
 			'el': '#app',
 			data: {
 				shipping: 0,
-				price: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
+				price: {{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
+				sub_price: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
 				discount: {
 					applied: false,
 					type: null,
@@ -418,7 +432,7 @@
 				},
 				total_subscription: function ()
 				{
-					var amount = this.total_sub;
+					var amount = this.sub_price;
 
 					if (this.discount.applied)
 					{
@@ -444,71 +458,73 @@
 		});
 	</script>
 
-	<script>
-		/*
-		 * Coupon
-		 */
-		$("#toggle-coupon-form").click(function (e)
-		{
-			e.preventDefault();
-
-			$("#coupon-form").toggle();
-		});
-
-		$("#coupon-form").submit(function (e)
-		{
-			e.preventDefault();
-			var form = $(this);
-			var button = form.find('button');
-
-			if (!validateFormInput(form, false))
+	@if ( ! $giftcard )
+		<script>
+			/*
+			 * Coupon
+			 */
+			$("#toggle-coupon-form").click(function (e)
 			{
-				return false;
-			}
+				e.preventDefault();
 
-			$.ajax({
-				url: form.attr('action'),
-				method: form.attr('method'),
-				data: form.serialize(),
-				headers: {
-					'X-CSRF-TOKEN': form.find('[name="_token"]').val()
-				},
-				dataType: 'JSON',
-				beforeSend: function ()
-				{
-					button.text('Vent...').prop('disabled', true);
-				},
-				complete: function ()
-				{
-					button.text('Anvend').prop('disabled', false);
-				},
-				success: function (response)
-				{
-					$("#coupon-form-successes").text(response.message);
-					$("#coupon-form-errors").text('');
-
-					app.discount.applied = true;
-					app.discount.type = response.coupon.discount_type;
-					app.discount.amount = response.coupon.discount;
-					app.discount.applies_to = response.coupon.applies_to;
-					app.discount.description = response.coupon.description;
-					app.discount.code = response.coupon.code;
-				},
-				error: function (response)
-				{
-					$("#coupon-form-errors").text(response.responseJSON.message);
-					$("#coupon-form-successes").text('');
-
-					app.discount.applied = false;
-				}
+				$("#coupon-form").toggle();
 			});
-		});
 
-		if (validateFormInput($("#coupon-form"), false))
-		{
-			$("#coupon-form").submit();
-		}
-	</script>
+			$("#coupon-form").submit(function (e)
+			{
+				e.preventDefault();
+				var form = $(this);
+				var button = form.find('button');
+
+				if (!validateFormInput(form, false))
+				{
+					return false;
+				}
+
+				$.ajax({
+					url: form.attr('action'),
+					method: form.attr('method'),
+					data: form.serialize(),
+					headers: {
+						'X-CSRF-TOKEN': form.find('[name="_token"]').val()
+					},
+					dataType: 'JSON',
+					beforeSend: function ()
+					{
+						button.text('Vent...').prop('disabled', true);
+					},
+					complete: function ()
+					{
+						button.text('Anvend').prop('disabled', false);
+					},
+					success: function (response)
+					{
+						$("#coupon-form-successes").text(response.message);
+						$("#coupon-form-errors").text('');
+
+						app.discount.applied = true;
+						app.discount.type = response.coupon.discount_type;
+						app.discount.amount = response.coupon.discount;
+						app.discount.applies_to = response.coupon.applies_to;
+						app.discount.description = response.coupon.description;
+						app.discount.code = response.coupon.code;
+					},
+					error: function (response)
+					{
+						$("#coupon-form-errors").text(response.responseJSON.message);
+						$("#coupon-form-successes").text('');
+
+						app.discount.applied = false;
+					}
+				});
+			});
+
+			if (validateFormInput($("#coupon-form"), false))
+			{
+				$("#coupon-form").submit();
+			}
+		</script>
+	@endif
 
 	<script>
 		$("input#cc-number").payment("formatCardNumber");

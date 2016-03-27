@@ -3,13 +3,13 @@
 
 class MoneyLibrary
 {
-	public static function toMoneyFormat($amount = 100, $separate = false, $digits = 2)
+	public static function toMoneyFormat($amount = 100, $separate = false, $digits = 2, $decpoint = ',', $thousand = '.')
 	{
 		$amount = $amount / 100;
 
 		if( $separate )
 		{
-			$amount = number_format($amount, $digits, ',', '.');
+			$amount = number_format($amount, $digits, $decpoint, $thousand);
 		}
 
 		return $amount;
