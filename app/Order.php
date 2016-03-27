@@ -3,6 +3,8 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jenssegers\Date\Date;
+use Stripe\Refund;
+use Stripe\Stripe;
 
 class Order extends Model
 {
@@ -102,12 +104,48 @@ class Order extends Model
 
 	public function refund()
 	{
+		try
+		{
+			Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
+
+			Refund::create([
+				'charge' => $this->stripe_charge_token,
+				'reason' => 'requested_by_customer'
+			]);
+		} catch( \Stripe\Error\Card $e )
+		{
+		} catch( \Stripe\Error\RateLimit $e )
+		{
+		} catch( \Stripe\Error\InvalidRequest $e )
+		{
+		} catch( \Stripe\Error\Authentication $e )
+		{
+		} catch( \Stripe\Error\ApiConnection $e )
+		{
+		} catch( \Stripe\Error\Base $e )
+		{
+		} catch( Exception $e )
+		{
+		}
+
+		if ( $balanceLine = $this->lines()->where('description', 'balance')->first() )
+		{
+			$this->customer->addBalance($balanceLine->amount * 1.25);
+		}
+
 		$this->lines()->create([
 			'description'  => 'refund',
-			'amount'       => $this->getSubTotal(),
-			'tax_amount'   => $this->getTotalTaxes(),
-			'total_amount' => $this->getTotal()
+			'amount'       => $this->getSubTotal() * - 1,
+			'tax_amount'   => 0,
+			'total_amount' => $this->getTotal() * - 1
 		]);
+
+		$this->total       = 0;
+		$this->sub_total   = 0;
+		$this->total_taxes = 0;
+		$this->total_shipping = 0;
+		$this->state = 'cancelled';
+		$this->save();
 	}
 
 	public function stateToColor()

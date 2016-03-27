@@ -361,6 +361,11 @@ class Customer extends Model
 		$this->setBalance($this->balance -= $amount);
 	}
 
+	public function addBalance($amount)
+	{
+		$this->setBalance($this->balance += $amount);
+	}
+
 	public function charge($amount, $makeOrder = true, $product = 'subscription', $coupon)
 	{
 		$lib = new StripeLibrary();

@@ -15,7 +15,7 @@
 						Marker som sendt</a>
 
 					<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@refund', [ 'id' => $order->id ]) }}"><i class="icon-money"></i>
-						Refunder</a> <!-- todo -->
+						Refunder</a>
 				@endif
 			</div>
 			<div class="clear"></div>
