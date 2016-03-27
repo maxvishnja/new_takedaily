@@ -130,7 +130,7 @@ class Order extends Model
 
 		if ( $balanceLine = $this->lines()->where('description', 'balance')->first() )
 		{
-			$this->customer->addBalance($balanceLine->amount * 1.25);
+			$this->customer->addBalance($balanceLine->total_amount * -1);
 		}
 
 		$this->lines()->create([

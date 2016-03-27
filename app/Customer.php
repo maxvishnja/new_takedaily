@@ -310,9 +310,9 @@ class Customer extends Model
 		{
 			$order->lines()->create([
 				'description'  => 'balance',
-				'amount'       => $balanceAmount * 0.8,
+				'amount'       => 0,
 				'tax_amount'   => 0,
-				'total_amount' => $balanceAmount * 1.25
+				'total_amount' => $balanceAmount
 			]);
 		}
 
@@ -332,7 +332,7 @@ class Customer extends Model
 
 			if ( $coupon->discount_type == 'percentage' )
 			{
-				$couponAmount = ($product->price * 0.8) * ($coupon->discount / 100);
+				$couponAmount = $product->price * ($coupon->discount / 100);
 			}
 			elseif ( $coupon->discount_type == 'amount' )
 			{
@@ -341,9 +341,9 @@ class Customer extends Model
 
 			$order->lines()->create([
 				'description'  => 'coupon',
-				'amount'       => $couponAmount * -1,
+				'amount'       => 0,
 				'tax_amount'   => 0,
-				'total_amount' => $couponAmount * 1.25 * -1
+				'total_amount' => $couponAmount * -1
 			]);
 		}
 
