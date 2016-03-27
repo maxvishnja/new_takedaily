@@ -100,6 +100,16 @@ class Order extends Model
 		return true;
 	}
 
+	public function refund()
+	{
+		$this->lines()->create([
+			'description'  => 'refund',
+			'amount'       => $this->getSubTotal(),
+			'tax_amount'   => $this->getTotalTaxes(),
+			'total_amount' => $this->getTotal()
+		]);
+	}
+
 	public function stateToColor()
 	{
 		switch ( $this->state )

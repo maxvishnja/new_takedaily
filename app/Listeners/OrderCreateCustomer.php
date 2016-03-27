@@ -24,6 +24,6 @@ class OrderCreateCustomer
      */
     public function handle(CustomerWasBilled $event)
     {
-		$event->customer->makeOrder($event->orderAmount, $event->stripeToken, null, $event->product);
+		$event->customer->makeOrder($event->orderAmount, $event->stripeToken, null, $event->product, $event->balance, $event->balanceAmount, $event->coupon);
     }
 }

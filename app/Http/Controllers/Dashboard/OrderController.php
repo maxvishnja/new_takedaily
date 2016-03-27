@@ -57,6 +57,20 @@ class OrderController extends Controller
 		]);
 	}
 
+	function refund($id)
+	{
+		$order = Order::find($id);
+
+		if ( !$order )
+		{
+			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
+		}
+
+		$order->refund();
+
+		return \Redirect::action('Dashboard\OrderController@index')->with('success', 'Ordren blev refunderet.');
+	}
+
 	function markSent($id)
 	{
 		$order = Order::find($id);

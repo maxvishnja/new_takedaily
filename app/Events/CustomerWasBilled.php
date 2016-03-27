@@ -17,21 +17,30 @@ class CustomerWasBilled extends Event
 	public $orderAmount;
 	public $stripeToken;
 	public $product;
+	public $balance;
+	public $balanceAmount;
+	public $coupon;
 
 	/**
-	 * Create a new event instance.
+	 * CustomerWasBilled constructor.
 	 *
-	 * @param Customer $customer
-	 * @param integer  $amount
-	 * @param string   $stripeToken
-	 * @param string   $product
+	 * @param \App\Customer $customer
+	 * @param int           $amount
+	 * @param string        $stripeToken
+	 * @param string        $product
+	 * @param bool          $balance
+	 * @param int           $balanceAmount
+	 * @param mixed         $coupon
 	 */
-	public function __construct(Customer $customer, $amount = 100, $stripeToken = '', $product = 'subscription')
+	public function __construct(Customer $customer, $amount = 100, $stripeToken = '', $product = 'subscription', $balance = false, $balanceAmount = 0, $coupon)
 	{
-		$this->customer    = $customer;
-		$this->orderAmount = $amount;
-		$this->stripeToken = $stripeToken;
-		$this->product     = $product;
+		$this->customer      = $customer;
+		$this->orderAmount   = $amount;
+		$this->stripeToken   = $stripeToken;
+		$this->product       = $product;
+		$this->balance       = $balance;
+		$this->balanceAmount = $balanceAmount;
+		$this->coupon        = $coupon;
 	}
 
 	/**

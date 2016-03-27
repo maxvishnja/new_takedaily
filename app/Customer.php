@@ -276,7 +276,7 @@ class Customer extends Model
 		return $this->orders()->where('id', $id)->first();
 	}
 
-	public function makeOrder($amount = 100, $stripeChargeToken = null, $shipping = null, $product_name = 'subscription')
+	public function makeOrder($amount = 100, $stripeChargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null)
 	{
 		$shipping = $shipping ? : $this->getPlan()->getShippingPrice();
 		$taxes    = $amount * 0.20; // todo dynamic
@@ -297,12 +297,24 @@ class Customer extends Model
 			'shipping_company'    => $this->getCustomerAttribute('company')
 		]);
 
+		$product = Product::where('name', $product_name)->first();
+
 		$order->lines()->create([
 			'description'  => $product_name,
-			'amount'       => $amount - $taxes,
-			'tax_amount'   => $taxes,
-			'total_amount' => $amount
+			'amount'       => $product->price * 0.8,
+			'tax_amount'   => $product->price * 0.2,
+			'total_amount' => $product->price
 		]);
+
+		if ( $usedBalance )
+		{
+			$order->lines()->create([
+				'description'  => 'balance',
+				'amount'       => $balanceAmount * 0.8,
+				'tax_amount'   => 0,
+				'total_amount' => $balanceAmount * 1.25
+			]);
+		}
 
 		if ( $shipping > 0 )
 		{
@@ -311,6 +323,27 @@ class Customer extends Model
 				'amount'       => $shipping,
 				'tax_amount'   => 0,
 				'total_amount' => $shipping
+			]);
+		}
+
+		if ( $coupon )
+		{
+			$couponAmount = 0;
+
+			if ( $coupon->discount_type == 'percentage' )
+			{
+				$couponAmount = ($product->price * 0.8) * ($coupon->discount / 100);
+			}
+			elseif ( $coupon->discount_type == 'amount' )
+			{
+				$couponAmount = $coupon->discount;
+			}
+
+			$order->lines()->create([
+				'description'  => 'coupon',
+				'amount'       => $couponAmount * -1,
+				'tax_amount'   => 0,
+				'total_amount' => $couponAmount * 1.25 * -1
 			]);
 		}
 
@@ -328,17 +361,21 @@ class Customer extends Model
 		$this->setBalance($this->balance -= $amount);
 	}
 
-	public function charge($amount, $makeOrder = true, $product = 'subscription')
+	public function charge($amount, $makeOrder = true, $product = 'subscription', $coupon)
 	{
 		$lib = new StripeLibrary();
 
-		$chargeId = '';
+		$chargeId    = '';
+		$usedBalance = false;
+		$prevAmount  = 0;
 
 		if ( $this->balance > 0 )
 		{
-			$prevAmount = $amount;
+			$prevAmount = ($this->balance > $amount ? $amount : $this->balance);
 			$amount -= ($this->balance > $amount ? $amount : $this->balance);
 			$this->deductBalance($this->balance > $prevAmount ? $prevAmount : $this->balance);
+			$chargeId    = 'balance';
+			$usedBalance = true;
 		}
 
 		if ( $amount > 0 )
@@ -352,10 +389,17 @@ class Customer extends Model
 
 			$chargeId = $charge->id;
 		}
+		else
+		{
+			if( $chargeId == '')
+			{
+				$chargeId = 'free';
+			}
+		}
 
 		if ( $makeOrder )
 		{
-			\Event::fire(new CustomerWasBilled($this, $amount, $chargeId, $product));
+			\Event::fire(new CustomerWasBilled($this, $amount, $chargeId, $product, $usedBalance, $prevAmount * - 1, $coupon));
 		}
 
 		return true;

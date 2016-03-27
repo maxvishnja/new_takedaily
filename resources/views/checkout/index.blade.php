@@ -515,6 +515,7 @@
 						$("#coupon-form-successes").text('');
 
 						app.discount.applied = false;
+						app.discount.code = '';
 					}
 				});
 			});

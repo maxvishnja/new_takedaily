@@ -68,7 +68,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 	/*
 	 * Checkout
 	 */
-	Route::group([ 'middleware' => 'secure', 'prefix' => 'checkout' ], function ()
+	Route::group([ 'middleware' => ['secure', 'nonAdmin'], 'prefix' => 'checkout' ], function ()
 	{
 		Route::get('', 'CheckoutController@getCheckout');
 		Route::post('', 'CheckoutController@postCheckout');
@@ -156,6 +156,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 		Route::resource('orders', 'Dashboard\OrderController');
 		Route::get('orders/mark-sent/{id}', 'Dashboard\OrderController@markSent');
+		Route::get('orders/refund/{id}', 'Dashboard\OrderController@refund');
 		Route::resource('coupons', 'Dashboard\CouponController');
 		Route::resource('settings', 'Dashboard\SettingController');
 		Route::resource('products', 'Dashboard\ProductController');

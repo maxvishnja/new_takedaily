@@ -236,7 +236,7 @@ class CheckoutController extends Controller
 			$user->getCustomer()->setBalance($giftcard->worth);
 		}
 
-		$stripeCharge = $user->getCustomer()->charge(MoneyLibrary::toCents($orderPrice), true, $product);
+		$stripeCharge = $user->getCustomer()->charge(MoneyLibrary::toCents($orderPrice), true, $product, $coupon);
 
 		if ( !$stripeCharge )
 		{
