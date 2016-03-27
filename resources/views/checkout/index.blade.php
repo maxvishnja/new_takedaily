@@ -77,7 +77,7 @@
 
 				@if($product->is_subscription == 1)
 					<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">@{{ total_subscription }}
-							DKK</span><strong v-show="price !== total_subscription">@{{ total_subscription }} DKK</strong> på dit kort hver måned. Første trækning er d. {{ \Jenssegers\Date\Date::now()->addMonths($giftcard ? round($giftcard->worth / $product->price) : 1)->format('j. M Y') }}
+							DKK</span><strong v-show="price !== total_subscription">@{{ total_subscription }} DKK</strong> på dit kort hver måned. Første trækning er d. {{ \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y') }}
 					</p>
 
 					<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>
