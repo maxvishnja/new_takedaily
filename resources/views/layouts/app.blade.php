@@ -13,6 +13,8 @@
 				</div>
 			</div>
 		</div>
+
+		@yield('header_top_additional')
 	</div>
 </header>
 

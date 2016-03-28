@@ -1,5 +1,5 @@
 ﻿/**
- * Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -82,13 +82,13 @@ CKEDITOR.stylesSet.add( 'default', [
 	{
 		name: 'Styled image (left)',
 		element: 'img',
-		attributes: { 'class': 'left' }
+		attributes: { 'class': 'pull-left' }
 	},
 
 	{
 		name: 'Styled image (right)',
 		element: 'img',
-		attributes: { 'class': 'right' }
+		attributes: { 'class': 'pull-right' }
 	},
 
 	{

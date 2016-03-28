@@ -81,6 +81,16 @@ figure
 hr
 	box-sizing: content-box
 	height: 0
+	clear: both
+
+	&:after,
+	&:before
+		clear: both
+		display: block
+		overflow: hidden
+		visibility: hidden
+		width: 0
+		height: 0
 
 pre, textarea
 	overflow: auto

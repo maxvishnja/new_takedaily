@@ -1,0 +1,50 @@
+body.cms
+	h1.cms-title
+		font-size: 50px
+		font-weight: $weight-semibold
+		margin: 0 0 10px
+		text-align: center
+
+	h2.cms-title
+		font-weight: $weight-default
+		font-size: 30px
+		margin: 0
+		text-align: center
+
+	.cms-title-separator
+		margin-bottom: 50px
+
+	.img-responsive
+		max-width: 100%
+		height: auto
+		display: block
+
+		&.pull-left
+			margin-right: 20px
+			margin-bottom: 20px
+
+		&.pull-right
+			margin-left: 20px
+			margin-bottom: 20px
+
+body.cms-layout-plain
+
+body.cms-layout-header
+	header.header--with-bg
+		max-height: 800px
+		height: 65vh
+		min-height: 400px
+		margin: 0
+
+		h1
+			color: #fff
+			margin: 16vh 0 20px
+
+		h2
+			color: #fff
+
+@media all and (max-width: 767px)
+	body.cms
+		.img-responsive
+			float: none !important
+			margin: 20px auto !important
