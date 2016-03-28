@@ -12,7 +12,7 @@
 
 		<div class="module-body">
 
-			<form method="POST" class="form-horizontal row-fluid" action="{{ isset( $page ) ? URL::action('Dashboard\PageController@update', [ $page->id ]) : URL::action('Dashboard\PageController@store') }}" enctype="multipart/form-data">
+			<form id="cms_manage_form" method="POST" class="form-horizontal row-fluid" action="{{ isset( $page ) ? URL::action('Dashboard\PageController@update', [ $page->id ]) : URL::action('Dashboard\PageController@store') }}" enctype="multipart/form-data">
 				<div class="clear">
 
 					<ul class="nav nav-tabs" role="tablist">
@@ -22,6 +22,34 @@
 
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="main">
+							<div class="control-group">
+								<label for="page_title" class="control-label">Sidens layout</label>
+								<div class="controls">
+									<label style="display: inline-block; border: 1px solid #eee; border-radius: 4px; padding: 10px; margin-right: 10px;">
+										<input type="radio" name="layout" id="page_layout" value="plain" @if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'plain') checked="checked" @endif />
+										<img src="{{ asset('admin/images/icons/icon-cms-layout-plain.png') }}" alt="">
+									</label>
+
+									<label style="display: inline-block; border: 1px solid #eee; border-radius: 4px; padding: 10px;">
+										<input type="radio" name="layout" id="page_layout" value="header" @if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'header') checked="checked" @endif />
+										<img src="{{ asset('admin/images/icons/icon-cms-layout-header.png') }}" alt="">
+									</label>
+								</div>
+							</div>
+
+							<div id="layout_header_only" class="control-group" @if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'plain') style="display: none" @endif>
+								<label for="page_title" class="control-label">Top billede</label>
+								<div class="controls">
+									<input type="file" name="top_image" id="top_image" accept="image/jpeg,image/jpg,image/png,image/gif" class="form-control"/>
+									<p class="help-block">Anbefalet størrelse: 1920x800 pixels</p>
+									<p class="help-block">Tilføj et nyt billede for at skifte nuværende, ellers lad
+										den feltet være tomt.</p>
+									@if( isset($page) ? $page->top_image : '' != '')
+										<img src="{{ isset($page) ? $page->top_image : '' }}" class="img-responsive" alt="Meta image" width="480" height="200" style="max-height: 200px; width: auto;"/>
+									@endif
+								</div>
+							</div>
+
 							<div class="control-group">
 								<label for="page_title" class="control-label">Sidens titel</label>
 								<div class="controls">
@@ -142,5 +170,21 @@
 			language: "da",
 			filebrowserImageUploadUrl: '/dashboard/upload/image' // todo
 		});
+
+		$("#cms_manage_form").on('change', function ()
+		{
+			$("#layout_header_only").css('display', $(this).find('input[name="layout"]:checked').val() == 'header' ? 'block' : 'none');
+		});
 	</script>
+
+	<style>
+		iframe.cke_wysiwyg_frame.cke_reset,
+		span#cke_1_top.cke_top.cke_reset_all {
+			width:     100%;
+			max-width: 1140px;
+			height:    100%;
+			margin:    0 auto !important;
+			display:   block;
+		}
+	</style>
 @endsection
