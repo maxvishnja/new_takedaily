@@ -9,6 +9,8 @@
 			<h2 class="cms-title">{{ $page->sub_title }}</h2>
 		@endif
 	@endif
+
+	{{-- todo add sticky cta --}}
 @endsection
 
 @section('content')
