@@ -804,7 +804,7 @@
 							"f": true
 						},
 						"C": {
-							"a": true,
+							"a": false,
 							"b": false,
 							"c": false,
 							"d": false,
@@ -839,7 +839,7 @@
 							"f": true
 						},
 						"C": {
-							"a": true,
+							"a": false,
 							"b": false,
 							"c": false,
 							"d": false,
@@ -874,29 +874,15 @@
 							"f": false
 						},
 						"C": {
-							"a": true,
+							"a": false,
 							"b": false,
 							"c": false,
 							"d": false,
 							"e": true,
 							"f": false
 						},
-						"D": {
-							"a": false,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": false,
-							"f": false
-						},
-						"E": {
-							"a": false,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": false,
-							"f": false
-						}
+						"D": false,
+						"E": false
 					}
 				},
 				user_data: {

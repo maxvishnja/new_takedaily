@@ -55,7 +55,9 @@
 											<span>En måneds forbrug<br/>
 											skræddersyet til dig</span>
 											<small>Kun</small>
-											<strong>149<small> kr.</small></strong>
+											<strong>149
+												<small> kr.</small>
+											</strong>
 										</div>
 									</div>
 								</div>
@@ -182,48 +184,59 @@
 							<div class="container">
 								<h2 class="text-center">Spiser du sundt, men tillader dig selv en cigaret i ny og
 									næ?</h2>
+								<p class="text-center">
+									Ryger du engang imellem, nedbryder røgen mange af de C-vitaminer, du indtager.
+								</p>
 
-								<div class="row">
-									<div class="col-md-6">
-										<img src="//placehold.it/560x280" alt="Image"/>
-									</div>
-									<div class="col-md-6">
-										<p>
-											At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv være en udfordring.
-											Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take Daily er diamentrale modsætninger.  
-										</p>
-										<p>Vi udvælger og sammensætter omhyggeligt de vitaminer og mineraler, som lige præcis din krop har brug for.
-											Koncentrationerne er individuelle og kommer i din helt egen æske.
-										</p>
 
-										<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
-											i dag</a>
-									</div>
+								<div class="text-center">
+									<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
+										i dag</a>
 								</div>
 							</div>
 						</div>
 
 						<div class="slide">
 							<div class="container">
-								<h2 class="text-center">Spiser du sundt, men tillader dig selv en cigaret i ny og
-									næ?</h2>
+								<h2 class="text-center">Er du vegetar, men ikke fan af bælgfrugter, soyabønner og tofu?</h2>
+								<p class="text-center">
+									Som vegetar er det svært at få jern og B-vitaminer nok.
+								</p>
 
-								<div class="row">
-									<div class="col-md-6">
-										<img src="//placehold.it/560x280" alt="Image"/>
-									</div>
-									<div class="col-md-6">
-										<p>
-											At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv være en udfordring.
-											Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take Daily er diamentrale modsætninger.  
-										</p>
-										<p>Vi udvælger og sammensætter omhyggeligt de vitaminer og mineraler, som lige præcis din krop har brug for.
-											Koncentrationerne er individuelle og kommer i din helt egen æske.
-										</p>
 
-										<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
-											i dag</a>
-									</div>
+								<div class="text-center">
+									<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
+										i dag</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="slide">
+							<div class="container">
+								<h2 class="text-center">Har du lidt for meget om ørene for tiden?</h2>
+								<p class="text-center">
+									I en stresset periode har du brug for lidt ekstra B-vitamin.
+								</p>
+
+
+								<div class="text-center">
+									<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
+										i dag</a>
+								</div>
+							</div>
+						</div>
+
+						<div class="slide">
+							<div class="container">
+								<h2 class="text-center">Tager du en multivitaminpille med lidt af det hele?</h2>
+								<p class="text-center">
+									Din krop, kost og livsstil kan give et billede af, hvad du i virkeligheden har brug for.
+								</p>
+
+
+								<div class="text-center">
+									<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
+										i dag</a>
 								</div>
 							</div>
 						</div>

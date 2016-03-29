@@ -12,119 +12,105 @@ class CombinationSeeder extends Seeder
 	public function run()
 	{
 		$combinations = json_decode('{
-		"1": {
+	"1": {
 		"A": {
 			"a": false,
-							"b": false,
-							"c": true,
-							"d": true,
-							"e": true,
-							"f": false
-						},
-						"B": {
+			"b": false,
+			"c": true,
+			"d": true,
+			"e": true,
+			"f": false
+		},
+		"B": {
 			"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": true
-						},
-						"C": {
-			"a": true,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": true,
-							"f": true
-						},
-						"D": {
+			"b": false,
+			"c": true,
+			"d": false,
+			"e": true,
+			"f": true
+		},
+		"C": {
 			"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": false
-						},
-						"E": {
+			"b": false,
+			"c": false,
+			"d": false,
+			"e": true,
+			"f": true
+		},
+		"D": {
 			"a": false,
-							"b": true,
-							"c": true,
-							"d": true,
-							"e": true,
-							"f": false
-						}
-					},
-					"2": {
+			"b": false,
+			"c": true,
+			"d": false,
+			"e": true,
+			"f": false
+		},
+		"E": {
+			"a": false,
+			"b": true,
+			"c": true,
+			"d": true,
+			"e": true,
+			"f": false
+		}
+	},
+	"2": {
 		"A": false,
-						"B": {
+		"B": {
 			"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": true
-						},
-						"C": {
-			"a": true,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": true,
-							"f": true
-						},
-						"D": {
+			"b": false,
+			"c": true,
+			"d": false,
+			"e": true,
+			"f": true
+		},
+		"C": {
 			"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": false
-						},
-						"E": {
+			"b": false,
+			"c": false,
+			"d": false,
+			"e": true,
+			"f": true
+		},
+		"D": {
 			"a": false,
-							"b": true,
-							"c": true,
-							"d": true,
-							"e": true,
-							"f": false
-						}
-					},
-					"3": {
+			"b": false,
+			"c": true,
+			"d": false,
+			"e": true,
+			"f": false
+		},
+		"E": {
+			"a": false,
+			"b": true,
+			"c": true,
+			"d": true,
+			"e": true,
+			"f": false
+		}
+	},
+	"3": {
 		"A": false,
-						"B": {
+		"B": {
 			"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": false
-						},
-						"C": {
-			"a": true,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": true,
-							"f": false
-						},
-						"D": {
+			"b": false,
+			"c": true,
+			"d": false,
+			"e": true,
+			"f": false
+		},
+		"C": {
 			"a": false,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": false,
-							"f": false
-						},
-						"E": {
-			"a": false,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": false,
-							"f": false
-						}
-					}
-				}', true);
+			"b": false,
+			"c": false,
+			"d": false,
+			"e": true,
+			"f": false
+		},
+		"D": false,
+		"E": false
+	}
+}', true);
 
 		foreach ( $combinations as $combinationGroupOne => $combinationGroupOneContent )
 		{
