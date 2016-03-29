@@ -35,16 +35,53 @@ body.cms-layout-header
 		height: 65vh
 		min-height: 400px
 		margin: 0
+		position: relative
 
 		h1
 			color: #fff
-			margin: 16vh 0 20px
+			margin: 12vh 0 20px
 
 		h2
 			color: #fff
+
+		.cta
+			background: rgba(23,170,101,0.75)
+			width:      100%
+			position:   absolute
+			left:       0
+			bottom:     0
+			color:      #fff
+			text-align: center
+			padding:    30px 15px
+			font-size:  26px
+			transition: background 300ms
+
+			a
+				color: #fff
+				text-decoration: underline
+
+			&.cta--sticky
+				position: fixed
+				top: 0
+				bottom: auto
+				background: rgba(23,170,101,0.95)
 
 @media all and (max-width: 767px)
 	body.cms
 		.img-responsive
 			float: none !important
 			margin: 20px auto !important
+
+	body.cms-layout-header
+		header.header--with-bg
+			max-height: 800px
+			height: 65vh
+			min-height: 400px
+			margin: 0
+
+			h1
+				font-size: 40px
+				margin: 10vh 0 20px
+
+			h2
+				font-size: 26px

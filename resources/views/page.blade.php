@@ -10,7 +10,9 @@
 		@endif
 	@endif
 
-	{{-- todo add sticky cta --}}
+	<div class="cta">
+		<a href="/flow">Start selv</a> i dag eller giv Take Daily <a href="/gifting">i gave</a>
+	</div>
 @endsection
 
 @section('content')
@@ -35,15 +37,33 @@
 
 	@if( $page->layout == 'header' )
 		<style>
-			header.header--with-bg
-			{
-				background-color: #fff;
-				background-repeat: no-repeat;
-				background-size: cover;
+			header.header--with-bg {
+				background-color:    #fff;
+				background-repeat:   no-repeat;
+				background-size:     cover;
 				background-position: center center;
-				background-image: -webkit-linear-gradient(top, rgba(97,97,97,0.64) 0%, rgba(51,51,51,0.00) 100%), url({{ asset($page->top_image) }});
-				background-image: linear-gradient(-180deg, rgba(97,97,97,0.64) 0%, rgba(51,51,51,0.00) 100%), url({{ asset($page->top_image) }});
+				background-image:    -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url({{ asset($page->top_image) }});
+				background-image:    linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url({{ asset($page->top_image) }});
 			}
 		</style>
 	@endif
+@endsection
+
+@section('footer_scripts')
+	<script>
+		var ctaBlock = $(".cta");
+		var headerBlock = $("header.header--with-bg");
+
+		$(window).scroll(function()
+		{
+			if( $(this).scrollTop() > (headerBlock.height() - ctaBlock.outerHeight()) )
+			{
+				ctaBlock.addClass('cta--sticky');
+			}
+			else
+			{
+				ctaBlock.removeClass('cta--sticky');
+			}
+		});
+	</script>
 @endsection
