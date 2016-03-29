@@ -12,26 +12,23 @@
 			<div class="gifting-selectors">
 				<label class="gifting-selector" for="months_input_1">
 					<input type="radio" name="product_name" value="giftcard_1" id="months_input_1"/>
-					<div class="gifting-selector-content">
-						<strong>1 måned</strong>
-						<span>149 kr.</span>
-					</div>
+					<span class="gifting-checkmark"><span class="icon icon-check-large"></span></span>
+					<strong class="gifting-price">149 kr.</strong>
+					<span class="gifting-months">1 måned</span>
 				</label>
 
 				<label class="gifting-selector" for="months_input_3">
 					<input type="radio" name="product_name" value="giftcard_3" id="months_input_3"/>
-					<div class="gifting-selector-content">
-						<strong>3 måneder</strong>
-						<span>447 kr.</span>
-					</div>
+					<span class="gifting-checkmark"><span class="icon icon-check-large"></span></span>
+					<strong class="gifting-price">447 kr.</strong>
+					<span class="gifting-months">3 måneder</span>
 				</label>
 
 				<label class="gifting-selector" for="months_input_6">
 					<input type="radio" name="product_name" value="giftcard_6" id="months_input_6"/>
-					<div class="gifting-selector-content">
-						<strong>6 måneder</strong>
-						<span>894 kr.</span>
-					</div>
+					<span class="gifting-checkmark"><span class="icon icon-check-large"></span></span>
+					<strong class="gifting-price">894 kr.</strong>
+					<span class="gifting-months">6 måneder</span>
 				</label>
 			</div>
 
@@ -45,62 +42,78 @@
 		}
 
 		.gifting-selector {
+			margin:              20px;
 			display:             inline-block;
-			margin-right:        16px;
 			-webkit-user-select: none;
 			user-select:         none;
 			text-align:          center;
 			cursor:              pointer;
+			text-align:          right;
+			background:          transparent url(/images/giftcard-bg.png) no-repeat center center;
+			position:            relative;
+			width:               260px;
+			height:              160px;
+			border-radius:       4px;
+			box-shadow:          0 0 20px rgba(0, 0, 0, .2);
+			transition: box-shadow 300ms;
 		}
 
-		.gifting-selector:last-of-type {
-			margin-right: 0;
+		.gifting-selector:hover {
+			z-index: 2;
+			box-shadow:          0 0 50px rgba(0, 0, 0, .2);
 		}
 
-		.gifting-selector .gifting-selector-content strong {
+		.gifting-selector strong.gifting-price {
+			width:       230px;
 			display:     block;
-			color:       #777;
-			font-size:   22px;
-			font-weight: 600;
-			line-height: 1.2;
+			font-size:   36px;
+			position:    relative;
+			font-weight: 700;
+			color:       #11834E;
+			top:         15px;
+			right:       15px;
+			float:       right;
 		}
 
-		.gifting-selector .gifting-selector-content span {
+		.gifting-selector span.gifting-months {
+			width:       230px;
 			display:     block;
-			color:       #aaa;
-			font-size:   16px;
-			line-height: 1.2;
+			position:    relative;
+			font-weight: normal;
+			font-size:   20px;
+			color:       #555555;
+			top:         15px;
+			right:       15px;
+			float:       right;
 		}
 
-		.gifting-selector .gifting-selector-content {
-			border:        2px solid #777;
-			border-radius: 4px;
-			color:         red;
-			padding:       30px 20px;
+		.gifting-selector .gifting-checkmark {
+			display: none;
+			position: absolute;
 		}
 
-		.gifting-selector:hover .gifting-selector-content {
-			border-color: #555;
+		.gifting-selector input[type="radio"]:checked ~ .gifting-checkmark {
+			display: block;
+			background: #333;
+			border-radius: 100%;
+			padding: 20px 0;
+			top: 50%;
+			left: 50%;
+			margin-left: -35px;
+			margin-top: -35px;
+			width: 70px;
+			height: 70px;
+			z-index: 2;
+			text-align: center;
+			box-shadow: 0 0 0 6px #fff, 0 0 50px #fff;
 		}
 
-		.gifting-selector:hover .gifting-selector-content strong {
-			color: #555;
-		}
-
-		.gifting-selector:hover .gifting-selector-content span {
-			color: #777;
-		}
-
-		.gifting-selector input[type="radio"]:checked ~ .gifting-selector-content {
-			border-color: #17AA66;
-		}
-
-		.gifting-selector input[type="radio"]:checked ~ .gifting-selector-content strong {
-			color: #11834E;
-		}
-
-		.gifting-selector input[type="radio"]:checked ~ .gifting-selector-content span {
-			color: #5BBA8E;
+		@media (-webkit-min-device-pixel-ratio: 2),
+		(min-resolution: 192dpi) {
+			.gifting-selector {
+				background-image: url(/images/giftcard-bg@2x.png);
+				background-size: 260px 160px;
+			}
 		}
 	</style>
 @endsection
