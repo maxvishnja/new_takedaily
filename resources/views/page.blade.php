@@ -8,11 +8,11 @@
 		@if( $page->sub_title != '')
 			<h2 class="cms-title">{{ $page->sub_title }}</h2>
 		@endif
-	@endif
 
-	<div class="cta">
-		<a href="/flow">Start selv</a> i dag eller giv Take Daily <a href="/gifting">i gave</a>
-	</div>
+		<div class="cta hidden-xs">
+			<a href="/flow">Start selv</a> i dag eller giv Take Daily <a href="/gifting">i gave</a>
+		</div>
+	@endif
 @endsection
 
 @section('content')
@@ -29,7 +29,6 @@
 				@if( $page->sub_title != '')
 					<h2 class="cms-title" style="height: 0; margin: 0; color: transparent; position: absolute; text-indent: -99999999px; left: -9999999px;">{{ $page->sub_title }}</h2>
 				@endif
-				<div class="cms-title-separator"></div>
 			@endif
 			{!! $page->body !!}
 		</article>

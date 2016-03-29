@@ -3854,6 +3854,14 @@ body.index header.header--landing {
     text-align: center;
     padding: 55px;
     font-size: 32px; }
+    body.index header.header--landing .header_footer.header_footer--sticky {
+      position: fixed;
+      top: 0;
+      bottom: auto;
+      background: rgba(51, 51, 51, 0.95);
+      z-index: 150;
+      padding: 30px 15px;
+      font-size: 26px; }
     body.index header.header--landing .header_footer a {
       color: #fff;
       text-decoration: underline; }
@@ -4790,7 +4798,7 @@ body.cms-layout-header header.header--with-bg {
   body.cms-layout-header header.header--with-bg h2 {
     color: #fff; }
   body.cms-layout-header header.header--with-bg .cta {
-    background: rgba(23, 170, 101, 0.75);
+    background: rgba(23, 170, 102, 0.75);
     width: 100%;
     position: absolute;
     left: 0;
@@ -4807,7 +4815,8 @@ body.cms-layout-header header.header--with-bg {
       position: fixed;
       top: 0;
       bottom: auto;
-      background: rgba(23, 170, 101, 0.95); }
+      background: rgba(23, 170, 102, 0.95);
+      z-index: 150; }
 
 @media all and (max-width: 767px) {
   body.cms .img-responsive {

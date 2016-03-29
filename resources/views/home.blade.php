@@ -259,5 +259,20 @@
 @section('footer_scripts')
 	<script>
 		$("#slider_two").slider();
+
+		var ctaBlock = $(".header_footer");
+		var headerBlock = $("header.header--landing");
+
+		$(window).scroll(function()
+		{
+			if( $(this).scrollTop() > (headerBlock.height()) )
+			{
+				ctaBlock.addClass('header_footer--sticky');
+			}
+			else
+			{
+				ctaBlock.removeClass('header_footer--sticky');
+			}
+		});
 	</script>
 @endsection
