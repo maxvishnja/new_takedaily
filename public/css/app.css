@@ -3829,6 +3829,29 @@ body.stop-scrolling {
     -webkit-transform: translateY(145%);
     transform: translateY(145%); } }
 
+body.index .splash_circle {
+  background: #fff;
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  text-align: center;
+  padding: 72px 10px 0;
+  color: #555; }
+  body.index .splash_circle span {
+    font-size: 13px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 20px; }
+  body.index .splash_circle small {
+    font-size: 20px;
+    color: #17aa66;
+    font-weight: 600; }
+  body.index .splash_circle strong {
+    font-size: 60px;
+    font-weight: 700;
+    color: #17aa66;
+    display: block; }
+
 body.index header.header--landing {
   height: 100vh;
   position: relative;

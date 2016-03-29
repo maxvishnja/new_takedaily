@@ -18,26 +18,50 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="slider_container" id="slider_one">
+			<div class="icon slider-arrow-left icon-arrow-left"></div>
+			<div class="icon slider-arrow-right icon-arrow-right"></div>
 			<div class="header_content">
-				<div class="header_slider">
-					<div class="header_slide">
-						<div class="row">
-							<div class="col-md-6">
-								<h1>Nu bliver det nemt,<br/>
-									at få din krop i balance.</h1>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam distinctio
-									eligendi.</p>
-								<a href="#" class="button button--rounded button--huge button--green">
-									<strong>Tryk her for at starte nu</strong>
-								</a>
+				<div class="slider">
+					<div class="slide_container">
+						<div class="slide">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-6">
+										<h1>Nu bliver det nemt,<br/>
+											at få din krop i balance.</h1>
+										<a href="#" class="button button--rounded button--huge button--green m-t-30">
+											<strong>Tryk her for at starte nu</strong>
+										</a>
+									</div>
+									<div class="col-md-6 hidden-sm hidden-xs">
+										<img src="/images/product_small.png" alt="Take Daily box">
+									</div>
+								</div>
 							</div>
-							<div class="col-md-6">
-								<img src="/images/product_small.png" alt="Take Daily box">
+						</div>
+						<div class="slide">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-8">
+										<h1>Take Daily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for. </h1>
+										<a href="#" class="button button--rounded button--huge button--green m-t-30">
+											<strong>Tryk her for at starte nu</strong>
+										</a>
+									</div>
+
+									<div class="col-md-4 hidden-sm hidden-xs">
+										<div class="splash_circle">
+											<span>En måneds forbrug<br/>
+											skræddersyet til dig</span>
+											<small>Kun</small>
+											<strong>149<small> kr.</small></strong>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="header_slide"></div>
 				</div>
 			</div>
 		</div>
@@ -165,29 +189,15 @@
 									</div>
 									<div class="col-md-6">
 										<p>
-											At finde de helt rigtige vitaminer og mineraler, som din krop har brug for,
-											kan
-											i
-											sig
-											selv
-											være en
-											udfordring. Hylderne bugner af multivitaminpiller og komplette
-											kosttilskudspakker.
-											Take
-											Daily er
-											diamentrale modsætninger.  
+											At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv være en udfordring.
+											Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take Daily er diamentrale modsætninger.  
 										</p>
-										<p>Vi udvælger og sammensætter omhyggeligt de vitaminer og mineraler, som lige
-											præcis
-											din
-											krop
-											har brug
-											for. Koncentrationerne er individuelle og kommer i din helt egen æske.
+										<p>Vi udvælger og sammensætter omhyggeligt de vitaminer og mineraler, som lige præcis din krop har brug for.
+											Koncentrationerne er individuelle og kommer i din helt egen æske.
 										</p>
 
-										<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start
-											på
-											Take Daily i dag</a>
+										<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
+											i dag</a>
 									</div>
 								</div>
 							</div>
@@ -258,14 +268,15 @@
 
 @section('footer_scripts')
 	<script>
+		$("#slider_one").slider();
 		$("#slider_two").slider();
 
 		var ctaBlock = $(".header_footer");
 		var headerBlock = $("header.header--landing");
 
-		$(window).scroll(function()
+		$(window).scroll(function ()
 		{
-			if( $(this).scrollTop() > (headerBlock.height()) )
+			if ($(this).scrollTop() > (headerBlock.height()))
 			{
 				ctaBlock.addClass('header_footer--sticky');
 			}
