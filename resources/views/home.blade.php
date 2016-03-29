@@ -153,7 +153,7 @@
 			</div>
 		</div>
 
-		<div class="block block--four">
+		<div class="block block--four hidden-xs">
 			<div class="container">
 				<video autoplay="autoplay" poster="/video/animation.jpg" style="width:100%" title="animation" loop="loop" onended="var v=this;setTimeout(function(){v.play()},300)">
 					<source src="/video/animation.m4v" type="video/mp4"/>

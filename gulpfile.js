@@ -40,6 +40,7 @@ elixir(function (mix)
 		'/vendor/slider.js',
 		'/vendor/payment.jquery.js',
 		'/vendor/js.cookie.js',
+		//'/vendor/video.js',
 		'/app.js',
 	], 'public/js/app.js');
 });
