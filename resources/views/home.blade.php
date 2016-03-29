@@ -154,7 +154,13 @@
 		</div>
 
 		<div class="block block--four">
-			*Animation*
+			<div class="container">
+				<video autoplay="autoplay" poster="/video/animation.jpg" style="width:100%" title="animation" loop="loop" onended="var v=this;setTimeout(function(){v.play()},300)">
+					<source src="/video/animation.m4v" type="video/mp4"/>
+					<source src="/video/animation.webm" type="video/webm"/>
+					<source src="/video/animation.ogv" type="video/ogg"/>
+				</video>
+			</div>
 		</div>
 
 		<div class="block block--five">
