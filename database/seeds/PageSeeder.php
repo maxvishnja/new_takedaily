@@ -20,7 +20,8 @@ class PageSeeder extends Seeder
 			'meta_title'       => 'Opret et abonnent på vitaminer',
 			'meta_description' => 'Opret et abonnent på vitaminer hos TakeDaily',
 			'meta_image'       => '',
-			'is_locked'        => 1
+			'is_locked'        => 1,
+			'layout'           => 'plain'
 		]);
 
 		// About
@@ -32,7 +33,8 @@ class PageSeeder extends Seeder
 			'meta_title'       => 'Om TakeDaily',
 			'meta_description' => 'Om TakeDaily og vores firma',
 			'meta_image'       => '',
-			'is_locked'        => 1
+			'is_locked'        => 1,
+			'layout'           => 'plain'
 		]);
 
 		// Terms
@@ -44,7 +46,8 @@ class PageSeeder extends Seeder
 			'meta_title'       => 'Vores betingelser',
 			'meta_description' => 'Handelsbetingelser',
 			'meta_image'       => '',
-			'is_locked'        => 1
+			'is_locked'        => 1,
+			'layout'           => 'plain'
 		]);
 
 		// Contact
@@ -56,7 +59,8 @@ class PageSeeder extends Seeder
 			'meta_title'       => 'Kontakt os',
 			'meta_description' => 'Hjælp',
 			'meta_image'       => '',
-			'is_locked'        => 1
+			'is_locked'        => 1,
+			'layout'           => 'plain'
 		]);
 	}
 }

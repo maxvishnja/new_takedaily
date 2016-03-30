@@ -57,6 +57,7 @@
 									<p class="help-block">Sidens url bliver:
 										<mark @if(!isset($page) || (isset($page) && !$page->isLocked())) id="page_handle_preview" @endif>
 											/{{ isset($page) ? $page->url_identifier : '' }}</mark>
+										@if(isset($page))<p><small>Der bliver automatisk oprettet omdirigeringer for at SEO ikke går tabt.</small></p>@endif
 									</p>
 								</div>
 							</div>
@@ -150,8 +151,8 @@
 			var handle = value;
 			handle = handle.trim(' ');
 			handle = handle.toLowerCase();
-			handle = handle.replace(/(å)/g, 'aa');
-			handle = handle.replace(/(ø)/g, 'oe');
+			handle = handle.replace(/(å)/g, 'a');
+			handle = handle.replace(/(ø)/g, 'o');
 			handle = handle.replace(/(æ)/g, 'ae');
 			handle = handle.replace(/\s\s+/g, ' ');
 			handle = handle.replace(/( )/g, '-');

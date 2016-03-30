@@ -2,7 +2,7 @@
 	<ul class="navigation" id="mobile-nav">
 		<a class="visible-sm visible-xs icon icon-cross-large toggle-mobile-nav" href="#mobile-nav"></a>
 		<li><a href="/fra-a-til-zink">Fra A til Zink</a></li>
-		<li><a href="/saadan-virker-det">Sådan virker det</a></li>
+		<li><a href="/sadan-virker-det">Sådan virker det</a></li>
 		<li><a href="/test-og-kvalitet">Test &amp; Kvalitet</a></li>
 		@if(Auth::guest() || Auth::user()->isUser())
 			<li><a href="/account"><strong>Mit Take Daily</strong></a></li>

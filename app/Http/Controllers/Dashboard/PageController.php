@@ -61,7 +61,7 @@ class PageController extends Controller
 		$page->sub_title        = $request->get('sub_title');
 		$page->body             = $request->get('body');
 		$page->meta_title       = $request->get('meta_title');
-		$page->layout       = $request->get('layout');
+		$page->layout           = $request->get('layout');
 		$page->meta_description = substr($request->get('meta_description'), 0, 200);
 
 		if ( $img = $request->file('meta_image') )
@@ -112,11 +112,11 @@ class PageController extends Controller
 
 		$page->save();
 
-		if( $oldIdentifier != $page->url_identifier )
+		if ( $oldIdentifier != $page->url_identifier )
 		{
 			UrlRewrite::create([
 				'requested_path' => '/' . $oldIdentifier,
-				'actual_path' => '/' . $page->url_identifier
+				'actual_path'    => '/' . $page->url_identifier
 			]);
 
 			\Cache::tags('url_rewrites')->flush();
@@ -140,6 +140,7 @@ class PageController extends Controller
 		$page->sub_title        = $request->get('sub_title');
 		$page->body             = $request->get('body');
 		$page->meta_title       = $request->get('meta_title');
+		$page->layout           = $request->get('layout');
 		$page->meta_description = substr($request->get('meta_description'), 0, 200);
 
 		if ( $img = $request->file('meta_image') )
@@ -163,6 +164,29 @@ class PageController extends Controller
 			$request->file('meta_image')->move($imgPath, $imgName);
 
 			$page->meta_image = "/uploads/cms/meta/$imgName";
+		}
+
+		if ( $topImg = $request->file('top_image') )
+		{
+			$imgPath = public_path('uploads/cms/top/');
+			$imgName = str_random(40) . '.' . $topImg->getClientOriginalExtension();
+
+			$fileIsUnique = false;
+			while( !$fileIsUnique )
+			{
+				if ( \File::exists("$imgPath/$imgName") )
+				{
+					$imgName = str_random(40) . '.' . $topImg->getClientOriginalExtension();
+				}
+				else
+				{
+					$fileIsUnique = true;
+				}
+			}
+
+			$topImg->move($imgPath, $imgName);
+
+			$page->top_image = "/uploads/cms/top/$imgName";
 		}
 
 		$page->save();

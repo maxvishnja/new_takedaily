@@ -30,6 +30,8 @@ class RewriteController extends Controller
 	{
 		UrlRewrite::find($id)->delete();
 
+		\Cache::tags('url_rewrites')->flush();
+
 		return \Redirect::back()->with('success', 'Omdirigeringen blev slettet!');
 	}
 }
