@@ -28,11 +28,9 @@ Route::group([ 'middleware' => 'web' ], function ()
 	Route::post('flow', function (\App\Apricot\Libraries\CombinationLibrary $combinationLibrary, \Illuminate\Http\Request $request)
 	{
 		$userData = json_decode($request->get('user_data'));
-		$combinationLibrary->generateResult($userData);
 
-		$request->session()->put('my_combination', $combinationLibrary->getResult());
-		$request->session()->put('user_data', $userData);
-		$request->session()->put('product_name', $request->get('product_name'));
+		Session::put('user_data', $userData);
+		Session::put('product_name', $request->get('product_name'));
 
 		return Redirect::action('CheckoutController@getCheckout');
 	});

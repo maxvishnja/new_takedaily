@@ -21,25 +21,26 @@ class CheckoutController extends Controller
 
 	function getCheckout(Request $request)
 	{
-		$request->session()->set('product_name', $request->get('product_name', $request->session()->get('product_name', 'subscription')));
+		\Session::set('product_name', $request->get('product_name', \Session::get('product_name', 'subscription')));
 
-		if ( $request->session()->get('product_name') == 'subscription' && !$request->session()->has('user_data') )
+		if ( \Session::get('product_name') == 'subscription' && !\Session::has('user_data') )
 		{
+			dd( \Session::all() );
 			return \Redirect::to('/flow')->withErrors([ 'Vi skal finde dine vitaminer før du kan handle.' ]);
 		}
 
 		$giftcard = null;
 
-		if ( $request->session()->has('giftcard_id') && $request->session()->has('giftcard_token') && $request->session()->get('product_name') == 'subscription' )
+		if ( \Session::has('giftcard_id') && \Session::has('giftcard_token') && \Session::get('product_name') == 'subscription' )
 		{
-			$giftcard = Giftcard::where('id', $request->session()->get('giftcard_id'))
-								->where('token', $request->session()->get('giftcard_token'))
+			$giftcard = Giftcard::where('id', \Session::get('giftcard_id'))
+								->where('token', \Session::get('giftcard_token'))
 								->where('is_used', 0)
 								->first();
 		}
 
 		return view('checkout.index', [
-			'user_data' => $request->session()->get('user_data'),
+			'user_data' => \Session::get('user_data'),
 			'product'   => Product::where('name', \Session::get('product_name', 'subscription'))->first(),
 			'giftcard'  => $giftcard
 		]);
@@ -98,33 +99,16 @@ class CheckoutController extends Controller
 
 		$giftcard = null;
 
-		if ( $request->session()->has('giftcard_id') && $request->session()->has('giftcard_token') && $request->session()->get('product_name') == 'subscription' )
+		if ( \Session::has('giftcard_id') && \Session::has('giftcard_token') && \Session::get('product_name') == 'subscription' )
 		{
-			$giftcard = Giftcard::where('id', $request->session()->get('giftcard_id'))
-								->where('token', $request->session()->get('giftcard_token'))
+			$giftcard = Giftcard::where('id', \Session::get('giftcard_id'))
+								->where('token', \Session::get('giftcard_token'))
 								->where('is_used', 0)
 								->first();
 		}
 
 		if ( \Auth::guest() )
 		{
-			try
-			{
-				$stripeCustomer = Customer::create([
-					"description"     => "Customer for {$email}",
-					"source"          => $stripeToken
-				]);
-			} catch( Card $ex )
-			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
-			} catch( \Exception $ex )
-			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
-			} catch( \Error $ex )
-			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
-			}
-
 			$user = User::create([
 				'name'     => ucwords($info['name']),
 				'email'    => $email,
@@ -137,6 +121,8 @@ class CheckoutController extends Controller
 			if ( $productItem->is_subscription == 1 )
 			{
 				\Auth::login($user, true);
+				\Session::put('user_data', $userData);
+				\Session::put('product_name', $product);
 			}
 		}
 		else

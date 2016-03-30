@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Animation fix">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Apricot/Repositories/RewriteRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Dashboard/RewriteController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/rewrites/home.blade.php" />
+    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Moved sticky CTA to flow. Added rewrites to admin.">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js" afterPath="$PROJECT_DIR$/public/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/app.js.map" afterPath="$PROJECT_DIR$/public/js/app.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/flow.blade.php" afterPath="$PROJECT_DIR$/resources/views/flow.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
     </list>
     <ignored path="TakeDaily.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +26,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="flow.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="flow.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37820044">
-              <caret line="771" column="19" selection-start-line="771" selection-start-column="19" selection-end-line="771" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="782" column="75" selection-start-line="782" selection-start-column="75" selection-end-line="782" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="32" selection-end-column="68" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckoutController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.51207024">
+              <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,7 +89,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Dashboard/OrderController.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/NonAdmin.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
         <option value="$PROJECT_DIR$/app/Events/CustomerWasBilled.php" />
         <option value="$PROJECT_DIR$/app/Listeners/OrderCreateCustomer.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/products.php" />
@@ -101,11 +114,12 @@
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/app/Apricot/Repositories/RewriteRepository.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/rewrites/home.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Dashboard/RewriteController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/flow.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
       </list>
     </option>
   </component>
@@ -287,6 +301,28 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emails" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TakeDaily" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TakeDaily" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -298,7 +334,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/RewriteController.php&#10;UrlRe&#9;null&#9;null&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;CombinationS&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;_l&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;sprites&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/node_modules/gulp.spritesmith/test/expected-files/retina-mapped/sprite.scss&#10;giftin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/gifting.blade.php&#10;_de&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;succe&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;ind&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;landin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;_cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;_norma&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_normalise.sass&#10;page.b&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/page.blade.php&#10;page.blade.p&#9;null&#9;null&#10;PageControl&#9;null&#9;null&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/manage.blade.php&#10;mana&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/coupons/manage.blade.php&#10;2016_03_28_143852_add_layout_to_cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_28_143852_add_layout_to_cms.php&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;Check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;show&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;Cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Customer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Order&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Order.php&#10;User&#9;null&#9;null&#10;Produ&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/en/products.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;OrderControl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/OrderController.php&#10;cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;CustomerCon&#9;null&#9;null&#10;Create&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Listeners/OrderCreateCustomer.php&#10;2016_03_27_140254_update_customers_balance&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_27_140254_update_customers_balance.php&#10;Cu&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Custom&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Gif&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Giftcard.php&#10;Ch&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;MoneyL&#9;null&#9;null&#10;Che&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;Checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;inde&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;transact&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/account/transaction.blade.php&#10;Coupon&#9;null&#9;null&#10;OrderContr&#9;null&#9;null&#10;index.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;Plan&#9;null&#9;null&#10;gifting&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/gifting.blade.php" />
+    <property name="SearchEverywhereHistoryKey" value="Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;UrlRe&#9;null&#9;null&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;CombinationS&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;_l&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;sprites&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/node_modules/gulp.spritesmith/test/expected-files/retina-mapped/sprite.scss&#10;giftin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/gifting.blade.php&#10;_de&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;succe&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;ind&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;landin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;_cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;_norma&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_normalise.sass&#10;page.b&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/page.blade.php&#10;page.blade.p&#9;null&#9;null&#10;PageControl&#9;null&#9;null&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/manage.blade.php&#10;mana&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/coupons/manage.blade.php&#10;2016_03_28_143852_add_layout_to_cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_28_143852_add_layout_to_cms.php&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;Check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;show&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;Cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Customer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Order&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Order.php&#10;User&#9;null&#9;null&#10;Produ&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/en/products.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;OrderControl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/OrderController.php&#10;cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;CustomerCon&#9;null&#9;null&#10;Create&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Listeners/OrderCreateCustomer.php&#10;2016_03_27_140254_update_customers_balance&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_27_140254_update_customers_balance.php&#10;Cu&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Custom&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Gif&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Giftcard.php&#10;Ch&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;MoneyL&#9;null&#9;null&#10;Che&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;Checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;inde&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;transact&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/account/transaction.blade.php&#10;Coupon&#9;null&#9;null&#10;OrderContr&#9;null&#9;null&#10;index.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;Plan&#9;null&#9;null&#10;gifting&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/gifting.blade.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -369,12 +405,6 @@
       <created>1456591092063</created>
       <option name="number" value="Default" />
       <updated>1456591092063</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Checkout design">
-      <created>1458059451952</created>
-      <option name="number" value="00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1458059451952</updated>
     </task>
     <task id="LOCAL-00040" summary="Checkout design #2">
       <created>1458059532753</created>
@@ -664,7 +694,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459254562623</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Moved sticky CTA to flow. Added rewrites to admin.">
+      <created>1459326940131</created>
+      <option name="number" value="00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1459326940148</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TodoView">
@@ -680,16 +716,17 @@
     <frame x="-2560" y="23" width="2560" height="1417" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24453124" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
       <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18164252" sideWeight="0.42801046" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15903106" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12539062" sideWeight="0.5046729" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24453124" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12848867" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15534492" sideWeight="0.47871235" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
       <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.209584" sideWeight="0.32871288" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -700,7 +737,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39929327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861477" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37536374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -748,7 +784,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="No more, nolock" />
     <MESSAGE value="Allow settings preferences + fixed vegetables icon" />
     <MESSAGE value="Better account views" />
     <MESSAGE value="Url rewriting" />
@@ -773,7 +808,8 @@
     <MESSAGE value="Fixed combinations" />
     <MESSAGE value="Animation" />
     <MESSAGE value="Animation fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Animation fix" />
+    <MESSAGE value="Moved sticky CTA to flow. Added rewrites to admin." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved sticky CTA to flow. Added rewrites to admin." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -781,13 +817,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Dashboard/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024925224">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Events/CustomerWasBilled.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5264207">
@@ -799,6 +828,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.024925224">
           <caret line="308" column="27" selection-start-line="308" selection-start-column="27" selection-end-line="308" selection-end-column="27" />
+          <folding>
+            <marker date="1459088022000" expanded="false" signature="22:311" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -806,13 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64805585">
           <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024925224">
-          <caret line="88" column="78" selection-start-line="88" selection-start-column="78" selection-end-line="88" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -1080,9 +1105,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.60351133">
           <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="e#50#97#0#PHP" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1090,14 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2377469">
           <caret line="13" column="36" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52523774">
-          <caret line="165" column="44" selection-start-line="165" selection-start-column="44" selection-end-line="165" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1152,8 +1167,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37820044">
-          <caret line="771" column="19" selection-start-line="771" selection-start-column="19" selection-end-line="771" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="782" column="75" selection-start-line="782" selection-start-column="75" selection-end-line="782" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/emails/order.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3474762">
+          <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="32" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.51207024">
+          <caret line="159" column="0" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
           <folding />
         </state>
       </provider>
