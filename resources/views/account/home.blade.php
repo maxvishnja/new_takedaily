@@ -6,102 +6,102 @@
 
 @section('content')
 	<form method="post" action="{{ URL::action('AccountController@updatePreferences') }}" id="app">
-		<h3>Hvilket køn er du?</h3>
-		<select name="[1][1]" v-model="user_data.gender" class="select select--regular">
+		<h3 class="m-b-10">Hvilket køn er du?</h3>
+		<select name="[1][1]" v-model="user_data.gender" class="select select--regular select--full-mobile">
 			<option value="1">Mand</option>
 			<option value="2">Kvinde</option>
 		</select>
 
-		<h3>Din fødselsdag
+		<h3 class="m-t-40 m-b-10">Din fødselsdag
 			<template v-if="temp_age">(@{{ temp_age }} år)</template>
 		</h3>
 
 		<div class="datepicker-container-block">
-			<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" class="input input--regular" placeholder="Din fødselsdagsdato"/>
+			<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" class="input input--regular input--full-mobile" placeholder="Din fødselsdagsdato"/>
 			<div id="datepicker-container"></div>
 		</div>
 
-		<h3>Hvilken hudfarve er tættest på din?</h3>
-		<select name="[1][3]" v-model="user_data.skin" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvilken hudfarve er tættest på din?</h3>
+		<select name="[1][3]" v-model="user_data.skin" class="select select--regular select--full-mobile">
 			<option value="1">Hvid / Lys</option>
 			<option value="2">Brun / Mørk</option>
 			<option value="2">Sort / Mørkere</option>
 		</select>
 
-		<h3>Er du udenfor hver dag, efter solen er stået op, og før den går ned?</h3>
-		<select name="[1][4]" v-model="user_data.outside" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Er du udenfor hver dag, efter solen er stået op, og før den går ned?</h3>
+		<select name="[1][4]" v-model="user_data.outside" class="select select--regular select--full-mobile">
 			<option value="1">Ja</option>
 			<option value="2">Nej</option>
 		</select>
 
 		<div v-show="user_data.gender == 2">
-			<h3>Er du gravid, eller drømmer du om at blive det?</h3>
-			<select name="[2][1]" v-model="user_data.pregnant" class="select select--regular">
+			<h3 class="m-t-40 m-b-10">Er du gravid, eller drømmer du om at blive det?</h3>
+			<select name="[2][1]" v-model="user_data.pregnant" class="select select--regular select--full-mobile">
 				<option value="-1">--- Vælg ---</option>
 				<option value="1">Ja</option>
 				<option value="2">Nej</option>
 			</select>
 		</div>
 
-		<h3>Er du på slankekur?</h3>
-		<select name="[2][2]" v-model="user_data.diet" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Er du på slankekur?</h3>
+		<select name="[2][2]" v-model="user_data.diet" class="select select--regular select--full-mobile">
 			<option value="1">Ja</option>
 			<option value="2">Nej</option>
 		</select>
 
-		<h3>Hvor meget og hvor ofte motionerer du?</h3>
-		<select name="[2][3]" v-model="user_data.sports" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvor meget og hvor ofte motionerer du?</h3>
+		<select name="[2][3]" v-model="user_data.sports" class="select select--regular select--full-mobile">
 			<option value="1">Sjældent</option>
 			<option value="2">Én gang om ugen</option>
 			<option value="3">To gange om ugen</option>
 			<option value="4">Oftere</option>
 		</select>
 
-		<h3>Hvordan har du det, når dagen er slut?</h3>
-		<select name="[2][4]" v-model="user_data.stressed" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvordan har du det, når dagen er slut?</h3>
+		<select name="[2][4]" v-model="user_data.stressed" class="select select--regular select--full-mobile">
 			<option value="1">Jeg føler mig lidt stresset</option>
 			<option value="2">Jeg har det fint og er naturligt træt</option>
 		</select>
 
-		<h3>Føler du dig tit træt, eller mangler du energi?</h3>
-		<select name="[2][5]" v-model="user_data.lacks_energy" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Føler du dig tit træt, eller mangler du energi?</h3>
+		<select name="[2][5]" v-model="user_data.lacks_energy" class="select select--regular select--full-mobile">
 			<option value="1">Hver dag</option>
 			<option value="2">Af og til</option>
 			<option value="3">Aldrig</option>
 		</select>
 
-		<h3>Hvordan har du det, når dagen er slut?</h3>
-		<select name="[2][6]" v-model="user_data.immune_system" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvordan har du det, når dagen er slut?</h3>
+		<select name="[2][6]" v-model="user_data.immune_system" class="select select--regular select--full-mobile">
 			<option value="1">Ja, jeg vil gerne beskyttes bedre</option>
 			<option value="2">Nej, det behøver jeg ikke</option>
 		</select>
 
-		<h3>Ryger du?</h3>
-		<select name="[2][7]" v-model="user_data.smokes" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Ryger du?</h3>
+		<select name="[2][7]" v-model="user_data.smokes" class="select select--regular select--full-mobile">
 			<option value="1">Ja</option>
 			<option value="2">Nej</option>
 		</select>
 
-		<h3>Spiser du som en kanin?</h3>
-		<select name="[2][8]" v-model="user_data.vegetarian" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Spiser du som en kanin?</h3>
+		<select name="[2][8]" v-model="user_data.vegetarian" class="select select--regular select--full-mobile">
 			<option value="1">Ja, jeg er vegetar</option>
 			<option value="2">Nej, jeg spiser også kød og fisk</option>
 		</select>
 
-		<h3>Har du ømme muskler eller ondt i dine led?</h3>
-		<select name="[2][9]" v-model="user_data.joints" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Har du ømme muskler eller ondt i dine led?</h3>
+		<select name="[2][9]" v-model="user_data.joints" class="select select--regular select--full-mobile">
 			<option value="1">Ja</option>
 			<option value="2">Nej</option>
 		</select>
 
-		<h3>Tager du allerede vitaminer og/eller mineraler?</h3>
-		<select name="[2][10]" v-model="user_data.supplements" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Tager du allerede vitaminer og/eller mineraler?</h3>
+		<select name="[2][10]" v-model="user_data.supplements" class="select select--regular select--full-mobile">
 			<option value="1">Ja</option>
 			<option value="2">Nej</option>
 		</select>
 
-		<h3>Hvor mange grønsager spiser du dagligt?</h3>
-		<select name="[3][1]" v-model="user_data.foods.vegetables" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvor mange grønsager spiser du dagligt?</h3>
+		<select name="[3][1]" v-model="user_data.foods.vegetables" class="select select--regular select--full-mobile">
 			<option value="1">Ingen</option>
 			<option value="2">1 portion (50 gram)</option>
 			<option value="3">2 portioner (100 gram)</option>
@@ -109,15 +109,15 @@
 			<option value="5">+4 portioner (+200 gram)</option>
 		</select>
 
-		<h3>Hvor meget frugt spiser/drikker du om dagen?</h3>
-		<select name="[3][2]" v-model="user_data.foods.fruits" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvor meget frugt spiser/drikker du om dagen?</h3>
+		<select name="[3][2]" v-model="user_data.foods.fruits" class="select select--regular select--full-mobile">
 			<option value="1">Intet</option>
 			<option value="2">1 stk. / glas</option>
 			<option value="3">+2 stk. / glas</option>
 		</select>
 
-		<h3>Hvor mange skiver brød spiser du om dagen?</h3>
-		<select name="[3][3]" v-model="user_data.foods.bread" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvor mange skiver brød spiser du om dagen?</h3>
+		<select name="[3][3]" v-model="user_data.foods.bread" class="select select--regular select--full-mobile">
 			<option value="1">Intet</option>
 			<option value="2">1-2 stk.</option>
 			<option value="3">3-4 stk.</option>
@@ -125,37 +125,37 @@
 			<option value="5">+7 stk.</option>
 		</select>
 
-		<h3>Kommer du smør på brødet eller bruger du margarine, smør eller olie, når du laver mad?</h3>
-		<select name="[3][4]" v-model="user_data.foods.butter" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Kommer du smør på brødet eller bruger du margarine, smør eller olie, når du laver mad?</h3>
+		<select name="[3][4]" v-model="user_data.foods.butter" class="select select--regular select--full-mobile">
 			<option value="1">Ja</option>
 			<option value="2">Nej</option>
 			<option value="3">Nogle gange</option>
 		</select>
 
-		<h3>Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser du om dagen?</h3>
-		<select name="[3][5]" v-model="user_data.foods.wheat" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser du om dagen?</h3>
+		<select name="[3][5]" v-model="user_data.foods.wheat" class="select select--regular select--full-mobile">
 			<option value="1">Ingen</option>
 			<option value="2">1-2 portioner (50-100 gram)</option>
 			<option value="3">3-4 portioner (150-200 gram)</option>
 			<option value="3">+5 portioner (+250 gram)</option>
 		</select>
 
-		<h3>Hvor meget kød spiser du om dagen?</h3>
-		<select name="[3][6]" v-model="user_data.foods.meat" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvor meget kød spiser du om dagen?</h3>
+		<select name="[3][6]" v-model="user_data.foods.meat" class="select select--regular select--full-mobile">
 			<option value="1">0-75 gram</option>
 			<option value="2">76-150 gram</option>
 			<option value="3">+150 gram</option>
 		</select>
 
-		<h3>Hvor ofte spiser du fisk?</h3>
-		<select name="[3][7]" v-model="user_data.foods.fish" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvor ofte spiser du fisk?</h3>
+		<select name="[3][7]" v-model="user_data.foods.fish" class="select select--regular select--full-mobile">
 			<option value="1">Aldrig / sjældent</option>
 			<option value="2">En gang om ugen</option>
 			<option value="3">To, eller flere, gange om ugen</option>
 		</select>
 
-		<h3>Hvor meget mælk drikker du om dagen?</h3>
-		<select name="[3][8]" v-model="user_data.foods.dairy" class="select select--regular">
+		<h3 class="m-t-40 m-b-10">Hvor meget mælk drikker du om dagen?</h3>
+		<select name="[3][8]" v-model="user_data.foods.dairy" class="select select--regular select--full-mobile">
 			<option value="1">Ingen</option>
 			<option value="2">1-2 glas</option>
 			<option value="3">+3 glas</option>

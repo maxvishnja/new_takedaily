@@ -121,8 +121,8 @@ class CheckoutController extends Controller
 			if ( $productItem->is_subscription == 1 )
 			{
 				\Auth::login($user, true);
-				\Session::put('user_data', $userData);
-				\Session::put('product_name', $product);
+				\Session::put('user_data', $userData); // consider
+				\Session::put('product_name', $product); // consider
 			}
 		}
 		else
