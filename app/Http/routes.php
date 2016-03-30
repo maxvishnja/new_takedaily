@@ -63,10 +63,16 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return Redirect::to('flow')->with('success', 'Du skal udfylde dette spørgeskema for at gøre brug af gavekortet. Det tager 2 minutter');
 	});
 
+	Route::get('locale/{locale}', function ($locale)
+	{
+		Session::put('locale', $locale);
+		App::setLocale($locale);
+	});
+
 	/*
 	 * Checkout
 	 */
-	Route::group([ 'middleware' => ['secure', 'nonAdmin'], 'prefix' => 'checkout' ], function ()
+	Route::group([ 'middleware' => [ 'secure', 'nonAdmin' ], 'prefix' => 'checkout' ], function ()
 	{
 		Route::get('', 'CheckoutController@getCheckout');
 		Route::post('', 'CheckoutController@postCheckout');

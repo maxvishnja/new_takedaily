@@ -28,10 +28,9 @@
 							<div class="container">
 								<div class="row">
 									<div class="col-md-6">
-										<h1>Nu bliver det nemt,<br/>
-											at få din krop i balance.</h1>
-										<a href="#" class="button button--rounded button--huge button--green m-t-30">
-											<strong>Tryk her for at starte nu</strong>
+										<h1>{!! trans('home.header.title-1') !!}</h1>
+										<a href="/flow" class="button button--rounded button--huge button--green m-t-30">
+											<strong>{{ trans('home.header.button-click-here') }}</strong>
 										</a>
 									</div>
 									<div class="col-md-6 hidden-sm hidden-xs">
@@ -44,20 +43,17 @@
 							<div class="container">
 								<div class="row">
 									<div class="col-md-8">
-										<h1>Take Daily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for. </h1>
-										<a href="#" class="button button--rounded button--huge button--green m-t-30">
-											<strong>Tryk her for at starte nu</strong>
+										<h1>{!! trans('home.header.title-2') !!}</h1>
+										<a href="/flow" class="button button--rounded button--huge button--green m-t-30">
+											<strong>{{ trans('home.header.button-click-here') }}</strong>
 										</a>
 									</div>
 
 									<div class="col-md-4 hidden-sm hidden-xs">
 										<div class="splash_circle">
-											<span>En måneds forbrug<br/>
-											skræddersyet til dig</span>
-											<small>Kun</small>
-											<strong>149
-												<small> kr.</small>
-											</strong>
+											<span>{!! trans('home.header.splash.text') !!}</span>
+											<small>{{ trans('home.header.splash.only') }}</small>
+											<strong>{!! trans('home.header.splash.price') !!}</strong>
 										</div>
 									</div>
 								</div>
@@ -69,40 +65,38 @@
 		</div>
 
 		<div class="header_footer hidden-sm hidden-xs">
-			<a href="/flow">Start selv</a> i dag eller giv Take Daily <a href="/gifting">i gave</a>
+			{!! trans('home.header.cta') !!}
 		</div>
 	</header>
 
 	<main>
 		<div class="container">
 			<div class="block block--one text-center">
-				<h2>Sådan virker det</h2>
-				<p class="sub_header">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi dicta ea,
-					earum enim est ex hic iure iusto, lorem ipsum.</p>
+				<h2>{{ trans('home.blocks.one.title') }}</h2>
+				<p class="sub_header">{{ trans('home.blocks.one.description') }}</p>
 
 				<div class="row text-center">
 					<div class="col-md-4 block_item">
 						<span class="icon icon-user-information"></span>
-						<h3>Konsultationen begynder</h3>
-						<p>Fortæl os lidt om din krop, kost og livsstil. Det tager ikke mere end 2 minutter at svare på
-							spørgsmålene.</p>
+						<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
+						<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
 					</div>
 
 					<div class="col-md-4 block_item">
 						<span class="icon icon-box"></span>
-						<h3>Vi skræddersyr dit Take Daily</h3>
-						<p>Vi udvælger dine vitaminer og mineraler i koncentrationer, der passer nøjagtigt til dig.</p>
+						<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
+						<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
 					</div>
 
 					<div class="col-md-4 block_item">
 						<span class="icon icon-truck"></span>
-						<h3>Du modtager din æske</h3>
-						<p>Du får leveret din æske gratis derhjemme eller på kontoret, hvis det passer dig bedre</p>
+						<h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
+						<p>{{ trans('home.blocks.one.steps.three.text') }}</p>
 					</div>
 				</div>
 
 				<div class="text-center m-t-50">
-					<a href="/flow" class="button button--green button--rounded button--large">Få flere detaljer</a>
+					{!! trans('home.blocks.one.button') !!}
 				</div>
 			</div>
 		</div>
@@ -111,24 +105,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<h2>Lev lidt sundere.<br/>
-							Start indefra med Take Daily.</h2>
-
-						<p>
-							At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv
-							være en
-							udfordring. Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take
-							Daily er
-							diamentrale modsætninger.
-						</p>
-						<p>Vi udvælger og sammensætter omhyggeligt de vitaminer og mineraler, som lige præcis din krop
-							har brug
-							for. Koncentrationerne er individuelle og kommer i din helt egen æske.
-						</p>
-
-						<a href="/flow" class="button button--white button--rounded button--large button--text-grey">Start
-							i
-							dag</a>
+						<h2>{!! trans('home.blocks.two.title') !!}</h2>
+						{!! trans('home.blocks.two.body') !!}
+						{!! trans('home.blocks.two.button') !!}
 					</div>
 				</div>
 			</div>
@@ -138,16 +117,13 @@
 			<div class="block block--three text-center">
 				<div class="row">
 					<div class="col-md-4">
-						<img src="/images/dietist.png" class="img--rounded" alt="Suzan"/>
-						<span class="dietist-name">Suzan, diætist</span>
+						<img src="/images/dietist.png" class="img--rounded" alt="{{ trans('home.blocks.three.name') }}"/>
+						<span class="dietist-name">{{ trans('home.blocks.three.name') }}</span>
 					</div>
 					<div class="col-md-8">
-						<blockquote>“Prevention is better than cure. Well said and well understood! But there are
-							certain types of headaches, which are part and parcel of you; gifted to you by birth! Sinus
-							headache is one of them, unfortunately.”
-						</blockquote>
+						<blockquote>{!! trans('home.blocks.three.quote') !!}</blockquote>
 
-						<a href="/om" class="anchor anchor--underline">Om vitaminer og sundhed</a>
+						{!! trans('home.blocks.three.button') !!}
 					</div>
 				</div>
 			</div>
@@ -167,13 +143,8 @@
 			<img src="//placehold.it/640x420" alt="Image"/>
 
 			<div class="block_content text-center">
-				<p>Take Daily er høj kvalitet og rene, naturlige, aktive ingredienser. Vi har samlet de bedste
-					ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den
-					ultimative måde at genopbygge din krop indefra.  </p>
-
-				<p>Videnskaben bag er kompleks, men for dig er det hele enkelt og ligetil.</p>
-
-				<a href="/om" class="anchor anchor--underline anchor--inline m-t-20">Få mere baggrundsviden</a>
+				{!! trans('home.blocks.five.body') !!}
+				{!! trans('home.blocks.five.button') !!}
 			</div>
 
 			<div class="clear"></div>
@@ -186,66 +157,17 @@
 
 				<div class="slider">
 					<div class="slide_container">
-						<div class="slide">
-							<div class="container">
-								<h2 class="text-center">Spiser du sundt, men tillader dig selv en cigaret i ny og
-									næ?</h2>
-								<p class="text-center">
-									Ryger du engang imellem, nedbryder røgen mange af de C-vitaminer, du indtager.
-								</p>
-
-
-								<div class="text-center">
-									<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
-										i dag</a>
+						@foreach(trans('home.blocks.six.slides') as $slide)
+							<div class="slide">
+								<div class="container">
+									<h2 class="text-center">{{ $slide['title'] }}</h2>
+									<p class="text-center">{{ $slide['text'] }}</p>
+									<div class="text-center">
+										{!! $slide['button'] !!}
+									</div>
 								</div>
 							</div>
-						</div>
-
-						<div class="slide">
-							<div class="container">
-								<h2 class="text-center">Er du vegetar, men ikke fan af bælgfrugter, soyabønner og tofu?</h2>
-								<p class="text-center">
-									Som vegetar er det svært at få jern og B-vitaminer nok.
-								</p>
-
-
-								<div class="text-center">
-									<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
-										i dag</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="slide">
-							<div class="container">
-								<h2 class="text-center">Har du lidt for meget om ørene for tiden?</h2>
-								<p class="text-center">
-									I en stresset periode har du brug for lidt ekstra B-vitamin.
-								</p>
-
-
-								<div class="text-center">
-									<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
-										i dag</a>
-								</div>
-							</div>
-						</div>
-
-						<div class="slide">
-							<div class="container">
-								<h2 class="text-center">Tager du en multivitaminpille med lidt af det hele?</h2>
-								<p class="text-center">
-									Din krop, kost og livsstil kan give et billede af, hvad du i virkeligheden har brug for.
-								</p>
-
-
-								<div class="text-center">
-									<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily
-										i dag</a>
-								</div>
-							</div>
-						</div>
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -255,13 +177,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-push-2">
-						<h2>Online konsultation</h2>
-						<h3>Hvilke vitaminer og mineraler mangler du?</h3>
-						<p>Vores dygtige diætister står bag spørgsmålene, som giver svar på, hvilke vitaminer og mineraler, du
-							skal
-							tage for at få din krop i balance. Der er 39 spørgsmål, og efter 2 minutter har du dit resultat.</p>
-
-						<a href="/flow" class="button button--green button--rounded button--large">Start på Take Daily i dag</a>
+						<h2>{{ trans('home.blocks.seven.title') }}</h2>
+						<h3>{{ trans('home.blocks.seven.subtitle') }}</h3>
+						<p>{{ trans('home.blocks.seven.text') }}</p>
+						{!! trans('home.blocks.seven.button') !!}
 					</div>
 				</div>
 			</div>
@@ -272,12 +191,10 @@
 				<div class="row">
 					<div class="col-md-8 col-md-push-2">
 						<img src="/images/product_box_large.png" alt="Take Daily boks"/>
-						<h2>Modtag vitaminer hver måned,<br/>
-							det koster kun 149 kr.</h2>
-						<p>Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag
-							typewriter banh mi, squid keffiyeh High.</p>
+						<h2>{!! trans('home.blocks.eight.title') !!}</h2>
+						<p>{{ trans('home.blocks.eight.text') }}</p>
 
-						<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start på Take Daily i dag</a>
+						{!! trans('home.blocks.eight.button') !!}
 					</div>
 				</div>
 			</div>
