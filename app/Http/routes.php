@@ -154,6 +154,10 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::resource('calls', 'Dashboard\CallController');
 		Route::get('calls/mark-done/{id}', 'Dashboard\CallController@markDone');
 
+
+		Route::resource('rewrites', 'Dashboard\RewriteController');
+		Route::get('rewrites/remove/{id}', 'Dashboard\RewriteController@remove');
+
 		Route::resource('orders', 'Dashboard\OrderController');
 		Route::get('orders/mark-sent/{id}', 'Dashboard\OrderController@markSent');
 		Route::get('orders/refund/{id}', 'Dashboard\OrderController@refund');
