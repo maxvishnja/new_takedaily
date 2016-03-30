@@ -20,56 +20,51 @@
 	<div class="module">
 		<div class="module-head">
 			<h3>
-				De sidste 12 måneder</h3>
+				Kunder: De sidste 12 måneder</h3>
 		</div>
 		<div class="module-body">
 			<div class="chart inline-legend grid">
-				<div id="placeholder2" class="graph" style="height: 500px">
+				<div id="placeholder2" class="graph" style="height: 300px">
 				</div>
 			</div>
 		</div>
 	</div>
 	<!--/.module-->
-	<div class="module hide">
+	<div class="module">
 		<div class="module-head">
 			<h3>
-				Adjust Budget Range</h3>
+				Salg: De sidste 12 måneder</h3>
 		</div>
 		<div class="module-body">
-			<div class="form-inline clearfix">
-				<a href="#" class="btn pull-right">Update</a>
-				<label for="amount">
-					Price range:</label>
-				&nbsp;
-				<input type="text" id="amount" class="input-"/>
-			</div>
-			<hr/>
-			<div class="slider-range">
+			<div class="chart inline-legend grid">
+				<div id="placeholder3" class="graph" style="height: 300px">
+				</div>
 			</div>
 		</div>
 	</div>
+	<!--/.module-->
 @stop
 
 @section('scripts')
 	<script>
 		var d1 = [
 			@for($i = 0; $i <= 12; $i++)
-				[ {{ 12 - $i }} , {{ $sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first() ? number_format($sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total / 100 / 100, 2, '.', '') : 0 }} ],
+				[ {{ 12 - $i }} , {{ $sales_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', date('n', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1) * 1)->first() ? number_format($sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total / 100, 2, '.', '') : 0 }} ],
 			@endfor
 		];
 
 		var d2 = [
 			@for($i = 0; $i <= 12; $i++)
-				[ {{ 12 - $i }} , {{ $customers_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first() ? $customers_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total : 0 }} ],
+				[ {{ 12 - $i }} , {{ $customers_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1)->first() ? $customers_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total : 0 }} ],
 			@endfor
 		];
 
 		var plot = $.plot($('#placeholder2'),
-			[{data: d1, label: 'Salg i hundrede kr.'}, {data: d2, label: 'Kunder'}], {
+			[{data: d2, label: 'Kunder'}], {
 				xaxis: {ticks:
 					[
 						@for($i = 0; $i <= 12; $i++)
-						[{{ 12 - $i }}, "{{ date('M Y', strtotime("-$i months")) }}"],
+						[{{ 12 - $i }}, "{{ \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('M Y') }}"],
 						@endfor
 					]
 				},
@@ -94,7 +89,6 @@
 				},
 				colors: ['#55f3c0', '#0db37e', '#b4fae3', '#e0d1cb'],
 				shadowSize: 0
-				// todo fix tooltips (and rounding!) fixme
 			});
 
 		function showTooltip(x, y, contents)
@@ -123,8 +117,77 @@
 					var x = item.datapoint[0].toFixed(0),
 						y = item.datapoint[1].toFixed(0);
 
-					showTooltip(item.pageX, item.pageY,
-						'x : ' + x + '&nbsp;&nbsp;&nbsp; y : ' + y);
+					showTooltip(item.pageX, item.pageY, y);
+				}
+			}
+			else
+			{
+				$('#gridtip').remove();
+				previousPoint = null;
+			}
+		});
+
+
+		/** DATA 2 **/
+		var plot = $.plot($('#placeholder3'),
+			[{data: d1, label: 'Salg i kr.'}], {
+				xaxis: {ticks:
+					[
+							@for($i = 0; $i <= 12; $i++)
+						[{{ 12 - $i }}, "{{ \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('M Y') }}"],
+						@endfor
+					]
+				},
+				lines: {
+					show: true,
+					fill: true, /*SWITCHED*/
+					lineWidth: 2
+				},
+				points: {
+					show: true,
+					lineWidth: 5
+				},
+				grid: {
+					clickable: true,
+					hoverable: true,
+					autoHighlight: true,
+					mouseActiveRadius: 10,
+					aboveData: true,
+					backgroundColor: '#fff',
+					borderWidth: 0,
+					minBorderMargin: 25,
+				},
+				colors: ['#0db37e', '#55f3c0', '#b4fae3', '#e0d1cb'],
+				shadowSize: 0
+			});
+
+		function showTooltipTwo(x, y, contents)
+		{
+			$('<div id="gridtip">' + (contents * 1).toFixed(2) + ' kr.</div>').css({
+				position: 'absolute',
+				display: 'none',
+				top: y + 5,
+				left: x + 5
+			}).appendTo('body').fadeIn(300);
+		}
+
+		var previousPoint = null;
+		$('#placeholder3').bind('plothover', function (event, pos, item)
+		{
+			$('#x').text(pos.x.toFixed(2));
+			$('#y').text(pos.y.toFixed(2));
+
+			if (item)
+			{
+				if (previousPoint != item.dataIndex)
+				{
+					previousPoint = item.dataIndex;
+
+					$('#gridtip').remove();
+					var x = item.datapoint[0].toFixed(0),
+						y = item.datapoint[1].toFixed(0);
+
+					showTooltipTwo(item.pageX, item.pageY, y);
 				}
 			}
 			else
