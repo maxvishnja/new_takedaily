@@ -60,13 +60,15 @@ Route::group([ 'middleware' => 'web' ], function ()
 		$request->session()->put('giftcard_id', $giftcard->id);
 		$request->session()->put('giftcard_token', $giftcard->token);
 
-		return Redirect::to('flow')->with('success', 'Du skal udfylde dette spørgeskema for at gøre brug af gavekortet. Det tager 2 minutter');
+		return Redirect::to('flow')->with('success', trans('message.success.giftcard-applied'));
 	});
 
 	Route::get('locale/{locale}', function ($locale)
 	{
 		Session::put('locale', $locale);
 		App::setLocale($locale);
+
+		return Redirect::back()->with('success', trans('message.success.locale-set'));
 	});
 
 	/*

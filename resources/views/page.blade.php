@@ -2,6 +2,8 @@
 
 @section('pageClass', 'cms page cms-layout-' . $page->layout)
 
+@section('title', "{$page->title} - Take Daily")
+
 @section('header_top_additional')
 	@if( $page->layout == 'header' )
 		<h1 class="cms-title">{{ $page->title }}</h1>
@@ -10,7 +12,7 @@
 		@endif
 
 		<div class="cta hidden-xs">
-			<a href="/flow">Start selv</a> i dag eller giv Take Daily <a href="/gifting">i gave</a>
+			{!! trans('cms.sticky-cta') !!}
 		</div>
 	@endif
 @endsection

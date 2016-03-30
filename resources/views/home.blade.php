@@ -150,28 +150,30 @@
 			<div class="clear"></div>
 		</div>
 
-		<div class="block block--six">
-			<div class="slider_container" id="slider_two">
-				<div class="icon slider-arrow-left icon-arrow-left"></div>
-				<div class="icon slider-arrow-right icon-arrow-right"></div>
+		@if( is_array( trans('home.blocks.six.slides') ) ) )
+			<div class="block block--six">
+				<div class="slider_container" id="slider_two">
+					<div class="icon slider-arrow-left icon-arrow-left"></div>
+					<div class="icon slider-arrow-right icon-arrow-right"></div>
 
-				<div class="slider">
-					<div class="slide_container">
-						@foreach(trans('home.blocks.six.slides') as $slide)
-							<div class="slide">
-								<div class="container">
-									<h2 class="text-center">{{ $slide['title'] }}</h2>
-									<p class="text-center">{{ $slide['text'] }}</p>
-									<div class="text-center">
-										{!! $slide['button'] !!}
+					<div class="slider">
+						<div class="slide_container">
+							@foreach(trans('home.blocks.six.slides') as $slide)
+								<div class="slide">
+									<div class="container">
+										<h2 class="text-center">{{ $slide['title'] }}</h2>
+										<p class="text-center">{{ $slide['text'] }}</p>
+										<div class="text-center">
+											{!! $slide['button'] !!}
+										</div>
 									</div>
 								</div>
-							</div>
-						@endforeach
+							@endforeach
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		@endif
 
 		<div class="block block--seven text-center">
 			<div class="container">

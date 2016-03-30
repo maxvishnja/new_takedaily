@@ -4334,7 +4334,6 @@ a {
   text-decoration: none; }
 
 .selector {
-  position: relative;
   display: inline-block;
   border: 1px solid #cccccc;
   padding: 7px 0 7px 14px;
@@ -4343,8 +4342,6 @@ a {
     text-align: left;
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
     width: auto;
     background: #ffffff;
     padding: 5px;
