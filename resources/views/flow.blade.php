@@ -10,7 +10,7 @@
 			#app { display: none !important; }
 		</style>
 
-		<h1 class="text-center">Venligst aktiver javascripts!</h1>
+		<h1 class="text-center">{{ trans('flow.scripts') }}</h1>
 	</noscript>
 
 	<div id="app" class="flow-container">
@@ -27,7 +27,7 @@
 				<div class="flow-step-check">
 					<div class="icon icon-check"></div>
 				</div>
-				<div class="flow-step-title">PERSONLIGT</div>
+				<div class="flow-step-title">{{ trans('flow.steps.one') }}</div>
 			</div>
 			<div class="flow-step flow-step--inactive" step="2" v-bind:class="{ 'flow-step--inactive': step !== 2, 'flow-step--completed': step > 2 }">
 				<div class="flow-step-progress">
@@ -35,7 +35,7 @@
 				<div class="flow-step-check">
 					<div class="icon icon-check"></div>
 				</div>
-				<div class="flow-step-title">HELBRED</div>
+				<div class="flow-step-title">{{ trans('flow.steps.two') }}</div>
 			</div>
 			<div class="flow-step flow-step--inactive" step="3" v-bind:class="{ 'flow-step--inactive': step !== 3, 'flow-step--completed': step > 3 }">
 				<div class="flow-step-progress">
@@ -43,522 +43,490 @@
 				<div class="flow-step-check">
 					<div class="icon icon-check"></div>
 				</div>
-				<div class="flow-step-title">KOST OG VANER</div>
+				<div class="flow-step-title">{{ trans('flow.steps.three') }}</div>
 			</div>
 			<div class="flow-step flow-step--inactive" step="4" v-bind:class="{ 'flow-step--inactive': step !== 4 }">
-				<div class="flow-step-title">ANBEFALING</div>
+				<div class="flow-step-title">{{ trans('flow.steps.four') }}</div>
 			</div>
 		</div>
 
 		<div class="container">
 
 			<div class="flow-step-back" v-bind:class="{ 'clickable': step > 1 || sub_step > 1}">
-				<a href="#" v-on:click="previousStep();">&lsaquo; Tilbage til tidligere spørgsmål</a>
+				<a href="#" v-on:click="previousStep();">{{ trans('flow.back') }}</a>
 			</div>
 
 			<form method="post" action="">
 				<div data-step="1" data-first-sub-step="1" class="step step--active">
 					<div data-sub-step="1" class="sub_step sub_step--active">
-						<h3 class="substep-title">Hvilket køn er du?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.1-1.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[1][1]" value="1" v-model="user_data.gender" v-on:click="nextStep();"/>
 								<span class="icon icon-gender-male"></span>
-								<br/>Mand
+								<br/>{{ trans('flow.questions.1-1.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[1][1]" value="2" v-model="user_data.gender" v-on:click="nextStep();"/>
 								<span class="icon icon-gender-female"></span>
-								<br/>Kvinde
+								<br/>{{ trans('flow.questions.1-1.options.2') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Mænd og kvinder har ikke brug for den samme mængde vitaminer og mineraler. Fx har store knogler og stærke
-							muskler brug for mere D-vitamin.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.1-1.text') }}</p>
 					</div>
 
 					<div data-sub-step="2" class="sub_step">
-						<h3 class="substep-title" v-show="user_data.gender == 1">Hvor gammel er du?</h3>
-						<h3 class="substep-title" v-show="user_data.gender == 2">Vi ved det godt. Man spørger ikke en kvinde om hendes alder, men vi lover, vi
-							ikke siger det til nogen.</h3>
+						<h3 class="substep-title" v-show="user_data.gender == 1">{{ trans('flow.questions.1-2.title') }}</h3>
+						<h3 class="substep-title" v-show="user_data.gender == 2">{{ trans('flow.questions.1-2.title-alt') }}</h3>
 
 						<div class="datepicker-container-block">
 							<label for="birthdate-picker" class="text-center flow_label_noclick">
 								<span class="icon calendar-icon" style="vertical-align: middle; margin-right: 6px;"></span>
-								<span>Vælg din fødselsdagsdato</span>
+								<span>{{ trans('flow.questions.1-2.button-text') }}</span>
 							</label>
 
 							<br/>
 
-							<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" style="visibility: hidden; height: 0px !important;" placeholder="Din fødselsdagsdato"/>
+							<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" style="visibility: hidden; height: 0px !important;"/>
 							<div id="datepicker-container"></div>
 						</div>
 
 						<template v-if="temp_age">
 							<br/>
-							<button v-on:click="nextStep();" type="button" class="button button--rounded button--medium button--green">Ja, jeg er
-								<strong>@{{ temp_age }}</strong> år gammel
-							</button>
+							<button v-on:click="nextStep();" type="button" class="button button--rounded button--medium button--green">{!! trans('flow.questions.1-2.button-submit-text') !!}</button>
 						</template>
 
-						<p class="substep-explanation">Når du bliver ældre, får din krop brug for mere D-vitamin, B12-vitamin og kalk end tidligere. Du har brug
-							for B12-vitaminet til at danne røde blodlegemer. Vitaminet er godt mod demens og sikrer, at dit nervesystem fungerer optimalt.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.1-2.text') }}</p>
 					</div>
 
 					<div data-sub-step="3" class="sub_step">
-						<h3 class="substep-title">Hvilken hudfarve matcher din bedst?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.1-3.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[1][3]" value="1" v-model="user_data.skin" v-on:click="nextStep();"/>
 								<span class="icon icon-skin-white"></span>
-								<br/>Lys
+								<br/>{{ trans('flow.questions.1-3.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[1][3]" value="2" v-model="user_data.skin" v-on:click="nextStep();"/>
 								<span class="icon icon-skin-mediterranean"></span>
-								<br/>Mørk
+								<br/>{{ trans('flow.questions.1-3.options.2') }}
 							</label>
 							<label>
 								<input type="radio" name="step[1][3]" value="3" v-model="user_data.skin" v-on:click="nextStep();"/>
 								<span class="icon icon-skin-dark"></span>
-								<br/>Sort
+								<br/>{{ trans('flow.questions.1-3.options.3') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Er du meget lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud
-							er mørk. Så har du ikke en helt lys hudfarve, kan du have brug for D-vitamin-tilskud.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.1-3.text') }}</p>
 					</div>
 
 					<div data-sub-step="4" class="sub_step">
-						<h3 class="substep-title">Er du udenfor hver dag, efter solen er stået op, og før den går ned?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.1-4.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[1][4]" value="1" v-model="user_data.outside" v-on:click="nextStep();"/>
 								<span class="icon icon-sun-yes"></span>
-								<br/>Ja
+								<br/>{{ trans('flow.questions.1-4.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[1][4]" value="2" v-model="user_data.outside" v-on:click="nextStep();"/>
 								<span class="icon icon-sun-no"></span>
-								<br/>Nej
+								<br/>{{ trans('flow.questions.1-4.options.2') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Du skal være udenfor i 15-30 minutter hver dag, hvis du vil være sikker på, at din krop producerer
-							D-vitamin nok. Har du en langærmet trøje og lange bukser på, tæller turen i det fri ikke, hvis målet er at få nok D-vitamin.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.1-4.text') }}</p>
 					</div>
 				</div>
 
 				<div data-step="2" v-bind="{ 'data-first-sub-step': user_data.gender == 2 ? 1 : 2 }" class="step">
 					<div data-sub-step="1" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--active': user_data.gender == 2 }">
-						<h3 class="substep-title">Er du gravid, eller drømmer du om at blive det?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-1.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][1]" value="1" v-model="user_data.pregnant" v-on:click="nextStep();"/>
 								<span class="icon icon-pregnant-yes"></span>
-								<br/>Ja
+								<br/>{{ trans('flow.questions.2-1.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][1]" value="2" v-model="user_data.pregnant" v-on:click="nextStep();"/>
 								<span class="icon icon-pregnant-no"></span>
-								<br/>Nej
+								<br/>{{ trans('flow.questions.2-1.options.2') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
-							Sundhedsstyrelsen anbefaler, at du tager tilskud af folsyre, som er et B-vitamin, allerede fra du tænker på at blive gravid til 12
-							uger inde i graviditeten. Folsyre er vigtigt, når barnets centralnervesystem udvikles.
-							<br/><br/>
-							Gennem hele graviditeten er det en god idé at tage fiskeolie. Det er godt for både barnet og dig.
-						</p>
+						<p class="substep-explanation">{!! trans('flow.questions.2-1.text') !!}</p>
 					</div>
 
 					<div data-sub-step="2" class="sub_step" v-bind:class="{ 'sub_step--active': user_data.gender == 1 }">
-						<h3 class="substep-title">Er du på slankekur?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-2.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][2]" value="1" v-model="user_data.diet" v-on:click="nextStep();"/>
 								<span class="icon icon-diet-pear"></span>
-								<br/>Ja
+								<br/>{{ trans('flow.questions.2-2.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][2]" value="2" v-model="user_data.diet" v-on:click="nextStep();"/>
 								<span class="icon icon-diet-burger"></span>
-								<br/>Nej
+								<br/>{{ trans('flow.questions.2-2.options.2') }}
 							</label>
 						</div>
-						<p class="substep-explanation">Når din kost bliver mere fedtfattig, bliver den måske også mere ensidig, end den plejer. Og så er det
-							vigtigt, at du stadig får de vitaminer og mineraler, som du måske normalt indtager igennem din kost. A-vitamin er godt for din hud
-							og dit immunsystem. Mens C-vitamin øger kroppens evne til at nedbryde fedt. Så ingen af delene skal du have for lidt af, når du
-							gerne vil tabe nogle kilo.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.2-2.text') }}</p>
 					</div>
 
 					<div data-sub-step="3" class="sub_step">
-						<h3 class="substep-title">Hvor meget og hvor ofte motionerer du?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-3.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" v-on:click="nextStep();"/>
-								<span class="icon icon-activity-seldom" title="Seldom"></span>
-								<br/>Sjældent
+								<span class="icon icon-activity-seldom"></span>
+								<br/>{{ trans('flow.questions.2-3.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][3]" value="2" v-model="user_data.sports" v-on:click="nextStep();"/>
-								<span class="icon icon-activity-once" title="Once a week"></span>
-								<br/>Én gang om ugen
+								<span class="icon icon-activity-once"></span>
+								<br/>{{ trans('flow.questions.2-3.options.2') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][3]" value="3" v-model="user_data.sports" v-on:click="nextStep();"/>
-								<span class="icon icon-activity-twice" title="Twice a week"></span>
-								<br/>To gange om ugen
+								<span class="icon icon-activity-twice"></span>
+								<br/>{{ trans('flow.questions.2-3.options.3') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][3]" value="4" v-model="user_data.sports" v-on:click="nextStep();"/>
-								<span class="icon icon-activity-more" title="More often"></span>
-								<br/>Oftere
+								<span class="icon icon-activity-more"></span>
+								<br/>{{ trans('flow.questions.2-3.options.4') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Motion er både godt for din sundhed og dit velbefindende. Hvis du dyrker meget motion, har du brug for
-							nogle ekstra vitaminer og mineraler. B-vitamin sørger fx for, at du kan præstere mere ved højintensitetstræning og er med til at
-							producere og reparere celler. Jern er også vigtigt, når du motionerer meget. Det sørger nemlig for, at ilten transporteres rundt i
-							kroppen. </p>
+						<p class="substep-explanation">{{ trans('flow.questions.2-3.text') }}</p>
 					</div>
 
 					<div data-sub-step="4" class="sub_step">
-						<h3 class="substep-title">Hvordan har du det, når dagen er slut?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-4.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][4]" value="1" v-model="user_data.stressed" v-on:click="nextStep();"/>
-								<span class="icon icon-stress" title="Stressful"></span>
-								<br/>Jeg føler mig lidt stresset
+								<span class="icon icon-stress"></span>
+								<br/>{{ trans('flow.questions.2-4.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][4]" value="2" v-model="user_data.stressed" v-on:click="nextStep();"/>
-								<span class="icon icon-joy" title="Quiet"></span>
-								<br/>Jeg har det fint og er naturligt træt
+								<span class="icon icon-joy"></span>
+								<br/>{{ trans('flow.questions.2-4.options.2') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">I en stresset periode har du brug for lidt ekstra vitaminer, som kan hjælpe dig med at slappe mere af.
-							B-vitamin giver ro på og hjælper dit nervesystem og immunforsvar med at fungere optimalt.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.2-4.text') }}</p>
 					</div>
 
 					<div data-sub-step="5" class="sub_step">
-						<h3 class="substep-title">Føler du dig tit træt, eller mangler du energi?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-5.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][5]" value="1" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-								<span class="icon icon-tired" title="Every day"></span>
-								<br/>Hver dag
+								<span class="icon icon-tired"></span>
+								<br/>{{ trans('flow.questions.2-5.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][5]" value="2" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-								<span class="icon icon-awake" title="Sometimes"></span>
-								<br/>Af og til
+								<span class="icon icon-awake"></span>
+								<br/>{{ trans('flow.questions.2-5.options.2') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" v-on:click="nextStep();"/>
-								<span class="icon icon-fresh" title="Never"></span>
-								<br/>Aldrig
+								<span class="icon icon-fresh"></span>
+								<br/>{{ trans('flow.questions.2-5.options.3') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">B-vitaminerne (B1, B2 , B3, B5 og B6) spiller en afgørende rolle for dit energiniveau. Mangler du de
-							vitaminer, kan du føle dig træt og savne energi.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.2-5.text') }}</p>
 					</div>
 
 					<div data-sub-step="6" class="sub_step">
-						<h3 class="substep-title">Vil du gerne styrke dit immunforsvar?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-6.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" v-on:click="nextStep();"/>
 								<span class="icon icon-immune-boost"></span>
-								<br/>Ja, jeg vil gerne beskyttes bedre
+								<br/>{{ trans('flow.questions.2-6.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" v-on:click="nextStep();"/>
 								<span class="icon icon-immune-ignore"></span>
-								<br/>Nej, det behøver jeg ikke
+								<br/>{{ trans('flow.questions.2-6.options.2') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit
-							immunforsvar, fordi det hjælper kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil
-							undgå at blive syg.
+						<p class="substep-explanation">{{ trans('flow.questions.2-6.text') }}
 						</p>
 					</div>
 
 					<div data-sub-step="7" class="sub_step">
-						<h3 class="substep-title">Ryger du?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-7.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][7]" value="1" v-model="user_data.smokes" v-on:click="nextStep();"/>
 								<span class="icon icon-smoke"></span>
-								<br/>Ja
+								<br/>{{ trans('flow.questions.2-7.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][7]" value="2" v-model="user_data.smokes" v-on:click="nextStep();"/>
 								<span class="icon icon-smoke-no"></span>
-								<br/>Nej
+								<br/>{{ trans('flow.questions.2-7.options.2') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Det er videnskabeligt bevist, at behovet for C-vitamin er større, hvis du ryger, fordi tobaksrøg ilter og
-							ødelægger vitaminet.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.2-7.text') }}</p>
 					</div>
 
 					<div data-sub-step="8" class="sub_step">
-						<h3 class="substep-title">Spiser du som en kanin?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-8.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][8]" value="1" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
 								<span class="icon icon-vegetarian-yes"></span>
-								<br/>Ja, jeg er vegetar
+								<br/>{{ trans('flow.questions.2-8.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][8]" value="2" v-model="user_data.vegetarian" v-on:click="nextStep();"/>
 								<span class="icon icon-meat"></span>
-								<br/>Nej, jeg spiser også kød og fisk
+								<br/>{{ trans('flow.questions.2-8.options.2') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Kød indeholder masser af jern, B1- og B12-vitamin. Begge vitaminer er vigtige komponenter i dit
-							energistofskifte. B1 omsætter fx kulhydrat til druesukker. Når druesukker forbrændes i kroppen skabes energi.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.2-8.text') }}</p>
 					</div>
 
 					<div data-sub-step="9" class="sub_step">
-						<h3 class="substep-title">Har du ømme muskler eller ondt i dine led?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-9.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][9]" value="1" v-model="user_data.joints" v-on:click="nextStep();"/>
 								<span class="icon icon-joint-yes"></span>
-								<br/>Ja
+								<br/>{{ trans('flow.questions.2-9.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][9]" value="2" v-model="user_data.joints" v-on:click="nextStep();"/>
 								<span class="icon icon-joint-no"></span>
-								<br/>Nej
+								<br/>{{ trans('flow.questions.2-9.options.2') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Nogle næringsstoffer er gode for dine led og muskler. Mangel på D-vitamin kan ligefrem give svage muskler
-							og muskelsmerter.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.2-9.text') }}</p>
 					</div>
 
 					<div data-sub-step="10" class="sub_step">
-						<h3 class="substep-title">Tager du allerede vitaminer og/eller mineraler?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.2-10.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();" v-model="user_data.supplements"/>
 								<span class="icon icon-supplement-yes"></span>
-								<br/> Ja
+								<br/>{{ trans('flow.questions.2-10.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();" v-model="user_data.supplements"/>
 								<span class="icon icon-supplement-no"></span>
-								<br/> Nej
+								<br/>{{ trans('flow.questions.2-10.options.2') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Testresultatet er baseret på din kost og din livsstil. Take Daily sørger for, at du får alle de vitaminer
-							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre tilskud. </p>
+						<p class="substep-explanation">{{ trans('flow.questions.2-10.text') }}</p>
 					</div>
 				</div>
 
 				<div data-step="3" data-first-sub-step="1" class="step">
 					<div data-sub-step="1" class="sub_step sub_step--active">
-						<h3 class="substep-title">Hvor mange grønsager spiser du dagligt?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.3-1.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-vegetables-1"></span>
-								<br/>Ingen</label>
+								<br/>{{ trans('flow.questions.3-1.options.1') }}</label>
 							<label>
 								<input type="radio" name="step[3][1]" value="2" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-vegetables-2"></span>
-								<br/>1 portion (50 gram)</label>
+								<br/>{{ trans('flow.questions.3-1.options.2') }}</label>
 							<label>
 								<input type="radio" name="step[3][1]" value="3" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-vegetables-3"></span>
-								<br/>2 portioner (100 gram)</label>
+								<br/>{{ trans('flow.questions.3-1.options.3') }}</label>
 							<label>
 								<input type="radio" name="step[3][1]" value="4" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-vegetables-4"></span>
-								<br/>3 portioner (150 gram)</label>
+								<br/>{{ trans('flow.questions.3-1.options.4') }}</label>
 							<label>
 								<input type="radio" name="step[3][1]" value="5" v-model="user_data.foods.vegetables" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-vegetables-5"></span>
-								<br/>+4 portioner (+200 gram)</label>
+								<br/>{{ trans('flow.questions.3-1.options.5') }}</label>
 						</div>
 
-						<p class="substep-explanation">Grøntsager er en vigtig kilde til C-vitamin, folsyre og kalium.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.3-1.text') }}</p>
 					</div>
 
 					<div data-sub-step="2" class="sub_step">
-						<h3 class="substep-title">Hvor meget frugt spiser/drikker du om dagen? </h3>
+						<h3 class="substep-title">{{ trans('flow.questions.3-2.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="1" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-fruit-1"></span>
-								<br/>Intet</label>
+								<br/>{{ trans('flow.questions.3-2.options.1') }}</label>
 							<label>
 								<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="2" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-fruit-2"></span>
-								<br/>1 stk. / glas</label>
+								<br/>{{ trans('flow.questions.3-2.options.2') }}</label>
 							<label>
 								<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="3" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-fruit-3"></span>
-								<br/>+2 stk. / glas</label>
+								<br/>{{ trans('flow.questions.3-2.options.3') }}</label>
 						</div>
 
-						<p class="substep-explanation">Frugt er en vigtig kilde til C-vitamin. Frugtjuice kan kun tælle for ét stykke frugt om dagen. Så du kan
-							fint nøjes med et enkelt glas.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.3-2.text') }}</p>
 					</div>
 
 					<div data-sub-step="3" class="sub_step">
-						<h3 class="substep-title">Hvor mange skiver brød spiser du om dagen?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.3-3.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-bread-1"></span>
-								<br/>Intet</label>
+								<br/>{{ trans('flow.questions.3-3.options.1') }}</label>
 							<label>
 								<input type="radio" name="step[3][3]" value="2" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-bread-2"></span>
-								<br/>1-2 stk.</label>
+								<br/>{{ trans('flow.questions.3-3.options.2') }}</label>
 							<label>
 								<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-bread-3"></span>
-								<br/>3-4 stk.</label>
+								<br/>{{ trans('flow.questions.3-3.options.3') }}</label>
 							<label>
 								<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-bread-4"></span>
-								<br/>5-6 stk.</label>
+								<br/>{{ trans('flow.questions.3-3.options.4') }}</label>
 							<label>
 								<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-bread-5"></span>
-								<br/>+7 stk.</label>
+								<br/>{{ trans('flow.questions.3-3.options.5') }}</label>
 						</div>
 
-						<p class="substep-explanation">Havregrød eller lign. tæller for én skive brød.</p>
-						<p class="substep-explanation">Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Vælg fuldkorn. Det mætter rigtig godt. Det får
-							dig til at spise mindre og gør det lettere at holde vægten. B-vitamin og jern fra brødet giver dig energi.</p>
+						<p class="substep-explanation">{!! trans('flow.questions.3-3.text') !!}</p>
 					</div>
 
 					<div data-sub-step="4" class="sub_step">
-						<h3 class="substep-title">Kommer du smør på brødet eller bruger du margarine, smør eller olie, når du laver mad?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.3-4.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-butter-yes"></span>
-								<br/>Ja
+								<br/>{{ trans('flow.questions.3-4.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-butter-no"></span>
-								<br/>Nej
+								<br/>{{ trans('flow.questions.3-4.options.2') }}
 							</label>
 							<label>
 								<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-butter-sometimes"></span>
-								<br/>Nogle gange
+								<br/>{{ trans('flow.questions.3-4.options.3') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Smør, margarine og olie er vigtige kilder til A-vitamin og D-vitamin. Du har brug for begge vitaminer.
-							Blandt immunforsvar.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.3-4.text') }}</p>
 					</div>
 
 					<div data-sub-step="5" class="sub_step">
-						<h3 class="substep-title">Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser du om dagen?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.3-5.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-pasta-1"></span>
-								<br/>Ingen</label>
+								<br/>{{ trans('flow.questions.3-5.options.1') }}</label>
 							<label>
 								<input type="radio" name="step[3][5]" value="2" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-pasta-2"></span>
-								<br/>1-2 portioner (50-100 gram)</label>
+								<br/>{{ trans('flow.questions.3-5.options.2') }}</label>
 							<label>
 								<input type="radio" name="step[3][5]" value="3" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-pasta-3"></span>
-								<br/>3-4 portioner (150-200 gram)</label>
+								<br/>{{ trans('flow.questions.3-5.options.3') }}</label>
 							<label>
 								<input type="radio" name="step[3][5]" value="4" v-model="user_data.foods.wheat" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-pasta-4"></span>
-								<br/>+5 portioner (+250 gram)</label>
+								<br/>{{ trans('flow.questions.3-5.options.4') }}</label>
 						</div>
 
-						<p class="substep-explanation">Pasta, ris, kartofler og lignende er fyldt med gode kulhydrater og indeholder næsten ingen fedt. Og så er
-							de en vigtig kilde til B-vitamin og mineraler. </p>
+						<p class="substep-explanation">{{ trans('flow.questions.3-5.text') }}</p>
 					</div>
 
 					<div data-sub-step="6" class="sub_step">{{-- consider hide if vegeratian --}}
-						<h3 class="substep-title">Hvor meget kød spiser du om dagen?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.3-6.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-meat-1"></span>
-								<br/>0-75 gram</label>
+								<br/>{{ trans('flow.questions.3-6.options.1') }}</label>
 							<label>
 								<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-meat-2"></span>
-								<br/>76-150 gram</label>
+								<br/>{{ trans('flow.questions.3-6.options.2') }}</label>
 							<label>
 								<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-meat-3"></span>
-								<br/>+150 gram</label>
+								<br/>{{ trans('flow.questions.3-6.options.3') }}</label>
 						</div>
 
-						<p class="substep-explanation">Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.3-6.text') }}</p>
 					</div>
 
 					<div data-sub-step="7" class="sub_step">
-						<h3 class="substep-title">Hvor ofte spiser du fisk?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.3-7.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[3][7]" value="1" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-fish-1"></span>
-								<br/>Aldrig / sjældent
+								<br/>{{ trans('flow.questions.3-7.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-fish-2"></span>
-								<br/>En gang om ugen
+								<br/>{{ trans('flow.questions.3-7.options.2') }}
 							</label>
 							<label>
 								<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-fish-3"></span>
-								<br/>To, eller flere, gange om ugen
+								<br/>{{ trans('flow.questions.3-7.options.3') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.3-7.text') }}</p>
 					</div>
 
 					<div data-sub-step="8" class="sub_step">
-						<h3 class="substep-title">Hvor meget mælk drikker du om dagen?</h3>
+						<h3 class="substep-title">{{ trans('flow.questions.3-8.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
 								<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-milk-1"></span>
-								<br/>Ingen
+								<br/>{{ trans('flow.questions.3-8.options.1') }}
 							</label>
 							<label>
 								<input type="radio" name="step[3][8]" value="2" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-milk-2"></span>
-								<br/>1-2 glas
+								<br/>{{ trans('flow.questions.3-8.options.2') }}
 							</label>
 							<label>
 								<input type="radio" name="step[3][8]" value="3" v-model="user_data.foods.dairy" v-on:click="nextStep();"/>
 								<span class="icon icon-portion-milk-3"></span>
-								<br/>+3 glas
+								<br/>{{ trans('flow.questions.3-8.options.3') }}
 							</label>
 						</div>
 
-						<p class="substep-explanation">Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
-							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.</p>
+						<p class="substep-explanation">{{ trans('flow.questions.3-8.text') }}</p>
 					</div>
 				</div>
 
@@ -779,19 +747,18 @@
 		</style>
 		<div class="call-cta" id="call-me-form-toggler">
 			<div class="container">
-				<span title="Ellers tak" id="call-me-form-hider" class="icon icon-cross-large pull-right"></span>
-				<strong>Har du ikke tid til at udfylde formularen?</strong>
-				<span>Bliv ringet op, indtast dit tlf. nummer og vælg tidspunkt.</span>
+				<span title="{{ trans('flow.call-me.deny') }}" id="call-me-form-hider" class="icon icon-cross-large pull-right"></span>
+				<strong>{{ trans('flow.call-me.title') }}</strong>
+				<span>{{ trans('flow.call-me.text') }}</span>
 				<form method="post" action="/call-me" id="call-me-form">
 					<input type="number" pattern="\d." maxlength="14" name="phone" class="input input--regular input--plain input--no-number input--spacing input--full-mobile m-t-10" placeholder="12 34 56 78" required="required"/>
 					<select class="select select--regular select--spacing select--plain select--full-mobile m-t-10" name="period">
-						<option value="09:00 - 11:00">09:00 - 11:00</option>
-						<option value="11:00 - 13:00">11:00 - 13:00</option>
-						<option value="13:00 - 15:00">13:00 - 15:00</option>
-						<option value="15:00 - 17:00">15:00 - 17:00</option>
+						@foreach(trans('flow.call-me.options') as $option)
+							<option value="{{ $option }}">{{ $option }}</option>
+						@endforeach
 					</select>
 					<div class="m-t-10">
-						<button type="submit" class="button button--white button--large button--full-mobile">Ring mig op</button>
+						<button type="submit" class="button button--white button--large button--full-mobile">{{ trans('flow.call-me.button-text') }}</button>
 					</div>
 				</form>
 			</div>
@@ -1103,17 +1070,33 @@
 
 		var $birthdayPicker = $("#birthdate-picker").pickadate({
 			// Strings and translations
-			monthsFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-			monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-			weekdaysFull: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-			weekdaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+			monthsFull: [
+				@foreach(trans('flow.datepicker.months_long') as $month)
+					'{{ $month }}',
+				@endforeach
+			],
+			monthsShort: [
+				@foreach(trans('flow.datepicker.months_short') as $month)
+					'{{ $month }}',
+				@endforeach
+			],
+			weekdaysFull: [
+				@foreach(trans('flow.datepicker.days_long') as $day)
+					'{{ $day }}',
+				@endforeach
+			],
+			weekdaysShort: [
+				@foreach(trans('flow.datepicker.days_short') as $day)
+					'{{ $day }}',
+				@endforeach
+			],
 			today: false,
-			clear: 'Nulstil',
-			close: 'Luk',
-			labelMonthNext: 'Næste måned',
-			labelMonthPrev: 'Tidligere måned',
-			labelMonthSelect: 'Vælg måned',
-			labelYearSelect: 'Vælg årstal',
+			clear: '{{ trans('flow.datepicker.buttons.clear') }}',
+			close: '{{ trans('flow.datepicker.buttons.close') }}',
+			labelMonthNext: '{{ trans('flow.datepicker.buttons.next-month') }}',
+			labelMonthPrev: '{{ trans('flow.datepicker.buttons.prev-month') }}',
+			labelMonthSelect: '{{ trans('flow.datepicker.buttons.select-month') }}',
+			labelYearSelect: '{{ trans('flow.datepicker.buttons.select-year') }}',
 			format: 'd mmmm, yyyy',
 			selectYears: 100,
 			selectMonths: true,

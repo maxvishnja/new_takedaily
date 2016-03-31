@@ -25,7 +25,6 @@ class CheckoutController extends Controller
 
 		if ( \Session::get('product_name') == 'subscription' && !\Session::has('user_data') )
 		{
-			dd( \Session::all() );
 			return \Redirect::to('/flow')->withErrors([ 'Vi skal finde dine vitaminer før du kan handle.' ]);
 		}
 
