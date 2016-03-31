@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="More translations and such">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/lang/da/flow.php" />
+    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Translated flow">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/da/flow.php" afterPath="$PROJECT_DIR$/resources/lang/da/flow.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/flow.blade.php" afterPath="$PROJECT_DIR$/resources/views/flow.blade.php" />
     </list>
     <ignored path="TakeDaily.iws" />
@@ -32,8 +31,8 @@
           <file leaf-file-name="flow.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/resources/lang/da/flow.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.59647834">
-                  <caret line="215" column="25" selection-start-line="215" selection-start-column="25" selection-end-line="215" selection-end-column="25" />
+                <state vertical-scroll-proportion="0.055025678">
+                  <caret line="3" column="10" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
@@ -46,10 +45,12 @@
           <file leaf-file-name="flow.blade.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.34849596">
-                  <caret line="519" column="75" selection-start-line="519" selection-start-column="75" selection-end-line="519" selection-end-column="75" />
+                <state vertical-scroll-proportion="0.2751284">
+                  <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
                   <folding>
-                    <marker date="1459424075000" expanded="true" signature="47576:47650" placeholder="{...}" />
+                    <element signature="e#3686#3736#0#HTML" expanded="true" />
+                    <element signature="e#3939#3990#0#HTML" expanded="true" />
+                    <marker date="1459425845000" expanded="true" signature="38417:38491" placeholder="{...}" />
                   </folding>
                 </state>
               </provider>
@@ -426,12 +427,6 @@
       <option name="number" value="Default" />
       <updated>1456591092063</updated>
     </task>
-    <task id="LOCAL-00046" summary="Mobile checkout">
-      <created>1458135790625</created>
-      <option name="number" value="00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1458135790625</updated>
-    </task>
     <task id="LOCAL-00047" summary="Changes">
       <created>1458144332470</created>
       <option name="number" value="00047" />
@@ -720,7 +715,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459359195885</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="Translated flow">
+      <created>1459424086821</created>
+      <option name="number" value="00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1459424086849</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TodoView">
@@ -736,16 +737,17 @@
     <frame x="-2560" y="23" width="2560" height="1413" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24453124" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
       <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18164252" sideWeight="0.42801046" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15903106" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12539062" sideWeight="0.5046729" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24453124" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12848867" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15534492" sideWeight="0.47871235" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
       <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.209584" sideWeight="0.32871288" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -756,7 +758,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39929327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861477" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3752696" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -804,7 +805,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="call requests and much more" />
     <MESSAGE value="Front graph" />
     <MESSAGE value="Front charts #2" />
     <MESSAGE value="Giftcard feature" />
@@ -829,7 +829,8 @@
     <MESSAGE value="Admin stats" />
     <MESSAGE value="Translated home + added setLocale functionality" />
     <MESSAGE value="More translations and such" />
-    <option name="LAST_COMMIT_MESSAGE" value="More translations and such" />
+    <MESSAGE value="Translated flow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Translated flow" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1199,18 +1200,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/da/flow.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59647834">
-          <caret line="215" column="25" selection-start-line="215" selection-start-column="25" selection-end-line="215" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.055025678">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34849596">
-          <caret line="519" column="75" selection-start-line="519" selection-start-column="75" selection-end-line="519" selection-end-column="75" />
+        <state vertical-scroll-proportion="0.2751284">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding>
-            <marker date="1459424075000" expanded="true" signature="47576:47650" placeholder="{...}" />
+            <element signature="e#3686#3736#0#HTML" expanded="true" />
+            <element signature="e#3939#3990#0#HTML" expanded="true" />
+            <marker date="1459425845000" expanded="true" signature="38417:38491" placeholder="{...}" />
           </folding>
         </state>
       </provider>

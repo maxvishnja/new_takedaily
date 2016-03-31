@@ -4,6 +4,8 @@
 
 @section('mainClasses', 'm-b-50')
 
+@section('title', trans('flow.title'))
+
 @section('content')
 	<noscript>
 		<style>
@@ -534,204 +536,75 @@
 					<div class="group" data-group="1">
 
 						<div class="advise" data-advise="1.1" data-group="1" v-if="( (user_data.age < '50 '&& user_data.gender == '2 '&& user_data.pregnant == '2') || (user_data.age < '70 '&& user_data.gender == '1') )" transition="setAdviseOne">
-							Basic
-							<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis</p>
+							{!! trans('flow.combinations.1.basic') !!}
 						</div>
 
 						<div class="advise" data-advise="1.2" data-group="1" v-if="(isAlone(1, 1.2)) && (( ( user_data.age >= '50' && user_data.age <= '70' ) && user_data.gender == '2)' || (user_data.skin > '1')))" transition="setAdviseOne">
-							Basic +10 D
-							<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
-							<p>Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= '50' && user_data.age <= '70' )">din alder</span>
-								<span v-show="( user_data.age >= '50'&& user_data.age <= '70') && user_data.skin > '1'">og</span>
-								<span v-show="user_data.skin > '1'">mørke hudfarve</span>.
-								Det sørger vi for.</p>
+							{!! trans('flow.combinations.1.basic-10-d') !!}
 						</div>
 
 						<div class="advise" data-advise="1.3" data-group="1" v-if="(isAlone(1, 1.3)) && (outside == '2')" transition="setAdviseOne">
-							Basic +10 D
-							<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
-							<p>Du skal fx have lidt ekstra D-vitamin, fordi du ikke kommer så meget ud i solen. Det sørger vi for.</p>
+							{!! trans('flow.combinations.1.basic-10-d-alt') !!}
 						</div>
 
 						<div class="advise" data-advise="1.4" data-group="1" v-if="((user_data.age >= '70 '&& user_data.gender == '1') || (user_data.age >= '50' && user_data.gender == '2') ) && isAlone(1, 1.4)" transition="setAdviseOne">
-							Basic +20 D
-							<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
-							<p>I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.</p>
+							{!! trans('flow.combinations.1.basic-20-d') !!}
 						</div>
 					</div>
 
 					<div class="group" data-group="2">
 						<div class="advise" data-advise="2.1" data-group="A" v-if="(isCombinationPossible(current_advise_one, 'A', null)) && user_data.pregnant == '1'" transition="setAdviseTwo">
-							A
-							<p>
-								Du er gravid. Tillykke! I den søde ventetid, sørger Take Daily for, at du og din baby får de særlige tilskud, I har brug for.
-								<br/><br/>
-								Gennem hele graviditeten er det godt for udviklingen af babyens knogler og muskler at tage et tilskud af D-vitamin. Fiskeolie…
-							<hr/>
-							Vi håber, du snart får dit ønske om en baby opfyldt. Mens du prøver at blive gravid, har din krop brug for særlige vitaminer og
-							mineraler. Det sørger Take Daily for.
-							<br/><br/>
-							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin), allerede når du begynder at drømme om en baby. Du skal tage folsyre
-							helt fra graviditetens begyndelse, da det har betydning for celledelingen og arvematerialet i kroppens celler. Folsyre nedsætter
-							risikoen for alvorlige medfødte misdannelser af hjerne og rygmarv (neuralrørsdefekter).
-
-							</p>
+							{!! trans('flow.combinations.2.A') !!}
 						</div>
 
 						<div class="advise" data-advise="2.2" data-group="B" v-if="(isCombinationPossible(current_advise_one, 'B', null)) && (isAlone(2, 2.2)) && (user_data.diet == '1')" transition="setAdviseTwo">
-							B
-							<p>Når du er på slankekur, har du brug for lidt ekstra vitaminer og mineraler. Take Daily giver dig det helt rigtige miks. Husk også
-								at slappe af, sove og dyrke motion.
-								<br/><br/>
-								Når du har fokus på at spise fedtfattigt, bliver din kost typisk mere ensidig, end den plejer, og så har du brug for et tilskud
-								K-vitamin. Det er i det hele taget vigtigt, at du stadig får de vitaminer og mineraler, som du normalt indtager igennem en
-								varieret kost. A-vitamin er godt for din hud og dit immunsystem. Mens C-vitamin øger kroppens evne til at nedbryde fedt. Så
-								ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo. Lidt ekstra B-vitamin sørger for, at du kan præstere
-								mere, hvis du træner hårdt, og er også med til at producere og reparere celler.
-							</p>
+							{!! trans('flow.combinations.2.B') !!}
 						</div>
 
 						<div class="advise" data-advise="2.3" data-group="C" v-if="(isCombinationPossible(current_advise_one, 'C', null)) && (isAlone(2, 2.3)) && (user_data.sports == '4' || user_data.lacks_energy < '3' || user_data.stressed == '1')" transition="setAdviseTwo">
-							C
-							<p v-show="user_data.sports == 4">
-								Når du motionerer så meget, som du gør lige nu, har du brug for ekstra vitaminer og mineraler. Vi har sammensat lige det, din
-								krop har behov for, så den kan yde sit maksimale, når du træner.
-								<br/><br/>
-								B-vitamin sørger fx for, at du kan præstere mere ved højintensitetstræning og er med til at producere og reparere celler. Jern
-								er også vigtigt, når du motionerer meget. Det sørger nemlig for, at ilten transporteres rundt i kroppen.
-							</p>
-							<p v-show="user_data.lacks_energy < 3 || user_data.stressed == 1">
-								Når du føler dig træt og mangler energi, mangler du også B-vitaminer. Både B1, B2 , B3, B5 og B6 spiller en afgørende rolle for
-								dit energiniveau.
-							</p>
+							{!! trans('flow.combinations.2.C') !!}
 						</div>
 
 						<div class="advise" data-advise="2.4" data-group="D" v-if="(isCombinationPossible(current_advise_one, 'D', null)) && (isAlone(2, 2.4)) && (user_data.immune_system == '1' || user_data.smokes == '1' || user_data.vegetarian == '1')" transition="setAdviseTwo">
-							D
-							<p v-show="user_data.immune_system == 1">
-								De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit immunforsvar, fordi det hjælper
-								kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil undgå at blive syg.
-							</p>
-
-							<p v-show="user_data.smokes == 1">
-								Vi anbefaler selvfølgelig, at du stopper med at ryge. Men så længe du ryger, sørger Take Daily for, at du får lidt ekstra
-								C-vitamin. Det er nemlig videnskabeligt bevist, at behovet for C-vitamin er større, når du ryger, fordi tobaksrøg ilter og
-								ødelægger vitaminet. Stopper du med at ryge, så husk at ændre din profil på <a href="/account" target="_blank">Mit Take
-									Daily</a>.
-							</p>
-
-							<p v-show="user_data.vegetarian == 1">
-								Kød indeholder masser af jern, B1- og B12-vitamin. Som vegetar kan det være svært at få nok af det hele gennem kosten. Begge
-								B-vitaminer er vigtige komponenter i dit energistofskifte. B1 omsætter fx kulhydrat til druesukker, og når druesukker forbrændes
-								i kroppen skabes energi.
-							</p>
+							{!! trans('flow.combinations.2.D') !!}
 						</div>
 
 						<div class="advise" data-advise="2.5" data-group="E" v-if="(isCombinationPossible(current_advise_one, 'E', null)) && (isAlone(2, 2.5)) && (user_data.joints == '1')" transition="setAdviseTwo">
-							E
-							<p>
-								Når du har ømme muskler og led har du brug for nogle gode næringsstoffer. Mangel på D-vitamin kan ligefrem give svage muskler og
-								muskelsmerter. Glukosamin/chonodroitin stimulerer bruskcellerne og er godt, hvis dine led fx er slidte.
-							</p>
+							{!! trans('flow.combinations.2.E') !!}
 						</div>
 					</div>
 
 					<div class="group" data-group="3">
 						<div class="advise" data-advise="3.1" data-group="a" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'a')) && user_data.foods.fruits == '1' || user_data.foods.vegetables == '1'" transition="setAdviseThree">
-							a
-							<p v-show="user_data.foods.fruits == 1">
-								Frugt er en vigtig kilde til C-vitamin. Din krop får ikke nok frugt, og derfor heller ikke nok C-vitamin. Take Daily sørger for,
-								at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
-								<br/><br/>
-								Begynder du at spise mere frugt, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så
-								er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
-							</p>
-
-							<p v-show="user_data.foods.vegetables == 1">
-								Grøntsager er en vigtig kilde til B9-vitamin, C-vitamin, folsyre og kalium. Take Daily sørger for, at du får det, du behøver –
-								og så kan du fortsætte med at spise, som du gør nu.
-								<br/><br/>
-								Begynder du at spise flere grøntsager, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take
-									Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug
-								for.
-							</p>
+							{!! trans('flow.combinations.3.a') !!}
 						</div>
 
 						<div class="advise" data-advise="3.2" data-group="b" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'b')) && (isAlone(3, 3.2)) && (user_data.foods.bread == '1' || user_data.foods.wheat == '1')" transition="setAdviseThree">
-							b
-							<p v-show="user_data.foods.bread == 1">
-								Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Du spiser ikke nok brød i hverdagen, så du har brug for lidt ekstra
-								B-vitamin og jern. Når du ikke får nok jern, vil du ofte føle dig sløv. Take Daily giver dig præcis det, der skal til, for at du
-								føler dig frisk hver dag.
-								<br/><br/>
-								Begynder du at spise mere brød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så
-								er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
-							</p>
-
-							<p v-show="user_data.foods.wheat == 1">
-								Du spiser ikke nok pasta, ris og kartofler, og derfor går din krop glip af gode kulhydrater, som er en vigtig kilde til
-								B-vitamin og mineraler. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
-								<br/><br/>
-								Begynder du at spise mere ris, pasta eller det, der ligner, skal du huske at ændre din profil på
-								<a href="/account" target="_blank">Mit Take Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
-								indeholder lige præcis de doser, du har brug for.
-							</p>
+							{!! trans('flow.combinations.3.b') !!}
 						</div>
 
 						<div class="advise" data-advise="3.3" data-group="c" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'c')) && (isAlone(3, 3.3)) && (user_data.foods.dairy == '1')" transition="setAdviseThree">
-							c
-							<p>
-								Du får ikke mejerprodukter nok, og derfor heller ikke nok kalcium og B2-vitamin. Begge dele har dine knogler og led brug for. Vi
-								sørger for at afstemme din dosis efter din alder. Den har nemlig indflydelse på, hvor meget kalcium og B2-vitamin din krop har
-								behov for.
-								<br/><br/>
-								Begynder du at få flere mejeriprodukter i din daglige kost, skal du huske at ændre din profil på
-								<a href="/account" target="_blank">Mit Take Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
-								indeholder lige præcis de doser, du har brug for.
-							</p>
+							{!! trans('flow.combinations.3.c') !!}
 						</div>
 
 						<div class="advise" data-advise="3.4" data-group="d" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'd')) && (isAlone(3, 3.4)) && (user_data.foods.meat == '1')" transition="setAdviseThree">
-							d
-							<p>
-								Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. Take Daily sørger for, at du får det,
-								du behøver – og så kan du fortsætte med at spise, som du gør nu.
-								<br/><br/>
-								Begynder du at spise kød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så er du
-								sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
-							</p>
+							{!! trans('flow.combinations.3.d') !!}
 						</div>
 
 						<div class="advise" data-advise="3.5" data-group="e" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'e')) && (isAlone(3, 3.5)) && (user_data.foods.fish == '1')" transition="setAdviseThree">
-							e
-							<p>
-								Du spiser ikke nok fisk, og derfor bliver din krop snydt for sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som
-								D-vitamin, jod og selen. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
-								<br/><br/>
-								Begynder du at spise mere fisk, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så
-								er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
-							</p>
+							{!! trans('flow.combinations.3.e') !!}
 						</div>
 
 						<div class="advise" data-advise="3.6" data-group="f" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'f')) && (isAlone(3, 3.6)) && (user_data.foods.butter == '2')" transition="setAdviseThree">
-							f
-							<p>
-								Din daglige kost indeholder ikke nok smør, margarine eller olie, som er vigtige kilder til A-vitamin og D-vitamin. Du har brug
-								for begge vitaminer. Blandt andet for at styrke dit immunforsvar. Take Daily sørger for, at du får det, du behøver – og så kan
-								du fortsætte med at spise, som du gør nu.
-								<br/><br/>
-								Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>.
-								Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
-							</p>
+							{!! trans('flow.combinations.3.f') !!}
 						</div>
 
 						<div class="advise" data-advise="3.7" data-group="" transition="setAdviseThree" v-if="isGroupEmpty(3) && isGroupEmpty(2)">
-							Du har en sund livsstil og passer godt på din krop. Take Daily giver dig det mest basale, så din krop også får, hvad den har brug
-							for de dage, hvor du slapper af og synder lidt.
+							{!! trans('flow.combinations.none') !!}
 						</div>
 
 						<textarea name="user_data" type="hidden" style="display: none;">@{{ $data.user_data | json }}</textarea>
-						<button type="submit" class="button button--green button--medium button--full-mobile">Bestil Take Daily</button>
+						<button type="submit" class="button button--green button--medium button--full-mobile">{{ trans('flow.button-order-text') }}</button>
 					</div>
 				</div>
 
