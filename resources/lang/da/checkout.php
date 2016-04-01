@@ -1,6 +1,18 @@
 <?php
 return [
-	'success' => [
+	'messages' => [
+		'vitamins-not-selected' => 'Vi skal finde dine vitaminer før du kan handle.',
+		'email-taken'           => 'E-mail adressen er allerede taget.',
+		'email-invalid'         => 'E-mail adressen er ikke gyldig.',
+		'payment-invalid'       => 'Betalingen blev ikke godkendt, prøv igen. :error',
+		'no-such-coupon'        => 'Kuponkoden findes ikke.',
+		'coupon-missing'        => 'Du skal indtaste en kuponkode.',
+		'coupon-added'          => 'Kuponkoden blev tilføjet!'
+	],
+	'mail'     => [
+		'subject' => 'Ordrebekræftelse fra Take Daily'
+	],
+	'success'  => [
 		'page-title'  => 'Din ordre blev godkendt! - Take Daily',
 		'title'       => 'Din ordre blev oprettet',
 		'text'        => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Tak for dit køb!',
@@ -10,11 +22,11 @@ return [
 			'text'  => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring gavekortet, indløsning og din ordre generelt. Tak for dit køb!'
 		]
 	],
-	'index'   => [
+	'index'    => [
 		'title'      => 'Betaling - Take Daily',
 		'order'      => [
-			'title'   => 'Bestilling',
-			'info'    => [
+			'title'              => 'Bestilling',
+			'info'               => [
 				'title'               => 'Dine oplysninger',
 				'name'                => 'Dit fulde navn',
 				'name-placeholder'    => 'Lars Jensen',
@@ -41,7 +53,7 @@ return [
 				'company'             => 'CVR / Firma',
 				'company-placeholder' => 'DK-12345678'
 			],
-			'billing' => [
+			'billing'            => [
 				'title'  => 'Kortoplysninger',
 				'secure' => 'Sikret forbindelse',
 				'card'   => [

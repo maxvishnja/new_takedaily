@@ -25,7 +25,7 @@ class CheckoutController extends Controller
 
 		if ( \Session::get('product_name') == 'subscription' && !\Session::has('user_data') )
 		{
-			return \Redirect::to('/flow')->withErrors([ 'Vi skal finde dine vitaminer før du kan handle.' ]);
+			return \Redirect::to('/flow')->withErrors([ trans('checkout.messages.vitamins-not-selected') ]);
 		}
 
 		$giftcard = null;
@@ -56,8 +56,8 @@ class CheckoutController extends Controller
 			'info.address_country' => 'required',
 			'stripeToken'          => 'required'
 		], [
-			'info.email.unique' => 'E-mail adressen er allerede taget.',
-			'info.email.email'  => 'E-mail adressen er ikke gyldig.',
+			'info.email.unique' => trans('checkout.messages.email-taken'),
+			'info.email.email'  => trans('checkout.messages.email-invalid')
 		]);
 
 		Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
@@ -143,13 +143,13 @@ class CheckoutController extends Controller
 				]);
 			} catch( Card $ex )
 			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
+				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
 			} catch( \Exception $ex )
 			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
+				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
 			} catch( \Error $ex )
 			{
-				return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . $ex->getMessage() ])->withInput();
+				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
 			}
 		}
 		else
@@ -216,7 +216,7 @@ class CheckoutController extends Controller
 			]);
 		}
 
-		if( $giftcard )
+		if ( $giftcard )
 		{
 			$user->getCustomer()->setBalance($giftcard->worth);
 		}
@@ -225,7 +225,7 @@ class CheckoutController extends Controller
 
 		if ( !$stripeCharge )
 		{
-			return \Redirect::back()->withErrors([ 'Betalingen blev ikke godkendt, prøv igen. ' . \Session::get('error_message') ])->withInput();
+			return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => \Session::get('error_message') ]) ])->withInput();
 		}
 
 		if ( str_contains($product, 'giftcard') )
@@ -241,7 +241,7 @@ class CheckoutController extends Controller
 			$coupon->reduceUsagesLeft();
 		}
 
-		if( $giftcard )
+		if ( $giftcard )
 		{
 			$giftcard->markUsed();
 		}
@@ -262,7 +262,7 @@ class CheckoutController extends Controller
 		{
 			$message->to($mailEmail, $mailName);
 			$message->from('noreply@takedaily.dk', 'Take Daily');
-			$message->subject('Ordrebekræftelse fra Take Daily');
+			$message->subject(trans('checkout.mail.subject'));
 		});
 
 		if ( $productItem->is_subscription == 1 )
@@ -291,18 +291,18 @@ class CheckoutController extends Controller
 	{
 		if ( is_null($request->get('coupon')) || $request->get('coupon') == '' )
 		{
-			return \Response::json([ 'message' => 'Du skal indtaste en kuponkode.' ], 400);
+			return \Response::json([ 'message' => trans('checkout.messages.coupon-missing') ], 400);
 		}
 
 		$coupon = $couponRepository->findByCoupon($request->get('coupon'));
 
 		if ( !$coupon )
 		{
-			return \Response::json([ 'message' => 'Kuponkoden findes ikke.' ], 400);
+			return \Response::json([ 'message' => trans('checkout.messages.no-such-coupon') ], 400);
 		}
 
 		return \Response::json([
-			'message' => 'Kuponkoden blev tilføjet!',
+			'message' => trans('checkout.messages.coupon-added'),
 			'coupon'  => [
 				'description'   => $coupon->description,
 				'applies_to'    => $coupon->applies_to,
