@@ -3,7 +3,7 @@
 @section('pageClass', 'page-checkout-success')
 
 @section('mainClasses', 'm-b-50 m-t-50')
-@section('title', 'Din ordre blev godkendt! - Take Daily')
+@section('title', trans('checkout.success.page-title'))
 
 @section('content')
 	<div class="container">
@@ -35,18 +35,18 @@
 			</div>
 
 			<div class="text-center">
-				<h1>Din ordre blev oprettet</h1>
-				<p>Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Tak for dit køb!</p>
+				<h1>{{ trans('checkout.success.title') }}</h1>
+				<p>{{ trans('checkout.success.text') }}</p>
 
-				<a href="/account" class="button button--green button--rounded button--medium">Gå til dit Take Daily</a>
+				<a href="/account" class="button button--green button--rounded button--medium">{{ trans('checkout.success.button-text') }}</a>
 			</div>
 		@endif
 
 		@if(isset($giftcardToken))
 			<div class="text-center">
-				<h3>Gavekort koden er:</h3>
+				<h3>{{ trans('checkout.success.giftcard.title') }}</h3>
 				<h1>{{ $giftcardToken }}</h1>
-				<p>Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring gavekortet, indløsning og din ordre generelt. Tak for dit køb!</p>
+				<p>{{ trans('checkout.success.giftcard.text') }}</p>
 			</div>
 		@endif
 	</div>
