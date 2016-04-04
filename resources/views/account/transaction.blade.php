@@ -2,12 +2,12 @@
 
 @section('pageClass', 'account account-transactions account-transaction')
 
-@section('title', "Levering #{$order->getPaddedId()} - Take Daily")
+@section('title', trans('account.transaction.title', ['id' => $order->getPaddedId()]))
 
 @section('content')
-	<h1>Levering #{{ $order->getPaddedId() }}</h1>
+	<h1>{{ trans('account.transaction.header', ['id' => $order->getPaddedId()]) }}</h1>
 
-	<h3>Leveringsadresse</h3>
+	<h3>{{ trans('account.transaction.title-shipping') }}</h3>
 	@if($order->shipping_company != '')
 		{{ $order->shipping_company }}<br/>
 		c/o: {{ $order->shipping_name }}<br/>
@@ -22,10 +22,10 @@
 		<thead>
 		@if(count($order->lines) > 0)
 			<tr>
-				<th>Beskrivelse</th>
-				<th>Beløb</th>
-				<th>Moms</th>
-				<th>Total</th>
+				<th>{{ trans('account.transaction.table.headers.description') }}</th>
+				<th>{{ trans('account.transaction.table.headers.amount') }}</th>
+				<th>{{ trans('account.transaction.table.headers.taxes') }}</th>
+				<th>{{ trans('account.transaction.table.headers.total') }}</th>
 			</tr>
 		@endif
 		</thead>
@@ -34,9 +34,9 @@
 		@foreach($order->lines as $line)
 			<tr>
 				<td>{{ trans("products.{$line->description}") }}</td>
-				<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true) }} kr.</td>
-				<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true) }} kr.</td>
-				<td><strong>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true) }} kr.</strong></td>
+				<td>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true)]) }}</td>
+				<td>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true)]) }}</td>
+				<td><strong>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true)]) }}</strong></td>
 			</tr>
 		@endforeach
 		</tbody>
@@ -44,26 +44,26 @@
 		<tfoot>
 		<tr>
 			<td colspan="2" style="border: none;"></td>
-			<td style="border: none; text-align: right;">Subtotal</td>
-			<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->sub_total, true) }} kr.</td>
+			<td style="border: none; text-align: right;">{{ trans('account.transaction.table.totals.subtotal') }}</td>
+			<td style="border: none;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->sub_total, true)]) }}</td>
 		</tr>
 
 		<tr>
 			<td colspan="2" style="border: none;"></td>
-			<td style="border: none; text-align: right;">Fragt</td>
-			<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_shipping, true) }} kr.</td>
+			<td style="border: none; text-align: right;">{{ trans('account.transaction.table.totals.shipping') }}</td>
+			<td style="border: none;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_shipping, true)]) }}</td>
 		</tr>
 
 		<tr>
 			<td colspan="2" style="border: none;"></td>
-			<td style="border: none; text-align: right;">Moms</td>
-			<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_taxes, true) }} kr.</td>
+			<td style="border: none; text-align: right;">{{ trans('account.transaction.table.totals.taxes') }}</td>
+			<td style="border: none;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_taxes, true)]) }}</td>
 		</tr>
 
 		<tr>
 			<td colspan="2" style="border: none;"></td>
-			<td style="border: none; text-align: right; font-weight: bold;">Total</td>
-			<td style="border: none; font-weight: bold;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total, true) }} kr.</td>
+			<td style="border: none; text-align: right; font-weight: bold;">{{ trans('account.transaction.table.totals.total') }}</td>
+			<td style="border: none; font-weight: bold;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total, true)]) }}</td>
 		</tr>
 		</tfoot>
 	</table>

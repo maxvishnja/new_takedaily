@@ -1,16 +1,16 @@
 <?php
 return [
-	'back'         => '&lsaquo; Tilbage til tidligere spørgsmål',
-	'title'         => 'Find din anbefaling - Take Daily',
-	'scripts'      => 'Venligst aktiver javascripts!',
-	'steps'        => [
+	'back'              => '&lsaquo; Tilbage til tidligere spørgsmål',
+	'title'             => 'Find din anbefaling - Take Daily',
+	'scripts'           => 'Venligst aktiver javascripts!',
+	'steps'             => [
 		'one'   => 'PERSONLIGT',
 		'two'   => 'HELBRED',
 		'three' => 'KOST OG VANER',
 		'four'  => 'ANBEFALING'
 	],
 	'button-order-text' => 'Bestil Take Daily',
-	'questions'    => [
+	'questions'         => [
 		'1-1'  => [
 			'title'   => 'Hvilket køn er du?',
 			'text'    => 'Mænd og kvinder har ikke brug for den samme mængde vitaminer og mineraler. Fx har store knogler og stærke muskler brug for mere D-vitamin.',
@@ -22,6 +22,7 @@ return [
 		'1-2'  => [
 			'title'              => 'Hvor gammel er du?',
 			'title-alt'          => 'Vi ved det godt. Man spørger ikke en kvinde om hendes alder, men vi lover, vi ikke siger det til nogen.',
+			'age'                => 'Din fødselsdag',
 			'text'               => 'Når du bliver ældre, får din krop brug for mere D-vitamin, B12-vitamin og kalk end tidligere. Du har brug for B12-vitaminet til at danne røde blodlegemer. Vitaminet er godt mod demens og sikrer, at dit nervesystem fungerer optimalt.',
 			'button-text'        => 'Vælg din fødselsdagsdato',
 			'button-submit-text' => 'Ja, jeg er <strong>{{ temp_age }}</strong> år gammel'
@@ -30,9 +31,9 @@ return [
 			'title'   => 'Hvilken hudfarve matcher din bedst?',
 			'text'    => 'Er du meget lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud er mørk. Så har du ikke en helt lys hudfarve, kan du have brug for D-vitamin-tilskud.',
 			'options' => [
-				'1' => 'Lys',
-				'2' => 'Mørk',
-				'3' => 'Sort'
+				'1' => 'Hvid / Lys',
+				'2' => 'Brun / Mørk',
+				'3' => 'Sort / Mørkere'
 			]
 		],
 		'1-4'  => [
@@ -219,8 +220,8 @@ return [
 			]
 		]
 	],
-	'combinations' => [
-		'1' => [
+	'combinations'      => [
+		'1'    => [
 			'basic'          => '<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis</p>',
 			'basic-10-d'     => '<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
 							<p>Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">din alder</span>
@@ -232,7 +233,7 @@ return [
 			'basic-20-d'     => '<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
 							<p>I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.</p>'
 		],
-		'2' => [
+		'2'    => [
 			'A' => '<p>Du er gravid eller ønsker at blive det. Tillykke! I den søde ventetid, sørger Take Daily for, at du og din baby får de særlige tilskud, I har brug for.
 							<br/><br/>
 							Gennem hele graviditeten er det godt for udviklingen af babyens knogler og muskler at tage et tilskud af D-vitamin. Fiskeolie…
@@ -286,7 +287,7 @@ return [
 						muskelsmerter. Glukosamin/chonodroitin stimulerer bruskcellerne og er godt, hvis dine led fx er slidte.
 					</p>'
 		],
-		'3' => [
+		'3'    => [
 			'a' => '<p v-show="user_data.foods.fruits == 1">
 						Frugt er en vigtig kilde til C-vitamin. Din krop får ikke nok frugt, og derfor heller ikke nok C-vitamin. Take Daily sørger for,
 						at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
@@ -355,7 +356,7 @@ return [
 		'none' => '<p>Du har en sund livsstil og passer godt på din krop. Take Daily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.</p>'
 	],
-	'call-me'      => [
+	'call-me'           => [
 		'title'       => 'Har du ikke tid til at udfylde formularen?',
 		'text'        => 'Bliv ringet op, indtast dit tlf. nummer og vælg tidspunkt.',
 		'button-text' => 'Ring mig op',
@@ -367,7 +368,7 @@ return [
 			'15:00 - 17:00'
 		]
 	],
-	'datepicker'   => [
+	'datepicker'        => [
 		'months_long'  => [
 			'1'  => 'Januar',
 			'2'  => 'Februar',

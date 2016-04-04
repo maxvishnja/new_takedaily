@@ -166,12 +166,12 @@ class Customer extends Model
 
 	public function hasBirthday()
 	{
-		return !is_null($this->birthday);
+		return !is_null($this->getBirthday());
 	}
 
 	public function getBirthday()
 	{
-		return $this->birthday;
+		return $this->getCustomerAttribute('user_data.birthdate', $this->birthday);
 	}
 
 	public function getAge()
@@ -186,7 +186,7 @@ class Customer extends Model
 
 	public function getGender()
 	{
-		return $this->gender;
+		return $this->getCustomerAttribute('user_data.gender', $this->gender);
 	}
 
 	public function getOrderCount()

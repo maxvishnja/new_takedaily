@@ -2,20 +2,19 @@
 
 @section('pageClass', 'account account-settings account-settings-subscription')
 
-@section('title', 'Abonnement - Take Daily')
+@section('title', trans('account.settings_subscription.title'))
 
 @section('content')
-	<h1>Dit abonnement er <span style="text-decoration: underline">{{ $plan->isActive() ? 'aktivt' : ($plan->isCancelled() ? 'afsluttet' : '')  }}</span></h1>
-	<h2><span class="color--brand">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true) }} kr.</span><small> / måned</small></h2>
+	<h1>{{ trans('account.settings_subscription.header', ['status' => trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) ]) }}</h1>
+	<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true) ])]) !!}</h2>
 	@if( $plan->isActive() )
-		<p>Næste trækningsdato: {{ Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y H:i') }}</p>
+		<p>{{ trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y H:i') ]) }}</p>
 		@if($plan->isSnoozeable())
-			<a href="#snooze-toggle" id="snooze-toggle" class="m-t-20 button button--regular button--green button--rounded">Udskyd næste forsendelse</a>
+			<a href="#snooze-toggle" id="snooze-toggle" class="m-t-20 button button--regular button--green button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
 		@endif
 
 		<div class="m-t-50">
-			<a href="{{ URL::action('AccountController@getSettingsSubscriptionCancel') }}" class="button button--small button--light button--rounded m-t-50">Opsig
-				abonnementet</a>
+			<a href="{{ URL::action('AccountController@getSettingsSubscriptionCancel') }}" class="button button--small button--light button--rounded m-t-50">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
 		</div>
 	@endif
 @endsection
@@ -27,24 +26,24 @@
 			e.preventDefault();
 
 			swal({
-				title: "Snooze abonnent",
-				text: "Hvor langt tid?" +
+				title: "{{ trans('account.settings_subscription.snooze_popup.title') }}",
+				text: "{{ trans('account.settings_subscription.snooze_popup.text') }}" +
 				"<form method=\"post\" action=\"{{ URL::action('AccountController@postSettingsSubscriptionSnooze') }}\" id=\"snooze_form\">" +
 				"<select class=\"select select--regular m-t-10\" name=\"days\">" +
-				"<option value=\"1\">1 dag</option>" +
-				"<option value=\"2\">2 dage</option>" +
-				"<option value=\"3\">3 dage</option>" +
-				"<option value=\"4\">4 dage</option>" +
-				"<option value=\"5\">5 dage</option>" +
-				"<option value=\"6\">6 dage</option>" +
-				"<option value=\"7\">7 dage</option>" +
+				"<option value=\"1\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 1]) }}</option>" +
+				"<option value=\"2\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 2]) }}</option>" +
+				"<option value=\"3\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 3]) }}</option>" +
+				"<option value=\"4\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 4]) }}</option>" +
+				"<option value=\"5\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 5]) }}</option>" +
+				"<option value=\"6\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 6]) }}</option>" +
+				"<option value=\"7\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 7]) }}</option>" +
 				"</select>" +
 				"<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
 				"</form>",
 				type: "",
 				html: true,
-				confirmButtonText: "Snooze",
-				cancelButtonText: "Annuller",
+				confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
+				cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
 				confirmButtonColor: "#777",
 				allowOutsideClick: true,
 				showCancelButton: true,
