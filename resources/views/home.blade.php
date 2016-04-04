@@ -150,7 +150,7 @@
 			<div class="clear"></div>
 		</div>
 
-		@if( is_array( trans('home.blocks.six.slides') ) ) )
+		@if( is_array( trans('home.blocks.six.slides') ) )
 			<div class="block block--six">
 				<div class="slider_container" id="slider_two">
 					<div class="icon slider-arrow-left icon-arrow-left"></div>

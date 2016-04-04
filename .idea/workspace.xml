@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Translateable checkout + success">
+    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Live chat + fix">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/da/checkout.php" afterPath="$PROJECT_DIR$/resources/lang/da/checkout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/includes/app/footer.blade.php" afterPath="$PROJECT_DIR$/resources/views/includes/app/footer.blade.php" />
     </list>
     <ignored path="TakeDaily.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,89 +26,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="checkout.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/lang/da/checkout.php">
+      <file leaf-file-name="CheckoutController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
+              <caret line="152" column="13" selection-start-line="133" selection-start-column="12" selection-end-line="152" selection-end-column="13" />
+              <folding>
+                <marker date="1459500514000" expanded="false" signature="39:292" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/includes/app/footer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
+      <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
-              <folding>
-                <element signature="e#2166#2224#0#HTML" expanded="true" />
-                <element signature="e#9871#9894#0#HTML" expanded="true" />
-                <marker date="1459500252000" expanded="true" signature="13134:13734" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="13237:13410" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="13418:13730" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="13745:14247" placeholder="..." />
-                <marker date="1459500252000" expanded="true" signature="13757:14247" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="13792:14241" placeholder="..." />
-                <marker date="1459500252000" expanded="true" signature="13808:14241" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="13874:13905" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="14296:14843" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="14331:14479" placeholder="..." />
-                <marker date="1459500252000" expanded="true" signature="14405:14479" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="14442:14474" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="14543:14572" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="14628:14657" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="14739:14768" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="14866:15165" placeholder="..." />
-                <marker date="1459500252000" expanded="true" signature="14893:15165" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="14978:15056" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="15064:15142" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="15187:15483" placeholder="..." />
-                <marker date="1459500252000" expanded="true" signature="15214:15483" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="15296:15374" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="15382:15460" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="15517:15964" placeholder="..." />
-                <marker date="1459500252000" expanded="true" signature="15538:15964" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="15702:15941" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="15727:15827" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="15836:15936" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="16545:16591" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="16618:16654" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="16682:16740" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="16773:17109" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="16812:16842" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="16888:16969" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="17015:17080" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="17133:17194" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="17231:17706" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="17304:17679" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="17357:17672" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="17437:17521" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="17569:17636" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="17767:17785" placeholder="..." />
-                <marker date="1459500252000" expanded="true" signature="17822:17901" placeholder="..." />
-                <marker date="1459500252000" expanded="true" signature="17834:17901" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="17933:19216" placeholder="..." />
-                <marker date="1459500252000" expanded="true" signature="17945:19209" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="18078:18109" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="18350:18417" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="18445:18512" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="18547:18977" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="19010:19203" placeholder="{...}" />
-                <marker date="1459500252000" expanded="true" signature="19271:19313" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CheckoutController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5685987">
-              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
-              <folding>
-                <marker date="1459500514000" expanded="true" signature="39:292" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="0.62512463">
+              <caret line="152" column="58" selection-start-line="152" selection-start-column="58" selection-end-line="152" selection-end-column="58" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,12 +101,10 @@
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/resources/lang/da/home.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/da/footer.php" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_elements.sass" />
         <option value="$PROJECT_DIR$/resources/lang/da/popup.php" />
         <option value="$PROJECT_DIR$/resources/lang/da/message.php" />
-        <option value="$PROJECT_DIR$/resources/views/includes/app/footer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/app/account-nav.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/app/nav.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/da/nav.php" />
@@ -175,8 +118,10 @@
         <option value="$PROJECT_DIR$/resources/views/checkout/success.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/da/general.php" />
         <option value="$PROJECT_DIR$/resources/views/checkout/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
         <option value="$PROJECT_DIR$/resources/lang/da/checkout.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" />
+        <option value="$PROJECT_DIR$/resources/views/includes/app/footer.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
       </list>
     </option>
   </component>
@@ -228,10 +173,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2560" />
     <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1413" />
+    <option name="width" value="1920" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -259,34 +203,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="TakeDaily">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="TakeDaily">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -401,6 +317,34 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TakeDaily">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TakeDaily">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -409,7 +353,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="Check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;in&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;succe&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;index.bl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;_element&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;h&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;home.blad&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;Rewr&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/RewriteController.php&#10;Url&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/UrlRewrite.php&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;nav.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/nav.blade.php&#10;PageSee&#9;null&#9;null&#10;Page&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/PageController.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;UrlRe&#9;null&#9;null&#10;CombinationS&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;_l&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;sprites&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/node_modules/gulp.spritesmith/test/expected-files/retina-mapped/sprite.scss&#10;giftin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/gifting.blade.php&#10;_de&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;ind&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;landin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;_cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;_norma&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_normalise.sass&#10;page.b&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/page.blade.php&#10;page.blade.p&#9;null&#9;null&#10;PageControl&#9;null&#9;null&#10;mana&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/coupons/manage.blade.php&#10;2016_03_28_143852_add_layout_to_cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_28_143852_add_layout_to_cms.php&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;show&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;Cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Customer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Order&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Order.php&#10;User&#9;null&#9;null&#10;Produ&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/en/products.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;OrderControl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/OrderController.php&#10;cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;CustomerCon&#9;null&#9;null&#10;Create&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Listeners/OrderCreateCustomer.php&#10;2016_03_27_140254_update_customers_balance&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_27_140254_update_customers_balance.php&#10;Cu&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Custom&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php" />
+    <property name="SearchEverywhereHistoryKey" value="home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;foo&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;Ch&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;Check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;in&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;succe&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;index.bl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;_element&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;h&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;home.blad&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;Rewr&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/RewriteController.php&#10;Url&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/UrlRewrite.php&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;nav.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/nav.blade.php&#10;PageSee&#9;null&#9;null&#10;Page&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/PageController.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;UrlRe&#9;null&#9;null&#10;CombinationS&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;_l&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;sprites&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/node_modules/gulp.spritesmith/test/expected-files/retina-mapped/sprite.scss&#10;giftin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/gifting.blade.php&#10;_de&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;ind&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;landin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;_cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;_norma&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_normalise.sass&#10;page.b&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/page.blade.php&#10;page.blade.p&#9;null&#9;null&#10;PageControl&#9;null&#9;null&#10;mana&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/coupons/manage.blade.php&#10;2016_03_28_143852_add_layout_to_cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_28_143852_add_layout_to_cms.php&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;show&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;Cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Customer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Order&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Order.php&#10;User&#9;null&#9;null&#10;Produ&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/en/products.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;OrderControl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/OrderController.php&#10;cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;CustomerCon&#9;null&#9;null&#10;Create&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Listeners/OrderCreateCustomer.php&#10;2016_03_27_140254_update_customers_balance&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_03_27_140254_update_customers_balance.php&#10;Cu&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -481,12 +425,6 @@
       <created>1456591092063</created>
       <option name="number" value="Default" />
       <updated>1456591092063</updated>
-    </task>
-    <task id="LOCAL-00049" summary="stuff">
-      <created>1458144706096</created>
-      <option name="number" value="00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1458144706096</updated>
     </task>
     <task id="LOCAL-00050" summary="migration bug fix">
       <created>1458145046166</created>
@@ -776,7 +714,13 @@
       <option name="project" value="LOCAL" />
       <updated>1459500290689</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="Checkout translated #2">
+      <created>1459500549613</created>
+      <option name="number" value="00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1459500549613</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TodoView">
@@ -789,23 +733,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2560" y="23" width="2560" height="1413" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24453124" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
       <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18164252" sideWeight="0.42801046" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15903106" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12539062" sideWeight="0.5046729" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12848867" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15534492" sideWeight="0.47871235" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15903106" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.125" sideWeight="0.5046729" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24453124" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12848867" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15534492" sideWeight="0.47871235" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
       <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.209584" sideWeight="0.32871288" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.209584" sideWeight="0.32871288" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -814,37 +756,12 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39929327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861477" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3752696" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15903106" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="2" side_tool="true" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12848867" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15534492" sideWeight="0.47871235" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39929327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861477" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24486572" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3773036" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
-      <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18164252" sideWeight="0.42801046" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22864583" sideWeight="0.5046729" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32806325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.209584" sideWeight="0.32871288" order="2" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
+    </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -860,8 +777,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Front charts #2" />
-    <MESSAGE value="Giftcard feature" />
     <MESSAGE value="Giftcards!" />
     <MESSAGE value="Coupons and giftcards" />
     <MESSAGE value="Refunding" />
@@ -885,7 +800,9 @@
     <MESSAGE value="More translations and such" />
     <MESSAGE value="Translated flow" />
     <MESSAGE value="Translateable checkout + success" />
-    <option name="LAST_COMMIT_MESSAGE" value="Translateable checkout + success" />
+    <MESSAGE value="Checkout translated #2" />
+    <MESSAGE value="Live chat + fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Live chat + fix" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1111,13 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/app/footer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22010271">
-          <caret line="12" column="34" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/includes/app/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1202,18 +1112,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.036683787">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/checkout/success.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.091709465">
           <caret line="5" column="53" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,7 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16507703">
           <caret line="346" column="146" selection-start-line="346" selection-start-column="146" selection-end-line="346" selection-end-column="146" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1229,88 +1130,46 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.055025678">
           <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.3118122">
           <caret line="17" column="73" selection-start-line="17" selection-start-column="73" selection-end-line="17" selection-end-column="73" />
-          <folding>
-            <element signature="e#2166#2224#0#HTML" expanded="true" />
-            <element signature="e#9871#9894#0#HTML" expanded="true" />
-            <marker date="1459500252000" expanded="true" signature="13134:13734" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="13237:13410" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="13418:13730" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="13745:14247" placeholder="..." />
-            <marker date="1459500252000" expanded="true" signature="13757:14247" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="13792:14241" placeholder="..." />
-            <marker date="1459500252000" expanded="true" signature="13808:14241" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="13874:13905" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="14296:14843" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="14331:14479" placeholder="..." />
-            <marker date="1459500252000" expanded="true" signature="14405:14479" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="14442:14474" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="14543:14572" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="14628:14657" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="14739:14768" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="14866:15165" placeholder="..." />
-            <marker date="1459500252000" expanded="true" signature="14893:15165" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="14978:15056" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="15064:15142" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="15187:15483" placeholder="..." />
-            <marker date="1459500252000" expanded="true" signature="15214:15483" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="15296:15374" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="15382:15460" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="15517:15964" placeholder="..." />
-            <marker date="1459500252000" expanded="true" signature="15538:15964" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="15702:15941" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="15727:15827" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="15836:15936" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="16545:16591" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="16618:16654" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="16682:16740" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="16773:17109" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="16812:16842" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="16888:16969" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="17015:17080" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="17133:17194" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="17231:17706" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="17304:17679" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="17357:17672" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="17437:17521" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="17569:17636" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="17767:17785" placeholder="..." />
-            <marker date="1459500252000" expanded="true" signature="17822:17901" placeholder="..." />
-            <marker date="1459500252000" expanded="true" signature="17834:17901" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="17933:19216" placeholder="..." />
-            <marker date="1459500252000" expanded="true" signature="17945:19209" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="18078:18109" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="18350:18417" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="18445:18512" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="18547:18977" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="19010:19203" placeholder="{...}" />
-            <marker date="1459500252000" expanded="true" signature="19271:19313" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/lang/da/checkout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.22010271">
           <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5685987">
-          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="152" column="13" selection-start-line="133" selection-start-column="12" selection-end-line="152" selection-end-column="13" />
           <folding>
-            <marker date="1459500514000" expanded="true" signature="39:292" placeholder="..." />
+            <marker date="1459500514000" expanded="false" signature="39:292" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/app/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62512463">
+          <caret line="152" column="58" selection-start-line="152" selection-start-column="58" selection-end-line="152" selection-end-column="58" />
+          <folding />
         </state>
       </provider>
     </entry>
