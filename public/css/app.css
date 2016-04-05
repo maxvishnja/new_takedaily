@@ -1354,19 +1354,19 @@ footer .bottom {
 
 .icon-activity-once {
   background-image: url(/images/sprite.png);
-  background-position: -406px -320px;
+  background-position: -406px -264px;
   width: 56px;
   height: 56px; }
 
 .icon-activity-seldom {
   background-image: url(/images/sprite.png);
-  background-position: -406px -264px;
+  background-position: -406px -208px;
   width: 56px;
   height: 56px; }
 
 .icon-activity-twice {
   background-image: url(/images/sprite.png);
-  background-position: -406px -208px;
+  background-position: -406px -320px;
   width: 56px;
   height: 56px; }
 
@@ -1378,13 +1378,13 @@ footer .bottom {
 
 .icon-arrow-left-grey {
   background-image: url(/images/sprite.png);
-  background-position: -379px -228px;
+  background-position: -364px -114px;
   width: 22px;
   height: 42px; }
 
 .icon-arrow-left {
   background-image: url(/images/sprite.png);
-  background-position: -385px -114px;
+  background-position: -379px -228px;
   width: 21px;
   height: 44px; }
 
@@ -1396,7 +1396,7 @@ footer .bottom {
 
 .icon-arrow-right {
   background-image: url(/images/sprite.png);
-  background-position: -364px -114px;
+  background-position: -370px -332px;
   width: 21px;
   height: 44px; }
 
@@ -1408,7 +1408,7 @@ footer .bottom {
 
 .icon-awake {
   background-image: url(/images/sprite.png);
-  background-position: -480px -347px;
+  background-position: -530px 0px;
   width: 45px;
   height: 51px; }
 
@@ -1420,13 +1420,13 @@ footer .bottom {
 
 .icon-card-mastercard {
   background-image: url(/images/sprite.png);
-  background-position: -364px -158px;
+  background-position: -394px -440px;
   width: 32px;
   height: 20px; }
 
 .icon-card-visa {
   background-image: url(/images/sprite.png);
-  background-position: -240px -190px;
+  background-position: -426px -440px;
   width: 32px;
   height: 20px; }
 
@@ -1444,7 +1444,7 @@ footer .bottom {
 
 .icon-cross-large {
   background-image: url(/images/sprite.png);
-  background-position: -370px -332px;
+  background-position: -48px -486px;
   width: 24px;
   height: 24px; }
 
@@ -1462,49 +1462,49 @@ footer .bottom {
 
 .icon-facebook {
   background-image: url(/images/sprite.png);
-  background-position: -370px -356px;
+  background-position: -24px -486px;
   width: 24px;
   height: 24px; }
 
 .icon-fresh {
   background-image: url(/images/sprite.png);
-  background-position: -480px -245px;
+  background-position: -480px -296px;
   width: 45px;
   height: 51px; }
 
 .icon-gender-female {
   background-image: url(/images/sprite.png);
-  background-position: -240px -114px;
+  background-position: -302px -114px;
   width: 62px;
   height: 76px; }
 
 .icon-gender-male {
   background-image: url(/images/sprite.png);
-  background-position: -302px -114px;
+  background-position: -240px -114px;
   width: 62px;
   height: 76px; }
 
 .icon-immune-boost {
   background-image: url(/images/sprite.png);
-  background-position: -268px -384px;
+  background-position: -480px 0px;
   width: 50px;
   height: 50px; }
 
 .icon-immune-ignore {
   background-image: url(/images/sprite.png);
-  background-position: -368px -384px;
+  background-position: -188px -76px;
   width: 50px;
   height: 50px; }
 
 .icon-instagram {
   background-image: url(/images/sprite.png);
-  background-position: -162px -440px;
+  background-position: 0px -486px;
   width: 24px;
   height: 24px; }
 
 .icon-joint-no {
   background-image: url(/images/sprite.png);
-  background-position: -418px -384px;
+  background-position: -368px -384px;
   width: 50px;
   height: 50px; }
 
@@ -1516,7 +1516,7 @@ footer .bottom {
 
 .icon-joy {
   background-image: url(/images/sprite.png);
-  background-position: -530px 0px;
+  background-position: -480px -347px;
   width: 45px;
   height: 51px; }
 
@@ -1528,7 +1528,7 @@ footer .bottom {
 
 .icon-meat {
   background-image: url(/images/sprite.png);
-  background-position: -480px 0px;
+  background-position: -418px -384px;
   width: 50px;
   height: 50px; }
 
@@ -1540,67 +1540,67 @@ footer .bottom {
 
 .icon-portion-bread-1 {
   background-image: url(/images/sprite.png);
-  background-position: -406px -104px;
+  background-position: -148px -332px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-bread-2 {
   background-image: url(/images/sprite.png);
-  background-position: -406px -52px;
+  background-position: -222px -332px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-bread-3 {
   background-image: url(/images/sprite.png);
-  background-position: -406px 0px;
+  background-position: -296px -332px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-bread-4 {
   background-image: url(/images/sprite.png);
-  background-position: -296px -332px;
+  background-position: -406px 0px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-bread-5 {
   background-image: url(/images/sprite.png);
-  background-position: -222px -332px;
+  background-position: -406px -52px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-butter-no {
   background-image: url(/images/sprite.png);
-  background-position: -530px -51px;
+  background-position: -530px -147px;
   width: 44px;
   height: 48px; }
 
 .icon-portion-butter-sometimes {
   background-image: url(/images/sprite.png);
-  background-position: -530px -147px;
+  background-position: -530px -99px;
   width: 44px;
   height: 48px; }
 
 .icon-portion-butter-yes {
   background-image: url(/images/sprite.png);
-  background-position: -530px -99px;
+  background-position: -530px -51px;
   width: 44px;
   height: 48px; }
 
 .icon-portion-fish-1 {
   background-image: url(/images/sprite.png);
-  background-position: 0px -332px;
+  background-position: -406px -156px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-fish-2 {
   background-image: url(/images/sprite.png);
-  background-position: -148px -332px;
+  background-position: -406px -104px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-fish-3 {
   background-image: url(/images/sprite.png);
-  background-position: -296px -280px;
+  background-position: 0px -332px;
   width: 74px;
   height: 52px; }
 
@@ -1612,67 +1612,67 @@ footer .bottom {
 
 .icon-portion-fruit-2 {
   background-image: url(/images/sprite.png);
-  background-position: -530px -434px;
+  background-position: -480px -398px;
   width: 29px;
   height: 39px; }
 
 .icon-portion-fruit-3 {
   background-image: url(/images/sprite.png);
-  background-position: -480px -398px;
+  background-position: -530px -434px;
   width: 29px;
   height: 39px; }
 
 .icon-portion-meat-1 {
   background-image: url(/images/sprite.png);
-  background-position: -222px -280px;
+  background-position: -296px -280px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-meat-2 {
   background-image: url(/images/sprite.png);
-  background-position: -148px -280px;
+  background-position: -305px -228px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-meat-3 {
   background-image: url(/images/sprite.png);
-  background-position: -74px -280px;
+  background-position: -222px -280px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-milk-1 {
   background-image: url(/images/sprite.png);
-  background-position: -108px -440px;
+  background-position: -54px -440px;
   width: 54px;
   height: 46px; }
 
 .icon-portion-milk-2 {
   background-image: url(/images/sprite.png);
-  background-position: -54px -440px;
+  background-position: 0px -440px;
   width: 54px;
   height: 46px; }
 
 .icon-portion-milk-3 {
   background-image: url(/images/sprite.png);
-  background-position: 0px -440px;
+  background-position: -108px -440px;
   width: 54px;
   height: 46px; }
 
 .icon-portion-pasta-1 {
   background-image: url(/images/sprite.png);
-  background-position: -77px -228px;
+  background-position: -154px -228px;
   width: 77px;
   height: 52px; }
 
 .icon-portion-pasta-2 {
   background-image: url(/images/sprite.png);
-  background-position: 0px -228px;
+  background-position: -77px -228px;
   width: 77px;
   height: 52px; }
 
 .icon-portion-pasta-3 {
   background-image: url(/images/sprite.png);
-  background-position: -154px -228px;
+  background-position: 0px -228px;
   width: 77px;
   height: 52px; }
 
@@ -1684,19 +1684,19 @@ footer .bottom {
 
 .icon-portion-vegetables-1 {
   background-image: url(/images/sprite.png);
-  background-position: -74px -332px;
+  background-position: -148px -280px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-vegetables-2 {
   background-image: url(/images/sprite.png);
-  background-position: 0px -280px;
+  background-position: -74px -280px;
   width: 74px;
   height: 52px; }
 
 .icon-portion-vegetables-3 {
   background-image: url(/images/sprite.png);
-  background-position: -305px -228px;
+  background-position: 0px -280px;
   width: 74px;
   height: 52px; }
 
@@ -1708,7 +1708,7 @@ footer .bottom {
 
 .icon-portion-vegetables-5 {
   background-image: url(/images/sprite.png);
-  background-position: -406px -156px;
+  background-position: -74px -332px;
   width: 74px;
   height: 52px; }
 
@@ -1726,7 +1726,7 @@ footer .bottom {
 
 .icon-skin-dark {
   background-image: url(/images/sprite.png);
-  background-position: -480px -146px;
+  background-position: -480px -50px;
   width: 48px;
   height: 48px; }
 
@@ -1738,19 +1738,19 @@ footer .bottom {
 
 .icon-skin-white {
   background-image: url(/images/sprite.png);
-  background-position: -480px -50px;
+  background-position: -480px -146px;
   width: 48px;
   height: 48px; }
 
 .icon-smoke-no {
   background-image: url(/images/sprite.png);
-  background-position: -188px -76px;
+  background-position: -318px -384px;
   width: 50px;
   height: 50px; }
 
 .icon-smoke {
   background-image: url(/images/sprite.png);
-  background-position: -218px -384px;
+  background-position: -268px -384px;
   width: 50px;
   height: 50px; }
 
@@ -1774,19 +1774,19 @@ footer .bottom {
 
 .icon-supplement-no {
   background-image: url(/images/sprite.png);
-  background-position: -530px -322px;
+  background-position: -530px -281px;
   width: 36px;
   height: 41px; }
 
 .icon-supplement-yes {
   background-image: url(/images/sprite.png);
-  background-position: -530px -281px;
+  background-position: -530px -322px;
   width: 36px;
   height: 41px; }
 
 .icon-tired {
   background-image: url(/images/sprite.png);
-  background-position: -480px -296px;
+  background-position: -480px -245px;
   width: 45px;
   height: 51px; }
 
@@ -1798,7 +1798,7 @@ footer .bottom {
 
 .icon-twitter {
   background-image: url(/images/sprite.png);
-  background-position: -272px -190px;
+  background-position: -458px -440px;
   width: 24px;
   height: 20px; }
 
@@ -1810,7 +1810,7 @@ footer .bottom {
 
 .icon-vegetarian-yes {
   background-image: url(/images/sprite.png);
-  background-position: -318px -384px;
+  background-position: -218px -384px;
   width: 50px;
   height: 50px; }
 
@@ -1831,6 +1831,90 @@ footer .bottom {
   background-position: -240px -38px;
   width: 166px;
   height: 38px; }
+
+.pill-1a {
+  background-image: url(/images/sprite.png);
+  background-position: -307px -440px;
+  width: 29px;
+  height: 30px; }
+
+.pill-1b {
+  background-image: url(/images/sprite.png);
+  background-position: -336px -440px;
+  width: 29px;
+  height: 30px; }
+
+.pill-1c {
+  background-image: url(/images/sprite.png);
+  background-position: -365px -440px;
+  width: 29px;
+  height: 30px; }
+
+.pill-2a {
+  background-image: url(/images/sprite.png);
+  background-position: -356px -190px;
+  width: 29px;
+  height: 30px; }
+
+.pill-2b {
+  background-image: url(/images/sprite.png);
+  background-position: -327px -190px;
+  width: 29px;
+  height: 30px; }
+
+.pill-2c {
+  background-image: url(/images/sprite.png);
+  background-position: -278px -440px;
+  width: 29px;
+  height: 30px; }
+
+.pill-2d {
+  background-image: url(/images/sprite.png);
+  background-position: -269px -190px;
+  width: 29px;
+  height: 30px; }
+
+.pill-2e {
+  background-image: url(/images/sprite.png);
+  background-position: -220px -440px;
+  width: 29px;
+  height: 30px; }
+
+.pill-3a {
+  background-image: url(/images/sprite.png);
+  background-position: -191px -440px;
+  width: 29px;
+  height: 30px; }
+
+.pill-3b {
+  background-image: url(/images/sprite.png);
+  background-position: -298px -190px;
+  width: 29px;
+  height: 30px; }
+
+.pill-3c {
+  background-image: url(/images/sprite.png);
+  background-position: -240px -190px;
+  width: 29px;
+  height: 30px; }
+
+.pill-3d {
+  background-image: url(/images/sprite.png);
+  background-position: -249px -440px;
+  width: 29px;
+  height: 30px; }
+
+.pill-3e {
+  background-image: url(/images/sprite.png);
+  background-position: -364px -156px;
+  width: 30px;
+  height: 30px; }
+
+.pill-3f {
+  background-image: url(/images/sprite.png);
+  background-position: -162px -440px;
+  width: 29px;
+  height: 30px; }
 
 .calendar-icon {
   background-image: url(/images/sprite.png);
@@ -1840,7 +1924,7 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .calendar-icon {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-activity-more {
   background-image: url(/images/sprite.png);
@@ -1850,37 +1934,37 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-activity-more {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-activity-once {
-  background-image: url(/images/sprite.png);
-  background-position: -406px -320px;
-  width: 56px;
-  height: 56px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-activity-once {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-activity-seldom {
   background-image: url(/images/sprite.png);
   background-position: -406px -264px;
   width: 56px;
   height: 56px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-activity-seldom {
+    .icon-activity-once {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
-.icon-activity-twice {
+.icon-activity-seldom {
   background-image: url(/images/sprite.png);
   background-position: -406px -208px;
   width: 56px;
   height: 56px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-activity-seldom {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-activity-twice {
+  background-image: url(/images/sprite.png);
+  background-position: -406px -320px;
+  width: 56px;
+  height: 56px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-activity-twice {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-arrow-down-small {
   background-image: url(/images/sprite.png);
@@ -1890,27 +1974,27 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-arrow-down-small {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-arrow-left-grey {
   background-image: url(/images/sprite.png);
-  background-position: -379px -228px;
+  background-position: -364px -114px;
   width: 22px;
   height: 42px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-arrow-left-grey {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-arrow-left {
   background-image: url(/images/sprite.png);
-  background-position: -385px -114px;
+  background-position: -379px -228px;
   width: 21px;
   height: 44px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-arrow-left {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-arrow-right-grey {
   background-image: url(/images/sprite.png);
@@ -1920,17 +2004,17 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-arrow-right-grey {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-arrow-right {
   background-image: url(/images/sprite.png);
-  background-position: -364px -114px;
+  background-position: -370px -332px;
   width: 21px;
   height: 44px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-arrow-right {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-arrow-up-small {
   background-image: url(/images/sprite.png);
@@ -1940,17 +2024,17 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-arrow-up-small {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-awake {
   background-image: url(/images/sprite.png);
-  background-position: -480px -347px;
+  background-position: -530px 0px;
   width: 45px;
   height: 51px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-awake {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-box {
   background-image: url(/images/sprite.png);
@@ -1960,27 +2044,27 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-box {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-card-mastercard {
   background-image: url(/images/sprite.png);
-  background-position: -364px -158px;
+  background-position: -394px -440px;
   width: 32px;
   height: 20px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-card-mastercard {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-card-visa {
   background-image: url(/images/sprite.png);
-  background-position: -240px -190px;
+  background-position: -426px -440px;
   width: 32px;
   height: 20px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-card-visa {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-check-large {
   background-image: url(/images/sprite.png);
@@ -1990,7 +2074,7 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-check-large {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-check {
   background-image: url(/images/sprite.png);
@@ -2000,17 +2084,17 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-check {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-cross-large {
   background-image: url(/images/sprite.png);
-  background-position: -370px -332px;
+  background-position: -48px -486px;
   width: 24px;
   height: 24px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-cross-large {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-diet-burger {
   background-image: url(/images/sprite.png);
@@ -2020,7 +2104,7 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-diet-burger {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-diet-pear {
   background-image: url(/images/sprite.png);
@@ -2030,87 +2114,87 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-diet-pear {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-facebook {
   background-image: url(/images/sprite.png);
-  background-position: -370px -356px;
+  background-position: -24px -486px;
   width: 24px;
   height: 24px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-facebook {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-fresh {
   background-image: url(/images/sprite.png);
-  background-position: -480px -245px;
+  background-position: -480px -296px;
   width: 45px;
   height: 51px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-fresh {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-gender-female {
-  background-image: url(/images/sprite.png);
-  background-position: -240px -114px;
-  width: 62px;
-  height: 76px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-gender-female {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-gender-male {
   background-image: url(/images/sprite.png);
   background-position: -302px -114px;
   width: 62px;
   height: 76px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-gender-female {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-gender-male {
+  background-image: url(/images/sprite.png);
+  background-position: -240px -114px;
+  width: 62px;
+  height: 76px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-gender-male {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-immune-boost {
   background-image: url(/images/sprite.png);
-  background-position: -268px -384px;
+  background-position: -480px 0px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-immune-boost {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-immune-ignore {
   background-image: url(/images/sprite.png);
-  background-position: -368px -384px;
+  background-position: -188px -76px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-immune-ignore {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-instagram {
   background-image: url(/images/sprite.png);
-  background-position: -162px -440px;
+  background-position: 0px -486px;
   width: 24px;
   height: 24px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-instagram {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-joint-no {
   background-image: url(/images/sprite.png);
-  background-position: -418px -384px;
+  background-position: -368px -384px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-joint-no {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-joint-yes {
   background-image: url(/images/sprite.png);
@@ -2120,17 +2204,17 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-joint-yes {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-joy {
   background-image: url(/images/sprite.png);
-  background-position: -530px 0px;
+  background-position: -480px -347px;
   width: 45px;
   height: 51px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-joy {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-lock {
   background-image: url(/images/sprite.png);
@@ -2140,17 +2224,17 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-lock {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-meat {
   background-image: url(/images/sprite.png);
-  background-position: -480px 0px;
+  background-position: -418px -384px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-meat {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-play {
   background-image: url(/images/sprite.png);
@@ -2160,117 +2244,117 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-play {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-bread-1 {
-  background-image: url(/images/sprite.png);
-  background-position: -406px -104px;
-  width: 74px;
-  height: 52px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-bread-1 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-bread-2 {
-  background-image: url(/images/sprite.png);
-  background-position: -406px -52px;
-  width: 74px;
-  height: 52px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-bread-2 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-bread-3 {
-  background-image: url(/images/sprite.png);
-  background-position: -406px 0px;
-  width: 74px;
-  height: 52px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-bread-3 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-bread-4 {
-  background-image: url(/images/sprite.png);
-  background-position: -296px -332px;
-  width: 74px;
-  height: 52px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-bread-4 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-bread-5 {
-  background-image: url(/images/sprite.png);
-  background-position: -222px -332px;
-  width: 74px;
-  height: 52px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-bread-5 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-butter-no {
-  background-image: url(/images/sprite.png);
-  background-position: -530px -51px;
-  width: 44px;
-  height: 48px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-butter-no {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-butter-sometimes {
-  background-image: url(/images/sprite.png);
-  background-position: -530px -147px;
-  width: 44px;
-  height: 48px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-butter-sometimes {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-butter-yes {
-  background-image: url(/images/sprite.png);
-  background-position: -530px -99px;
-  width: 44px;
-  height: 48px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-butter-yes {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-fish-1 {
-  background-image: url(/images/sprite.png);
-  background-position: 0px -332px;
-  width: 74px;
-  height: 52px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-fish-1 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-fish-2 {
   background-image: url(/images/sprite.png);
   background-position: -148px -332px;
   width: 74px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-bread-1 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-bread-2 {
+  background-image: url(/images/sprite.png);
+  background-position: -222px -332px;
+  width: 74px;
+  height: 52px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-bread-2 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-bread-3 {
+  background-image: url(/images/sprite.png);
+  background-position: -296px -332px;
+  width: 74px;
+  height: 52px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-bread-3 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-bread-4 {
+  background-image: url(/images/sprite.png);
+  background-position: -406px 0px;
+  width: 74px;
+  height: 52px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-bread-4 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-bread-5 {
+  background-image: url(/images/sprite.png);
+  background-position: -406px -52px;
+  width: 74px;
+  height: 52px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-bread-5 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-butter-no {
+  background-image: url(/images/sprite.png);
+  background-position: -530px -147px;
+  width: 44px;
+  height: 48px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-butter-no {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-butter-sometimes {
+  background-image: url(/images/sprite.png);
+  background-position: -530px -99px;
+  width: 44px;
+  height: 48px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-butter-sometimes {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-butter-yes {
+  background-image: url(/images/sprite.png);
+  background-position: -530px -51px;
+  width: 44px;
+  height: 48px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-butter-yes {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-fish-1 {
+  background-image: url(/images/sprite.png);
+  background-position: -406px -156px;
+  width: 74px;
+  height: 52px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-fish-1 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-fish-2 {
+  background-image: url(/images/sprite.png);
+  background-position: -406px -104px;
+  width: 74px;
+  height: 52px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-fish-2 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-fish-3 {
   background-image: url(/images/sprite.png);
-  background-position: -296px -280px;
+  background-position: 0px -332px;
   width: 74px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-fish-3 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-fruit-1 {
   background-image: url(/images/sprite.png);
@@ -2280,117 +2364,117 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-fruit-1 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-fruit-2 {
-  background-image: url(/images/sprite.png);
-  background-position: -530px -434px;
-  width: 29px;
-  height: 39px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-fruit-2 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-fruit-3 {
   background-image: url(/images/sprite.png);
   background-position: -480px -398px;
   width: 29px;
   height: 39px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-fruit-2 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-fruit-3 {
+  background-image: url(/images/sprite.png);
+  background-position: -530px -434px;
+  width: 29px;
+  height: 39px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-fruit-3 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-meat-1 {
   background-image: url(/images/sprite.png);
-  background-position: -222px -280px;
+  background-position: -296px -280px;
   width: 74px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-meat-1 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-meat-2 {
   background-image: url(/images/sprite.png);
-  background-position: -148px -280px;
+  background-position: -305px -228px;
   width: 74px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-meat-2 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-meat-3 {
   background-image: url(/images/sprite.png);
-  background-position: -74px -280px;
+  background-position: -222px -280px;
   width: 74px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-meat-3 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-milk-1 {
-  background-image: url(/images/sprite.png);
-  background-position: -108px -440px;
-  width: 54px;
-  height: 46px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-milk-1 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-milk-2 {
   background-image: url(/images/sprite.png);
   background-position: -54px -440px;
   width: 54px;
   height: 46px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-milk-2 {
+    .icon-portion-milk-1 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
-.icon-portion-milk-3 {
+.icon-portion-milk-2 {
   background-image: url(/images/sprite.png);
   background-position: 0px -440px;
   width: 54px;
   height: 46px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-milk-2 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-milk-3 {
+  background-image: url(/images/sprite.png);
+  background-position: -108px -440px;
+  width: 54px;
+  height: 46px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-milk-3 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-pasta-1 {
-  background-image: url(/images/sprite.png);
-  background-position: -77px -228px;
-  width: 77px;
-  height: 52px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-pasta-1 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-pasta-2 {
-  background-image: url(/images/sprite.png);
-  background-position: 0px -228px;
-  width: 77px;
-  height: 52px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-portion-pasta-2 {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-portion-pasta-3 {
   background-image: url(/images/sprite.png);
   background-position: -154px -228px;
   width: 77px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-pasta-1 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-pasta-2 {
+  background-image: url(/images/sprite.png);
+  background-position: -77px -228px;
+  width: 77px;
+  height: 52px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-portion-pasta-2 {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-portion-pasta-3 {
+  background-image: url(/images/sprite.png);
+  background-position: 0px -228px;
+  width: 77px;
+  height: 52px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-pasta-3 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-pasta-4 {
   background-image: url(/images/sprite.png);
@@ -2400,37 +2484,37 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-pasta-4 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-vegetables-1 {
   background-image: url(/images/sprite.png);
-  background-position: -74px -332px;
+  background-position: -148px -280px;
   width: 74px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-vegetables-1 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-vegetables-2 {
   background-image: url(/images/sprite.png);
-  background-position: 0px -280px;
+  background-position: -74px -280px;
   width: 74px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-vegetables-2 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-vegetables-3 {
   background-image: url(/images/sprite.png);
-  background-position: -305px -228px;
+  background-position: 0px -280px;
   width: 74px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-vegetables-3 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-vegetables-4 {
   background-image: url(/images/sprite.png);
@@ -2440,17 +2524,17 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-vegetables-4 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-portion-vegetables-5 {
   background-image: url(/images/sprite.png);
-  background-position: -406px -156px;
+  background-position: -74px -332px;
   width: 74px;
   height: 52px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-portion-vegetables-5 {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-pregnant-no {
   background-image: url(/images/sprite.png);
@@ -2460,7 +2544,7 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-pregnant-no {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-pregnant-yes {
   background-image: url(/images/sprite.png);
@@ -2470,17 +2554,17 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-pregnant-yes {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-skin-dark {
   background-image: url(/images/sprite.png);
-  background-position: -480px -146px;
+  background-position: -480px -50px;
   width: 48px;
   height: 48px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-skin-dark {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-skin-mediterranean {
   background-image: url(/images/sprite.png);
@@ -2490,37 +2574,37 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-skin-mediterranean {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-skin-white {
   background-image: url(/images/sprite.png);
-  background-position: -480px -50px;
+  background-position: -480px -146px;
   width: 48px;
   height: 48px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-skin-white {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-smoke-no {
   background-image: url(/images/sprite.png);
-  background-position: -188px -76px;
+  background-position: -318px -384px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-smoke-no {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-smoke {
   background-image: url(/images/sprite.png);
-  background-position: -218px -384px;
+  background-position: -268px -384px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-smoke {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-stress {
   background-image: url(/images/sprite.png);
@@ -2530,7 +2614,7 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-stress {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-sun-no {
   background-image: url(/images/sprite.png);
@@ -2540,7 +2624,7 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-sun-no {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-sun-yes {
   background-image: url(/images/sprite.png);
@@ -2550,37 +2634,37 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-sun-yes {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-supplement-no {
-  background-image: url(/images/sprite.png);
-  background-position: -530px -322px;
-  width: 36px;
-  height: 41px; }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .icon-supplement-no {
-      background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
-
-.icon-supplement-yes {
   background-image: url(/images/sprite.png);
   background-position: -530px -281px;
   width: 36px;
   height: 41px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-supplement-no {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.icon-supplement-yes {
+  background-image: url(/images/sprite.png);
+  background-position: -530px -322px;
+  width: 36px;
+  height: 41px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-supplement-yes {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-tired {
   background-image: url(/images/sprite.png);
-  background-position: -480px -296px;
+  background-position: -480px -245px;
   width: 45px;
   height: 51px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-tired {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-truck {
   background-image: url(/images/sprite.png);
@@ -2590,17 +2674,17 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-truck {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-twitter {
   background-image: url(/images/sprite.png);
-  background-position: -272px -190px;
+  background-position: -458px -440px;
   width: 24px;
   height: 20px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-twitter {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-user-information {
   background-image: url(/images/sprite.png);
@@ -2610,17 +2694,17 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-user-information {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .icon-vegetarian-yes {
   background-image: url(/images/sprite.png);
-  background-position: -318px -384px;
+  background-position: -218px -384px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-vegetarian-yes {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .logo-black {
   background-image: url(/images/sprite.png);
@@ -2630,7 +2714,7 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .logo-black {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .logo-color {
   background-image: url(/images/sprite.png);
@@ -2640,7 +2724,7 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .logo-color {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
 
 .logo-white {
   background-image: url(/images/sprite.png);
@@ -2650,7 +2734,147 @@ footer .bottom {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .logo-white {
       background-image: url(/images/sprite@2x.png);
-      background-size: 575px 486px; } }
+      background-size: 575px 510px; } }
+
+.pill-1a {
+  background-image: url(/images/sprite.png);
+  background-position: -307px -440px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-1a {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-1b {
+  background-image: url(/images/sprite.png);
+  background-position: -336px -440px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-1b {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-1c {
+  background-image: url(/images/sprite.png);
+  background-position: -365px -440px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-1c {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-2a {
+  background-image: url(/images/sprite.png);
+  background-position: -356px -190px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-2a {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-2b {
+  background-image: url(/images/sprite.png);
+  background-position: -327px -190px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-2b {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-2c {
+  background-image: url(/images/sprite.png);
+  background-position: -278px -440px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-2c {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-2d {
+  background-image: url(/images/sprite.png);
+  background-position: -269px -190px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-2d {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-2e {
+  background-image: url(/images/sprite.png);
+  background-position: -220px -440px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-2e {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-3a {
+  background-image: url(/images/sprite.png);
+  background-position: -191px -440px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-3a {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-3b {
+  background-image: url(/images/sprite.png);
+  background-position: -298px -190px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-3b {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-3c {
+  background-image: url(/images/sprite.png);
+  background-position: -240px -190px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-3c {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-3d {
+  background-image: url(/images/sprite.png);
+  background-position: -249px -440px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-3d {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-3e {
+  background-image: url(/images/sprite.png);
+  background-position: -364px -156px;
+  width: 30px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-3e {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
+
+.pill-3f {
+  background-image: url(/images/sprite.png);
+  background-position: -162px -440px;
+  width: 29px;
+  height: 30px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pill-3f {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 575px 510px; } }
 
 .picker, .picker__holder {
   width: 100%;

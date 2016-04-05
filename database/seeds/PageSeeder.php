@@ -33,7 +33,7 @@ class PageSeeder extends Seeder
 			'meta_title'       => 'Om TakeDaily',
 			'meta_description' => 'Om TakeDaily og vores firma',
 			'meta_image'       => '',
-			'is_locked'        => 1,
+			'is_locked'        => 0,
 			'layout'           => 'plain'
 		]);
 
@@ -46,7 +46,7 @@ class PageSeeder extends Seeder
 			'meta_title'       => 'Vores betingelser',
 			'meta_description' => 'Handelsbetingelser',
 			'meta_image'       => '',
-			'is_locked'        => 1,
+			'is_locked'        => 0,
 			'layout'           => 'plain'
 		]);
 
@@ -60,6 +60,19 @@ class PageSeeder extends Seeder
 			'meta_description' => 'Hjælp',
 			'meta_image'       => '',
 			'is_locked'        => 1,
+			'layout'           => 'plain'
+		]);
+
+		// Contact
+		\App\Page::create([
+			'url_identifier'   => 'privacy',
+			'title'            => 'Fortrolighed & Cookies',
+			'sub_title'        => 'Privatlivspolitik',
+			'body'             => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque beatae consequuntur cum cumque doloremque exercitationem expedita facilis iusto magnam neque perferendis quae quam quisquam ratione, sapiente veniam, veritatis voluptate?</p>',
+			'meta_title'       => 'Fortrolighed & Cookies',
+			'meta_description' => 'Privatlivspolitik',
+			'meta_image'       => '',
+			'is_locked'        => 0,
 			'layout'           => 'plain'
 		]);
 	}

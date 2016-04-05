@@ -29,6 +29,13 @@
 					<div class="print_label_info_line">{{ Auth::user()->getCustomer()->getCustomerAttribute('address_postal') }}
 						, {{ Auth::user()->getCustomer()->getCustomerAttribute('address_city') }}</div>
 					<div class="print_label_info_line">{{ Auth::user()->getCustomer()->getCustomerAttribute('address_country') }}</div>
+
+
+					<div class="m-t-50">
+						@foreach($combinations as $combinationKey => $combinationValue)
+							<div style="display: inline-block;" class="m-t-15 icon pill-{{ \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) }}"></div>
+						@endforeach
+					</div>
 				</div>
 
 				<div class="clear"></div>

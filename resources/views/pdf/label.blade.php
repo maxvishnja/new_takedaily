@@ -3,41 +3,49 @@
 	th, td, p, div, b { margin: 0; padding: 0; page-break-inside: avoid; }
 
 	* {
-		padding: 0;margin: 0;
-		page-break-after: avoid;
+		padding:           0; margin: 0;
+		page-break-after:  avoid;
 		page-break-before: avoid;
 		page-break-inside: avoid;
 	}
 
-	html { line-height: 1;margin: 0; width: 570px; height: 262px; overflow: hidden; page-break-inside: avoid; }
+	html { line-height: 1; margin: 0; width: 570px; height: 262px; overflow: hidden; page-break-inside: avoid; }
 
 	@page {
-		size: 570px 262px;
-		margin: 0;
+		size:    570px 262px;
+		margin:  0;
 		padding: 0;
 	}
 
 	body {
-		background: #fff url(/images/label-logo-bg.jpg) no-repeat left center; background-size: cover;
+		background:        #fff url(/images/label-logo-bg.jpg) no-repeat left center; background-size: cover;
 		page-break-inside: avoid;
-		padding: 0 !important;
+		padding:           0 !important;
+	}
+
+	.icon-pill {
+		width:             29px;
+		display:           inline-block;
+		height:            30px;
+		background-repeat: no-repeat;
+		background-size:   29px 30px;
 	}
 
 	table, table tr, table tbody {
-		width: 100%; page-break-inside: avoid;
-		page-break-after: avoid;
+		width:             100%; page-break-inside: avoid;
+		page-break-after:  avoid;
 		page-break-before: avoid;
 	}
 
 	thead:before, thead:after { display: none;
-		page-break-after: avoid;
-		page-break-before: avoid;
-		page-break-inside: avoid; }
+		page-break-after:                avoid;
+		page-break-before:               avoid;
+		page-break-inside:               avoid; }
 
 	tbody:before, tbody:after { display: none;
-		page-break-after: avoid;
-		page-break-before: avoid;
-		page-break-inside: avoid; }
+		page-break-after:                avoid;
+		page-break-before:               avoid;
+		page-break-inside:               avoid; }
 </style>
 <table style="width: 570px; margin: 0; padding: 0;">
 	<tbody style="width: 100%;">
@@ -57,7 +65,7 @@
 						<br/>
 						<br/>
 						<div style="margin: 0 auto;width: 166px; height: 38px;">
-							<img width="166" height="38" src="{{ asset('/images/pdf-logo.png') }}" />
+							<img width="166" height="38" src="{{ asset('/images/pdf-logo.png') }}"/>
 						</div>
 					</td>
 				</tr>
@@ -82,6 +90,14 @@
 
 				<tr style="width: 100%;">
 					<td style="color: #333;font-size: 16px;padding: 5px 0;width: 100%; text-align: right;">{{ $customer->getCustomerAttribute('address_country') }}</td>
+				</tr>
+
+				<tr style="width: 100%; text-align: right;">
+					<td style="width: 100%; text-align: right; padding-top: 20px;">
+						@foreach($customer->getCombinations() as $combinationKey => $combinationValue)
+							<span class="icon-pill" style="background-image: url('{{ asset('/images/icons/pills/pill-' . \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) . '.png') }}');"></span>
+						@endforeach
+					</td>
 				</tr>
 				</tbody>
 			</table>
