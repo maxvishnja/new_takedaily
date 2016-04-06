@@ -28,6 +28,6 @@ class Kernel extends ConsoleKernel
 	protected function schedule(Schedule $schedule)
 	{
 		$schedule->call('subscriptions:rebill')
-				 ->dailyAt('12:00');
+				 ->everyThirtyMinutes();
 	}
 }

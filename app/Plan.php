@@ -116,6 +116,14 @@ class Plan extends Model
 		return true;
 	}
 
+	public function rebilled()
+	{
+		$this->subscription_rebill_at     = Date::now()->addMonth();
+		$this->save();
+
+		return true;
+	}
+
 	public function startFromToday()
 	{
 		$this->subscription_snoozed_until = null;

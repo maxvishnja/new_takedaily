@@ -201,7 +201,11 @@ class Customer extends Model
 			return false;
 		}
 
-		return $this->charge(MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice());
+		$this->charge(MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice(), true, 'subscription', '');
+
+		$this->getPlan()->rebilled();
+
+		return true;
 	}
 
 	public function getStripeCustomer()

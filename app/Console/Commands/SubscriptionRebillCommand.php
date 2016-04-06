@@ -2,9 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Apricot\Libraries\MoneyLibrary;
+use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use Illuminate\Console\Command;
-use App\Apricot\Repositories\CustomerRepository;
 
 class SubscriptionRebillCommand extends Command
 {
@@ -41,10 +42,27 @@ class SubscriptionRebillCommand extends Command
 
 		$customers = $repo->rebillAble();
 
-		foreach($customers as $customer)
+		foreach($customers->get() as $customer)
 		{
 			/* @var $customer Customer */
 			$customer->rebill();
+
+			$data = [
+				'description'   => 'subscription',
+				'priceTotal'    => MoneyLibrary::toCents($customer->getPlan()->getTotal()),
+				'priceSubtotal' => MoneyLibrary::toCents($customer->getPlan()->getTotal() * 0.8),
+				'priceTaxes'    => MoneyLibrary::toCents($customer->getPlan()->getTotal() * 0.2)
+			];
+
+			$mailEmail = $customer->getEmail();
+			$mailName  = $customer->getName();
+
+			\Mail::queue('emails.order', $data, function ($message) use ($mailEmail, $mailName)
+			{
+				$message->to($mailEmail, $mailName);
+				$message->from('noreply@takedaily.dk', 'Take Daily');
+				$message->subject(trans('checkout.mail.subject'));
+			});
 		}
     }
 }
