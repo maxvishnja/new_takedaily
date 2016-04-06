@@ -84,7 +84,7 @@
 			<div class="col-md-8 col-md-pull-4">
 				<h1>{{ trans('checkout.index.order.title') }}</h1>
 
-				<form method="post" action="{{ URL::action('CheckoutController@postCheckout') }}" id="checkout-form" autocomplete="on" class="form">
+				<form method="post" action="{{ URL::action('CheckoutController@postCheckout') }}" id="checkout-form" autocomplete="on" class="form" novalidate="novalidate">
 					<div class="spinner" id="form-loader">
 						<div class="rect1"></div>
 						<div class="rect2"></div>
