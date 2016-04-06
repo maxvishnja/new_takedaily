@@ -12,7 +12,6 @@ Route::group([ 'middleware' => 'web' ], function ()
 	 */
 	Route::get('/', function ()
 	{
-		return \App\Customer::find(5)->generateLabel()->download('lol.pdf');
 		return view('home');
 	});
 

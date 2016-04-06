@@ -13,9 +13,9 @@
 
 					@foreach($combinations as $combinationKey => $combinationValue)
 						<div class="print_label_line">
-							<div class="print_label_line_left">{{ $combinationKey }}</div>
-							<div class="print_label_line_right">{{ $combinationValue }}</div>
-							<div class="clear"></div>
+							<div class="print_label_line_full">
+								{{ \App\Apricot\Libraries\PillLibrary::getPillCode(\App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue)) }}
+							</div>
 						</div>
 					@endforeach
 

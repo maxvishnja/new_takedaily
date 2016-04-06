@@ -4799,6 +4799,9 @@ body.page-checkout {
     background-size: cover; }
     .print_label .print_label_left .print_label_line {
       margin-bottom: 10px; }
+      .print_label .print_label_left .print_label_line .print_label_line_full {
+        font-size: 15px;
+        color: #555555; }
       .print_label .print_label_left .print_label_line .print_label_line_left {
         width: 100px;
         float: left;
