@@ -201,7 +201,10 @@ class Customer extends Model
 			return false;
 		}
 
-		$this->charge(MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice(), true, 'subscription', '');
+		if( ! $this->charge(MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice(), true, 'subscription', '') )
+		{
+			return false;
+		}
 
 		$this->getPlan()->rebilled();
 

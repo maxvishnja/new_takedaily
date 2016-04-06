@@ -86,6 +86,16 @@ class Plan extends Model
 		return true;
 	}
 
+	public function moveRebill($days = 1)
+	{
+		$newDate = Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->addDays($days);
+
+		$this->subscription_rebill_at     = $newDate;
+		$this->save();
+
+		return true;
+	}
+
 	public function isSnoozeable()
 	{
 		return $this->isActive() && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() > 7;

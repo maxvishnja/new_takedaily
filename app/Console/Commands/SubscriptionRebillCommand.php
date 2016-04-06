@@ -44,7 +44,12 @@ class SubscriptionRebillCommand extends Command
 		foreach($customers->get() as $customer)
 		{
 			/* @var $customer Customer */
-			$customer->rebill();
+			if( !$customer->rebill() )
+			{
+				$customer->getPlan()->moveRebill(1);
+
+				return false;
+			}
 
 			$mailEmail = $customer->getEmail();
 			$mailName  = $customer->getName();
