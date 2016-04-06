@@ -114,6 +114,11 @@ class AccountController extends Controller
 
 	function getSettingsBillingAdd()
 	{
+		if( $this->customer->getStripePaymentSource() )
+		{
+			return \Redirect::action('AccountController@getSettingsBilling');
+		}
+
 		return view('account.settings.billing-add');
 	}
 
