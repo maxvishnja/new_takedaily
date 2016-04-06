@@ -1,10 +1,10 @@
 <?php
 return [
 	'state' => [
-		'new'       => 'Ubetalt',
-		'paid'      => 'Betalt',
-		'sent'      => 'Afsendt',
-		'completed' => 'Fuldført',
-		'cancelled' => 'Annulleret'
+		'new'       => 'Unpaid',
+		'paid'      => 'Paid',
+		'sent'      => 'Sent',
+		'completed' => 'Completed',
+		'cancelled' => 'Cancelled'
 	]
 ];

@@ -37,7 +37,7 @@ class AccountController extends Controller
 
 	function updatePreferences(Request $request)
 	{
-		$userData    = json_decode($request->get('user_data', '{}'));
+		$userData = json_decode($request->get('user_data', '{}'));
 
 		\Auth::user()->getCustomer()->update([
 			'birthdate' => $userData->birthdate,
@@ -114,7 +114,59 @@ class AccountController extends Controller
 
 	function getSettingsBillingAdd()
 	{
-		// todo
+		return view('account.settings.billing-add');
+	}
+
+	function postSettingsBillingAdd(Request $request)
+	{
+		$user = \Auth::user();
+
+		if ( $user->getCustomer()->getPlan()->hasNoStripeCustomer() )
+		{
+			try
+			{
+				$stripeCustomer = Customer::create([
+					"description" => "Customer for {$user->getEmail()}",
+					"source"      => $request->get('stripeToken')
+				]);
+
+				$user->getCustomer()->getPlan()->update([
+					'stripe_token' => $stripeCustomer->id
+				]);
+			} catch( Card $ex )
+			{
+				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
+			} catch( \Exception $ex )
+			{
+				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
+			} catch( \Error $ex )
+			{
+				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
+			}
+		}
+		else
+		{
+			$stripeCustomer = $user->getCustomer()->getStripeCustomer();
+			try
+			{
+				$stripeCustomer->sources->create([
+					'source' => $request->get('stripeToken')
+				]);
+			} catch( Card $ex )
+			{
+				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
+			} catch( \Exception $ex )
+			{
+				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
+			} catch( \Error $ex )
+			{
+				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
+			}
+		}
+
+		\Cache::forget('stripe_customer_for_customer_' . $user->getCustomer()->id);
+
+		return \Redirect::action('AccountController@getSettingsBilling')->with('success', trans('checkout.messages.success.card-added'));
 	}
 
 	function getSettingsBillingRefresh()

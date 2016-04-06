@@ -7,8 +7,9 @@
 @section('content')
 	<h1>{{ trans('account.settings_billing.header') }}</h1>
 	@if( ! $source )
-		<h3>{{ trans('account.settings_billing.no-method') }} <a href="{{ URL::action('AccountController@getSettingsBillingRefresh') }}">{{ trans('account.settings_billing.button-update-text') }}</a></h3>
-		<a href="{{ URL::action('AccountController@getSettingsBillingAdd') }}">{{ trans('account.settings_billing.button-add-method-text') }}</a>
+		<h3>{{ trans('account.settings_billing.no-method') }}</h3>
+		<a href="{{ URL::action('AccountController@getSettingsBillingAdd') }}" class="button button--green button--medium button--rounded">{{ trans('account.settings_billing.button-add-method-text') }}</a>
+		<a href="{{ URL::action('AccountController@getSettingsBillingRefresh') }}" class="button button--light button--medium m-r-10 button--rounded">{{ trans('account.settings_billing.button-update-text') }}</a>
 	@else
 		<span class="icon icon-card-{{ strtolower($source->brand) }}"></span>
 		<h3>···· ···· ···· {{ $source->last4 }}</h3>

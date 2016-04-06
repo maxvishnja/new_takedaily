@@ -48,7 +48,12 @@ return [
 		'button-add-method-text' => 'Tilføj nyt kort',
 		'button-update-text'     => 'Opdater',
 		'card-exp'               => 'Udløb: ',
-		'button-remove-text'     => 'Fjern kort'
+		'button-remove-text'     => 'Fjern kort',
+		'add' => [
+			'button-cancel-text'     => 'Annuller',
+			'title'                  => 'Tilføj betalingsmetode - Take Daily',
+			'header'                 => 'Ny betalingsmetode'
+		]
 	],
 	'settings_subscription' => [
 		'title'              => 'Abonnement - Take Daily',

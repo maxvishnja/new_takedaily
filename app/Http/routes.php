@@ -25,7 +25,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('gifting');
 	});
 
-	Route::post('flow', function (\App\Apricot\Libraries\CombinationLibrary $combinationLibrary, \Illuminate\Http\Request $request)
+	Route::post('flow', function (\Illuminate\Http\Request $request)
 	{
 		$userData = json_decode($request->get('user_data'));
 
@@ -115,6 +115,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::get('settings/billing', 'AccountController@getSettingsBilling');
 		Route::get('settings/billing/delete', 'AccountController@getSettingsBillingRemove');
 		Route::get('settings/billing/add', 'AccountController@getSettingsBillingAdd');
+		Route::post('settings/billing/add', 'AccountController@postSettingsBillingAdd');
 		Route::get('settings/billing/refresh', 'AccountController@getSettingsBillingRefresh');
 	});
 

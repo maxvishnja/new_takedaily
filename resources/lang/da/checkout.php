@@ -7,7 +7,8 @@ return [
 		'payment-invalid'       => 'Betalingen blev ikke godkendt, prøv igen. :error',
 		'no-such-coupon'        => 'Kuponkoden findes ikke.',
 		'coupon-missing'        => 'Du skal indtaste en kuponkode.',
-		'coupon-added'          => 'Kuponkoden blev tilføjet!'
+		'coupon-added'          => 'Kuponkoden blev tilføjet!',
+		'card-added'            => 'Kortet blev tilføjet!'
 	],
 	'mail'     => [
 		'subject' => 'Ordrebekræftelse fra Take Daily'
