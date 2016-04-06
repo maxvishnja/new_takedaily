@@ -13,9 +13,13 @@
 			<a href="#snooze-toggle" id="snooze-toggle" class="m-t-20 button button--regular button--green button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
 		@endif
 
-		<div class="m-t-50">
-			<a href="{{ URL::action('AccountController@getSettingsSubscriptionCancel') }}" class="button button--small button--light button--rounded m-t-50">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
-		</div>
+		@if($plan->isCancelable())
+			<div class="m-t-50">
+				<a href="{{ URL::action('AccountController@getSettingsSubscriptionCancel') }}" class="button button--small button--light button--rounded m-t-50">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
+			</div>
+		@endif
+	@else
+		<a href="{{ URL::action('AccountController@getSettingsSubscriptionRestart') }}" class="button button--large button--green button--rounded">{{ trans('account.settings_subscription.button-start-text') }}</a>
 	@endif
 @endsection
 

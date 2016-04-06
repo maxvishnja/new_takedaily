@@ -93,7 +93,7 @@ class Plan extends Model
 
 	public function isCancelable()
 	{
-		return Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 1;
+		return Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 1 && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 2;
 	}
 
 	public function cancel()
@@ -111,6 +111,16 @@ class Plan extends Model
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = null;
 		$this->subscription_rebill_at     = Date::now()->addMonth();
+		$this->save();
+
+		return true;
+	}
+
+	public function startFromToday()
+	{
+		$this->subscription_snoozed_until = null;
+		$this->subscription_cancelled_at  = null;
+		$this->subscription_rebill_at     = Date::now();
 		$this->save();
 
 		return true;

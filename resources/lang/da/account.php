@@ -66,6 +66,7 @@ return [
 		],
 		'button-snooze-text' => 'Udskyd næste forsendelse',
 		'button-cancel-text' => 'Opsig',
+		'button-start-text' => 'Start abonnement fra i dag',
 		'snooze_popup'       => [
 			'title'              => 'Snooze abonnent',
 			'text'               => 'Hvor langt tid?',

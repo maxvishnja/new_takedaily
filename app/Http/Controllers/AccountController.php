@@ -114,7 +114,7 @@ class AccountController extends Controller
 
 	function getSettingsBillingAdd()
 	{
-		if( $this->customer->getStripePaymentSource() )
+		if ( $this->customer->getStripePaymentSource() )
 		{
 			return \Redirect::action('AccountController@getSettingsBilling');
 		}
@@ -190,18 +190,16 @@ class AccountController extends Controller
 
 	function postSettingsBasic(Request $request)
 	{
+		$this->validate($request, [
+			'email'    => 'required|email|unique:users,email,' . $this->user->id,
+			'name'     => 'required',
+			'password' => 'confirmed'
+		]);
+
 		foreach ( $request->input('attributes') as $attributeId => $attributeValue )
 		{
 			$this->customer->customerAttributes()->where('id', $attributeId)->update([ 'value' => $attributeValue ]);
 		}
-
-		$this->validate($request, [
-			'email'    => 'required|email|unique:users,email,' . $this->user->id,
-			'name'     => 'required',
-			'gender'   => 'required|in:male,female',
-			'birthday' => 'date',
-			'password' => 'confirmed'
-		]);
 
 		$this->customer->birthday          = $request->get('birthday');
 		$this->customer->accept_newletters = $request->get('newsletters', 0);
@@ -241,9 +239,38 @@ class AccountController extends Controller
 
 	function getSettingsSubscriptionStart()
 	{
+		if ( $this->customer->getPlan()->isActive() )
+		{
+			return \Redirect::back();
+		}
+
 		$this->customer->getPlan()->start();
 
 		return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.started'));
+	}
+
+	function getSettingsSubscriptionRestart()
+	{
+		if ( $this->customer->getPlan()->isActive() )
+		{
+			return \Redirect::back();
+		}
+
+		$this->customer->getPlan()->startFromToday();
+
+		return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.started'));
+	}
+
+	function getSettingsSubscriptionCancel()
+	{
+		if ( !$this->customer->getPlan()->isCancelable() )
+		{
+			return \Redirect::back();
+		}
+
+		$this->customer->getPlan()->cancel();
+
+		return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.cancelled'));
 	}
 	
 }

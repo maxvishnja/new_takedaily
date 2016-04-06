@@ -110,7 +110,8 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::get('settings/subscription', 'AccountController@getSettingsSubscription');
 		Route::post('settings/subscription/snooze', 'AccountController@postSettingsSubscriptionSnooze');
 		Route::get('settings/subscription/start', 'AccountController@getSettingsSubscriptionStart');
-		Route::get('settings/subscription/cancel', 'AccountController@getSettingsSubscriptionCancel'); // todo
+		Route::get('settings/subscription/cancel', 'AccountController@getSettingsSubscriptionCancel');
+		Route::get('settings/subscription/restart', 'AccountController@getSettingsSubscriptionRestart');
 
 		Route::get('settings/billing', 'AccountController@getSettingsBilling');
 		Route::get('settings/billing/delete', 'AccountController@getSettingsBillingRemove');

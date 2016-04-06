@@ -12,6 +12,7 @@
 			'snoozed'  => 'Abonnementet blev udskudt i :days dage!',
 			'not-snoozed'  => 'Abonnementet kunne ikke udskydes!',
 			'started' => 'Abonnementet blev aktiveret igen!',
+			'cancelled' => 'Abonnementet blev opsagt!'
 		],
 		'billing'      => [
 			'removed'         => 'Kortet blev fjernet.',
