@@ -11,7 +11,8 @@ return [
 		'card-added'            => 'Kortet blev tilføjet!'
 	],
 	'mail'     => [
-		'subject' => 'Ordrebekræftelse fra Take Daily'
+		'subject' => 'Ordrebekræftelse fra Take Daily',
+		'subject-subscription' => 'Vi har trukket penge for dit abonnement',
 	],
 	'success'  => [
 		'page-title'  => 'Din ordre blev godkendt! - Take Daily',
