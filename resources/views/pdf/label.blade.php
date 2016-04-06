@@ -23,14 +23,6 @@
 		padding:           0 !important;
 	}
 
-	.icon-pill {
-		width:             29px;
-		display:           inline-block;
-		height:            30px;
-		background-repeat: no-repeat;
-		background-size:   29px 30px;
-	}
-
 	table, table tr, table tbody {
 		width:             100%; page-break-inside: avoid;
 		page-break-after:  avoid;
@@ -55,8 +47,7 @@
 				<tbody style="width: 100%;">
 				@foreach($customer->getCombinations() as $combinationKey => $combinationValue)
 					<tr style="width: 100%">
-						<td style="padding: 5px 0;width: 50%; color: #444; font-size: 15px;">{{ $combinationKey }}</td>
-						<td style="padding: 5px 0;width: 50%; text-align: right; letter-spacing: 3px; color: #777; font-size: 14px;">{{ $combinationValue }}</td>
+						<td style="padding: 5px 0;width: 100%; text-align: left; color: #444; font-size: 15px;">{{ \App\Apricot\Libraries\PillLibrary::getPillCode(\App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue)) }}</td>
 					</tr>
 				@endforeach
 
@@ -95,7 +86,7 @@
 				<tr style="width: 100%; text-align: right;">
 					<td style="width: 100%; text-align: right; padding-top: 20px;">
 						@foreach($customer->getCombinations() as $combinationKey => $combinationValue)
-							<span class="icon-pill" style="background-image: url('{{ asset('/images/icons/pills/pill-' . \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) . '.png') }}');"></span>
+							<img width="29" height="30" src="{{ asset('/images/icons/pills/pill-' . \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) . '@2x.png') }}" />
 						@endforeach
 					</td>
 				</tr>
@@ -105,62 +96,5 @@
 	</tr>
 	</tbody>
 </table>
-<div style="break-after: always;page-break-after: always;"></div>
-<table style="width: 570px; margin: 0; padding: 0;">
-	<tbody style="width: 100%;">
-	<tr style="width: 100%;">
-		<td style="width: 310px;">
-			<table style="margin: 50px 30px 10px; width: 260px; height: 180px;">
-				<tbody style="width: 100%;">
-				@foreach($customer->getCombinations() as $combinationKey => $combinationValue)
-					<tr style="width: 100%">
-						<td style="padding: 5px 0;width: 50%; color: #444; font-size: 15px;">{{ $combinationKey }}</td>
-						<td style="padding: 5px 0;width: 50%; text-align: right; letter-spacing: 3px; color: #777; font-size: 14px;">{{ $combinationValue }}</td>
-					</tr>
-				@endforeach
 
-				<tr style="width: 100%">
-					<td colspan="2" style="width: 100%;">
-						<br/>
-						<br/>
-						<div style="margin: 0 auto;width: 166px; height: 38px;">
-							<img width="166" height="38" src="{{ asset('/images/pdf-logo.png') }}"/>
-						</div>
-					</td>
-				</tr>
-				</tbody>
-			</table>
-		</td>
-
-		<td style="width: 260px; color: #333; vertical-align: top">
-			<table style="margin: 50px 30px 10px; width: 200px; height: 180px;">
-				<tbody style="width: 100%;">
-				<tr style="width: 100%;">
-					<td style="color: #333;font-size: 16px;padding: 5px 0;width: 100%; text-align: right;"><strong>{{ $customer->getName() }}</strong></td>
-				</tr>
-
-				<tr style="width: 100%;">
-					<td style="color: #333;font-size: 16px;padding: 5px 0;width: 100%; text-align: right;">{{ $customer->getCustomerAttribute('address_line1') }}</td>
-				</tr>
-
-				<tr style="width: 100%;">
-					<td style="color: #333;font-size: 16px;padding: 5px 0;width: 100%; text-align: right;">{{ $customer->getCustomerAttribute('address_postal') }}, {{ $customer->getCustomerAttribute('address_city') }}</td>
-				</tr>
-
-				<tr style="width: 100%;">
-					<td style="color: #333;font-size: 16px;padding: 5px 0;width: 100%; text-align: right;">{{ $customer->getCustomerAttribute('address_country') }}</td>
-				</tr>
-
-				<tr style="width: 100%; text-align: right;">
-					<td style="width: 100%; text-align: right; padding-top: 20px;">
-						@foreach($customer->getCombinations() as $combinationKey => $combinationValue)
-							<span class="icon-pill" style="background-image: url('{{ asset('/images/icons/pills/pill-' . \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) . '.png') }}');"></span>
-						@endforeach
-					</td>
-				</tr>
-				</tbody>
-			</table>
-		</td>
-	</tr>
-	</tbody>
-</table>
+{{--<div style="break-after: always;page-break-after: always;"></div>--}}
