@@ -14,7 +14,7 @@ return [
 	'blocks' => [
 		'one'   => [
 			'title'       => 'Sådan virker det',
-			'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias animi dicta ea, earum enim est ex hic iure iusto, lorem ipsum.',
+			'description' => '',
 			'button'      => '<a href="/sadan-virker-det" class="button button--green button--rounded button--large">Få flere detaljer</a>',
 			'steps'       => [
 				'one'   => [

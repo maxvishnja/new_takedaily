@@ -1,66 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/dashboard/login') }}">
-                        {!! csrf_field() !!}
+	<div class="container">
+		<form role="form" method="POST" action="{{ url('/dashboard/login') }}">
+			{!! csrf_field() !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+			<label for="input_email" class="label label--full">Din e-mail adresse</label>
+			<input type="email" class="input input--regular input--full" name="email" value="{{ old('email') }}" id="input_email"/>
+			@if ($errors->has('email'))
+				<span class="help-block">
+				<strong>{{ $errors->first('email') }}</strong>
+			</span>
+			@endif
 
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+			<label for="input_password" class="label label--full">Din adgangskode</label>
+			<input type="password" class="input input--regular input--full" name="password" id="input_password"/>
+			@if ($errors->has('password'))
+				<span class="help-block">
+				<strong>{{ $errors->first('password') }}</strong>
+			</span>
+			@endif
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+			<label class="label label--full" for="input_remember">
+				<input type="checkbox" name="remember" id="input_remember"> Remember Me
+			</label>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
+			<div>
+				<button type="submit" class="button button--large button--green button--rounded m-t-20 m-b-20">
+					Log in
+				</button>
+			</div>
 
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+			<div><a href="{{ url('/password/reset') }}">Forgot Your Password?</a></div>
+		</form>
+	</div>
 @endsection
+{{-- todo translate --}}

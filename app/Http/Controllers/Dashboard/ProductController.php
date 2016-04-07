@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\SlugLibrary;
 use App\Apricot\Repositories\ProductRepository;
+use App\Http\Controllers\Controller;
+use App\Http\Requests;
 use App\Product;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
@@ -48,7 +47,6 @@ class ProductController extends Controller
 
 	function store(Request $request)
 	{
-		// todo validate slug unique (else add ID)
 		$product = new Product();
 
 		$product->name = $request->get('name');
@@ -88,7 +86,6 @@ class ProductController extends Controller
 
 	function update($id, Request $request)
 	{
-		// todo validate slug unique (else add ID)
 		$product = Product::find($id);
 
 		if( ! $product )

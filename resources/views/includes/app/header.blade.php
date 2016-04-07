@@ -17,8 +17,6 @@
 		}</script>
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
 
-	<link rel="mask-icon" sizes="any" href="/mask.svg" color="#000000"> <!-- todo -->
-
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<link rel="icon" type="image/png" href="/favicon.png"/>
 

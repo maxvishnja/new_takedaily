@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Mail\Message;
 use Jenssegers\Date\Date;
 use Stripe\Refund;
 use Stripe\Stripe;
@@ -97,7 +98,14 @@ class Order extends Model
 		$this->state = 'sent';
 		$this->save();
 
-		// todo send mail to customer
+		$receiverName = $this->customer->getName();
+		$receiverEmail = $this->customer->getEmail();
+
+		\Mail::queue('emails.order-sent', [ ], function (Message $message) use ($receiverName, $receiverEmail)
+		{
+			$message->to($receiverEmail, $receiverName);
+			$message->subject('Din ordre blev afsendt!'); // todo translate
+		});
 
 		return true;
 	}
@@ -114,23 +122,30 @@ class Order extends Model
 			]);
 		} catch( \Stripe\Error\Card $e )
 		{
+			return false;
 		} catch( \Stripe\Error\RateLimit $e )
 		{
+			return false;
 		} catch( \Stripe\Error\InvalidRequest $e )
 		{
+			return false;
 		} catch( \Stripe\Error\Authentication $e )
 		{
+			return false;
 		} catch( \Stripe\Error\ApiConnection $e )
 		{
+			return false;
 		} catch( \Stripe\Error\Base $e )
 		{
+			return false;
 		} catch( Exception $e )
 		{
+			return false;
 		}
 
 		if ( $balanceLine = $this->lines()->where('description', 'balance')->first() )
 		{
-			$this->customer->addBalance($balanceLine->total_amount * -1);
+			$this->customer->addBalance($balanceLine->total_amount * - 1);
 		}
 
 		$this->lines()->create([
@@ -140,11 +155,11 @@ class Order extends Model
 			'total_amount' => $this->getTotal() * - 1
 		]);
 
-		$this->total       = 0;
-		$this->sub_total   = 0;
-		$this->total_taxes = 0;
+		$this->total          = 0;
+		$this->sub_total      = 0;
+		$this->total_taxes    = 0;
 		$this->total_shipping = 0;
-		$this->state = 'cancelled';
+		$this->state          = 'cancelled';
 		$this->save();
 	}
 

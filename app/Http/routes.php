@@ -38,16 +38,6 @@ Route::group([ 'middleware' => 'web' ], function ()
 	/*
 	 * Signup
 	 */
-	Route::get('signup', function ()
-	{
-		return view('signup'); // todo
-	});
-
-	Route::post('signup', function ()
-	{
-		return '';
-	});
-
 	Route::get('gc/{token}', function ($token, \Illuminate\Http\Request $request)
 	{
 		$giftcard = \App\Giftcard::where('token', $token)->where('is_used', 0)->first();
@@ -83,8 +73,8 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::group([ 'middleware' => [ 'auth', 'user' ] ], function ()
 		{
 			Route::get('success', 'CheckoutController@getSuccess');
-			Route::get('success-giftcard/{token}', 'CheckoutController@getSuccessNonSubscription');
 		});
+		Route::get('success-giftcard/{token}', 'CheckoutController@getSuccessNonSubscription');
 	});
 
 	/*
@@ -105,7 +95,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::get('transactions/{id}', 'AccountController@getTransaction');
 
 		Route::get('settings/basic', 'AccountController@getSettingsBasic');
-		Route::post('settings/basic', 'AccountController@postSettingsBasic');  // Todo
+		Route::post('settings/basic', 'AccountController@postSettingsBasic');
 
 		Route::get('settings/subscription', 'AccountController@getSettingsSubscription');
 		Route::post('settings/subscription/snooze', 'AccountController@postSettingsSubscriptionSnooze');
@@ -179,7 +169,17 @@ Route::group([ 'middleware' => 'web' ], function ()
 	{
 		Route::post('call-me', function (\Illuminate\Http\Request $request)
 		{
-			// todo validate
+			$validator = Validator::make($request, [
+				'phone'  => 'required',
+				'period' => 'required'
+			]);
+
+			if ( $validator->fails() )
+			{
+				return Response::json([ 'messages' => $validator->messages() ], 403);
+			}
+
+
 			\App\Call::create([
 				'phone'  => $request->get('phone'),
 				'period' => $request->get('period'),

@@ -105,30 +105,6 @@ class CustomerController extends Controller
 		return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', "Der blev trukket penge fra kundens konto, og en ny ordre (#{$lastOrder->id}) blev oprettet. <a href=\"" . \URL::action('Dashboard\OrderController@show', [ $lastOrder->id ]) . "\">Vis ordre</a>");
 	}
 
-	function edit($id)
-	{
-
-		// todo
-		$customer = Customer::find($id);
-
-		if( ! $customer )
-		{
-			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
-		}
-	}
-
-	function update($id)
-	{
-
-		// todo
-		$customer = Customer::find($id);
-
-		if( ! $customer )
-		{
-			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
-		}
-	}
-
 	function destroy($id)
 	{
 		$customer = Customer::find($id);

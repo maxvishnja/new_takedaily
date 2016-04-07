@@ -37,7 +37,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://takedaily.com',
 	/*
 	|--------------------------------------------------------------------------
 	| Application Timezone
@@ -126,7 +126,6 @@ return [
 		Illuminate\Database\DatabaseServiceProvider::class,
 		Illuminate\Encryption\EncryptionServiceProvider::class,
 		Illuminate\Filesystem\FilesystemServiceProvider::class,
-		//NoLock\FileSystemWithNoLockServiceProvider::class,
 		Illuminate\Foundation\Providers\FoundationServiceProvider::class,
 		Illuminate\Hashing\HashServiceProvider::class,
 		Illuminate\Mail\MailServiceProvider::class,

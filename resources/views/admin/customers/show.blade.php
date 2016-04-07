@@ -8,8 +8,8 @@
 
 		<div class="module-body">
 			<div class="pull-right">
-				<a class="btn btn-info" href="{{ URL::action('Dashboard\CustomerController@edit', [ 'id' => $customer->id ]) }}"><i class="icon-pencil"></i>
-					Rediger</a>
+				{{--<a class="btn btn-info" href="{{ URL::action('Dashboard\CustomerController@edit', [ 'id' => $customer->id ]) }}"><i class="icon-pencil"></i>
+					Rediger</a>--}}
 
 				<a class="btn btn-warning" href="{{ URL::action('Dashboard\CustomerController@newPass', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du vil sende en ny adgangskode til brugeren? Den nuværende adgangskode bliver ugyldig.');"><i class="icon-key"></i>
 					Send ny adgangskode</a>
