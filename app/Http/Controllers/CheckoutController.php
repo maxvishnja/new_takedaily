@@ -267,21 +267,33 @@ class CheckoutController extends Controller
 
 		if ( $productItem->is_subscription == 1 )
 		{
-			return \Redirect::action('CheckoutController@getSuccess');
+			$upsellToken = str_random();
+			\Session::put('upsell_token', $upsellToken);
+			return \Redirect::action('CheckoutController@getSuccess')->with([ 'order_created' => true, 'upsell' => true ]);
 		}
 
-		return \Redirect::action('CheckoutController@getSuccessNonSubscription', [ 'token' => $giftcard->token ]);
+		return \Redirect::action('CheckoutController@getSuccessNonSubscription', [ 'token' => $giftcard->token ])->with([ 'order_created' => true ]);
 	}
 
-	function getSuccess()
+	function getSuccess(Request $request)
 	{
+		if( ! $request->session()->has('order_created') )
+		{
+			return \Redirect::to('/');
+		}
+
 		$combinations = \Auth::user()->getCustomer()->getCombinations();
 
 		return view('checkout.success', [ 'combinations' => $combinations ]);
 	}
 
-	function getSuccessNonSubscription($token)
+	function getSuccessNonSubscription($token, Request $request)
 	{
+		if( ! $request->session()->has('order_created') )
+		{
+			return \Redirect::to('/');
+		}
+
 		return view('checkout.success', [
 			'giftcardToken' => $token
 		]);

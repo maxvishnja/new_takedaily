@@ -22,11 +22,16 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 	Route::post('flow-upsell', function (\Illuminate\Http\Request $request)
 	{
+		if( ! $request->get('upsell_token') == Session::get('upsell_token') || ! Session::has('upsell_token') )
+		{
+			return Redirect::to('/flow');
+		}
+
 		\Auth::logout();
 
 		$coupon = \App\Coupon::create([
 			'description'   => 'Upsell discount',
-			'code'          => str_random(),
+			'code'          => str_random(8),
 			'discount'      => 50,
 			'applies_to'    => 'order',
 			'discount_type' => 'percentage',
