@@ -30,7 +30,7 @@ class CombinationSeeder extends Seeder
 			"f": true
 		},
 		"C": {
-			"a": false,
+			"a": true,
 			"b": false,
 			"c": false,
 			"d": false,
@@ -46,7 +46,7 @@ class CombinationSeeder extends Seeder
 			"f": false
 		},
 		"E": {
-			"a": false,
+			"a": true,
 			"b": true,
 			"c": true,
 			"d": true,
@@ -65,7 +65,7 @@ class CombinationSeeder extends Seeder
 			"f": true
 		},
 		"C": {
-			"a": false,
+			"a": true,
 			"b": false,
 			"c": false,
 			"d": false,
@@ -81,7 +81,7 @@ class CombinationSeeder extends Seeder
 			"f": false
 		},
 		"E": {
-			"a": false,
+			"a": true,
 			"b": true,
 			"c": true,
 			"d": true,
@@ -100,7 +100,7 @@ class CombinationSeeder extends Seeder
 			"f": false
 		},
 		"C": {
-			"a": false,
+			"a": true,
 			"b": false,
 			"c": false,
 			"d": false,

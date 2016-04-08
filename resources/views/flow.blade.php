@@ -609,14 +609,14 @@
 				</div>
 
 				{{ csrf_field() }}
-				<input type="hidden" name="product_name" value="subscription" />
+				<input type="hidden" name="product_name" value="subscription"/>
 			</form>
 		</div>
 	</div>
 
 	@if( ! isset($_COOKIE['call-me-hidden'])  )
 		<style>
-			body { padding-bottom: 190px;}
+			body { padding-bottom: 190px; }
 		</style>
 		<div class="call-cta" id="call-me-form-toggler">
 			<div class="container">
@@ -669,7 +669,7 @@
 							"f": true
 						},
 						"C": {
-							"a": false,
+							"a": true,
 							"b": false,
 							"c": false,
 							"d": false,
@@ -685,7 +685,7 @@
 							"f": false
 						},
 						"E": {
-							"a": false,
+							"a": true,
 							"b": true,
 							"c": true,
 							"d": true,
@@ -704,7 +704,7 @@
 							"f": true
 						},
 						"C": {
-							"a": false,
+							"a": true,
 							"b": false,
 							"c": false,
 							"d": false,
@@ -720,7 +720,7 @@
 							"f": false
 						},
 						"E": {
-							"a": false,
+							"a": true,
 							"b": true,
 							"c": true,
 							"d": true,
@@ -739,7 +739,7 @@
 							"f": false
 						},
 						"C": {
-							"a": false,
+							"a": true,
 							"b": false,
 							"c": false,
 							"d": false,
