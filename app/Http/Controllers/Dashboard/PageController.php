@@ -53,6 +53,10 @@ class PageController extends Controller
 
 		$oldIdentifier = $page->url_identifier;
 
+		$this->validate($request, [
+			'slug' => 'unique:pages,url_identifier,' . $page->id
+		]);
+
 		$page->title = $request->get('title');
 		if ( !$page->isLocked() )
 		{
@@ -132,7 +136,9 @@ class PageController extends Controller
 
 	function store(Request $request)
 	{
-		// todo: validate (especially if exists already - slug.)
+		$this->validate($request, [
+			'slug' => 'unique:pages,url_identifier'
+		]);
 
 		$page                   = new Page();
 		$page->title            = $request->get('title');
