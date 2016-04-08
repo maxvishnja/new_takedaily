@@ -609,7 +609,7 @@
 				</div>
 
 				{{ csrf_field() }}
-				<input type="hidden" name="product_name" value="subscription"/>
+				<input type="hidden" name="product_name" value="{{ Session::get('force_product_name', false) ? ( Session::get('product_name', 'subscription')) : 'subscription' }}"/>
 			</form>
 		</div>
 	</div>

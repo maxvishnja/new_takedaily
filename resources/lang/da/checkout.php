@@ -38,7 +38,7 @@ return [
 					'street'              => 'Din adresse',
 					'street-placeholder'  => 'Søndre Skovvej 123',
 					'zipcode'             => 'Postnummer',
-					'zipcode-placeholder' => '994',
+					'zipcode-placeholder' => '9940',
 					'city'                => 'By',
 					'city-placeholder'    => 'Aalborg',
 					'country'             => 'Land',

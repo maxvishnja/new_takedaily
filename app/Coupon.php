@@ -13,17 +13,26 @@ class Coupon extends Model
 	protected $table = 'coupons';
 	
 	/**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-	protected $fillable = [ ];
+	 * The attributes that are mass assignable.
+	 *
+	 * @var array
+	 */
+	protected $fillable = [
+		'description',
+		'code',
+		'discount',
+		'applies_to',
+		'discount_type',
+		'uses_left',
+		'valid_from',
+		'valid_to'
+	];
 	
 	/**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
-     */
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
 	protected $hidden = [ ];
 
 	function usage()
@@ -48,9 +57,9 @@ class Coupon extends Model
 
 	function reduceUsagesLeft()
 	{
-		if( $this->uses_left > 0 )
+		if ( $this->uses_left > 0 )
 		{
-			$this->uses_left--;
+			$this->uses_left --;
 			$this->save();
 		}
 	}

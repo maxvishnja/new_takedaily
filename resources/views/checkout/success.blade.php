@@ -7,6 +7,22 @@
 
 @section('content')
 	<div class="container">
+
+		@if(!isset($giftcardToken))
+			<div class="text-center">
+				<h2>Skal din familie eller ansatte have Take Daily?</h2>
+				<form method="post" action="/flow-upsell">
+					<button type="submit" class="button button--green button--medium button--rounded">Bestil Take Daily med 50% rabat</button>
+
+					<input type="hidden" name="product_name" value="subscription_family"/>
+
+					{{ csrf_field() }}
+				</form>
+			</div>
+		@endif
+
+		<hr/>
+
 		@if( isset($combinations) )
 			<div class="print_label print_label--shadow hidden-xs">
 				<div class="print_label_left">

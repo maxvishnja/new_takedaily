@@ -20,6 +20,26 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('flow');
 	});
 
+	Route::post('flow-upsell', function (\Illuminate\Http\Request $request)
+	{
+		\Auth::logout();
+
+		$coupon = \App\Coupon::create([
+			'description'   => 'Upsell discount',
+			'code'          => str_random(),
+			'discount'      => 50,
+			'applies_to'    => 'order',
+			'discount_type' => 'percentage',
+			'uses_left'     => 1,
+			'valid_from'    => \Jenssegers\Date\Date::now(),
+			'valid_to'      => \Jenssegers\Date\Date::now()->addDay()
+		]);
+
+		Session::put('applied_coupon', $coupon->code);
+
+		return Redirect::to('/flow');
+	});
+
 	Route::get('gifting', function ()
 	{
 		return view('gifting');
