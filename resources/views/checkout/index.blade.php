@@ -203,7 +203,7 @@
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50"></div>
 									<!-- CVV/CVC -->
-									<label class="label label--full checkout--label" for="cc-cvc" title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }}</label>
+									<label class="label label--full checkout--label" for="cc-cvc" title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }} ({{ trans('checkout.index.order.billing.card.cvc-title') }})</label>
 									<input type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-cvc" autocomplete="off" size="4" maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" class="card-cvc form-control" data-stripe="cvc" required="required" pattern="\d*"/>
 								</div>
 							</div>
