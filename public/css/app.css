@@ -4164,8 +4164,9 @@ body.index .block.block--three {
     font-size: 16px; }
 
 body.index .block.block--four {
-  padding: 50px 0;
-  background: #186141; }
+  background: #ffffff;
+  text-align: center;
+  margin: 0 0 150px 0; }
 
 body.index .block.block--five {
   background: #f5f5f5; }
