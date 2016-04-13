@@ -130,7 +130,13 @@
 		</div>
 
 		<div class="block block--four hidden-xs">
-			<div class="container" id="block-four"></div>
+			<div class="container">
+				<video src="/video/animation.mp4" autoplay="autoplay" loop="loop" poster="/video/thumbnail.png" oncontextmenu="return false;" muted="muted">
+					<source type="video/mp4" src="/video/animation.mp4" />
+					<source type="video/ogv" src="/video/animation.ogv" />
+					<source type="video/webm" src="/video/animation.webm" />
+				</video>
+			</div>
 		</div>
 
 		<div class="block block--five">
@@ -217,8 +223,5 @@
 				ctaBlock.removeClass('header_footer--sticky');
 			}
 		});
-	</script>
-	<script>
-		$("#block-four").html('<img src="/images/animation.gif" alt="Vitaminer er vigtige for dit helbred, uanset situation" />'); // todo translate (also translate content of animation, animation-da.gif, animation-en.gif)
 	</script>
 @endsection
