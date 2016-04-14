@@ -2,14 +2,14 @@
 return [
 	'header' => [
 		'title-1'           => 'Nu bliver det nemt,<br/>at få din krop i balance.',
-		'title-2'           => 'Take Daily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
+		'title-2'           => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
 		'button-click-here' => 'Tryk her for at starte nu',
 		'splash'            => [
 			'text'  => 'En måneds forbrug<br/>skræddersyet til dig',
 			'price' => '149 <small> kr.</small>',
 			'only'  => 'Kun'
 		],
-		'cta'               => '<a href="/flow">Start selv</a> i dag eller giv Take Daily <a href="/gifting">i gave</a>'
+		'cta'               => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>'
 	],
 	'blocks' => [
 		'one'   => [
@@ -23,7 +23,7 @@ return [
 							spørgsmålene.'
 				],
 				'two'   => [
-					'title' => 'Vi skræddersyr dit Take Daily',
+					'title' => 'Vi skræddersyr dit TakeDaily',
 					'text'  => 'Vi udvælger dine vitaminer og mineraler i koncentrationer, der passer nøjagtigt til dig.'
 				],
 				'three' => [
@@ -33,7 +33,7 @@ return [
 			]
 		],
 		'two'   => [
-			'title'  => 'Lev lidt sundere.<br/>Start indefra med Take Daily.',
+			'title'  => 'Lev lidt sundere.<br/>Start indefra med TakeDaily.',
 			'body'   => '<p>
 							At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv
 							være en
@@ -56,7 +56,7 @@ return [
 		],
 		'four'  => [ ],
 		'five'  => [
-			'body'   => '<p>Take Daily er høj kvalitet og rene, naturlige, aktive ingredienser. Vi har samlet de bedste
+			'body'   => '<p>TakeDaily er høj kvalitet og rene, naturlige, aktive ingredienser. Vi har samlet de bedste
 					ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den
 					ultimative måde at genopbygge din krop indefra.  </p>
 
@@ -68,22 +68,22 @@ return [
 				'one'   => [
 					'title'  => 'Spiser du sundt, men tillader dig selv en cigaret i ny og næ?',
 					'text'   => 'Ryger du engang imellem, nedbryder røgen mange af de C-vitaminer, du indtager.',
-					'button' => '<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily i dag</a>'
+					'button' => '<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på TakeDaily i dag</a>'
 				],
 				'two'   => [
 					'title'  => 'Er du vegetar, men ikke fan af bælgfrugter, soyabønner og tofu?',
 					'text'   => 'Som vegetar er det svært at få jern og B-vitaminer nok.',
-					'button' => '<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily i dag</a>'
+					'button' => '<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på TakeDaily i dag</a>'
 				],
 				'three' => [
 					'title'  => 'Har du lidt for meget om ørene for tiden?',
 					'text'   => 'I en stresset periode har du brug for lidt ekstra B-vitamin.',
-					'button' => '<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily i dag</a>'
+					'button' => '<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på TakeDaily i dag</a>'
 				],
 				'four'  => [
 					'title'  => 'Tager du en multivitaminpille med lidt af det hele?',
 					'text'   => 'Din krop, kost og livsstil kan give et billede af, hvad du i virkeligheden har brug for.',
-					'button' => '<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på Take Daily i dag</a>'
+					'button' => '<a href="/flow" class="button button--white button--rounded button--large button--text-grey m-t-20">Start på TakeDaily i dag</a>'
 				]
 			]
 		],
@@ -91,13 +91,13 @@ return [
 			'title'    => 'Online konsultation',
 			'subtitle' => 'Hvilke vitaminer og mineraler mangler du?',
 			'text'     => 'Vores dygtige diætister står bag spørgsmålene, som giver svar på, hvilke vitaminer og mineraler, du skal tage for at få din krop i balance. Der er 39 spørgsmål, og efter 2 minutter har du dit resultat.',
-			'button'   => '<a href="/flow" class="button button--green button--rounded button--large">Start på Take Daily i dag</a>'
+			'button'   => '<a href="/flow" class="button button--green button--rounded button--large">Start på TakeDaily i dag</a>'
 		],
 		'eight' => [
 			'title'  => 'Modtag vitaminer hver måned,<br/>det koster kun 149 kr.',
 			'text'   => 'Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag
 							typewriter banh mi, squid keffiyeh High.',
-			'button' => '<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start på Take Daily i dag</a>'
+			'button' => '<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start på TakeDaily i dag</a>'
 		]
 	]
 ];

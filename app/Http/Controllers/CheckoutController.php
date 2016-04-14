@@ -271,7 +271,6 @@ class CheckoutController extends Controller
 		\Mail::queue('emails.order', $data, function ($message) use ($mailEmail, $mailName)
 		{
 			$message->to($mailEmail, $mailName);
-			$message->from('noreply@takedaily.dk', 'Take Daily');
 			$message->subject(trans('checkout.mail.subject'));
 		});
 

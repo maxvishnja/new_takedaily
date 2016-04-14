@@ -3,12 +3,12 @@ return [
 	'language' => 'Dansk',
 	'columns'   => [
 		'one'   => [
-			'title'             => 'Tilmeld nyheder fra Take Daily',
+			'title'             => 'Tilmeld nyheder fra TakeDaily',
 			'input-placeholder' => 'min@mailadresse.dk',
 			'button-text'       => 'Send'
 		],
 		'two'   => [
-			'title' => 'Følg Take Daily'
+			'title' => 'Følg TakeDaily'
 		],
 		'three' => [
 			'title' => 'Kontakt os',
@@ -16,13 +16,13 @@ return [
 			'info'  => '+45 1234 5678<br/><a href="mailto:support@takedaily.dk">support@takedaily.dk</a>'
 		],
 	],
-	'copyright' => 'Take Daily',
+	'copyright' => 'TakeDaily',
 	'languages' => '<li><a href="/locale/da">Dansk</a></li>
 					<li><a href="/locale/en">English</a></li>
 					<li><a href="/locale/nl">Nederlands</a></li>
 					<li><a href="/locale/no">Norsk</a></li>
 					<li><a href="/locale/sv">Svenska</a></li>',
-	'links'     => '<li><a href="/om-take-daily">Om Take Daily</a></li>
+	'links'     => '<li><a href="/om-take-daily">Om TakeDaily</a></li>
 					<li><a href="/privacy">Fortrolighed & cookies</a></li>
 					<li><a href="/terms">Vilkår og betingelser</a></li>'
 ];

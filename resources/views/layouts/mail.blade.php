@@ -1210,7 +1210,7 @@
 					<tr>
 						<td class="logo emb-logo-padding-box" style="padding: 0;vertical-align: top;mso-line-height-rule: at-least;width: 280px;padding-top: 24px;padding-bottom: 24px;">
 							<div class="logo-left" style="font-weight: 700;font-family: Roboto,Tahoma,sans-serif;color: #44a8c7;font-size: 24px !important;line-height: 30px !important;" align="left" id="emb-email-header">
-								Take Daily
+								TakeDaily
 							</div>
 						</td>
 					</tr>

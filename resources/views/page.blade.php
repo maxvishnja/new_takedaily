@@ -2,7 +2,7 @@
 
 @section('pageClass', 'cms page cms-layout-' . $page->layout)
 
-@section('title', "{$page->title} - Take Daily")
+@section('title', "{$page->title} - TakeDaily")
 
 @section('header_top_additional')
 	@if( $page->layout == 'header' )

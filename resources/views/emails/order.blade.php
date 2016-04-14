@@ -1,7 +1,7 @@
 @extends('layouts.mail')
 
-@section('title', 'Tak for din ordre hos Take Daily') <!-- todo translate -->
-@section('summary', 'Din ordrebekræftelse fra Take Daily') <!-- todo translate -->
+@section('title', 'Tak for din ordre hos TakeDaily') <!-- todo translate -->
+@section('summary', 'Din ordrebekræftelse fra TakeDaily') <!-- todo translate -->
 
 @section('content')
 	@if( isset($giftcard) && !is_null($giftcard) )
@@ -38,14 +38,14 @@
 	</table>
 
 	@if( isset($password) && !is_null($password) )
-		<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">Take Daily kodeord</h3>
+		<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">TakeDaily kodeord</h3>
 		<p class="size-14" style='font-style: normal;font-weight: 400;Margin-bottom: 0;Margin-top: 16px;font-size: 14px;line-height: 24px;font-family: "Open Sans",sans-serif;color: #60666d;'>
-			Dit kodeord til Take Daily er: <strong>{{ $password }}</strong>
+			Dit kodeord til TakeDaily er: <strong>{{ $password }}</strong>
 		</p>
 	@endif
 
 	<p class="size-16" style='font-style: normal;font-weight: 400;Margin-bottom: 0;Margin-top: 16px;font-size: 16px;line-height: 24px;font-family: "Open Sans",sans-serif;color: #60666d;text-align: center;'>
 		Mvh.<br/>
-		Take Daily
+		TakeDaily
 	</p>
 @endsection

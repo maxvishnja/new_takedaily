@@ -2,11 +2,11 @@
 
 @section('pageClass', 'gifting')
 
-@section('title', 'Giv Take Daily i gave - Take Daily')
+@section('title', 'Giv TakeDaily i gave - TakeDaily')
 
 @section('content')
 	<div class="container text-center">
-		<h1>Giv Take Daily i gave</h1>
+		<h1>Giv TakeDaily i gave</h1>
 		<h2>Hvor mange måneder ønsker du at give?</h2>
 		<form action="/checkout" method="get">
 			<div class="gifting-selectors">

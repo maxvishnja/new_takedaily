@@ -1,7 +1,7 @@
 <?php
 return [
 	'account' => [
-		'profile'      => 'Mit Take Daily',
+		'profile'      => 'Mit TakeDaily',
 		'deliveries'   => 'Leveringer',
 		'settings'     => 'Indstillinger',
 		'subscription' => 'Abonnent',

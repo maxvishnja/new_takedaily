@@ -1,7 +1,7 @@
 <?php
 return [
 	'back'              => '&lsaquo; Tilbage til tidligere spørgsmål',
-	'title'             => 'Find din anbefaling - Take Daily',
+	'title'             => 'Find din anbefaling - TakeDaily',
 	'scripts'           => 'Venligst aktiver javascripts!',
 	'steps'             => [
 		'one'   => 'PERSONLIGT',
@@ -9,7 +9,7 @@ return [
 		'three' => 'KOST OG VANER',
 		'four'  => 'ANBEFALING'
 	],
-	'button-order-text' => 'Bestil Take Daily',
+	'button-order-text' => 'Bestil TakeDaily',
 	'questions'         => [
 		'1-1'  => [
 			'title'   => 'Hvilket køn er du?',
@@ -130,7 +130,7 @@ return [
 		],
 		'2-10' => [
 			'title'   => 'Tager du allerede vitaminer og/eller mineraler?',
-			'text'    => 'Testresultatet er baseret på din kost og din livsstil. Take Daily sørger for, at du får alle de vitaminer
+			'text'    => 'Testresultatet er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
 							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre tilskud.',
 			'options' => [
 				'1' => 'Ja',
@@ -222,30 +222,30 @@ return [
 	],
 	'combinations'      => [
 		'1'    => [
-			'basic'          => '<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis</p>',
-			'basic-10-d'     => '<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
+			'basic'          => '<p>Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis</p>',
+			'basic-10-d'     => '<p>Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
 							<p>Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">din alder</span>
 								<span v-show="( user_data.age >= \'50\'&& user_data.age <= \'70\') && user_data.skin > \'1\'">og</span>
 								<span v-show="user_data.skin > \'1\'">mørke hudfarve</span>.
 								Det sørger vi for.</p>',
-			'basic-10-d-alt' => '<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
+			'basic-10-d-alt' => '<p>Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
 							<p>Du skal fx have lidt ekstra D-vitamin, fordi du ikke kommer så meget ud i solen. Det sørger vi for.</p>',
-			'basic-20-d'     => '<p>Med Take Daily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
+			'basic-20-d'     => '<p>Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.</p>
 							<p>I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.</p>'
 		],
 		'2'    => [
-			'A' => '<p>Du er gravid eller ønsker at blive det. Tillykke! I den søde ventetid, sørger Take Daily for, at du og din baby får de særlige tilskud, I har brug for.
+			'A' => '<p>Du er gravid eller ønsker at blive det. Tillykke! I den søde ventetid, sørger TakeDaily for, at du og din baby får de særlige tilskud, I har brug for.
 							<br/><br/>
 							Gennem hele graviditeten er det godt for udviklingen af babyens knogler og muskler at tage et tilskud af D-vitamin. Fiskeolie…
 							<hr/>
 							Vi håber, du snart får dit ønske om en baby opfyldt. Mens du prøver at blive gravid, har din krop brug for særlige vitaminer og
-							mineraler. Det sørger Take Daily for.
+							mineraler. Det sørger TakeDaily for.
 							<br/><br/>
 							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin), allerede når du begynder at drømme om en baby. Du skal tage folsyre
 							helt fra graviditetens begyndelse, da det har betydning for celledelingen og arvematerialet i kroppens celler. Folsyre nedsætter
 							risikoen for alvorlige medfødte misdannelser af hjerne og rygmarv (neuralrørsdefekter).
 							</p>',
-			'B' => '<p>Når du er på slankekur, har du brug for lidt ekstra vitaminer og mineraler. Take Daily giver dig det helt rigtige miks. Husk også
+			'B' => '<p>Når du er på slankekur, har du brug for lidt ekstra vitaminer og mineraler. TakeDaily giver dig det helt rigtige miks. Husk også
 								at slappe af, sove og dyrke motion.
 								<br/><br/>
 								Når du har fokus på at spise fedtfattigt, bliver din kost typisk mere ensidig, end den plejer, og så har du brug for et tilskud
@@ -271,7 +271,7 @@ return [
 							</p>
 
 							<p v-show="user_data.smokes == 1">
-								Vi anbefaler selvfølgelig, at du stopper med at ryge. Men så længe du ryger, sørger Take Daily for, at du får lidt ekstra
+								Vi anbefaler selvfølgelig, at du stopper med at ryge. Men så længe du ryger, sørger TakeDaily for, at du får lidt ekstra
 								C-vitamin. Det er nemlig videnskabeligt bevist, at behovet for C-vitamin er større, når du ryger, fordi tobaksrøg ilter og
 								ødelægger vitaminet. Stopper du med at ryge, så husk at ændre din profil på <a href="/account" target="_blank">Mit Take
 									Daily</a>.
@@ -289,15 +289,15 @@ return [
 		],
 		'3'    => [
 			'a' => '<p v-show="user_data.foods.fruits == 1">
-						Frugt er en vigtig kilde til C-vitamin. Din krop får ikke nok frugt, og derfor heller ikke nok C-vitamin. Take Daily sørger for,
+						Frugt er en vigtig kilde til C-vitamin. Din krop får ikke nok frugt, og derfor heller ikke nok C-vitamin. TakeDaily sørger for,
 						at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
-						Begynder du at spise mere frugt, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så
+						Begynder du at spise mere frugt, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så
 						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
 					</p>
 
 					<p v-show="user_data.foods.vegetables == 1">
-						Grøntsager er en vigtig kilde til B9-vitamin, C-vitamin, folsyre og kalium. Take Daily sørger for, at du får det, du behøver –
+						Grøntsager er en vigtig kilde til B9-vitamin, C-vitamin, folsyre og kalium. TakeDaily sørger for, at du får det, du behøver –
 						og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
 						Begynder du at spise flere grøntsager, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take
@@ -306,19 +306,19 @@ return [
 					</p>',
 			'b' => '<p v-show="user_data.foods.bread == 1">
 						Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Du spiser ikke nok brød i hverdagen, så du har brug for lidt ekstra
-						B-vitamin og jern. Når du ikke får nok jern, vil du ofte føle dig sløv. Take Daily giver dig præcis det, der skal til, for at du
+						B-vitamin og jern. Når du ikke får nok jern, vil du ofte føle dig sløv. TakeDaily giver dig præcis det, der skal til, for at du
 						føler dig frisk hver dag.
 						<br/><br/>
-						Begynder du at spise mere brød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så
+						Begynder du at spise mere brød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så
 						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
 					</p>
 
 					<p v-show="user_data.foods.wheat == 1">
 						Du spiser ikke nok pasta, ris og kartofler, og derfor går din krop glip af gode kulhydrater, som er en vigtig kilde til
-						B-vitamin og mineraler. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
+						B-vitamin og mineraler. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
 						Begynder du at spise mere ris, pasta eller det, der ligner, skal du huske at ændre din profil på
-						<a href="/account" target="_blank">Mit Take Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
+						<a href="/account" target="_blank">Mit TakeDaily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
 						indeholder lige præcis de doser, du har brug for.
 					</p>',
 			'c' => '<p>
@@ -327,33 +327,33 @@ return [
 						behov for.
 						<br/><br/>
 						Begynder du at få flere mejeriprodukter i din daglige kost, skal du huske at ændre din profil på
-						<a href="/account" target="_blank">Mit Take Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
+						<a href="/account" target="_blank">Mit TakeDaily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
 						indeholder lige præcis de doser, du har brug for.
 					</p>',
 			'd' => '	<p>
-							Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. Take Daily sørger for, at du får det,
+							Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. TakeDaily sørger for, at du får det,
 							du behøver – og så kan du fortsætte med at spise, som du gør nu.
 							<br/><br/>
-							Begynder du at spise kød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så er du
+							Begynder du at spise kød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så er du
 							sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
 						</p>',
 			'e' => '<p>
 						Du spiser ikke nok fisk, og derfor bliver din krop snydt for sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som
-						D-vitamin, jod og selen. Take Daily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
+						D-vitamin, jod og selen. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
-						Begynder du at spise mere fisk, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>. Så
+						Begynder du at spise mere fisk, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så
 						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
 					</p>',
 			'f' => '<p>
 					Din daglige kost indeholder ikke nok smør, margarine eller olie, som er vigtige kilder til A-vitamin og D-vitamin. Du har brug
-					for begge vitaminer. Blandt andet for at styrke dit immunforsvar. Take Daily sørger for, at du får det, du behøver – og så kan
+					for begge vitaminer. Blandt andet for at styrke dit immunforsvar. TakeDaily sørger for, at du får det, du behøver – og så kan
 					du fortsætte med at spise, som du gør nu.
 					<br/><br/>
-					Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take Daily</a>.
+					Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>.
 					Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
 				</p>'
 		],
-		'none' => '<p>Du har en sund livsstil og passer godt på din krop. Take Daily giver dig det mest basale, så din krop også får, hvad den har brug
+		'none' => '<p>Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.</p>'
 	],
 	'call-me'           => [

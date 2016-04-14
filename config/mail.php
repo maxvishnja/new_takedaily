@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'noreply@takedaily.com', 'name' => 'Take Daily'],
+    'from' => ['address' => 'noreply@takedaily.com', 'name' => 'TakeDaily'],
 
     /*
     |--------------------------------------------------------------------------

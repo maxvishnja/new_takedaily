@@ -1,13 +1,13 @@
 <?php
 return [
 	'home'                  => [
-		'title'            => 'Mit Take Daily - Take Daily',
+		'title'            => 'Mit TakeDaily - TakeDaily',
 		'years'            => 'år',
 		'pick'             => '--- vælg ---',
 		'button-save-text' => 'Gem præferencer'
 	],
 	'transaction'           => [
-		'title'          => 'Levering #:id - Take Daily',
+		'title'          => 'Levering #:id - TakeDaily',
 		'header'         => 'Levering #:id',
 		'title-shipping' => 'Leveringsadresse',
 		'table'          => [
@@ -26,7 +26,7 @@ return [
 		]
 	],
 	'transactions'          => [
-		'title'            => 'Leveringer - Take Daily',
+		'title'            => 'Leveringer - TakeDaily',
 		'header'           => 'Dine leveringer',
 		'no-results'       => 'Ingen leveringer fundet',
 		'table'            => [
@@ -37,12 +37,12 @@ return [
 		'button-show-text' => 'Vis'
 	],
 	'settings_basic'        => [
-		'title'            => 'Indstillinger - Take Daily',
+		'title'            => 'Indstillinger - TakeDaily',
 		'header'           => 'Indstillinger',
 		'button-save-text' => 'Gem'
 	],
 	'settings_billing'      => [
-		'title'                  => 'Fakturering - Take Daily',
+		'title'                  => 'Fakturering - TakeDaily',
 		'header'                 => 'Betalingsmetode',
 		'no-method'              => 'Ingen betalingsmetode fundet!',
 		'button-add-method-text' => 'Tilføj nyt kort',
@@ -51,12 +51,12 @@ return [
 		'button-remove-text'     => 'Fjern kort',
 		'add' => [
 			'button-cancel-text'     => 'Annuller',
-			'title'                  => 'Tilføj betalingsmetode - Take Daily',
+			'title'                  => 'Tilføj betalingsmetode - TakeDaily',
 			'header'                 => 'Ny betalingsmetode'
 		]
 	],
 	'settings_subscription' => [
-		'title'              => 'Abonnement - Take Daily',
+		'title'              => 'Abonnement - TakeDaily',
 		'header'             => 'Dit abonnement er :status',
 		'total'              => '<span class="color--brand">:amount</span><small> / måned</small>',
 		'next-date'          => 'Næste trækningsdato: :date',

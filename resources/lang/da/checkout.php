@@ -11,21 +11,21 @@ return [
 		'card-added'            => 'Kortet blev tilføjet!'
 	],
 	'mail'     => [
-		'subject'              => 'Ordrebekræftelse fra Take Daily',
+		'subject'              => 'Ordrebekræftelse fra TakeDaily',
 		'subject-subscription' => 'Vi har trukket penge for dit abonnement',
 	],
 	'success'  => [
-		'page-title'  => 'Din ordre blev godkendt! - Take Daily',
+		'page-title'  => 'Din ordre blev godkendt! - TakeDaily',
 		'title'       => 'Din ordre blev oprettet',
 		'text'        => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Tak for dit køb!',
-		'button-text' => 'Gå til dit Take Daily',
+		'button-text' => 'Gå til dit TakeDaily',
 		'giftcard'    => [
 			'title' => 'Gavekort koden er:',
 			'text'  => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring gavekortet, indløsning og din ordre generelt. Tak for dit køb!'
 		]
 	],
 	'index'    => [
-		'title'      => 'Betaling - Take Daily',
+		'title'      => 'Betaling - TakeDaily',
 		'order'      => [
 			'title'              => 'Bestilling',
 			'info'               => [

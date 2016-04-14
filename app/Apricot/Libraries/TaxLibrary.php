@@ -26,6 +26,6 @@ class TaxLibrary
 
 	public function reversedRate()
 	{
-		return 1 - ($this->zone->rate / 100) * 0.8; // todo validate that * 0.8 simply works..
+		return 1 - (($this->zone->rate / 100) * 0.8); // todo validate that * 0.8 simply works..
 	}
 }

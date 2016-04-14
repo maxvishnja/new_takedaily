@@ -34,7 +34,7 @@
 										</a>
 									</div>
 									<div class="col-md-6 hidden-sm hidden-xs">
-										<img src="/images/product_small.png" alt="Take Daily box">
+										<img src="/images/product_small.png" alt="TakeDaily box">
 									</div>
 								</div>
 							</div>
@@ -192,7 +192,7 @@
 			<div class="block block--eight text-center">
 				<div class="row">
 					<div class="col-md-8 col-md-push-2">
-						<img src="/images/product_box_large.png" alt="Take Daily boks"/>
+						<img src="/images/product_box_large.png" alt="TakeDaily boks"/>
 						<h2>{!! trans('home.blocks.eight.title') !!}</h2>
 						<p>{{ trans('home.blocks.eight.text') }}</p>
 
