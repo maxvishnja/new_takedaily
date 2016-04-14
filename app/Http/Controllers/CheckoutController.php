@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Apricot\Libraries\MoneyLibrary;
+use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\Giftcard;
 use App\Product;
@@ -45,6 +46,13 @@ class CheckoutController extends Controller
 		]);
 	}
 
+	function getTaxRate(Request $request)
+	{
+		$zone = new TaxLibrary($request->get('zone'));
+
+		return \Response::json([ 'rate' => $zone->rate() ]);
+	}
+
 	function postCheckout(CouponRepository $couponRepository, Request $request)
 	{
 		$this->validate($request, [
@@ -71,6 +79,8 @@ class CheckoutController extends Controller
 		$password    = str_random(8);
 		$email       = strtolower($info['email']);
 		$userCreated = false;
+
+		$taxing = new TaxLibrary($info['address_country']);
 
 		$orderPrice        = MoneyLibrary::toMoneyFormat($productItem->price);
 		$subscriptionPrice = $productItem->is_subscription == 1 ? MoneyLibrary::toMoneyFormat($productItem->price) : 0;
@@ -251,8 +261,8 @@ class CheckoutController extends Controller
 			'giftcard'      => $productItem->is_subscription == 0 ? $giftcard->token : null,
 			'description'   => $product,
 			'priceTotal'    => MoneyLibrary::toCents($orderPrice),
-			'priceSubtotal' => MoneyLibrary::toCents($orderPrice * 0.8),
-			'priceTaxes'    => MoneyLibrary::toCents($orderPrice * 0.2)
+			'priceSubtotal' => MoneyLibrary::toCents($orderPrice * $taxing->reversedRate()),
+			'priceTaxes'    => MoneyLibrary::toCents($orderPrice * $taxing->rate())
 		];
 
 		$mailEmail = $user->getEmail();
@@ -269,6 +279,7 @@ class CheckoutController extends Controller
 		{
 			$upsellToken = str_random();
 			\Session::put('upsell_token', $upsellToken);
+
 			return \Redirect::action('CheckoutController@getSuccess')->with([ 'order_created' => true, 'upsell' => true ]);
 		}
 
@@ -277,7 +288,7 @@ class CheckoutController extends Controller
 
 	function getSuccess(Request $request)
 	{
-		if( ! $request->session()->has('order_created') )
+		if ( !$request->session()->has('order_created') )
 		{
 			return \Redirect::to('/');
 		}
@@ -289,7 +300,7 @@ class CheckoutController extends Controller
 
 	function getSuccessNonSubscription($token, Request $request)
 	{
-		if( ! $request->session()->has('order_created') )
+		if ( !$request->session()->has('order_created') )
 		{
 			return \Redirect::to('/');
 		}

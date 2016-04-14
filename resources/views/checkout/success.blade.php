@@ -43,7 +43,7 @@
 					<div class="print_label_info_line">{{ Auth::user()->getCustomer()->getCustomerAttribute('address_line1') }}</div>
 					<div class="print_label_info_line">{{ Auth::user()->getCustomer()->getCustomerAttribute('address_postal') }}
 						, {{ Auth::user()->getCustomer()->getCustomerAttribute('address_city') }}</div>
-					<div class="print_label_info_line">{{ Auth::user()->getCustomer()->getCustomerAttribute('address_country') }}</div>
+					<div class="print_label_info_line">{{ trans('countries.' . Auth::user()->getCustomer()->getCustomerAttribute('address_country')) }}</div>
 
 
 					<div class="m-t-50">

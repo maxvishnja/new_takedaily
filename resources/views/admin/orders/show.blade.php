@@ -33,7 +33,7 @@
 					@endif
 					{{ $order->shipping_street }}<br/>
 					{{ $order->shipping_city }}, {{ $order->shipping_zipcode }}<br/>
-					{{ $order->shipping_country }}<br/>
+					{{ trans('countries.' . $order->shipping_country) }}<br/>
 				</div>
 
 				<div class="span4">

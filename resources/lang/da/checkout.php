@@ -11,7 +11,7 @@ return [
 		'card-added'            => 'Kortet blev tilføjet!'
 	],
 	'mail'     => [
-		'subject' => 'Ordrebekræftelse fra Take Daily',
+		'subject'              => 'Ordrebekræftelse fra Take Daily',
 		'subject-subscription' => 'Vi har trukket penge for dit abonnement',
 	],
 	'success'  => [
@@ -41,15 +41,7 @@ return [
 					'zipcode-placeholder' => '9940',
 					'city'                => 'By',
 					'city-placeholder'    => 'Aalborg',
-					'country'             => 'Land',
-					'countries'           => [
-						'Danmark',
-						'Norge',
-						'Sverige',
-						'Holland',
-						'Tyskland',
-						'Polen'
-					]
+					'country'             => 'Land'
 				],
 				'optional'            => 'valgfrit',
 				'company'             => 'CVR / Firma',

@@ -136,11 +136,9 @@
 								<div class="col-md-6">
 									<label class="label label--full checkout--label" for="input_info_address_country">{{ trans('checkout.index.order.info.address.country') }}
 										<span class="required">*</span></label>
-									<select name="info[address_country]" class="select select--medium select--semibold select--full" required="required" aria-required="true" data-validate="true">
-										@foreach(trans('checkout.index.order.info.address.countries') as $country)
-											<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', 'Danmark') : 'Danmark')) == $country ) selected="selected" @endif value="{{ $country }}">
-												{{ $country }}
-											</option>
+									<select name="info[address_country]" id="country-selector" class="select select--medium select--semibold select--full" required="required" aria-required="true" data-validate="true">
+										@foreach(\App\TaxZone::all() as $zone)
+											<option @if( Request::old('info.address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', 'denmark') : 'denmark')) == $zone->name ) selected="selected" @endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
 										@endforeach
 									</select>
 								</div>
@@ -300,7 +298,7 @@
 				$error = true;
 			}
 
-			if (!$.payment.validateCardExpiry($("#cc-month").val(), $("#cc-year").val()))
+			if (!$.payment.validateCardExpiry($("#cc-month").val() ? $("#cc-month").val() : '', $("#cc-year").val() ? $("#cc-year").val() : ''))
 			{
 				$error = true;
 			}
@@ -370,6 +368,7 @@
 				shipping: 0,
 				price: {{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
 				sub_price: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
+				tax_rate: 0.2,
 				discount: {
 					applied: false,
 					type: null,
@@ -382,7 +381,7 @@
 			computed: {
 				total_taxes: function ()
 				{
-					return this.total_sub * 0.2;
+					return this.total_sub * this.tax_rate;
 				},
 				subtotal: function ()
 				{
@@ -510,6 +509,35 @@
 			}
 		</script>
 	@endif
+
+	<script>
+		$("#country-selector").change(function()
+		{
+			var country = $(this).val();
+
+			$.ajax({
+				url: '{{ URL::action('CheckoutController@getTaxRate') }}',
+				method: 'GET',
+				dataType: 'JSON',
+				data: { 'zone': country },
+				success: function(response)
+				{
+					app.tax_rate = response.rate;
+				}
+			});
+		});
+
+		$.ajax({
+			url: '{{ URL::action('CheckoutController@getTaxRate') }}',
+			method: 'GET',
+			dataType: 'JSON',
+			data: { 'zone': $("#country-selector").val() },
+			success: function(response)
+			{
+				app.tax_rate = response.rate;
+			}
+		});
+	</script>
 
 	<script>
 		$("input#cc-number").payment("formatCardNumber");

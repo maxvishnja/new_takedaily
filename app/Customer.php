@@ -3,6 +3,7 @@
 use App\Apricot\Libraries\CombinationLibrary;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\StripeLibrary;
+use App\Apricot\Libraries\TaxLibrary;
 use App\Events\CustomerWasBilled;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -285,8 +286,10 @@ class Customer extends Model
 
 	public function makeOrder($amount = 100, $stripeChargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null)
 	{
+		$taxing = new TaxLibrary($this->getCustomerAttribute('address_country'));
+
 		$shipping = $shipping ? : $this->getPlan()->getShippingPrice();
-		$taxes    = $amount * 0.20; // todo dynamic
+		$taxes    = $amount * $taxing->rate();
 
 		$order = $this->orders()->create([
 			'reference'           => (str_random(8) . '-' . str_random(2) . '-' . str_pad($this->getOrders()->count() + 1, 4, '0', STR_PAD_LEFT)),
@@ -308,8 +311,8 @@ class Customer extends Model
 
 		$order->lines()->create([
 			'description'  => $product_name,
-			'amount'       => $product->price * 0.8,
-			'tax_amount'   => $product->price * 0.2,
+			'amount'       => $product->price * $taxing->reversedRate(),
+			'tax_amount'   => $product->price * $taxing->rate(),
 			'total_amount' => $product->price
 		]);
 
