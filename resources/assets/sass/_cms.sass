@@ -20,12 +20,31 @@ body.cms
 		display: block
 
 		&.pull-left
-			margin-right: 20px
-			margin-bottom: 20px
+			margin-right: 30px
+			margin-bottom: 30px
 
 		&.pull-right
-			margin-left: 20px
-			margin-bottom: 20px
+			margin-left: 30px
+			margin-bottom: 30px
+
+	article
+		ul
+			line-height: 1.6
+			list-style: disc
+			padding-left: 30px
+
+		ol
+			line-height: 1.6
+			list-style: decimal
+			padding-left: 30px
+
+
+		h2
+			margin-top: 0 !important
+
+@media all and (max-width: 991px)
+	.no-top-margin-mobile
+		margin-top: 20px !important
 
 body.cms-layout-plain
 
@@ -67,12 +86,13 @@ body.cms-layout-header
 				background: rgba($main-green,0.95)
 				z-index: 150
 
-@media all and (max-width: 767px)
+@media all and (max-width: 991px)
 	body.cms
-		.img-responsive
-			float: none !important
-			margin: 20px auto !important
+		article
+			h2
+				margin-top: 20px !important
 
+@media all and (max-width: 767px)
 	body.cms-layout-header
 		header.header--with-bg
 			max-height: 800px
