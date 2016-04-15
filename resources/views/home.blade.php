@@ -18,6 +18,28 @@
 			</div>
 		</div>
 
+		<div class="header_content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h1>{!! trans('home.header.title-1') !!}</h1>
+						<a href="/flow" class="button button--rounded button--huge button--green m-t-30">
+							<strong>{{ trans('home.header.button-click-here') }}</strong>
+						</a>
+					</div>
+					<div class="col-md-6 hidden-sm hidden-xs">
+						<div class="splash_circle pull-right">
+							<span>{!! trans('home.header.splash.text') !!}</span>
+							<small>{{ trans('home.header.splash.only') }}</small>
+							<strong>{!! trans('home.header.splash.price') !!}</strong>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		{{--
+
 		<div class="slider_container" id="slider_one">
 			<div class="icon slider-arrow-left icon-arrow-left"></div>
 			<div class="icon slider-arrow-right icon-arrow-right"></div>
@@ -63,6 +85,8 @@
 				</div>
 			</div>
 		</div>
+
+		--}}
 
 		<div class="header_footer hidden-sm hidden-xs">
 			{!! trans('home.header.cta') !!}
@@ -132,9 +156,9 @@
 		<div class="block block--four hidden-xs">
 			<div class="container">
 				<video src="/video/animation.mp4" autoplay="autoplay" loop="loop" poster="/video/thumbnail.png" oncontextmenu="return false;" muted="muted">
-					<source type="video/mp4" src="/video/animation.mp4" />
-					<source type="video/ogv" src="/video/animation.ogv" />
-					<source type="video/webm" src="/video/animation.webm" />
+					<source type="video/mp4" src="/video/animation.mp4"/>
+					<source type="video/ogv" src="/video/animation.ogv"/>
+					<source type="video/webm" src="/video/animation.webm"/>
 				</video>
 			</div>
 		</div>
