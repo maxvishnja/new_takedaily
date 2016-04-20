@@ -89,7 +89,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 	/*
 	 * Checkout
 	 */
-	Route::group([ 'middleware' => [ 'secure' ], 'prefix' => 'checkout' ], function ()
+	Route::group([ 'middleware' => [ 'secure', 'user' ], 'prefix' => 'checkout' ], function ()
 	{
 		Route::get('', 'CheckoutController@getCheckout');
 		Route::post('', 'CheckoutController@postCheckout');
@@ -232,5 +232,5 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('page', [
 			'page' => $page
 		]);
-	});
+	})->where('identifier', '(.*)');
 });

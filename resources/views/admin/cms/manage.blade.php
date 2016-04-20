@@ -142,28 +142,30 @@
 	<script>
 		@if(!isset($page) || (isset($page) && $page->url_identifier != 'home'))
 			$("#page_title").on('input', function ()
-		{
-			generateSlug($(this).val());
-		});
+			{
+				generateSlug($(this).val());
+			});
 
-		function generateSlug(value)
-		{
-			var handle = value;
-			handle = handle.trim(' ');
-			handle = handle.toLowerCase();
-			handle = handle.replace(/(å)/g, 'a');
-			handle = handle.replace(/(ø)/g, 'o');
-			handle = handle.replace(/(æ)/g, 'ae');
-			handle = handle.replace(/\s\s+/g, ' ');
-			handle = handle.replace(/( )/g, '-');
-			handle = handle.replace(/([^a-z0-9-])/g, '');
-			handle = handle.replace(/\-\-+/g, '-');
-			handle = handle.substr(0, 50);
+			function generateSlug(value)
+			{
+				var parent_text = '';
 
-			$("#page_handle_preview").text('/' + handle);
-		}
+				var handle = value;
+				handle = handle.trim(' ');
+				handle = handle.toLowerCase();
+				handle = handle.replace(/(å)/g, 'a');
+				handle = handle.replace(/(ø)/g, 'o');
+				handle = handle.replace(/(æ)/g, 'ae');
+				handle = handle.replace(/\s\s+/g, ' ');
+				handle = handle.replace(/( )/g, '-');
+				handle = handle.replace(/([^a-z0-9-])/g, '');
+				handle = handle.replace(/\-\-+/g, '-');
+				handle = handle.substr(0, 50);
 
-		generateSlug($("#page_title").val());
+				$("#page_handle_preview").text("/" + handle);
+			}
+
+			generateSlug($("#page_title").val());
 		@endif
 
 		CKEDITOR.replace('page_body', {
