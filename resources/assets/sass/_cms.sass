@@ -28,16 +28,33 @@ body.cms
 			margin-bottom: 30px
 
 	article
+		.row
+			padding: 50px 0
+
+			&.row--gray
+				background: #f7f7f7
+
+			&.row--no-padding
+				padding: 0 !important
+
 		ul
 			line-height: 1.6
-			list-style: disc
-			padding-left: 30px
+			list-style: none
+
+			li
+				padding-left: 1em
+				text-indent: -.7em
+
+				&:before
+					content: "•"
+					font-weight: 700
+					margin-right: 0.7em
+					color: $main-green
 
 		ol
 			line-height: 1.6
 			list-style: decimal
 			padding-left: 30px
-
 
 		h2
 			margin-top: 0 !important
@@ -64,15 +81,15 @@ body.cms-layout-header
 			color: #fff
 
 		.cta
-			background: rgba($main-green,0.75)
-			width:      100%
-			position:   absolute
-			left:       0
-			bottom:     0
-			color:      #fff
+			background: rgba($main-green, 0.75)
+			width: 100%
+			position: absolute
+			left: 0
+			bottom: 0
+			color: #fff
 			text-align: center
-			padding:    30px 15px
-			font-size:  26px
+			padding: 30px 15px
+			font-size: 26px
 			transition: background 300ms
 
 			a
@@ -83,7 +100,7 @@ body.cms-layout-header
 				position: fixed
 				top: 0
 				bottom: auto
-				background: rgba($main-green,0.95)
+				background: rgba($main-green, 0.95)
 				z-index: 150
 
 @media all and (max-width: 991px)

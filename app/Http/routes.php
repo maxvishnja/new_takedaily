@@ -212,7 +212,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 				'status' => 'requested'
 			]);
 
-			return Response::json([ 'message' => 'Tak, vi ringer til dig snarest!' ]);
+			return Response::json([ 'message' => 'Tak, vi ringer til dig snarest!' ]); // todo translate
 		});
 	});
 
