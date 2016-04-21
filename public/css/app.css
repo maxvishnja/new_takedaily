@@ -1126,6 +1126,20 @@ div.logo, div.icon {
   .hamburger .meat.meat--last {
     margin-bottom: 0; }
 
+.step-circle-count {
+  background: #FFF;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.25);
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  float: left;
+  padding: 14px 0 10px;
+  margin-top: -30px;
+  margin-left: -30px;
+  font-weight: 600;
+  font-size: 22px;
+  color: #17aa66; }
+
 header {
   height: 119px;
   background-color: #333333;
@@ -5048,6 +5062,21 @@ body.cms article .row {
     background: #f7f7f7; }
   body.cms article .row.row--no-padding {
     padding: 0 !important; }
+
+body.cms article .img-block-with-title {
+  position: relative;
+  text-align: center; }
+  body.cms article .img-block-with-title img {
+    border-radius: 4px; }
+  body.cms article .img-block-with-title h1 {
+    position: relative;
+    top: -54px;
+    background: #fff;
+    padding: 16px 40px 10px;
+    font-size: 30px;
+    margin: 0;
+    line-height: 1;
+    display: inline-block; }
 
 body.cms article ul {
   line-height: 1.6;

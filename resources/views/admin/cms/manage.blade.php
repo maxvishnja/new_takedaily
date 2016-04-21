@@ -34,10 +34,15 @@
 										<input type="radio" name="layout" id="page_layout" value="header" @if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'header') checked="checked" @endif />
 										<img src="{{ asset('admin/images/icons/icon-cms-layout-header.png') }}" alt="">
 									</label>
+
+									<label style="display: inline-block; border: 1px solid #eee; border-radius: 4px; padding: 10px;">
+										<input type="radio" name="layout" id="page_layout" value="empty" @if(Request::old('layout', isset($page) ? $page->layout : 'empty') == 'empty') checked="checked" @endif />
+										<img src="{{ asset('admin/images/icons/icon-cms-layout-empty.png') }}" alt="">
+									</label>
 								</div>
 							</div>
 
-							<div id="layout_header_only" class="control-group" @if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'plain') style="display: none" @endif>
+							<div id="layout_header_only" class="control-group" @if(Request::old('layout', isset($page) ? $page->layout : 'plain') != 'header') style="display: none" @endif>
 								<label for="page_title" class="control-label">Top billede</label>
 								<div class="controls">
 									<input type="file" name="top_image" id="top_image" accept="image/jpeg,image/jpg,image/png,image/gif" class="form-control"/>
@@ -148,8 +153,6 @@
 
 			function generateSlug(value)
 			{
-				var parent_text = '';
-
 				var handle = value;
 				handle = handle.trim(' ');
 				handle = handle.toLowerCase();
@@ -171,7 +174,7 @@
 		CKEDITOR.replace('page_body', {
 			height: 300,
 			language: "da",
-			filebrowserImageUploadUrl: '/dashboard/upload/image' // todo
+			filebrowserImageUploadUrl: '/dashboard/upload/image'
 		});
 
 		$("#cms_manage_form").on('change', function ()

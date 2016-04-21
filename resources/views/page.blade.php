@@ -26,7 +26,7 @@
 					<h2 class="cms-title">{{ $page->sub_title }}</h2>
 				@endif
 				<div class="cms-title-separator"></div>
-			@else
+			@elseif($page->layout == 'header')
 				<h1 class="cms-title" style="height: 0; margin: 0; color: transparent; position: absolute; text-indent: -99999999px; left: -9999999px;">{{ $page->title }}</h1>
 				@if( $page->sub_title != '')
 					<h2 class="cms-title" style="height: 0; margin: 0; color: transparent; position: absolute; text-indent: -99999999px; left: -9999999px;">{{ $page->sub_title }}</h2>
@@ -55,9 +55,9 @@
 		var ctaBlock = $(".cta");
 		var headerBlock = $("header.header--with-bg");
 
-		$(window).scroll(function()
+		$(window).scroll(function ()
 		{
-			if( $(this).scrollTop() > (headerBlock.height() - ctaBlock.outerHeight()) )
+			if ($(this).scrollTop() > (headerBlock.height() - ctaBlock.outerHeight()))
 			{
 				ctaBlock.addClass('cta--sticky');
 			}

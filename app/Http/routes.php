@@ -22,7 +22,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 	Route::post('flow-upsell', function (\Illuminate\Http\Request $request)
 	{
-		if( ! $request->get('upsell_token') == Session::get('upsell_token') || ! Session::has('upsell_token') )
+		if ( !$request->get('upsell_token') == Session::get('upsell_token') || !Session::has('upsell_token') )
 		{
 			return Redirect::to('/flow');
 		}
@@ -169,15 +169,14 @@ Route::group([ 'middleware' => 'web' ], function ()
 				'customers_year'  => $customersYear
 			]);
 		});
+
 		Route::resource('customers', 'Dashboard\CustomerController');
 		Route::get('customers/newpass/{id}', 'Dashboard\CustomerController@newPass');
 		Route::get('customers/bill/{id}', 'Dashboard\CustomerController@bill');
 		Route::get('customers/cancel/{id}', 'Dashboard\CustomerController@cancel');
 
-
 		Route::resource('calls', 'Dashboard\CallController');
 		Route::get('calls/mark-done/{id}', 'Dashboard\CallController@markDone');
-
 
 		Route::resource('rewrites', 'Dashboard\RewriteController');
 		Route::get('rewrites/remove/{id}', 'Dashboard\RewriteController@remove');
@@ -189,6 +188,37 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::resource('settings', 'Dashboard\SettingController');
 		Route::resource('products', 'Dashboard\ProductController');
 		Route::resource('pages', 'Dashboard\PageController');
+
+		Route::any('upload/image', function (\Illuminate\Http\Request $request)
+		{
+			if ( $request->hasFile('upload') )
+			{
+				/** @var \Illuminate\Http\UploadedFile $file */
+				$file = $request->file('upload');
+				if ( $file->isValid() )
+				{
+					$imgPath = public_path('uploads/cms/images/');
+					$imgName = str_random(40) . '.' . $file->getClientOriginalExtension();
+
+					$fileIsUnique = false;
+					while( !$fileIsUnique )
+					{
+						if ( \File::exists("$imgPath/$imgName") )
+						{
+							$imgName = str_random(40) . '.' . $file->getClientOriginalExtension();
+						}
+						else
+						{
+							$fileIsUnique = true;
+						}
+					}
+
+					$file->move($imgPath, $imgName);
+
+					return "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(" . $request->get('CKEditorFuncNum') . ", '" . ('/uploads/cms/images/' . $imgName) . "', '');</script>";
+				}
+			}
+		});
 	});
 
 	Route::group([ 'middleware' => 'ajax' ], function ()
@@ -232,5 +262,5 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('page', [
 			'page' => $page
 		]);
-	})->where('identifier', '(.*)');
+	});
 });
