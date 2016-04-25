@@ -4,7 +4,7 @@
 	<div class="main">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 footer_column text-center">
+				<div class="col-md-4 footer_column footer_column--newsletters text-center">
 					<h3 class="footer_title">{{ trans('footer.columns.one.title') }}</h3>
 					<form method="post" action="/signup-mailchimp" class="m-t-20 m-b-10">
 						<div class="row">

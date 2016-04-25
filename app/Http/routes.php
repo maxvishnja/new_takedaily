@@ -20,6 +20,22 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('flow');
 	});
 
+	Route::post('flow/recommendations', function (\Illuminate\Http\Request $request)
+	{
+		$lib = new \App\Apricot\Libraries\CombinationLibrary();
+
+		$lib->generateResult(json_decode($request->get('user_data')));
+
+		$advises = '';
+
+		foreach ( $lib->getAdvises() as $adviseKey => $advise )
+		{
+			$advises .= '<p>' . $advise . '</p>';
+		}
+
+		return Response::json([ 'advises' => $advises ]);
+	});
+
 	Route::post('flow-upsell', function (\Illuminate\Http\Request $request)
 	{
 		if ( !$request->get('upsell_token') == Session::get('upsell_token') || !Session::has('upsell_token') )
@@ -89,7 +105,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 	/*
 	 * Checkout
 	 */
-	Route::group([ 'middleware' => [ 'secure' ], 'prefix' => 'checkout' ], function ()
+	Route::group([ 'middleware' => [ 'secure', 'nonAdmin' ], 'prefix' => 'checkout' ], function ()
 	{
 		Route::get('', 'CheckoutController@getCheckout');
 		Route::post('', 'CheckoutController@postCheckout');

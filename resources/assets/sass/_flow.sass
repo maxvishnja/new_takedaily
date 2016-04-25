@@ -170,6 +170,10 @@ body.page-flow
 
 @media all and (max-width: 991px)
 	body.page-flow
+		footer
+			.footer_column--newsletters
+				display: none
+
 		.datepicker-container-block
 			display: block
 
@@ -185,24 +189,26 @@ body.page-flow
 
 			.flow-step
 				width: 100%
+				overflow: hidden
 				padding: 25px 15px
 				border-right: none !important
 				border-left: none !important
 				border-bottom: 1px solid $pale-grey-border
 				text-align: left
-				-webkit-transition: height 300ms, padding 300ms, border 300ms
-				transition: height 300ms, padding 300ms, border 300ms
+				-webkit-transition: height 300ms, padding 300ms, border 300ms, font-size 300ms
+				transition: height 300ms, padding 300ms, border 300ms, font-size 300ms
 
-				&.flow-step--inactive .flow-step-progress
-					display: none
+				&.flow-step--inactive
+					.flow-step-progress
+						display: none
 
 			&.flow-progress--closed
 				.flow-step
 					&.flow-step--inactive
 						height: 0
-						overflow: hidden
 						padding-top: 0
 						padding-bottom: 0
+						font-size: 0
 						border: none
 
 		.flow-container

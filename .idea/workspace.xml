@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Image upload + cms page empty">
+    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Fix checkout login">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css.map" afterPath="$PROJECT_DIR$/public/css/app.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Apricot/Libraries/CombinationLibrary.php" afterPath="$PROJECT_DIR$/app/Apricot/Libraries/CombinationLibrary.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="$PROJECT_DIR$/public/css/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/_cms.sass" afterPath="$PROJECT_DIR$/resources/assets/sass/_cms.sass" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/_flow.sass" afterPath="$PROJECT_DIR$/resources/assets/sass/_flow.sass" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/flow.blade.php" afterPath="$PROJECT_DIR$/resources/views/flow.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/includes/app/footer.blade.php" afterPath="$PROJECT_DIR$/resources/views/includes/app/footer.blade.php" />
     </list>
     <ignored path="TakeDaily.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +32,63 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36430138">
-              <caret line="90" column="7" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_flow.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/sass/_flow.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="176" column="14" selection-start-line="176" selection-start-column="14" selection-end-line="176" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.518518">
+              <caret line="140" column="156" selection-start-line="140" selection-start-column="155" selection-end-line="140" selection-end-column="156" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="flow.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="661" column="32" selection-start-line="661" selection-start-column="32" selection-end-line="661" selection-end-column="32" />
+              <folding>
+                <element signature="e#24881#24903#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_cms.sass" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/assets/sass/_cms.sass">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.45720556">
+              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/includes/app/footer.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -48,11 +107,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/includes/app/header.blade.php" />
-        <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/app/Order.php" />
         <option value="$PROJECT_DIR$/database/seeds/CombinationSeeder.php" />
-        <option value="$PROJECT_DIR$/resources/views/flow.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/ProductSeeder.php" />
         <option value="$PROJECT_DIR$/app/Coupon.php" />
         <option value="$PROJECT_DIR$/resources/views/includes/app/nav.blade.php" />
@@ -87,18 +142,22 @@
         <option value="$PROJECT_DIR$/resources/assets/sass/_helpers.sass" />
         <option value="$PROJECT_DIR$/database/seeds/PageSeeder.php" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/includes/app/footer.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Dashboard/PageController.php" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_18" />
         <option value="$PROJECT_DIR$/resources/views/page.blade.php" />
-        <option value="$PROJECT_DIR$/resources/assets/sass/_cms.sass" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_defaults.sass" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_21" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/public/admin/js/ckeditor/plugins/image/dialogs/image.js" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/cms/manage.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/includes/app/footer.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/_flow.sass" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_22" />
+        <option value="$PROJECT_DIR$/app/Apricot/Libraries/CombinationLibrary.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/flow.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/_cms.sass" />
       </list>
     </option>
   </component>
@@ -183,35 +242,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="TakeDaily">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="TakeDaily">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="public">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -378,8 +408,77 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TakeDaily" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TakeDaily" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TakeDaily" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TakeDaily" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Middleware" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TakeDaily">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="TakeDaily">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="public">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -388,7 +487,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;Verify&#9;null&#9;null&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;.env&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/.env&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/home.php&#10;man&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;Slug&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/SlugLibrary.php&#10;PageS&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/PageSeeder.php&#10;PageContr&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/PageController.php&#10;page.bla&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/page.blade.php&#10;helpers.sa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_helpers.sass&#10;cms.s&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;show.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;transaction&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/account/transaction.blade.php&#10;succe&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;TaxL&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/TaxLibrary.php&#10;Tax&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/TaxZoneSeeder.php&#10;tax&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/TaxZoneSeeder.php&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;CheckoutC&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;2016_04_14_113236_create_tax_zones_table&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_04_14_113236_create_tax_zones_table.php&#10;checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/checkout.php&#10;DataBase&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/DatabaseSeeder.php&#10;landing&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;Produc&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/ProductSeeder.php&#10;nav&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/nav.blade.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;create_cou&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2015_12_26_133709_create_table_coupons.php&#10;Flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;success&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;Produ&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/products.php&#10;CombinationS&#9;null&#9;null&#10;Combinat&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/CombinationLibrary.php&#10;DatabaseS&#9;null&#9;null&#10;app.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/app.php&#10;mail&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/mail.php&#10;OrderContro&#9;null&#9;null&#10;account&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/account-nav.blade.php&#10;check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/checkout.php&#10;order&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/emails/order.blade.php&#10;Plan&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Plan.php&#10;Customer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;Custom&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;products&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/products.php&#10;order.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/emails/order.blade.php&#10;pla&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Plan.php&#10;Che&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php" />
+    <property name="SearchEverywhereHistoryKey" value="_cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;suc&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;Comb&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/CombinationLibrary.php&#10;Succes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;Co&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/CombinationLibrary.php&#10;Combinat&#9;null&#9;null&#10;CheckoutC&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;_flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;Verify&#9;null&#9;null&#10;.env&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/.env&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/home.php&#10;man&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;cms&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;Slug&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/SlugLibrary.php&#10;PageS&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/PageSeeder.php&#10;PageContr&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/PageController.php&#10;page.bla&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/page.blade.php&#10;helpers.sa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_helpers.sass&#10;cms.s&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_cms.sass&#10;show.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;transaction&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/account/transaction.blade.php&#10;succe&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;TaxL&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/TaxLibrary.php&#10;Tax&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/TaxZoneSeeder.php&#10;tax&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/TaxZoneSeeder.php&#10;2016_04_14_113236_create_tax_zones_table&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_04_14_113236_create_tax_zones_table.php&#10;checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/checkout.php&#10;DataBase&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/DatabaseSeeder.php&#10;landing&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_landing.sass&#10;Produc&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/ProductSeeder.php&#10;nav&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/nav.blade.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;create_cou&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2015_12_26_133709_create_table_coupons.php&#10;Flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;success&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/success.blade.php&#10;Produ&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/products.php&#10;CombinationS&#9;null&#9;null&#10;DatabaseS&#9;null&#9;null&#10;app.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/app.php&#10;mail&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/mail.php&#10;OrderContro&#9;null&#9;null&#10;account&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/account-nav.blade.php&#10;check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/checkout.php&#10;order&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/emails/order.blade.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -461,12 +560,6 @@
       <created>1456591092063</created>
       <option name="number" value="Default" />
       <updated>1456591092063</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Prettier giftcards">
-      <created>1459244204429</created>
-      <option name="number" value="00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1459244204429</updated>
     </task>
     <task id="LOCAL-00084" summary="Splash circle">
       <created>1459248385137</created>
@@ -756,7 +849,13 @@
       <option name="project" value="LOCAL" />
       <updated>1461236442876</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="Fix checkout login">
+      <created>1461570119152</created>
+      <option name="number" value="00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1461570119152</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -772,30 +871,30 @@
     <frame x="-2560" y="23" width="2560" height="1417" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.125" sideWeight="0.5061107" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37419355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
       <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18164252" sideWeight="0.42801046" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15903106" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.125" sideWeight="0.4938893" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.125" sideWeight="0.5061107" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12848867" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15534492" sideWeight="0.47871235" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42391303" sideWeight="0.5439705" order="11" side_tool="false" content_ui="tabs" x="1945" y="52" width="955" height="409" />
       <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.209584" sideWeight="0.32871288" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39929327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39929327" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861477" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3743938" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32753623" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -813,7 +912,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Allow addind card - fix" />
     <MESSAGE value="Fixed updating profile" />
     <MESSAGE value="danish translations for default stuff" />
     <MESSAGE value="Rebilling works" />
@@ -838,7 +936,8 @@
     <MESSAGE value="Vitamine pages" />
     <MESSAGE value="New vitamine page" />
     <MESSAGE value="Image upload + cms page empty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Image upload + cms page empty" />
+    <MESSAGE value="Fix checkout login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix checkout login" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -846,59 +945,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/TaxZone.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18341893">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2016_04_14_113236_create_tax_zones_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2934703">
-          <caret line="17" column="65" selection-start-line="17" selection-start-column="65" selection-end-line="17" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33015406">
-          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/da/countries.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14673515">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Customer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="291" column="46" selection-start-line="291" selection-start-column="46" selection-end-line="291" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/TaxZoneSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Apricot/Repositories/TaxZoneRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16507703">
           <caret line="9" column="57" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="139" column="78" selection-start-line="139" selection-start-column="78" selection-end-line="139" selection-end-column="78" />
         </state>
       </provider>
     </entry>
@@ -937,13 +987,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="272" column="48" selection-start-line="272" selection-start-column="48" selection-end-line="272" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/gifting.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -976,13 +1019,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07447865">
           <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/checkout/success.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22045681">
-          <caret line="12" column="56" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -1100,6 +1136,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4017946">
           <caret line="22" column="16" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,13 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44865403">
           <caret line="18" column="78" selection-start-line="18" selection-start-column="78" selection-end-line="18" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_cms.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32701895">
-          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1142,13 +1172,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12462612">
           <caret line="5" column="56" selection-start-line="5" selection-start-column="56" selection-end-line="5" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/includes/app/footer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1994018">
-          <caret line="70" column="25" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1194,10 +1217,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/includes/app/footer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="51" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.109729335">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.518518">
+          <caret line="140" column="156" selection-start-line="140" selection-start-column="155" selection-end-line="140" selection-end-column="156" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Customer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33284566">
+          <caret line="435" column="20" selection-start-line="435" selection-start-column="20" selection-end-line="435" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07168983">
+          <caret line="194" column="26" selection-start-line="194" selection-start-column="17" selection-end-line="194" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_flow.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="176" column="14" selection-start-line="176" selection-start-column="14" selection-end-line="176" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/checkout/success.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45720556">
+          <caret line="25" column="59" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Apricot/Libraries/CombinationLibrary.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32333577">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_22">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6159473">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36430138">
-          <caret line="90" column="7" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="661" column="32" selection-start-line="661" selection-start-column="32" selection-end-line="661" selection-end-column="32" />
+          <folding>
+            <element signature="e#24881#24903#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_cms.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45720556">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding />
         </state>
       </provider>

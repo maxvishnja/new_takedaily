@@ -55,7 +55,7 @@
 		<div class="container">
 
 			<div class="flow-step-back" v-bind:class="{ 'clickable': step > 1 || sub_step > 1}">
-				<a href="#" v-on:click="previousStep();">{{ trans('flow.back') }}</a>
+				<a href="javascript: void(0);" v-on:click="previousStep();">{{ trans('flow.back') }}</a>
 			</div>
 
 			<form method="post" action="">
@@ -533,79 +533,17 @@
 				</div>
 
 				<div data-step="4" data-first-sub-step="1" class="step">
-					<div class="group" data-group="1">
-
-						<div class="advise" data-advise="1.1" data-group="1" v-if="( (user_data.age < '50 '&& user_data.gender == '2 '&& user_data.pregnant == '2') || (user_data.age < '70 '&& user_data.gender == '1') )" transition="setAdviseOne">
-							{!! trans('flow.combinations.1.basic') !!}
-						</div>
-
-						<div class="advise" data-advise="1.2" data-group="1" v-if="(isAlone(1, 1.2)) && (( ( user_data.age >= '50' && user_data.age <= '70' ) && user_data.gender == '2)' || (user_data.skin > '1')))" transition="setAdviseOne">
-							{!! trans('flow.combinations.1.basic-10-d') !!}
-						</div>
-
-						<div class="advise" data-advise="1.3" data-group="1" v-if="(isAlone(1, 1.3)) && (outside == '2')" transition="setAdviseOne">
-							{!! trans('flow.combinations.1.basic-10-d-alt') !!}
-						</div>
-
-						<div class="advise" data-advise="1.4" data-group="1" v-if="((user_data.age >= '70 '&& user_data.gender == '1') || (user_data.age >= '50' && user_data.gender == '2') ) && isAlone(1, 1.4)" transition="setAdviseOne">
-							{!! trans('flow.combinations.1.basic-20-d') !!}
-						</div>
+					<div id="advises-loader" class="text-center">
+						<h2>Vent venligst..</h2> {{-- todo translate --}}
+						<p>Vi udregner dine personlige anbefalinger</p> {{-- todo translate --}}
 					</div>
 
-					<div class="group" data-group="2">
-						<div class="advise" data-advise="2.1" data-group="A" v-if="(isCombinationPossible(current_advise_one, 'A', null)) && user_data.pregnant == '1'" transition="setAdviseTwo">
-							{!! trans('flow.combinations.2.A') !!}
-						</div>
-
-						<div class="advise" data-advise="2.2" data-group="B" v-if="(isCombinationPossible(current_advise_one, 'B', null)) && (isAlone(2, 2.2)) && (user_data.diet == '1')" transition="setAdviseTwo">
-							{!! trans('flow.combinations.2.B') !!}
-						</div>
-
-						<div class="advise" data-advise="2.3" data-group="C" v-if="(isCombinationPossible(current_advise_one, 'C', null)) && (isAlone(2, 2.3)) && (user_data.sports == '4' || user_data.lacks_energy < '3' || user_data.stressed == '1')" transition="setAdviseTwo">
-							{!! trans('flow.combinations.2.C') !!}
-						</div>
-
-						<div class="advise" data-advise="2.4" data-group="D" v-if="(isCombinationPossible(current_advise_one, 'D', null)) && (isAlone(2, 2.4)) && (user_data.immune_system == '1' || user_data.smokes == '1' || user_data.vegetarian == '1')" transition="setAdviseTwo">
-							{!! trans('flow.combinations.2.D') !!}
-						</div>
-
-						<div class="advise" data-advise="2.5" data-group="E" v-if="(isCombinationPossible(current_advise_one, 'E', null)) && (isAlone(2, 2.5)) && (user_data.joints == '1')" transition="setAdviseTwo">
-							{!! trans('flow.combinations.2.E') !!}
-						</div>
-					</div>
-
-					<div class="group" data-group="3">
-						<div class="advise" data-advise="3.1" data-group="a" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'a')) && user_data.foods.fruits == '1' || user_data.foods.vegetables == '1'" transition="setAdviseThree">
-							{!! trans('flow.combinations.3.a') !!}
-						</div>
-
-						<div class="advise" data-advise="3.2" data-group="b" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'b')) && (isAlone(3, 3.2)) && (user_data.foods.bread == '1' || user_data.foods.wheat == '1')" transition="setAdviseThree">
-							{!! trans('flow.combinations.3.b') !!}
-						</div>
-
-						<div class="advise" data-advise="3.3" data-group="c" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'c')) && (isAlone(3, 3.3)) && (user_data.foods.dairy == '1')" transition="setAdviseThree">
-							{!! trans('flow.combinations.3.c') !!}
-						</div>
-
-						<div class="advise" data-advise="3.4" data-group="d" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'd')) && (isAlone(3, 3.4)) && (user_data.foods.meat == '1')" transition="setAdviseThree">
-							{!! trans('flow.combinations.3.d') !!}
-						</div>
-
-						<div class="advise" data-advise="3.5" data-group="e" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'e')) && (isAlone(3, 3.5)) && (user_data.foods.fish == '1')" transition="setAdviseThree">
-							{!! trans('flow.combinations.3.e') !!}
-						</div>
-
-						<div class="advise" data-advise="3.6" data-group="f" v-if="(isCombinationPossible(current_advise_one, current_advise_two, 'f')) && (isAlone(3, 3.6)) && (user_data.foods.butter == '2')" transition="setAdviseThree">
-							{!! trans('flow.combinations.3.f') !!}
-						</div>
-
-						<div class="advise" data-advise="3.7" data-group="" transition="setAdviseThree" v-if="isGroupEmpty(3) && isGroupEmpty(2)">
-							{!! trans('flow.combinations.none') !!}
-						</div>
-
-						<textarea name="user_data" type="hidden" style="display: none;">@{{ $data.user_data | json }}</textarea>
+					<div id="advises-block" class="text-left" style="display: none;">
+						<h2>Dine anbefalinger</h2> {{-- todo translate --}}
+						<div id="advises-content"></div>
 						<button type="submit" class="button button--green button--medium button--full-mobile">{{ trans('flow.button-order-text') }}</button>
 					</div>
+					<textarea name="user_data" id="user_data_field" type="hidden" style="display: none;">@{{ $data.user_data | json }}</textarea>
 				</div>
 
 				{{ csrf_field() }}
@@ -650,106 +588,6 @@
 				current_advise_two: null,
 				current_advise_three: null,
 				temp_age: null,
-				combinations: {
-					"1": {
-						"A": {
-							"a": false,
-							"b": false,
-							"c": true,
-							"d": true,
-							"e": true,
-							"f": false
-						},
-						"B": {
-							"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": true
-						},
-						"C": {
-							"a": true,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": true,
-							"f": true
-						},
-						"D": {
-							"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": false
-						},
-						"E": {
-							"a": true,
-							"b": true,
-							"c": true,
-							"d": true,
-							"e": true,
-							"f": false
-						}
-					},
-					"2": {
-						"A": false,
-						"B": {
-							"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": true
-						},
-						"C": {
-							"a": true,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": true,
-							"f": true
-						},
-						"D": {
-							"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": false
-						},
-						"E": {
-							"a": true,
-							"b": true,
-							"c": true,
-							"d": true,
-							"e": true,
-							"f": false
-						}
-					},
-					"3": {
-						"A": false,
-						"B": {
-							"a": false,
-							"b": false,
-							"c": true,
-							"d": false,
-							"e": true,
-							"f": false
-						},
-						"C": {
-							"a": true,
-							"b": false,
-							"c": false,
-							"d": false,
-							"e": true,
-							"f": false
-						},
-						"D": false,
-						"E": false
-					}
-				},
 				user_data: {
 					gender: null,
 					birthdate: null,
@@ -807,12 +645,39 @@
 					currentStep.removeClass("step--active");
 					nextStep.addClass("step--active");
 
+					this.checkIfShouldGetCombinations();
+
 					return true;
 				},
 
 				getSubStepsForStep: function ()
 				{
 					return $(".step[data-step='" + this.step + "']").find(".sub_step").length;
+				},
+
+				checkIfShouldGetCombinations: function ()
+				{
+					if (this.step == 4)
+					{
+						$.ajax({
+							url: '/flow/recommendations',
+							method: 'POST',
+							dataType: 'JSON',
+							cache: true,
+							data: {user_data: $("#user_data_field").val()},
+							success: function(response)
+							{
+								$("#advises-loader").hide();
+								$("#advises-block").show();
+								$("#advises-content").html(response.advises);
+							}
+						});
+					}
+					else
+					{
+						$("#advises-block").hide();
+						$("#advises-loader").show();
+					}
 				},
 
 				previousStep: function ()
@@ -877,11 +742,6 @@
 					return false;
 				},
 
-				adviseShown: function (adviseId)
-				{
-					return $(".advise[data-advise='" + adviseId + "']")[0] !== undefined;
-				},
-
 				shouldJumpToNext: function (elementId, length, event)
 				{
 					if (length === false || event.target.value.length >= length)
@@ -891,52 +751,6 @@
 					}
 
 					return false;
-				},
-
-				isAlone: function (groupNum, currentAdvise)
-				{
-					return $(".group[data-group='" + groupNum + "']").find(".advise").filter(function (index, element)
-						{
-							return ( $(element).data("advise") * 1 ) < currentAdvise;
-						}).length <= 0;
-				},
-
-				isGroupEmpty: function (groupNum)
-				{
-					var step = this.step;
-					return $(".group[data-group='" + groupNum + "']").find(".advise").length === 0;
-				},
-
-				isCombinationPossible: function (groupOne, groupTwo, groupThree)
-				{
-					var firstGroup = this.combinations[groupOne];
-
-					if (!firstGroup)
-					{
-						return false;
-					}
-
-					if (groupTwo !== false)
-					{
-						var secondGroup = firstGroup[groupTwo];
-
-						if (!secondGroup)
-						{
-							return false;
-						}
-
-						if (groupThree !== false && groupThree !== null)
-						{
-							var thirdGroup = secondGroup[groupThree];
-
-							if (!thirdGroup)
-							{
-								return false;
-							}
-						}
-					}
-
-					return true;
 				}
 			}
 		});
@@ -985,28 +799,7 @@
 				app.user_data.birthdate = this.get('select', 'yyyy-mm-dd');
 			}
 		});
-
-		Vue.transition('setAdviseOne', {
-			enter: function (el)
-			{
-				this.current_advise_one = $(el).data('group');
-			}
-		});
-
-		Vue.transition('setAdviseTwo', {
-			enter: function (el)
-			{
-				this.current_advise_two = $(el).data('group');
-			}
-		});
-
-		Vue.transition('setAdviseThree', {
-			enter: function (el)
-			{
-				this.current_advise_three = $(el).data('group');
-			}
-		});
-
+		
 		$("#openPicker").click(function (e)
 		{
 			e.preventDefault();
