@@ -17,7 +17,6 @@ use Stripe\Card;
  * @property integer id
  * @property integer user_id
  * @property integer plan_id
- * @property integer accept_newletters
  * @property mixed   birthday
  * @property string  gender
  * @property integer order_count
@@ -418,11 +417,6 @@ class Customer extends Model
 		}
 
 		return true;
-	}
-
-	public function acceptNewsletters()
-	{
-		return $this->accept_newletters == 1;
 	}
 
 	public function scopeToday($query)

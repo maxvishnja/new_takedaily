@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Customer;
-use App\Plan;
-use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Validator;
 
 class AuthController extends Controller
 {
@@ -30,7 +28,7 @@ class AuthController extends Controller
 	 *
 	 * @var string
 	 */
-	protected $redirectTo = '/';
+	protected $redirectTo = '/account';
 
 	/**
 	 * Create a new authentication controller instance.

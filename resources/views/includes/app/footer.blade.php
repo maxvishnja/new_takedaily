@@ -6,10 +6,10 @@
 			<div class="row">
 				<div class="col-md-4 footer_column footer_column--newsletters text-center">
 					<h3 class="footer_title">{{ trans('footer.columns.one.title') }}</h3>
-					<form method="post" action="/signup-mailchimp" class="m-t-20 m-b-10">
+					<form method="post" action="//takedaily.us13.list-manage.com/subscribe/post?u=96c791cea9f15c55ba88a3732&amp;id=0612884667" class="m-t-20 m-b-10" target="_blank">
 						<div class="row">
 							<div class="col-sm-8">
-								<input type="email" name="email" id="input_newsletters_email" placeholder="{{ trans('footer.columns.one.input-placeholder') }}" class="input input--regular input--full input--plain"/>
+								<input type="email" name="EMAIL" id="input_newsletters_email" placeholder="{{ trans('footer.columns.one.input-placeholder') }}" class="input input--regular input--full input--plain"/>
 							</div>
 							<div class="col-sm-4">
 								<button type="submit" class="button button--regular button--full button--green">{{ trans('footer.columns.one.button-text') }}</button>

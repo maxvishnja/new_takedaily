@@ -49,11 +49,6 @@
 					<td>{{ $customer->gender }}</td>
 				</tr>
 
-				<tr>
-					<td>Modtag nyhedsbreve</td>
-					<td>{{ $customer->acceptNewsletters() ? 'Ja' : 'Nej' }}</td>
-				</tr>
-
 				@if($customer->hasBirthday())
 					<tr>
 						<td>Fødselsdag</td>

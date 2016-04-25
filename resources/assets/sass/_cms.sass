@@ -43,6 +43,7 @@ body.cms
 
 			img
 				border-radius: 4px
+				height: auto !important
 
 			h1
 				position: relative
@@ -56,17 +57,19 @@ body.cms
 
 		ul
 			line-height: 1.6
-			list-style: none
+			list-style: disc
+			
+			&.ul--checkmarks
+				list-style: none
+				margin: 0
+				padding: 0
+				line-height: 2
 
-			li
-				padding-left: 1em
-				text-indent: -.7em
-
-				&:before
-					content: "•"
-					font-weight: 700
-					margin-right: 0.7em
-					color: $main-green
+				li
+					background: url(/images/icons/icon-check-circle-smaller@2x.png) no-repeat left center
+					background-size: 14px 14px
+					padding-left: 24px
+					min-height: 14px
 
 		ol
 			line-height: 1.6
