@@ -633,8 +633,8 @@
 					if (nextSubStep[0])
 					{
 						this.sub_step = nextSubStep.attr("data-sub-step") * 1;
-						currentSubStep.removeClass("sub_step--active");
-						nextSubStep.addClass("sub_step--active");
+						currentSubStep.removeClass("sub_step--active").removeClass('sub_step--active-animated').removeClass("sub_step--slideout-prev").removeClass("sub_step--prev").addClass("sub_step--out-animated");
+						nextSubStep.addClass('sub_step--active').removeClass("sub_step--slideout-prev").removeClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
 
 						return true;
 					}
@@ -698,8 +698,8 @@
 						if (previousSubStep[0])
 						{
 							this.sub_step = previousSubStep.attr("data-sub-step") * 1;
-							currentSubStep.removeClass("sub_step--active");
-							previousSubStep.addClass("sub_step--active");
+							currentSubStep.removeClass("sub_step--active").removeClass('sub_step--active-animated').addClass("sub_step--slideout-prev").addClass("sub_step--out-animated").removeClass("sub_step--prev");
+							previousSubStep.addClass('sub_step--active').addClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
 
 							return true;
 						}

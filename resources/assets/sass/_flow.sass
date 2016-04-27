@@ -1,4 +1,5 @@
 body.page-flow
+	height: 100%
 	.datepicker-container-block
 		display: inline-block
 
@@ -18,17 +19,40 @@ body.page-flow
 
 		.step
 			display: none
+			position: relative
+			min-height: 50vh
+			overflow: hidden
 
 			&.step--active
 				display: block
 
 			.sub_step
-				position: relative
-				display: none
+				position: absolute
 				text-align: center
+				background: #fff
+				border-radius: 4px
+				width: 80%
+				left: 10%
+				transform: translateX(100%)
+				opacity: 0
+				animation-fill-mode: both
+				animation-duration: 300ms
 
 				&.sub_step--active
-					display: block
+					transform: translateX(0) scale(1)
+					opacity: 1
+
+				&.sub_step--active-animated
+					animation-name: step_slideIn
+
+				&.sub_step--prev
+					animation-name: step_slideInPrev
+
+				&.sub_step--out-animated
+					animation-name: step_slideOut
+
+				&.sub_step--slideout-prev
+					animation-name: step_slideOutPrev
 
 			label
 				position: relative
@@ -39,6 +63,9 @@ body.page-flow
 				display: inline-block
 				margin-right: 10px
 				font-weight: 600
+				min-width: 110px
+				box-shadow: 0 0 10px rgba(0,0,0,.1)
+				border: 1px solid #ddd
 				-webkit-user-select: none
 				-moz-user-select: none
 				-ms-user-select: none
@@ -56,6 +83,8 @@ body.page-flow
 
 				&:hover
 					background: #e5e5e5
+					border: 1px solid #ccc
+					box-shadow: 0 0 10px rgba(0,0,0,.2)
 
 				input[type="radio"]
 					display: none
@@ -87,12 +116,12 @@ body.page-flow
 	.flow-step
 		background: $white
 		height: 66px
-		padding: 25px 50px
+		padding: 27px 50px 23px
 		display: inline-block
 		text-align: center
 		border-right: 1px solid $pale-grey-border
 
-		&:first-child
+		&:first-of-type
 			border-left: 1px solid $pale-grey-border
 
 		.flow-step-check
@@ -153,20 +182,52 @@ body.page-flow
 				display: inline-block
 				display: inline-block
 				position: relative
-
-@-webkit-keyframes flow_step_success
-	0%
-		background-position: right bottom
-
-	100%
-		background-position: left bottom
-
 @keyframes flow_step_success
 	0%
 		background-position: right bottom
 
 	100%
 		background-position: left bottom
+
+@keyframes step_slideOut
+	0%
+		transform: translateX(0) scale(1)
+		opacity: 1
+
+	100%
+		transform: translateX(-100%) scale(0.8)
+		opacity: 0
+		filter: blur(10px)
+
+@keyframes step_slideOutPrev
+	0%
+		transform: translateX(0) scale(1)
+		opacity: 1
+
+	100%
+		transform: translateX(100%) scale(0.8)
+		opacity: 0
+		filter: blur(10px)
+
+@keyframes step_slideIn
+	0%
+		transform: translateX(100%) scale(0.8)
+		opacity: 0
+		filter: blur(10px)
+
+	100%
+		transform: translateX(0) scale(1)
+		opacity: 1
+
+@keyframes step_slideInPrev
+	0%
+		transform: translateX(-100%) scale(0.8)
+		opacity: 0
+		filter: blur(10px)
+
+	100%
+		transform: translateX(0) scale(1)
+		opacity: 1
 
 @media all and (max-width: 991px)
 	body.page-flow
@@ -214,11 +275,17 @@ body.page-flow
 
 		.flow-container
 			.step
+				min-height: 60vh
+
 				.sub_step
+					width: 100%
+					left: 0
+
 					.sub_step_answers
 						-webkit-overflow-scrolling: touch
+						overflow: visible
 						overflow-x: scroll
-						overflow-y: hidden
+						padding: 10px
 						white-space: nowrap
 
 						label
