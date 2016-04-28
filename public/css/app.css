@@ -4443,6 +4443,37 @@ body.index .slider_container {
       top: 50%;
       margin-top: -20px; }
 
+.help-block {
+  position: relative;
+  z-index: 1;
+  padding: 8px 6px;
+  font-weight: 600;
+  font-size: 14px;
+  margin: 4px 0 0;
+  background: #fdf0f0;
+  border: 1px solid #fbd8da;
+  color: #AA1118;
+  display: block; }
+  .help-block:after, .help-block:before {
+    bottom: 100%;
+    left: 10%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none; }
+  .help-block:after {
+    border-color: rgba(170, 17, 24, 0);
+    border-bottom-color: #fdf0f0;
+    border-width: 4px;
+    margin-left: -4px; }
+  .help-block:before {
+    border-color: rgba(170, 17, 24, 0);
+    border-bottom-color: #fbd8da;
+    border-width: 5px;
+    margin-left: -5px; }
+
 .spinner {
   display: none;
   width: 50px;

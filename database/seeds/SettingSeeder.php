@@ -20,5 +20,10 @@ class SettingSeeder extends Seeder
 			'identifier' => 'share-coupon',
 			'value'      => ''
 		]);
+
+		\App\Setting::create([
+			'identifier' => 'shipping_price',
+			'value'      => '39'
+		]);
 	}
 }
