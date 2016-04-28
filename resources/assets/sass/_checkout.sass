@@ -1,6 +1,10 @@
 body.page-checkout
 	background: #fafafa
 
+	nav[role="navigation"],
+	footer .main
+		display: none
+
 	.required
 		color: $error-color
 
@@ -128,3 +132,18 @@ body.page-checkout
 
 			&:last-of-type
 				margin-bottom: 0
+
+@media all and (max-width: 991px)
+	body.page-checkout
+		main
+			margin: 20px 0 50px !important
+
+		.mobile-total
+			color: $main-green-dark
+			font-weight: $weight-bold
+			font-size: 32px
+
+		.mobile-total-text
+			font-size: 16px
+			margin-bottom: 6px
+			font-weight: $weight-semibold

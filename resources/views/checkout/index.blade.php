@@ -8,56 +8,16 @@
 @section('content')
 	<div class="container" id="app">
 		<div class="row">
-			<div class="col-md-4 col-md-push-8">
-				<h3 class="m-b-35">{{ trans('checkout.index.total.title') }}</h3>
-				<hr class="hr--double"/>
-
-				<table v-cloack>
-					<tbody>
-					<tr>
-						<td>{{ trans("products.{$product->name}") }}</td>
-						<td>{{ trans('general.money-vue', ['amount' => 'sub_price']) }}</td>
-					</tr>
-					@if($product->is_subscription == 1)
-						<tr>
-							<td>{{ trans('checkout.index.total.shipping') }}</td>
-							<td>
-								<span v-show="shipping == 0">{{ trans('checkout.index.total.free') }}</span>
-								<span v-show="shipping > 0">{{ trans('general.money-vue', ['amount' => 'shipping']) }}</span>
-							</td>
-						</tr>
-					@endif
-					@if($giftcard)
-						<tr>
-							<td>{{ trans('checkout.index.total.giftcard	') }}</td>
-							<td>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth, true, 2, '.')]) }}</td>
-						</tr>
-					@endif
-					<tr v-show="discount.applied">
-						<td>@{{ discount.code }}: @{{ discount.description }}</td>
-						<td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
-					</tr>
-					<tr v-show="giftcard">
-						<td>@{{ discount.code }}: @{{ discount.description }}</td>
-						<td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
-					</tr>
-					<tr>
-						<td>{{ trans('checkout.index.total.taxes') }}</td>
-						<td>{{ trans('general.money-vue', ['amount' => 'total_taxes']) }}</td>
-					</tr>
-					<tr class="row--total">
-						<td>{{ trans('checkout.index.total.total') }}</td>
-						<td>{{ trans('general.money-vue', ['amount' => 'total']) }}</td>
-					</tr>
-					</tbody>
-				</table>
+			<div class="col-md-4 visible-sm visible-xs text-center">
+				<div class="mobile-total-text">{{ trans('checkout.index.total.total') }}</div>
+				<div class="mobile-total">{{ trans('general.money-vue', ['amount' => 'total']) }}</div>
 
 				@if ( ! $giftcard )
 					<div class="m-t-20 m-b-20">
-						<a href="#coupon-form" id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
+						<a href="#coupon-form-mobile" id="toggle-coupon-form-mobile">{{ trans('checkout.index.coupon.link') }}</a>
 					</div>
 
-					<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="@if(!Request::old('coupon')) display: none; @endif">
+					<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form-mobile" style="@if(!Request::old('coupon')) display: none; @endif">
 						<div class="row">
 							<div class="col-md-7">
 								<input type="text" name="coupon" maxlength="20" placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon', Session::get('applied_coupon')) }}" required="required"/>
@@ -68,20 +28,14 @@
 						</div>
 						{{ csrf_field() }}
 
-						<div id="coupon-form-successes" class="m-t-10"></div>
-						<div id="coupon-form-errors" class="m-t-10"></div>
+						<div id="coupon-form-successes-mobile" class="m-t-10"></div>
+						<div id="coupon-form-errors-mobile" class="m-t-10"></div>
 					</form>
 
 					<hr/>
 				@endif
-
-				@if($product->is_subscription == 1)
-					{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y')]) !!}
-				@endif
-
-			</div><!-- /Totals-->
-
-			<div class="col-md-8 col-md-pull-4">
+			</div>
+			<div class="col-md-8">
 				<h1>{{ trans('checkout.index.order.title') }}</h1>
 
 				<form method="post" action="{{ URL::action('CheckoutController@postCheckout') }}" id="checkout-form" autocomplete="on" class="form" novalidate="novalidate">
@@ -122,12 +76,14 @@
 								</div>
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50"></div>
-									<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }} <span class="required">*</span></label>
+									<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }}
+										<span class="required">*</span></label>
 									<input class="input input--medium input--semibold input--full" id="input_info_address_zipcode" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}" name="info[address_zipcode]" required="required" aria-required="true" value="{{ Request::old('info.address_zipcode', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 								</div>
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50"></div>
-									<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }} <span class="required">*</span></label>
+									<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
+										<span class="required">*</span></label>
 									<input class="input input--medium input--semibold input--full" id="input_info_address_city" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.city-placeholder') }}" name="info[address_city]" required="required" aria-required="true" value="{{ Request::old('info.address_city', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
 								</div>
 							</div>
@@ -143,7 +99,9 @@
 									</select>
 								</div>
 								<div class="col-md-6">
-									<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }} <span class="optional pull-right">{{ trans('checkout.index.order.info.optional') }}</span></label>
+									<div class="visible-xs visible-sm m-t-50"></div>
+									<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}
+										<span class="optional pull-right">{{ trans('checkout.index.order.info.optional') }}</span></label>
 									<input class="input input--medium input--semibold input--full" id="input_info_company" placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="info[company]" value="{{ Request::old('info.company', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
 								</div>
 							</div>
@@ -201,7 +159,8 @@
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50"></div>
 									<!-- CVV/CVC -->
-									<label class="label label--full checkout--label" for="cc-cvc" title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }} ({{ trans('checkout.index.order.billing.card.cvc-title') }})</label>
+									<label class="label label--full checkout--label" for="cc-cvc" title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }}
+										({{ trans('checkout.index.order.billing.card.cvc-title') }})</label>
 									<input type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-cvc" autocomplete="off" size="4" maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" class="card-cvc form-control" data-stripe="cvc" required="required" pattern="\d*"/>
 								</div>
 							</div>
@@ -209,7 +168,20 @@
 						</fieldset>
 					</div>
 
-					<button class="button button--huge button--green button--rounded pull-right m-t-20" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
+					<div class="visible-xs">
+						<button class="button button--huge button--green button--full button--rounded m-t-20" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
+					</div>
+
+					<div class="hidden-xs">
+						<button class="button button--huge button--green button--rounded pull-right m-t-20" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
+					</div>
+
+					@if($product->is_subscription == 1)
+						<div class="clear"></div>
+						<div class="visible-sm visible-xs">
+							{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y')]) !!}
+						</div>
+					@endif
 
 					{{ csrf_field() }}
 
@@ -220,6 +192,82 @@
 					</div>
 				</form>
 			</div><!-- /Form-->
+			<div class="visible-sm visible-xs m-b-50"></div>
+			<div class="col-md-4">
+				<h3 class="m-b-35">{{ trans('checkout.index.total.title') }}</h3>
+				<hr class="hr--double"/>
+
+				<table v-cloack>
+					<tbody>
+					<tr>
+						<td>{{ trans("products.{$product->name}") }}</td>
+						<td>{{ trans('general.money-vue', ['amount' => 'sub_price']) }}</td>
+					</tr>
+					@if($product->is_subscription == 1)
+						<tr>
+							<td>{{ trans('checkout.index.total.shipping') }}</td>
+							<td>
+								<span v-show="shipping == 0">{{ trans('checkout.index.total.free') }}</span>
+								<span v-show="shipping > 0">{{ trans('general.money-vue', ['amount' => 'shipping']) }}</span>
+							</td>
+						</tr>
+					@endif
+					@if($giftcard)
+						<tr>
+							<td>{{ trans('checkout.index.total.giftcard	') }}</td>
+							<td>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth, true, 2, '.')]) }}</td>
+						</tr>
+					@endif
+					<tr v-show="discount.applied">
+						<td>@{{ discount.code }}: @{{ discount.description }}</td>
+						<td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
+					</tr>
+					<tr v-show="giftcard">
+						<td>@{{ discount.code }}: @{{ discount.description }}</td>
+						<td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
+					</tr>
+					<tr>
+						<td>{{ trans('checkout.index.total.taxes') }}</td>
+						<td>{{ trans('general.money-vue', ['amount' => 'total_taxes']) }}</td>
+					</tr>
+					<tr class="row--total">
+						<td>{{ trans('checkout.index.total.total') }}</td>
+						<td>{{ trans('general.money-vue', ['amount' => 'total']) }}</td>
+					</tr>
+					</tbody>
+				</table>
+
+				<div class="hidden-sm hidden-xs">
+					@if ( ! $giftcard )
+						<div class="m-t-20 m-b-20">
+							<a href="#coupon-form" id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
+						</div>
+
+						<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form" style="@if(!Request::old('coupon')) display: none; @endif">
+							<div class="row">
+								<div class="col-md-7">
+									<input type="text" name="coupon" maxlength="20" placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon', Session::get('applied_coupon')) }}" required="required"/>
+								</div>
+								<div class="col-md-5">
+									<button type="submit" class="button button--regular button--full button--green">{{ trans('checkout.index.coupon.button-text') }}</button>
+								</div>
+							</div>
+							{{ csrf_field() }}
+
+							<div id="coupon-form-successes" class="m-t-10"></div>
+							<div id="coupon-form-errors" class="m-t-10"></div>
+						</form>
+
+						<hr/>
+					@endif
+
+					@if($product->is_subscription == 1)
+						{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y')]) !!}
+					@endif
+				</div>
+
+			</div><!-- /Totals-->
+
 		</div>
 	</div>
 @endsection
@@ -453,6 +501,13 @@
 				$("#coupon-form").toggle();
 			});
 
+			$("#toggle-coupon-form-mobile").click(function (e)
+			{
+				e.preventDefault();
+
+				$("#coupon-form-mobile").toggle();
+			});
+
 			$("#coupon-form").submit(function (e)
 			{
 				e.preventDefault();
@@ -482,6 +537,8 @@
 					},
 					success: function (response)
 					{
+						$("#coupon-form-successes-mobile").text(response.message);
+						$("#coupon-form-errors-mobile").text('');
 						$("#coupon-form-successes").text(response.message);
 						$("#coupon-form-errors").text('');
 
@@ -494,6 +551,63 @@
 					},
 					error: function (response)
 					{
+						$("#coupon-form-errors-mobile").text(response.responseJSON.message);
+						$("#coupon-form-successes-mobile").text('');
+						$("#coupon-form-errors").text(response.responseJSON.message);
+						$("#coupon-form-successes").text('');
+
+						app.discount.applied = false;
+						app.discount.code = '';
+					}
+				});
+			});
+
+
+			$("#coupon-form-mobile").submit(function (e)
+			{
+				e.preventDefault();
+				var form = $(this);
+				var button = form.find('button');
+
+				if (!validateFormInput(form, false))
+				{
+					return false;
+				}
+
+				$.ajax({
+					url: form.attr('action'),
+					method: form.attr('method'),
+					data: form.serialize(),
+					headers: {
+						'X-CSRF-TOKEN': form.find('[name="_token"]').val()
+					},
+					dataType: 'JSON',
+					beforeSend: function ()
+					{
+						button.text('Vent...').prop('disabled', true);
+					},
+					complete: function ()
+					{
+						button.text('Anvend').prop('disabled', false);
+					},
+					success: function (response)
+					{
+						$("#coupon-form-successes-mobile").text(response.message);
+						$("#coupon-form-errors-mobile").text('');
+						$("#coupon-form-successes").text(response.message);
+						$("#coupon-form-errors").text('');
+
+						app.discount.applied = true;
+						app.discount.type = response.coupon.discount_type;
+						app.discount.amount = response.coupon.discount;
+						app.discount.applies_to = response.coupon.applies_to;
+						app.discount.description = response.coupon.description;
+						app.discount.code = response.coupon.code;
+					},
+					error: function (response)
+					{
+						$("#coupon-form-errors-mobile").text(response.responseJSON.message);
+						$("#coupon-form-successes-mobile").text('');
 						$("#coupon-form-errors").text(response.responseJSON.message);
 						$("#coupon-form-successes").text('');
 
@@ -507,11 +621,16 @@
 			{
 				$("#coupon-form").submit();
 			}
+
+			if (validateFormInput($("#coupon-form-mobile"), false))
+			{
+				$("#coupon-form-mobile").submit();
+			}
 		</script>
 	@endif
 
 	<script>
-		$("#country-selector").change(function()
+		$("#country-selector").change(function ()
 		{
 			var country = $(this).val();
 
@@ -519,8 +638,8 @@
 				url: '{{ URL::action('CheckoutController@getTaxRate') }}',
 				method: 'GET',
 				dataType: 'JSON',
-				data: { 'zone': country },
-				success: function(response)
+				data: {'zone': country},
+				success: function (response)
 				{
 					app.tax_rate = response.rate;
 				}
@@ -531,8 +650,8 @@
 			url: '{{ URL::action('CheckoutController@getTaxRate') }}',
 			method: 'GET',
 			dataType: 'JSON',
-			data: { 'zone': $("#country-selector").val() },
-			success: function(response)
+			data: {'zone': $("#country-selector").val()},
+			success: function (response)
 			{
 				app.tax_rate = response.rate;
 			}

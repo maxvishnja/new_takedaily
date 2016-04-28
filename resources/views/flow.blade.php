@@ -87,11 +87,6 @@
 								<span class="icon calendar-icon" style="vertical-align: middle; margin-right: 6px;"></span>
 								<span>{{ trans('flow.questions.1-2.button-text') }}</span>
 							</label>
-
-							<br/>
-
-							<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" style="visibility: hidden; height: 0px !important;"/>
-							<div id="datepicker-container"></div>
 						</div>
 
 						<template v-if="temp_age">
@@ -101,6 +96,9 @@
 
 						<p class="substep-explanation">{{ trans('flow.questions.1-2.text') }}</p>
 					</div>
+
+					<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" style="visibility: hidden; height: 0px !important;"/>
+					<div id="datepicker-container"></div>
 
 					<div data-sub-step="3" class="sub_step">
 						<h3 class="substep-title">{{ trans('flow.questions.1-3.title') }}</h3>
@@ -579,6 +577,32 @@
 
 @section('footer_scripts')
 	<script type="text/javascript">
+
+		var firstStep = $(".step.step--active");
+
+		var newHeight = 1;
+		firstStep.find(".sub_step").each(function() {
+			if ($(this).height() > newHeight) {
+				newHeight = $(this).height();
+			}
+		});
+
+		firstStep.css("min-height", newHeight * 1.2);
+
+		$("window").resize( function ()
+		{
+			var firstStep = $(".step.step--active");
+
+			var newHeight = 1;
+			firstStep.find(".sub_step").each(function() {
+				if ($(this).height() > newHeight) {
+					newHeight = $(this).height();
+				}
+			});
+
+			firstStep.css("min-height", newHeight * 1.2);
+		});
+
 		var app = new Vue({
 			el: '#app',
 			data: {
@@ -644,6 +668,15 @@
 
 					currentStep.removeClass("step--active");
 					nextStep.addClass("step--active");
+
+					var newHeight = 1;
+					nextStep.find(".sub_step").each(function() {
+						if ($(this).height() > newHeight) {
+							newHeight = $(this).height();
+						}
+					});
+
+					nextStep.css("min-height", newHeight * 1.2);
 
 					this.checkIfShouldGetCombinations();
 

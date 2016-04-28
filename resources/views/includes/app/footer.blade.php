@@ -240,8 +240,16 @@
 		/* custom configuration goes here (www.olark.com/documentation) */
 		olark.identify('2609-447-10-5702');
 		/*]]>*/</script>
-	<noscript><a href="https://www.olark.com/site/2609-447-10-5702/contact" title="Contact us" target="_blank">Questions? Feedback?</a> powered by
-		<a href="http://www.olark.com?welcome" title="Olark live chat software">Olark live chat software</a></noscript>
 	<!-- end olark code -->
+	<style>
+		@media all and (max-width: 767px)
+		{
+			.habla_window_div,
+			#habla_window_div.habla_window_div_base
+			{
+				display: none !important;
+			}
+		}
+	</style>
 	</body>
 	</html>
