@@ -57,7 +57,7 @@ div.logo, div.icon
 		display: block
 
 	&.hamburger--white .meat
-		background: $white
+		background: $main-green
 
 	.meat.meat--last
 		margin-bottom: 0
@@ -84,7 +84,16 @@ header
 	background-position: center center
 
 	&.header--with-bg
-		background-image: url(/images/header_bg_small.jpg)
+		background: #fff
+		box-shadow: 0 4px 10px rgba(0,0,0,.15)
+
+		nav[role="navigation"] ul li a
+			color: $dark-grey
+
+			&:hover
+				color: $dark-grey
+				border-bottom: 1px solid $dark-grey
+
 
 	&.header--with-large-bg
 		background-image: url(/images/header_bg.jpg)
@@ -94,6 +103,16 @@ header
 
 	.header_top_tb
 		padding: 39px 0
+
+	.header-nav
+		background: #fff
+
+		nav[role="navigation"] ul li a
+			color: $dark-grey
+
+			&:hover
+				color: $dark-grey
+				border-bottom: 1px solid $dark-grey
 
 .call-cta
 	position: fixed

@@ -3,7 +3,7 @@
 @section('pageClass', 'gifting')
 
 @section('title', 'Giv TakeDaily i gave - TakeDaily')
-
+{{-- todo transalte --}}
 @section('content')
 	<div class="container text-center">
 		<h1>Giv TakeDaily i gave</h1>
@@ -35,85 +35,4 @@
 			<button type="submit" class="button button--large button--rounded button--green m-t-30">Fortsæt</button>
 		</form>
 	</div>
-
-	<style>
-		.gifting-selectors .gifting-selector input[type="radio"] {
-			display: none;
-		}
-
-		.gifting-selector {
-			margin:              20px;
-			display:             inline-block;
-			-webkit-user-select: none;
-			user-select:         none;
-			text-align:          center;
-			cursor:              pointer;
-			text-align:          right;
-			background:          transparent url(/images/giftcard-bg.png) no-repeat center center;
-			position:            relative;
-			width:               260px;
-			height:              160px;
-			border-radius:       4px;
-			box-shadow:          0 0 20px rgba(0, 0, 0, .2);
-			transition: box-shadow 300ms;
-		}
-
-		.gifting-selector:hover {
-			z-index: 2;
-			box-shadow:          0 0 50px rgba(0, 0, 0, .2);
-		}
-
-		.gifting-selector strong.gifting-price {
-			width:       230px;
-			display:     block;
-			font-size:   36px;
-			position:    relative;
-			font-weight: 700;
-			color:       #11834E;
-			top:         15px;
-			right:       15px;
-			float:       right;
-		}
-
-		.gifting-selector span.gifting-months {
-			width:       230px;
-			display:     block;
-			position:    relative;
-			font-weight: normal;
-			font-size:   20px;
-			color:       #555555;
-			top:         15px;
-			right:       15px;
-			float:       right;
-		}
-
-		.gifting-selector .gifting-checkmark {
-			display: none;
-			position: absolute;
-		}
-
-		.gifting-selector input[type="radio"]:checked ~ .gifting-checkmark {
-			display: block;
-			background: #333;
-			border-radius: 100%;
-			padding: 20px 0;
-			top: 50%;
-			left: 50%;
-			margin-left: -35px;
-			margin-top: -35px;
-			width: 70px;
-			height: 70px;
-			z-index: 2;
-			text-align: center;
-			box-shadow: 0 0 0 6px #fff, 0 0 50px #fff;
-		}
-
-		@media (-webkit-min-device-pixel-ratio: 2),
-		(min-resolution: 192dpi) {
-			.gifting-selector {
-				background-image: url(/images/giftcard-bg@2x.png);
-				background-size: 260px 160px;
-			}
-		}
-	</style>
 @endsection

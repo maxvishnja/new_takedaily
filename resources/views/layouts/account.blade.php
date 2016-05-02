@@ -5,7 +5,7 @@
 		<div class="header_top_tb">
 			<div class="row">
 				<div class="col-md-3 col-xs-8">
-					<a href="/" class="logo logo-white"></a>
+					<a href="/" class="logo logo-color"></a>
 				</div>
 
 				<div class="col-md-9 col-xs-4">

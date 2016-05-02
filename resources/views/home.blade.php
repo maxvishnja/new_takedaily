@@ -4,15 +4,17 @@
 
 @section('content')
 	<header class="header--landing header--with-large-bg">
-		<div class="container-fluid">
-			<div class="header_top">
-				<div class="row">
-					<div class="col-md-3 col-xs-8">
-						<a href="/" class="logo logo-white"></a>
-					</div>
+		<div class="header-nav">
+			<div class="container-fluid">
+				<div class="header_top">
+					<div class="row">
+						<div class="col-md-3 col-xs-8">
+							<a href="/" class="logo logo-color"></a>
+						</div>
 
-					<div class="col-md-9 col-xs-4">
-						@include('includes.app.nav')
+						<div class="col-md-9 col-xs-4">
+							@include('includes.app.nav')
+						</div>
 					</div>
 				</div>
 			</div>
