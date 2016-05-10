@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="New identity">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css.map" afterPath="$PROJECT_DIR$/public/css/app.css.map" />
+    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Fake flow delay">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/PageSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/PageSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="$PROJECT_DIR$/public/css/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/_landing.sass" afterPath="$PROJECT_DIR$/resources/assets/sass/_landing.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/flow.blade.php" afterPath="$PROJECT_DIR$/resources/views/flow.blade.php" />
     </list>
     <ignored path="TakeDaily.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,14 +24,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="flow.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="flow.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69790626">
-              <caret line="724" column="50" selection-start-line="724" selection-start-column="50" selection-end-line="724" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="713" column="30" selection-start-line="713" selection-start-column="30" selection-end-line="713" selection-end-column="30" />
               <folding>
                 <element signature="e#24695#24725#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buffer1" pinned="false" current-in-tab="true">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/buffer1">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.24925224">
+              <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,7 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/lang/da/products.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/products.php" />
         <option value="$PROJECT_DIR$/resources/views/checkout/success.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/new-password.blade.php" />
@@ -99,7 +103,6 @@
         <option value="$PROJECT_DIR$/resources/views/admin/customers/show.blade.php" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_23" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_cms.sass" />
-        <option value="$APPLICATION_CONFIG_DIR$/scratches/buffer1" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_24" />
         <option value="$USER_HOME$/Downloads/0BKabpT0NS/CustomerController.php" />
         <option value="$USER_HOME$/Downloads/0BKabpT0NS/OrderRepository.php" />
@@ -125,6 +128,8 @@
         <option value="$PROJECT_DIR$/resources/assets/sass/_landing.sass" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/flow.blade.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/buffer1" />
+        <option value="$APPLICATION_CONFIG_DIR$/scratches/buffer2" />
       </list>
     </option>
   </component>
@@ -392,12 +397,6 @@
       <created>1456591092063</created>
       <option name="number" value="Default" />
       <updated>1456591092063</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Admin stats">
-      <created>1459332844328</created>
-      <option name="number" value="00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1459332844328</updated>
     </task>
     <task id="LOCAL-00093" summary="Translated home + added setLocale functionality">
       <created>1459340681319</created>
@@ -687,7 +686,13 @@
       <option name="project" value="LOCAL" />
       <updated>1462180378998</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="Fake flow delay">
+      <created>1462874144331</created>
+      <option name="number" value="00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1462874144360</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -704,6 +709,7 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.125" sideWeight="0.5061107" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
@@ -724,7 +730,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="2" side_tool="true" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861477" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32686713" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -744,7 +749,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Upsell fix + success page only with session" />
     <MESSAGE value="Page slug validation" />
     <MESSAGE value="No more checkout restriction" />
     <MESSAGE value="Dashboard" />
@@ -769,7 +773,8 @@
     <MESSAGE value="Better mobile experience" />
     <MESSAGE value="Auth and stuff" />
     <MESSAGE value="New identity" />
-    <option name="LAST_COMMIT_MESSAGE" value="New identity" />
+    <MESSAGE value="Fake flow delay" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fake flow delay" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -777,13 +782,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.109729335">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07168983">
@@ -877,13 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/buffer1">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60679615">
-          <caret line="15" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1134,11 +1125,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69790626">
-          <caret line="724" column="50" selection-start-line="724" selection-start-column="50" selection-end-line="724" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="713" column="30" selection-start-line="713" selection-start-column="30" selection-end-line="713" selection-end-column="30" />
           <folding>
             <element signature="e#24695#24725#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/buffer2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8225324">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/buffer1">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24925224">
+          <caret line="10" column="51" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
