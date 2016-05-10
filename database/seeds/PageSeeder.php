@@ -82,7 +82,7 @@ class PageSeeder extends Seeder
 			'title'            => 'Fra A til Zink',
 			'sub_title'        => 'Vores kilder til vitaminer og mineraler',
 			'body'             => '<div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-a.jpg" style="height:260px; width:585px" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-a.png" style="height:260px; width:585px" /></div>
 
 <div class="col-md-6">
 <h2>A-vitamin</h2>
@@ -104,7 +104,7 @@ M&aelig;nd: 900 RE<br />
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b1.jpg" style="height:260px; width:585px" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b1.png" style="height:260px; width:585px" /></div>
 
 <div class="col-md-6">
 <h2>B1-vitamin(Tiamin)</h2>
@@ -123,7 +123,7 @@ M&aelig;nd: 1,4 mg</p>
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b2.jpg" style="height:260px; width:585px" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b2.png" style="height:260px; width:585px" /></div>
 
 <div class="col-md-6">
 <h2>B2-vitamin (Riboflavin)</h2>
@@ -143,7 +143,7 @@ M&aelig;nd: 1,7 mg</p>
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b3.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b3.png" /></div>
 
 <div class="col-md-6">
 <h2>B3-vitamin (Niacin)</h2>
@@ -167,7 +167,7 @@ M&aelig;nd: 18 NE<br />
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b5.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b5.png" /></div>
 
 <div class="col-md-6">
 <h2>B5-vitamin (Pantotensyre)</h2>
@@ -183,7 +183,7 @@ M&aelig;nd: 18 NE<br />
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b6.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b6.png" /></div>
 
 <div class="col-md-6">
 <h2>B6-vitamin (Pyridoxin)</h2>
@@ -205,7 +205,7 @@ M&aelig;nd: 1,5</em></p>
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b8.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b8.png" /></div>
 
 <div class="col-md-6">
 <h2>B8-vitamin (Biotin)</h2>
@@ -222,7 +222,7 @@ M&aelig;nd: 1,5</em></p>
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b9.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b9.png" /></div>
 
 <div class="col-md-6">
 <h2>B9-vitamin (Folat/Folsyre)</h2>
@@ -245,7 +245,7 @@ M&aelig;nd: 300 &micro;g</em></p>
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b12.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-b12.png" /></div>
 
 <div class="col-md-6">
 <h2>B12-vitamin (Kobalamin)</h2>
@@ -264,7 +264,7 @@ M&aelig;nd: 300 &micro;g</em></p>
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-c.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-c.png" /></div>
 
 <div class="col-md-6">
 <h2>C-vitamin</h2>
@@ -288,7 +288,7 @@ Kvinder og m&aelig;nd: 75 mg</em></p>
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-d3.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-d3.png" /></div>
 
 <div class="col-md-6">
 <h2>D3-vitamin</h2>
@@ -311,7 +311,7 @@ Kvinder og m&aelig;nd over 70 &aring;r: 20 &micro;g</p>
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-e.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-e.png" /></div>
 
 <div class="col-md-6">
 <h2>E-vitamin</h2>
@@ -334,7 +334,7 @@ M&aelig;nd: 10 &alpha;-TE<br />
 </div>
 
 <div class="row m-b-50">
-<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-k.jpg" /></div>
+<div class="col-md-6"><img alt="" class="img-responsive" src="/images/vitamins/vitamine-k.png" /></div>
 
 <div class="col-md-6">
 <h2>K-vitamin</h2>

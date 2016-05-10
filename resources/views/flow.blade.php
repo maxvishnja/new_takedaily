@@ -532,8 +532,16 @@
 
 				<div data-step="4" data-first-sub-step="1" class="step">
 					<div id="advises-loader" class="text-center">
+						<div class="spinner" style="display: inline-block;">
+							<div class="rect1"></div>
+							<div class="rect2"></div>
+							<div class="rect3"></div>
+							<div class="rect4"></div>
+							<div class="rect5"></div>
+						</div>
+
 						<h2>Vent venligst..</h2> {{-- todo translate --}}
-						<p>Vi udregner dine personlige anbefalinger</p> {{-- todo translate --}}
+						<p>Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig</p> {{-- todo translate --}}
 					</div>
 
 					<div id="advises-block" class="text-left" style="display: none;">
@@ -692,17 +700,36 @@
 				{
 					if (this.step == 4)
 					{
+						var time = 0;
+
 						$.ajax({
 							url: '/flow/recommendations',
 							method: 'POST',
 							dataType: 'JSON',
 							cache: true,
 							data: {user_data: $("#user_data_field").val()},
+							beforeSend: function ()
+							{
+								time = new Date();
+							},
 							success: function(response)
 							{
-								$("#advises-loader").hide();
-								$("#advises-block").show();
-								$("#advises-content").html(response.advises);
+								var curTime = new Date();
+
+								var timeout = curTime.getTime() - time.getTime();
+
+								console.log(timeout);
+
+								if (timeout > 3200)
+								{
+									timeout = 3199;
+								}
+
+								setTimeout( function () {
+									$("#advises-loader").hide();
+									$("#advises-block").fadeIn();
+									$("#advises-content").html(response.advises);
+								}, 3200 - timeout);
 							}
 						});
 					}
@@ -745,6 +772,8 @@
 
 					currentStep.removeClass("step--active");
 					previousStep.addClass("step--active");
+
+					this.checkIfShouldGetCombinations();
 
 					return true;
 				},
