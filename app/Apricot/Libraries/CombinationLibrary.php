@@ -104,7 +104,7 @@ class CombinationLibrary
 				$this->setAdvise('one', trans('flow.combinations.1.basic-10-d-alt'));
 			}
 		}
-		if ( ($this->isEmpty($this->groupOne)) && (($data->age >= '70 ' && $data->gender == '1') || ($data->age >= '50' && $data->gender == '2')) && isAlone(1, 1.4) )
+		if ( ($this->isEmpty($this->groupOne)) && (($data->age >= '70 ' && $data->gender == '1') || ($data->age >= '50' && $data->gender == '2')) )
 		{
 			$this->groupOne = '3';
 

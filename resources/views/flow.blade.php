@@ -718,9 +718,7 @@
 
 								var timeout = curTime.getTime() - time.getTime();
 
-								console.log(timeout);
-
-								if (timeout > 3200)
+								if (timeout >= 3200)
 								{
 									timeout = 3199;
 								}
