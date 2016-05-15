@@ -37,7 +37,7 @@
 									</label>
 
 									<label style="display: inline-block; border: 1px solid #eee; border-radius: 4px; padding: 10px;">
-										<input type="radio" name="layout" id="page_layout" value="empty" @if(Request::old('layout', isset($page) ? $page->layout : 'empty') == 'empty') checked="checked" @endif />
+										<input type="radio" name="layout" id="page_layout" value="empty" @if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'empty') checked="checked" @endif />
 										<img src="{{ asset('admin/images/icons/icon-cms-layout-empty.png') }}" alt="">
 									</label>
 								</div>
