@@ -22,7 +22,7 @@ return [
 					<li><a href="/locale/nl">Nederlands</a></li>
 					<li><a href="/locale/no">Norsk</a></li>
 					<li><a href="/locale/sv">Svenska</a></li>',
-	'links'     => '<li><a href="/om-take-daily">Om TakeDaily</a></li>
+	'links'     => '<li><a href="/about">Om TakeDaily</a></li>
 					<li><a href="/privacy">Fortrolighed & cookies</a></li>
 					<li><a href="/terms">Vilkår og betingelser</a></li>'
 ];

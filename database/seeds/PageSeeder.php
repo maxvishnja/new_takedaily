@@ -37,6 +37,19 @@ class PageSeeder extends Seeder
 			'layout'           => 'plain'
 		]);
 
+		// Tests
+		\App\Page::create([
+			'url_identifier'   => 'test-and-quality',
+			'title'            => 'Test & Kvalitet',
+			'sub_title'        => '',
+			'body'             => '<p>lorem ipsum...</p>',
+			'meta_title'       => 'Test & Kvalitet',
+			'meta_description' => '',
+			'meta_image'       => '',
+			'is_locked'        => 0,
+			'layout'           => 'plain'
+		]);
+
 		// Terms
 		\App\Page::create([
 			'url_identifier'   => 'terms',
@@ -48,6 +61,67 @@ class PageSeeder extends Seeder
 			'meta_image'       => '',
 			'is_locked'        => 0,
 			'layout'           => 'plain'
+		]);
+
+		// How works
+		\App\Page::create([
+			'url_identifier'   => 'how-it-works',
+			'title'            => 'Sådan virker det',
+			'sub_title'        => 'Retningslinjer',
+			'body'             => '<div class="img-block-with-title"><img alt=".." src="//placehold.it/1140x280" style="height:280px; width:1140px" />
+<h1>S&Aring;DAN VIRKER TAKEDAILY</h1>
+</div>
+
+<div class="row row--no-padding">
+<div class="col-md-8 col-md-push-2 text-center">
+<p>TakeDaily er en platform som g&oslash;r det muligt for dig at modtage vitaminer der er vigtige for dig, hver m&aring;ned. Det er super enkelt, og tager ikke mere end 3 minutter at komme igang.</p>
+</div>
+</div>
+
+<div class="text-center m-t-50">
+<div class="row row--no-padding text-center">
+<div class="col-md-4 block_item">
+<div class="icon icon-user-information" style="margin: 0 auto;">
+<div class="step-circle-count">1</div>
+</div>
+
+<h3>Konsultationen begynder</h3>
+
+<p>Fort&aelig;l os lidt om din krop, kost og livsstil. Det tager ikke mere end 2 minutter at svare p&aring; sp&oslash;rgsm&aring;lene.</p>
+</div>
+
+<div class="col-md-4 block_item">
+<div class="icon icon-box" style="margin: 0 auto;">
+<div class="step-circle-count">2</div>
+</div>
+
+<h3>Vi skr&aelig;ddersyr dit TakeDaily</h3>
+
+<p>Vi udv&aelig;lger dine vitaminer og mineraler i koncentrationer, der passer n&oslash;jagtigt til dig.</p>
+</div>
+
+<div class="col-md-4 block_item">
+<div class="icon icon-truck" style="margin: 0 auto;">
+<div class="step-circle-count">3</div>
+</div>
+
+<h3>Du modtager din &aelig;ske</h3>
+
+<p>Du f&aring;r leveret din &aelig;ske gratis derhjemme eller p&aring; kontoret, hvis det passer dig bedre</p>
+</div>
+</div>
+
+<div class="text-center m-t-50"><a class="button button--green button--rounded button--large" href="/flow">Kom igang her</a>
+
+<p>Det koster kun 149 kr. om m&aring;neden.</p>
+</div>
+</div>
+',
+			'meta_title'       => '',
+			'meta_description' => '',
+			'meta_image'       => '',
+			'is_locked'        => 0,
+			'layout'           => 'empty'
 		]);
 
 		// Contact

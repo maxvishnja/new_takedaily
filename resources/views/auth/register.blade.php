@@ -46,4 +46,3 @@
 		</form>
 	</div>
 @endsection
-{{-- todo translate --}}

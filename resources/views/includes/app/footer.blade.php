@@ -39,14 +39,14 @@
 	<div class="bottom">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-4">
+				<div class="col-lg-3 col-sm-4">
 					<span class="footer_bottom_copy">&copy; {{ date('Y') }} {{ trans('footer.copyright') }}.</span>
 					<span class="icon icon-card-mastercard m-r-5 v-a-m" title="Mastercard"></span>
 					<span class="icon icon-card-visa m-l-5 v-a-m" title="Visa"></span>
 				</div>
-				<div class="col-lg-9 col-md-8 text-right">
+				<div class="col-lg-9 col-sm-8 text-right">
 					<ul class="footer_bottom_links">
-						<li class="input input--semibold input--transparent selector selector--up">{{ trans('footer.language') }}
+						<li class="input input--semibold input--transparent lang-selector-footer selector selector--up">{{ trans('footer.language') }}
 							<span class="icon icon-arrow-up-small v-a-m m-l-5"></span>
 							<ul>
 								{!! trans('footer.languages') !!}

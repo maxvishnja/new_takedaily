@@ -91,8 +91,7 @@ header
 			color: $dark-grey
 
 			&:hover
-				color: $dark-grey
-				border-bottom: 1px solid $dark-grey
+				color: $white
 
 
 	&.header--with-large-bg
@@ -111,8 +110,7 @@ header
 			color: $dark-grey
 
 			&:hover
-				color: $dark-grey
-				border-bottom: 1px solid $dark-grey
+				color: $white
 
 .call-cta
 	position: fixed
@@ -177,12 +175,11 @@ nav[role="navigation"]
 				padding: 10px 15px
 				text-decoration: none
 				display: inline-block
-				border-bottom: 1px solid transparent
 
 				&:hover
 					color: $white
 					text-decoration: none
-					border-bottom: 1px solid $white
+					background: $main-green
 
 main
 
@@ -232,6 +229,12 @@ footer
 		.main
 			.footer_column
 				margin-bottom: 30px
+
+		.bottom
+			ul.footer_bottom_links
+				> li
+					&.lang-selector-footer
+						display: none
 
 	.navigation
 		display: block

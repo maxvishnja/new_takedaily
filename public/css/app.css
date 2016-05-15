@@ -1152,8 +1152,7 @@ header {
     header.header--with-bg nav[role="navigation"] ul li a {
       color: #333333; }
       header.header--with-bg nav[role="navigation"] ul li a:hover {
-        color: #333333;
-        border-bottom: 1px solid #333333; }
+        color: #ffffff; }
   header.header--with-large-bg {
     background-image: url(/images/header_bg.jpg); }
   header .header_top {
@@ -1165,8 +1164,7 @@ header {
     header .header-nav nav[role="navigation"] ul li a {
       color: #333333; }
       header .header-nav nav[role="navigation"] ul li a:hover {
-        color: #333333;
-        border-bottom: 1px solid #333333; }
+        color: #ffffff; }
 
 .call-cta {
   position: fixed;
@@ -1220,12 +1218,11 @@ nav[role="navigation"] {
         line-height: 20px;
         padding: 10px 15px;
         text-decoration: none;
-        display: inline-block;
-        border-bottom: 1px solid transparent; }
+        display: inline-block; }
         nav[role="navigation"] ul li a:hover {
           color: #ffffff;
           text-decoration: none;
-          border-bottom: 1px solid #ffffff; }
+          background: #7BC6BA; }
 
 footer .main {
   padding: 40px 0;
@@ -1263,6 +1260,8 @@ footer .bottom {
 @media all and (max-width: 991px) {
   footer .main .footer_column {
     margin-bottom: 30px; }
+  footer .bottom ul.footer_bottom_links > li.lang-selector-footer {
+    display: none; }
   .navigation {
     display: block;
     overflow: scroll;
@@ -4627,7 +4626,8 @@ body.index .slider_container {
   .button.button--medium {
     height: 46px;
     padding: 10px 35px;
-    font-size: 17px; }
+    font-size: 17px;
+    line-height: 1.7; }
     .button.button--medium.button--small-padding {
       padding: 10px 18px; }
   .button.button--large {
@@ -4692,6 +4692,11 @@ body.index .slider_container {
       background: #eeeeee; }
   .button.button--text-grey {
     color: #555555; }
+
+button.button,
+input.button {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
 
 .input {
   vertical-align: middle;

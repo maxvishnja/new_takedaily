@@ -11,9 +11,11 @@
 			<h2 class="cms-title">{{ $page->sub_title }}</h2>
 		@endif
 
-		<div class="cta hidden-xs">
-			{!! trans('cms.sticky-cta') !!}
-		</div>
+		@if( !Auth::user() || !Auth::user()->isUser() || ! Auth::user()->getCustomer() )
+			<div class="cta hidden-xs">
+				{!! trans('cms.sticky-cta') !!}
+			</div>
+		@endif
 	@endif
 @endsection
 
@@ -51,20 +53,22 @@
 @endsection
 
 @section('footer_scripts')
-	<script>
-		var ctaBlock = $(".cta");
-		var headerBlock = $("header.header--with-bg");
+	@if( !Auth::user() || !Auth::user()->isUser() || ! Auth::user()->getCustomer() )
+		<script>
+			var ctaBlock = $(".cta");
+			var headerBlock = $("header.header--with-bg");
 
-		$(window).scroll(function ()
-		{
-			if ($(this).scrollTop() > (headerBlock.height() - ctaBlock.outerHeight()))
+			$(window).scroll(function ()
 			{
-				ctaBlock.addClass('cta--sticky');
-			}
-			else
-			{
-				ctaBlock.removeClass('cta--sticky');
-			}
-		});
-	</script>
+				if ($(this).scrollTop() > (headerBlock.height() - ctaBlock.outerHeight()))
+				{
+					ctaBlock.addClass('cta--sticky');
+				}
+				else
+				{
+					ctaBlock.removeClass('cta--sticky');
+				}
+			});
+		</script>
+	@endif
 @endsection

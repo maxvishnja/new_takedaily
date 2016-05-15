@@ -28,7 +28,14 @@ class RewriteController extends Controller
 
 	function remove($id)
 	{
-		UrlRewrite::find($id)->delete();
+		$rewrite = UrlRewrite::find($id);
+
+		if( ! $rewrite )
+		{
+			return \Redirect::back()->withErrors('Kunne ikke finde omstillingen!');
+		}
+
+		$rewrite->delete();
 
 		\Cache::tags('url_rewrites')->flush();
 

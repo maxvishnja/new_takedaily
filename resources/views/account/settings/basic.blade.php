@@ -26,11 +26,6 @@
 		</label>
 
 		<label style="display: block;">
-			<span>{{ trans("attributes.newsletters") }}</span>
-			<input type="checkbox" name="newsletters" id="newsletters" data-original="{{ $customer->acceptNewsletters() ? 1 : 0 }}" @if(Request::old('newsletters') || $customer->acceptNewsletters()) checked="checked" @endif /> {{ trans("attributes.newsletters-label") }}
-		</label>
-
-		<label style="display: block;">
 			<span>{{ trans("attributes.new_password") }}</span>
 			<input type="password" id="password" class="input input--full input--regular" name="password" value=""/><br/>
 			<input type="password" id="password_confirmation" class="input input--full input--regular" name="password_confirmation" data-original="" value=""/>

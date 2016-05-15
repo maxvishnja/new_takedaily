@@ -22,6 +22,7 @@
 
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="main">
+							@if( !isset($page) || (isset($page) && !$page->isLocked() ))
 							<div class="control-group">
 								<label for="page_title" class="control-label">Sidens layout</label>
 								<div class="controls">
@@ -54,16 +55,27 @@
 									@endif
 								</div>
 							</div>
+							@endif
 
 							<div class="control-group">
 								<label for="page_title" class="control-label">Sidens titel</label>
 								<div class="controls">
 									<input type="text" class="form-control span8" name="title" id="page_title" value="{{ Request::old('title', isset($page) ? $page->title : '' ) }}" placeholder="Sidens titel"/>
-									<p class="help-block">Sidens url bliver:
-										<mark @if(!isset($page) || (isset($page) && !$page->isLocked())) id="page_handle_preview" @endif>
-											/{{ isset($page) ? $page->url_identifier : '' }}</mark>
-										@if(isset($page))<p><small>Der bliver automatisk oprettet omdirigeringer for at SEO ikke går tabt.</small></p>@endif
-									</p>
+									@if(!isset($page) || (isset($page) && !$page->isLocked()))<p class="help-block">
+										Sidens url bliver:
+										/ <input type="text" id="page_handle_preview" class="input form-control" maxlength="50" value="{{ isset($page) ? $page->url_identifier : '' }}" name="slug" @if(isset($page)) data-changed-manually="true" @endif/>
+									@if(isset($page))
+										<br/>
+										<div class="checkbox">
+											<label>
+												<small>
+													<input type="checkbox" name="add_rewrite" checked="checked" value="1" />
+													Opret omdirigering <em>hvis slug ændres</em>, for at evt. SEO ikke går tabt.
+												</small>
+											</label>
+										</div>
+										@endif
+									@endif
 								</div>
 							</div>
 
@@ -74,12 +86,14 @@
 								</div>
 							</div>
 
-							<div class="control-group">
-								<label for="page_body" class="control-label">Sidens indhold</label>
-								<div class="controls">
-									<textarea name="body" class="form-control" rows="10" id="page_body" placeholder="Indhold...">{!! Request::old('body', isset($page) ? $page->body : '' ) !!}</textarea>
+							@if( !isset($page) || (isset($page) && !$page->isLocked() ))
+								<div class="control-group">
+									<label for="page_body" class="control-label">Sidens indhold</label>
+									<div class="controls">
+										<textarea name="body" class="form-control" rows="10" id="page_body" placeholder="Indhold...">{!! Request::old('body', isset($page) ? $page->body : '' ) !!}</textarea>
+									</div>
 								</div>
-							</div>
+							@endif
 
 							<div class="control-group"></div> <!-- To fix :last-child bug -->
 						</div>
@@ -147,28 +161,36 @@
 	<script>
 		@if(!isset($page) || (isset($page) && $page->url_identifier != 'home'))
 			$("#page_title").on('input', function ()
+		{
+			if (!$("#page_handle_preview").data('changed-manually'))
 			{
 				generateSlug($(this).val());
-			});
-
-			function generateSlug(value)
-			{
-				var handle = value;
-				handle = handle.trim(' ');
-				handle = handle.toLowerCase();
-				handle = handle.replace(/(å)/g, 'a');
-				handle = handle.replace(/(ø)/g, 'o');
-				handle = handle.replace(/(æ)/g, 'ae');
-				handle = handle.replace(/\s\s+/g, ' ');
-				handle = handle.replace(/( )/g, '-');
-				handle = handle.replace(/([^a-z0-9-])/g, '');
-				handle = handle.replace(/\-\-+/g, '-');
-				handle = handle.substr(0, 50);
-
-				$("#page_handle_preview").text("/" + handle);
 			}
+		});
 
-			generateSlug($("#page_title").val());
+		$("#page_handle_preview").on('input', function ()
+		{
+			$(this).data('changed-manually', true);
+		});
+
+		function generateSlug(value)
+		{
+			var handle = value;
+			handle = handle.trim(' ');
+			handle = handle.toLowerCase();
+			handle = handle.replace(/(å)/g, 'a');
+			handle = handle.replace(/(ø)/g, 'o');
+			handle = handle.replace(/(æ)/g, 'ae');
+			handle = handle.replace(/\s\s+/g, ' ');
+			handle = handle.replace(/( )/g, '-');
+			handle = handle.replace(/([^a-z0-9-])/g, '');
+			handle = handle.replace(/\-\-+/g, '-');
+			handle = handle.substr(0, 50);
+
+			$("#page_handle_preview").val(handle);
+		}
+
+		generateSlug($("#page_title").val());
 		@endif
 
 		CKEDITOR.replace('page_body', {

@@ -54,13 +54,13 @@ class PageController extends Controller
 		$oldIdentifier = $page->url_identifier;
 
 		$this->validate($request, [
-			'slug' => 'unique:pages,url_identifier,' . $page->id
+			'slug' => 'required|unique:pages,url_identifier,' . $page->id
 		]);
 
 		$page->title = $request->get('title');
 		if ( !$page->isLocked() )
 		{
-			$page->url_identifier = $page->generateIdentifier($request->get('title'));
+			$page->url_identifier = $request->get('slug');
 		}
 		$page->sub_title        = $request->get('sub_title');
 		$page->body             = $request->get('body');
@@ -116,7 +116,7 @@ class PageController extends Controller
 
 		$page->save();
 
-		if ( $oldIdentifier != $page->url_identifier )
+		if ( $oldIdentifier != $page->url_identifier && $request->get('add_rewrite', 0) == 1 )
 		{
 			UrlRewrite::create([
 				'requested_path' => '/' . $oldIdentifier,
@@ -137,12 +137,12 @@ class PageController extends Controller
 	function store(Request $request)
 	{
 		$this->validate($request, [
-			'slug' => 'unique:pages,url_identifier'
+			'slug' => 'required|unique:pages,url_identifier'
 		]);
 
 		$page                   = new Page();
 		$page->title            = $request->get('title');
-		$page->url_identifier   = $page->generateIdentifier($request->get('title'));
+		$page->url_identifier   = $request->get('slug');
 		$page->sub_title        = $request->get('sub_title');
 		$page->body             = $request->get('body');
 		$page->meta_title       = $request->get('meta_title');
