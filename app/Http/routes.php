@@ -42,7 +42,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 				$advises .= '<p>' . $advise . '</p>';
 			}
 
-			return Response::json([ 'advises' => $advises, 'label' => view('flow-label', ['combinations' => $lib->getResult()])->render() ]);
+			return Response::json([ 'advises' => $advises, 'label' => view('flow-label', ['combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ])->render() ]);
 		});
 	});
 

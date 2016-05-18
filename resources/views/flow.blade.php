@@ -545,10 +545,21 @@
 					</div>
 
 					<div id="advises-block" class="text-left" style="display: none;">
-						<div id="advises-label"></div>
 						<h2>Dine anbefalinger</h2> {{-- todo translate --}}
-						<div id="advises-content"></div>
-						<button type="submit" class="button button--green button--medium button--full-mobile">{{ trans('flow.button-order-text') }}</button>
+						<button type="submit" class="button button--green button--large visible-xs button--full-mobile m-t-30 m-b-30">{{ trans('flow.button-order-text') }}</button>
+
+						<div class="row m-b-20">
+							<div class="col-md-5">
+								<div id="advises-label"></div>
+							</div>
+							<div class="col-md-7">
+								<div class="card">
+									<div id="advises-content"></div>
+
+									<button type="submit" class="button button--green button--huge button--full-mobile m-t-30">{{ trans('flow.button-order-text') }}</button>
+								</div>
+							</div>
+						</div>
 					</div>
 					<textarea name="user_data" id="user_data_field" type="hidden" style="display: none;">@{{ $data.user_data | json }}</textarea>
 				</div>
@@ -590,21 +601,25 @@
 		var firstStep = $(".step.step--active");
 
 		var newHeight = 1;
-		firstStep.find(".sub_step").each(function() {
-			if ($(this).height() > newHeight) {
+		firstStep.find(".sub_step").each(function ()
+		{
+			if ($(this).height() > newHeight)
+			{
 				newHeight = $(this).height();
 			}
 		});
 
 		firstStep.css("min-height", newHeight * 1.2);
 
-		$("window").resize( function ()
+		$("window").resize(function ()
 		{
 			var firstStep = $(".step.step--active");
 
 			var newHeight = 1;
-			firstStep.find(".sub_step").each(function() {
-				if ($(this).height() > newHeight) {
+			firstStep.find(".sub_step").each(function ()
+			{
+				if ($(this).height() > newHeight)
+				{
 					newHeight = $(this).height();
 				}
 			});
@@ -679,8 +694,10 @@
 					nextStep.addClass("step--active");
 
 					var newHeight = 1;
-					nextStep.find(".sub_step").each(function() {
-						if ($(this).height() > newHeight) {
+					nextStep.find(".sub_step").each(function ()
+					{
+						if ($(this).height() > newHeight)
+						{
 							newHeight = $(this).height();
 						}
 					});
@@ -713,7 +730,7 @@
 							{
 								time = new Date();
 							},
-							success: function(response)
+							success: function (response)
 							{
 								var curTime = new Date();
 
@@ -724,7 +741,8 @@
 									timeout = 3199;
 								}
 
-								setTimeout( function () {
+								setTimeout(function ()
+								{
 									$("#advises-loader").hide();
 									$("#advises-block").fadeIn();
 									$("#advises-content").html(response.advises);
