@@ -26,7 +26,54 @@ Route::group([ 'middleware' => 'web' ], function ()
 	{
 		Route::get('flow', function ()
 		{
-			return view('flow');
+			$giftcard = null;
+
+			if ( \Session::has('giftcard_id') && \Session::has('giftcard_token') && \Session::get('product_name', 'subscription') == 'subscription' )
+			{
+				$giftcard = Giftcard::where('id', \Session::get('giftcard_id'))
+									->where('token', \Session::get('giftcard_token'))
+									->where('is_used', 0)
+									->first();
+			}
+
+			$product = \App\Product::whereName(\Session::get('product_name', 'subscription'))->first();
+
+			$shipping = 0;
+			$giftcardWorth = 0;
+
+			if( $giftcard )
+			{
+				$giftcardWorth = $giftcard->worth;
+			}
+
+			if ( \Session::get('product_name', 'subscription') == 'subscription' )
+			{
+				$shipping = \App\Apricot\Libraries\MoneyLibrary::toCents(0); // todo get from settings
+			}
+
+			$total = $product->price;
+			$total += $shipping;
+
+			if ( $giftcard )
+			{
+				$total -= $giftcard->worth;
+			}
+
+			$zone = new \App\Apricot\Libraries\TaxLibrary(trans('general.tax_zone'));
+			$taxRate = $zone->rate();
+
+			$taxes = $product->price * $taxRate;
+
+
+			$prices = [
+				'product' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price),
+				'total'    => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($total),
+				'giftcard' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcardWorth),
+				'taxes'    => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($taxes),
+				'shipping' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($shipping),
+			];
+
+			return view('flow', compact('giftcard', 'product', 'prices'));
 		});
 
 		Route::post('flow/recommendations', function (\Illuminate\Http\Request $request)
@@ -42,8 +89,21 @@ Route::group([ 'middleware' => 'web' ], function ()
 				$advises .= '<p>' . $advise . '</p>';
 			}
 
-			return Response::json([ 'advises' => $advises, 'label' => view('flow-label', ['combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ])->render() ]);
+			return Response::json([
+				'advises' => $advises,
+				'label'   => view('flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ])->render()
+			]);
 		});
+	});
+
+	Route::post('flow', function (\Illuminate\Http\Request $request)
+	{
+		$userData = json_decode($request->get('user_data'));
+
+		Session::put('user_data', $userData);
+		Session::put('product_name', $request->get('product_name'));
+
+		return Redirect::action('CheckoutController@getCheckout');
 	});
 
 	Route::post('flow-upsell', function (\Illuminate\Http\Request $request)
@@ -74,16 +134,6 @@ Route::group([ 'middleware' => 'web' ], function ()
 	Route::get('gifting', function ()
 	{
 		return view('gifting');
-	});
-
-	Route::post('flow', function (\Illuminate\Http\Request $request)
-	{
-		$userData = json_decode($request->get('user_data'));
-
-		Session::put('user_data', $userData);
-		Session::put('product_name', $request->get('product_name'));
-
-		return Redirect::action('CheckoutController@getCheckout');
 	});
 
 	/*

@@ -15,6 +15,72 @@
 		<h1 class="text-center">{{ trans('flow.scripts') }}</h1>
 	</noscript>
 
+	<style>{{-- todo move to css --}}
+		body.page-flow table.order_table {
+			width: 100%; }
+
+		body.page-flow table.order_table tbody tr td {
+			color:         #777777;
+			font-size:     16px;
+			padding:       20px 0;
+			border-bottom: 1px solid #dddddd; }
+
+		body.page-flow table.order_table tbody tr td:last-child {
+			text-align:  right;
+			font-weight: 600;
+			color:       #555555; }
+
+		body.page-flow table.order_table tbody tr.row--total {
+			font-weight: 600; }
+
+		body.page-flow table.order_table tbody tr.row--total td {
+			border-bottom: 3px double #dddddd; }
+
+		body.page-flow table.order_table tbody tr.row--total td:last-child {
+			font-size: 20px;
+			color:     #33786a; }
+
+		.tabs > .options > .tab {
+			display: inline-block;
+			padding: 18px;
+			border: 1px solid #e5e5e5;
+			border-bottom: none;
+			font-size: 16px;
+			cursor: pointer;
+			color: #888;
+			float: left;
+			margin-right: -1px;
+			margin-bottom: -1px;
+			position: relative;
+			z-index: 3;
+		}
+
+		.tabs > .options > .tab:hover {
+			background: #f3f3f3;
+			border-color: #ddd;
+			color: #666;
+		}
+
+		.tabs > .options > .tab.tab--active {
+			background: #fff;
+			border-color: #ccc;
+			color: #333;
+			z-index: 5;
+		}
+
+		.tabs > .tab-block {
+			position: relative;
+			z-index: 4;
+			border: 1px solid #ccc;
+			display: none;
+			padding: 20px;
+		}
+
+		.tabs > .tab-block.tab-block--active {
+			display: block;
+		}
+	</style>
+
 	<div id="app" class="flow-container">
 		<div class="flow-progress flow-progress--closed">
 			<span class="hamburger" id="flow-toggler">
@@ -549,12 +615,57 @@
 						<button type="submit" class="button button--green button--large visible-xs button--full-mobile m-t-30 m-b-30">{{ trans('flow.button-order-text') }}</button>
 
 						<div class="row m-b-20">
-							<div class="col-md-5">
-								<div id="advises-label"></div>
-							</div>
+
 							<div class="col-md-7">
+								<div class="tabs m-b-30">
+									<div class="options">
+										<div data-tab="#advises-label" class="tab tab-toggler tab--active">Supplementer</div>
+										<div data-tab="#advises-content" class="tab tab-toggler">Beskrivelse</div>
+
+										<div class="clear"></div>
+									</div>
+
+									<div id="advises-label" class="tab-block tab-block--active"></div>
+									<div id="advises-content" class="tab-block"></div>
+								</div>
+							</div>
+
+							<div class="col-md-5">
 								<div class="card">
-									<div id="advises-content"></div>
+									<table class="order_table">
+										<tbody>
+										<tr>
+											<td>{{ trans("products." . (Session::get('force_product_name', false) ? ( Session::get('product_name', 'subscription')) : 'subscription')) }}</td>
+											<td>{{ trans('general.money', ['amount' => $prices['product']]) }}</td>
+										</tr>
+										@if((Session::get('force_product_name', false) ? ( Session::get('product_name', 'subscription')) : 'subscription') == 'subscription')
+											<tr>
+												<td>{{ trans('checkout.index.total.shipping') }}</td>
+												<td>
+													@if($prices['shipping'] <= 0)
+														<span>{{ trans('checkout.index.total.free') }}</span>
+													@else
+														<span>{{ trans('general.money', ['amount' => $prices['shipping']]) }}</span>
+													@endif
+												</td>
+											</tr>
+										@endif
+										@if($giftcard)
+											<tr>
+												<td>{{ trans('checkout.index.total.giftcard	') }}</td>
+												<td>{{ trans('general.money', ['amount' => $giftcard->worth]) }}</td>
+											</tr>
+										@endif
+										<tr>
+											<td>{{ trans('checkout.index.total.taxes') }}</td>
+											<td>{{ trans('general.money', ['amount' => $prices['taxes']]) }}</td>
+										</tr>
+										<tr class="row--total">
+											<td>{{ trans('checkout.index.total.total') }}</td>
+											<td>{{ trans('general.money', ['amount' => $prices['total']]) }}</td>
+										</tr>
+										</tbody>
+									</table>
 
 									<button type="submit" class="button button--green button--huge button--full-mobile m-t-30">{{ trans('flow.button-order-text') }}</button>
 								</div>
@@ -889,6 +1000,14 @@
 		$("#flow-toggler").click(function (e)
 		{
 			$(".flow-progress").toggleClass('flow-progress--closed');
+		});
+
+		$(".tab-toggler").click(function()
+		{
+			$(this).parent().find('.tab--active').removeClass('tab--active');
+			$(this).parent().parent().find('.tab-block--active').removeClass('tab-block--active');
+			$(this).addClass('tab--active');
+			$($(this).data('tab')).addClass('tab-block--active');
 		});
 	</script>
 @endsection

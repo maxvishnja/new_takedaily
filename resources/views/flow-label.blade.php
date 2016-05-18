@@ -1,5 +1,5 @@
 @foreach($combinations as $combinationKey => $combinationValue)
-	<div class="card m-b-30">
+	<div class="m-b-30">
 		<div style="display: inline-block;" class="pull-right icon pill-{{ \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) }}"></div>
 		<strong>{{ \App\Apricot\Libraries\PillLibrary::getPillCode(\App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue)) }}</strong>
 		<p>

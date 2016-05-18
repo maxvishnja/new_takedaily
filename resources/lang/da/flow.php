@@ -237,7 +237,7 @@ return [
 			'A' => 'Du er gravid eller ønsker at blive det. Tillykke! I den søde ventetid, sørger TakeDaily for, at du og din baby får de særlige tilskud, I har brug for.
 							<br/><br/>
 							Gennem hele graviditeten er det godt for udviklingen af babyens knogler og muskler at tage et tilskud af D-vitamin. Fiskeolie…
-							<hr/>
+							<br/><br/>
 							Vi håber, du snart får dit ønske om en baby opfyldt. Mens du prøver at blive gravid, har din krop brug for særlige vitaminer og
 							mineraler. Det sørger TakeDaily for.
 							<br/><br/>
