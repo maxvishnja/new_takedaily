@@ -545,6 +545,7 @@
 					</div>
 
 					<div id="advises-block" class="text-left" style="display: none;">
+						<div id="advises-label"></div>
 						<h2>Dine anbefalinger</h2> {{-- todo translate --}}
 						<div id="advises-content"></div>
 						<button type="submit" class="button button--green button--medium button--full-mobile">{{ trans('flow.button-order-text') }}</button>
@@ -727,6 +728,7 @@
 									$("#advises-loader").hide();
 									$("#advises-block").fadeIn();
 									$("#advises-content").html(response.advises);
+									$("#advises-label").html(response.label);
 								}, 3200 - timeout);
 							}
 						});
