@@ -103,6 +103,11 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Session::put('user_data', $userData);
 		Session::put('product_name', $request->get('product_name'));
 
+		if( $request->get('coupon', '') != '' )
+		{
+			Session::put('applied_coupon', $request->get('coupon'));
+		}
+
 		return Redirect::action('CheckoutController@getCheckout');
 	});
 

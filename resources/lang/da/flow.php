@@ -342,7 +342,7 @@ return [
 	],
 	'combination_info'  => [
 		'1'    => [
-			'basic'          => 'Et supplement til din daglige kost',
+			'basic'          => 'Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance',
 			'basic-10-d'     => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler',
 			'basic-20-d'     => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler'
 		],

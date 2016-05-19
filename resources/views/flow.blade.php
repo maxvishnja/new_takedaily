@@ -41,39 +41,40 @@
 			color:     #33786a; }
 
 		.tabs > .options > .tab {
-			display: inline-block;
-			padding: 18px;
-			border: 1px solid #e5e5e5;
+			display:       inline-block;
+			padding:       18px;
+			border:        1px solid #e5e5e5;
 			border-bottom: none;
-			font-size: 16px;
-			cursor: pointer;
-			color: #888;
-			float: left;
-			margin-right: -1px;
+			font-size:     16px;
+			cursor:        pointer;
+			color:         #888;
+			background:    #f5f5f5;
+			float:         left;
+			margin-right:  -1px;
 			margin-bottom: -1px;
-			position: relative;
-			z-index: 3;
+			position:      relative;
+			z-index:       3;
 		}
 
 		.tabs > .options > .tab:hover {
-			background: #f3f3f3;
+			background:   #eee;
 			border-color: #ddd;
-			color: #666;
+			color:        #666;
 		}
 
 		.tabs > .options > .tab.tab--active {
-			background: #fff;
+			background:   #fff;
 			border-color: #ccc;
-			color: #333;
-			z-index: 5;
+			color:        #333;
+			z-index:      5;
 		}
 
 		.tabs > .tab-block {
 			position: relative;
-			z-index: 4;
-			border: 1px solid #ccc;
-			display: none;
-			padding: 20px;
+			z-index:  4;
+			border:   1px solid #ccc;
+			display:  none;
+			padding:  20px;
 		}
 
 		.tabs > .tab-block.tab-block--active {
@@ -668,6 +669,13 @@
 									</table>
 
 									<button type="submit" class="button button--green button--huge button--full-mobile m-t-30">{{ trans('flow.button-order-text') }}</button>
+
+									<div class="m-t-20 m-b-20">
+										<a href="#coupon-form" id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
+									</div>
+									<div id="coupon-field" style="display: none;" class="m-t-20">
+										<input type="text" name="coupon" maxlength="20" placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon', Session::get('applied_coupon')) }}" required="required"/>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -1002,12 +1010,20 @@
 			$(".flow-progress").toggleClass('flow-progress--closed');
 		});
 
-		$(".tab-toggler").click(function()
+		$(".tab-toggler").click(function ()
 		{
 			$(this).parent().find('.tab--active').removeClass('tab--active');
 			$(this).parent().parent().find('.tab-block--active').removeClass('tab-block--active');
 			$(this).addClass('tab--active');
 			$($(this).data('tab')).addClass('tab-block--active');
+		});
+	</script>
+	<script>
+		$("#toggle-coupon-form").click(function (e)
+		{
+			e.preventDefault();
+
+			$("#coupon-field").toggle();
 		});
 	</script>
 @endsection

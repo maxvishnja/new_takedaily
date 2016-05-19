@@ -5121,8 +5121,8 @@ body.page-flow {
       opacity: 0;
       -webkit-animation-fill-mode: both;
       animation-fill-mode: both;
-      -webkit-animation-duration: 300ms;
-      animation-duration: 300ms; }
+      -webkit-animation-duration: 200ms;
+      animation-duration: 200ms; }
       body.page-flow .flow-container .step .sub_step.sub_step--active {
         -webkit-transform: translateX(0) scale(1);
         transform: translateX(0) scale(1);
