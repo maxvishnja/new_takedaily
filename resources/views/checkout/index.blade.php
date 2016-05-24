@@ -108,7 +108,27 @@
 						</fieldset>
 					</div>
 
-					<div class="card card--large">
+					<div class="card card--large m-b-30">{{-- todo translate the entire card --}}
+						<legend class="card_title">Betalingsmetode</legend>
+						<div class="clear"></div>
+						<hr class="hr--dashed hr--small-margin"/>
+
+						<div class="payment-methods">
+							<label class="payment-method-icon payment-method-icon-mastercard" data-toggle="payment-method-cc">
+								<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
+							</label>
+
+							<label class="payment-method-icon payment-method-icon-visa" data-toggle="payment-method-cc">
+								<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
+							</label>
+
+							<label class="payment-method-icon payment-method-icon-ideal" data-toggle="-">
+								<input type="radio" name="payment_method" value="ideal" class="payment_method_input"/>
+							</label>
+						</div>
+					</div>
+
+					<div class="card card--large hidden payment-type-card" id="payment-method-cc">
 						<fieldset id="payment-fieldset">
 							<legend class="card_title pull-left">{{ trans('checkout.index.order.billing.title') }}</legend>
 							<div class="pull-right secured_server">
@@ -277,6 +297,7 @@
 
 	<script>
 		Stripe.setPublishableKey('{{ env('STRIPE_API_PUBLISHABLE_KEY') }}');
+		var usesStripe = true;
 
 		function stripeResponseHandler(status, response)
 		{
@@ -304,21 +325,24 @@
 		{
 			$("#checkout-form").submit(function (event)
 			{
-				var $form = $(this);
-
-				if (!validateFormInput($form))
+				if (usesStripe)
 				{
+					var $form = $(this);
+
+					if (!validateFormInput($form))
+					{
+						return false;
+					}
+
+					// Disable the submit button to prevent repeated clicks
+					$form.find('button#button-submit').prop('disabled', true);
+					$form.addClass('form--loading');
+
+					Stripe.card.createToken($form, stripeResponseHandler);
+					// Prevent the form from submitting with the default action
+					event.preventDefault();
 					return false;
 				}
-
-				// Disable the submit button to prevent repeated clicks
-				$form.find('button#button-submit').prop('disabled', true);
-				$form.addClass('form--loading');
-
-				Stripe.card.createToken($form, stripeResponseHandler);
-				// Prevent the form from submitting with the default action
-				event.preventDefault();
-				return false;
 			});
 		});
 	</script>
@@ -328,27 +352,30 @@
 		{
 			$error = false;
 
-			$.each($("#checkout-form #payment-fieldset").find('input'), function (i, element)
+			if (usesStripe)
 			{
-				if ($(element).val() == '')
+				$.each($("#checkout-form #payment-fieldset").find('input'), function (i, element)
+				{
+					if ($(element).val() == '')
+					{
+						$error = true;
+					}
+				});
+
+				if (!$.payment.validateCardNumber($("#cc-number").val()))
 				{
 					$error = true;
 				}
-			});
 
-			if (!$.payment.validateCardNumber($("#cc-number").val()))
-			{
-				$error = true;
-			}
+				if (!$.payment.validateCardCVC($("#cc-cvc").val()))
+				{
+					$error = true;
+				}
 
-			if (!$.payment.validateCardCVC($("#cc-cvc").val()))
-			{
-				$error = true;
-			}
-
-			if (!$.payment.validateCardExpiry($("#cc-month").val() ? $("#cc-month").val() : '', $("#cc-year").val() ? $("#cc-year").val() : ''))
-			{
-				$error = true;
+				if (!$.payment.validateCardExpiry($("#cc-month").val() ? $("#cc-month").val() : '', $("#cc-year").val() ? $("#cc-year").val() : ''))
+				{
+					$error = true;
+				}
 			}
 
 			$("#checkout-form button#button-submit").prop('disabled', $error);
@@ -661,5 +688,40 @@
 	<script>
 		$("input#cc-number").payment("formatCardNumber");
 		$("input#cc-cvc").payment("formatCardCVC");
+	</script>
+
+	<script>
+		$(".payment-method-icon").click(function ()
+		{
+			$(this).parent().find('.payment-method-icon--selected').removeClass('payment-method-icon--selected');
+			$(this).addClass('payment-method-icon--selected');
+
+			$(".payment-type-card[id!='" + $(this).data('toggle') + "']").addClass('hidden');
+
+			if ($(this).data('toggle') != '-')
+			{
+				$newCard = $(".payment-type-card[id='" + $(this).data('toggle') + "']");
+
+				if ($newCard !== undefined && $newCard)
+				{
+					$newCard.removeClass('hidden');
+
+					$("body, html").stop().animate({
+						scrollTop: $newCard.offset().top
+					}, 250);
+				}
+			}
+
+			if($(".payment_method_input:checked").val() == 'stripe')
+			{
+				usesStripe = true;
+			}
+			else
+			{
+				usesStripe = false;
+			}
+
+			checkErrors();
+		});
 	</script>
 @endsection

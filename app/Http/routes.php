@@ -38,10 +38,10 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 			$product = \App\Product::whereName(\Session::get('product_name', 'subscription'))->first();
 
-			$shipping = 0;
+			$shipping      = 0;
 			$giftcardWorth = 0;
 
-			if( $giftcard )
+			if ( $giftcard )
 			{
 				$giftcardWorth = $giftcard->worth;
 			}
@@ -59,14 +59,14 @@ Route::group([ 'middleware' => 'web' ], function ()
 				$total -= $giftcard->worth;
 			}
 
-			$zone = new \App\Apricot\Libraries\TaxLibrary(trans('general.tax_zone'));
+			$zone    = new \App\Apricot\Libraries\TaxLibrary(trans('general.tax_zone'));
 			$taxRate = $zone->rate();
 
 			$taxes = $product->price * $taxRate;
 
 
 			$prices = [
-				'product' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price),
+				'product'  => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price),
 				'total'    => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($total),
 				'giftcard' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcardWorth),
 				'taxes'    => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($taxes),
@@ -103,7 +103,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Session::put('user_data', $userData);
 		Session::put('product_name', $request->get('product_name'));
 
-		if( $request->get('coupon', '') != '' )
+		if ( $request->get('coupon', '') != '' )
 		{
 			Session::put('applied_coupon', $request->get('coupon'));
 		}
@@ -176,6 +176,20 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::post('', 'CheckoutController@postCheckout');
 		Route::post('apply-coupon', 'CheckoutController@applyCoupon');
 		Route::get('get-taxrate', 'CheckoutController@getTaxRate');
+
+		// Mollie webhook
+		Route::post('mollie', function ($paymentId = 0)
+		{
+			try
+			{
+				$payment = Mollie::api()->payments()->get($paymentId);
+				Log::info($payment);
+			} catch( Mollie_API_Exception $ex )
+			{
+				Log::error($ex->getMessage());
+			}
+
+		});
 
 		Route::group([ 'middleware' => [ 'auth', 'user' ] ], function ()
 		{

@@ -153,8 +153,10 @@ return [
 		Intervention\Image\ImageServiceProvider::class,
 		Barryvdh\DomPDF\ServiceProvider::class,
 		\Jenssegers\Date\DateServiceProvider::class,
+		Mollie\Laravel\MollieServiceProvider::class,
+
 		/*
-		 * App vendor providers
+		 * App providers
 		 */
 		\App\Providers\AccountServiceProvider::class,
 		\App\Providers\CustomerServiceProvider::class,
@@ -209,6 +211,7 @@ return [
 		'Image'     => Intervention\Image\Facades\Image::class,
 		'PDF'       => Barryvdh\DomPDF\Facade::class,
 		'Date'      => Jenssegers\Date\Date::class,
+		'Mollie'    => Mollie\Laravel\Facades\Mollie::class,
 
 	],
 

@@ -1,6 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Apricot\Libraries\MoneyLibrary;
+use App\Apricot\Libraries\PaymentDelegator;
+use App\Apricot\Libraries\PaymentHandler;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\Giftcard;
@@ -10,7 +12,6 @@ use Illuminate\Http\Request;
 use Jenssegers\Date\Date;
 use Stripe\Customer;
 use Stripe\Error\Card;
-use Stripe\Stripe;
 
 class CheckoutController extends Controller
 {
@@ -68,23 +69,30 @@ class CheckoutController extends Controller
 			'info.email.email'  => trans('checkout.messages.email-invalid')
 		]);
 
-		Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
 
-		$stripeToken = $request->get('stripeToken');
+		// Payment provider
+		$paymentMethod = PaymentDelegator::getMethod($request->get('payment_method'));
+		$paymentHandler = new PaymentHandler($paymentMethod);
+
+		// Payment customer
+		$paymentCustomer = $paymentHandler->createCustomer($request->get('name'), $request->get('email'));
+
+		// Info
+		$password    = str_random(8);
 		$coupon      = $couponRepository->findByCoupon($request->get('coupon', ''));
 		$userData    = json_decode($request->get('user_data', '{}'));
 		$product     = $request->get('product_name', 'subscription');
 		$productItem = Product::where('name', $product)->first();
-		$info        = $request->get('info');
-		$password    = str_random(8);
-		$email       = strtolower($info['email']);
 		$userCreated = false;
 
+		// Taxes
 		$taxing = new TaxLibrary($info['address_country']);
 
+		// Price
 		$orderPrice        = MoneyLibrary::toMoneyFormat($productItem->price);
 		$subscriptionPrice = $productItem->is_subscription == 1 ? MoneyLibrary::toMoneyFormat($productItem->price) : 0;
 
+		// Coupon
 		$couponAmount = 0;
 
 		if ( $coupon )
@@ -106,6 +114,7 @@ class CheckoutController extends Controller
 			}
 		}
 
+		// Giftcard
 		$giftcard = null;
 
 		if ( \Session::has('giftcard_id') && \Session::has('giftcard_token') && \Session::get('product_name') == 'subscription' )
@@ -116,11 +125,12 @@ class CheckoutController extends Controller
 								->first();
 		}
 
+		// Auth / User
 		if ( \Auth::guest() )
 		{
 			$user = User::create([
-				'name'     => ucwords($info['name']),
-				'email'    => $email,
+				'name'     => ucwords($request->get('name')),
+				'email'    => $request->get('email'),
 				'password' => bcrypt($password),
 				'type'     => 'user'
 			]);
@@ -139,6 +149,16 @@ class CheckoutController extends Controller
 			$user = \Auth::user();
 		}
 
+		// Customer
+		$user->getCustomer()->setCustomerAttributes([
+			'address_city'    => $info['address_city'],
+			'address_line1'   => $info['address_street'],
+			'address_country' => $info['address_country'],
+			'address_postal'  => $info['address_zipcode'],
+			'company'         => $info['company'] ? : '',
+		]);
+
+		// Plan
 		if ( $user->getCustomer()->getPlan()->hasNoStripeCustomer() )
 		{
 			try
@@ -167,14 +187,7 @@ class CheckoutController extends Controller
 			$stripeCustomer = $user->getCustomer()->getStripeCustomer();
 		}
 
-		$user->getCustomer()->setCustomerAttributes([
-			'address_city'    => $info['address_city'],
-			'address_line1'   => $info['address_street'],
-			'address_country' => $info['address_country'],
-			'address_postal'  => $info['address_zipcode'],
-			'company'         => $info['company'] ? : '',
-		]);
-
+		// Subscription or not
 		if ( $productItem->is_subscription == 1 )
 		{
 			$user->getCustomer()->update([
@@ -226,6 +239,7 @@ class CheckoutController extends Controller
 			]);
 		}
 
+		// Giftcard, set balance
 		if ( $giftcard )
 		{
 			$user->getCustomer()->setBalance($giftcard->worth);
