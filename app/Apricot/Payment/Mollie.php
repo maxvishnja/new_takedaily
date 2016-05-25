@@ -40,7 +40,7 @@ class Mollie implements PaymentInterface
 	}
 
 	/**
-	 * @param int $amount
+	 * @param int                         $amount
 	 * @param \Mollie_API_Object_Customer $customer
 	 *
 	 * @return \Mollie_API_Object_Payment
@@ -54,7 +54,7 @@ class Mollie implements PaymentInterface
 	}
 
 	/**
-	 * @param int $amount
+	 * @param int                         $amount
 	 * @param \Mollie_API_Object_Customer $customer
 	 *
 	 * @return \Mollie_API_Object_Payment

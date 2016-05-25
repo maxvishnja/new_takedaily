@@ -193,11 +193,11 @@ Route::group([ 'middleware' => 'web' ], function ()
 			}
 
 		});
+	});
 
-		Route::group([ 'middleware' => [ 'auth', 'user' ] ], function ()
-		{
-			Route::get('success', 'CheckoutController@getSuccess');
-		});
+	Route::group([ 'middleware' => [ 'auth' ], 'prefix' => 'checkout' ], function ()
+	{
+		Route::get('success', 'CheckoutController@getSuccess');
 		Route::get('success-giftcard/{token}', 'CheckoutController@getSuccessNonSubscription');
 	});
 

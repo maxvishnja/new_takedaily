@@ -68,7 +68,6 @@ class CheckoutController extends Controller
 			'email.email'  => trans('checkout.messages.email-invalid')
 		]);
 
-
 		// Payment provider
 		$paymentMethod  = PaymentDelegator::getMethod($request->get('payment_method'));
 		$paymentHandler = new PaymentHandler($paymentMethod);
@@ -77,10 +76,10 @@ class CheckoutController extends Controller
 		$taxLibrary = new TaxLibrary($request->get('address_country'));
 
 		// Coupon Repo
-		$counponRepository = new CouponRepository();
+		$couponRepository = new CouponRepository();
 
 		// Info
-		$coupon  = $counponRepository->findByCoupon($request->get('coupon', ''));
+		$coupon  = $couponRepository->findByCoupon($request->get('coupon', ''));
 		$product = Product::where('name', $request->get('product_name', 'subscription'))->first();
 
 		// Price
@@ -117,8 +116,6 @@ class CheckoutController extends Controller
 			return \Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen.')->withInput();// todo translate
 		}
 
-		\Session::put('payment_customer_id', $paymentCustomer->id);
-
 		// Charge
 		$charge = $paymentHandler->makeInitialPayment(MoneyLibrary::toCents($subscriptionPrice), $paymentCustomer);
 
@@ -127,11 +124,19 @@ class CheckoutController extends Controller
 			return \Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen.')->withInput();// todo translate
 		}
 
-		\Session::put('charge_id', $charge->id);
-
-		\Session::put($request->except([ '_token', 'stripeToken' ]));
-		\Session::put('price', $subscriptionPrice);
-		\Session::put('order_price', $orderPrice);
+		$request->session()->put('charge_id', $charge->id);
+		$request->session()->put('payment_customer_id', $paymentCustomer->id);
+		$request->session()->put('name', $request->get('name'));
+		$request->session()->put('email', $request->get('email'));
+		$request->session()->put('address_street', $request->get('address_street'));
+		$request->session()->put('address_city', $request->get('address_city'));
+		$request->session()->put('address_zipcode', $request->get('address_zipcode'));
+		$request->session()->put('address_country', $request->get('address_country'));
+		$request->session()->put('company', $request->get('company'));
+		$request->session()->put('product_name', $request->get('product_name'));
+		$request->session()->put('user_data', $request->get('user_data'));
+		$request->session()->put('price', $subscriptionPrice);
+		$request->session()->put('order_price', $orderPrice);
 
 		// Redirect
 		if ( isset($charge->links) && isset($charge->links->paymentUrl) )
@@ -150,19 +155,27 @@ class CheckoutController extends Controller
 
 		if ( !$isSuccessful )
 		{
-			Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen!')->withInput($request->session()->all()); // todo translate
+			return \Redirect::action('CheckoutController@getCheckout')->withErrors('Der skete en fejl under betalingen, prøv igen!')->withInput([
+				'name' => $request->session()->get('name'),
+				'email' => $request->session()->get('email'),
+				'address_street' => $request->session()->get('address_street'),
+				'address_city' => $request->session()->get('address_city'),
+				'address_country' => $request->session()->get('address_country'),
+				'address_country' => $request->session()->get('address_country'),
+				'company' => $request->session()->get('company')
+			]); // todo translate
 		}
 
 		// Info
 		$password = str_random(8);
-		$userData = json_decode($request->session()->get('user_data', '{}'));
+		$userData = json_decode(($request->session()->get('user_data', '{}')));
 		$product  = Product::where('name', $request->session()->get('product_name', 'subscription'))->first();
 
 		// Taxes
 		$taxLibrary = new TaxLibrary($request->session()->get('address_country'));
 
 		// Coupon Repo
-		$counponRepository = new CouponRepository();
+		$couponRepository = new CouponRepository();
 
 		// User
 		$user = User::create([
@@ -183,26 +196,26 @@ class CheckoutController extends Controller
 
 		// Plan
 		$user->getCustomer()->getPlan()->update([
-			'payment_customer_token' => \Session::get('charge_id'),
+			'payment_customer_token' => $request->session()->get('charge_id'),
 			'payment_method'         => $request->session()->get('payment_customer_id')
 		]);
 
 		// Giftcard
 		$giftcard = null;
 
-		if ( \Session::has('giftcard_id') && \Session::has('giftcard_token') && \Session::get('product_name') == 'subscription' )
+		if ( $request->session()->has('giftcard_id') && $request->session()->has('giftcard_token') && $request->session()->get('product_name') == 'subscription' )
 		{
-			$giftcard = Giftcard::where('id', \Session::get('giftcard_id'))
-								->where('token', \Session::get('giftcard_token'))
+			$giftcard = Giftcard::where('id', $request->session()->get('giftcard_id'))
+								->where('token', $request->session()->get('giftcard_token'))
 								->where('is_used', 0)
 								->first();
 		}
 
 		// Coupon
-		$coupon       = $counponRepository->findByCoupon($request->get('coupon', ''));
-		$couponAmount = 0;
+		$coupon            = $couponRepository->findByCoupon($request->get('coupon', ''));
+		$couponAmount      = 0;
 		$subscriptionPrice = $request->session()->get('price');
-		$orderPrice = $request->session()->get('order_price');
+		$orderPrice        = $request->session()->get('order_price');
 
 		if ( $coupon )
 		{
@@ -317,11 +330,11 @@ class CheckoutController extends Controller
 
 		if ( $product->is_subscription == 1 )
 		{
+			$request->session()->flush();
 			$upsellToken = str_random();
 			\Auth::login($user, true);
-			\Session::put('upsell_token', $upsellToken);
-			\Session::put('user_data', $userData);
-			\Session::put('product_name', $product->name);
+			$request->session()->put('upsell_token', $upsellToken);
+			$request->session()->put('product_name', $product->name);
 
 			return \Redirect::action('CheckoutController@getSuccess')->with([ 'order_created' => true, 'upsell' => true ]);
 		}
