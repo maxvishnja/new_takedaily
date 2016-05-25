@@ -177,6 +177,9 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::post('apply-coupon', 'CheckoutController@applyCoupon');
 		Route::get('get-taxrate', 'CheckoutController@getTaxRate');
 
+		// Charge verify
+		Route::get('verify/{method}', 'CheckoutController@getVerify');
+
 		// Mollie webhook
 		Route::post('mollie', function ($paymentId = 0)
 		{

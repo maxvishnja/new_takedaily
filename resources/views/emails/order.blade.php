@@ -20,7 +20,7 @@
 		<tbody>
 		<tr>
 			<td style="border: 1px solid #ddd; padding: 7px;"><strong>Bestilling</strong></td>
-			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans("products.{$description}")  }}</td>
+			<td style="border: 1px solid #ddd; padding: 7px;">{{ $description }}</td>
 		</tr>
 		<tr>
 			<td style="border: 1px solid #ddd; padding: 7px;"><strong>Subtotal</strong></td>

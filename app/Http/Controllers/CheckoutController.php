@@ -10,8 +10,6 @@ use App\Product;
 use App\User;
 use Illuminate\Http\Request;
 use Jenssegers\Date\Date;
-use Stripe\Customer;
-use Stripe\Error\Card;
 
 class CheckoutController extends Controller
 {
@@ -54,43 +52,40 @@ class CheckoutController extends Controller
 		return \Response::json([ 'rate' => $zone->rate() ]);
 	}
 
-	function postCheckout(CouponRepository $couponRepository, Request $request)
+	function postCheckout(Request $request)
 	{
 		$this->validate($request, [
-			'info.email'           => 'email|required|unique:users,email' . (\Auth::user() ? (',' . \Auth::user()->id) : ''),
-			'info.name'            => 'required',
-			'info.address_street'  => 'required',
-			'info.address_zipcode' => 'required',
-			'info.address_city'    => 'required',
-			'info.address_country' => 'required',
-			'stripeToken'          => 'required'
+			'email'           => 'email|required|unique:users,email',
+			'name'            => 'required',
+			'address_street'  => 'required',
+			'address_zipcode' => 'required',
+			'address_city'    => 'required',
+			'address_country' => 'required',
+			'payment_method'  => 'required',
+			'stripeToken'     => 'required_if:payment_method,stripe'
 		], [
-			'info.email.unique' => trans('checkout.messages.email-taken'),
-			'info.email.email'  => trans('checkout.messages.email-invalid')
+			'email.unique' => trans('checkout.messages.email-taken'),
+			'email.email'  => trans('checkout.messages.email-invalid')
 		]);
 
 
 		// Payment provider
-		$paymentMethod = PaymentDelegator::getMethod($request->get('payment_method'));
+		$paymentMethod  = PaymentDelegator::getMethod($request->get('payment_method'));
 		$paymentHandler = new PaymentHandler($paymentMethod);
 
-		// Payment customer
-		$paymentCustomer = $paymentHandler->createCustomer($request->get('name'), $request->get('email'));
+		// Taxes
+		$taxLibrary = new TaxLibrary($request->get('address_country'));
+
+		// Coupon Repo
+		$counponRepository = new CouponRepository();
 
 		// Info
-		$password    = str_random(8);
-		$coupon      = $couponRepository->findByCoupon($request->get('coupon', ''));
-		$userData    = json_decode($request->get('user_data', '{}'));
-		$product     = $request->get('product_name', 'subscription');
-		$productItem = Product::where('name', $product)->first();
-		$userCreated = false;
-
-		// Taxes
-		$taxing = new TaxLibrary($info['address_country']);
+		$coupon  = $counponRepository->findByCoupon($request->get('coupon', ''));
+		$product = Product::where('name', $request->get('product_name', 'subscription'))->first();
 
 		// Price
-		$orderPrice        = MoneyLibrary::toMoneyFormat($productItem->price);
-		$subscriptionPrice = $productItem->is_subscription == 1 ? MoneyLibrary::toMoneyFormat($productItem->price) : 0;
+		$orderPrice        = MoneyLibrary::toMoneyFormat($product->price);
+		$subscriptionPrice = $product->is_subscription == 1 ? MoneyLibrary::toMoneyFormat($product->price) : 0;
 
 		// Coupon
 		$couponAmount = 0;
@@ -114,6 +109,84 @@ class CheckoutController extends Controller
 			}
 		}
 
+		// Payment customer
+		$paymentCustomer = $paymentHandler->createCustomer($request->get('name'), $request->get('email'));
+
+		if ( !$paymentCustomer )
+		{
+			return \Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen.')->withInput();// todo translate
+		}
+
+		\Session::put('payment_customer_id', $paymentCustomer->id);
+
+		// Charge
+		$charge = $paymentHandler->makeInitialPayment(MoneyLibrary::toCents($subscriptionPrice), $paymentCustomer);
+
+		if ( !$charge )
+		{
+			return \Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen.')->withInput();// todo translate
+		}
+
+		\Session::put('charge_id', $charge->id);
+
+		\Session::put($request->except([ '_token', 'stripeToken' ]));
+		\Session::put('price', $subscriptionPrice);
+		\Session::put('order_price', $orderPrice);
+
+		// Redirect
+		if ( isset($charge->links) && isset($charge->links->paymentUrl) )
+		{
+			return \Redirect::to($charge->links->paymentUrl);
+		}
+
+		return \Redirect::action('CheckoutController@getVerify', [ 'method' => $request->get('payment_method') ]);
+	}
+
+	function getVerify($method, Request $request)
+	{
+		$paymentMethod = new PaymentHandler(PaymentDelegator::getMethod($method));
+
+		$isSuccessful = $paymentMethod->isChargeValid($request->session()->get('charge_id'));
+
+		if ( !$isSuccessful )
+		{
+			Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen!')->withInput($request->session()->all()); // todo translate
+		}
+
+		// Info
+		$password = str_random(8);
+		$userData = json_decode($request->session()->get('user_data', '{}'));
+		$product  = Product::where('name', $request->session()->get('product_name', 'subscription'))->first();
+
+		// Taxes
+		$taxLibrary = new TaxLibrary($request->session()->get('address_country'));
+
+		// Coupon Repo
+		$counponRepository = new CouponRepository();
+
+		// User
+		$user = User::create([
+			'name'     => ucwords($request->session()->get('name')),
+			'email'    => $request->session()->get('email'),
+			'password' => bcrypt($password),
+			'type'     => 'user'
+		]);
+
+		// Customer
+		$user->getCustomer()->setCustomerAttributes([
+			'address_city'    => $request->session()->get('address_city'),
+			'address_line1'   => $request->session()->get('address_street'),
+			'address_country' => $request->session()->get('address_country'),
+			'address_postal'  => $request->session()->get('address_zipcode'),
+			'company'         => $request->session()->get('company'),
+		]);
+
+		// Plan
+		$user->getCustomer()->getPlan()->update([
+			'payment_customer_token' => \Session::get('charge_id'),
+			'payment_method'         => $request->session()->get('payment_customer_id')
+		]);
+
 		// Giftcard
 		$giftcard = null;
 
@@ -125,70 +198,33 @@ class CheckoutController extends Controller
 								->first();
 		}
 
-		// Auth / User
-		if ( \Auth::guest() )
+		// Coupon
+		$coupon       = $counponRepository->findByCoupon($request->get('coupon', ''));
+		$couponAmount = 0;
+		$subscriptionPrice = $request->session()->get('price');
+		$orderPrice = $request->session()->get('order_price');
+
+		if ( $coupon )
 		{
-			$user = User::create([
-				'name'     => ucwords($request->get('name')),
-				'email'    => $request->get('email'),
-				'password' => bcrypt($password),
-				'type'     => 'user'
-			]);
-
-			$userCreated = true;
-
-			if ( $productItem->is_subscription == 1 )
+			if ( $coupon->discount_type == 'percentage' )
 			{
-				\Auth::login($user, true);
-				\Session::put('user_data', $userData);
-				\Session::put('product_name', $product);
+				$orderPrice -= $orderPrice * ($coupon->discount / 100);
+				$couponAmount = $orderPrice * ($coupon->discount / 100);
 			}
-		}
-		else
-		{
-			$user = \Auth::user();
-		}
-
-		// Customer
-		$user->getCustomer()->setCustomerAttributes([
-			'address_city'    => $info['address_city'],
-			'address_line1'   => $info['address_street'],
-			'address_country' => $info['address_country'],
-			'address_postal'  => $info['address_zipcode'],
-			'company'         => $info['company'] ? : '',
-		]);
-
-		// Plan
-		if ( $user->getCustomer()->getPlan()->hasNoStripeCustomer() )
-		{
-			try
+			elseif ( $coupon->discount_type == 'amount' )
 			{
-				$stripeCustomer = Customer::create([
-					"description" => "Customer for {$email}",
-					"source"      => $stripeToken
-				]);
-
-				$user->getCustomer()->getPlan()->update([
-					'stripe_token' => $stripeCustomer->id
-				]);
-			} catch( Card $ex )
-			{
-				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
-			} catch( \Exception $ex )
-			{
-				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
-			} catch( \Error $ex )
-			{
-				return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => $ex->getMessage() ]) ])->withInput();
+				$orderPrice -= MoneyLibrary::toMoneyFormat($coupon->discount);
+				$couponAmount = $coupon->discount;
 			}
-		}
-		else
-		{
-			$stripeCustomer = $user->getCustomer()->getStripeCustomer();
+
+			if ( $coupon->applies_to == 'plan' )
+			{
+				$subscriptionPrice = $orderPrice;
+			}
 		}
 
 		// Subscription or not
-		if ( $productItem->is_subscription == 1 )
+		if ( $product->is_subscription == 1 )
 		{
 			$user->getCustomer()->update([
 				'birthdate' => $userData->birthdate,
@@ -196,9 +232,8 @@ class CheckoutController extends Controller
 			]);
 
 			$user->getCustomer()->getPlan()->update([
-				'stripe_token'              => $stripeCustomer->id,
 				'price'                     => MoneyLibrary::toCents($subscriptionPrice),
-				'price_shipping'            => 0,
+				'price_shipping'            => 0, // todo un-hardcode
 				'subscription_started_at'   => Date::now(),
 				'subscription_rebill_at'    => Date::now()->addMonth(),
 				'subscription_cancelled_at' => null
@@ -232,9 +267,8 @@ class CheckoutController extends Controller
 		else
 		{
 			$user->getCustomer()->getPlan()->update([
-				'stripe_token'              => $stripeCustomer->id,
 				'price'                     => MoneyLibrary::toCents($subscriptionPrice),
-				'price_shipping'            => 0,
+				'price_shipping'            => 0, // todo un-hardcode
 				'subscription_cancelled_at' => date('Y-m-d H:i:s')
 			]);
 		}
@@ -245,18 +279,11 @@ class CheckoutController extends Controller
 			$user->getCustomer()->setBalance($giftcard->worth);
 		}
 
-		$stripeCharge = $user->getCustomer()->charge(MoneyLibrary::toCents($orderPrice), true, $product, $coupon);
-
-		if ( !$stripeCharge )
-		{
-			return \Redirect::back()->withErrors([ trans('checkout.messages.payment-error', [ 'error' => \Session::get('error_message') ]) ])->withInput();
-		}
-
-		if ( str_contains($product, 'giftcard') )
+		if ( str_contains($product->name, 'giftcard') )
 		{
 			$giftcard = Giftcard::create([
 				'token' => strtoupper(str_random()),
-				'worth' => $productItem->price
+				'worth' => $product->price
 			]);
 		}
 
@@ -271,12 +298,12 @@ class CheckoutController extends Controller
 		}
 
 		$data = [
-			'password'      => $userCreated ? $password : null,
-			'giftcard'      => $productItem->is_subscription == 0 ? $giftcard->token : null,
-			'description'   => $product,
+			'password'      => $password,
+			'giftcard'      => $product->is_subscription == 0 ? ($giftcard ? $giftcard->token : null) : null,
+			'description'   => trans("products.{$product->name}"),
 			'priceTotal'    => MoneyLibrary::toCents($orderPrice),
-			'priceSubtotal' => MoneyLibrary::toCents($orderPrice * $taxing->reversedRate()),
-			'priceTaxes'    => MoneyLibrary::toCents($orderPrice * $taxing->rate())
+			'priceSubtotal' => MoneyLibrary::toCents($orderPrice * $taxLibrary->reversedRate()),
+			'priceTaxes'    => MoneyLibrary::toCents($orderPrice * $taxLibrary->rate())
 		];
 
 		$mailEmail = $user->getEmail();
@@ -288,10 +315,13 @@ class CheckoutController extends Controller
 			$message->subject(trans('checkout.mail.subject'));
 		});
 
-		if ( $productItem->is_subscription == 1 )
+		if ( $product->is_subscription == 1 )
 		{
 			$upsellToken = str_random();
+			\Auth::login($user, true);
 			\Session::put('upsell_token', $upsellToken);
+			\Session::put('user_data', $userData);
+			\Session::put('product_name', $product->name);
 
 			return \Redirect::action('CheckoutController@getSuccess')->with([ 'order_created' => true, 'upsell' => true ]);
 		}

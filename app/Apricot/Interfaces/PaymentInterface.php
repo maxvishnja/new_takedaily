@@ -34,4 +34,11 @@ interface PaymentInterface
 	 * @return mixed
 	 */
 	public function makeRebill($amount, $customer);
+
+	/**
+	 * @param $chargeId
+	 *
+	 * @return bool
+	 */
+	public function validateCharge($chargeId);
 }

@@ -10,6 +10,11 @@ class PaymentDelegator
 
 	public static function getMethod($name)
 	{
+		if(!isset(self::$methods[$name]))
+		{
+			return false;
+		}
+
 		return new self::$methods[$name];
 	}
 }

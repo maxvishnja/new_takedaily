@@ -1,5 +1,7 @@
 <?php namespace App;
 
+use App\Apricot\Libraries\PaymentDelegator;
+use App\Apricot\Libraries\PaymentHandler;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jenssegers\Date\Date;
@@ -9,7 +11,8 @@ use Jenssegers\Date\Date;
  * @package App
  *
  * @property integer id
- * @property string  stripe_token
+ * @property string  payment_customer_token
+ * @property string  payment_method
  * @property integer price
  * @property integer price_shipping
  * @property mixed   subscription_started_at
@@ -38,7 +41,8 @@ class Plan extends Model
 	 * @var array
 	 */
 	protected $fillable = [
-		'stripe_token',
+		'payment_customer_token',
+		'payment_method',
 		'price',
 		'price_shipping',
 		'subscription_started_at',
@@ -179,14 +183,33 @@ class Plan extends Model
 		return $this->price_shipping;
 	}
 
-	public function getStripeToken()
+	public function getStripeToken() // todo remove
 	{
 		return $this->stripe_token;
 	}
 
-	public function hasNoStripeCustomer()
+	public function getPaymentCustomerToken()
 	{
-		return $this->getStripeToken() == '';
+		return $this->payment_customer_token;
+	}
+
+	public function getPaymentMethod()
+	{
+		return $this->payment_method;
+	}
+
+	public function hasNoPaymentCustomer()
+	{
+		return $this->getPaymentCustomerToken() == '';
+	}
+
+	public function getPaymentCustomer()
+	{
+		$customerToken = $this->getPaymentCustomerToken();
+
+		$paymentMethod = new PaymentHandler(PaymentDelegator::getMethod($this->getPaymentMethod()));
+
+		return $paymentMethod->getCustomer($customerToken);
 	}
 
 }

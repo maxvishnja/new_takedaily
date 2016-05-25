@@ -17,7 +17,7 @@ class Mollie implements PaymentInterface
 		$charge = [
 			"amount"      => MoneyLibrary::toMoneyFormat($amount, true, 2, '.', ''),
 			"description" => $description,
-			"redirectUrl" => URL::to('checkout/verify-mollie')
+			"redirectUrl" => \URL::to('checkout/verify/mollie'),
 		];
 
 		$charge = array_merge($charge, $data);
@@ -33,7 +33,7 @@ class Mollie implements PaymentInterface
 	 */
 	public function createCustomer($name, $email)
 	{
-		return \Mollie::api()->customers->create([
+		return \Mollie::api()->customers()->create([
 			"name"  => $name,
 			"email" => $email,
 		]);
@@ -68,6 +68,19 @@ class Mollie implements PaymentInterface
 			'customerId'    => $customer->id,
 			'recurringType' => 'recurring'
 		]);
+	}
+
+	/**
+	 * @param $chargeId
+	 *
+	 * @return bool
+	 */
+	public function validateCharge($chargeId)
+	{
+		/** @var \Mollie_API_Object_Payment $payment */
+		$payment = \Mollie::api()->payments()->get($chargeId);
+
+		return $payment->isPaid();
 	}
 
 }

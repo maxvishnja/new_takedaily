@@ -25,4 +25,9 @@ class PaymentHandler
 	{
 		return $this->provider->makeFirstPayment($amount, $customer);
 	}
+
+	public function isChargeValid($chargeId)
+	{
+		return $this->provider->validateCharge($chargeId);
+	}
 }
