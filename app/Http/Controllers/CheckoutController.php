@@ -168,7 +168,7 @@ class CheckoutController extends Controller
 
 		// Info
 		$password = str_random(8);
-		$userData = json_decode(($request->session()->get('user_data', '{}')));
+		$userData = json_decode($request->session()->get('user_data', '{}'));
 		$product  = Product::where('name', $request->session()->get('product_name', 'subscription'))->first();
 
 		// Taxes
