@@ -124,7 +124,7 @@ class CheckoutController extends Controller
 			return \Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen.')->withInput();// todo translate
 		}
 
-		$request->session()->put('charge_id', $charge->id);
+		$request->session()->put('cha rge_id', $charge->id);
 		$request->session()->put('payment_customer_id', $paymentCustomer->id);
 		$request->session()->put('name', $request->get('name'));
 		$request->session()->put('email', $request->get('email'));

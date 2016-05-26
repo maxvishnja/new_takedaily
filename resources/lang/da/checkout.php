@@ -51,6 +51,7 @@ return [
 				'title'  => 'Kortoplysninger',
 				'secure' => 'Sikret forbindelse',
 				'card'   => [
+					'name'               => 'Navn på kortet',
 					'number'             => 'Kortnummer',
 					'number-placeholder' => '4111 1111 1111 1111',
 					'month'              => 'Måned',

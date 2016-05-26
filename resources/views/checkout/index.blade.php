@@ -140,6 +140,14 @@
 							<span id="payment-errors"></span>
 
 							<div class="row m-b-50">
+								<!-- NAME -->
+								<div class="col-md-12">
+									<label class="label label--full checkout--label" for="cc-name">{{ trans('checkout.index.order.billing.card.name') }}</label>
+									<input type="text" class="input input--medium input--spacing input--semibold input--full" id="cc-name" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" autocomplete="cc-name" data-stripe="name" required="required"/>
+								</div>
+							</div>
+
+							<div class="row m-b-50">
 								<div class="col-md-7">
 									<!-- Card Number -->
 									<label class="label label--full checkout--label" for="cc-number">{{ trans('checkout.index.order.billing.card.number') }}</label>
@@ -181,7 +189,7 @@
 									<!-- CVV/CVC -->
 									<label class="label label--full checkout--label" for="cc-cvc" title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }}
 										({{ trans('checkout.index.order.billing.card.cvc-title') }})</label>
-									<input type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-cvc" autocomplete="off" size="4" maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" class="card-cvc form-control" data-stripe="cvc" required="required" pattern="\d*"/>
+									<input type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-cvc" autocomplete="cc-csc" size="4" maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" class="card-cvc form-control" data-stripe="cvc" required="required" pattern="\d*"/>
 								</div>
 							</div>
 
