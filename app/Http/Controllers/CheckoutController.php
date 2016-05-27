@@ -62,7 +62,8 @@ class CheckoutController extends Controller
 			'address_city'    => 'required',
 			'address_country' => 'required',
 			'payment_method'  => 'required',
-			'stripeToken'     => 'required_if:payment_method,stripe'
+			'stripeToken'     => 'required_if:payment_method,stripe',
+			'user_data'       => 'required'
 		], [
 			'email.unique' => trans('checkout.messages.email-taken'),
 			'email.email'  => trans('checkout.messages.email-invalid')
@@ -124,7 +125,7 @@ class CheckoutController extends Controller
 			return \Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen.')->withInput();// todo translate
 		}
 
-		$request->session()->put('cha rge_id', $charge->id);
+		$request->session()->put('charge_id', $charge->id);
 		$request->session()->put('payment_customer_id', $paymentCustomer->id);
 		$request->session()->put('name', $request->get('name'));
 		$request->session()->put('email', $request->get('email'));
@@ -156,13 +157,13 @@ class CheckoutController extends Controller
 		if ( !$isSuccessful )
 		{
 			return \Redirect::action('CheckoutController@getCheckout')->withErrors('Der skete en fejl under betalingen, prøv igen!')->withInput([
-				'name' => $request->session()->get('name'),
-				'email' => $request->session()->get('email'),
-				'address_street' => $request->session()->get('address_street'),
-				'address_city' => $request->session()->get('address_city'),
+				'name'            => $request->session()->get('name'),
+				'email'           => $request->session()->get('email'),
+				'address_street'  => $request->session()->get('address_street'),
+				'address_city'    => $request->session()->get('address_city'),
 				'address_country' => $request->session()->get('address_country'),
 				'address_country' => $request->session()->get('address_country'),
-				'company' => $request->session()->get('company')
+				'company'         => $request->session()->get('company')
 			]); // todo translate
 		}
 
