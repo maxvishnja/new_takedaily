@@ -651,7 +651,13 @@
 												</td>
 											</tr>
 										@endif
-										@if($giftcard)
+										@if($prices['coupon'] > 0)
+											<tr>
+												<td>{{ trans('checkout.index.total.coupon') }}</td>
+												<td>{{ trans('general.money', ['amount' => $prices['coupon']]) }}</td>
+											</tr>
+										@endif
+										@if($giftcard && $giftcard->worth > 0)
 											<tr>
 												<td>{{ trans('checkout.index.total.giftcard	') }}</td>
 												<td>{{ trans('general.money', ['amount' => $giftcard->worth]) }}</td>

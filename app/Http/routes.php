@@ -38,7 +38,29 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 			$product = \App\Product::whereName(\Session::get('product_name', 'subscription'))->first();
 
-			$shipping      = 0;
+			$shipping = 0;
+
+			// Coupon
+			$couponWorth = 0;
+			if ( \Session::has('applied_coupon') )
+			{
+				$couponRepository = new \App\Apricot\Repositories\CouponRepository();
+				$coupon           = $couponRepository->findByCoupon(\Session::get('applied_coupon'));
+
+				if ( $coupon )
+				{
+					if ( $coupon->discount_type == 'percentage' )
+					{
+						$couponWorth = ($product->price + $shipping) * ($coupon->discount / 100);
+					}
+					elseif ( $coupon->discount_type == 'amount' )
+					{
+						$couponWorth = MoneyLibrary::toMoneyFormat($coupon->discount);
+					}
+				}
+			}
+
+			// Giftcard
 			$giftcardWorth = 0;
 
 			if ( $giftcard )
@@ -53,11 +75,8 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 			$total = $product->price;
 			$total += $shipping;
-
-			if ( $giftcard )
-			{
-				$total -= $giftcard->worth;
-			}
+			$total -= $giftcardWorth;
+			$total -= $couponWorth;
 
 			$zone    = new \App\Apricot\Libraries\TaxLibrary(trans('general.tax_zone'));
 			$taxRate = $zone->rate();
@@ -69,6 +88,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 				'product'  => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price),
 				'total'    => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($total),
 				'giftcard' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcardWorth),
+				'coupon'   => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($couponWorth),
 				'taxes'    => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($taxes),
 				'shipping' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($shipping),
 			];

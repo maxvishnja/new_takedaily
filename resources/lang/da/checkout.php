@@ -69,6 +69,7 @@ return [
 			'free'     => 'Gratis',
 			'giftcard' => 'Gavekort værdi',
 			'taxes'    => 'Heraf moms',
+			'coupon'   => 'Rabatkode',
 			'total'    => 'Total'
 		],
 		'coupon'     => [

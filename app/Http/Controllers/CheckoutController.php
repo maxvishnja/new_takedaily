@@ -88,19 +88,15 @@ class CheckoutController extends Controller
 		$subscriptionPrice = $product->is_subscription == 1 ? MoneyLibrary::toMoneyFormat($product->price) : 0;
 
 		// Coupon
-		$couponAmount = 0;
-
 		if ( $coupon )
 		{
 			if ( $coupon->discount_type == 'percentage' )
 			{
 				$orderPrice -= $orderPrice * ($coupon->discount / 100);
-				$couponAmount = $orderPrice * ($coupon->discount / 100);
 			}
 			elseif ( $coupon->discount_type == 'amount' )
 			{
 				$orderPrice -= MoneyLibrary::toMoneyFormat($coupon->discount);
-				$couponAmount = $coupon->discount;
 			}
 
 			if ( $coupon->applies_to == 'plan' )
@@ -118,7 +114,7 @@ class CheckoutController extends Controller
 		}
 
 		// Charge
-		$charge = $paymentHandler->makeInitialPayment(MoneyLibrary::toCents($subscriptionPrice), $paymentCustomer);
+		$charge = $paymentHandler->makeInitialPayment(MoneyLibrary::toCents($orderPrice), $paymentCustomer);
 
 		if ( !$charge )
 		{
@@ -214,7 +210,6 @@ class CheckoutController extends Controller
 
 		// Coupon
 		$coupon            = $couponRepository->findByCoupon($request->get('coupon', ''));
-		$couponAmount      = 0;
 		$subscriptionPrice = $request->session()->get('price');
 		$orderPrice        = $request->session()->get('order_price');
 
@@ -223,12 +218,10 @@ class CheckoutController extends Controller
 			if ( $coupon->discount_type == 'percentage' )
 			{
 				$orderPrice -= $orderPrice * ($coupon->discount / 100);
-				$couponAmount = $orderPrice * ($coupon->discount / 100);
 			}
 			elseif ( $coupon->discount_type == 'amount' )
 			{
 				$orderPrice -= MoneyLibrary::toMoneyFormat($coupon->discount);
-				$couponAmount = $coupon->discount;
 			}
 
 			if ( $coupon->applies_to == 'plan' )
