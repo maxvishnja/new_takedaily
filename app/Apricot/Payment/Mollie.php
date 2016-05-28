@@ -65,9 +65,10 @@ class Mollie implements PaymentInterface
 
 		$hasValidMandate = false;
 
+		/** @var \Mollie_API_Object_Customer_Mandate $mandate */
 		foreach($mandates as $mandate)
 		{
-			if( $mandate->status == 'valid' )
+			if( $mandate->isValid() )
 			{
 				$hasValidMandate = true;
 			}
@@ -104,7 +105,7 @@ class Mollie implements PaymentInterface
 	 */
 	public function findOrder($orderId)
 	{
-		return \Mollie::api()->payments()->get($chargeId);
+		return \Mollie::api()->payments()->get($orderId);
 	}
 
 	/**
