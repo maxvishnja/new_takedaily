@@ -41,4 +41,18 @@ interface PaymentInterface
 	 * @return bool
 	 */
 	public function validateCharge($chargeId);
+
+	/**
+	 * @param $orderId
+	 *
+	 * @return bool
+	 */
+	public function findOrder($orderId);
+
+	/**
+	 * @param $customerId
+	 *
+	 * @return bool
+	 */
+	public function findCustomer($customerId);
 }

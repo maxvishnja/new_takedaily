@@ -2,6 +2,8 @@
 
 use App\Apricot\Libraries\CombinationLibrary;
 use App\Apricot\Libraries\MoneyLibrary;
+use App\Apricot\Libraries\PaymentDelegator;
+use App\Apricot\Libraries\PaymentHandler;
 use App\Apricot\Libraries\StripeLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Events\CustomerWasBilled;
@@ -201,7 +203,7 @@ class Customer extends Model
 			return false;
 		}
 
-		if( ! $this->charge(MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice(), true, 'subscription', '') )
+		if ( !$this->charge(MoneyLibrary::toCents($amount) ? : $this->getSubscriptionPrice(), true, 'subscription', '') )
 		{
 			return false;
 		}
@@ -211,7 +213,7 @@ class Customer extends Model
 		return true;
 	}
 
-	public function getStripeCustomer()
+	public function getStripeCustomer() // todo convert to paymentHandler
 	{
 		$lib = new StripeLibrary();
 
@@ -221,7 +223,7 @@ class Customer extends Model
 	/**
 	 * @return Card
 	 */
-	public function getStripePaymentSource()
+	public function getStripePaymentSource() // todo convert to paymentHandler
 	{
 		$stripeCustomer = $this->getStripeCustomer();
 
@@ -260,7 +262,7 @@ class Customer extends Model
 		return true;
 	}
 
-	public function removePaymentOption()
+	public function removePaymentOption() // todo convert to paymentHandler
 	{
 		$stripeCustomer = $this->getStripeCustomer();
 		$stripeSource   = $this->getStripePaymentSource();
@@ -283,7 +285,7 @@ class Customer extends Model
 		return $this->orders()->where('id', $id)->first();
 	}
 
-	public function makeOrder($amount = 100, $stripeChargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null)
+	public function makeOrder($amount = 100, $chargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null)
 	{
 		$taxing = new TaxLibrary($this->getCustomerAttribute('address_country'));
 
@@ -291,19 +293,20 @@ class Customer extends Model
 		$taxes    = $amount * $taxing->rate();
 
 		$order = $this->orders()->create([
-			'reference'           => (str_random(8) . '-' . str_random(2) . '-' . str_pad($this->getOrders()->count() + 1, 4, '0', STR_PAD_LEFT)),
-			'stripe_charge_token' => $stripeChargeToken ? : '',
-			'state'               => ($stripeChargeToken ? 'paid' : 'new'),
-			'total'               => $amount,
-			'total_shipping'      => $shipping,
-			'sub_total'           => $amount - $shipping - $taxes,
-			'total_taxes'         => $taxes,
-			'shipping_name'       => $this->getName(),
-			'shipping_street'     => $this->getCustomerAttribute('address_line1'),
-			'shipping_city'       => $this->getCustomerAttribute('address_city'),
-			'shipping_country'    => $this->getCustomerAttribute('address_country'),
-			'shipping_zipcode'    => $this->getCustomerAttribute('address_postal'),
-			'shipping_company'    => $this->getCustomerAttribute('company')
+			'reference'        => (str_random(8) . '-' . str_random(2) . '-' . str_pad($this->getOrders()->count() + 1, 4, '0', STR_PAD_LEFT)),
+			'payment_token'    => $chargeToken ? : '',
+			'payment_method'   => $this->getPlan()->getPaymentMethod(),
+			'state'            => ($chargeToken ? 'paid' : 'new'),
+			'total'            => $amount,
+			'total_shipping'   => $shipping,
+			'sub_total'        => $amount - $shipping - $taxes,
+			'total_taxes'      => $taxes,
+			'shipping_name'    => $this->getName(),
+			'shipping_street'  => $this->getCustomerAttribute('address_line1'),
+			'shipping_city'    => $this->getCustomerAttribute('address_city'),
+			'shipping_country' => $this->getCustomerAttribute('address_country'),
+			'shipping_zipcode' => $this->getCustomerAttribute('address_postal'),
+			'shipping_company' => $this->getCustomerAttribute('company')
 		]);
 
 		$product = Product::where('name', $product_name)->first();
@@ -352,7 +355,7 @@ class Customer extends Model
 				'description'  => 'coupon',
 				'amount'       => 0,
 				'tax_amount'   => 0,
-				'total_amount' => $couponAmount * -1
+				'total_amount' => $couponAmount * - 1
 			]);
 		}
 
@@ -377,7 +380,8 @@ class Customer extends Model
 
 	public function charge($amount, $makeOrder = true, $product = 'subscription', $coupon)
 	{
-		$lib = new StripeLibrary();
+		/** @var PaymentHandler $paymentHandler */
+		$paymentHandler = new PaymentHandler(PaymentDelegator::getMethod($this->getPlan()->getPaymentMethod()));
 
 		$chargeId    = '';
 		$usedBalance = false;
@@ -394,7 +398,7 @@ class Customer extends Model
 
 		if ( $amount > 0 )
 		{
-			$charge = $lib->chargeCustomer($this, null, $amount);
+			$charge = $paymentHandler->makeRebill($amount, $this->getPlan()->getPaymentCustomer());
 
 			if ( !$charge )
 			{
@@ -405,7 +409,7 @@ class Customer extends Model
 		}
 		else
 		{
-			if( $chargeId == '')
+			if ( $chargeId == '' )
 			{
 				$chargeId = 'free';
 			}

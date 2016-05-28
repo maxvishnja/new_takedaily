@@ -15,7 +15,7 @@ class CustomerWasBilled extends Event
 
 	public $customer;
 	public $orderAmount;
-	public $stripeToken;
+	public $chargeToken;
 	public $product;
 	public $balance;
 	public $balanceAmount;
@@ -26,17 +26,17 @@ class CustomerWasBilled extends Event
 	 *
 	 * @param \App\Customer $customer
 	 * @param int           $amount
-	 * @param string        $stripeToken
+	 * @param string        $chargeToken
 	 * @param string        $product
 	 * @param bool          $balance
 	 * @param int           $balanceAmount
 	 * @param mixed         $coupon
 	 */
-	public function __construct(Customer $customer, $amount = 100, $stripeToken = '', $product = 'subscription', $balance = false, $balanceAmount = 0, $coupon)
+	public function __construct(Customer $customer, $amount = 100, $chargeToken = '', $product = 'subscription', $balance = false, $balanceAmount = 0, $coupon)
 	{
 		$this->customer      = $customer;
 		$this->orderAmount   = $amount;
-		$this->stripeToken   = $stripeToken;
+		$this->chargeToken   = $chargeToken;
 		$this->product       = $product;
 		$this->balance       = $balance;
 		$this->balanceAmount = $balanceAmount;

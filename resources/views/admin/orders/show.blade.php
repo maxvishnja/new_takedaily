@@ -41,7 +41,6 @@
 						<small><a href="{{ URL::action('Dashboard\CustomerController@show', [$order->customer->id]) }}"><i class="icon icon-eye-open"></i></a></small>
 					</h3>
 					Køn: {{ $order->customer->getGender() }}<br/>
-					Nyhedsbreve: {{ $order->customer->acceptNewsletters() ? 'Ja' : 'Nej' }}<br/>
 					Fødselsdag: {{ $order->customer->getBirthday() }} ({{ $order->customer->getAge() }} år)<br/>
 					Antal ordre: {{ $order->customer->getOrderCount() }}
 				</div>

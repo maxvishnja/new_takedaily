@@ -28,7 +28,8 @@ class Order extends Model
 		'customer_id',
 		'reference',
 		'state',
-		'stripe_charge_token',
+		'payment_method',
+		'payment_token',
 		'total',
 		'sub_total',
 		'total_shipping',
@@ -105,12 +106,12 @@ class Order extends Model
 		{
 			$message->to($receiverEmail, $receiverName);
 			$message->subject('Din ordre blev afsendt!'); // todo translate
-		});
+		}); // todo fire event instead
 
 		return true;
 	}
 
-	public function refund()
+	public function refund() // todo convert to paymentHandler
 	{
 		try
 		{

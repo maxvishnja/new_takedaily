@@ -66,6 +66,11 @@
 					<td>{{ $customer->plan->isActive() ? 'Ja' : 'Nej' }}</td>
 				</tr>
 
+				<tr>
+					<td>Betalingsmetode</td>
+					<td>{{ $customer->plan->getPaymentMethod() }}</td>
+				</tr>
+
 				@if( $customer->plan->isActive() )
 					<tr>
 						<td>Næste ordre/trækning</td>

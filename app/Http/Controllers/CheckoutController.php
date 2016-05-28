@@ -5,6 +5,7 @@ use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
+use App\Events\CustomerWasBilled;
 use App\Giftcard;
 use App\Product;
 use App\User;
@@ -87,9 +88,6 @@ class CheckoutController extends Controller
 		// Payment provider
 		$paymentMethod  = PaymentDelegator::getMethod($request->get('payment_method'));
 		$paymentHandler = new PaymentHandler($paymentMethod);
-
-		// Taxes
-		$taxLibrary = new TaxLibrary($request->get('address_country'));
 
 		// Coupon Repo
 		$couponRepository = new CouponRepository();
@@ -214,8 +212,8 @@ class CheckoutController extends Controller
 
 		// Plan
 		$user->getCustomer()->getPlan()->update([
-			'payment_customer_token' => $request->session()->get('charge_id'),
-			'payment_method'         => $request->session()->get('payment_customer_id')
+			'payment_customer_token' => $request->session()->get('payment_customer_id'),
+			'payment_method'         => $method
 		]);
 
 		// Giftcard
@@ -254,6 +252,7 @@ class CheckoutController extends Controller
 		// Subscription or not
 		if ( $product->is_subscription == 1 )
 		{
+			// fixme userData being null/false if failed somewhere.
 			$user->getCustomer()->update([
 				'birthdate' => $userData->birthdate,
 				'gender'    => $userData->gender == 1 ? 'male' : 'female'
@@ -336,6 +335,8 @@ class CheckoutController extends Controller
 
 		$mailEmail = $user->getEmail();
 		$mailName  = $user->getName();
+
+		\Event::fire(new CustomerWasBilled($user->getCustomer(), MoneyLibrary::toCents($orderPrice), $request->session()->get('charge_id'), $product->name, false, 0, $coupon));
 
 		\Mail::queue('emails.order', $data, function ($message) use ($mailEmail, $mailName)
 		{

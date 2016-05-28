@@ -30,7 +30,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 			if ( \Session::has('giftcard_id') && \Session::has('giftcard_token') && \Session::get('product_name', 'subscription') == 'subscription' )
 			{
-				$giftcard = Giftcard::where('id', \Session::get('giftcard_id'))
+				$giftcard = \App\Giftcard::where('id', \Session::get('giftcard_id'))
 									->where('token', \Session::get('giftcard_token'))
 									->where('is_used', 0)
 									->first();

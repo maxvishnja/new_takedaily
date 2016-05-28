@@ -30,4 +30,14 @@ class PaymentHandler
 	{
 		return $this->provider->validateCharge($chargeId);
 	}
+
+	public function getCustomer($customerId)
+	{
+		return $this->provider->findCustomer($customerId);
+	}
+
+	public function getOrder($orderId)
+	{
+		return $this->provider->findOrder($orderId);
+	}
 }

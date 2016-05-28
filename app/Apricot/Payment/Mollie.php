@@ -57,12 +57,26 @@ class Mollie implements PaymentInterface
 	 * @param int                         $amount
 	 * @param \Mollie_API_Object_Customer $customer
 	 *
-	 * @return \Mollie_API_Object_Payment
+	 * @return bool|\Mollie_API_Object_Payment
 	 */
 	public function makeRebill($amount, $customer)
 	{
-		// todo check customer mandates
-		// $mandates = $mollie->customer_mandates->withParentId("cst_4qqhO89gsT")->all();
+		$mandates = \Mollie::api()->customersMandates()->withParentId($customer->id)->all();
+
+		$hasValidMandate = false;
+
+		foreach($mandates as $mandate)
+		{
+			if( $mandate->status == 'valid' )
+			{
+				$hasValidMandate = true;
+			}
+		}
+
+		if( ! $hasValidMandate )
+		{
+			return false;
+		}
 
 		return $this->charge($amount, 'Rebill', [
 			'customerId'    => $customer->id,
@@ -81,6 +95,26 @@ class Mollie implements PaymentInterface
 		$payment = \Mollie::api()->payments()->get($chargeId);
 
 		return $payment->isPaid();
+	}
+
+	/**
+	 * @param $orderId
+	 *
+	 * @return \Mollie_API_Object_Payment
+	 */
+	public function findOrder($orderId)
+	{
+		return \Mollie::api()->payments()->get($chargeId);
+	}
+
+	/**
+	 * @param $customerId
+	 *
+	 * @return \Mollie_API_Object_Customer
+	 */
+	public function findCustomer($customerId)
+	{
+		return \Mollie::api()->customers()->get($customerId);
 	}
 
 }
