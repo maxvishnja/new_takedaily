@@ -19,6 +19,11 @@ class CheckoutController extends Controller
 
 	}
 
+	/**
+	 * @param \Illuminate\Http\Request $request
+	 *
+	 * @return $this|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 */
 	function getCheckout(Request $request)
 	{
 		\Session::set('product_name', $request->get('product_name', \Session::get('product_name', 'subscription')));
@@ -45,6 +50,11 @@ class CheckoutController extends Controller
 		]);
 	}
 
+	/**
+	 * @param \Illuminate\Http\Request $request
+	 *
+	 * @return \Illuminate\Http\JsonResponse
+	 */
 	function getTaxRate(Request $request)
 	{
 		$zone = new TaxLibrary($request->get('zone'));
@@ -52,6 +62,11 @@ class CheckoutController extends Controller
 		return \Response::json([ 'rate' => $zone->rate() ]);
 	}
 
+	/**
+	 * @param \Illuminate\Http\Request $request
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
 	function postCheckout(Request $request)
 	{
 		$this->validate($request, [
@@ -144,6 +159,12 @@ class CheckoutController extends Controller
 		return \Redirect::action('CheckoutController@getVerify', [ 'method' => $request->get('payment_method') ]);
 	}
 
+	/**
+	 * @param                          $method
+	 * @param \Illuminate\Http\Request $request
+	 *
+	 * @return \Illuminate\Http\RedirectResponse
+	 */
 	function getVerify($method, Request $request)
 	{
 		$paymentMethod = new PaymentHandler(PaymentDelegator::getMethod($method));
@@ -336,6 +357,11 @@ class CheckoutController extends Controller
 		return \Redirect::action('CheckoutController@getSuccessNonSubscription', [ 'token' => $giftcard->token ])->with([ 'order_created' => true ]);
 	}
 
+	/**
+	 * @param \Illuminate\Http\Request $request
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+	 */
 	function getSuccess(Request $request)
 	{
 		if ( !$request->session()->has('order_created') )
@@ -348,6 +374,12 @@ class CheckoutController extends Controller
 		return view('checkout.success', [ 'combinations' => $combinations ]);
 	}
 
+	/**
+	 * @param                          $token
+	 * @param \Illuminate\Http\Request $request
+	 *
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+	 */
 	function getSuccessNonSubscription($token, Request $request)
 	{
 		if ( !$request->session()->has('order_created') )
@@ -360,6 +392,12 @@ class CheckoutController extends Controller
 		]);
 	}
 
+	/**
+	 * @param \App\Apricot\Repositories\CouponRepository $couponRepository
+	 * @param \Illuminate\Http\Request                   $request
+	 *
+	 * @return \Illuminate\Http\JsonResponse
+	 */
 	function applyCoupon(CouponRepository $couponRepository, Request $request)
 	{
 		if ( is_null($request->get('coupon')) || $request->get('coupon') == '' )
