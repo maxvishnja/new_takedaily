@@ -66,7 +66,7 @@
 						"searchable": false
 					},
 				],
-				"aaSorting": [[0, 'desc']]
+				"aaSorting": [[3, 'desc']]
 			});
 			$('.dataTables_paginate').addClass('btn-group datatable-pagination');
 			$('.dataTables_paginate > a').wrapInner('<span />');
