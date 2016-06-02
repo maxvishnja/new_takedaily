@@ -55,4 +55,12 @@ interface PaymentInterface
 	 * @return bool
 	 */
 	public function findCustomer($customerId);
+
+	/**
+	 * @param $source
+	 * @param $customer
+	 *
+	 * @return mixed
+	 */
+	public function addMethod($source, $customer);
 }

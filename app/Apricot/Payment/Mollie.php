@@ -93,7 +93,7 @@ class Mollie implements PaymentInterface
 	public function validateCharge($chargeId)
 	{
 		/** @var \Mollie_API_Object_Payment $payment */
-		$payment = \Mollie::api()->payments()->get($chargeId);
+		$payment = $this->findOrder($chargeId);
 
 		return $payment->isPaid();
 	}
@@ -116,6 +116,13 @@ class Mollie implements PaymentInterface
 	public function findCustomer($customerId)
 	{
 		return \Mollie::api()->customers()->get($customerId);
+	}
+
+	public function addMethod($source, $customer)
+	{ // todo.. find a way to disable this for Mollie, as it seems to be impossible.
+		return \Mollie::api()->customersMandates()->withParentId($customer->id)->create([
+
+		]);
 	}
 
 }

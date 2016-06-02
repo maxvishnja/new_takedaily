@@ -40,4 +40,9 @@ class PaymentHandler
 	{
 		return $this->provider->findOrder($orderId);
 	}
+
+	public function addMethodToCustomer($source, $customer)
+	{
+		return $this->provider->addMethod($source, $customer);
+	}
 }
