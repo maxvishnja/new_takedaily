@@ -25,9 +25,11 @@
 				<div class="row">
 					<div class="col-md-6">
 						<h1>{!! trans('home.header.title-1') !!}</h1>
-						<a href="/flow" class="button button--rounded button--huge button--green m-t-30">
-							<strong>{{ trans('home.header.button-click-here') }}</strong>
-						</a>
+						@if( Auth::guest() )
+							<a href="/flow" class="button button--rounded button--huge button--green m-t-30">
+								<strong>{{ trans('home.header.button-click-here') }}</strong>
+							</a>
+						@endif
 					</div>
 					<div class="col-md-6 hidden-sm hidden-xs">
 						<div class="splash_circle pull-right">

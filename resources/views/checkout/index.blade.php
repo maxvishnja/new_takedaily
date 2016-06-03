@@ -36,7 +36,7 @@
 				@endif
 			</div>
 			<div class="col-md-8">
-				<h1>{{ trans('checkout.index.order.title') }}</h1>
+				<h1 style="margin-top: 0;">{{ trans('checkout.index.order.title') }}</h1>
 
 				<form method="post" action="{{ URL::action('CheckoutController@postCheckout') }}" id="checkout-form" autocomplete="on" class="form" novalidate="novalidate">
 					<div class="spinner" id="form-loader">
@@ -222,7 +222,7 @@
 			</div><!-- /Form-->
 			<div class="visible-sm visible-xs m-b-50"></div>
 			<div class="col-md-4">
-				<h3 class="m-b-35">{{ trans('checkout.index.total.title') }}</h3>
+				<h3 style="margin-top: 0;" class="m-b-35">{{ trans('checkout.index.total.title') }}</h3>
 				<hr class="hr--double"/>
 
 				<table v-cloack>
