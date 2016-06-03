@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Moving closer to not have static payment methods">
+    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Minimal fixes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Apricot/Interfaces/PaymentInterface.php" afterPath="$PROJECT_DIR$/app/Apricot/Interfaces/PaymentInterface.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Apricot/Libraries/PaymentHandler.php" afterPath="$PROJECT_DIR$/app/Apricot/Libraries/PaymentHandler.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Apricot/Payment/Mollie.php" afterPath="$PROJECT_DIR$/app/Apricot/Payment/Mollie.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Apricot/Payment/Stripe.php" afterPath="$PROJECT_DIR$/app/Apricot/Payment/Stripe.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/checkout/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/checkout/index.blade.php" />
     </list>
     <ignored path="TakeDaily.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,14 +35,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stripe.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Stripe.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Apricot/Payment/Stripe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63022745">
-              <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
               <folding>
                 <marker date="1464876222000" expanded="false" signature="39:289" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9446721">
+              <caret line="130" column="80" selection-start-line="130" selection-start-column="80" selection-end-line="130" selection-end-column="80" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,7 +109,6 @@
         <option value="$PROJECT_DIR$/app/Apricot/Libraries/TaxLibrary.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_05_25_144129_update_plans_table_payment_method.php" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/buffer1" />
-        <option value="$PROJECT_DIR$/resources/views/checkout/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/flow.blade.php" />
         <option value="$PROJECT_DIR$/resources/lang/da/checkout.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_05_28_135134_update_table_orders_stripe_to_global.php" />
@@ -124,6 +130,7 @@
         <option value="$PROJECT_DIR$/app/Apricot/Interfaces/PaymentInterface.php" />
         <option value="$PROJECT_DIR$/app/Apricot/Payment/Mollie.php" />
         <option value="$PROJECT_DIR$/app/Apricot/Payment/Stripe.php" />
+        <option value="$PROJECT_DIR$/resources/views/checkout/index.blade.php" />
       </list>
     </option>
   </component>
@@ -178,10 +185,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2560" />
     <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1413" />
+    <option name="width" value="1920" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -208,7 +214,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,7 +333,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,7 +342,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="_flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;Plan&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Plan.php&#10;CustomerWa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Events/CustomerWasBilled.php&#10;show&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/show.blade.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;Cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;show.blade.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;show.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/show.blade.php&#10;CustomerC&#9;null&#9;null&#10;Checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;Customer&#9;null&#9;null&#10;Order.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Order.php&#10;2016_05_28_135025_update_table_orders_stripe_to_global&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_05_28_135025_update_table_orders_stripe_to_global.php&#10;checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/checkout.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;Moll&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Payment/Mollie.php&#10;2016_05_25_144129_update_plans_table_payment_method&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_05_25_144129_update_plans_table_payment_method.php&#10;Mol&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Payment/Mollie.php&#10;Paymenth&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentHandler.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;.env&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/.env&#10;Paymen&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentHandler.php&#10;Payme&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentDelegator.php&#10;products&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/products.php&#10;order.blade.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/emails/order.blade.php&#10;inde&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;_checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_checkout.sass&#10;Check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;flow.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;flow.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/flow.php&#10;slider&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/vendor/slider.js&#10;home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;slider.j&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/vendor/slider.js&#10;flow-&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow-label.blade.php&#10;page-checkout&#9;null&#9;null&#10;button--l&#9;null&#9;null&#10;fo&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;RewriteControl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/RewriteController.php&#10;PageContr&#9;null&#9;null&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;nav&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/nav.php&#10;footer.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/footer.php&#10;PageSe&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/PageSeeder.php&#10;defau&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;page.bl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/page.blade.php&#10;app.sa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;Combin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/CombinationLibrary.php" />
+    <property name="SearchEverywhereHistoryKey" value="inde&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;_flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;Plan&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Plan.php&#10;CustomerWa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Events/CustomerWasBilled.php&#10;show&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/show.blade.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;Cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;show.blade.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;show.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/show.blade.php&#10;CustomerC&#9;null&#9;null&#10;Checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;Customer&#9;null&#9;null&#10;Order.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Order.php&#10;2016_05_28_135025_update_table_orders_stripe_to_global&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_05_28_135025_update_table_orders_stripe_to_global.php&#10;checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/checkout.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;Moll&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Payment/Mollie.php&#10;2016_05_25_144129_update_plans_table_payment_method&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_05_25_144129_update_plans_table_payment_method.php&#10;Mol&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Payment/Mollie.php&#10;Paymenth&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentHandler.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;.env&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/.env&#10;Paymen&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentHandler.php&#10;Payme&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentDelegator.php&#10;products&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/products.php&#10;order.blade.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/emails/order.blade.php&#10;_checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_checkout.sass&#10;Check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;flow.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;flow.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/flow.php&#10;slider&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/vendor/slider.js&#10;home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;slider.j&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/vendor/slider.js&#10;flow-&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow-label.blade.php&#10;page-checkout&#9;null&#9;null&#10;button--l&#9;null&#9;null&#10;fo&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;RewriteControl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/Dashboard/RewriteController.php&#10;PageContr&#9;null&#9;null&#10;manage&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/cms/manage.blade.php&#10;nav&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/nav.php&#10;footer.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/footer.php&#10;PageSe&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/seeds/PageSeeder.php&#10;defau&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_defaults.sass&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;page.bl&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/page.blade.php&#10;app.sa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;Combin&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/CombinationLibrary.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -410,12 +416,6 @@
       <created>1456591092063</created>
       <option name="number" value="Default" />
       <updated>1456591092063</updated>
-    </task>
-    <task id="LOCAL-00112" summary="rebilling #2">
-      <created>1459937931225</created>
-      <option name="number" value="00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1459937931225</updated>
     </task>
     <task id="LOCAL-00113" summary="Fixed some todos and such">
       <created>1460027069968</created>
@@ -705,7 +705,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464469553793</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="Moving closer to not have static payment methods">
+      <created>1464876261051</created>
+      <option name="number" value="00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1464876261099</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -718,16 +724,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2560" y="23" width="2560" height="1413" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18164252" sideWeight="0.42801046" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15903106" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17578125" sideWeight="0.7177498" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0072916667" sideWeight="0.7177498" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17291667" sideWeight="0.28225026" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12848867" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32686713" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15534492" sideWeight="0.47871235" order="3" side_tool="true" content_ui="tabs" />
@@ -745,6 +750,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22014537" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3723404" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32686713" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="MagicentoScripts" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
@@ -762,7 +768,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Better flow animations #2" />
     <MESSAGE value="Better mobile experience" />
     <MESSAGE value="Auth and stuff" />
     <MESSAGE value="New identity" />
@@ -787,7 +792,8 @@
     <MESSAGE value="Fix" />
     <MESSAGE value="fixes" />
     <MESSAGE value="Moving closer to not have static payment methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Moving closer to not have static payment methods" />
+    <MESSAGE value="Minimal fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minimal fixes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -900,13 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5544989">
-          <caret line="477" column="17" selection-start-line="477" selection-start-column="17" selection-end-line="477" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_12_26_133551_create_table_orders.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1009,7 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29611167">
           <caret line="41" column="7" selection-start-line="41" selection-start-column="7" selection-end-line="41" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1017,7 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19809245">
           <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1025,7 +1022,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25752017">
           <caret line="82" column="67" selection-start-line="82" selection-start-column="67" selection-end-line="82" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1033,7 +1029,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51504034">
           <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1049,7 +1044,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.029347029">
           <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1057,9 +1051,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.019809244">
           <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-          <folding>
-            <marker date="1464466772000" expanded="true" signature="1944:2029" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1081,19 +1072,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Apricot/Libraries/PaymentHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="39" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/mollie/laravel-mollie/src/MollieServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.02020958">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1101,7 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7477545">
           <caret line="68" column="36" selection-start-line="68" selection-start-column="36" selection-end-line="68" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1109,7 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.59060895">
           <caret line="138" column="28" selection-start-line="138" selection-start-column="28" selection-end-line="138" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1117,7 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5840059">
           <caret line="34" column="70" selection-start-line="34" selection-start-column="70" selection-end-line="34" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1125,7 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6500367">
           <caret line="180" column="67" selection-start-line="180" selection-start-column="67" selection-end-line="180" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1133,7 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39371258">
           <caret line="171" column="33" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1141,7 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1782832">
           <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1157,9 +1133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="121" column="84" selection-start-line="121" selection-start-column="84" selection-end-line="121" selection-end-column="84" />
-          <folding>
-            <marker date="1464876090000" expanded="false" signature="38:122" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1173,11 +1146,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Apricot/Payment/Stripe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63022745">
-          <caret line="97" column="25" selection-start-line="97" selection-start-column="25" selection-end-line="97" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="25" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="25" />
           <folding>
             <marker date="1464876222000" expanded="false" signature="39:289" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Apricot/Libraries/PaymentHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="39" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9446721">
+          <caret line="130" column="80" selection-start-line="130" selection-start-column="80" selection-end-line="130" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>

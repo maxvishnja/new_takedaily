@@ -128,7 +128,7 @@
 						</div>
 					</div>
 
-					<div class="card card--large hidden payment-type-card" id="payment-method-cc">
+					<div class="card card--large hidden payment-type-card m-b-30" id="payment-method-cc">
 						<fieldset id="payment-fieldset">
 							<legend class="card_title pull-left">{{ trans('checkout.index.order.billing.title') }}</legend>
 							<div class="pull-right secured_server">
@@ -197,11 +197,11 @@
 					</div>
 
 					<div class="visible-xs">
-						<button class="button button--huge button--green button--full button--rounded m-t-20" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
+						<button class="button button--huge button--green button--full button--rounded" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
 					</div>
 
 					<div class="hidden-xs">
-						<button class="button button--huge button--green button--rounded pull-right m-t-20" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
+						<button class="button button--huge button--green button--rounded pull-right" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
 					</div>
 
 					@if($product->is_subscription == 1)
