@@ -108,7 +108,7 @@
 						</fieldset>
 					</div>
 
-					<div class="card card--large m-b-30">{{-- todo translate the entire card --}}
+					<div class="card card--large m-b-30" id="method-card">{{-- todo translate the entire card --}}
 						<legend class="card_title">Betalingsmetode</legend>
 						<div class="clear"></div>
 						<hr class="hr--dashed hr--small-margin"/>
@@ -197,11 +197,20 @@
 					</div>
 
 					<div class="visible-xs">
-						<button class="button button--huge button--green button--full button--rounded" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
+						<div class="form-button-submit-holder">
+							<button class="button button--huge button--green button--full button--rounded" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
+
+							<div class="clear"></div>
+						</div>
 					</div>
 
 					<div class="hidden-xs">
-						<button class="button button--huge button--green button--rounded pull-right" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
+						<div class="form-button-submit-holder pull-right">
+							<button class="button button--huge button--green button--rounded" type="submit" id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
+
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
 					</div>
 
 					@if($product->is_subscription == 1)
@@ -301,6 +310,27 @@
 @endsection
 
 @section('footer_scripts')
+	<script>
+		$(".form-button-submit-holder").click(function ()
+		{
+			if ($("input[name='payment_method']:checked").length == 0)
+			{
+				$methodCard = $("#method-card");
+
+				alert('Du har ikke valgt en betalingsmetode! Prøv igen.'); // todo translate
+
+				$("body, html").stop().animate({
+					scrollTop: $methodCard.offset().top
+				}, 250);
+
+				$methodCard.addClass('card-focus');
+
+				setTimeout(function() {
+					$methodCard.removeClass('card-focus');
+				}, 800);
+			}
+		});
+	</script>
 	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
 	<script>
@@ -720,7 +750,7 @@
 				}
 			}
 
-			if($(".payment_method_input:checked").val() == 'stripe')
+			if ($(".payment_method_input:checked").val() == 'stripe')
 			{
 				usesStripe = true;
 			}

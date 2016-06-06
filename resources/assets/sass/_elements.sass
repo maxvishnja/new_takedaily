@@ -178,6 +178,7 @@
 		border-radius: 3px
 
 	&:disabled
+		pointer-events: none
 		cursor: not-allowed
 		background: $lighter-grey !important
 		color: $greyish !important
@@ -499,6 +500,33 @@ a
 		font-weight: $weight-semibold
 		font-size: 20px
 		color: $greyish-brown
+
+	&.card-focus
+		animation: cardFocusAnimation linear 600ms
+		animation-iteration-count: 1
+		transform-origin: 50% 50%
+
+@keyframes cardFocusAnimation
+	0%
+		transform: translate(0px, 0px) rotate(0deg)
+
+	15%
+		transform: translate(-25px, 0px) rotate(-5deg)
+
+	30%
+		transform: translate(20px, 0px) rotate(3deg)
+
+	45%
+		transform: translate(-15px, 0px) rotate(-3deg)
+
+	60%
+		transform: translate(10px, 0px) rotate(2deg)
+
+	75%
+		transform: translate(-5px, 0px) rotate(-1deg)
+
+	100%
+		transform: translate(0px, 0px) rotate(0deg)
 
 table.table
 	thead

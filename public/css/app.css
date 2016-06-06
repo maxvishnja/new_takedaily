@@ -4645,6 +4645,7 @@ body.index .slider_container {
   .button.button--rounded {
     border-radius: 3px; }
   .button:disabled {
+    pointer-events: none;
     cursor: not-allowed;
     background: #dddddd !important;
     color: #aaaaaa !important; }
@@ -4900,6 +4901,59 @@ a {
     font-weight: 600;
     font-size: 20px;
     color: #555555; }
+  .card.card-focus {
+    -webkit-animation: cardFocusAnimation linear 600ms;
+    animation: cardFocusAnimation linear 600ms;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%; }
+
+@-webkit-keyframes cardFocusAnimation {
+  0% {
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+    transform: translate(0px, 0px) rotate(0deg); }
+  15% {
+    -webkit-transform: translate(-25px, 0px) rotate(-5deg);
+    transform: translate(-25px, 0px) rotate(-5deg); }
+  30% {
+    -webkit-transform: translate(20px, 0px) rotate(3deg);
+    transform: translate(20px, 0px) rotate(3deg); }
+  45% {
+    -webkit-transform: translate(-15px, 0px) rotate(-3deg);
+    transform: translate(-15px, 0px) rotate(-3deg); }
+  60% {
+    -webkit-transform: translate(10px, 0px) rotate(2deg);
+    transform: translate(10px, 0px) rotate(2deg); }
+  75% {
+    -webkit-transform: translate(-5px, 0px) rotate(-1deg);
+    transform: translate(-5px, 0px) rotate(-1deg); }
+  100% {
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+    transform: translate(0px, 0px) rotate(0deg); } }
+
+@keyframes cardFocusAnimation {
+  0% {
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+    transform: translate(0px, 0px) rotate(0deg); }
+  15% {
+    -webkit-transform: translate(-25px, 0px) rotate(-5deg);
+    transform: translate(-25px, 0px) rotate(-5deg); }
+  30% {
+    -webkit-transform: translate(20px, 0px) rotate(3deg);
+    transform: translate(20px, 0px) rotate(3deg); }
+  45% {
+    -webkit-transform: translate(-15px, 0px) rotate(-3deg);
+    transform: translate(-15px, 0px) rotate(-3deg); }
+  60% {
+    -webkit-transform: translate(10px, 0px) rotate(2deg);
+    transform: translate(10px, 0px) rotate(2deg); }
+  75% {
+    -webkit-transform: translate(-5px, 0px) rotate(-1deg);
+    transform: translate(-5px, 0px) rotate(-1deg); }
+  100% {
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+    transform: translate(0px, 0px) rotate(0deg); } }
 
 table.table thead tr th {
   font-weight: 600;
