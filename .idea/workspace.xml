@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Field validation">
+    <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Field validation for checkout">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/checkout/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/checkout/index.blade.php" />
     </list>
@@ -28,8 +28,8 @@
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18800293">
-              <caret line="141" column="52" selection-start-line="141" selection-start-column="52" selection-end-line="141" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.42501828">
+              <caret line="168" column="120" selection-start-line="168" selection-start-column="120" selection-end-line="168" selection-end-column="120" />
               <folding />
             </state>
           </provider>
@@ -430,12 +430,6 @@
       <option name="number" value="Default" />
       <updated>1456591092063</updated>
     </task>
-    <task id="LOCAL-00117" summary="Page slug validation">
-      <created>1460109566531</created>
-      <option name="number" value="00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1460109566532</updated>
-    </task>
     <task id="LOCAL-00118" summary="No more checkout restriction">
       <created>1460204017209</created>
       <option name="number" value="00118" />
@@ -724,7 +718,13 @@
       <option name="project" value="LOCAL" />
       <updated>1465382891005</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="Field validation for checkout">
+      <created>1465382942806</created>
+      <option name="number" value="00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1465382942806</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -781,7 +781,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Fake flow delay" />
     <MESSAGE value="test" />
     <MESSAGE value="Fixes" />
     <MESSAGE value="Minimal, yet important, changes" />
@@ -806,7 +805,8 @@
     <MESSAGE value="No home button" />
     <MESSAGE value="Require payment option" />
     <MESSAGE value="Field validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Field validation" />
+    <MESSAGE value="Field validation for checkout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Field validation for checkout" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1189,8 +1189,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/checkout/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18800293">
-          <caret line="141" column="52" selection-start-line="141" selection-start-column="52" selection-end-line="141" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.42501828">
+          <caret line="168" column="120" selection-start-line="168" selection-start-column="120" selection-end-line="168" selection-end-column="120" />
           <folding />
         </state>
       </provider>
