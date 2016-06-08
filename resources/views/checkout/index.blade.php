@@ -143,7 +143,7 @@
 								<!-- NAME -->
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="ccname">{{ trans('checkout.index.order.billing.card.name') }}</label>
-									<input type="text" class="input input--medium input--spacing input--semibold input--full" id="ccname" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" autocomplete="cc-name" data-stripe="name" required="required"/>
+									<input type="text" data-validate="false" class="input input--medium input--spacing input--semibold input--full" id="ccname" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" autocomplete="cc-name" data-stripe="name" required="required"/>
 								</div>
 							</div>
 
