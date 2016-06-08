@@ -43,4 +43,9 @@ elixir(function (mix)
 		//'/vendor/video.js',
 		'/app.js',
 	], 'public/js/app.js');
+
+	mix.scripts([
+		'/vendor/validation/core.js',
+		'/vendor/validation/messages_da.js'
+	], 'public/js/validator.js');
 });

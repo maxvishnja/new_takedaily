@@ -35,7 +35,7 @@ return [
 				'email'               => 'Din e-mail adresse',
 				'email-placeholder'   => 'lars-jensen@gmail.com',
 				'address'             => [
-					'street'              => 'Din adresse',
+					'street'              => 'Vejnavn og nummer',
 					'street-placeholder'  => 'Søndre Skovvej 123',
 					'zipcode'             => 'Postnummer',
 					'zipcode-placeholder' => '9940',

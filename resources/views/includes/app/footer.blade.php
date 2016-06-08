@@ -61,6 +61,7 @@
 </footer>
 
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/validator.js') }}"></script>
 <!--[if lt IE 9]>
 <script src="/js/placeholders.min.js"></script>
 <![endif]-->
