@@ -28,7 +28,7 @@ class PillLibrary
 
 	public static function getPillCode($pill)
 	{
-		$codes = [
+		/*$codes = [
 			'1a' => '44.000',
 			'1b' => '44.000-18.037',
 			'1c' => '44.000-04.000',
@@ -43,6 +43,23 @@ class PillLibrary
 			'3d' => '43.000 - Vega',
 			'3e' => 'N/A - Fish',
 			'3f' => '41.019 - Butter',
+		];*/
+
+		$codes = [
+			'1a' => 'Red-White 17-63K/20-1K',
+			'1b' => 'Green-White 10-9K/20-1K',
+			'1c' => 'Blue-White 4-57K(B)20-1K',
+			'2a' => 'Buff 6 - 3K(D)',
+			'2b' => 'Light Blue 4 27K(A)',
+			'2c' => 'Green Semi Transp. 10-4K',
+			'2d' => 'Orange  Code 14-21K',
+			'2e' => 'Dark Yellow Code 19-155K',
+			'3a' => 'Green Opaque 10-567K',
+			'3b' => 'Swed.Orange 17-486K(C)',
+			'3c' => 'Yellow 19-103K(A)',
+			'3d' => 'Transparant Code 1-0K',
+			'3e' => 'Fish',
+			'3f' => 'White Code 20-1K',
 		];
 
 		if ( !isset($codes[ $pill ]) )
