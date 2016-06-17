@@ -676,12 +676,21 @@
 
 									<button type="submit" class="button button--green button--huge button--full-mobile m-t-30">{{ trans('flow.button-order-text') }}</button>
 
-									<div class="m-t-20 m-b-20">
-										<a href="#coupon-form" id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
-									</div>
-									<div id="coupon-field" style="display: none;" class="m-t-20">
-										<input type="text" name="coupon" maxlength="20" placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon', Session::get('applied_coupon')) }}" required="required"/>
-									</div>
+                                    <div class="m-t-20 m-b-20">
+                                        <a href="#coupon-form" id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
+                                    </div>
+
+                                    <div id="coupon-field" style="display: none;" class="m-t-20"> <!-- todo make the coupon form work -->
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <input type="text" name="coupon" maxlength="20" placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon', Session::get('applied_coupon')) }}"/>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <button type="button" class="button button--regular button--green button--full">{{ trans('checkout.index.coupon.button-text') }}</button>
+                                            </div>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
 						</div>
