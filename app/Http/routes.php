@@ -38,62 +38,18 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 			$product = \App\Product::whereName(\Session::get('product_name', 'subscription'))->first();
 
-			$shipping = 0;
-
 			// Coupon
-			$couponWorth = 0;
+			$coupon = null;
 			if ( \Session::has('applied_coupon') )
 			{
 				$couponRepository = new \App\Apricot\Repositories\CouponRepository();
 				$coupon           = $couponRepository->findByCoupon(\Session::get('applied_coupon'));
-
-				if ( $coupon )
-				{
-					if ( $coupon->discount_type == 'percentage' )
-					{
-						$couponWorth = ($product->price + $shipping) * ($coupon->discount / 100);
-					}
-					elseif ( $coupon->discount_type == 'amount' )
-					{
-						$couponWorth = MoneyLibrary::toMoneyFormat($coupon->discount);
-					}
-				}
 			}
-
-			// Giftcard
-			$giftcardWorth = 0;
-
-			if ( $giftcard )
-			{
-				$giftcardWorth = $giftcard->worth;
-			}
-
-			if ( \Session::get('product_name', 'subscription') == 'subscription' )
-			{
-				$shipping = \App\Apricot\Libraries\MoneyLibrary::toCents(0); // todo get from settings
-			}
-
-			$total = $product->price;
-			$total += $shipping;
-			$total -= $giftcardWorth;
-			$total -= $couponWorth;
 
 			$zone    = new \App\Apricot\Libraries\TaxLibrary(trans('general.tax_zone'));
 			$taxRate = $zone->rate();
 
-			$taxes = $product->price * $taxRate;
-
-
-			$prices = [
-				'product'  => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price),
-				'total'    => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($total),
-				'giftcard' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcardWorth),
-				'coupon'   => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($couponWorth),
-				'taxes'    => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($taxes),
-				'shipping' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($shipping),
-			];
-
-			return view('flow', compact('giftcard', 'product', 'prices'));
+			return view('flow', compact('giftcard', 'coupon', 'product', 'taxRate'));
 		});
 
 		Route::post('flow/recommendations', function (\Illuminate\Http\Request $request)
@@ -122,11 +78,6 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 		Session::put('user_data', $userData);
 		Session::put('product_name', $request->get('product_name'));
-
-		if ( $request->get('coupon', '') != '' )
-		{
-			Session::put('applied_coupon', $request->get('coupon'));
-		}
 
 		return Redirect::action('CheckoutController@getCheckout');
 	});
@@ -206,7 +157,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 			try
 			{
 				$payment = Mollie::api()->payments()->get($paymentId);
-				Log::info($payment);
+				Log::info($payment); // todo make this work......
 			} catch( Mollie_API_Exception $ex )
 			{
 				Log::error($ex->getMessage());

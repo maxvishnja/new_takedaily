@@ -412,6 +412,8 @@ class CheckoutController extends Controller
 			return \Response::json([ 'message' => trans('checkout.messages.no-such-coupon') ], 400);
 		}
 
+		\Session::put('applied_coupon', $coupon->code);
+
 		return \Response::json([
 			'message' => trans('checkout.messages.coupon-added'),
 			'coupon'  => [

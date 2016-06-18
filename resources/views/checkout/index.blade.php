@@ -486,7 +486,7 @@
 
 	<script>
 		var app = new Vue({
-			'el': '#app',
+			el: '#app',
 			data: {
 				shipping: 0, // todo get from settings
 				price: {{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
@@ -604,11 +604,11 @@
 					dataType: 'JSON',
 					beforeSend: function ()
 					{
-						button.text('Vent...').prop('disabled', true);
+						button.text('Vent...').prop('disabled', true); // todo translate
 					},
 					complete: function ()
 					{
-						button.text('Anvend').prop('disabled', false);
+						button.text('Anvend').prop('disabled', false); // todo translate
 					},
 					success: function (response)
 					{
@@ -659,11 +659,11 @@
 					dataType: 'JSON',
 					beforeSend: function ()
 					{
-						button.text('Vent...').prop('disabled', true);
+						button.text('Vent...').prop('disabled', true); // todo translate
 					},
 					complete: function ()
 					{
-						button.text('Anvend').prop('disabled', false);
+						button.text('Anvend').prop('disabled', false); // todo translate
 					},
 					success: function (response)
 					{

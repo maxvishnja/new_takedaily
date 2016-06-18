@@ -634,62 +634,64 @@
 							<div class="col-md-5">
 								<div class="card">
 									<table class="order_table">
-										<tbody>
-										<tr>
-											<td>{{ trans("products." . (Session::get('force_product_name', false) ? ( Session::get('product_name', 'subscription')) : 'subscription')) }}</td>
-											<td>{{ trans('general.money', ['amount' => $prices['product']]) }}</td>
-										</tr>
-										@if((Session::get('force_product_name', false) ? ( Session::get('product_name', 'subscription')) : 'subscription') == 'subscription')
-											<tr>
-												<td>{{ trans('checkout.index.total.shipping') }}</td>
-												<td>
-													@if($prices['shipping'] <= 0)
-														<span>{{ trans('checkout.index.total.free') }}</span>
-													@else
-														<span>{{ trans('general.money', ['amount' => $prices['shipping']]) }}</span>
-													@endif
-												</td>
-											</tr>
-										@endif
-										@if($prices['coupon'] > 0)
-											<tr>
-												<td>{{ trans('checkout.index.total.coupon') }}</td>
-												<td>{{ trans('general.money', ['amount' => $prices['coupon']]) }}</td>
-											</tr>
-										@endif
-										@if($giftcard && $giftcard->worth > 0)
-											<tr>
-												<td>{{ trans('checkout.index.total.giftcard	') }}</td>
-												<td>{{ trans('general.money', ['amount' => $giftcard->worth]) }}</td>
-											</tr>
-										@endif
-										<tr>
-											<td>{{ trans('checkout.index.total.taxes') }}</td>
-											<td>{{ trans('general.money', ['amount' => $prices['taxes']]) }}</td>
-										</tr>
-										<tr class="row--total">
-											<td>{{ trans('checkout.index.total.total') }}</td>
-											<td>{{ trans('general.money', ['amount' => $prices['total']]) }}</td>
-										</tr>
-										</tbody>
+                                        <tbody>
+                                        <tr>
+                                            <td>{{ trans("products." . (Session::get('force_product_name', false) ? ( Session::get('product_name', 'subscription')) : 'subscription')) }}</td>
+                                            <td>{{ trans('general.money-vue', ['amount' => 'sub_price']) }}</td>
+                                        </tr>
+                                        @if($product->is_subscription == 1)
+                                            <tr>
+                                                <td>{{ trans('checkout.index.total.shipping') }}</td>
+                                                <td>
+                                                    <span v-show="shipping == 0">{{ trans('checkout.index.total.free') }}</span>
+                                                    <span v-show="shipping > 0">{{ trans('general.money-vue', ['amount' => 'shipping']) }}</span>
+                                                </td>
+                                            </tr>
+                                        @endif
+                                        @if($giftcard)
+                                            <tr>
+                                                <td>{{ trans('checkout.index.total.giftcard	') }}</td>
+                                                <td>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth, true, 2, '.')]) }}</td>
+                                            </tr>
+                                        @endif
+                                        <tr v-show="discount.applied">
+                                            <td>@{{ discount.code }}: @{{ discount.description }}</td>
+                                            <td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
+                                        </tr>
+                                        <tr v-show="giftcard">
+                                            <td>@{{ discount.code }}: @{{ discount.description }}</td>
+                                            <td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ trans('checkout.index.total.taxes') }}</td>
+                                            <td>{{ trans('general.money-vue', ['amount' => 'total_taxes']) }}</td>
+                                        </tr>
+                                        <tr class="row--total">
+                                            <td>{{ trans('checkout.index.total.total') }}</td>
+                                            <td>{{ trans('general.money-vue', ['amount' => 'total']) }}</td>
+                                        </tr>
+                                        </tbody>
 									</table>
 
 									<button type="submit" class="button button--green button--huge button--full-mobile m-t-30">{{ trans('flow.button-order-text') }}</button>
 
                                     <div class="m-t-20 m-b-20">
-                                        <a href="#coupon-form" id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
+                                        <a href="#coupon-field" id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
                                     </div>
 
-                                    <div id="coupon-field" style="display: none;" class="m-t-20"> <!-- todo make the coupon form work -->
+                                    <div id="coupon-field" style="display: none;" class="m-t-20"> <!-- todo make the coupon part work -->
                                         <div class="row">
                                             <div class="col-md-8">
-                                                <input type="text" name="coupon" maxlength="20" placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}" data-validate="true" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon', Session::get('applied_coupon')) }}"/>
+                                                <input type="text" id="coupon-input" maxlength="20" placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}" class="input input--regular input--uppercase input--spacing input--full input--semibold" value="{{ Request::old('coupon', Session::get('applied_coupon')) }}"/>
                                             </div>
 
                                             <div class="col-md-4">
-                                                <button type="button" class="button button--regular button--green button--full">{{ trans('checkout.index.coupon.button-text') }}</button>
+                                                <button type="button" class="button button--regular button--green button--full" id="coupon-button">{{ trans('checkout.index.coupon.button-text') }}</button>
                                             </div>
                                         </div>
+
+                                        <div id="coupon-form-successes" class="m-t-10"></div>
+                                        <div id="coupon-form-errors" class="m-t-10"></div>
                                     </div>
 								</div>
 							</div>
@@ -770,6 +772,18 @@
 				current_advise_two: null,
 				current_advise_three: null,
 				temp_age: null,
+                shipping: 0, {{-- todo get from settings --}}
+                price: "{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}",
+                sub_price: "{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}",
+                tax_rate: "{{ $taxRate }}",
+                discount: {
+                    applied: false,
+                    type: null,
+                    amount: 0,
+                    applies_to: null,
+                    description: '',
+                    code: '{{ Request::old('coupon', !is_null($coupon) ? $coupon->code : '') }}'
+                },
 				user_data: {
 					gender: null,
 					birthdate: null,
@@ -802,7 +816,65 @@
 				temp_age: function ()
 				{
 					return this.getAge();
-				}
+				},
+                total_taxes: function ()
+                {
+                    return this.total_sub * this.tax_rate;
+                },
+                subtotal: function ()
+                {
+                    return this.price;
+                },
+                total_sub: function ()
+                {
+                    return this.price - this.total_discount;
+                },
+                total_discount: function ()
+                {
+                    if (!this.discount.applied)
+                    {
+                        return 0;
+                    }
+
+                    if (this.discount.type == 'percentage')
+                    {
+                        var discount = this.subtotal * (this.discount.amount / 100);
+                    }
+                    else if (this.discount.type == 'amount')
+                    {
+                        var discount = (this.discount.amount / 100);
+                    }
+
+                    return discount;
+                },
+                total: function ()
+                {
+                    return this.subtotal - this.total_discount;
+                },
+                total_subscription: function ()
+                {
+                    var amount = this.sub_price;
+
+                    if (this.discount.applied)
+                    {
+                        if (this.discount.applies_to == 'plan')
+                        {
+                            var discount = 0;
+                            if (this.discount.type == 'percentage')
+                            {
+                                discount = this.total_sub * (this.discount.amount / 100);
+                            }
+                            else if (this.discount.type == 'amount')
+                            {
+                                discount = (this.discount.amount / 100);
+                            }
+
+                            amount -= discount;
+                        }
+                    }
+
+                    return amount;
+                }
 			},
 			methods: {
 				nextStep: function ()
@@ -1040,5 +1112,53 @@
 
 			$("#coupon-field").toggle();
 		});
+
+        $("#coupon-button").click(function()
+        {
+            var button = $(this);
+
+            $.ajax({
+                url: "{{ URL::action('CheckoutController@applyCoupon') }}",
+                method: "POST",
+                data: { "coupon": $("#coupon-input").val() },
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                dataType: 'JSON',
+                beforeSend: function ()
+                {
+                    button.text('Vent...').prop('disabled', true); // todo translate
+                },
+                complete: function ()
+                {
+                    button.text('Anvend').prop('disabled', false); // todo translate
+                },
+                success: function (response)
+                {
+                    $("#coupon-form-successes").text(response.message);
+                    $("#coupon-form-errors").text('');
+
+                    app.discount.applied = true;
+                    app.discount.type = response.coupon.discount_type;
+                    app.discount.amount = response.coupon.discount;
+                    app.discount.applies_to = response.coupon.applies_to;
+                    app.discount.description = response.coupon.description;
+                    app.discount.code = response.coupon.code;
+                },
+                error: function (response)
+                {
+                    $("#coupon-form-errors").text(response.responseJSON.message);
+                    $("#coupon-form-successes").text('');
+
+                    app.discount.applied = false;
+                    app.discount.code = '';
+                }
+            });
+        });
+
+        if($("#coupon-input").val().length > 0 )
+        {
+            $("#coupon-button").click();
+        }
 	</script>
 @endsection
