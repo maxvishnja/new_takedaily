@@ -171,7 +171,7 @@
                                         <td>
                                             <a href="{{ URL::action('Dashboard\PageTranslationController@edit', [ 'id' => $translation->id ]) }}"
                                                class="btn btn-primary">Rediger</a>
-                                            <a href="{{ URL::action('Dashboard\PageTranslationController@destroy', [ 'id' => $translation->id ]) }}"
+                                            <a href="{{ URL::action('Dashboard\PageTranslationController@delete', [ 'id' => $translation->id ]) }}"
                                                class="btn btn-danger">Slet</a>
                                         </td>
                                     </tr>

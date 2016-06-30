@@ -233,6 +233,7 @@ Route::group(['middleware' => 'web'], function () {
 		Route::resource('products', 'Dashboard\ProductController');
 		Route::resource('pages', 'Dashboard\PageController');
 		Route::resource('page-translations', 'Dashboard\PageTranslationController');
+		Route::get('page-translations/{id}/delete', 'Dashboard\PageTranslationController@delete');
 
 		Route::any('upload/image', function (\Illuminate\Http\Request $request) {
 			if ($request->hasFile('upload')) {

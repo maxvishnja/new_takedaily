@@ -115,7 +115,7 @@ class PageTranslationController extends Controller
 		return \Redirect::action('Dashboard\PageController@edit', ['id' => $translation->page_id])->with('success', 'Oversættelsen blev gemt!');
 	}
 
-	function destroy($id)
+	function delete($id)
 	{
 		$translation = PageTranslation::find($id);
 
