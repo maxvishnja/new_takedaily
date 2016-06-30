@@ -1,70 +1,69 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-push-3">
+                <div class="card">
+                    <h1 class="card_title">{{ trans('password_reset.title') }}</h1>
+                    <hr class="hr--dashed hr--small-margin"/>
+                    <form role="form" method="POST" action="{{ url('/password/reset') }}">
                         {!! csrf_field() !!}
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                        <div>
+                            <label for="input_email"
+                                   class="label label--full">{{ trans('password_reset.email_label') }}</label>
 
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                            <input type="email" id="input_email" class="input input--regular input--full" name="email"
+                                   value="{{ old('email') }}">
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                            @if ($errors->has('email'))
+                                <div class="help-block">
+                                    {{ $errors->first('email') }}
+                                </div>
+                            @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
+                        <div class="m-t-20">
+                            <label class="label label--full"
+                                   for="input_password">{{ trans('password_reset.password_label') }}</label>
 
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
+                            <input type="password" class="input input--regular input--full" name="password"
+                                   id="input_password">
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                            @if ($errors->has('password'))
+                                <div class="help-block">
+                                    {{ $errors->first('password') }}
+                                </div>
+                            @endif
                         </div>
 
-                        <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Confirm Password</label>
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password_confirmation">
+                        <div class="m-t-20">
+                            <label for="input_password_confirm"
+                                   class="label label--full">{{ trans('password_reset.password_confirm_label') }}</label>
+                            <div>
+                                <input for="input_password_confirm" type="password"
+                                       class="input input--regular input--full"
+                                       name="password_confirmation">
 
                                 @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
+                                    <div class="help-block">
+                                        {{ $errors->first('password_confirmation') }}
+                                    </div>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-refresh"></i>Reset Password
-                                </button>
-                            </div>
+                        <div>
+                            <button type="submit" class="button button--large button--green button--rounded m-t-20">
+                                {{ trans('password_reset.button') }}
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

@@ -2,46 +2,50 @@
 
 <!-- Main Content -->
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-push-3">
+                <div class="card">
+                    <h1 class="card_title">{{ trans('password_email.title') }}</h1>
+                    <hr class="hr--dashed hr--small-margin"/>
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
+                    <form role="form" method="POST" action="{{ url('/password/email') }}">
                         {!! csrf_field() !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                        <label for="input_email"
+                               class="label label--full">{{ trans('password_email.email_label') }}</label>
+                        <input id="input_email" type="email" class="input input--regular input--full" name="email"
+                               value="{{ old('email') }}">
 
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                        @if ($errors->has('email'))
+                            <div class="help-block">
+                                {{ $errors->first('email') }}
                             </div>
-                        </div>
+                        @endif
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-envelope"></i>Send Password Reset Link
-                                </button>
-                            </div>
+                        <div>
+                            <button type="submit"
+                                    class="button button--large button--green button--rounded m-t-20">{{ trans('password_email.button') }}
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+@endsection
+
+@section('footer_scripts')
+    @if (session('status'))
+        <script>
+            swal({
+                title: "{{ session('status') }}",
+                text: "",
+                type: "success",
+                allowOutsideClick: true,
+                confirmButtonText: "{{ trans('popup.button-close') }}",
+                confirmButtonColor: "#17AA66"
+            });
+        </script>
+    @endif
 @endsection

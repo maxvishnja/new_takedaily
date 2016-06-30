@@ -5,7 +5,7 @@
 
 @section('content')
 	@if( isset($giftcard) && !is_null($giftcard) )
-		<h3 style=font-family: 'Open Sans',sans-serif; font-size: 18px;>Gavekort</h3>
+		<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">Gavekort</h3>
 		<p class="size-14" style='font-style: normal;font-weight: 400;Margin-bottom: 0;Margin-top: 16px;font-size: 14px;line-height: 24px;font-family: "Open Sans",sans-serif;color: #60666d;'>
 			Gavekortets kode er: <strong>{{ $giftcard }}</strong>
 			<br/>

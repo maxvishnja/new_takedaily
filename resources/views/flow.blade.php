@@ -709,6 +709,7 @@
 	@if( ! isset($_COOKIE['call-me-hidden'])  )
 		<style>
 			body { padding-bottom: 190px; }
+            .call-cta { z-index: 99999999999 !important; }
 		</style>
 		<div class="call-cta" id="call-me-form-toggler">
 			<div class="container">
@@ -733,7 +734,6 @@
 
 @section('footer_scripts')
 	<script type="text/javascript">
-
 		var firstStep = $(".step.step--active");
 
 		var newHeight = 1;

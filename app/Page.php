@@ -38,6 +38,11 @@ class Page extends Model
 	 */
 	protected $hidden = [ ];
 
+	public function translations()
+	{
+		return $this->hasMany(PageTranslation::class);
+	}
+
 	public function generateIdentifier($title)
 	{
 		return SlugLibrary::generate($title);
