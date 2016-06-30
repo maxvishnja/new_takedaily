@@ -162,7 +162,8 @@ return [
 		\App\Providers\CustomerServiceProvider::class,
 		\App\Providers\OrderServiceProvider::class,
 		\App\Providers\OrderLineServiceProvider::class,
-		\App\Providers\PlanServiceProvider::class
+		\App\Providers\PlanServiceProvider::class,
+		\App\Providers\PageServiceProvider::class,
 	],
 
 	/*

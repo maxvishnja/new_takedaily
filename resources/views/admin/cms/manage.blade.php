@@ -20,7 +20,9 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="active"><a href="#main" data-toggle="tab">Indhold</a></li>
                         <li class=""><a href="#meta" data-toggle="tab">Meta</a></li>
-                        <li class=""><a href="#translations" data-toggle="tab">Oversættelser</a></li>
+                        @if(isset($page))
+                            <li class=""><a href="#translations" data-toggle="tab">Oversættelser</a></li>
+                        @endif
                     </ul>
 
                     <div class="tab-content">
@@ -155,41 +157,44 @@
                             <div class="control-group"></div> <!-- To fix :last-child bug -->
                         </div>
 
-                        <div role="tabpanel" class="tab-pane" id="translations">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Sprog</th>
-                                    <th></th>
-                                </tr>
-                                </thead>
-
-                                <tbody>
-                                @foreach($page->translations as $translation)
+                        @if(isset($page))
+                            <div role="tabpanel" class="tab-pane" id="translations">
+                                <table class="table">
+                                    <thead>
                                     <tr>
-                                        <td>{{ $translation->locale }}</td>
-                                        <td>
-                                            <a href="{{ URL::action('Dashboard\PageTranslationController@edit', [ 'id' => $translation->id ]) }}"
-                                               class="btn btn-primary">Rediger</a>
-                                            <a href="{{ URL::action('Dashboard\PageTranslationController@delete', [ 'id' => $translation->id ]) }}"
-                                               class="btn btn-danger">Slet</a>
+                                        <th>Sprog</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                    @foreach($page->translations as $translation)
+                                        <tr>
+                                            <td>{{ $translation->locale }}</td>
+                                            <td>
+                                                <a href="{{ URL::action('Dashboard\PageTranslationController@edit', [ 'id' => $translation->id ]) }}"
+                                                   class="btn btn-primary">Rediger</a>
+                                                <a href="{{ URL::action('Dashboard\PageTranslationController@delete', [ 'id' => $translation->id ]) }}"
+                                                   class="btn btn-danger">Slet</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="2">
+                                            <a href="{{ URL::action('Dashboard\PageTranslationController@create', ['page' => $page->id]) }}"
+                                               class="btn btn-success">Tilføj ny oversættelse</a>
                                         </td>
                                     </tr>
-                                @endforeach
-                                </tbody>
-
-                                <tfoot>
-                                <tr>
-                                    <td colspan="2">
-                                        <a href="{{ URL::action('Dashboard\PageTranslationController@create', ['page' => $page->id]) }}"
-                                           class="btn btn-success">Tilføj ny oversættelse</a>
-                                    </td>
-                                </tr>
-                                </tfoot>
-                            </table>
-                            <hr/>
-                            <div class="control-group"></div> <!-- To fix :last-child bug -->
-                        </div>
+                                    </tfoot>
+                                </table>
+                                <hr/>
+                                <div class="control-group"></div> <!-- To fix :last-child bug -->
+                            </div>
+                        @endif
                     </div>
 
                 </div>
