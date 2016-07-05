@@ -6,7 +6,7 @@ return [
 		'button-click-here' => 'Tryk her for at starte nu',
 		'splash'            => [
 			'text'  => 'En måneds forbrug<br/>skræddersyet til dig',
-			'price' => '149 <small> kr.</small>',
+			'price' => '149<small> kr.</small>',
 			'only'  => 'Kun'
 		],
 		'cta'               => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>'

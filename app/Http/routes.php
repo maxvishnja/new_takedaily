@@ -120,7 +120,8 @@ Route::group(['middleware' => 'web'], function () {
 		Session::put('locale', $locale);
 		App::setLocale($locale);
 
-		return Redirect::back()->with('success', trans('message.success.locale-set'));
+		return Redirect::back();
+		/*->with('success', trans('message.success.locale-set'));*/
 	});
 
 	/*
