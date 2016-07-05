@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Apricot\Libraries\MoneyLibrary;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -31,4 +32,9 @@ class Product extends Model
 	 * @var array
 	 */
 	protected $hidden = [ ];
+
+	public function getPriceAttribute($price)
+	{
+		return round(MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), config('currency', config('app.base_currency')), $price));
+	}
 }

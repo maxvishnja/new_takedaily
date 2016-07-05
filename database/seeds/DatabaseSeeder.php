@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CombinationSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(TaxZoneSeeder::class);
+        $this->call(CurrencySeeder::class);
     }
 }

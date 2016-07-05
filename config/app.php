@@ -14,6 +14,19 @@ return [
 	*/
 
 	'env' => env('APP_ENV', 'production'),
+
+	/*
+	|--------------------------------------------------------------------------
+	| Application base currency
+	|--------------------------------------------------------------------------
+	|
+	| This value determines the "environment" your application is currently
+	| running in. This may determine how you prefer to configure various
+	| services your application utilizes. Set this in your ".env" file.
+	|
+	*/
+
+	'base_currency' => 'DKK',
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode

@@ -54,7 +54,7 @@ return [
 							headache is one of them, unfortunately.”',
 			'button' => '<a href="/fra-a-til-zink" class="anchor anchor--underline">Om vitaminer og sundhed</a>'
 		],
-		'four'  => [ ],
+		'four'  => [],
 		'five'  => [
 			'body'   => '<p>TakeDaily er høj kvalitet og rene, naturlige, aktive ingredienser. Vi har samlet de bedste
 					ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den

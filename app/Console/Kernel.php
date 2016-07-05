@@ -4,6 +4,7 @@ namespace App\Console;
 
 use App\Console\Commands\GenerateSitemapCommand;
 use App\Console\Commands\SubscriptionRebillCommand;
+use App\Console\Commands\UpdateCurrencies;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,7 +16,8 @@ class Kernel extends ConsoleKernel
 	 * @var array
 	 */
 	protected $commands = [
-		SubscriptionRebillCommand::class
+		SubscriptionRebillCommand::class,
+		UpdateCurrencies::class
 	];
 
 	/**
@@ -28,6 +30,11 @@ class Kernel extends ConsoleKernel
 	protected function schedule(Schedule $schedule)
 	{
 		$schedule->call('subscriptions:rebill')
-				 ->everyThirtyMinutes();
+			->name('rebill-subscribed-users')
+			->everyThirtyMinutes()
+			->withoutOverlapping();
+
+		$schedule->call('currencies:update')
+			->hourly();
 	}
 }
