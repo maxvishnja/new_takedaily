@@ -57,6 +57,7 @@
       <sourceFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations/lib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/public" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/node_modules" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -57,7 +57,7 @@ return [
 					'month'              => 'Måned',
 					'year'               => 'År',
 					'cvc'                => 'Kontrolnummer',
-					'cvc-title'          => 'CVV/CVC',
+					'cvc-title'          => 'CVV',
 					'cvc-placeholder'    => '123'
 				]
 			],
