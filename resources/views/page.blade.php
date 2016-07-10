@@ -4,6 +4,8 @@
 
 @section('title', "{$page->title} - TakeDaily")
 
+@section('mainClasses', 'm-b-50')
+
 @section('header_top_additional')
 	@if( $page->layout == 'header' )
 		<h1 class="cms-title">{{ $page->title }}</h1>

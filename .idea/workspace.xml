@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b4416e92-d025-4555-b43a-9aecb2461123" name="Default" comment="Landing responsive changes">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Middleware/NonAdmin.php" afterPath="$PROJECT_DIR$/app/Http/Middleware/NonAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css" afterPath="$PROJECT_DIR$/public/css/app.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/app.css.map" afterPath="$PROJECT_DIR$/public/css/app.css.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/_landing.sass" afterPath="$PROJECT_DIR$/resources/assets/sass/_landing.sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home.blade.php" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/_cms.sass" afterPath="$PROJECT_DIR$/resources/assets/sass/_cms.sass" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/page.blade.php" afterPath="$PROJECT_DIR$/resources/views/page.blade.php" />
     </list>
     <ignored path="TakeDaily.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +30,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="_landing.sass" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/assets/sass/_landing.sass">
+      <file leaf-file-name="_cms.sass" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/sass/_cms.sass">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="294" column="26" selection-start-line="294" selection-start-column="26" selection-end-line="294" selection-end-column="26" />
+            <state relative-caret-position="247">
+              <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NonAdmin.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/NonAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="443">
+              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/page.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="499">
+              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -61,9 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/admin/customers/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/orders/home.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/orders/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_flow.sass" />
         <option value="$PROJECT_DIR$/app/Plan.php" />
@@ -90,7 +129,6 @@
         <option value="$PROJECT_DIR$/app/Providers/PageServiceProvider.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/cms/manage.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Dashboard/PageTranslationController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/lang/da/home.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/app/Currency.php" />
@@ -112,6 +150,10 @@
         <option value="$APPLICATION_CONFIG_DIR$/scratches/buffer1" />
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_landing.sass" />
+        <option value="$PROJECT_DIR$/resources/views/page.blade.php" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/_cms.sass" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Http/Middleware/NonAdmin.php" />
       </list>
     </option>
   </component>
@@ -161,8 +203,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -218,7 +261,7 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;checkout&#9;FILE&#9;file:///Users/lasserafn/dev-projects/takedaily/resources/lang/da/checkout.php&#10;2016_07_05_161655_create_currencies_table&#9;FILE&#9;file:///Users/lasserafn/dev-projects/takedaily/database/migrations/2016_07_05_161655_create_currencies_table.php&#10;home.php&#9;FILE&#9;file:///Users/lasserafn/dev-projects/takedaily/resources/lang/da/home.php&#10;route&#9;FILE&#9;file:///Users/lasserafn/dev-projects/takedaily/app/Http/routes.php&#10;app.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/app.php&#10;2016_06_28_154116_create_page_translations_table&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_06_28_154116_create_page_translations_table.php&#10;Page&#9;null&#9;null&#10;foote&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;help-block&#9;null&#9;null&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;Checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;general&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/general.php&#10;Check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;flow.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;Pill&#9;null&#9;null&#10;element&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;app.sa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;CheckoutCon&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;inde&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;_flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;Plan&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Plan.php&#10;CustomerWa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Events/CustomerWasBilled.php&#10;show&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/show.blade.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;Cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;show.blade.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;show.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/show.blade.php&#10;CustomerC&#9;null&#9;null&#10;Customer&#9;null&#9;null&#10;Order.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Order.php&#10;2016_05_28_135025_update_table_orders_stripe_to_global&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_05_28_135025_update_table_orders_stripe_to_global.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;Moll&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Payment/Mollie.php&#10;2016_05_25_144129_update_plans_table_payment_method&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_05_25_144129_update_plans_table_payment_method.php&#10;Mol&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Payment/Mollie.php&#10;Paymenth&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentHandler.php&#10;.env&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/.env&#10;Paymen&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentHandler.php&#10;Payme&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentDelegator.php&#10;products&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/products.php&#10;order.blade.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/emails/order.blade.php&#10;_checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_checkout.sass&#10;flow.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;flow.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/flow.php&#10;slider&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/vendor/slider.js&#10;slider.j&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/js/vendor/slider.js" />
+    <property name="SearchEverywhereHistoryKey" value="route&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;NonA&#9;null&#9;null&#10;Admin&#9;null&#9;null&#10;page.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/page.blade.php&#10;home&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/home.blade.php&#10;checkout&#9;FILE&#9;file:///Users/lasserafn/dev-projects/takedaily/resources/lang/da/checkout.php&#10;2016_07_05_161655_create_currencies_table&#9;FILE&#9;file:///Users/lasserafn/dev-projects/takedaily/database/migrations/2016_07_05_161655_create_currencies_table.php&#10;home.php&#9;FILE&#9;file:///Users/lasserafn/dev-projects/takedaily/resources/lang/da/home.php&#10;app.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/config/app.php&#10;2016_06_28_154116_create_page_translations_table&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_06_28_154116_create_page_translations_table.php&#10;Page&#9;null&#9;null&#10;foote&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;help-block&#9;null&#9;null&#10;footer&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/includes/app/footer.blade.php&#10;Checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;general&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/general.php&#10;Check&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;flow.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;Pill&#9;null&#9;null&#10;element&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_elements.sass&#10;app.sa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/app.sass&#10;index&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;CheckoutCon&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;routes&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/routes.php&#10;inde&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/checkout/index.blade.php&#10;_flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;Plan&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Plan.php&#10;CustomerWa&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Events/CustomerWasBilled.php&#10;show&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/show.blade.php&#10;Chec&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Http/Controllers/CheckoutController.php&#10;Cus&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Customer.php&#10;show.blade.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/orders/show.blade.php&#10;show.blade&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/admin/customers/show.blade.php&#10;CustomerC&#9;null&#9;null&#10;Customer&#9;null&#9;null&#10;Order.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Order.php&#10;2016_05_28_135025_update_table_orders_stripe_to_global&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_05_28_135025_update_table_orders_stripe_to_global.php&#10;flow&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/flow.blade.php&#10;Moll&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Payment/Mollie.php&#10;2016_05_25_144129_update_plans_table_payment_method&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/database/migrations/2016_05_25_144129_update_plans_table_payment_method.php&#10;Mol&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Payment/Mollie.php&#10;Paymenth&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentHandler.php&#10;.env&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/.env&#10;Paymen&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentHandler.php&#10;Payme&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/app/Apricot/Libraries/PaymentDelegator.php&#10;products&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/products.php&#10;order.blade.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/views/emails/order.blade.php&#10;_checkout&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_checkout.sass&#10;flow.&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/assets/sass/_flow.sass&#10;flow.php&#9;FILE&#9;file:///Users/lasserafn/Dev-projects/TakeDaily/resources/lang/da/flow.php" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="271" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -239,7 +282,6 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="PHP&#10;JavaScript&#10;SASS&#10;HTML" />
     <property name="TODO_SCOPE" value="Laravel" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="FullScreen" value="true" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="$PROJECT_DIR$/node_modules/gulp" />
   </component>
@@ -300,13 +342,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1456591092063</updated>
-    </task>
-    <task id="LOCAL-00127" summary="New header bg">
-      <created>1460726053480</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1460726053480</updated>
     </task>
     <task id="LOCAL-00128" summary="New header bg #2">
       <created>1460726453647</created>
@@ -644,7 +679,14 @@
       <option name="project" value="LOCAL" />
       <updated>1467731201465</updated>
     </task>
-    <option name="localTasksCounter" value="176" />
+    <task id="LOCAL-00176" summary="Landing responsive changes">
+      <created>1468176943870</created>
+      <option name="number" value="00176" />
+      <option name="presentableId" value="LOCAL-00176" />
+      <option name="project" value="LOCAL" />
+      <updated>1468176943870</updated>
+    </task>
+    <option name="localTasksCounter" value="177" />
     <servers />
   </component>
   <component name="TodoView" selected-index="2">
@@ -657,15 +699,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23020834" sideWeight="0.28225026" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2793354" sideWeight="0.45602947" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22864583" sideWeight="0.49532712" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32492724" sideWeight="0.49815693" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37037036" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35092592" sideWeight="0.42801046" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38797283" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3501455" sideWeight="0.42801046" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15903106" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19140625" sideWeight="0.7177498" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12848867" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -736,41 +778,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/flow.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="712">
-          <caret line="716" column="66" selection-start-line="716" selection-start-column="66" selection-end-line="716" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="75" column="44" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/subscription.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/emails/order.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="25" column="92" selection-start-line="25" selection-start-column="92" selection-end-line="25" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lang/da/password_email.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" column="33" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -896,13 +903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
           <caret line="88" column="10" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -1045,6 +1045,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_landing.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="281" column="24" selection-start-line="281" selection-start-column="24" selection-end-line="281" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -1053,10 +1061,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_landing.sass">
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="294" column="26" selection-start-line="294" selection-start-column="26" selection-end-line="294" selection-end-column="26" />
+        <state relative-caret-position="420">
+          <caret line="22" column="58" selection-start-line="22" selection-start-column="47" selection-end-line="22" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/page.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="499">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_cms.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/NonAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
           <folding />
         </state>
       </provider>
