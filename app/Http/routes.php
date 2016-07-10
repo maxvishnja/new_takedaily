@@ -20,7 +20,7 @@ Route::group(['middleware' => 'web'], function () {
 		return view('home');
 	});
 
-	Route::group(['middleware' => 'guest'], function () {
+	Route::group(['middleware' => ['nonAdmin', 'guest']], function () {
 		Route::get('flow', function () {
 			$giftcard = null;
 

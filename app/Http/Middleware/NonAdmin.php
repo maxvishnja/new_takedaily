@@ -32,7 +32,7 @@ class NonAdmin
 			}
 			else
 			{
-				return redirect()->guest('dashboard');
+				return redirect()->guest('dashboard')->withErrors('You\'re an admin. Please log out to use the desired feature.'); // consider translate?
 			}
 		}
 
