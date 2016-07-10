@@ -104,19 +104,19 @@
 				<p class="sub_header">{{ trans('home.blocks.one.description') }}</p>
 
 				<div class="row text-center">
-					<div class="col-md-4 block_item">
+					<div class="col-sm-4 block_item">
 						<span class="icon icon-user-information"></span>
 						<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
 						<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
 					</div>
 
-					<div class="col-md-4 block_item">
+					<div class="col-sm-4 block_item">
 						<span class="icon icon-box"></span>
 						<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
 						<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
 					</div>
 
-					<div class="col-md-4 block_item">
+					<div class="col-sm-4 block_item">
 						<span class="icon icon-truck"></span>
 						<h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
 						<p>{{ trans('home.blocks.one.steps.three.text') }}</p>

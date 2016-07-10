@@ -39,7 +39,7 @@ body.index
 				font-size: 50px
 				font-weight: $weight-bold
 				margin: 0 0 20px
-				text-shadow: 0 0 6px rgba(0,0,0,.2)
+				text-shadow: 0 0 6px rgba(0, 0, 0, .2)
 
 			p
 				font-size: 17px
@@ -135,7 +135,7 @@ body.index
 		&.block--four
 			background: $white
 			text-align: center
-			margin:  0 0 150px 0
+			margin: 0 0 150px 0
 
 		&.block--five
 			background: $almost-white
@@ -174,7 +174,6 @@ body.index
 				line-height: 1.5
 				font-size: 16px
 				margin: 0 0 50px
-
 
 		&.block--seven
 			background: $almost-white
@@ -282,10 +281,12 @@ body.index
 
 			&.block--one
 				.block_item
-					margin-bottom: 30px
+					h3
+						line-height: 1.3
 
-					&:last-of-type
-						margin-bottom: 0
+					p
+						line-height: 1.6
+						font-size: 14px
 
 @media all and (max-width: 767px)
 	body.index
@@ -297,6 +298,13 @@ body.index
 				left: 5px
 
 		.block
+			&.block--one
+				.block_item
+					margin-bottom: 30px
+
+					&:last-of-type
+						margin-bottom: 0
+
 			&.block--three
 				padding: 50px 0
 
