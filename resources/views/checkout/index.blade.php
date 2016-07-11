@@ -52,7 +52,7 @@
 							<legend class="card_title">{{ trans('checkout.index.order.info.title') }}</legend>
 							<hr class="hr--dashed hr--small-margin"/>
 
-							<div class="row m-b-50">
+							<div class="row m-b-50 m-sm-b-20">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_name">{{ trans('checkout.index.order.info.name') }}
 										<span class="required">*</span></label>
@@ -60,7 +60,7 @@
 								</div>
 							</div>
 
-							<div class="row m-b-50">
+							<div class="row m-b-50 m-sm-b-20">
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_email">{{ trans('checkout.index.order.info.email') }}
 										<span class="required">*</span></label>
@@ -68,20 +68,20 @@
 								</div>
 							</div>
 
-							<div class="row m-b-50">
+							<div class="row m-b-50 m-sm-b-20">
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}
 										<span class="required">*</span></label>
 									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_street')) input--error @endif" id="input_info_address_street" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.street-placeholder') }}" name="address_street" required="required" aria-required="true" value="{{ Request::old('address_street', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_line1') : '')) }}"/>
 								</div>
 								<div class="col-md-4">
-									<div class="visible-xs visible-sm m-t-50"></div>
+									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 									<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }}
 										<span class="required">*</span></label>
 									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zipcode')) input--error @endif" id="input_info_address_zipcode" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}" name="address_zipcode" required="required" aria-required="true" value="{{ Request::old('address_zipcode', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 								</div>
 								<div class="col-md-4">
-									<div class="visible-xs visible-sm m-t-50"></div>
+									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 									<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
 										<span class="required">*</span></label>
 									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_city')) input--error @endif" id="input_info_address_city" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.city-placeholder') }}" name="address_city" required="required" aria-required="true" value="{{ Request::old('address_city', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
@@ -99,7 +99,7 @@
 									</select>
 								</div>
 								<div class="col-md-6">
-									<div class="visible-xs visible-sm m-t-50"></div>
+									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 									<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}
 										<span class="optional pull-right">{{ trans('checkout.index.order.info.optional') }}</span></label>
 									<input type="text" class="input input--medium input--semibold input--full" id="input_info_company" placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company" value="{{ Request::old('company', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
@@ -139,7 +139,7 @@
 
 							<span id="payment-errors"></span>
 
-							<div class="row m-b-50">
+							<div class="row m-b-50 m-sm-b-20">
 								<!-- NAME -->
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="ccname">{{ trans('checkout.index.order.billing.card.name') }}</label>
@@ -147,7 +147,7 @@
 								</div>
 							</div>
 
-							<div class="row m-b-50">
+							<div class="row m-b-50 m-sm-b-20">
 								<div class="col-md-7">
 									<!-- Card Number -->
 									<label class="label label--full checkout--label" for="ccnumber">{{ trans('checkout.index.order.billing.card.number') }}</label>
@@ -183,7 +183,7 @@
 									</select>
 								</div>
 								<div class="col-md-4">
-									<div class="visible-xs visible-sm m-t-50"></div>
+									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 									<!-- Expiry Year -->
 									<label class="label label--full checkout--label" for="cc-exp-year">{{ trans('checkout.index.order.billing.card.year') }}</label>
 									<select data-validate="false" class="select select--full select--semibold select--spacing select--medium" id="cc-exp-year" data-stripe="exp-year" autocomplete="cc-exp-year">
@@ -194,7 +194,7 @@
 									</select>
 								</div>
 								<div class="col-md-4">
-									<div class="visible-xs visible-sm m-t-50"></div>
+									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 									<!-- CVV/CVC -->
 									<label class="label label--full checkout--label" for="cc-csc" title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }}
 										({{ trans('checkout.index.order.billing.card.cvc-title') }})</label>

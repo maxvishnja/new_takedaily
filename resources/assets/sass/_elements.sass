@@ -572,6 +572,39 @@ table.table
 		display: inline-block
 
 @media all and (max-width: 767px)
+	table.table
+		&.table--responsive
+			thead
+				display: none
+
+			tfoot
+				border-top: 2px solid $light-grey
+
+			tbody, tfoot
+				tr, td
+					display: block
+
+				tr
+					td
+						border-bottom: 1px solid $lightest-grey
+
+						&:before
+							content: attr(data-th)
+							display: block
+							float: left
+							width: 30%
+							font-weight: $weight-bold
+
+						&:last-of-type
+							border-bottom: none
+
+			&.table--responsive--wide
+				tbody, tfoot
+					tr
+						td
+							&:before
+								width: 35%
+
 	.button
 		&.button--full-mobile
 			width: 100%

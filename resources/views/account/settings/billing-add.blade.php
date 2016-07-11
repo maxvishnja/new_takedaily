@@ -1,5 +1,6 @@
 @extends('layouts.account')
-
+{{-- todo fix this form; maybe use same code as from checkout (include) --}}
+{{-- todo find a way to add Mollie method --}}
 @section('pageClass', 'account account-settings account-settings-billing account-settings-billing-add')
 
 @section('title', trans('account.settings_billing.add.title'))
@@ -75,8 +76,8 @@
 			</fieldset>
 
 			<div class="m-t-40">
-				<button type="submit" class="button button--green button--large button--rounded" id="button-submit">{{ trans('account.settings_billing.button-add-method-text') }}</button>
-				<a href="{{ URL::action('AccountController@getSettingsBilling') }}" class="pull-right button button--white button--text-grey button--large m-l-20 button--rounded">{{ trans('account.settings_billing.add.button-cancel-text') }}</a>
+				<button type="submit" class="button button--green button--large button--rounded button--full-mobile m-sm-b-10" id="button-submit">{{ trans('account.settings_billing.button-add-method-text') }}</button>
+				<a href="{{ URL::action('AccountController@getSettingsBilling') }}" class="pull-right button button--white button--text-grey button--large m-l-20 button--rounded button--full-mobile">{{ trans('account.settings_billing.add.button-cancel-text') }}</a>
 
 				<div class="clear"></div>
 			</div>

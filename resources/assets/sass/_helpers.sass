@@ -32,3 +32,17 @@
 
 	.m-r-#{$i*5}
 		margin-right: #{$i*5}px
+
+@media all and (max-width: 767px)
+	@for $i from 1 through 5
+		.m-sm-t-#{$i*5}
+			margin-top: #{$i*5}px
+
+		.m-sm-b-#{$i*5}
+			margin-bottom: #{$i*5}px
+
+		.m-sm-l-#{$i*5}
+			margin-left: #{$i*5}px
+
+		.m-sm-r-#{$i*5}
+			margin-right: #{$i*5}px

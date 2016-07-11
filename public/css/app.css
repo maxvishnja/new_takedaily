@@ -1067,6 +1067,48 @@ hr {
 .m-r-50 {
   margin-right: 50px; }
 
+@media all and (max-width: 767px) {
+  .m-sm-t-5 {
+    margin-top: 5px; }
+  .m-sm-b-5 {
+    margin-bottom: 5px; }
+  .m-sm-l-5 {
+    margin-left: 5px; }
+  .m-sm-r-5 {
+    margin-right: 5px; }
+  .m-sm-t-10 {
+    margin-top: 10px; }
+  .m-sm-b-10 {
+    margin-bottom: 10px; }
+  .m-sm-l-10 {
+    margin-left: 10px; }
+  .m-sm-r-10 {
+    margin-right: 10px; }
+  .m-sm-t-15 {
+    margin-top: 15px; }
+  .m-sm-b-15 {
+    margin-bottom: 15px; }
+  .m-sm-l-15 {
+    margin-left: 15px; }
+  .m-sm-r-15 {
+    margin-right: 15px; }
+  .m-sm-t-20 {
+    margin-top: 20px; }
+  .m-sm-b-20 {
+    margin-bottom: 20px; }
+  .m-sm-l-20 {
+    margin-left: 20px; }
+  .m-sm-r-20 {
+    margin-right: 20px; }
+  .m-sm-t-25 {
+    margin-top: 25px; }
+  .m-sm-b-25 {
+    margin-bottom: 25px; }
+  .m-sm-l-25 {
+    margin-left: 25px; }
+  .m-sm-r-25 {
+    margin-right: 25px; } }
+
 html {
   height: 100%; }
 
@@ -1260,6 +1302,8 @@ footer .bottom {
 @media all and (max-width: 991px) {
   footer .main .footer_column {
     margin-bottom: 30px; }
+    footer .main .footer_column:last-of-type {
+      margin-bottom: 0; }
   footer .bottom ul.footer_bottom_links > li.lang-selector-footer {
     display: none; }
   .navigation {
@@ -5019,6 +5063,24 @@ table.table.table--striped tbody tr:nth-child(2n+2) td {
   display: inline-block; }
 
 @media all and (max-width: 767px) {
+  table.table.table--responsive thead {
+    display: none; }
+  table.table.table--responsive tfoot {
+    border-top: 2px solid #cccccc; }
+  table.table.table--responsive tbody tr, table.table.table--responsive tbody td, table.table.table--responsive tfoot tr, table.table.table--responsive tfoot td {
+    display: block; }
+  table.table.table--responsive tbody tr td, table.table.table--responsive tfoot tr td {
+    border-bottom: 1px solid #eeeeee; }
+    table.table.table--responsive tbody tr td:before, table.table.table--responsive tfoot tr td:before {
+      content: attr(data-th);
+      display: block;
+      float: left;
+      width: 30%;
+      font-weight: 700; }
+    table.table.table--responsive tbody tr td:last-of-type, table.table.table--responsive tfoot tr td:last-of-type {
+      border-bottom: none; }
+  table.table.table--responsive.table--responsive--wide tbody tr td:before, table.table.table--responsive.table--responsive--wide tfoot tr td:before {
+    width: 35%; }
   .button.button--full-mobile {
     width: 100%;
     display: block; }
@@ -5203,6 +5265,10 @@ body.page-checkout {
     font-size: 16px;
     margin-bottom: 6px;
     font-weight: 600; } }
+
+@media all and (max-width: 767px) {
+  .payment-method-icon {
+    width: 100%; } }
 
 body.page-flow {
   height: 100%; }
