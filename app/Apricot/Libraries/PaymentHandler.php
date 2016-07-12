@@ -45,4 +45,9 @@ class PaymentHandler
 	{
 		return $this->provider->addMethod($source, $customer);
 	}
+
+	public function getCustomerMethods($customerId)
+	{
+		return $this->provider->getCustomerMethods($customerId);
+	}
 }

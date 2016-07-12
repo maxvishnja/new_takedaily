@@ -480,4 +480,13 @@ class Customer extends Model
 					 ->where('plans.subscription_rebill_at', '<=', Date::now());
 	}
 
+	public function getPaymentMethods()
+	{
+		$plan = $this->getPlan();
+		$paymentMethod  = PaymentDelegator::getMethod($plan->getPaymentMethod());
+		$paymentHandler = new PaymentHandler($paymentMethod);
+
+		return $paymentHandler->getCustomerMethods($plan->getPaymentCustomerToken());
+	}
+
 }

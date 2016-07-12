@@ -193,6 +193,11 @@ class Plan extends Model
 		return $this->payment_customer_token;
 	}
 
+	/**
+	 * Returns the payment method
+	 *
+	 * @return string
+	 */
 	public function getPaymentMethod()
 	{
 		return $this->payment_method;

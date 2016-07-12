@@ -175,4 +175,10 @@ class Stripe implements PaymentInterface
 		}
 	}
 
+	public function getCustomerMethods($customerId)
+	{
+		// TODO: Implement getCustomerMethods() method.
+	}
+
+
 }

@@ -1,6 +1,8 @@
 <?php namespace App\Apricot\Libraries;
 
 
+use App\Apricot\Interfaces\PaymentInterface;
+
 class PaymentDelegator
 {
 	protected static $methods = [
@@ -8,6 +10,10 @@ class PaymentDelegator
 		'mollie' => \App\Apricot\Payment\Mollie::class
 	];
 
+	/**
+	 * @param $name
+	 * @return bool|PaymentInterface
+	 */
 	public static function getMethod($name)
 	{
 		if(!isset(self::$methods[$name]))

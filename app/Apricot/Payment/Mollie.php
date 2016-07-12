@@ -121,10 +121,31 @@ class Mollie implements PaymentInterface
 	}
 
 	public function addMethod($source, $customer)
-	{ // todo.. find a way to disable this for Mollie, as it seems to be impossible.
+	{ // todo.. find a way to disable this for Mollie and instead require a new first transaction..
 		return \Mollie::api()->customersMandates()->withParentId($customer->id)->create([
 
 		]);
 	}
+
+	public function getCustomerMethods($customerId)
+	{
+		// TODO: Implement getCustomerMethods() method.
+
+		$mandates = \Mollie::api()->customersMandates()->withParentId($customerId)->all();
+
+		$validMandates = [];
+
+		/** @var \Mollie_API_Object_Customer_Mandate $mandate */
+		foreach($mandates as $mandate)
+		{
+			if( $mandate->isValid() )
+			{
+				$validMandates[] = $mandate;
+			}
+		}
+
+		return $validMandates;
+	}
+
 
 }

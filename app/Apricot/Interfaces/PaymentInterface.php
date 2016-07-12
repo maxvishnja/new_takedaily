@@ -4,8 +4,8 @@ interface PaymentInterface
 {
 	/**
 	 * @param integer $amount
-	 * @param string $description
-	 * @param array $data
+	 * @param string  $description
+	 * @param array   $data
 	 *
 	 * @return mixed
 	 */
@@ -21,7 +21,7 @@ interface PaymentInterface
 
 	/**
 	 * @param integer $amount
-	 * @param $customer
+	 * @param         $customer
 	 *
 	 * @return mixed
 	 */
@@ -29,7 +29,7 @@ interface PaymentInterface
 
 	/**
 	 * @param integer $amount
-	 * @param $customer
+	 * @param         $customer
 	 *
 	 * @return mixed
 	 */
@@ -63,4 +63,11 @@ interface PaymentInterface
 	 * @return mixed
 	 */
 	public function addMethod($source, $customer);
+
+	/**
+	 * @param $customerId
+	 *
+	 * @return array
+	 */
+	public function getCustomerMethods($customerId);
 }
