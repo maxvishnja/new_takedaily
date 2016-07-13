@@ -95,16 +95,17 @@ class AccountController extends Controller
 
 	function getSettingsBilling()
 	{
-		$source = $this->customer->getStripePaymentSource();
+		$sources = $this->customer->getPaymentMethods();
 
 		return view('account.settings.billing', [
-			'source' => $source
+			'sources' => $sources['methods'],
+		    'method' => $sources['type']
 		]);
 	}
 
 	function getSettingsBillingRemove()
 	{
-		if ( !$this->customer->removePaymentOption() )
+		if ( !$this->customer->removePaymentOption() ) // todo add id or similar
 		{
 			return redirect()->action('AccountController@getSettingsBilling')->withErrors(trans('messages.successes.billing.removing-failed'));
 		}

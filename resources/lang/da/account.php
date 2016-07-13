@@ -45,10 +45,10 @@ return [
 		'title'                  => 'Fakturering - TakeDaily',
 		'header'                 => 'Betalingsmetode',
 		'no-method'              => 'Ingen betalingsmetode fundet!',
-		'button-add-method-text' => 'Tilføj nyt kort',
+		'button-add-method-text' => 'Tilføj ny',
 		'button-update-text'     => 'Opdater',
 		'card-exp'               => 'Udløb: ',
-		'button-remove-text'     => 'Fjern kort',
+		'button-remove-text'     => 'Fjern',
 		'add' => [
 			'button-cancel-text'     => 'Annuller',
 			'title'                  => 'Tilføj betalingsmetode - TakeDaily',

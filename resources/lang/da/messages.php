@@ -9,14 +9,14 @@
 			'updated' => 'Din profil blev opdateret!'
 		],
 		'subscription' => [
-			'snoozed'  => 'Abonnementet blev udskudt i :days dage!',
-			'not-snoozed'  => 'Abonnementet kunne ikke udskydes!',
-			'started' => 'Abonnementet blev aktiveret igen!',
-			'cancelled' => 'Abonnementet blev opsagt!'
+			'snoozed'     => 'Abonnementet blev udskudt i :days dage!',
+			'not-snoozed' => 'Abonnementet kunne ikke udskydes!',
+			'started'     => 'Abonnementet blev aktiveret igen!',
+			'cancelled'   => 'Abonnementet blev opsagt!'
 		],
 		'billing'      => [
-			'removed'         => 'Kortet blev fjernet.',
-			'removing-failed' => 'Kortet kunne ikke fjernes, prøv igen senere.',
+			'removed'         => 'Metoden blev fjernet.',
+			'removing-failed' => 'Metoden kunne ikke fjernes, prøv igen senere.',
 			'refreshed'       => 'Betalingsmetoder blev opdateret!'
 		]
 	]
