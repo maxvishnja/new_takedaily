@@ -177,7 +177,9 @@ class Stripe implements PaymentInterface
 
 	public function getCustomerMethods($customerId)
 	{
-		// TODO: Implement getCustomerMethods() method.
+		$customer = Customer::retrieve($customerId);
+
+		return $customer->sources;
 	}
 
 
