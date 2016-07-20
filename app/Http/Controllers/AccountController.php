@@ -105,7 +105,7 @@ class AccountController extends Controller
 
 	function getSettingsBillingRemove()
 	{
-		if ( !$this->customer->removePaymentOption() ) // todo add id or similar
+		if ( !$this->customer->removePaymentOption() )
 		{
 			return redirect()->action('AccountController@getSettingsBilling')->withErrors(trans('messages.successes.billing.removing-failed'));
 		}
@@ -115,7 +115,7 @@ class AccountController extends Controller
 
 	function getSettingsBillingAdd()
 	{
-		if ( $this->customer->getStripePaymentSource() )
+		if ( $this->customer->getStripePaymentSource() ) // todo convert to handler
 		{
 			return \Redirect::action('AccountController@getSettingsBilling');
 		}
@@ -127,7 +127,7 @@ class AccountController extends Controller
 	{
 		$user = \Auth::user();
 
-		if ( $user->getCustomer()->getPlan()->hasNoStripeCustomer() )
+		if ( $user->getCustomer()->getPlan()->hasNoStripeCustomer() ) // todo convert to handler
 		{
 			try
 			{
@@ -176,7 +176,7 @@ class AccountController extends Controller
 	}
 
 	function getSettingsBillingRefresh()
-	{
+	{ // todo convert to handler
 		\Cache::forget('stripe_customer_for_customer_' . $this->customer->id);
 
 		return redirect()->action('AccountController@getSettingsBilling')->with('success', trans('messages.successes.billing.refreshed'));

@@ -1190,7 +1190,8 @@ header {
   background-position: center center; }
   header.header--with-bg {
     background: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); }
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative; }
     header.header--with-bg nav[role="navigation"] ul li a {
       color: #333333; }
       header.header--with-bg nav[role="navigation"] ul li a:hover {
@@ -5102,7 +5103,8 @@ table.table.table--striped tbody tr:nth-child(2n+2) td {
 body.account nav.account_nav {
   background: #eeeeee; }
   body.account nav.account_nav ul li {
-    float: left; }
+    float: left;
+    border-top: 2px solid transparent; }
     body.account nav.account_nav ul li a {
       display: inline-block;
       font-size: 20px;
@@ -5114,7 +5116,8 @@ body.account nav.account_nav {
     body.account nav.account_nav ul li.active {
       background: #fff;
       color: #555555;
-      font-weight: 600; }
+      font-weight: 600;
+      border-color: #7BC6BA; }
 
 body.account.account-settings-billing .payment_method_card {
   width: 320px;

@@ -7,7 +7,7 @@
 			<li @if(Request::getPathInfo() == '/account/settings/basic') class="active" @endif><a href="/account/settings/basic">{{ trans('nav.account.settings') }}</a></li>
 			<li @if(Request::getPathInfo() == '/account/settings/subscription') class="active" @endif><a href="/account/settings/subscription">{{ trans('nav.account.subscription') }}</a></li>
 			<li @if(Request::getPathInfo() == '/account/settings/billing') class="active" @endif><a href="/account/settings/billing">{{ trans('nav.account.billing') }}</a></li>
-			<li><a href="/logout">{{ trans('nav.account.logout') }}</a></li>
+			<li class="pull-right"><a href="/logout">{{ trans('nav.account.logout') }}</a></li>
 		</ul>
 
 		<div class="visible-sm visible-xs text-center">
