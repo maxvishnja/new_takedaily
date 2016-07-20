@@ -182,5 +182,20 @@ class Stripe implements PaymentInterface
 		return $customer->sources;
 	}
 
+	/**
+	 * @param $customerId
+	 *
+	 * @return array
+	 */
+	public function deleteMethodFor($customerId)
+	{
+		$customer = $this->findCustomer($customerId);
 
+		foreach($customer->sources as $source)
+		{
+			$source->delete();
+		}
+
+		return ['purge_plan' => false];
+	}
 }

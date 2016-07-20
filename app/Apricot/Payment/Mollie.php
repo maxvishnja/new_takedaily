@@ -12,7 +12,7 @@ class Mollie implements PaymentInterface
 	 *
 	 * @return \Mollie_API_Object_Payment
 	 */
-	public function charge($amount, $description, $data = [ ])
+	public function charge($amount, $description, $data = [])
 	{
 		$amount = round(MoneyLibrary::convertCurrenciesByString(config('currency', config('app.base_currency')), 'EUR', $amount)); // todo test
 
@@ -68,16 +68,13 @@ class Mollie implements PaymentInterface
 		$hasValidMandate = false;
 
 		/** @var \Mollie_API_Object_Customer_Mandate $mandate */
-		foreach($mandates as $mandate)
-		{
-			if( $mandate->isValid() )
-			{
+		foreach ($mandates as $mandate) {
+			if ($mandate->isValid()) {
 				$hasValidMandate = true;
 			}
 		}
 
-		if( ! $hasValidMandate )
-		{
+		if (!$hasValidMandate) {
 			return false;
 		}
 
@@ -136,10 +133,8 @@ class Mollie implements PaymentInterface
 		$validMandates = [];
 
 		/** @var \Mollie_API_Object_Customer_Mandate $mandate */
-		foreach($mandates as $mandate)
-		{
-			if( $mandate->isValid() )
-			{
+		foreach ($mandates as $mandate) {
+			if ($mandate->isValid()) {
 				$validMandates[] = $mandate;
 			}
 		}
@@ -147,5 +142,14 @@ class Mollie implements PaymentInterface
 		return $validMandates;
 	}
 
-
+	/**
+	 * @param $customerId
+	 *
+	 * @return array
+	 */
+	public function deleteMethodFor($customerId)
+	{
+		// no implementation to do this.
+		return ['purge_plan' => true];
+	}
 }

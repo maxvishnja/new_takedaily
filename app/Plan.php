@@ -203,11 +203,6 @@ class Plan extends Model
 		return $this->payment_method;
 	}
 
-	public function hasNoPaymentCustomer()
-	{
-		return $this->getPaymentCustomerToken() == '';
-	}
-
 	public function getPaymentCustomer()
 	{
 		$customerToken = $this->getPaymentCustomerToken();

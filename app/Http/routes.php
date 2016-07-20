@@ -181,7 +181,6 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('settings/billing/delete', 'AccountController@getSettingsBillingRemove');
 		Route::get('settings/billing/add', 'AccountController@getSettingsBillingAdd');
 		Route::post('settings/billing/add', 'AccountController@postSettingsBillingAdd');
-		Route::get('settings/billing/refresh', 'AccountController@getSettingsBillingRefresh');
 	});
 
 	/*

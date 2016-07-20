@@ -115,7 +115,7 @@ class AccountController extends Controller
 
 	function getSettingsBillingAdd()
 	{
-		if ( $this->customer->getStripePaymentSource() ) // todo convert to handler
+		if ( count($this->customer->getPaymentMethods()['methods']) > 0 )
 		{
 			return \Redirect::action('AccountController@getSettingsBilling');
 		}
@@ -127,7 +127,7 @@ class AccountController extends Controller
 	{
 		$user = \Auth::user();
 
-		if ( $user->getCustomer()->getPlan()->hasNoStripeCustomer() ) // todo convert to handler
+		if ( count($this->customer->getPaymentMethods()['methods']) == 0 )
 		{
 			try
 			{
@@ -170,16 +170,7 @@ class AccountController extends Controller
 			}
 		}
 
-		\Cache::forget('stripe_customer_for_customer_' . $user->getCustomer()->id);
-
 		return \Redirect::action('AccountController@getSettingsBilling')->with('success', trans('checkout.messages.success.card-added'));
-	}
-
-	function getSettingsBillingRefresh()
-	{ // todo convert to handler
-		\Cache::forget('stripe_customer_for_customer_' . $this->customer->id);
-
-		return redirect()->action('AccountController@getSettingsBilling')->with('success', trans('messages.successes.billing.refreshed'));
 	}
 
 	function getSettingsBasic()

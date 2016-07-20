@@ -49,10 +49,11 @@ return [
 		'button-update-text'     => 'Opdater',
 		'card-exp'               => 'Udløb: ',
 		'button-remove-text'     => 'Fjern',
-		'add' => [
-			'button-cancel-text'     => 'Annuller',
-			'title'                  => 'Tilføj betalingsmetode - TakeDaily',
-			'header'                 => 'Ny betalingsmetode'
+		'add'                    => [
+			'button-cancel-text' => 'Annuller',
+			'button-add-text'    => 'Fortsæt',
+			'title'              => 'Tilføj betalingsmetode - TakeDaily',
+			'header'             => 'Ny betalingsmetode',
 		]
 	],
 	'settings_subscription' => [
@@ -66,7 +67,7 @@ return [
 		],
 		'button-snooze-text' => 'Udskyd næste forsendelse',
 		'button-cancel-text' => 'Opsig',
-		'button-start-text' => 'Start abonnement fra i dag',
+		'button-start-text'  => 'Start abonnement fra i dag',
 		'snooze_popup'       => [
 			'title'              => 'Snooze abonnent',
 			'text'               => 'Hvor langt tid?',

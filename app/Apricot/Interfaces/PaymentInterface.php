@@ -70,4 +70,11 @@ interface PaymentInterface
 	 * @return array
 	 */
 	public function getCustomerMethods($customerId);
+
+	/**
+	 * @param $customerId
+	 *
+	 * @return array
+	 */
+	public function deleteMethodFor($customerId);
 }

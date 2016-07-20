@@ -50,4 +50,9 @@ class PaymentHandler
 	{
 		return $this->provider->getCustomerMethods($customerId);
 	}
+
+	public function deleteMethodFor($customerId)
+	{
+		return $this->provider->deleteMethodFor($customerId);
+	}
 }

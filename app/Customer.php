@@ -10,7 +10,6 @@ use App\Events\CustomerWasBilled;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jenssegers\Date\Date;
-use Stripe\Card;
 
 /**
  * Class Customer
@@ -214,20 +213,6 @@ class Customer extends Model
 		return $lib->getCustomer($this);
 	}
 
-	/**
-	 * @return Card
-	 */
-	public function getStripePaymentSource() // todo convert to paymentHandler
-	{
-		$stripeCustomer = $this->getStripeCustomer();
-
-		if (!$stripeCustomer || $stripeCustomer->sources->total_count <= 0 || !$source = $stripeCustomer->sources->data[0]) {
-			$source = null;
-		}
-
-		return $source;
-	}
-
 	public function setCustomerAttribute($identifier, $value)
 	{
 		$attribute = $this->customerAttributes()->where('identifier', $identifier)->first();
@@ -253,17 +238,16 @@ class Customer extends Model
 		return true;
 	}
 
-	public function removePaymentOption() // todo convert to paymentHandler
+	public function removePaymentOption()
 	{
-		$stripeCustomer = $this->getStripeCustomer();
-		$stripeSource   = $this->getStripePaymentSource();
+		$paymentMethod  = PaymentDelegator::getMethod($this->getPlan()->getPaymentMethod());
+		$paymentHandler = new PaymentHandler($paymentMethod);
 
-		if (!$stripeSource) {
-			return false;
-		}
+		$deleteResponse = $paymentHandler->deleteMethodFor($this->getPlan()->getPaymentCustomerToken());
 
-		if ($stripeCustomer->sources->retrieve($stripeSource->id)->delete()) {
-			\Cache::forget('stripe_customer_for_customer_' . $this->id);
+		if( $deleteResponse['purge_plan'] )
+		{
+			$this->getPlan()->update(['payment_customer_token' => '', 'payment_method' => '']);
 		}
 
 		return true;
