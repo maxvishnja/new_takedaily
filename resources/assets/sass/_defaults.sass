@@ -3,7 +3,7 @@ html
 
 body
 	background: $white
-	font: 400 15px/1 "proxima-nova", "Proxima Nova", "proxima-nova-alt", "Proxima Nova Alt", sans-serif
+	font: 400 14px/1 "Montserrat", "proxima-nova", "Proxima Nova", "proxima-nova-alt", "Proxima Nova Alt", "Open Sans", sans-serif
 	color: $greyish-brown
 	-webkit-font-smoothing: antialiased
 	box-sizing: border-box
@@ -41,13 +41,13 @@ div.logo, div.icon
 	display: block
 
 .toggle-mobile-nav
-	display: inline-block
+	display: block
 
 .hamburger
-	display: inline-block
+	display: block
 	width: 50px
-	height: 38px
-	padding: 11px 10px 10px
+	height: 36px
+	padding: 10px
 	cursor: pointer
 
 	.meat
@@ -77,11 +77,14 @@ div.logo, div.icon
 	color: $main-green
 
 header
-	height: 119px
+	height: 114px
 	background-color: $dark-grey
 	background-repeat: no-repeat
 	background-size: cover
 	background-position: center center
+
+	.logo
+		display: block
 
 	&.header--with-bg
 		background: #fff
@@ -172,7 +175,7 @@ nav[role="navigation"]
 				text-transform: uppercase
 				color: $white
 				font-size: 16px
-				line-height: 20px
+				//line-height: 20px
 				padding: 10px 15px
 				text-decoration: none
 				display: inline-block
@@ -198,6 +201,7 @@ footer
 			font-size: 14px
 			line-height: 1.4
 			color: $warm-grey
+			font-weight: 300
 			margin: 0
 
 	.bottom
@@ -215,13 +219,15 @@ footer
 				display: inline-block
 				margin-right: 30px
 
+				&.lang-selector-footer
+					font-weight: $weight-default
+
 				&:last-child
 					margin-right: 0
 
 				a
 					color: $greyish-brown
 					font-size: 14px
-					font-weight: $weight-semibold
 
 @media all and (max-width: 991px)
 	footer

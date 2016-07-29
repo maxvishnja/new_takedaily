@@ -3,7 +3,7 @@ return [
 	'header' => [
 		'title-1'           => 'Nu bliver det nemt,<br/>at få din krop i balance.',
 		'title-2'           => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
-		'button-click-here' => 'Tryk her for at starte nu',
+		'button-click-here' => 'HÅNDPLUK DINE VITAMINER NU',
 		'splash'            => [
 			'text'  => 'En måneds forbrug<br/>skræddersyet til dig',
 			'price' => '149<small> kr.</small>',

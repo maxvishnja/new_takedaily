@@ -7,8 +7,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, user-scalable=no, maximum-scale=1.0"/>
 
-	<script src="https://use.typekit.net/feb1teb.js"></script>
-	<script>try {Typekit.load({async: true});} catch (e) {}</script>
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet"/>
 
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>

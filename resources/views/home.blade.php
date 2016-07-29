@@ -3,13 +3,13 @@
 @section('pageClass', 'index')
 
 @section('content')
-	<header class="header--landing header--with-large-bg">
+	<header class="header--landing">
 		<div class="header-nav">
 			<div class="container-fluid">
 				<div class="header_top">
 					<div class="row">
 						<div class="col-md-3 col-xs-8">
-							<a href="/" class="logo logo-color"></a>
+							<a href="/" class="logo logo-white"></a>
 						</div>
 
 						<div class="col-md-9 col-xs-4">
@@ -26,7 +26,8 @@
 					<div class="col-md-6">
 						<h1>{!! trans('home.header.title-1') !!}</h1>
 						@if( Auth::guest() )
-							<a href="/flow" class="button button--rounded button--huge button--green m-t-30">
+							<a href="/flow"
+							   class="button button--rounded button--huge button--white button--circular m-t-30">
 								<strong>{{ trans('home.header.button-click-here') }}</strong>
 							</a>
 						@endif
@@ -40,7 +41,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div><!-- Header end -->
 
 		{{--
 
@@ -92,9 +93,9 @@
 
 		--}}
 
-		<div class="header_footer hidden-sm hidden-xs">
+		{{--<div class="header_footer hidden-sm hidden-xs">
 			{!! trans('home.header.cta') !!}
-		</div>
+		</div>--}}
 	</header>
 
 	<main>
@@ -145,7 +146,8 @@
 			<div class="block block--three text-center">
 				<div class="row">
 					<div class="col-md-4">
-						<img src="/images/dietist.png" class="img--rounded" alt="{{ trans('home.blocks.three.name') }}"/>
+						<img src="/images/dietist.png" class="img--rounded"
+							 alt="{{ trans('home.blocks.three.name') }}"/>
 						<span class="dietist-name">{{ trans('home.blocks.three.name') }}</span>
 					</div>
 					<div class="col-md-8">
@@ -159,7 +161,8 @@
 
 		<div class="block block--four hidden-xs">
 			<div class="container">
-				<video src="/video/animation.mp4" autoplay="autoplay" loop="loop" poster="/video/thumbnail.png" oncontextmenu="return false;" muted="muted">
+				<video src="/video/animation.mp4" autoplay="autoplay" loop="loop" poster="/video/thumbnail.png"
+					   oncontextmenu="return false;" muted="muted">
 					<source type="video/mp4" src="/video/animation.mp4"/>
 					<source type="video/ogv" src="/video/animation.ogv"/>
 					<source type="video/webm" src="/video/animation.webm"/>
@@ -236,20 +239,21 @@
 	<script>
 		$("#slider_one").slider();
 		$("#slider_two").slider();
+		{{--
+				var ctaBlock = $(".header_footer");
+				var headerBlock = $("header.header--landing");
 
-		var ctaBlock = $(".header_footer");
-		var headerBlock = $("header.header--landing");
-
-		$(window).scroll(function ()
-		{
-			if ($(this).scrollTop() > (headerBlock.height()))
-			{
-				ctaBlock.addClass('header_footer--sticky');
-			}
-			else
-			{
-				ctaBlock.removeClass('header_footer--sticky');
-			}
-		});
+				$(window).scroll(function ()
+				{
+					if ($(this).scrollTop() > (headerBlock.height()))
+					{
+						ctaBlock.addClass('header_footer--sticky');
+					}
+					else
+					{
+						ctaBlock.removeClass('header_footer--sticky');
+					}
+				});
+				--}}
 	</script>
 @endsection
