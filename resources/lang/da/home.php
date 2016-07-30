@@ -1,7 +1,7 @@
 <?php
 return [
 	'header' => [
-		'title-1'           => 'Nu bliver det nemt,<br/>at få din krop i balance.',
+		'title-1'           => 'Håndplukkede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
 		'title-2'           => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
 		'button-click-here' => 'HÅNDPLUK DINE VITAMINER NU',
 		'splash'            => [

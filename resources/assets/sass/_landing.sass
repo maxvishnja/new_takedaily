@@ -33,7 +33,7 @@ body.index
 		background: $main-green url(/images/header_pattern.png) no-repeat right 134px
 
 		.header-nav
-			border-bottom: 1px solid rgba(255,255,255,.3)
+			border-bottom: 1px solid rgba(255, 255, 255, .3)
 			background: transparent
 
 			ul li a
@@ -49,12 +49,12 @@ body.index
 		.header_content
 			color: #fff
 			margin-top: 20vh
+			padding-bottom: 60px
 
 			h1
-				font-size: 50px
+				font-size: 46px
 				font-weight: $weight-bold
 				margin: 0 0 20px
-				text-shadow: 0 0 6px rgba(0, 0, 0, .2)
 
 			p
 				font-size: 17px
@@ -62,7 +62,79 @@ body.index
 				margin: 0 0 50px
 
 			a.button
-				box-shadow: 0 0 25px rgba(0, 0, 0, .2)
+				color: $main-green-dark
+				font-size: 18px
+
+			.headervideo-block
+				padding-left: 60px
+
+				span.icon
+					position: relative
+					cursor: pointer
+					margin-bottom: 30px
+
+					&:after
+						content: ""
+						display: block
+						position: absolute
+						width: 188%
+						height: 150%
+						border-radius: 100%
+						left: -50%
+						top: -25%
+						border: 3px solid transparent
+						opacity: 1
+						transform: scale(1)
+
+					&:hover:after
+						border: 3px solid #fff
+						opacity: 0
+						transform: scale(1.4)
+						transition: border 400ms, transform 400ms, opacity 400ms
+
+				strong
+					margin: 40px 0 20px
+					display: block
+					color: $main-green-dark
+					font-size: 18px
+					font-weight: $weight-semibold
+
+			.header_slides_container
+				overflow: hidden
+
+				.header_slides
+					width: 200%
+					max-width: 200%
+					transition: transform 300ms
+					transform: translateX(0%)
+
+					.header_slide
+						width: 50%
+						float: left
+
+			.header_slide_nav
+				font-size: 0
+				text-align: center
+				position: absolute
+				bottom: 30px
+				width: 100%
+				height: 30px
+
+				.header_slide_nav_item
+					background: $main-green-dark
+					border-radius: 100%
+					width: 30px
+					height: 30px
+					display: inline-block
+					margin: 0 5px
+					cursor: pointer
+
+					&:hover
+						background: darken($main-green-dark, 10%)
+
+					&.header_slide_nav_item--active
+						background: #fff
+						cursor: default
 
 		.header_footer
 			background: rgba($dark-grey, 0.75)
@@ -273,6 +345,9 @@ body.index
 
 @media all and (max-width: 1299px)
 	body.index
+		header.header--landing
+			background-position: right -300px top 134px
+
 		.block
 			&.block--five
 				.block_content
@@ -283,6 +358,9 @@ body.index
 
 @media all and (max-width: 991px)
 	body.index
+		header.header--landing
+			background-position: right -500px top 134px
+
 		.block
 			&.block--five
 				img,
@@ -331,7 +409,26 @@ body.index
 				padding: 50px 0
 
 				h2
+					font-size: 26px
+
+			&.block--one
+				h2
 					font-size: 32px
+
+			&.block--two
+				h2
+					font-size: 32px
+
+			&.block--six
+				h2
+					font-size: 26px
+
+			&.block--seven
+				h2
+					font-size: 32px
+
+				h3
+					font-size: 22px
 
 			&.block--seven,
 			&.block--six,
@@ -344,9 +441,36 @@ body.index
 			min-height: 0
 			padding: 0 0 50px
 			background-position-y: 96px
+			background-position: right -700px top 96px
+
+			a.button
+				border-radius: 3px
 
 			.header_content
 				margin-top: 50px
 
 				h1
-					font-size: 44px
+					font-size: 36px
+					padding-right: 100px
+
+				.headervideo-block
+					padding-left: 30px
+
+@media all and (max-width: 480px)
+	body.index
+		header.header--landing
+			background-position: right -750px top 96px
+
+			a.button
+				border-radius: 3px
+				font-size: 16px
+
+			.header_content
+				margin-top: 50px
+
+				h1
+					font-size: 30px
+					padding: 0
+
+				.headervideo-block
+					padding: 0

@@ -4,11 +4,11 @@
 	<div class="container">
 		<div class="header_top_tb">
 			<div class="row">
-				<div class="col-md-3 col-xs-8">
+				<div class="col-md-3 col-xs-9">
 					<a href="/" class="logo logo-color"></a>
 				</div>
 
-				<div class="col-md-9 col-xs-4">
+				<div class="col-md-9 col-xs-3">
 					@include('includes.app.nav')
 				</div>
 			</div>

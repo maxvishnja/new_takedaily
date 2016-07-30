@@ -8,11 +8,11 @@
 			<div class="container-fluid">
 				<div class="header_top">
 					<div class="row">
-						<div class="col-md-3 col-xs-8">
+						<div class="col-md-3 col-xs-9">
 							<a href="/" class="logo logo-white"></a>
 						</div>
 
-						<div class="col-md-9 col-xs-4">
+						<div class="col-md-9 col-xs-3">
 							@include('includes.app.nav')
 						</div>
 					</div>
@@ -21,18 +21,25 @@
 		</div>
 
 		<div class="header_content">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<h1>{!! trans('home.header.title-1') !!}</h1>
-						@if( Auth::guest() )
-							<a href="/flow"
-							   class="button button--rounded button--huge button--white button--circular m-t-30">
-								<strong>{{ trans('home.header.button-click-here') }}</strong>
-							</a>
-						@endif
+			<div class="header_slides_container">
+				<div class="header_slides">
+					<div class="header_slide header_slide--active" data-slide="1">
+						<div class="container">
+							<h1>{!! trans('home.header.title-1') !!}</h1>
+							@if( Auth::guest() )
+								<a href="/flow"
+								   class="button button--rounded button--huge button--white button--circular m-t-30">
+									<strong>{{ trans('home.header.button-click-here') }}</strong>
+								</a>
+							@endif
+							<div class="headervideo-block">
+								<strong>Hvad er TakeDaily?</strong>{{-- todo translate --}}
+								<span id="video-toggle" class="icon icon-play"></span>
+							</div>
+						</div>
 					</div>
-					<div class="col-md-6 hidden-sm hidden-xs">
+
+					<div class="header_slide" data-slide="2">
 						<div class="splash_circle pull-right">
 							<span>{!! trans('home.header.splash.text') !!}</span>
 							<small>{{ trans('home.header.splash.only') }}</small>
@@ -40,6 +47,12 @@
 						</div>
 					</div>
 				</div>
+			</div>
+
+
+			<div class="header_slide_nav">
+				<div class="header_slide_nav_item header_slide_nav_item--active" data-slide="1"></div>
+				<div class="header_slide_nav_item" data-slide="2"></div>
 			</div>
 		</div><!-- Header end -->
 
@@ -255,5 +268,20 @@
 					}
 				});
 				--}}
+
+		$("#video-toggle").click(function (e) {
+			alert('START VIDEO!'); // todo
+		});
+
+		var header_slider = $(".header_slides");
+		$(".header_slide_nav_item").click(function()
+		{
+			var currentSlide = $(this).data('slide');
+			$(".header_slide_nav_item--active").removeClass("header_slide_nav_item--active");
+			$(this).addClass("header_slide_nav_item--active");
+
+			header_slider.css("transform", "translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
+			header_slider.css("transform", "-webkit-translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
+		});
 	</script>
 @endsection
