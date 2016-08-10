@@ -3,7 +3,7 @@
 @section('pageClass', 'index')
 
 @section('content')
-	<header class="header--landing">
+	<header class="header--landing header--front-slide-1">
 		<div class="header-nav">
 			<div class="container-fluid">
 				<div class="header_top">
@@ -40,10 +40,29 @@
 					</div>
 
 					<div class="header_slide" data-slide="2">
-						<div class="splash_circle pull-right">
-							<span>{!! trans('home.header.splash.text') !!}</span>
-							<small>{{ trans('home.header.splash.only') }}</small>
-							<strong>{!! trans('home.header.splash.price') !!}</strong>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-8">
+									<h1>{!! trans('home.header.title-1') !!}</h1>
+									@if( Auth::guest() )
+										<a href="/flow"
+										   class="button button--rounded button--huge button--white button--circular m-t-30">
+											<strong>{{ trans('home.header.button-click-here') }}</strong>
+										</a>
+									@endif
+									<div class="headervideo-block">
+										<strong>Hvad er TakeDaily?</strong>{{-- todo translate --}}
+										<span id="video-toggle-two" class="icon icon-play"></span>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="splash_circle pull-right">
+										<span>{!! trans('home.header.splash.text') !!}</span>
+										<small>{{ trans('home.header.splash.only') }}</small>
+										<strong>{!! trans('home.header.splash.price') !!}</strong>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -54,61 +73,14 @@
 				<div class="header_slide_nav_item header_slide_nav_item--active" data-slide="1"></div>
 				<div class="header_slide_nav_item" data-slide="2"></div>
 			</div>
-		</div><!-- Header end -->
-
-		{{--
-
-		<div class="slider_container" id="slider_one">
-			<div class="icon slider-arrow-left icon-arrow-left"></div>
-			<div class="icon slider-arrow-right icon-arrow-right"></div>
-			<div class="header_content">
-				<div class="slider">
-					<div class="slide_container">
-						<div class="slide">
-							<div class="container">
-								<div class="row">
-									<div class="col-md-6">
-										<h1>{!! trans('home.header.title-1') !!}</h1>
-										<a href="/flow" class="button button--rounded button--huge button--green m-t-30">
-											<strong>{{ trans('home.header.button-click-here') }}</strong>
-										</a>
-									</div>
-									<div class="col-md-6 hidden-sm hidden-xs">
-										<img src="/images/product_small.png" alt="TakeDaily box">
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="slide">
-							<div class="container">
-								<div class="row">
-									<div class="col-md-8">
-										<h1>{!! trans('home.header.title-2') !!}</h1>
-										<a href="/flow" class="button button--rounded button--huge button--green m-t-30">
-											<strong>{{ trans('home.header.button-click-here') }}</strong>
-										</a>
-									</div>
-
-									<div class="col-md-4 hidden-sm hidden-xs">
-										<div class="splash_circle">
-											<span>{!! trans('home.header.splash.text') !!}</span>
-											<small>{{ trans('home.header.splash.only') }}</small>
-											<strong>{!! trans('home.header.splash.price') !!}</strong>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 
-		--}}
-
-		{{--<div class="header_footer hidden-sm hidden-xs">
-			{!! trans('home.header.cta') !!}
-		</div>--}}
+		<div class="header_bg_slides_container">
+			<div class="header_bg_slides">
+				<div class="header_bg_item header_bg_item--1" data-slide="1"></div>
+				<div class="header_bg_item header_bg_item--2" data-slide="2"></div>
+			</div>
+		</div>
 	</header>
 
 	<main>
@@ -269,19 +241,38 @@
 				});
 				--}}
 
-		$("#video-toggle").click(function (e) {
+		$("#video-toggle, #video-toggle-two").click(function (e) {
 			alert('START VIDEO!'); // todo
 		});
 
 		var header_slider = $(".header_slides");
-		$(".header_slide_nav_item").click(function()
-		{
+		var header_bg_slider = $(".header_bg_slides");
+		var header = $("header.header--landing");
+		var logo = $(".logo");
+
+		$(".header_slide_nav_item").click(function () {
 			var currentSlide = $(this).data('slide');
-			$(".header_slide_nav_item--active").removeClass("header_slide_nav_item--active");
+			var activeSlide = $(".header_slide_nav_item--active");
+
+			header.removeClass('header--front-slide-' + activeSlide.data('slide'));
+			header.addClass('header--front-slide-' + currentSlide);
+			activeSlide.removeClass("header_slide_nav_item--active");
 			$(this).addClass("header_slide_nav_item--active");
+
+			if (currentSlide == 1) {
+				logo.addClass('logo-white');
+				logo.removeClass('logo-color');
+			}
+			else {
+				logo.addClass('logo-color');
+				logo.removeClass('logo-white');
+			}
 
 			header_slider.css("transform", "translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
 			header_slider.css("transform", "-webkit-translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
+
+			header_bg_slider.css("transform", "translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
+			header_bg_slider.css("transform", "-webkit-translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
 		});
 	</script>
 @endsection
