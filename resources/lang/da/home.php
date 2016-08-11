@@ -18,7 +18,7 @@ return [
 			'button'      => '<a href="/sadan-virker-det" class="button button--green button--rounded button--large">Få flere detaljer</a>',
 			'steps'       => [
 				'one'   => [
-					'title' => 'Konsultationen begynder',
+					'title' => 'Tag sundhedstesten',
 					'text'  => 'Fortæl os lidt om din krop, kost og livsstil. Det tager ikke mere end 2 minutter at svare på
 							spørgsmålene.'
 				],
@@ -27,7 +27,7 @@ return [
 					'text'  => 'Vi udvælger dine vitaminer og mineraler i koncentrationer, der passer nøjagtigt til dig.'
 				],
 				'three' => [
-					'title' => 'Du modtager din æske',
+					'title' => 'Du modtager din TakeDaily',
 					'text'  => 'Du får leveret din æske gratis derhjemme eller på kontoret, hvis det passer dig bedre.'
 				],
 			]

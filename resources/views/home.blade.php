@@ -91,19 +91,19 @@
 
 				<div class="row text-center">
 					<div class="col-sm-4 block_item">
-						<span class="icon icon-user-information"></span>
+						<span class="icon icon-heart"></span>
 						<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
 						<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
 					</div>
 
 					<div class="col-sm-4 block_item">
-						<span class="icon icon-box"></span>
+						<span class="icon icon-logo"></span>
 						<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
 						<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
 					</div>
 
 					<div class="col-sm-4 block_item">
-						<span class="icon icon-truck"></span>
+						<span class="icon icon-box"></span>
 						<h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
 						<p>{{ trans('home.blocks.one.steps.three.text') }}</p>
 					</div>
