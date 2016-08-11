@@ -1454,27 +1454,33 @@ footer .bottom {
 
 .icon-activity-more {
   background-image: url(/images/sprite.png);
-  background-position: -56px -472px;
+  background-position: -112px -472px;
   width: 56px;
   height: 56px; }
 
 .icon-activity-once {
   background-image: url(/images/sprite.png);
-  background-position: 0px -472px;
+  background-position: -56px -472px;
   width: 56px;
   height: 56px; }
 
 .icon-activity-seldom {
   background-image: url(/images/sprite.png);
-  background-position: -112px -472px;
+  background-position: -168px -472px;
   width: 56px;
   height: 56px; }
 
 .icon-activity-twice {
   background-image: url(/images/sprite.png);
-  background-position: -168px -472px;
+  background-position: 0px -472px;
   width: 56px;
   height: 56px; }
+
+.icon-arrow-down-lines {
+  background-image: url(/images/sprite.png);
+  background-position: -455px -236px;
+  width: 18px;
+  height: 12px; }
 
 .icon-arrow-down-small {
   background-image: url(/images/sprite.png);
@@ -1544,7 +1550,7 @@ footer .bottom {
 
 .icon-check-circle-smaller {
   background-image: url(/images/sprite.png);
-  background-position: -455px -236px;
+  background-position: -290px -340px;
   width: 14px;
   height: 14px; }
 
@@ -1622,7 +1628,7 @@ footer .bottom {
 
 .icon-immune-ignore {
   background-image: url(/images/sprite.png);
-  background-position: -522px -252px;
+  background-position: -254px -420px;
   width: 50px;
   height: 50px; }
 
@@ -1640,7 +1646,7 @@ footer .bottom {
 
 .icon-joint-yes {
   background-image: url(/images/sprite.png);
-  background-position: -304px -420px;
+  background-position: -522px -252px;
   width: 50px;
   height: 50px; }
 
@@ -1934,31 +1940,31 @@ footer .bottom {
 
 .icon-vegetarian-yes {
   background-image: url(/images/sprite.png);
-  background-position: -254px -420px;
+  background-position: -304px -420px;
   width: 50px;
   height: 50px; }
 
 .logo-black {
   background-image: url(/images/sprite.png);
-  background-position: -368px -72px;
+  background-position: -368px -36px;
   width: 204px;
   height: 36px; }
 
 .logo-color {
   background-image: url(/images/sprite.png);
-  background-position: -368px -36px;
+  background-position: -368px 0px;
   width: 204px;
   height: 36px; }
 
 .logo-white {
   background-image: url(/images/sprite.png);
-  background-position: -368px 0px;
+  background-position: -368px -72px;
   width: 204px;
   height: 36px; }
 
 .pill-1a {
   background-image: url(/images/sprite.png);
-  background-position: -233px -528px;
+  background-position: -539px -472px;
   width: 29px;
   height: 30px; }
 
@@ -1970,61 +1976,61 @@ footer .bottom {
 
 .pill-1c {
   background-image: url(/images/sprite.png);
-  background-position: -175px -528px;
+  background-position: -117px -528px;
   width: 29px;
   height: 30px; }
 
 .pill-2a {
   background-image: url(/images/sprite.png);
-  background-position: -349px -528px;
+  background-position: -481px -472px;
   width: 29px;
   height: 30px; }
 
 .pill-2b {
   background-image: url(/images/sprite.png);
-  background-position: -204px -528px;
+  background-position: -349px -528px;
   width: 29px;
   height: 30px; }
 
 .pill-2c {
   background-image: url(/images/sprite.png);
-  background-position: -146px -528px;
+  background-position: -291px -528px;
   width: 29px;
   height: 30px; }
 
 .pill-2d {
   background-image: url(/images/sprite.png);
-  background-position: -117px -528px;
+  background-position: -233px -528px;
   width: 29px;
   height: 30px; }
 
 .pill-2e {
   background-image: url(/images/sprite.png);
-  background-position: -539px -472px;
+  background-position: -204px -528px;
   width: 29px;
   height: 30px; }
 
 .pill-3a {
   background-image: url(/images/sprite.png);
-  background-position: -510px -472px;
+  background-position: -175px -528px;
   width: 29px;
   height: 30px; }
 
 .pill-3b {
   background-image: url(/images/sprite.png);
-  background-position: -481px -472px;
+  background-position: -146px -528px;
   width: 29px;
   height: 30px; }
 
 .pill-3c {
   background-image: url(/images/sprite.png);
-  background-position: -291px -528px;
+  background-position: -262px -528px;
   width: 29px;
   height: 30px; }
 
 .pill-3d {
   background-image: url(/images/sprite.png);
-  background-position: -262px -528px;
+  background-position: -88px -528px;
   width: 29px;
   height: 30px; }
 
@@ -2036,7 +2042,7 @@ footer .bottom {
 
 .pill-3f {
   background-image: url(/images/sprite.png);
-  background-position: -88px -528px;
+  background-position: -510px -472px;
   width: 29px;
   height: 30px; }
 
@@ -2052,7 +2058,7 @@ footer .bottom {
 
 .icon-activity-more {
   background-image: url(/images/sprite.png);
-  background-position: -56px -472px;
+  background-position: -112px -472px;
   width: 56px;
   height: 56px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2062,7 +2068,7 @@ footer .bottom {
 
 .icon-activity-once {
   background-image: url(/images/sprite.png);
-  background-position: 0px -472px;
+  background-position: -56px -472px;
   width: 56px;
   height: 56px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2072,7 +2078,7 @@ footer .bottom {
 
 .icon-activity-seldom {
   background-image: url(/images/sprite.png);
-  background-position: -112px -472px;
+  background-position: -168px -472px;
   width: 56px;
   height: 56px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2082,11 +2088,21 @@ footer .bottom {
 
 .icon-activity-twice {
   background-image: url(/images/sprite.png);
-  background-position: -168px -472px;
+  background-position: 0px -472px;
   width: 56px;
   height: 56px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     .icon-activity-twice {
+      background-image: url(/images/sprite@2x.png);
+      background-size: 620px 620px; } }
+
+.icon-arrow-down-lines {
+  background-image: url(/images/sprite.png);
+  background-position: -455px -236px;
+  width: 18px;
+  height: 12px; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .icon-arrow-down-lines {
       background-image: url(/images/sprite@2x.png);
       background-size: 620px 620px; } }
 
@@ -2202,7 +2218,7 @@ footer .bottom {
 
 .icon-check-circle-smaller {
   background-image: url(/images/sprite.png);
-  background-position: -455px -236px;
+  background-position: -290px -340px;
   width: 14px;
   height: 14px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2332,7 +2348,7 @@ footer .bottom {
 
 .icon-immune-ignore {
   background-image: url(/images/sprite.png);
-  background-position: -522px -252px;
+  background-position: -254px -420px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2362,7 +2378,7 @@ footer .bottom {
 
 .icon-joint-yes {
   background-image: url(/images/sprite.png);
-  background-position: -304px -420px;
+  background-position: -522px -252px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2852,7 +2868,7 @@ footer .bottom {
 
 .icon-vegetarian-yes {
   background-image: url(/images/sprite.png);
-  background-position: -254px -420px;
+  background-position: -304px -420px;
   width: 50px;
   height: 50px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2862,7 +2878,7 @@ footer .bottom {
 
 .logo-black {
   background-image: url(/images/sprite.png);
-  background-position: -368px -72px;
+  background-position: -368px -36px;
   width: 204px;
   height: 36px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2872,7 +2888,7 @@ footer .bottom {
 
 .logo-color {
   background-image: url(/images/sprite.png);
-  background-position: -368px -36px;
+  background-position: -368px 0px;
   width: 204px;
   height: 36px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2882,7 +2898,7 @@ footer .bottom {
 
 .logo-white {
   background-image: url(/images/sprite.png);
-  background-position: -368px 0px;
+  background-position: -368px -72px;
   width: 204px;
   height: 36px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2892,7 +2908,7 @@ footer .bottom {
 
 .pill-1a {
   background-image: url(/images/sprite.png);
-  background-position: -233px -528px;
+  background-position: -539px -472px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2912,7 +2928,7 @@ footer .bottom {
 
 .pill-1c {
   background-image: url(/images/sprite.png);
-  background-position: -175px -528px;
+  background-position: -117px -528px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2922,7 +2938,7 @@ footer .bottom {
 
 .pill-2a {
   background-image: url(/images/sprite.png);
-  background-position: -349px -528px;
+  background-position: -481px -472px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2932,7 +2948,7 @@ footer .bottom {
 
 .pill-2b {
   background-image: url(/images/sprite.png);
-  background-position: -204px -528px;
+  background-position: -349px -528px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2942,7 +2958,7 @@ footer .bottom {
 
 .pill-2c {
   background-image: url(/images/sprite.png);
-  background-position: -146px -528px;
+  background-position: -291px -528px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2952,7 +2968,7 @@ footer .bottom {
 
 .pill-2d {
   background-image: url(/images/sprite.png);
-  background-position: -117px -528px;
+  background-position: -233px -528px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2962,7 +2978,7 @@ footer .bottom {
 
 .pill-2e {
   background-image: url(/images/sprite.png);
-  background-position: -539px -472px;
+  background-position: -204px -528px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2972,7 +2988,7 @@ footer .bottom {
 
 .pill-3a {
   background-image: url(/images/sprite.png);
-  background-position: -510px -472px;
+  background-position: -175px -528px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2982,7 +2998,7 @@ footer .bottom {
 
 .pill-3b {
   background-image: url(/images/sprite.png);
-  background-position: -481px -472px;
+  background-position: -146px -528px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -2992,7 +3008,7 @@ footer .bottom {
 
 .pill-3c {
   background-image: url(/images/sprite.png);
-  background-position: -291px -528px;
+  background-position: -262px -528px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -3002,7 +3018,7 @@ footer .bottom {
 
 .pill-3d {
   background-image: url(/images/sprite.png);
-  background-position: -262px -528px;
+  background-position: -88px -528px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -3022,7 +3038,7 @@ footer .bottom {
 
 .pill-3f {
   background-image: url(/images/sprite.png);
-  background-position: -88px -528px;
+  background-position: -510px -472px;
   width: 29px;
   height: 30px; }
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -4946,10 +4962,9 @@ label.label--error {
   .button.button--text-grey {
     color: #555555; }
 
-button.button,
-input.button {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important; }
+button.button.button--regular {
+  padding-top: 9px;
+  padding-bottom: 9px; }
 
 .input {
   vertical-align: middle;
@@ -5743,12 +5758,26 @@ body.page-flow {
     display: block; }
   body.page-flow .flow-progress {
     border-bottom: none !important;
+    border-top: 1px solid #e5e9ec;
     position: relative; }
-    body.page-flow .flow-progress .hamburger {
-      display: block;
+    body.page-flow .flow-progress #flow-toggler {
+      padding: 15px;
       position: absolute;
       right: 15px;
-      top: 14px; }
+      top: 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+      body.page-flow .flow-progress #flow-toggler:hover {
+        background: #eee; }
+      body.page-flow .flow-progress #flow-toggler.toggled .icon-arrow-down-lines {
+        -webkit-transform: rotate(180deg);
+        transform: rotate(180deg); }
+      body.page-flow .flow-progress #flow-toggler .icon-arrow-down-lines {
+        display: inline-block; }
     body.page-flow .flow-progress .flow-step {
       width: 100%;
       overflow: hidden;
@@ -5758,7 +5787,7 @@ body.page-flow {
       border-left: none !important;
       border-bottom: 1px solid #e5e9ec;
       text-align: left;
-      transition: height 300ms, padding 300ms, border 300ms, font-size 300ms; }
+      transition: height 200ms, padding 200ms, border 200ms, font-size 200ms; }
       body.page-flow .flow-progress .flow-step.flow-step--inactive .flow-step-progress {
         display: none; }
     body.page-flow .flow-progress.flow-progress--closed .flow-step.flow-step--inactive {

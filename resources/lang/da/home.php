@@ -15,7 +15,7 @@ return [
 		'one'   => [
 			'title'       => 'Sådan virker det',
 			'description' => '',
-			'button'      => '<a href="/sadan-virker-det" class="button button--green button--rounded button--large">Få flere detaljer</a>',
+			'button'      => '<a href="/sadan-virker-det" class="button button--green button--circular button--huge">Få flere detaljer</a>',
 			'steps'       => [
 				'one'   => [
 					'title' => 'Tag sundhedstesten',
