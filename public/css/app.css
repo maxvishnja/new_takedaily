@@ -1347,7 +1347,7 @@ footer .bottom {
     height: 100%;
     width: 100%;
     border-radius: 0;
-    background: rgba(85, 85, 85, 0.98);
+    background: rgba(58, 172, 135, 0.98);
     z-index: 999;
     padding: 0;
     opacity: 0;
@@ -4671,16 +4671,14 @@ body.index .slider_container {
     padding: 3vw; } }
 
 @media all and (max-width: 1299px) {
-  body.index header.header--landing {
-    background-position: right -300px top 134px; }
   body.index .block.block--five .block_content {
     padding: 1vw; }
   body.index .block.block--five p {
     line-height: 1.5; } }
 
 @media all and (max-width: 991px) {
-  body.index header.header--landing {
-    background-position: right -500px top 134px; }
+  body.index header.header--landing .header_bg_slides_container .header_bg_slides .header_bg_item.header_bg_item--1 {
+    background: #88E2C4; }
   body.index .block.block--five img,
   body.index .block.block--five .block_content {
     float: none;
@@ -4727,9 +4725,7 @@ body.index .slider_container {
   body.index header.header--landing {
     height: auto;
     min-height: 0;
-    padding: 0 0 50px;
-    background-position-y: 96px;
-    background-position: right -700px top 96px; }
+    padding: 0 0 50px; }
     body.index header.header--landing a.button {
       border-radius: 3px; }
     body.index header.header--landing .header_content {
@@ -4741,18 +4737,16 @@ body.index .slider_container {
         padding-left: 30px; } }
 
 @media all and (max-width: 480px) {
-  body.index header.header--landing {
-    background-position: right -750px top 96px; }
-    body.index header.header--landing a.button {
-      border-radius: 3px;
-      font-size: 16px; }
-    body.index header.header--landing .header_content {
-      margin-top: 50px; }
-      body.index header.header--landing .header_content h1 {
-        font-size: 30px;
-        padding: 0; }
-      body.index header.header--landing .header_content .headervideo-block {
-        padding: 0; } }
+  body.index header.header--landing a.button {
+    border-radius: 3px;
+    font-size: 16px; }
+  body.index header.header--landing .header_content {
+    margin-top: 50px; }
+    body.index header.header--landing .header_content h1 {
+      font-size: 30px;
+      padding: 0; }
+    body.index header.header--landing .header_content .headervideo-block {
+      padding: 0; } }
 
 .form.form--loading {
   position: relative; }

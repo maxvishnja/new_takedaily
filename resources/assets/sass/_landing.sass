@@ -390,9 +390,6 @@ body.index
 
 @media all and (max-width: 1299px)
 	body.index
-		header.header--landing
-			background-position: right -300px top 134px
-
 		.block
 			&.block--five
 				.block_content
@@ -404,7 +401,11 @@ body.index
 @media all and (max-width: 991px)
 	body.index
 		header.header--landing
-			background-position: right -500px top 134px
+			.header_bg_slides_container
+				.header_bg_slides
+					.header_bg_item
+						&.header_bg_item--1
+							background: $main-green
 
 		.block
 			&.block--five
@@ -485,8 +486,6 @@ body.index
 			height: auto
 			min-height: 0
 			padding: 0 0 50px
-			background-position-y: 96px
-			background-position: right -700px top 96px
 
 			a.button
 				border-radius: 3px
@@ -504,8 +503,6 @@ body.index
 @media all and (max-width: 480px)
 	body.index
 		header.header--landing
-			background-position: right -750px top 96px
-
 			a.button
 				border-radius: 3px
 				font-size: 16px

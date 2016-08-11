@@ -56,7 +56,7 @@
 									</div>
 								</div>
 								<div class="col-md-4">
-									<div class="splash_circle pull-right">
+									<div class="splash_circle pull-right hidden-xs">
 										<span>{!! trans('home.header.splash.text') !!}</span>
 										<small>{{ trans('home.header.splash.only') }}</small>
 										<strong>{!! trans('home.header.splash.price') !!}</strong>
@@ -69,7 +69,7 @@
 			</div>
 
 
-			<div class="header_slide_nav">
+			<div class="header_slide_nav hidden-xs">
 				<div class="header_slide_nav_item header_slide_nav_item--active" data-slide="1"></div>
 				<div class="header_slide_nav_item" data-slide="2"></div>
 			</div>
