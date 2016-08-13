@@ -4403,8 +4403,9 @@ body.index header.header--landing {
       line-height: 1.8;
       margin: 0 0 50px; }
     body.index header.header--landing .header_content a.button {
-      color: #3AAC87;
       font-size: 18px; }
+      body.index header.header--landing .header_content a.button.button--white {
+        color: #3AAC87; }
     body.index header.header--landing .header_content .headervideo-block {
       padding-left: 60px; }
       body.index header.header--landing .header_content .headervideo-block span.icon {
@@ -4866,7 +4867,7 @@ label.label--error {
   font-weight: 500;
   font-size: 15px;
   line-height: 1.4;
-  border-radius: 0;
+  border-radius: 100px;
   padding: 7px 14px;
   border: none;
   cursor: pointer;
@@ -4903,7 +4904,7 @@ label.label--error {
     .button.button--huge.button--small-padding {
       padding: 18px 30px; }
   .button.button--rounded {
-    border-radius: 3px; }
+    border-radius: 100px; }
   .button.button--circular {
     border-radius: 100px; }
   .button:disabled {
@@ -4927,7 +4928,7 @@ label.label--error {
     background: #3bae8a;
     color: #fff; }
     .button.button--green:hover {
-      background: #3AAC87; }
+      background: #2e886c; }
   .button.button--grey {
     background: #333333;
     color: #f3f6f8; }

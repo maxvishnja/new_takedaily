@@ -127,7 +127,8 @@ label.label--error
 	font-weight: $weight-semibold
 	font-size: 15px
 	line-height: 1.4
-	border-radius: 0
+	//border-radius: 0
+	border-radius: 100px
 	padding: 7px 14px
 	border: none
 	cursor: pointer
@@ -176,7 +177,8 @@ label.label--error
 			padding: 18px 30px
 
 	&.button--rounded
-		border-radius: 3px
+		//border-radius: 3px
+		border-radius: 100px
 
 	&.button--circular
 		border-radius: 100px
@@ -208,7 +210,7 @@ label.label--error
 		color: #fff
 
 		&:hover
-			background: $main-green-dark
+			background: darken($cta-green, 10%)
 
 	&.button--grey
 		background: $dark-grey

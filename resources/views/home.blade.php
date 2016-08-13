@@ -46,7 +46,7 @@
 									<h1>{!! trans('home.header.title-1') !!}</h1>
 									@if( Auth::guest() )
 										<a href="/flow"
-										   class="button button--rounded button--huge button--white button--circular m-t-30">
+										   class="button button--rounded button--huge button--green button--circular m-t-30">
 											<strong>{{ trans('home.header.button-click-here') }}</strong>
 										</a>
 									@endif
