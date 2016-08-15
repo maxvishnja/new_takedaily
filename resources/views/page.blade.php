@@ -4,7 +4,7 @@
 
 @section('title', "{$page->title} - TakeDaily")
 
-@section('mainClasses', 'm-b-50')
+@section('mainClasses', 'm-b-50 m-t-50')
 
 @section('header_top_additional')
 	@if( $page->layout == 'header' )
