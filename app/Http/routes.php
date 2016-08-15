@@ -21,6 +21,14 @@ Route::group(['middleware' => 'web'], function () {
 	});
 
 	Route::group(['middleware' => ['nonAdmin', 'guest']], function () {
+		
+		Route::get('pick-n-mix', function()
+		{
+			$vitamins = \App\Vitamin::all();
+
+			return view('pick', compact('vitamins'));
+		});
+
 		Route::get('flow', function () {
 			$giftcard = null;
 
