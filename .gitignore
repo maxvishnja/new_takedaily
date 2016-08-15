@@ -10,6 +10,7 @@ Homestead.json
 /public/css/app.css.map
 /public/css/app.css
 /public/uploads/*/*/*
+/public/images/sprite*
 
 # IDE specific
 .idea/magicento.xml
