@@ -5,6 +5,7 @@ body.page-pick
 		border-radius: 3px
 		padding: 20px
 		margin-bottom: 30px
+		position: relative
 
 		.vitamin-item-left,
 		.vitamin-item-right
@@ -14,6 +15,23 @@ body.page-pick
 		.vitamin-item-left
 			padding-right: 14px
 
+		.vitamin-item-action
+			display: none
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 100%
+			z-index: 1
+			border-radius: 3px
+			background: rgba(255,255,255,0.9)
+			padding: 20px
+			text-align: center
+
+		&:hover
+			.vitamin-item-action
+				display: block
+
 		strong
 			font-weight: $weight-semibold
 			font-size: 14px
@@ -22,3 +40,13 @@ body.page-pick
 		p
 			font-size: 13px
 			color: $warm-grey
+
+		a.button
+			.icon
+				margin-right: 6px
+
+				&.icon-plus
+					vertical-align:  -3px
+
+				&.icon-cross-16
+					vertical-align:  -2px
