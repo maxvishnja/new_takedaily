@@ -31,6 +31,10 @@
 								   class="button button--rounded button--huge button--white button--circular m-t-30">
 									<strong>{{ trans('home.header.button-click-here') }}</strong>
 								</a>
+								<a href="/gifting"
+								   class="button button--rounded gifting-button button--circular m-t-30">
+									<strong>{{ trans('home.header.button-gift-text') }}</strong>
+								</a>
 							@endif
 							<div class="headervideo-block">
 								<strong>Hvad er TakeDaily?</strong>{{-- todo translate --}}
@@ -49,6 +53,10 @@
 										   class="button button--rounded button--huge button--green button--circular m-t-30">
 											<strong>{{ trans('home.header.button-click-here') }}</strong>
 										</a>
+                                        <a href="/gifting"
+                                           class="button button--rounded gifting-button button--circular m-t-30">
+                                            <strong>{{ trans('home.header.button-gift-text') }}</strong>
+                                        </a>
 									@endif
 									<div class="headervideo-block">
 										<strong>Hvad er TakeDaily?</strong>{{-- todo translate --}}
@@ -58,8 +66,8 @@
 								<div class="col-md-4">
 									<div class="splash_circle pull-right hidden-xs">
 										<span>{!! trans('home.header.splash.text') !!}</span>
-										<small>{{ trans('home.header.splash.only') }}</small>
 										<strong>{!! trans('home.header.splash.price') !!}</strong>
+										<small class="info">{!! trans('home.header.splash.info') !!}</small>
 									</div>
 								</div>
 							</div>
@@ -91,12 +99,14 @@
 
 				<div class="row text-center">
 					<div class="col-sm-4 block_item">
+                        <div class="arrow"></div>
 						<span class="icon icon-heart"></span>
 						<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
 						<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
 					</div>
 
 					<div class="col-sm-4 block_item">
+                        <div class="arrow"></div>
 						<span class="icon icon-logo"></span>
 						<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
 						<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
