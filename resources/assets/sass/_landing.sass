@@ -1,3 +1,9 @@
+html.no-flexbox
+	body.index
+		.block
+			&.block--promises
+				display: none
+
 body.index
 	.splash_circle
 		background: #fff
@@ -259,23 +265,48 @@ body.index
 
 		&.block--promises
 			background: $almost-white
-			padding: 40px 0 80px 0
+			padding: 80px 0
 
 			h2
 				font-size: 36px
+				margin: 0 0 60px
 				color: $main-green-dark
 
+			.promise-container
+				display: flex
+				flex-flow: row wrap
+				align-items: center
+
 			.promise-item
-				padding: 20px
-				margin-bottom: 30px
+				flex: 1 1 25%
+				vertical-align: middle
+				width: 25%
+				height: auto
+				text-align: center
+
+				img
+					&.top-left
+						border-radius: 100px 100px 0
+
+					&.top-right
+						border-radius: 100px 100px 0 0
+
+					&.bottom-left
+						border-radius: 0 0 100px 100px
+
+					&.bottom-right
+						border-radius: 0 100px 100px
 
 				p
 					margin: 0
-					height: calc(3em + 40px)
+					padding: 0 15px
+					font-size: 16px
+					line-height: 24px
 					display: table-cell
 					vertical-align: middle
 
 				a
+					display: block
 					color: $main-green-dark
 					text-decoration: underline
 
@@ -470,6 +501,15 @@ body.index
 				p
 					line-height: 1.5
 
+@media all and (max-width: 1199px)
+	body.index
+		.block
+			&.block--promises
+				.promise-item
+					p
+						font-size: 15px
+						line-height: 22px
+
 @media all and (max-width: 991px)
 	body.index
 		header.header--landing
@@ -480,6 +520,17 @@ body.index
 							background: $main-green
 
 		.block
+			&.block--promises
+				.promise-item
+					flex: 1 1 50%
+
+					img
+						border-radius: 100px !important
+
+					p
+						font-size: 14px
+						line-height: 20px
+
 			&.block--five
 				img,
 				.block_content

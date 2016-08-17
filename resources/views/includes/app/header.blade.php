@@ -18,6 +18,8 @@
 	<script src="/js/respond.min.js"></script>
 	<script src="/js/html5shiv.min.js"></script>
 	<![endif]-->
+
+    <script src="/js/modernizr-custom.min.js"></script>
 </head>
 
 <body class="@yield('pageClass', 'index')">

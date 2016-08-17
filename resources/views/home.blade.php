@@ -128,28 +128,42 @@
         <div class="block block--promises">{{-- todo translate block --}}
             <div class="container">
                 <h2 class="text-center">Hvad vi lover dig</h2>
-                <div class="col-sm-6">
-                    <div class="promise-item card">
-                        <p>Gratis rådgivning af TakeDailys egne professionelle diætister
-                            ernæringseksperter</p>
+                <div class="promise-container">
+                    <div class="promise-item">
+                        <img src="/images/promises/promise_1.jpg" class="top-left" alt=""/>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="promise-item card">
-                        <p>Vi springer alle fordyrende mellemled over og leverer direkte fra fabrik
-                            til din dør, på den måde er vi langt billigere end de fleste andre på markedet</p>
+
+                    <div class="promise-item">
+                        <p>Gratis rådgivning af TakeDailys egne professionelle diætister ernæringseksperter</p>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="promise-item card">
-                        <p>Med vores specialudviklede algoritme, skræddersyer vi den optimale
-                            kombination af lige netop det du har brug for. <a href="/flow">Kom i gang her</a></p>
+
+                    <div class="promise-item">
+                        <img src="/images/promises/promise_2.jpg" class="top-right" alt=""/>
                     </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="promise-item card">
-                        <p>Vi bruger organiske kapsler til hurtigere optagelse og de bedste vitaminer,
-                            mineraler og omega fedtsyrer på markedet. <a href="/test-and-quality">Læs mere her</a></p>
+
+                    <div class="promise-item">
+                        <p>Vi bruger organiske kapsler til hurtigere optagelse og de bedste vitaminer, mineraler og
+                            omega fedtsyrer på markedet.
+                            <a href="/how-it-works">Læs mere her</a></p>
+                    </div>
+
+                    <div class="promise-item">
+                        <p>Vi springer alle fordyrende mellemled over og leverer direkte fra fabrik til din dør, på den
+                            måde er vi langt billigere end de fleste andre på markedet</p>
+                    </div>
+
+                    <div class="promise-item">
+                        <img src="/images/promises/promise_3.jpg" class="bottom-left" alt=""/>
+                    </div>
+
+                    <div class="promise-item">
+                        <p>Med vores specialudviklede algoritme, skræddersyer vi den optimale kombination af lige netop
+                            det du har brug for.
+                            <a href="/flow">Kom i gang her</a></p>
+                    </div>
+
+                    <div class="promise-item">
+                        <img src="/images/promises/promise_4.jpg" class="bottom-right" alt=""/>
                     </div>
                 </div>
             </div>
