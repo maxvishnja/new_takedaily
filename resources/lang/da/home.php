@@ -4,8 +4,8 @@ return [
 		'title-1'           => 'Håndplukkede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
 		'title-2'           => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
 		'button-click-here' => 'KOM IGANG NU',
-		'button-gift-text' => 'Giv TakeDaily i gave',
-//		'button-click-here' => 'HÅNDPLUK DINE VITAMINER NU',
+		'button-gift-text'  => 'Giv TakeDaily i gave',
+		//		'button-click-here' => 'HÅNDPLUK DINE VITAMINER NU',
 		'splash'            => [
 			'text'  => '4 ugers forbrug af<br/>vitaminer, mineraler og omega.',
 			'price' => '149<small> kr.</small>',
@@ -37,16 +37,10 @@ return [
 		'two'   => [
 			'title'  => 'Lev lidt sundere.<br/>Start indefra med TakeDaily.',
 			'body'   => '<p>
-							At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv
-							være en
-							udfordring. Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take
-							Daily er
-							diamentrale modsætninger.
+							At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv være en udfordring. Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take Daily er diamentrale modsætninger.
 						</p>
-						<p>Vi udvælger og sammensætter omhyggeligt de vitaminer og mineraler, som lige præcis din krop
-							har brug
-							for. Koncentrationerne er individuelle og kommer i din helt egen æske.
-						</p>',
+						<p>Vi udvælger og sammensætter omhyggeligt de vitaminer og mineraler, som lige præcis din krop har brug for. Koncentrationerne er individuelle og kommer i din helt egen æske.</p>
+						<p>Ved du præcist hvad du vil have, kan du naturligvis også selv håndplukke dine vitaminer og kosttilskud.</p>',
 			'button' => '<a href="/flow" class="button button--white button--rounded button--large button--text-grey">Start i dag</a>'
 		],
 		'three' => [

@@ -7,7 +7,7 @@ body.index
 		text-align: center
 		padding: 60px 10px 0
 		color: $main-green-dark
-		box-shadow: 0 10px 20px rgba(0,0,0,.2)
+		box-shadow: 0 10px 20px rgba(0, 0, 0, .2)
 
 		span
 			font-size: 13px
@@ -256,6 +256,46 @@ body.index
 				color: $main-green-dark
 				font-size: 22px
 				font-weight: normal
+
+		&.block--promises
+			background: $almost-white
+			padding: 40px 0 80px 0
+
+			h2
+				font-size: 36px
+				color: $main-green-dark
+
+			.promise-item
+				padding: 20px
+				margin-bottom: 30px
+
+				p
+					margin: 0
+					height: calc(3em + 40px)
+					display: table-cell
+					vertical-align: middle
+
+				a
+					color: $main-green-dark
+					text-decoration: underline
+
+		&.block--reviews
+			padding: 80px 0
+
+			h2
+				font-size: 36px
+				margin: 0 0 60px
+
+			.review-item
+				margin-bottom: 30px
+
+				img
+					border-radius: 100%
+					border: 5px solid $white
+					box-shadow: 0 0 0 3px $main-green
+
+				blockquote
+					line-height: 1.6
 
 		&.block--two
 			color: $white
