@@ -18,7 +18,6 @@
 
 		<div class="datepicker-container-block">
 			<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" class="input input--regular input--full-mobile" placeholder="{{ trans('flow.questions.1-2.button-text') }}"/>
-			<div id="datepicker-container"></div>
 		</div>
 
 		<h3 class="m-t-40 m-b-10">{{ trans('flow.questions.1-3.title') }}</h3>
@@ -208,7 +207,18 @@
 				temp_age: function ()
 				{
 					return this.getAge();
-				}
+				},
+                birthday: function () {
+                    var newDate = new Date(this.user_data.birthdate);
+
+                    var months = [
+                        @foreach(trans('flow.datepicker.months_long') as $month)
+                                "{{ $month }}",
+                        @endforeach
+                    ];
+
+                    return newDate.getDate() + " " +  months[newDate.getMonth()] + " " +  newDate.getFullYear();
+                },
 			},
 			methods: {
 				getAge: function ()
@@ -240,51 +250,16 @@
 		});
 	</script>
 	<script>
-		var $birthdayPicker = $("#birthdate-picker").pickadate({
-			// Strings and translations
-			monthsFull: [
-				@foreach(trans('flow.datepicker.months_long') as $month)
-					'{{ $month }}',
-				@endforeach
-			],
-			monthsShort: [
-				@foreach(trans('flow.datepicker.months_short') as $month)
-					'{{ $month }}',
-				@endforeach
-			],
-			weekdaysFull: [
-				@foreach(trans('flow.datepicker.days_long') as $day)
-					'{{ $day }}',
-				@endforeach
-			],
-			weekdaysShort: [
-				@foreach(trans('flow.datepicker.days_short') as $day)
-					'{{ $day }}',
-				@endforeach
-			],
-			today: false,
-			clear: '{{ trans('flow.datepicker.buttons.clear') }}',
-			close: '{{ trans('flow.datepicker.buttons.close') }}',
-			labelMonthNext: '{{ trans('flow.datepicker.buttons.next-month') }}',
-			labelMonthPrev: '{{ trans('flow.datepicker.buttons.prev-month') }}',
-			labelMonthSelect: '{{ trans('flow.datepicker.buttons.select-month') }}',
-			labelYearSelect: '{{ trans('flow.datepicker.buttons.select-year') }}',
-			format: 'd mmmm, yyyy',
-			selectYears: 100,
-			selectMonths: true,
-			firstDay: 1,
-			min: new Date("{{ date('Y-m-d', strtotime('-100 years 1/1')) }}"),
-			max: new Date("{{ date('Y-m-d', strtotime('-13 years 12/31')) }}"),
-			closeOnClear: false,
-			hiddenName: true,
-			formatSubmit: 'yyyy-mm-dd',
-			container: '#datepicker-container',
-			onSet: function ()
-			{
-				app.user_data.birthdate = this.get('select', 'yyyy-mm-dd');
-			}
-		});
-
-		$birthdayPicker.pickadate('picker').set('select', app.user_data.birthdate, {format: 'yyyy-mm-dd'});
+        $('#birthdate-picker').datepicker({
+            startDate: "-100y",
+            endDate: "-18y",
+            startView: 2,
+            weekStart: 1,
+            autoclose: true,
+            format: "yyyy-mm-dd",
+            language: "{{ App::getLocale() }}"
+        }).on("changeDate", function () {
+            app.user_data.birthdate = $('#birthdate-picker').datepicker('getDate');
+        });
 	</script>
 @endsection
