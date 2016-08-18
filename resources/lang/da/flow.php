@@ -25,7 +25,7 @@ return [
 			'age'                => 'Din fødselsdag',
 			'text'               => 'Når du bliver ældre, får din krop brug for mere D-vitamin, B12-vitamin og kalk end tidligere. Du har brug for B12-vitaminet til at danne røde blodlegemer. Vitaminet er godt mod demens og sikrer, at dit nervesystem fungerer optimalt.',
 			'button-text'        => 'Vælg din fødselsdagsdato',
-			'button-submit-text' => 'Ja, jeg er <strong>{{ temp_age }}</strong> år gammel'
+			'button-submit-text' => 'Ja, min fødselsdag er d. <strong>{{birthday}}</strong>'
 		],
 		'1-3'  => [
 			'title'   => 'Hvilken hudfarve matcher din bedst?',
