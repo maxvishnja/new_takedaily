@@ -477,6 +477,15 @@ body.index
 					width: 100%
 					padding: 10px 0
 
+@media all and (max-width: 1750px)
+	body.index
+		header.header--landing
+			.header_bg_slides_container
+				.header_bg_slides
+					.header_bg_item
+						&.header_bg_item--1
+							background-position: 120% 134px
+
 @media all and (max-width: 1599px)
 	body.index
 		.block
@@ -484,8 +493,23 @@ body.index
 				.block_content
 					padding: 3vw
 
+@media all and (max-width: 1450px)
+	body.index
+		header.header--landing
+			.header_bg_slides_container
+				.header_bg_slides
+					.header_bg_item
+						&.header_bg_item--1
+							background-position: 145% 134px
+
 @media all and (max-width: 1299px)
 	body.index
+		header.header--landing
+			.header_bg_slides_container
+				.header_bg_slides
+					.header_bg_item
+						&.header_bg_item--1
+							background-position: 170% 134px
 		.block
 			&.block--one
 				.block_item
@@ -501,6 +525,21 @@ body.index
 
 @media all and (max-width: 1199px)
 	body.index
+		header.header--landing
+			.header_bg_slides_container
+				.header_bg_slides
+					.header_bg_item
+						&.header_bg_item--1
+							&:before
+								content: ""
+								display: block
+								position: absolute
+								left: 0
+								top: 0
+								right: 0
+								bottom: 0
+								background: rgba($main-green-dark, .3)
+
 		.block
 			&.block--promises
 				.promise-item
@@ -516,6 +555,9 @@ body.index
 					.header_bg_item
 						&.header_bg_item--1
 							background: $main-green
+
+							&:before
+								display: none
 
 		.block
 			&.block--promises
@@ -647,9 +689,6 @@ body.index
 			min-height: 0
 			padding: 0 0 50px
 
-			a.button
-				border-radius: 3px
-
 			.header_content
 				margin-top: 50px
 
@@ -664,8 +703,10 @@ body.index
 	body.index
 		header.header--landing
 			a.button
-				border-radius: 3px
 				font-size: 16px
+
+				&.gifting-button
+					margin: 20px 0 0
 
 			.header_content
 				margin-top: 50px
