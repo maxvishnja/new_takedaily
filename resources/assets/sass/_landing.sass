@@ -302,8 +302,6 @@ body.index
 					padding: 0 15px
 					font-size: 16px
 					line-height: 24px
-					display: table-cell
-					vertical-align: middle
 
 				a
 					display: block
@@ -523,6 +521,31 @@ body.index
 			&.block--promises
 				.promise-item
 					flex: 1 1 50%
+					margin-bottom: 20px
+
+					&:nth-child(1)
+						order: 1
+
+					&:nth-child(2)
+						order: 2
+
+					&:nth-child(3)
+						order: 3
+
+					&:nth-child(4)
+						order: 4
+
+					&:nth-child(5)
+						order: 6
+
+					&:nth-child(6)
+						order: 5
+
+					&:nth-child(7)
+						order: 8
+
+					&:nth-child(8)
+						order: 7
 
 					img
 						border-radius: 100px !important
@@ -566,6 +589,11 @@ body.index
 				left: 5px
 
 		.block
+			&.block--promises
+				.promise-item
+					flex: 1 1 100%
+					text-align: center
+
 			&.block--one
 				.block_item
 					margin-bottom: 30px
