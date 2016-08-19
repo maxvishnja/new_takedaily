@@ -130,7 +130,7 @@
                 <h2 class="text-center">Hvad vi lover dig</h2>
                 <div class="promise-container">
                     <div class="promise-item">
-                        <img src="/images/promises/promise_1.png" class="top-left" alt=""/>
+                        <img src="/images/promises/promise_1.png" alt=""/>
                     </div>
 
                     <div class="promise-item">
@@ -138,7 +138,7 @@
                     </div>
 
                     <div class="promise-item">
-                        <img src="/images/promises/promise_2.png" class="top-right" alt=""/>
+                        <img src="/images/promises/promise_2.png" alt=""/>
                     </div>
 
                     <div class="promise-item">
@@ -153,7 +153,7 @@
                     </div>
 
                     <div class="promise-item">
-                        <img src="/images/promises/promise_3.png" class="bottom-left" alt=""/>
+                        <img src="/images/promises/promise_3.png" alt=""/>
                     </div>
 
                     <div class="promise-item">
@@ -163,7 +163,7 @@
                     </div>
 
                     <div class="promise-item">
-                        <img src="/images/promises/promise_4.png" class="bottom-right" alt=""/>
+                        <img src="/images/promises/promise_4.png" alt=""/>
                     </div>
                 </div>
             </div>
