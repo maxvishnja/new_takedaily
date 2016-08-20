@@ -29,12 +29,13 @@
                             @if( Auth::guest() )
                                 <a href="/flow"
                                    class="button button--rounded button--huge button--white button--circular m-t-30">
-                                    <strong>{{ trans('home.header.button-click-here') }}</strong>
+                                    <strong>{!! trans('home.header.button-click-here') !!}</strong>
                                 </a>
                                 <a href="/gifting"
                                    class="button button--rounded gifting-button button--circular m-t-30">
                                     <strong>{{ trans('home.header.button-gift-text') }}</strong>
                                 </a>
+                                <div class="or-pick-mix-link-container"><a href="/pick-n-mix">eller vælg selv dine egne vitaminer</a></div>
                             @endif
                             <div class="headervideo-block">
                                 <strong>Hvad er TakeDaily?</strong>{{-- todo translate --}}
@@ -51,12 +52,13 @@
                                     @if( Auth::guest() )
                                         <a href="/flow"
                                            class="button button--rounded button--huge button--green button--circular m-t-30">
-                                            <strong>{{ trans('home.header.button-click-here') }}</strong>
+                                            <strong>{!! trans('home.header.button-click-here') !!}</strong>
                                         </a>
                                         <a href="/gifting"
                                            class="button button--rounded gifting-button button--circular m-t-30">
                                             <strong>{{ trans('home.header.button-gift-text') }}</strong>
                                         </a>
+                                        <div class="or-pick-mix-link-container"><a href="/pick-n-mix">eller vælg selv dine egne vitaminer</a></div>
                                     @endif
                                     <div class="headervideo-block">
                                         <strong>Hvad er TakeDaily?</strong>{{-- todo translate --}}
