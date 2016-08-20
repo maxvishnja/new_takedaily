@@ -3,7 +3,7 @@ return [
 	'header' => [
 		'title-1'           => 'Håndplukkede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
 		'title-2'           => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
-		'button-click-here' => 'TAG TESTEN NU <small>(tager 2 min)</small>',
+		'button-click-here' => 'TAG TESTEN NU <small><div class="visible-xs"> </div>(tager 2 min)</small>',
 		'button-gift-text'  => 'Giv TakeDaily i gave',
 		//		'button-click-here' => 'HÅNDPLUK DINE VITAMINER NU',
 		'splash'            => [
