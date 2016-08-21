@@ -11,6 +11,7 @@ Homestead.json
 /public/css/app.css
 /public/uploads/*/*/*
 /public/images/sprite*
+/public/js/app.js
 
 # IDE specific
 .idea/magicento.xml
