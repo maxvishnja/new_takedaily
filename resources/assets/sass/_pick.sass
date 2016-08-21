@@ -1,4 +1,11 @@
 body.page-pick
+	.cart-selection
+		height: 50px
+		display: block
+
+		&.cart-selection--empty
+
+
 	.vitamin-item
 		background: $white
 		box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.20)
@@ -6,6 +13,20 @@ body.page-pick
 		padding: 20px
 		margin-bottom: 30px
 		position: relative
+
+		&.vitamin-item--selected
+			background: rgba($main-green, 0.05)
+
+			&:after
+				content: ""
+				display: block
+				position: absolute
+				right: 10px
+				top: 10px
+				width: 10px
+				height: 10px
+				background: $main-green
+				border-radius: 100%
 
 		.vitamin-item-left,
 		.vitamin-item-right

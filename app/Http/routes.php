@@ -1,6 +1,7 @@
 <?php
 
-Route::group(['middleware' => 'web'], function () {
+Route::group([ 'middleware' => 'web' ], function ()
+{
 	/*
 	 * Auth routes
 	 */
@@ -16,34 +17,39 @@ Route::group(['middleware' => 'web'], function () {
 	/*
 	 * Main routes
 	 */
-	Route::get('/', function () {
+	Route::get('/', function ()
+	{
 		return view('home');
 	});
 
-	Route::group(['middleware' => ['nonAdmin', 'guest']], function () {
-		
-		Route::get('pick-n-mix', function()
+	Route::group([ 'middleware' => [ 'nonAdmin', 'guest' ] ], function ()
+	{
+
+		Route::get('pick-n-mix', function ()
 		{
 			$vitamins = \App\Vitamin::all();
 
 			return view('pick', compact('vitamins'));
 		});
 
-		Route::get('flow', function () {
+		Route::get('flow', function ()
+		{
 			$giftcard = null;
 
-			if (\Session::has('giftcard_id') && \Session::has('giftcard_token') && \Session::get('product_name', 'subscription') == 'subscription') {
+			if ( \Session::has('giftcard_id') && \Session::has('giftcard_token') && \Session::get('product_name', 'subscription') == 'subscription' )
+			{
 				$giftcard = \App\Giftcard::where('id', \Session::get('giftcard_id'))
-					->where('token', \Session::get('giftcard_token'))
-					->where('is_used', 0)
-					->first();
+				                         ->where('token', \Session::get('giftcard_token'))
+				                         ->where('is_used', 0)
+				                         ->first();
 			}
 
 			$product = \App\Product::whereName(\Session::get('product_name', 'subscription'))->first();
 
 			// Coupon
 			$coupon = null;
-			if (\Session::has('applied_coupon')) {
+			if ( \Session::has('applied_coupon') )
+			{
 				$couponRepository = new \App\Apricot\Repositories\CouponRepository();
 				$coupon           = $couponRepository->findByCoupon(\Session::get('applied_coupon'));
 			}
@@ -54,25 +60,28 @@ Route::group(['middleware' => 'web'], function () {
 			return view('flow', compact('giftcard', 'coupon', 'product', 'taxRate'));
 		});
 
-		Route::post('flow/recommendations', function (\Illuminate\Http\Request $request) {
+		Route::post('flow/recommendations', function (\Illuminate\Http\Request $request)
+		{
 			$lib = new \App\Apricot\Libraries\CombinationLibrary();
 
 			$lib->generateResult(json_decode($request->get('user_data')));
 
 			$advises = '';
 
-			foreach ($lib->getAdvises() as $adviseKey => $advise) {
+			foreach ( $lib->getAdvises() as $adviseKey => $advise )
+			{
 				$advises .= '<p>' . $advise . '</p>';
 			}
 
 			return Response::json([
 				'advises' => $advises,
-				'label'   => view('flow-label', ['combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos()])->render()
+				'label'   => view('flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ])->render()
 			]);
 		});
 	});
 
-	Route::post('flow', function (\Illuminate\Http\Request $request) {
+	Route::post('flow', function (\Illuminate\Http\Request $request)
+	{
 		$userData = json_decode($request->get('user_data'));
 
 		Session::put('user_data', $userData);
@@ -81,8 +90,10 @@ Route::group(['middleware' => 'web'], function () {
 		return Redirect::action('CheckoutController@getCheckout');
 	});
 
-	Route::post('flow-upsell', function (\Illuminate\Http\Request $request) {
-		if (!$request->get('upsell_token') == Session::get('upsell_token') || !Session::has('upsell_token')) {
+	Route::post('flow-upsell', function (\Illuminate\Http\Request $request)
+	{
+		if ( !$request->get('upsell_token') == Session::get('upsell_token') || !Session::has('upsell_token') )
+		{
 			return Redirect::to('/flow');
 		}
 
@@ -104,17 +115,20 @@ Route::group(['middleware' => 'web'], function () {
 		return Redirect::to('/flow');
 	});
 
-	Route::get('gifting', function () {
+	Route::get('gifting', function ()
+	{
 		return view('gifting');
 	});
 
 	/*
 	 * Signup
 	 */
-	Route::get('gc/{token}', function ($token, \Illuminate\Http\Request $request) {
+	Route::get('gc/{token}', function ($token, \Illuminate\Http\Request $request)
+	{
 		$giftcard = \App\Giftcard::where('token', $token)->where('is_used', 0)->first();
 
-		if (!$giftcard) {
+		if ( !$giftcard )
+		{
 			abort(404);
 		}
 
@@ -124,7 +138,8 @@ Route::group(['middleware' => 'web'], function () {
 		return Redirect::to('flow')->with('success', trans('message.success.giftcard-applied'));
 	});
 
-	Route::get('locale/{locale}', function ($locale) {
+	Route::get('locale/{locale}', function ($locale)
+	{
 		Session::put('locale', $locale);
 		App::setLocale($locale);
 
@@ -135,7 +150,8 @@ Route::group(['middleware' => 'web'], function () {
 	/*
 	 * Checkout
 	 */
-	Route::group(['middleware' => ['secure', 'guest'], 'prefix' => 'checkout'], function () {
+	Route::group([ 'middleware' => [ 'secure', 'guest' ], 'prefix' => 'checkout' ], function ()
+	{
 		Route::get('', 'CheckoutController@getCheckout');
 		Route::post('', 'CheckoutController@postCheckout');
 		Route::post('apply-coupon', 'CheckoutController@applyCoupon');
@@ -145,18 +161,22 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('verify/{method}', 'CheckoutController@getVerify');
 
 		// Mollie webhook
-		Route::post('mollie', function ($paymentId = 0) {
-			try {
+		Route::post('mollie', function ($paymentId = 0)
+		{
+			try
+			{
 				$payment = Mollie::api()->payments()->get($paymentId);
 				Log::info($payment); // todo make this work......
-			} catch (Mollie_API_Exception $ex) {
+			} catch ( Mollie_API_Exception $ex )
+			{
 				Log::error($ex->getMessage());
 			}
 
 		});
 	});
 
-	Route::group(['middleware' => ['auth'], 'prefix' => 'checkout'], function () {
+	Route::group([ 'middleware' => [ 'auth' ], 'prefix' => 'checkout' ], function ()
+	{
 		Route::get('success', 'CheckoutController@getSuccess');
 		Route::get('success-giftcard/{token}', 'CheckoutController@getSuccessNonSubscription');
 	});
@@ -164,8 +184,10 @@ Route::group(['middleware' => 'web'], function () {
 	/*
 	 * Account routes
 	 */
-	Route::group(['middleware' => ['auth', 'user'], 'prefix' => 'account'], function () {
-		Route::get('settings', function () {
+	Route::group([ 'middleware' => [ 'auth', 'user' ], 'prefix' => 'account' ], function ()
+	{
+		Route::get('settings', function ()
+		{
 			// Redirect to the correct route (../basic)
 			return redirect('account/settings/basic');
 		});
@@ -194,8 +216,10 @@ Route::group(['middleware' => 'web'], function () {
 	/*
 	 * Dashboard routes
 	 */
-	Route::group(['prefix' => 'dashboard', 'middleware' => 'admin'], function () {
-		view()->composer('admin.sidebar', function ($view) {
+	Route::group([ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
+	{
+		view()->composer('admin.sidebar', function ($view)
+		{
 			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
 			$view->with('sidebar_numOrders', $orderRepo->getNotShipped()->count());
 
@@ -206,7 +230,8 @@ Route::group(['middleware' => 'web'], function () {
 		Route::get('login', 'Auth\DashboardAuthController@showLoginForm');
 		Route::post('login', 'Auth\DashboardAuthController@login');
 
-		Route::get('/', function () {
+		Route::get('/', function ()
+		{
 			$orderRepo    = new \App\Apricot\Repositories\OrderRepository();
 			$customerRepo = new \App\Apricot\Repositories\CustomerRepository();
 
@@ -216,7 +241,7 @@ Route::group(['middleware' => 'web'], function () {
 			return view('admin.home', [
 				'orders_today'    => $orderRepo->getToday()->count(),
 				'customers_today' => $customerRepo->getToday()->count(),
-				'money_today'     => $orderRepo->getToday()->whereNotIn('state', ['new', 'cancelled'])->sum('total'),
+				'money_today'     => $orderRepo->getToday()->whereNotIn('state', [ 'new', 'cancelled' ])->sum('total'),
 				'sales_year'      => $salesYear,
 				'customers_year'  => $customersYear
 			]);
@@ -243,19 +268,26 @@ Route::group(['middleware' => 'web'], function () {
 		Route::resource('page-translations', 'Dashboard\PageTranslationController');
 		Route::get('page-translations/{id}/delete', 'Dashboard\PageTranslationController@delete');
 
-		Route::any('upload/image', function (\Illuminate\Http\Request $request) {
-			if ($request->hasFile('upload')) {
+		Route::any('upload/image', function (\Illuminate\Http\Request $request)
+		{
+			if ( $request->hasFile('upload') )
+			{
 				/** @var \Illuminate\Http\UploadedFile $file */
 				$file = $request->file('upload');
-				if ($file->isValid()) {
+				if ( $file->isValid() )
+				{
 					$imgPath = public_path('uploads/cms/images/');
 					$imgName = str_random(40) . '.' . $file->getClientOriginalExtension();
 
 					$fileIsUnique = false;
-					while (!$fileIsUnique) {
-						if (\File::exists("$imgPath/$imgName")) {
+					while ( !$fileIsUnique )
+					{
+						if ( \File::exists("$imgPath/$imgName") )
+						{
 							$imgName = str_random(40) . '.' . $file->getClientOriginalExtension();
-						} else {
+						}
+						else
+						{
 							$fileIsUnique = true;
 						}
 					}
@@ -268,15 +300,18 @@ Route::group(['middleware' => 'web'], function () {
 		});
 	});
 
-	Route::group(['middleware' => 'ajax'], function () {
-		Route::post('call-me', function (\Illuminate\Http\Request $request) {
+	Route::group([ 'middleware' => 'ajax' ], function ()
+	{
+		Route::post('call-me', function (\Illuminate\Http\Request $request)
+		{
 			$validator = Validator::make($request, [
 				'phone'  => 'required',
 				'period' => 'required'
 			]);
 
-			if ($validator->fails()) {
-				return Response::json(['messages' => $validator->messages()], 403);
+			if ( $validator->fails() )
+			{
+				return Response::json([ 'messages' => $validator->messages() ], 403);
 			}
 
 
@@ -286,24 +321,27 @@ Route::group(['middleware' => 'web'], function () {
 				'status' => 'requested'
 			]);
 
-			return Response::json(['message' => 'Tak, vi ringer til dig snarest!']); // todo translate
+			return Response::json([ 'message' => 'Tak, vi ringer til dig snarest!' ]); // todo translate
 		});
 	});
 
 	/*
 	 * CMS dynamic routing
 	 */
-	Route::get('{identifier}', function ($identifier) {
+	Route::get('{identifier}', function ($identifier)
+	{
 		$repo = new \App\Apricot\Repositories\PageRepository();
 		$page = $repo->findByIdentifier($identifier)->first();
 
-		if (!$page) {
+		if ( !$page )
+		{
 			abort(404);
 		}
 
 		$translation = $page->translations()->whereLocale(App::getLocale())->first();
 
-		if ($translation) {
+		if ( $translation )
+		{
 			$page->title            = $translation->title;
 			$page->sub_title        = $translation->sub_title;
 			$page->body             = $translation->body;
