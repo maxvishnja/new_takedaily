@@ -39,6 +39,7 @@ elixir(function (mix) {
         // '/vendor/pickadate/legacy.js',
         '/vendor/sweetalert.min.js',
         '/vendor/slider.js',
+        '/vendor/jquery.sticky.js',
         '/vendor/payment.jquery.js',
         '/vendor/js.cookie.js',
         //'/vendor/video.js',

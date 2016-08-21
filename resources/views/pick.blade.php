@@ -40,41 +40,38 @@
 		</div>
 
 		<div class="col-md-4">
-			<aside>
+			<aside class="sticky" id="sticky">
 				<div class="card">
 					<div v-cloak="">
-						<div v-show="!hasSelectedEnoughVitamins">
-							Du mangler at vælge mindst @{{ minVitamins - numSelectedVitamins }} vitaminer.
-						</div>
-
-						<div class="cart-selection" v-for="vitamin in selectedVitamins" style="display: table-row">
-							<div style="display: table-cell; padding: 5px">
+						<div class="cart-selection" v-for="vitamin in selectedVitamins">
+							<div class="cart-selection_item cart-selection_code">
 								<span class="icon pill-@{{ vitamin.code }}"></span>
 							</div>
 
-							<div style="display: table-cell; padding: 5px">
+							<div class="cart-selection_item cart-selection_name">
 								@{{ vitamin.name }}
 							</div>
 
-							<div style="display: table-cell; padding: 5px">
+							<div class="cart-selection_item cart-selection_action">
 								<a href="#" style="display: inline-block"
 								   v-on:click="removeVitamin(vitamin, $event)"><span
 										class="icon icon-cross-16-gray"></span></a>
 							</div>
+
+							<div class="clear"></div>
 						</div>
 
-						<div class="cart-selection cart-selection--empty" v-for="n in (minVitamins - Math.min(3, numSelectedVitamins))">
-							<div style="display: table-cell; padding: 5px">
-								&nbsp;&nbsp;&nbsp;
-							</div>
+						<form action="">
+							<button type="submit" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
+									class="button button--circular button--green button--large button--full m-t-20">
+								Fortsæt
+							</button>
+						</form>
 
-							<div style="display: table-cell; padding: 5px">
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							</div>
-						</div>
 
-						<div v-show="hasSelectedEnoughVitamins">
-							GO!
+						<div v-show="!hasSelectedEnoughVitamins" class="m-t-10 text-center">
+							Du mangler at vælge mindst @{{ minVitamins - numSelectedVitamins }} vitamin<span
+								v-show="(minVitamins - numSelectedVitamins) > 1">er</span>.
 						</div>
 					</div>
 				</div>
@@ -131,7 +128,6 @@
 						alert('Du har valgt det maksimale antal vitaminer, fravælg en for at vælge denne.'); // todo translate
 
 
-
 						return false;
 					}
 
@@ -139,5 +135,8 @@
 				}
 			}
 		});
+	</script>
+	<script>
+		$("#sticky").sticky({topSpacing: 20});
 	</script>
 @endsection
