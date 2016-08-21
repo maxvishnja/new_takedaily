@@ -38,9 +38,8 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="col-md-4">
-			<aside class="sticky" id="sticky">
+			<aside id="sticky">
 				<div class="card">
 					<div v-cloak="">
 						<div class="cart-selection" v-for="vitamin in selectedVitamins">
@@ -137,6 +136,21 @@
 		});
 	</script>
 	<script>
-		$("#sticky").sticky({topSpacing: 20});
+		var isSticked = false;
+
+		$(window).on('resize load', function () {
+			if ($(window).width() >= 992) {
+				if (!isSticked) {
+					$("#sticky").sticky({topSpacing: 20});
+					isSticked = true;
+				}
+			}
+			else {
+				if (isSticked) {
+					$("#sticky").unstick();
+					isSticked = false;
+				}
+			}
+		});
 	</script>
 @endsection
