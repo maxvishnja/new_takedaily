@@ -162,7 +162,7 @@ class Checkout
 			                    ->first();
 		}
 
-		if( $giftcard )
+		if ( $giftcard )
 		{
 			$this->giftcard = $giftcard;
 		}
@@ -212,8 +212,21 @@ class Checkout
 		return $this;
 	}
 
+	/**
+	 * @return TaxLibrary
+	 */
 	public function getTaxLibrary()
 	{
 		return $this->taxLibrary;
+	}
+
+	public function getSubTotal()
+	{
+		return $this->getTotal() * $this->getTaxLibrary()->reversedRate();
+	}
+
+	public function getTaxTotal()
+	{
+		return $this->getTotal() * $this->getTaxLibrary()->rate();
 	}
 }

@@ -183,7 +183,6 @@ class CheckoutController extends Controller
 			'payment_method'         => $method
 		]);
 
-
 		// Subscription or not
 		if ( $checkout->getProduct()->is_subscription == 1 )
 		{
@@ -275,12 +274,11 @@ class CheckoutController extends Controller
 
 		$data = [
 			'password'      => $password,
-			'giftcard'      => $checkout->getProduct()->is_subscription == 0 ? ($checkout->getGiftcard() ? $checkout->getGiftcard()->token : null) : null,
+			'giftcard'      => $checkout->getGiftcard() ? $checkout->getGiftcard()->token : null,
 			'description'   => trans("products.{$checkout->getProduct()->name}"),
 			'priceTotal'    => MoneyLibrary::toCents($checkout->getTotal()),
-			'priceSubtotal' => MoneyLibrary::toCents($checkout->getTotal() * $checkout->getTaxLibrary()
-			                                                                          ->reversedRate()),
-			'priceTaxes'    => MoneyLibrary::toCents($checkout->getTotal() * $checkout->getTaxLibrary()->rate())
+			'priceSubtotal' => MoneyLibrary::toCents($checkout->getSubTotal()),
+			'priceTaxes'    => MoneyLibrary::toCents($checkout->getTaxTotal())
 		];
 
 		$mailEmail = $user->getEmail();
