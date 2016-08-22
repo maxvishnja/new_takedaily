@@ -39,20 +39,20 @@
 		</div>
 
 		<div class="giftcard-steps spacer-bottom">
-			<div class="col-lg-4 col-md-4 col-sm-4 text-center"><img class="img-responsive "
+			<div class="col-lg-4 col-md-4 col-sm-4 text-center"><img height="110" class="img-responsive "
 																	 src="/images/gifting/step_1.png"
 																	 alt="">
 				<h3>1. Vælg et gavekort</h3>
 				<p>Du kan vælge at give enten 1, 3 eller 6 måneders TakeDaily til en du holder af.</p>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 text-center"><img class="img-responsive"
+			<div class="col-lg-4 col-md-4 col-sm-4 text-center"><img height="110" class="img-responsive"
 																	 src="/images/gifting/step_2.png"
 																	 alt="">
 				<h3>2. Vi sender gavekortet</h3>
 				<p>Du modtager gavekortet direkte på din e-mail, så der er ingen ventetid eller besvær, du har gaven
 					lige med det samme.</p>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 text-center"><img class="img-responsive"
+			<div class="col-lg-4 col-md-4 col-sm-4 text-center"><img height="110" class="img-responsive"
 																	 src="/images/gifting/step_3.png"
 																	 alt="">
 				<h3>3. Giv gaven</h3>
