@@ -202,4 +202,9 @@ class Order extends Model
 		return $this->getCustomer()->generateLabel()->download('order_' . $this->getPaddedId() . '_label.pdf');
 	}
 
+	public function downloadSticker()
+	{
+		return $this->getCustomer()->generateSticker()->download('order_' . $this->getPaddedId() . '_sticker.pdf');
+	}
+
 }

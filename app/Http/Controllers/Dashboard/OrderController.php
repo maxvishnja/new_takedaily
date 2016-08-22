@@ -83,6 +83,18 @@ class OrderController extends Controller
 		return $order->download();
 	}
 
+	function downloadSticker($id)
+	{
+		$order = Order::find($id);
+
+		if ( !$order )
+		{
+			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
+		}
+
+		return $order->downloadSticker();
+	}
+
 	function markSent($id)
 	{
 		$order = Order::find($id);
