@@ -2,8 +2,8 @@
 return [
 	'messages' => [
 		'vitamins-not-selected' => 'Vi skal finde dine vitaminer før du kan handle.',
-		'email-taken'           => 'E-mail adressen er allerede taget.',
-		'email-invalid'         => 'E-mail adressen er ikke gyldig.',
+		//'email-taken'           => 'E-mail adressen er allerede taget.',
+		//'email-invalid'         => 'E-mail adressen er ikke gyldig.',
 		'payment-invalid'       => 'Betalingen blev ikke godkendt, prøv igen. :error',
 		'no-such-coupon'        => 'Kuponkoden findes ikke.',
 		'coupon-missing'        => 'Du skal indtaste en kuponkode.',
