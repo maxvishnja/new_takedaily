@@ -71,6 +71,18 @@ class OrderController extends Controller
 		return \Redirect::action('Dashboard\OrderController@index')->with('success', 'Ordren blev refunderet.');
 	}
 
+	function download($id)
+	{
+		$order = Order::find($id);
+
+		if ( !$order )
+		{
+			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
+		}
+
+		return $order->download();
+	}
+
 	function markSent($id)
 	{
 		$order = Order::find($id);

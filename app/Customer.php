@@ -43,14 +43,14 @@ class Customer extends Model
 	 * @var array
 	 */
 
-	protected $fillable = ['user_id', 'plan_id', 'balance'];
+	protected $fillable = [ 'user_id', 'plan_id', 'balance' ];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = [];
+	protected $hidden = [ ];
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -102,7 +102,8 @@ class Customer extends Model
 
 	public function cancelSubscription($force = false)
 	{
-		if ((!$this->getPlan()->isCancelable() && !$force) || $this->getPlan()->isCancelled()) {
+		if ( (!$this->getPlan()->isCancelable() && !$force) || $this->getPlan()->isCancelled() )
+		{
 			return false;
 		}
 
@@ -134,7 +135,8 @@ class Customer extends Model
 
 	public function getCustomerAttribute($name, $default = '')
 	{
-		if (!$attribute = $this->customerAttributes->where('identifier', $name)->first()) {
+		if ( !$attribute = $this->customerAttributes->where('identifier', $name)->first() )
+		{
 			return $default;
 		}
 
@@ -145,7 +147,8 @@ class Customer extends Model
 	{
 		$attributes = $this->customerAttributes();
 
-		if ($onlyEditable) {
+		if ( $onlyEditable )
+		{
 			$attributes = $attributes->editable();
 		}
 
@@ -174,7 +177,8 @@ class Customer extends Model
 
 	public function getAge()
 	{
-		if (is_null($this->getBirthday())) {
+		if ( is_null($this->getBirthday()) )
+		{
 			return false;
 		}
 
@@ -193,11 +197,13 @@ class Customer extends Model
 
 	public function rebill($amount = null)
 	{
-		if (!$this->isSubscribed()) {
+		if ( !$this->isSubscribed() )
+		{
 			return false;
 		}
 
-		if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '')) {
+		if ( !$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '') )
+		{
 			return false;
 		}
 
@@ -217,7 +223,8 @@ class Customer extends Model
 	{
 		$attribute = $this->customerAttributes()->where('identifier', $identifier)->first();
 
-		if (!$attribute) {
+		if ( !$attribute )
+		{
 			$this->customerAttributes()->create([
 				'identifier' => $identifier,
 				'value'      => $value ?: ''
@@ -226,12 +233,13 @@ class Customer extends Model
 			return true;
 		}
 
-		return $attribute->update(['value' => $value ?: '']);
+		return $attribute->update([ 'value' => $value ?: '' ]);
 	}
 
-	public function setCustomerAttributes($attributes = [])
+	public function setCustomerAttributes($attributes = [ ])
 	{
-		foreach ($attributes as $identifier => $value) {
+		foreach ( $attributes as $identifier => $value )
+		{
 			$this->setCustomerAttribute($identifier, $value);
 		}
 
@@ -245,9 +253,9 @@ class Customer extends Model
 
 		$deleteResponse = $paymentHandler->deleteMethodFor($this->getPlan()->getPaymentCustomerToken());
 
-		if( $deleteResponse['purge_plan'] )
+		if ( $deleteResponse['purge_plan'] )
 		{
-			$this->getPlan()->update(['payment_customer_token' => '', 'payment_method' => '']);
+			$this->getPlan()->update([ 'payment_customer_token' => '', 'payment_method' => '' ]);
 		}
 
 		return true;
@@ -266,7 +274,8 @@ class Customer extends Model
 		$taxes    = $amount * $taxing->rate();
 
 		$order = $this->orders()->create([
-			'reference'        => (str_random(8) . '-' . str_random(2) . '-' . str_pad($this->getOrders()->count() + 1, 4, '0', STR_PAD_LEFT)),
+			'reference'        => (str_random(8) . '-' . str_random(2) . '-' . str_pad($this->getOrders()
+			                                                                                ->count() + 1, 4, '0', STR_PAD_LEFT)),
 			'payment_token'    => $chargeToken ?: '',
 			'payment_method'   => $this->getPlan()->getPaymentMethod(),
 			'state'            => ($chargeToken ? 'paid' : 'new'),
@@ -291,7 +300,8 @@ class Customer extends Model
 			'total_amount' => $product->price
 		]);
 
-		if ($usedBalance) {
+		if ( $usedBalance )
+		{
 			$order->lines()->create([
 				'description'  => 'balance',
 				'amount'       => 0,
@@ -300,7 +310,8 @@ class Customer extends Model
 			]);
 		}
 
-		if ($shipping > 0) {
+		if ( $shipping > 0 )
+		{
 			$order->lines()->create([
 				'description'  => 'shipping',
 				'amount'       => $shipping,
@@ -309,12 +320,16 @@ class Customer extends Model
 			]);
 		}
 
-		if ($coupon) {
+		if ( $coupon )
+		{
 			$couponAmount = 0;
 
-			if ($coupon->discount_type == 'percentage') {
+			if ( $coupon->discount_type == 'percentage' )
+			{
 				$couponAmount = $product->price * ($coupon->discount / 100);
-			} elseif ($coupon->discount_type == 'amount') {
+			}
+			elseif ( $coupon->discount_type == 'amount' )
+			{
 				$couponAmount = $coupon->discount;
 			}
 
@@ -354,7 +369,8 @@ class Customer extends Model
 		$usedBalance = false;
 		$prevAmount  = 0;
 
-		if ($this->balance > 0) {
+		if ( $this->balance > 0 )
+		{
 			$prevAmount = ($this->balance > $amount ? $amount : $this->balance);
 			$amount -= ($this->balance > $amount ? $amount : $this->balance);
 			$this->deductBalance($this->balance > $prevAmount ? $prevAmount : $this->balance);
@@ -362,21 +378,27 @@ class Customer extends Model
 			$usedBalance = true;
 		}
 
-		if ($amount > 0) {
+		if ( $amount > 0 )
+		{
 			$charge = $paymentHandler->makeRebill($amount, $this->getPlan()->getPaymentCustomer());
 
-			if (!$charge) {
+			if ( !$charge )
+			{
 				return false;
 			}
 
 			$chargeId = $charge->id;
-		} else {
-			if ($chargeId == '') {
+		}
+		else
+		{
+			if ( $chargeId == '' )
+			{
 				$chargeId = 'free';
 			}
 		}
 
-		if ($makeOrder) {
+		if ( $makeOrder )
+		{
 			\Event::fire(new CustomerWasBilled($this, $amount, $chargeId, $product, $usedBalance, $prevAmount * -1, $coupon));
 		}
 
@@ -391,24 +413,39 @@ class Customer extends Model
 		]);
 	}
 
+	public function hasManuallySelectedCombinations()
+	{
+		return false; // todo
+	}
+
 	public function calculateCombinations()
 	{
+		if ( $this->hasManuallySelectedCombinations() )
+		{
+			return $this->getVitamins(); // todo
+		}
+
 		$combinationLibrary = new CombinationLibrary();
 
 		$attributes = $this->customerAttributes()->where('identifier', 'LIKE', 'user_data.%')->get();
 
 		$data = new \stdClass();
 
-		foreach ($attributes as $attribute) {
+		foreach ( $attributes as $attribute )
+		{
 			$attributePoints = explode('.', $attribute->identifier);
 
-			if (count($attributePoints) > 2) {
-				if (!isset($data->{$attributePoints[1]})) {
+			if ( count($attributePoints) > 2 )
+			{
+				if ( !isset($data->{$attributePoints[1]}) )
+				{
 					$data->{$attributePoints[1]} = new \stdClass();
 				}
 
 				$data->{$attributePoints[1]}->{$attributePoints[2]} = $attribute->value;
-			} else {
+			}
+			else
+			{
 				$data->{$attributePoints[1]} = $attribute->value;
 			}
 		}
@@ -418,44 +455,16 @@ class Customer extends Model
 		return $combinationLibrary->getResult();
 	}
 
-	public function getCombinations()
+	public function getVitamins()
 	{
-		/*
-		 * todo
-		 *
-		 * if($this->hasManuallySelectedCombinations())
-		 * {
-		 *  return $this->getPlan()->vitamins // ---- should be converted to a combination array or something..
-		 * }
-		 *
-		 * todo
-		 * ignore the above (maybe move to calculateCombinations)
-		 * and instead simply return $this->getPlan()->vitamins;
-		 */
-		$combinationLibrary = new CombinationLibrary();
+		return $this->getPlan()->vitamins;
+	}
 
-		$attributes = $this->customerAttributes()->where('identifier', 'LIKE', 'user_data.%')->get();
+	public function getVitaminModels()
+	{
+		$vitamins = json_decode($this->getVitamins());
 
-		$data = new \stdClass();
-
-		foreach ($attributes as $attribute) {
-			$attributePoints = explode('.', $attribute->identifier);
-
-			if (count($attributePoints) > 2) {
-				if (!isset($data->{$attributePoints[1]})) {
-					$data->{$attributePoints[1]} = new \stdClass();
-				}
-
-				$data->{$attributePoints[1]}->{$attributePoints[2]} = $attribute->value;
-			} else {
-				$data->{$attributePoints[1]} = $attribute->value;
-			}
-		}
-
-		$combinationLibrary->generateResult($data);
-
-		return $combinationLibrary->getResult();
-		//return $this->getPlan()->vitamins;
+		return Vitamin::whereIn('id', $vitamins)->get();
 	}
 
 	/**
@@ -463,25 +472,38 @@ class Customer extends Model
 	 */
 	public function generateLabel()
 	{
-		return \PDF::loadView('pdf.label', ['customer' => $this])->setPaper([0, 0, 570, 262])->setOrientation('landscape');
+		return \PDF::loadView('pdf.label', [ 'customer' => $this ])
+		           ->setPaper([ 0, 0, 570, 262 ])
+		           ->setOrientation('landscape');
+	}
+
+	/**
+	 * @return \PDF
+	 */
+	public function generateSticker()
+	{
+		return \PDF::loadView('pdf.sticker', [ 'customer' => $this ])
+		           ->setPaper([ 0, 0, 531, 723 ])
+		           ->setOrientation('portrait');
 	}
 
 	public function scopeRebillable($query)
 	{
 		return $query->join('plans', 'plans.id', '=', 'customers.plan_id')
-			->whereNull('plans.deleted_at')
-			->whereNull('plans.subscription_cancelled_at')
-			->whereNotNull('plans.subscription_rebill_at')
-			->where('plans.subscription_rebill_at', '<=', Date::now());
+		             ->whereNull('plans.deleted_at')
+		             ->whereNull('plans.subscription_cancelled_at')
+		             ->whereNotNull('plans.subscription_rebill_at')
+		             ->where('plans.subscription_rebill_at', '<=', Date::now());
 	}
 
 	public function getPaymentMethods()
 	{
 		$plan = $this->getPlan();
 
-		if ($plan->getPaymentMethod() == '') {
+		if ( $plan->getPaymentMethod() == '' )
+		{
 			return [
-				'methods' => [],
+				'methods' => [ ],
 				'type'    => ''
 			];
 		}

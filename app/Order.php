@@ -59,6 +59,14 @@ class Order extends Model
 		return $this->hasOne('App\Customer', 'id', 'customer_id');
 	}
 
+	/**
+	 * @return Customer
+	 */
+	public function getCustomer()
+	{
+		return $this->customer;
+	}
+
 	public function getPaddedId()
 	{
 		return str_pad($this->id, 11, 0, STR_PAD_LEFT);
@@ -189,5 +197,9 @@ class Order extends Model
 		return $color;
 	}
 
+	public function download()
+	{
+		return $this->getCustomer()->generateLabel()->download('order_' . $this->getPaddedId() . '_label.pdf');
+	}
 
 }

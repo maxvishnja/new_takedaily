@@ -14,6 +14,9 @@
 					<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@markSent', [ 'id' => $order->id ]) }}"><i class="icon-truck"></i>
 						Marker som sendt</a>
 
+					<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@download', [ 'id' => $order->id ]) }}"><i class="icon-download"></i>
+						Download label</a>
+
 					<a class="btn btn-default" href="{{ URL::action('Dashboard\OrderController@refund', [ 'id' => $order->id ]) }}"><i class="icon-money"></i>
 						Refunder</a>
 				@endif

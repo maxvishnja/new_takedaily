@@ -143,7 +143,7 @@ return array(
          * the desired content might be different (e.g. screen or projection view of html file).
          * Therefore allow specification of content here.
          */
-        "DOMPDF_DEFAULT_MEDIA_TYPE" => "screen",
+        "DOMPDF_DEFAULT_MEDIA_TYPE" => "print",
 
         /**
          * The default paper size.
@@ -195,7 +195,7 @@ return array(
          *
          * @var int
          */
-        "DOMPDF_DPI" => 96,
+        "DOMPDF_DPI" => 300,
 
         /**
          * Enable inline PHP

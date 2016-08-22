@@ -17,14 +17,14 @@
 	html {
 		line-height: 1;
 		margin: 0;
-		width: 570pt;
-		height: 262pt;
+		width: 531pt;
+		height: 723pt;
 		overflow: hidden;
 		page-break-inside: avoid;
 	}
 
 	@page {
-		size: 570pt 262pt;
+		size: 531pt 723pt;
 		margin: 0;
 		padding: 0;
 	}

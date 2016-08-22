@@ -266,6 +266,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::resource('orders', 'Dashboard\OrderController');
 		Route::get('orders/mark-sent/{id}', 'Dashboard\OrderController@markSent');
 		Route::get('orders/refund/{id}', 'Dashboard\OrderController@refund');
+		Route::get('orders/download/{id}', 'Dashboard\OrderController@download');
 		Route::resource('coupons', 'Dashboard\CouponController');
 		Route::resource('settings', 'Dashboard\SettingController');
 		Route::resource('products', 'Dashboard\ProductController');
