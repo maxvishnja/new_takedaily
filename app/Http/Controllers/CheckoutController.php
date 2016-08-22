@@ -130,10 +130,13 @@ class CheckoutController extends Controller
 	 */
 	function getVerify($method, Request $request)
 	{
+		$productName = $request->session()->get('product_name', 'subscription');
+		$couponCode  = $request->session()->get('coupon', '');
+
 		$checkout = new Checkout();
 		$checkout->setPaymentMethod($method)
-		         ->setProductByName($request->session()->get('product_name', 'subscription'))
-		         ->appendCoupon($request->get('coupon', ''))
+		         ->setProductByName($productName)
+		         ->appendCoupon($couponCode)
 		         ->appendGiftcard($request->session()->get('giftcard_id'), $request->session()->get('giftcard_token'))
 		         ->setTaxLibrary($request->session()->get('address_country'));
 
@@ -275,7 +278,8 @@ class CheckoutController extends Controller
 			'giftcard'      => $checkout->getProduct()->is_subscription == 0 ? ($checkout->getGiftcard() ? $checkout->getGiftcard()->token : null) : null,
 			'description'   => trans("products.{$checkout->getProduct()->name}"),
 			'priceTotal'    => MoneyLibrary::toCents($checkout->getTotal()),
-			'priceSubtotal' => MoneyLibrary::toCents($checkout->getTotal() * $checkout->getTaxLibrary()->reversedRate()),
+			'priceSubtotal' => MoneyLibrary::toCents($checkout->getTotal() * $checkout->getTaxLibrary()
+			                                                                          ->reversedRate()),
 			'priceTaxes'    => MoneyLibrary::toCents($checkout->getTotal() * $checkout->getTaxLibrary()->rate())
 		];
 
