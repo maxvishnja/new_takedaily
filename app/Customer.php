@@ -393,6 +393,14 @@ class Customer extends Model
 
 	public function getCombinations()
 	{
+		/*
+		 * todo
+		 *
+		 * if($this->hasManuallySelectedCombinations())
+		 * {
+		 *  return $this->getPlan()->vitamins // ---- should be converted to a combination array or something..
+		 * }
+		 */
 		$combinationLibrary = new CombinationLibrary();
 
 		$attributes = $this->customerAttributes()->where('identifier', 'LIKE', 'user_data.%')->get();
