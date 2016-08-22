@@ -301,6 +301,7 @@ class CheckoutController extends Controller
 				'user_data.foods.butter'     => $userData->foods->butter
 			]);
 
+			// todo if session/request has 'vitamins', use them.
 			$combinations = $user->getCustomer()->calculateCombinations();
 			$vitamins     = [ ];
 

@@ -2,18 +2,23 @@ body.gifting
 	.gifting-selectors .gifting-selector input[type="radio"]
 		display: none
 
+	.gifting-block
+		border-bottom: 1px solid #eee
+		padding-bottom: 30px
+		margin-bottom: 50px
+
 	.gifting-selector
 		margin: 20px
 		display: inline-block
 		-webkit-user-select: none
 		user-select: none
-		text-align: center
 		cursor: pointer
 		text-align: right
 		background: transparent url(/images/giftcard-bg.png) no-repeat center center
-		position: relative
 		width: 260px
 		height: 160px
+		padding: 20px
+		position: relative
 		border-radius: 4px
 		box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
 		transition: box-shadow 300ms
@@ -22,46 +27,29 @@ body.gifting
 			z-index: 2
 			box-shadow: 0 0 50px rgba(0, 0, 0, 0.2)
 
+		.button
+			position: absolute
+			width: 100%
+			width: calc(100% - 90px)
+			left: 70px
+			bottom: 10px
+
+
 		strong.gifting-price
 			width: 230px
 			display: block
 			font-size: 36px
-			position: relative
 			font-weight: 700
 			color: $main-green-dark
-			top: 15px
-			right: 15px
 			float: right
 
 		span.gifting-months
 			width: 230px
 			display: block
-			position: relative
 			font-weight: normal
 			font-size: 20px
 			color: $greyish-brown
-			top: 15px
-			right: 15px
 			float: right
-
-		.gifting-checkmark
-			display: none
-			position: absolute
-
-		input[type="radio"]:checked ~ .gifting-checkmark
-			display: block
-			background: $dark-grey
-			border-radius: 100%
-			padding: 20px 0
-			top: 50%
-			left: 50%
-			margin-left: -35px
-			margin-top: -35px
-			width: 70px
-			height: 70px
-			z-index: 2
-			text-align: center
-			box-shadow: 0 0 0 6px $white, 0 0 50px $white
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
 	body.gifting
