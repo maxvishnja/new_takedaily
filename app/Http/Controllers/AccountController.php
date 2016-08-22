@@ -71,11 +71,9 @@ class AccountController extends Controller
 			'user_data.foods.butter'     => $userData->foods->butter
 		]);
 
-		$combinations = $this->user->getCustomer()->getCombinations();
+		$combinations = $this->user->getCustomer()->calculateCombinations();
 		$vitamins     = [ ];
-
-
-
+		
 		foreach ( $combinations as $key => $combination )
 		{
 			$pill = PillLibrary::getPill($key, $combination);

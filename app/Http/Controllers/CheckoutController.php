@@ -301,7 +301,7 @@ class CheckoutController extends Controller
 				'user_data.foods.butter'     => $userData->foods->butter
 			]);
 
-			$combinations = $user->getCustomer()->getCombinations();
+			$combinations = $user->getCustomer()->calculateCombinations();
 			$vitamins     = [ ];
 
 			foreach ( $combinations as $key => $combination )
@@ -401,7 +401,7 @@ class CheckoutController extends Controller
 			return \Redirect::to('/');
 		}
 
-		$combinations = \Auth::user()->getCustomer()->getCombinations();
+		$combinations = \Auth::user()->getCustomer()->calculateCombinations();
 
 		return view('checkout.success', [ 'combinations' => $combinations ]);
 	}

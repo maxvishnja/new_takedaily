@@ -45,7 +45,7 @@
 		<td style="width: 310px;">
 			<table style="margin: 50px 30px 10px; width: 260px; height: 180px;">
 				<tbody style="width: 100%;">
-				@foreach($customer->getCombinations() as $combinationKey => $combinationValue)
+				@foreach($customer->calculateCombinations() as $combinationKey => $combinationValue)
 					<tr style="width: 100%">
 						<td style="padding: 5px 0;width: 100%; text-align: left; color: #444; font-size: 15px;">{{ \App\Apricot\Libraries\PillLibrary::getPillCode(\App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue)) }}</td>
 					</tr>
@@ -85,7 +85,7 @@
 
 				<tr style="width: 100%; text-align: right;">
 					<td style="width: 100%; text-align: right; padding-top: 20px;">
-						@foreach($customer->getCombinations() as $combinationKey => $combinationValue)
+						@foreach($customer->calculateCombinations() as $combinationKey => $combinationValue)
 							<img width="29" height="30" src="{{ asset('/images/icons/pills/pill-' . \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) . '@2x.png') }}" />
 						@endforeach
 					</td>

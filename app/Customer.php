@@ -391,6 +391,33 @@ class Customer extends Model
 		]);
 	}
 
+	public function calculateCombinations()
+	{
+		$combinationLibrary = new CombinationLibrary();
+
+		$attributes = $this->customerAttributes()->where('identifier', 'LIKE', 'user_data.%')->get();
+
+		$data = new \stdClass();
+
+		foreach ($attributes as $attribute) {
+			$attributePoints = explode('.', $attribute->identifier);
+
+			if (count($attributePoints) > 2) {
+				if (!isset($data->{$attributePoints[1]})) {
+					$data->{$attributePoints[1]} = new \stdClass();
+				}
+
+				$data->{$attributePoints[1]}->{$attributePoints[2]} = $attribute->value;
+			} else {
+				$data->{$attributePoints[1]} = $attribute->value;
+			}
+		}
+
+		$combinationLibrary->generateResult($data);
+
+		return $combinationLibrary->getResult();
+	}
+
 	public function getCombinations()
 	{
 		/*
@@ -400,6 +427,10 @@ class Customer extends Model
 		 * {
 		 *  return $this->getPlan()->vitamins // ---- should be converted to a combination array or something..
 		 * }
+		 *
+		 * todo
+		 * ignore the above (maybe move to calculateCombinations)
+		 * and instead simply return $this->getPlan()->vitamins;
 		 */
 		$combinationLibrary = new CombinationLibrary();
 
@@ -424,6 +455,7 @@ class Customer extends Model
 		$combinationLibrary->generateResult($data);
 
 		return $combinationLibrary->getResult();
+		//return $this->getPlan()->vitamins;
 	}
 
 	/**
