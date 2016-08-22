@@ -60,11 +60,15 @@
 							<div class="clear"></div>
 						</div>
 
-						<form action="">
+						<form action="" method="post">
 							<button type="submit" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
 								Fortsæt
 							</button>
+
+							<input type="hidden" value="@{{ vitamin.id }}" name="vitamins[]" v-for="vitamin in selectedVitamins" />
+
+							{{ csrf_field() }}
 						</form>
 
 

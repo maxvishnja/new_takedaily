@@ -32,6 +32,11 @@ Route::group([ 'middleware' => 'web' ], function ()
 			return view('pick', compact('vitamins'));
 		});
 
+		Route::post('pick-n-mix', function(\Illuminate\Http\Request $request)
+		{
+			dd($request->get('vitamins', []));
+		});
+
 		Route::get('flow', function ()
 		{
 			$giftcard = null;
