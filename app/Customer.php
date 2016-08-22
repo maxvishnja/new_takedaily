@@ -128,7 +128,7 @@ class Customer extends Model
 	}
 
 	public function getStripeToken()
-	{
+	{ // todo move to handler
 		return $this->getPlan()->getStripeToken();
 	}
 

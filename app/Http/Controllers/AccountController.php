@@ -1,7 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use App\Apricot\Libraries\PillLibrary;
 use App\Customer;
 use App\User;
+use App\Vitamin;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -39,12 +41,12 @@ class AccountController extends Controller
 	{
 		$userData = json_decode($request->get('user_data', '{}'));
 
-		\Auth::user()->getCustomer()->update([
+		$this->user->getCustomer()->update([
 			'birthdate' => $userData->birthdate,
 			'gender'    => $userData->gender == 1 ? 'male' : 'female'
 		]);
 
-		\Auth::user()->getCustomer()->setCustomerAttributes([
+		$this->user->getCustomer()->setCustomerAttributes([
 			'user_data.gender'           => $userData->gender,
 			'user_data.birthdate'        => $userData->birthdate,
 			'user_data.age'              => $userData->age, // todo update this each month
@@ -67,6 +69,26 @@ class AccountController extends Controller
 			'user_data.foods.meat'       => $userData->foods->meat,
 			'user_data.foods.fish'       => $userData->foods->fish,
 			'user_data.foods.butter'     => $userData->foods->butter
+		]);
+
+		$combinations = $this->user->getCustomer()->getCombinations();
+		$vitamins     = [ ];
+
+
+
+		foreach ( $combinations as $key => $combination )
+		{
+			$pill = PillLibrary::getPill($key, $combination);
+			$vitamin = Vitamin::select('id')->whereCode($pill)->first();
+
+			if ( $vitamin )
+			{
+				$vitamins[] = $vitamin->id;
+			}
+		}
+		
+		$this->user->getCustomer()->getPlan()->update([
+			'vitamins' => json_encode($vitamins)
 		]);
 
 		return \Redirect::action('AccountController@getHome')->with('success', 'Dine præferencer blev gemt!');

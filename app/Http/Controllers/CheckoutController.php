@@ -3,12 +3,14 @@
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
+use App\Apricot\Libraries\PillLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
 use App\Product;
 use App\User;
+use App\Vitamin;
 use Illuminate\Http\Request;
 use Jenssegers\Date\Date;
 
@@ -38,9 +40,9 @@ class CheckoutController extends Controller
 		if ( \Session::has('giftcard_id') && \Session::has('giftcard_token') && \Session::get('product_name') == 'subscription' )
 		{
 			$giftcard = Giftcard::where('id', \Session::get('giftcard_id'))
-								->where('token', \Session::get('giftcard_token'))
-								->where('is_used', 0)
-								->first();
+			                    ->where('token', \Session::get('giftcard_token'))
+			                    ->where('is_used', 0)
+			                    ->first();
 		}
 
 		return view('checkout.index', [
@@ -122,7 +124,9 @@ class CheckoutController extends Controller
 
 		if ( !$paymentCustomer )
 		{
-			return \Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen.')->withInput();// todo translate
+			return \Redirect::back()
+			                ->withErrors('Der skete en fejl under betalingen, prøv igen.')
+			                ->withInput();// todo translate
 		}
 
 		// Charge
@@ -130,7 +134,9 @@ class CheckoutController extends Controller
 
 		if ( !$charge )
 		{
-			return \Redirect::back()->withErrors('Der skete en fejl under betalingen, prøv igen.')->withInput();// todo translate
+			return \Redirect::back()
+			                ->withErrors('Der skete en fejl under betalingen, prøv igen.')
+			                ->withInput();// todo translate
 		}
 
 		$request->session()->put('charge_id', $charge->id);
@@ -170,15 +176,17 @@ class CheckoutController extends Controller
 
 		if ( !$isSuccessful )
 		{
-			return \Redirect::action('CheckoutController@getCheckout')->withErrors('Der skete en fejl under betalingen, prøv igen!')->withInput([
-				'name'            => $request->session()->get('name'),
-				'email'           => $request->session()->get('email'),
-				'address_street'  => $request->session()->get('address_street'),
-				'address_city'    => $request->session()->get('address_city'),
-				'address_country' => $request->session()->get('address_country'),
-				'address_country' => $request->session()->get('address_country'),
-				'company'         => $request->session()->get('company')
-			]); // todo translate
+			return \Redirect::action('CheckoutController@getCheckout')
+			                ->withErrors('Der skete en fejl under betalingen, prøv igen!')
+			                ->withInput([
+				                'name'            => $request->session()->get('name'),
+				                'email'           => $request->session()->get('email'),
+				                'address_street'  => $request->session()->get('address_street'),
+				                'address_city'    => $request->session()->get('address_city'),
+				                'address_country' => $request->session()->get('address_country'),
+				                'address_country' => $request->session()->get('address_country'),
+				                'company'         => $request->session()->get('company')
+			                ]); // todo translate
 		}
 
 		// Info
@@ -218,12 +226,15 @@ class CheckoutController extends Controller
 		// Giftcard
 		$giftcard = null;
 
-		if ( $request->session()->has('giftcard_id') && $request->session()->has('giftcard_token') && $request->session()->get('product_name') == 'subscription' )
+		if ( $request->session()->has('giftcard_id') && $request->session()
+		                                                        ->has('giftcard_token') && $request->session()
+		                                                                                           ->get('product_name') == 'subscription'
+		)
 		{
 			$giftcard = Giftcard::where('id', $request->session()->get('giftcard_id'))
-								->where('token', $request->session()->get('giftcard_token'))
-								->where('is_used', 0)
-								->first();
+			                    ->where('token', $request->session()->get('giftcard_token'))
+			                    ->where('is_used', 0)
+			                    ->first();
 		}
 
 		// Coupon
@@ -289,6 +300,24 @@ class CheckoutController extends Controller
 				'user_data.foods.fish'       => $userData->foods->fish,
 				'user_data.foods.butter'     => $userData->foods->butter
 			]);
+
+			$combinations = $user->getCustomer()->getCombinations();
+			$vitamins     = [ ];
+
+			foreach ( $combinations as $key => $combination )
+			{
+				$pill = PillLibrary::getPill($key, $combination);
+				$vitamin = Vitamin::select('id')->whereCode($pill)->first();
+
+				if ( $vitamin )
+				{
+					$vitamins[] = $vitamin->id;
+				}
+			}
+
+			$user->getCustomer()->getPlan()->update([
+				'vitamins' => json_encode($vitamins)
+			]);
 		}
 		else
 		{
@@ -335,7 +364,8 @@ class CheckoutController extends Controller
 		$mailEmail = $user->getEmail();
 		$mailName  = $user->getName();
 
-		\Event::fire(new CustomerWasBilled($user->getCustomer(), MoneyLibrary::toCents($orderPrice), $request->session()->get('charge_id'), $product->name, false, 0, $coupon));
+		\Event::fire(new CustomerWasBilled($user->getCustomer(), MoneyLibrary::toCents($orderPrice), $request->session()
+		                                                                                                     ->get('charge_id'), $product->name, false, 0, $coupon));
 
 		\Mail::queue('emails.order', $data, function ($message) use ($mailEmail, $mailName)
 		{
@@ -351,10 +381,12 @@ class CheckoutController extends Controller
 			$request->session()->put('upsell_token', $upsellToken);
 			$request->session()->put('product_name', $product->name);
 
-			return \Redirect::action('CheckoutController@getSuccess')->with([ 'order_created' => true, 'upsell' => true ]);
+			return \Redirect::action('CheckoutController@getSuccess')
+			                ->with([ 'order_created' => true, 'upsell' => true ]);
 		}
 
-		return \Redirect::action('CheckoutController@getSuccessNonSubscription', [ 'token' => $giftcard->token ])->with([ 'order_created' => true ]);
+		return \Redirect::action('CheckoutController@getSuccessNonSubscription', [ 'token' => $giftcard->token ])
+		                ->with([ 'order_created' => true ]);
 	}
 
 	/**
@@ -425,5 +457,5 @@ class CheckoutController extends Controller
 			]
 		], 200);
 	}
-	
+
 }

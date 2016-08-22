@@ -48,7 +48,8 @@ class Plan extends Model
 		'subscription_started_at',
 		'subscription_cancelled_at',
 		'subscription_snoozed_until',
-		'subscription_rebill_at'
+		'subscription_rebill_at',
+	    'vitamins'
 	];
 	
 	/**
