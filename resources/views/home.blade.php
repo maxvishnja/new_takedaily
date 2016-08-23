@@ -202,7 +202,7 @@
 			</div>
 		</div>
 
-		<div class="container">
+		{{--<div class="container">
 			<div class="block block--three text-center">
 				<div class="row">
 					<div class="col-md-4">
@@ -239,7 +239,7 @@
 			</div>
 
 			<div class="clear"></div>
-		</div>
+		</div>--}}
 
 		@if( is_array( trans('home.blocks.six.slides') ) )
 			<div class="block block--six">
@@ -266,7 +266,7 @@
 			</div>
 		@endif
 
-		<div class="block block--seven text-center">
+		{{--<div class="block block--seven text-center">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-push-2">
@@ -291,7 +291,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>--}}
 	</main>
 @endsection
 
