@@ -100,11 +100,6 @@ body.index
 				font-weight: $weight-bold
 				margin: 0 0 20px
 
-			p
-				font-size: 17px
-				line-height: 1.8
-				margin: 0 0 50px
-
 			a.button
 				font-size: 18px
 
@@ -207,7 +202,7 @@ body.index
 						background: $main-green url(/images/header_pattern.png) no-repeat right 134px
 
 					&.header_bg_item--2
-						background: #fff url(/images/header_bg.jpg) no-repeat center center
+						background: #fff url(/images/header_bg.jpg) no-repeat center bottom
 						background-size: cover
 
 		.header_footer
@@ -399,6 +394,30 @@ body.index
 					float: left
 					width: 100%
 					padding: 10px 0
+
+@media all and (min-height: 900px)
+	body.index
+		header.header--landing
+			.header_content
+				margin-top: 10vh
+
+@media all and (min-height: 1200px)
+	body.index
+		header.header--landing
+			.header_content
+				margin-top: 15vh
+
+				h1
+					margin-bottom: 40px
+
+				.headervideo-block
+				   	margin-top: 50px
+
+@media all and (min-height: 1600px)
+	body.index
+		header.header--landing
+			.header_content
+				margin-top: 20vh
 
 @media all and (max-width: 1750px)
 	body.index
