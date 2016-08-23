@@ -349,5 +349,9 @@
 			header_bg_slider.css("transform", "translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
 			header_bg_slider.css("transform", "-webkit-translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
 		});
+
+		setTimeout( function() {
+			$(".header_slide_nav_item[data-slide='2']").click();
+		}, 3000);
 	</script>
 @endsection
