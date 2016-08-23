@@ -91,6 +91,9 @@ class Checkout
 		return $this->setProduct($product);
 	}
 
+	/**
+	 * @return Product
+	 */
 	public function getProduct()
 	{
 		return $this->product;

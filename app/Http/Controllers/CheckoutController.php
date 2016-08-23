@@ -1,9 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Apricot\Checkout\Checkout;
+use App\Apricot\Checkout\CheckoutCompletion;
 use App\Apricot\Libraries\MoneyLibrary;
-use App\Apricot\Libraries\PaymentDelegator;
-use App\Apricot\Libraries\PaymentHandler;
 use App\Apricot\Libraries\PillLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
@@ -156,151 +155,33 @@ class CheckoutController extends Controller
 			                ]); // todo translate
 		}
 
-		// Info
+		$checkoutCompletion = new CheckoutCompletion($checkout);
+
 		$password = str_random(8);
-		$userData = json_decode($request->session()->get('user_data', '{}'));
 
-		// User
-		$user = User::create([
-			'name'     => ucwords($request->session()->get('name')),
-			'email'    => $request->session()->get('email'),
-			'password' => bcrypt($password),
-			'type'     => 'user'
-		]);
+		$checkoutCompletion->createUser($request->session()->get('name'), $request->session()->get('email'), $password)
+		                   ->setCustomerAttributes([
+			                   'address_city'    => $request->session()->get('address_city'),
+			                   'address_line1'   => $request->session()->get('address_street'),
+			                   'address_country' => $request->session()->get('address_country'),
+			                   'address_postal'  => $request->session()->get('address_zipcode'),
+			                   'company'         => $request->session()->get('company'),
+		                   ])
+		                   ->setPlanPayment($request->session()->get('payment_customer_id'), $method)
+		                   ->setUserData($request->session()->get('user_data', '{}'))
+		                   ->updateCustomerPlan()
+		                   ->handleProductActions()
+		                   ->deductCouponUsage()
+		                   ->markGiftcardUsed()
+		                   ->fireCustomerWasBilled($request->session()->get('charge_id'))
+		                   ->queueEmail($password)
+		                   ->flush()
+		                   ->initUpsell()
+		                   ->loginUser();
+		// fixme userData being null/false if failed somewhere.
 
-		// Customer
-		$user->getCustomer()->setCustomerAttributes([
-			'address_city'    => $request->session()->get('address_city'),
-			'address_line1'   => $request->session()->get('address_street'),
-			'address_country' => $request->session()->get('address_country'),
-			'address_postal'  => $request->session()->get('address_zipcode'),
-			'company'         => $request->session()->get('company'),
-		]);
-
-		// Plan
-		$user->getCustomer()->getPlan()->update([
-			'payment_customer_token' => $request->session()->get('payment_customer_id'),
-			'payment_method'         => $method
-		]);
-
-		// Subscription or not
-		if ( $checkout->getProduct()->is_subscription == 1 )
+		if ( $checkout->getProduct()->isSubscription() )
 		{
-			// fixme userData being null/false if failed somewhere.
-			$user->getCustomer()->update([
-				'birthdate' => $userData->birthdate,
-				'gender'    => $userData->gender == 1 ? 'male' : 'female'
-			]);
-
-			$user->getCustomer()->getPlan()->update([
-				'price'                     => MoneyLibrary::toCents($checkout->getSubscriptionPrice()),
-				'price_shipping'            => 0, // todo un-hardcode
-				'subscription_started_at'   => Date::now(),
-				'subscription_rebill_at'    => Date::now()->addMonth(),
-				'subscription_cancelled_at' => null
-			]);
-
-			$user->getCustomer()->setCustomerAttributes([
-				'user_data.gender'           => $userData->gender,
-				'user_data.birthdate'        => $userData->birthdate,
-				'user_data.age'              => $userData->age, // todo update this each month
-				'user_data.skin'             => $userData->skin,
-				'user_data.outside'          => $userData->outside,
-				'user_data.pregnant'         => $userData->pregnant,
-				'user_data.diet'             => $userData->diet,
-				'user_data.sports'           => $userData->sports,
-				'user_data.lacks_energy'     => $userData->lacks_energy,
-				'user_data.smokes'           => $userData->smokes,
-				'user_data.immune_system'    => $userData->immune_system,
-				'user_data.vegetarian'       => $userData->vegetarian,
-				'user_data.joints'           => $userData->joints,
-				'user_data.stressed'         => $userData->stressed,
-				'user_data.foods.fruits'     => $userData->foods->fruits,
-				'user_data.foods.vegetables' => $userData->foods->vegetables,
-				'user_data.foods.bread'      => $userData->foods->bread,
-				'user_data.foods.wheat'      => $userData->foods->wheat,
-				'user_data.foods.dairy'      => $userData->foods->dairy,
-				'user_data.foods.meat'       => $userData->foods->meat,
-				'user_data.foods.fish'       => $userData->foods->fish,
-				'user_data.foods.butter'     => $userData->foods->butter
-			]);
-
-			// todo if session/request has 'vitamins', use them.
-			$combinations = $user->getCustomer()->calculateCombinations();
-			$vitamins     = [ ];
-
-			foreach ( $combinations as $key => $combination )
-			{
-				$pill    = PillLibrary::getPill($key, $combination);
-				$vitamin = Vitamin::select('id')->whereCode($pill)->first();
-
-				if ( $vitamin )
-				{
-					$vitamins[] = $vitamin->id;
-				}
-			}
-
-			$user->getCustomer()->getPlan()->update([
-				'vitamins' => json_encode($vitamins)
-			]);
-		}
-		else
-		{
-			$user->getCustomer()->getPlan()->update([
-				'price'                     => MoneyLibrary::toCents($checkout->getSubscriptionPrice()),
-				'price_shipping'            => 0, // todo un-hardcode
-				'subscription_cancelled_at' => date('Y-m-d H:i:s')
-			]);
-		}
-
-		if ( str_contains($checkout->getProduct()->name, 'giftcard') )
-		{
-			$giftcard = Giftcard::create([
-				'token' => strtoupper(str_random()),
-				'worth' => $checkout->getProduct()->price
-			]);
-		}
-
-		if ( $checkout->getCoupon() )
-		{
-			$checkout->getCoupon()->reduceUsagesLeft();
-		}
-
-		if ( $checkout->getGiftcard() )
-		{
-			$user->getCustomer()->setBalance($checkout->getGiftcard()->worth);
-			$checkout->getGiftcard()->markUsed();
-		}
-
-		$data = [
-			'password'      => $password,
-			'giftcard'      => $checkout->getGiftcard() ? $checkout->getGiftcard()->token : null,
-			'description'   => trans("products.{$checkout->getProduct()->name}"),
-			'priceTotal'    => MoneyLibrary::toCents($checkout->getTotal()),
-			'priceSubtotal' => MoneyLibrary::toCents($checkout->getSubTotal()),
-			'priceTaxes'    => MoneyLibrary::toCents($checkout->getTaxTotal())
-		];
-
-		$mailEmail = $user->getEmail();
-		$mailName  = $user->getName();
-
-		\Event::fire(new CustomerWasBilled($user->getCustomer(), MoneyLibrary::toCents($checkout->getTotal()), $request->session()
-		                                                                                                               ->get('charge_id'), $checkout->getProduct()->name, false, 0, $checkout->getCoupon()));
-
-		\Mail::queue('emails.order', $data, function ($message) use ($mailEmail, $mailName)
-		{
-			$message->to($mailEmail, $mailName);
-			$message->subject(trans('checkout.mail.subject'));
-		});
-
-		if ( $checkout->getProduct()->is_subscription == 1 )
-		{
-			$request->session()->flush();
-			$upsellToken = str_random();
-			\Auth::login($user, true);
-			$request->session()->put('upsell_token', $upsellToken);
-			$request->session()->put('product_name', $checkout->getProduct()->name);
-
 			return \Redirect::action('CheckoutController@getSuccess')
 			                ->with([ 'order_created' => true, 'upsell' => true ]);
 		}

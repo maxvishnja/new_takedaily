@@ -37,4 +37,9 @@ class Product extends Model
 	{
 		return round(MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), config('currency', config('app.base_currency')), $price));
 	}
+
+	public function isSubscription()
+	{
+		return $this->is_subscription == 1;
+	}
 }
