@@ -49,7 +49,9 @@ Route::group([ 'middleware' => 'web' ], function ()
 				                         ->first();
 			}
 
-			$product = \App\Product::whereName(\Session::get('product_name', 'subscription'))->first();
+			$product = \App\Product::whereName('subscription')->first();
+
+			// todo fixme giftcard is not taken into consideration
 
 			// Coupon
 			$coupon = null;
