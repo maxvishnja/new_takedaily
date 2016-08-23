@@ -32,9 +32,9 @@ Route::group([ 'middleware' => 'web' ], function ()
 			return view('pick', compact('vitamins'));
 		});
 
-		Route::post('pick-n-mix', function(\Illuminate\Http\Request $request)
+		Route::post('pick-n-mix', function (\Illuminate\Http\Request $request)
 		{
-			dd($request->get('vitamins', []));
+			dd($request->get('vitamins', [ ]));
 		});
 
 		Route::get('flow', function ()
@@ -155,7 +155,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 	/*
 	 * Checkout
 	 */
-	Route::group([ 'middleware' => [ 'secure', 'guest' ], 'prefix' => 'checkout' ], function ()
+	Route::group([ 'middleware' => [ 'secure' ], 'prefix' => 'checkout' ], function ()
 	{
 		Route::get('', 'CheckoutController@getCheckout');
 		Route::post('', 'CheckoutController@postCheckout');
@@ -180,7 +180,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		});
 	});
 
-	Route::group([ 'middleware' => [ 'auth' ], 'prefix' => 'checkout' ], function ()
+	Route::group([ 'prefix' => 'checkout' ], function ()
 	{
 		Route::get('success', 'CheckoutController@getSuccess');
 		Route::get('success-giftcard/{token}', 'CheckoutController@getSuccessNonSubscription');

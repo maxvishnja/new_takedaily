@@ -47,7 +47,7 @@ class CheckoutController extends Controller
 		}
 
 		return view('checkout.index', [
-			'user_data' => \Session::get('user_data'),
+			'user_data' => \Session::get('user_data', \Request::old('user_data', '{}')),
 			'product'   => Product::where('name', \Session::get('product_name', 'subscription'))->first(),
 			'giftcard'  => $giftcard
 		]);
@@ -158,8 +158,10 @@ class CheckoutController extends Controller
 		$checkoutCompletion = new CheckoutCompletion($checkout);
 
 		$password = str_random(8);
+		$name     = $request->session()->get('name');
+		$email    = $request->session()->get('email');
 
-		$checkoutCompletion->createUser($request->session()->get('name'), $request->session()->get('email'), $password)
+		$checkoutCompletion->createUser($name, $email, $password)
 		                   ->setCustomerAttributes([
 			                   'address_city'    => $request->session()->get('address_city'),
 			                   'address_line1'   => $request->session()->get('address_street'),
@@ -178,6 +180,7 @@ class CheckoutController extends Controller
 		                   ->flush()
 		                   ->initUpsell()
 		                   ->loginUser();
+
 		// fixme userData being null/false if failed somewhere.
 
 		if ( $checkout->getProduct()->isSubscription() )
@@ -186,7 +189,7 @@ class CheckoutController extends Controller
 			                ->with([ 'order_created' => true, 'upsell' => true ]);
 		}
 
-		return \Redirect::action('CheckoutController@getSuccessNonSubscription', [ 'token' => $checkout->getGiftcard()->token ])
+		return \Redirect::action('CheckoutController@getSuccessNonSubscription', [ 'token' => $checkoutCompletion->getGiftcard()->token ])
 		                ->with([ 'order_created' => true ]);
 	}
 
@@ -202,9 +205,9 @@ class CheckoutController extends Controller
 			return \Redirect::to('/');
 		}
 
-		$combinations = \Auth::user()->getCustomer()->calculateCombinations();
+		$vitamins = \Auth::user()->getCustomer()->getVitaminModels();
 
-		return view('checkout.success', [ 'combinations' => $combinations ]);
+		return view('checkout.success', [ 'vitamins' => $vitamins ]);
 	}
 
 	/**

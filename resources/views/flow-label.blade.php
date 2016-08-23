@@ -9,4 +9,4 @@
 		</p>
 	</div>
 @endforeach
-
+{{-- todo fix this nasty shit; getPill and stuff --}}

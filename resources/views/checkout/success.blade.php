@@ -18,18 +18,18 @@
 					{{ csrf_field() }}
 				</form>
 			</div>
+
+			<hr/>
 		@endif
 
-		<hr/>
-
-		@if( isset($combinations) )
+		@if( isset($vitamins) )
 			<div class="print_label print_label--shadow hidden-xs">
 				<div class="print_label_left">
 
-					@foreach($combinations as $combinationKey => $combinationValue)
+					@foreach($vitamins as $vitamine)
 						<div class="print_label_line">
 							<div class="print_label_line_full">
-								{{ \App\Apricot\Libraries\PillLibrary::getPillCode(\App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue)) }}
+								{{ $vitamin->name }}
 							</div>
 						</div>
 					@endforeach
@@ -47,8 +47,8 @@
 
 
 					<div class="m-t-50">
-						@foreach($combinations as $combinationKey => $combinationValue)
-							<div style="display: inline-block;" class="m-t-15 icon pill-{{ \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) }}"></div>
+						@foreach($vitamins as $vitamin)
+							<div style="display: inline-block;" class="m-t-15 icon pill-{{ $vitamine->code }}"></div>
 						@endforeach
 					</div>
 				</div>

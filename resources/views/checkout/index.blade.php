@@ -139,7 +139,7 @@
 					<div class="hidden">
 						<input type="hidden" name="product_name" value="{{ Request::old('product_name', Request::get('product_name', session('product_name', 'subscription'))) }}" autocomplete="off"/>
 						<input type="hidden" name="coupon" v-bind:value="discount.code" value="{{ Request::old('coupon') }}" autocomplete="off"/>
-						<textarea name="user_data">{{ json_encode(Session::get('user_data', Request::old('user_data', []))) }}</textarea>
+						<textarea name="user_data">{{ $user_data }}</textarea>
 					</div>
 				</form>
 			</div><!-- /Form-->
