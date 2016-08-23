@@ -2,18 +2,12 @@
 
 use App\Apricot\Checkout\Checkout;
 use App\Apricot\Checkout\CheckoutCompletion;
-use App\Apricot\Libraries\MoneyLibrary;
-use App\Apricot\Libraries\PillLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
-use App\Events\CustomerWasBilled;
 use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
 use App\Product;
-use App\User;
-use App\Vitamin;
 use Illuminate\Http\Request;
-use Jenssegers\Date\Date;
 
 class CheckoutController extends Controller
 {
@@ -47,7 +41,7 @@ class CheckoutController extends Controller
 		}
 
 		return view('checkout.index', [
-			'user_data' => \Session::get('user_data', \Request::old('user_data', '{}')),
+			'user_data' => json_encode(\Session::get('user_data', \Request::old('user_data', json_decode('{}')))),
 			'product'   => Product::where('name', \Session::get('product_name', 'subscription'))->first(),
 			'giftcard'  => $giftcard
 		]);
@@ -235,7 +229,7 @@ class CheckoutController extends Controller
 	 * @return \Illuminate\Http\JsonResponse
 	 */
 	function applyCoupon(CouponRepository $couponRepository, Request $request)
-	{
+	{ // todo use a checkout model
 		if ( is_null($request->get('coupon')) || $request->get('coupon') == '' )
 		{
 			return \Response::json([ 'message' => trans('checkout.messages.coupon-missing') ], 400);
@@ -244,6 +238,14 @@ class CheckoutController extends Controller
 		$coupon = $couponRepository->findByCoupon($request->get('coupon'));
 
 		if ( !$coupon )
+		{
+			return \Response::json([ 'message' => trans('checkout.messages.no-such-coupon') ], 400);
+		}
+
+		/** @var Product $product */
+		$product = Product::where('name', \Session::get('product_name', 'subscription'))->first();
+
+		if( !$product || $product->isGiftcard())
 		{
 			return \Response::json([ 'message' => trans('checkout.messages.no-such-coupon') ], 400);
 		}

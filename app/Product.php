@@ -42,4 +42,9 @@ class Product extends Model
 	{
 		return $this->is_subscription == 1;
 	}
+
+	public function isGiftcard()
+	{ // eww fixme
+		return strpos($this->name, 'giftcard') !== false;
+	}
 }

@@ -1,4 +1,4 @@
-<?php
+<?php // todo make more flexible and useable for the entire CheckoutController
 
 namespace App\Apricot\Checkout;
 
@@ -32,7 +32,7 @@ class Checkout
 		$couponRepository = new CouponRepository();
 		$coupon           = $couponRepository->findByCoupon($couponCode);
 
-		if ( $coupon )
+		if ( $coupon && ! $this->getProduct()->isGiftcard() )
 		{
 			$this->coupon = $coupon;
 
@@ -157,7 +157,7 @@ class Checkout
 	{
 		$giftcard = null;
 
-		if ( $this->getProduct()->name == 'subscription' )
+		if ( !$this->getProduct()->isGiftcard() )
 		{
 			$giftcard = Giftcard::where('id', $id)
 			                    ->where('token', $token)
