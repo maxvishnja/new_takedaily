@@ -350,8 +350,26 @@
 			header_bg_slider.css("transform", "-webkit-translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
 		});
 
-		setTimeout( function() {
-			$(".header_slide_nav_item[data-slide='2']").click();
-		}, 3000);
+		if( $(window).width() > 991)
+		{
+			setTimeout( function() {
+				$(".header_slide_nav_item[data-slide='2']").click();
+			}, 3000);
+		}
+
+		var hasSlidedToFirst = false;
+
+		$(window).on('resize load', function()
+		{
+			if( $(window).width() <= 991 && !hasSlidedToFirst)
+			{
+				$(".header_slide_nav_item[data-slide='1']").click();
+				hasSlidedToFirst = true;
+			}
+			else if( $(window).width() > 991 && hasSlidedToFirst )
+			{
+				hasSlidedToFirst = false;
+			}
+		});
 	</script>
 @endsection
