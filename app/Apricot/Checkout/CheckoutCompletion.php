@@ -27,19 +27,27 @@ class CheckoutCompletion
 	/**
 	 * @param $name
 	 * @param $email
-	 *
+	 * @param $password
+	 * 
 	 * @return $this
 	 */
 	public function createUser($name, $email, $password)
 	{
-		$user = User::create([
-			'name'     => ucwords($name),
-			'email'    => $email,
-			'password' => bcrypt($password),
-			'type'     => 'user'
-		]);
+		if( \Auth::check() )
+		{
+			$this->user = \Auth::user();
+		}
+		else
+		{
+			$user = User::create([
+				'name'     => ucwords($name),
+				'email'    => $email,
+				'password' => bcrypt($password),
+				'type'     => 'user'
+			]);
 
-		$this->user = $user;
+			$this->user = $user;
+		}
 
 		return $this;
 	}

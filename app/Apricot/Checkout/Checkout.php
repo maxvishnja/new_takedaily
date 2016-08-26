@@ -32,7 +32,7 @@ class Checkout
 		$couponRepository = new CouponRepository();
 		$coupon           = $couponRepository->findByCoupon($couponCode);
 
-		if ( $coupon && ! $this->getProduct()->isGiftcard() )
+		if ( $coupon && !$this->getProduct()->isGiftcard() )
 		{
 			$this->coupon = $coupon;
 
@@ -69,7 +69,14 @@ class Checkout
 
 	public function createCustomer($name, $email)
 	{
-		$this->paymentCustomer = $this->getPaymentHandler()->createCustomer($name, $email);
+		if ( \Auth::check() && $customer = \Auth::user()->getCustomer() )
+		{
+			$this->paymentCustomer = $customer->getPlan()->getPaymentCustomer();
+		}
+		else
+		{
+			$this->paymentCustomer = $this->getPaymentHandler()->createCustomer($name, $email);
+		}
 
 		return $this;
 	}
