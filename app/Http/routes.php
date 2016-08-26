@@ -22,7 +22,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		return view('home');
 	});
 
-	Route::group([ 'middleware' => [ 'nonAdmin', 'guest' ] ], function ()
+	Route::group([ 'middleware' => [ 'nonAdmin' ] ], function ()
 	{
 
 		Route::get('pick-n-mix', function ()
