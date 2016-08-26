@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 {{-- todo translate --}}
+{{-- todo have it select current vitamins if logged in --}}
+{{-- todo - and if logged in, do not have form action be checkout, but an account route to update vitamins --}}
+{{-- todo - fix so that vitamins are not updated when user info is saved (maybe add a button to generate recommendations in account view) --}}
 
 @section('pageClass', 'page-pick')
 
