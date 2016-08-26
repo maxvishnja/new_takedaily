@@ -49,6 +49,11 @@ Route::group([ 'middleware' => 'web' ], function ()
 				                         ->first();
 			}
 
+			if( Auth::user() && Auth::user()->getCustomer() )
+			{
+				return redirect('/pick-n-mix')->withErrors('Du har allerede en konto, du kan ændre dine vitaminer eller logge ud og oprette en ny konto.'); // todo translate
+			}
+
 			$product = \App\Product::whereName('subscription')->first();
 
 			// todo fixme giftcard is not taken into consideration
