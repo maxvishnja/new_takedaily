@@ -66,7 +66,11 @@
 						<form action="" method="post">
 							<button type="submit" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
-								Gå til bestilling
+								@if( !$isCustomer )
+									Gå til bestilling
+								@else
+									Gem ændringer
+								@endif
 							</button>
 
 							<input type="hidden" value="@{{ vitamin.id }}" name="vitamins[]" v-for="vitamin in selectedVitamins" />
@@ -100,7 +104,7 @@
 						code: "{!! $vitamin->code !!}",
 						id: "{{ $vitamin->id }}",
 						description: "{!! $vitamin->description !!}",
-						isSelected: false
+						isSelected: @if( in_array($vitamin->id, $selectedVitamins) ) true @else false @endif
 					},
 					@endforeach
 				]

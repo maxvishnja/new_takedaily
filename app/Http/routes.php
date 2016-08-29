@@ -24,18 +24,8 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 	Route::group([ 'middleware' => [ 'nonAdmin' ] ], function ()
 	{
-
-		Route::get('pick-n-mix', function ()
-		{
-			$vitamins = \App\Vitamin::all();
-
-			return view('pick', compact('vitamins'));
-		});
-
-		Route::post('pick-n-mix', function (\Illuminate\Http\Request $request)
-		{
-			dd($request->get('vitamins', [ ]));
-		});
+		Route::get('pick-n-mix', 'PickMixController@get');
+		Route::post('pick-n-mix', 'PickMixController@post');
 
 		Route::get('flow', function ()
 		{
@@ -49,12 +39,15 @@ Route::group([ 'middleware' => 'web' ], function ()
 				                         ->first();
 			}
 
-			if( Auth::user() && Auth::user()->getCustomer() )
+			if ( Auth::user() && Auth::user()
+			                         ->getCustomer()
+			)
 			{
 				return redirect('/pick-n-mix')->withErrors('Du har allerede en konto, du kan ændre dine vitaminer eller logge ud og oprette en ny konto.'); // todo translate
 			}
 
-			$product = \App\Product::whereName('subscription')->first();
+			$product = \App\Product::whereName('subscription')
+			                       ->first();
 
 			// todo fixme giftcard is not taken into consideration
 
@@ -119,7 +112,8 @@ Route::group([ 'middleware' => 'web' ], function ()
 			'discount_type' => 'percentage',
 			'uses_left'     => 1,
 			'valid_from'    => \Jenssegers\Date\Date::now(),
-			'valid_to'      => \Jenssegers\Date\Date::now()->addDay()
+			'valid_to'      => \Jenssegers\Date\Date::now()
+			                                        ->addDay()
 		]);
 
 		Session::put('applied_coupon', $coupon->code);
@@ -137,17 +131,22 @@ Route::group([ 'middleware' => 'web' ], function ()
 	 */
 	Route::get('gc/{token}', function ($token, \Illuminate\Http\Request $request)
 	{
-		$giftcard = \App\Giftcard::where('token', $token)->where('is_used', 0)->first();
+		$giftcard = \App\Giftcard::where('token', $token)
+		                         ->where('is_used', 0)
+		                         ->first();
 
 		if ( !$giftcard )
 		{
 			abort(404);
 		}
 
-		$request->session()->put('giftcard_id', $giftcard->id);
-		$request->session()->put('giftcard_token', $giftcard->token);
+		$request->session()
+		        ->put('giftcard_id', $giftcard->id);
+		$request->session()
+		        ->put('giftcard_token', $giftcard->token);
 
-		return Redirect::to('flow')->with('success', trans('message.success.giftcard-applied'));
+		return Redirect::to('flow')
+		               ->with('success', trans('message.success.giftcard-applied'));
 	});
 
 	Route::get('locale/{locale}', function ($locale)
@@ -177,7 +176,9 @@ Route::group([ 'middleware' => 'web' ], function ()
 		{
 			try
 			{
-				$payment = Mollie::api()->payments()->get($paymentId);
+				$payment = Mollie::api()
+				                 ->payments()
+				                 ->get($paymentId);
 				Log::info($payment); // todo make this work......
 			} catch ( Mollie_API_Exception $ex )
 			{
@@ -233,10 +234,12 @@ Route::group([ 'middleware' => 'web' ], function ()
 		view()->composer('admin.sidebar', function ($view)
 		{
 			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
-			$view->with('sidebar_numOrders', $orderRepo->getNotShipped()->count());
+			$view->with('sidebar_numOrders', $orderRepo->getNotShipped()
+			                                           ->count());
 
 			$callRepo = new \App\Apricot\Repositories\CallRepository();
-			$view->with('sidebar_numCalls', $callRepo->getRequests()->count());
+			$view->with('sidebar_numCalls', $callRepo->getRequests()
+			                                         ->count());
 		});
 
 		Route::get('login', 'Auth\DashboardAuthController@showLoginForm');
@@ -251,9 +254,13 @@ Route::group([ 'middleware' => 'web' ], function ()
 			$customersYear = $customerRepo->getMonthlyNew();
 
 			return view('admin.home', [
-				'orders_today'    => $orderRepo->getToday()->count(),
-				'customers_today' => $customerRepo->getToday()->count(),
-				'money_today'     => $orderRepo->getToday()->whereNotIn('state', [ 'new', 'cancelled' ])->sum('total'),
+				'orders_today'    => $orderRepo->getToday()
+				                               ->count(),
+				'customers_today' => $customerRepo->getToday()
+				                                  ->count(),
+				'money_today'     => $orderRepo->getToday()
+				                               ->whereNotIn('state', [ 'new', 'cancelled' ])
+				                               ->sum('total'),
 				'sales_year'      => $salesYear,
 				'customers_year'  => $customersYear
 			]);
@@ -345,14 +352,17 @@ Route::group([ 'middleware' => 'web' ], function ()
 	Route::get('{identifier}', function ($identifier)
 	{
 		$repo = new \App\Apricot\Repositories\PageRepository();
-		$page = $repo->findByIdentifier($identifier)->first();
+		$page = $repo->findByIdentifier($identifier)
+		             ->first();
 
 		if ( !$page )
 		{
 			abort(404);
 		}
 
-		$translation = $page->translations()->whereLocale(App::getLocale())->first();
+		$translation = $page->translations()
+		                    ->whereLocale(App::getLocale())
+		                    ->first();
 
 		if ( $translation )
 		{
