@@ -16,16 +16,11 @@ class CheckoutController extends Controller
 	{
 	}
 
-	/**
-	 * @param \Illuminate\Http\Request $request
-	 *
-	 * @return $this|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
-	 */
 	function getCheckout(Request $request)
 	{
 		\Session::set('product_name', $request->get('product_name', \Session::get('product_name', 'subscription')));
 
-		if ( \Session::get('product_name') == 'subscription' && !\Session::has('user_data') )
+		if ( \Session::get('product_name') == 'subscription' && (!\Session::has('user_data') && !\Session::has('vitamins') ) )
 		{
 			return \Redirect::to('/flow')->withErrors([ trans('checkout.messages.vitamins-not-selected') ]);
 		}
