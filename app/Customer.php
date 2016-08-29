@@ -460,6 +460,11 @@ class Customer extends Model
 		return $this->getPlan()->vitamins;
 	}
 
+	public function setVitamins(array $vitamins)
+	{
+		return $this->getPlan()->vitamins = json_encode($vitamins);
+	}
+
 	public function getVitaminModels()
 	{
 		$vitamins = json_decode($this->getVitamins());
