@@ -43,7 +43,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 			                         ->getCustomer()
 			)
 			{
-				return redirect('/pick-n-mix')->withErrors('Du har allerede en konto, du kan ændre dine vitaminer eller logge ud og oprette en ny konto.'); // todo translate
+				return redirect('/pick-n-mix')->with('warning', 'Du har allerede en konto, du kan ændre dine vitaminer eller logge ud og oprette en ny konto.'); // todo translate
 			}
 
 			$product = \App\Product::whereName('subscription')

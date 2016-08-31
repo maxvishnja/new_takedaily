@@ -87,7 +87,7 @@
 				allowOutsideClick: true,
 				confirmButtonText: "{{ trans('popup.button-close') }}",
 				confirmButtonColor: "#17AA66",
-				timer: 4500
+				timer: 6000
 			});
 		</script>
 	@endif
@@ -103,7 +103,22 @@
 			allowOutsideClick: true,
 			confirmButtonText: "{{ trans('popup.button-close') }}",
 			confirmButtonColor: "#17AA66",
-			timer: 4500
+			timer: 6000
+		});
+	</script>
+@endif
+
+@if(session('warning'))
+	<script>
+		swal({
+			title: "{{ trans('message.warning-title') }}",
+			text: "{{ session('warning') }}",
+			type: "warning",
+			html: true,
+			allowOutsideClick: true,
+			confirmButtonText: "{{ trans('popup.button-close') }}",
+			confirmButtonColor: "#17AA66",
+			timer: 6000
 		});
 	</script>
 @endif

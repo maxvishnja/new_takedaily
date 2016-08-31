@@ -2,6 +2,7 @@
 return [
 	'error-title' => 'Der skete en fejl!',
 	'success-title' => 'Handlingen lykkedes!',
+	'warning-title' => 'Vigtigt!',
 
 	'errors'  => [
 
