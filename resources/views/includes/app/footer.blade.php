@@ -86,7 +86,7 @@
 				html: true,
 				allowOutsideClick: true,
 				confirmButtonText: "{{ trans('popup.button-close') }}",
-				confirmButtonColor: "#17AA66",
+				confirmButtonColor: "#3AAC87",
 				timer: 6000
 			});
 		</script>
@@ -102,7 +102,7 @@
 			html: true,
 			allowOutsideClick: true,
 			confirmButtonText: "{{ trans('popup.button-close') }}",
-			confirmButtonColor: "#17AA66",
+			confirmButtonColor: "#3AAC87",
 			timer: 6000
 		});
 	</script>
@@ -117,7 +117,7 @@
 			html: true,
 			allowOutsideClick: true,
 			confirmButtonText: "{{ trans('popup.button-close') }}",
-			confirmButtonColor: "#17AA66",
+			confirmButtonColor: "#3AAC87",
 			timer: 6000
 		});
 	</script>

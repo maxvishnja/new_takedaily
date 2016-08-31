@@ -18,7 +18,6 @@ body.stop-scrolling
 
 .sweet-alert
 	background-color: white
-	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
 	width: 478px
 	padding: 17px
 	border-radius: 5px
@@ -58,6 +57,7 @@ body.stop-scrolling
 		position: relative
 	.sa-error-container
 		background-color: #f1f1f1
+		max-width: none
 		margin-left: -17px
 		margin-right: -17px
 		overflow: hidden
@@ -84,8 +84,8 @@ body.stop-scrolling
 			display: inline-block
 	.sa-input-error
 		position: absolute
-		top: 29px
-		right: 26px
+		top: 24px
+		right: 14px
 		width: 20px
 		height: 20px
 		opacity: 0
@@ -375,7 +375,6 @@ body.stop-scrolling
 		transform: scale(1)
 		-webkit-transform: scale(1)
 
-
 @keyframes showSweetAlert
 	0%
 		transform: scale(0.7)
@@ -393,7 +392,6 @@ body.stop-scrolling
 		transform: scale(1)
 		-webkit-transform: scale(1)
 
-
 @-webkit-keyframes hideSweetAlert
 	0%
 		transform: scale(1)
@@ -402,7 +400,6 @@ body.stop-scrolling
 	100%
 		transform: scale(0.5)
 		-webkit-transform: scale(0.5)
-
 
 @keyframes hideSweetAlert
 	0%
@@ -413,14 +410,12 @@ body.stop-scrolling
 		transform: scale(0.5)
 		-webkit-transform: scale(0.5)
 
-
 @-webkit-keyframes slideFromTop
 	0%
 		top: 0%
 
 	100%
 		top: 50%
-
 
 @keyframes slideFromTop
 	0%
@@ -429,14 +424,12 @@ body.stop-scrolling
 	100%
 		top: 50%
 
-
 @-webkit-keyframes slideToTop
 	0%
 		top: 50%
 
 	100%
 		top: 0%
-
 
 @keyframes slideToTop
 	0%
@@ -445,14 +438,12 @@ body.stop-scrolling
 	100%
 		top: 0%
 
-
 @-webkit-keyframes slideFromBottom
 	0%
 		top: 70%
 
 	100%
 		top: 50%
-
 
 @keyframes slideFromBottom
 	0%
@@ -461,7 +452,6 @@ body.stop-scrolling
 	100%
 		top: 50%
 
-
 @-webkit-keyframes slideToBottom
 	0%
 		top: 50%
@@ -469,14 +459,12 @@ body.stop-scrolling
 	100%
 		top: 70%
 
-
 @keyframes slideToBottom
 	0%
 		top: 50%
 
 	100%
 		top: 70%
-
 
 .showSweetAlert
 	&[data-animation=pop]
@@ -532,7 +520,6 @@ body.stop-scrolling
 		left: 14px
 		top: 45px
 
-
 @keyframes animateSuccessTip
 	0%
 		width: 0
@@ -559,7 +546,6 @@ body.stop-scrolling
 		left: 14px
 		top: 45px
 
-
 @-webkit-keyframes animateSuccessLong
 	0%
 		width: 0
@@ -580,7 +566,6 @@ body.stop-scrolling
 		width: 47px
 		right: 8px
 		top: 38px
-
 
 @keyframes animateSuccessLong
 	0%
@@ -603,7 +588,6 @@ body.stop-scrolling
 		right: 8px
 		top: 38px
 
-
 @-webkit-keyframes rotatePlaceholder
 	0%
 		transform: rotate(-45deg)
@@ -621,7 +605,6 @@ body.stop-scrolling
 		transform: rotate(-405deg)
 		-webkit-transform: rotate(-405deg)
 
-
 @keyframes rotatePlaceholder
 	0%
 		transform: rotate(-45deg)
@@ -638,7 +621,6 @@ body.stop-scrolling
 	100%
 		transform: rotate(-405deg)
 		-webkit-transform: rotate(-405deg)
-
 
 .animateSuccessTip
 	-webkit-animation: animateSuccessTip 0.75s
@@ -663,7 +645,6 @@ body.stop-scrolling
 		-webkit-transform: rotateX(0deg)
 		opacity: 1
 
-
 @keyframes animateErrorIcon
 	0%
 		transform: rotateX(100deg)
@@ -674,7 +655,6 @@ body.stop-scrolling
 		transform: rotateX(0deg)
 		-webkit-transform: rotateX(0deg)
 		opacity: 1
-
 
 .animateErrorIcon
 	-webkit-animation: animateErrorIcon 0.5s
@@ -704,7 +684,6 @@ body.stop-scrolling
 		margin-top: 0
 		opacity: 1
 
-
 @keyframes animateXMark
 	0%
 		transform: scale(0.4)
@@ -729,7 +708,6 @@ body.stop-scrolling
 		margin-top: 0
 		opacity: 1
 
-
 .animateXMark
 	-webkit-animation: animateXMark 0.5s
 	animation: animateXMark 0.5s
@@ -741,14 +719,12 @@ body.stop-scrolling
 	100%
 		border-color: #F8BB86
 
-
 @keyframes pulseWarning
 	0%
 		border-color: #F8D486
 
 	100%
 		border-color: #F8BB86
-
 
 .pulseWarning
 	-webkit-animation: pulseWarning 0.75s infinite alternate
@@ -761,14 +737,12 @@ body.stop-scrolling
 	100%
 		background-color: #F8BB86
 
-
 @keyframes pulseWarningIns
 	0%
 		background-color: #F8D486
 
 	100%
 		background-color: #F8BB86
-
 
 .pulseWarningIns
 	-webkit-animation: pulseWarningIns 0.75s infinite alternate
@@ -781,14 +755,12 @@ body.stop-scrolling
 	100%
 		transform: rotate(360deg)
 
-
 @keyframes rotate-loading
 	0%
 		transform: rotate(0deg)
 
 	100%
 		transform: rotate(360deg)
-
 
 /* Internet Explorer 9 has some special quirks that are fixed here
 /* The icons are not animated.
@@ -798,14 +770,18 @@ body.stop-scrolling
 .sweet-alert .sa-icon
 	&.sa-error .sa-line
 		&.sa-left
-			-ms-transform: rotate(45deg) \9
+			-ms-transform: rotate(45deg)
+		\9
 		&.sa-right
-			-ms-transform: rotate(-45deg) \9
+			-ms-transform: rotate(-45deg)
+	\9
 	&.sa-success
-		border-color: transparent\9
+		border-color: transparent
+		\9
 		.sa-line
 			&.sa-tip
-				-ms-transform: rotate(45deg) \9
+				-ms-transform: rotate(45deg)
+			\9
 			&.sa-long
 				-ms-transform: rotate(-45deg) \9
 
@@ -913,7 +889,6 @@ body.stop-scrolling
 		-webkit-transform: translateY(145%)
 		transform: translateY(145%)
 
-
 @-moz-keyframes ball-fall
 	0%
 		opacity: 0
@@ -941,7 +916,6 @@ body.stop-scrolling
 		-moz-transform: translateY(145%)
 		transform: translateY(145%)
 
-
 @-o-keyframes ball-fall
 	0%
 		opacity: 0
@@ -968,7 +942,6 @@ body.stop-scrolling
 		opacity: 0
 		-o-transform: translateY(145%)
 		transform: translateY(145%)
-
 
 @keyframes ball-fall
 	0%
