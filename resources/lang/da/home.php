@@ -9,7 +9,7 @@ return [
 		'splash'            => [
 			'text'  => '4 ugers forbrug af<br/>vitaminer, mineraler og omega.',
 			'price' => '149<small> kr.</small>',
-			'info'  => 'Pr./mdr-<br/>Ingen bindingsperiode'
+			'info'  => 'Ingen bindingsperiode'
 		],
 		'cta'               => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>'
 	],
