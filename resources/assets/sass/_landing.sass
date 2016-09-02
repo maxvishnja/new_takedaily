@@ -7,12 +7,13 @@ html.no-flexbox
 body.index
 	.button--landing
 		line-height: 1
-		font-size: 28px
+		font-size: 28px !important
 
 		small.button-line2
 			display: block
-			font-size: 12px
+			font-size: 12px !important
 			line-height: 1.6
+			font-weight: normal
 
 	.splash_circle
 		background: #fff
@@ -361,8 +362,12 @@ body.index
 				font-size: 15px
 				margin: 0 0 50px
 
-			a.button
-				color: $main-green-dark
+			a
+				color: $white
+				text-decoration: underline
+
+				&.button
+					color: $main-green-dark
 
 	.slider_container
 		overflow: hidden
@@ -461,6 +466,13 @@ body.index
 					.arrow
 						left: 55%
 
+				a
+					color: $main-green-dark
+					text-decoration: underline
+
+					&.button
+						color: #fff
+
 			&.block--five
 				.block_content
 					padding: 1vw
@@ -475,6 +487,7 @@ body.index
 				.header_bg_slides
 					.header_bg_item
 						&.header_bg_item--1
+							position: relative
 							&:before
 								content: ""
 								display: block
