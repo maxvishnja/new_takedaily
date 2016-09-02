@@ -79,7 +79,7 @@
 						</form>
 
 
-						<div v-show="!hasSelectedEnoughVitamins" class="m-t-10 text-center">
+						<div v-show="!hasSelectedEnoughVitamins" class="m-t-10 text-center notice">
 							Du mangler at vælge mindst @{{ minVitamins - numSelectedVitamins }} vitamin<span
 								v-show="(minVitamins - numSelectedVitamins) > 1">er</span>.
 						</div>
