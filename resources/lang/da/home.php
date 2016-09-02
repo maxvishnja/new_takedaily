@@ -3,13 +3,13 @@ return [
 	'header' => [
 		'title-1'           => 'Håndplukkede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
 		'title-2'           => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
-		'button-click-here' => 'TAG TESTEN NU <small><div class="visible-xs"> </div>(tager 2 min)</small>',
+		'button-click-here' => 'Tag vores test <small class="button-line2">Det tager under 2 minutter</small>',
 		'button-gift-text'  => 'Giv TakeDaily i gave',
 		//		'button-click-here' => 'HÅNDPLUK DINE VITAMINER NU',
 		'splash'            => [
 			'text'  => '4 ugers forbrug af<br/>vitaminer, mineraler og omega.',
 			'price' => '149<small> kr.</small>',
-			'info'  => 'Ingen bindingsperiode'
+			'info'  => 'Ingen binding'
 		],
 		'cta'               => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>'
 	],
@@ -17,7 +17,10 @@ return [
 		'one'   => [
 			'title'       => 'Sådan virker det',
 			'description' => '',
-			'button'      => '<a href="/sadan-virker-det" class="button button--green button--circular button--huge">Læs mere</a>',
+			'button'      => '<a href="/flow"
+							   class="button button--rounded button--landing button--huge button--green m-t-30">
+								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+							</a>',
 			'steps'       => [
 				'one'   => [
 					'title' => 'Tag sundhedstesten',

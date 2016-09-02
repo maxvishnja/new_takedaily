@@ -27,7 +27,7 @@
 						<div class="container">
 							<h1>{!! trans('home.header.title-1') !!}</h1>
 							<a href="/flow"
-							   class="button button--rounded button--huge button--white button--circular m-t-30">
+							   class="button button--rounded button--huge button--landing button--white m-t-30">
 								<strong>{!! trans('home.header.button-click-here') !!}</strong>
 							</a>
 							<a href="/gifting"
@@ -49,7 +49,7 @@
 								<div class="col-md-8">
 									<h1>{!! trans('home.header.title-1') !!}</h1>
 									<a href="/flow"
-									   class="button button--rounded button--huge button--green button--circular m-t-30">
+									   class="button button--rounded button--huge button--landing button--green m-t-30">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
 									<a href="/gifting"
