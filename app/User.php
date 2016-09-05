@@ -40,6 +40,11 @@ class User extends Authenticatable
 		return $this->type == 'admin';
 	}
 
+	public function isPacker()
+	{
+		return $this->type == 'packer';
+	}
+
 	public function isUser()
 	{
 		return $this->type == 'user';
