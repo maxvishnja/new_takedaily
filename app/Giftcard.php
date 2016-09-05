@@ -4,6 +4,23 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Giftcard
+ *
+ * @property integer $id
+ * @property string $token
+ * @property integer $worth
+ * @property boolean $is_used
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereWorth($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereIsUsed($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Giftcard extends Model
 {
 

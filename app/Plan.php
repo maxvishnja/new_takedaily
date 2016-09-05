@@ -4,24 +4,43 @@ use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Mail\Message;
 use Jenssegers\Date\Date;
 
 /**
  * Class Plan
- * @package App
  *
- * @property integer id
- * @property string  payment_customer_token
- * @property string  payment_method
- * @property integer price
- * @property integer price_shipping
- * @property mixed   subscription_started_at
- * @property mixed   subscription_cancelled_at
- * @property mixed   subscription_snoozed_until
- * @property mixed   subscription_rebill_at
- * @property mixed   created_at
- * @property mixed   updated_at
- * @property mixed   deleted_at
+ * @package App
+ * @property integer            $id
+ * @property string             $payment_customer_token
+ * @property string             $payment_method
+ * @property integer            $price
+ * @property integer            $price_shipping
+ * @property mixed              $vitamins
+ * @property string             $subscription_started_at
+ * @property string             $subscription_cancelled_at
+ * @property string             $subscription_snoozed_until
+ * @property string             $subscription_rebill_at
+ * @property \Carbon\Carbon     $created_at
+ * @property \Carbon\Carbon     $updated_at
+ * @property string             $deleted_at
+ * @property-read \App\Customer $customer
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePaymentCustomerToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePaymentMethod($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePrice($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePriceShipping($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereVitamins($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionStartedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionCancelledAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionSnoozedUntil($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionRebillAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan rebillPending()
+ * @mixin \Eloquent
  */
 class Plan extends Model
 {
@@ -58,6 +77,14 @@ class Plan extends Model
 	 * @var array
 	 */
 	protected $hidden = [];
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
+	 */
+	public function customer()
+	{
+		return $this->belongsTo('App\Customer', 'id', 'plan_id');
+	}
 
 	public function isActive()
 	{
@@ -218,6 +245,40 @@ class Plan extends Model
 		$paymentMethod = new PaymentHandler(PaymentDelegator::getMethod($this->getPaymentMethod()));
 
 		return $paymentMethod->getCustomer($customerToken);
+	}
+
+	/**
+	 * @param Builder $query
+	 *
+	 * @return mixed
+	 */
+	public function scopeRebillPending($query)
+	{
+		return $query->where('subscription_rebill_at', '<=', Date::now()->addDays(2))
+		             ->where(function (Builder $where)
+		             {
+			             $where->whereNull('subscription_snoozed_until')
+			                   ->orWhere('subscription_snoozed_until', '<=', Date::now());
+		             })
+		             ->whereNull('subscription_cancelled_at');
+	}
+
+
+	/**
+	 * @return bool
+	 */
+	public function notifyUserPendingRebill()
+	{
+		$customer = $this->customer;
+
+		\Mail::send('', [], function (Message $message) use ($customer)
+		{
+			$message->to($customer->getEmail(), $customer->getName())
+			        ->from('', '')
+			        ->subject('Lel, ny pakke på vej!');
+		});
+
+		return true;
 	}
 
 }

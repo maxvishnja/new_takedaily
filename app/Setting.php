@@ -2,6 +2,21 @@
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Setting
+ *
+ * @property integer $id
+ * @property string $identifier
+ * @property string $value
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @method static \Illuminate\Database\Query\Builder|\App\Setting whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Setting whereIdentifier($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Setting whereValue($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Setting whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Setting whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Setting extends Model
 {
 

@@ -7,6 +7,52 @@ use Jenssegers\Date\Date;
 use Stripe\Refund;
 use Stripe\Stripe;
 
+/**
+ * App\Order
+ *
+ * @property integer $id
+ * @property integer $customer_id
+ * @property string $reference
+ * @property string $payment_token
+ * @property string $payment_method
+ * @property string $state
+ * @property string $shipping_zipcode
+ * @property string $shipping_company
+ * @property string $shipping_country
+ * @property string $shipping_city
+ * @property string $shipping_street
+ * @property string $shipping_name
+ * @property integer $total
+ * @property integer $sub_total
+ * @property integer $total_shipping
+ * @property integer $total_taxes
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property string $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\OrderLine[] $lines
+ * @property-read \App\Customer $customer
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereCustomerId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereReference($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order wherePaymentToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order wherePaymentMethod($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereState($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereShippingZipcode($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereShippingCompany($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereShippingCountry($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereShippingCity($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereShippingStreet($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereShippingName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereTotal($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereSubTotal($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereTotalShipping($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereTotalTaxes($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Order today()
+ * @mixin \Eloquent
+ */
 class Order extends Model
 {
 

@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\GenerateSitemapCommand;
+use App\Console\Commands\NotifyPendingRebills;
 use App\Console\Commands\SubscriptionRebillCommand;
 use App\Console\Commands\UpdateCurrencies;
 use Illuminate\Console\Scheduling\Schedule;
@@ -17,7 +18,8 @@ class Kernel extends ConsoleKernel
 	 */
 	protected $commands = [
 		SubscriptionRebillCommand::class,
-		UpdateCurrencies::class
+		UpdateCurrencies::class,
+		NotifyPendingRebills::class
 	];
 
 	/**
@@ -30,11 +32,16 @@ class Kernel extends ConsoleKernel
 	protected function schedule(Schedule $schedule)
 	{
 		$schedule->call('subscriptions:rebill')
-			->name('rebill-subscribed-users')
-			->everyThirtyMinutes()
-			->withoutOverlapping();
+		         ->name('rebill-subscribed-users')
+		         ->everyThirtyMinutes()
+		         ->withoutOverlapping();
 
 		$schedule->call('currencies:update')
-			->hourly();
+		         ->hourly();
+
+		$schedule->call('subscriptions:pending')
+		         ->name('notify-user-of-incoming-rebill')
+		         ->hourly()
+		         ->withoutOverlapping();
 	}
 }

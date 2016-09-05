@@ -13,8 +13,8 @@ use Jenssegers\Date\Date;
 
 /**
  * Class Customer
- * @package App
  *
+ * @package App
  * @property integer id
  * @property integer user_id
  * @property integer plan_id
@@ -24,6 +24,36 @@ use Jenssegers\Date\Date;
  * @property mixed   created_at
  * @property mixed   updated_at
  * @property mixed   deleted_at
+ * @property integer $id
+ * @property integer $user_id
+ * @property integer $plan_id
+ * @property string $birthday
+ * @property string $gender
+ * @property boolean $accept_newletters
+ * @property integer $order_count
+ * @property integer $balance
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property string $deleted_at
+ * @property-read \App\Plan $plan
+ * @property-read \App\User $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Order[] $orders
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\CustomerAttribute[] $customerAttributes
+ * @property mixed $customer
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer wherePlanId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereBirthday($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereGender($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereAcceptNewletters($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereOrderCount($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereBalance($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer today()
+ * @method static \Illuminate\Database\Query\Builder|\App\Customer rebillable()
+ * @mixin \Eloquent
  */
 class Customer extends Model
 {
