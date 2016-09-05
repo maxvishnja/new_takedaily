@@ -35,12 +35,14 @@ body.page-flow
 				left: 10%
 				transform: translateX(100%)
 				opacity: 0
+				visibility: hidden
 				animation-fill-mode: both
 				animation-duration: 200ms
 
 				&.sub_step--active
 					transform: translateX(0) scale(1)
 					opacity: 1
+					visibility: visible
 
 				&.sub_step--active-animated
 					animation-name: step_slideIn
