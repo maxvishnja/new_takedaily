@@ -34,7 +34,7 @@ class Plan extends Model
 	 * @var string
 	 */
 	protected $table = 'plans';
-	
+
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -49,15 +49,15 @@ class Plan extends Model
 		'subscription_cancelled_at',
 		'subscription_snoozed_until',
 		'subscription_rebill_at',
-	    'vitamins'
+		'vitamins'
 	];
-	
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = [ ];
+	protected $hidden = [];
 
 	public function isActive()
 	{
@@ -71,7 +71,9 @@ class Plan extends Model
 
 	public function isSnoozed()
 	{
-		if ( !is_null($this->getSubscriptionSnoozedUntil()) && Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionSnoozedUntil())->diffInSeconds() <= 0 )
+		if ( !is_null($this->getSubscriptionSnoozedUntil()) && Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionSnoozedUntil())
+		                                                           ->diffInSeconds() <= 0
+		)
 		{
 			$this->subscription_snoozed_until = null;
 			$this->save();
@@ -82,6 +84,7 @@ class Plan extends Model
 
 	public function snooze($days = 7)
 	{
+		// consider checking if $this->isSnoozeable()
 		$newDate = Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->addDays($days);
 
 		$this->subscription_snoozed_until = $newDate;
@@ -95,7 +98,7 @@ class Plan extends Model
 	{
 		$newDate = Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->addDays($days);
 
-		$this->subscription_rebill_at     = $newDate;
+		$this->subscription_rebill_at = $newDate;
 		$this->save();
 
 		return true;
@@ -103,12 +106,16 @@ class Plan extends Model
 
 	public function isSnoozeable()
 	{
-		return $this->isActive() && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() > 7;
+		return $this->isActive()
+		&& !$this->isSnoozed()
+		&& $this->isCancelable();
 	}
 
 	public function isCancelable()
 	{
-		return Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 1 && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 2;
+		return Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 1
+		&& Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInHours() >= 48
+		&& Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt()) > Date::now();
 	}
 
 	public function cancel()
@@ -133,7 +140,7 @@ class Plan extends Model
 
 	public function rebilled()
 	{
-		$this->subscription_rebill_at     = Date::now()->addMonth();
+		$this->subscription_rebill_at = Date::now()->addMonth();
 		$this->save();
 
 		return true;
