@@ -71,7 +71,7 @@ return [
 					'title'  => 'Spiser du sundt, men tillader dig selv en cigaret i ny og næ?',
 					'text'   => 'Ryger du engang imellem, nedbryder røgen mange af de C-vitaminer, du indtager.',
 					'button' => '<a href="/flow"
-							   class="button button--rounded button--landing button--huge button--white m-t-30">
+							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>'
 				],
@@ -79,7 +79,7 @@ return [
 					'title'  => 'Er du vegetar, men ikke fan af bælgfrugter, soyabønner og tofu?',
 					'text'   => 'Som vegetar er det svært at få jern og B-vitaminer nok.',
 					'button' => '<a href="/flow"
-							   class="button button--rounded button--landing button--huge button--white m-t-30">
+							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>'
 				],
@@ -87,7 +87,7 @@ return [
 					'title'  => 'Har du lidt for meget om ørene for tiden?',
 					'text'   => 'I en stresset periode har du brug for lidt ekstra B-vitamin.',
 					'button' => '<a href="/flow"
-							   class="button button--rounded button--landing button--huge button--white m-t-30">
+							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>'
 				],
@@ -95,7 +95,7 @@ return [
 					'title'  => 'Tager du en multivitaminpille med lidt af det hele?',
 					'text'   => 'Din krop, kost og livsstil kan give et billede af, hvad du i virkeligheden har brug for.',
 					'button' => '<a href="/flow"
-							   class="button button--rounded button--landing button--huge button--white m-t-30">
+							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>'
 				]

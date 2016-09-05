@@ -228,6 +228,7 @@
 		var app = new Vue({
 			el: '#app',
 			data: {
+				company: '',
 				shipping: 0, // todo get from settings
 				price: {{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
 				sub_price: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},

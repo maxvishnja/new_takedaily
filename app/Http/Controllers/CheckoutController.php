@@ -35,9 +35,16 @@ class CheckoutController extends Controller
 			                    ->first();
 		}
 
+		$product = Product::where('name', \Session::get('product_name', 'subscription'))->first();
+
+		if( ! $product )
+		{
+			return \Redirect::to('');
+		}
+
 		return view('checkout.index', [
 			'user_data' => json_encode(\Session::get('user_data', \Request::old('user_data', json_decode('{}')))),
-			'product'   => Product::where('name', \Session::get('product_name', 'subscription'))->first(),
+			'product'   => $product,
 			'giftcard'  => $giftcard
 		]);
 	}
