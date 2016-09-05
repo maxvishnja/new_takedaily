@@ -74,7 +74,7 @@ return [
 		],
 		'coupon'     => [
 			'link'              => 'Har du en rabatkode?',
-			'input-placeholder' => 'Din kuponkode',
+			'input-placeholder' => 'Din rabatkode',
 			'button-text'       => 'Anvend'
 		],
 		'disclaimer' => '<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">{{ total_subscription }}
