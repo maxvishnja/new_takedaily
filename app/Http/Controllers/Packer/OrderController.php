@@ -80,4 +80,12 @@ class OrderController extends Controller
 
 		return \Redirect::action('Packer\OrderController@index')->with('success', 'The order was marked as sent!');
 	}
+
+	function handleMultiple(Request $request)
+	{
+		// todo $request->get('action')
+		// todo $request->get('ordersForAction')
+		dd($request->all());
+
+	}
 }

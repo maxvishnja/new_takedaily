@@ -352,6 +352,7 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::get('orders/mark-sent/{id}', 'Packer\OrderController@markSent');
 		Route::get('orders/download/{id}', 'Packer\OrderController@download');
 		Route::get('orders/download-sticker/{id}', 'Packer\OrderController@downloadSticker');
+		Route::post('orders/handle-multiple', 'Packer\OrderController@handleMultiple');
 	});
 
 	Route::group([ 'middleware' => 'ajax' ], function ()
