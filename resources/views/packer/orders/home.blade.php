@@ -9,11 +9,19 @@
 		<div class="module-body table">
 			<form action="{{ URL::action('Packer\OrderController@handleMultiple') }}" method="post">
 				{{ csrf_field() }}
-				<button name="action" value="mark-sent">Mark all as sent</button>{{-- todo --}}
-				<button name="action" value="download">Download</button>{{-- todo --}}
+				<div class="pull-right" style="padding: 0 10px 20px;">
+					<button name="action" class="btn btn-primary" value="mark-sent"><i
+							class="icon-truck"></i> Mark selected as sent
+					</button>
+					<button name="action" class="btn btn-primary" value="download"><i
+							class="icon-download"></i> Download selected
+					</button>
+				</div>
+
+				<div class="clear"></div>
 
 				<table cellpadding="0" cellspacing="0" border="0"
-					   class="datatable-1 table table-bordered table-striped	display" width="100%">
+					   class="datatable-1 table table-bordered table-striped display" width="100%">
 					<thead>
 					<tr>
 						<th></th>
@@ -36,13 +44,13 @@
 							</td>
 							<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
 							<td>
-									@if($vitamins = json_decode($order->getCustomer()->getPlan()->vitamins))
-										@foreach($vitamins as $vitamin)
-											· {{ \App\Vitamin::find($vitamin)->name }}<br/>
-										@endforeach
-									@else
-										No vitamins selected
-									@endif
+								@if($vitamins = json_decode($order->getCustomer()->getPlan()->vitamins))
+									@foreach($vitamins as $vitamin)
+										· {{ \App\Vitamin::remember(60)->find($vitamin)->name }}<br/>
+									@endforeach
+								@else
+									No vitamins selected
+								@endif
 							</td>
 							<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
 							<td>

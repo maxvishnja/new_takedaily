@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Watson\Rememberable\Rememberable;
 
 /**
  * App\Vitamin
@@ -23,6 +24,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Vitamin extends Model
 {
+	use Rememberable;
+
     protected $fillable = [
 	    'name',
         'code',
