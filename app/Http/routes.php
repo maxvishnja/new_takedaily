@@ -321,11 +321,31 @@ Route::group([ 'middleware' => 'web' ], function ()
 		});
 	});
 
+	/*
+	 * Packer routes
+	 */
+	Route::group([ 'prefix' => 'packaging', 'middleware' => 'packer' ], function ()
+	{
+		Route::get('login', 'Auth\PackerAuthController@showLoginForm');
+		Route::post('login', 'Auth\PackerAuthController@login');
+
+		Route::get('/', function ()
+		{
+
+			return view('packer.home');
+		});
+
+		Route::resource('orders', 'Packer\OrderController');
+		Route::get('orders/mark-sent/{id}', 'Packer\OrderController@markSent');
+		Route::get('orders/download/{id}', 'Packer\OrderController@download');
+		Route::get('orders/download-sticker/{id}', 'Packer\OrderController@downloadSticker');
+	});
+
 	Route::group([ 'middleware' => 'ajax' ], function ()
 	{
 		Route::post('call-me', function (\Illuminate\Http\Request $request)
 		{
-			$validator = Validator::make($request, [
+			$validator = Validator::make($request->all(), [
 				'phone'  => 'required',
 				'period' => 'required'
 			]);
