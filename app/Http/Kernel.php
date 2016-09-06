@@ -54,6 +54,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'secure' => \App\Http\Middleware\SecureOnly::class,
 		'ajax' => \App\Http\Middleware\Ajax::class,
+		'packer' => \App\Http\Middleware\Packer::class,
 		'nonAdmin' => \App\Http\Middleware\NonAdmin::class
     ];
 }
