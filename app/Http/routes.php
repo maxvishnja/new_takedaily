@@ -326,13 +326,26 @@ Route::group([ 'middleware' => 'web' ], function ()
 	 */
 	Route::group([ 'prefix' => 'packaging', 'middleware' => 'packer' ], function ()
 	{
+		view()->composer('packer.sidebar', function ($view)
+		{
+			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
+			$view->with('sidebar_numOrders', $orderRepo->getNotShipped()
+			                                           ->count());
+		});
+
 		Route::get('login', 'Auth\PackerAuthController@showLoginForm');
 		Route::post('login', 'Auth\PackerAuthController@login');
 
 		Route::get('/', function ()
 		{
+			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
 
-			return view('packer.home');
+			return view('packer.home', [
+				'orders_today'      => $orderRepo->getToday()
+				                                 ->count(),
+				'sidebar_numOrders' => $orderRepo->getNotShipped()
+				                                 ->count()
+			]);
 		});
 
 		Route::resource('orders', 'Packer\OrderController');

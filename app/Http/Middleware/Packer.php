@@ -8,7 +8,7 @@ class Packer
 {
 
 	protected $except = [
-		'packer/login',
+		'packaging/login',
 	];
 
     /**
@@ -16,9 +16,10 @@ class Packer
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
+     * @param  $guard  string|null
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {
 	    foreach ($this->except as $except) {
 		    if ($except !== '/') {
@@ -38,7 +39,7 @@ class Packer
 		    }
 		    else
 		    {
-			    return redirect()->guest('dashboard/login');
+			    return redirect()->guest('packaging/login');
 		    }
 	    }
 
