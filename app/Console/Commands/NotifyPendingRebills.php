@@ -36,7 +36,7 @@ class NotifyPendingRebills extends Command
      */
     public function handle()
     {
-        $plans = Plan::rebillPending()->get();
+        $plans = Plan::rebillPending()->notNotifiedPending()->get();
 
 	    /** @var Plan $plan */
 	    foreach($plans as $plan)
@@ -44,7 +44,7 @@ class NotifyPendingRebills extends Command
 	    	$plan->notifyUserPendingRebill();
 	    }
 
-	    echo "Notified {$plans->count()} users.\n";
+	    echo "Notified {$plans->count()} user(s).\n";
 	    return true;
     }
 }

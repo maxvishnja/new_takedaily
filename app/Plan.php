@@ -41,6 +41,7 @@ use Jenssegers\Date\Date;
  * @method static \Illuminate\Database\Query\Builder|\App\Plan whereDeletedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Plan rebillPending()
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan notNotifiedPending()
  */
 class Plan extends Model
 {
@@ -170,6 +171,8 @@ class Plan extends Model
 		$this->subscription_rebill_at = Date::now()->addMonth();
 		$this->save();
 
+		$this->markHasNotified(false);
+
 		return true;
 	}
 
@@ -263,6 +266,23 @@ class Plan extends Model
 		             ->whereNull('subscription_cancelled_at');
 	}
 
+	/**
+	 * @param Builder $query
+	 *
+	 * @return mixed
+	 */
+	public function scopeNotNotifiedPending($query)
+	{
+		return $query->where('has_notified_pending_rebill', 0);
+	}
+
+	private function markHasNotified($hasNotified = true)
+	{
+		$this->has_notified_pending_rebill = $hasNotified ? 1 : 0;
+
+		$this->save();
+	}
+
 
 	/**
 	 * @return bool
@@ -271,12 +291,13 @@ class Plan extends Model
 	{
 		$customer = $this->customer;
 
-		\Mail::send('', [], function (Message $message) use ($customer)
+		\Mail::send('emails.pending-rebill', [ 'rebillAt' => $this->getRebillAt() ], function (Message $message) use ($customer)
 		{
 			$message->to($customer->getEmail(), $customer->getName())
-			        ->from('', '')
-			        ->subject('Lel, ny pakke på vej!');
+			        ->subject('Vi sender din næste pakke om 48 timer!');
 		});
+
+		$this->markHasNotified();
 
 		return true;
 	}
