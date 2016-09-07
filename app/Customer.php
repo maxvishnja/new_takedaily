@@ -457,11 +457,19 @@ class Customer extends Model
 			$newVitamins[] = strtolower($combination);
 		}
 
-		foreach($newVitamins as $index => $newVitamin)
+		if( count($newVitamins) != count($currentVitamins))
 		{
-			if( strtolower($newVitamin) != $currentVitamins[$index])
+			$isSimilar = false;
+
+			return !$isSimilar;
+		}
+
+		foreach($currentVitamins as $index => $currentVitamin)
+		{
+			if( $currentVitamin != $newVitamins[$index])
 			{
 				$isSimilar = false;
+				continue;
 			}
 		}
 
