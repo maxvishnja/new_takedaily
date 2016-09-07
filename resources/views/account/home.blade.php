@@ -5,6 +5,10 @@
 @section('title', trans('account.home.title'))
 
 @section('content')
+	@if(Auth::user()->getCustomer()->hasNewRecommendations())
+		VI HAR NYE ANBEFALINGER TIL DIG!
+	@endif
+
 	<form method="post" action="{{ URL::action('AccountController@updatePreferences') }}" id="app">
 		<h3 class="m-b-10">{{ trans('flow.questions.1-1.title') }}</h3>
 		<select name="[1][1]" v-model="user_data.gender" class="select select--regular select--full-mobile">

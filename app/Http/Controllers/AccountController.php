@@ -71,9 +71,14 @@ class AccountController extends Controller
 			'user_data.foods.butter'     => $userData->foods->butter
 		]);
 
+		return \Redirect::action('AccountController@getHome')->with('success', 'Dine præferencer blev gemt!'); // todo translate
+	}
+
+	function updateVitamins()
+	{
 		$combinations = $this->user->getCustomer()->calculateCombinations();
 		$vitamins     = [ ];
-		
+
 		foreach ( $combinations as $key => $combination )
 		{
 			$pill = PillLibrary::getPill($key, $combination);
@@ -84,12 +89,12 @@ class AccountController extends Controller
 				$vitamins[] = $vitamin->id;
 			}
 		}
-		
+
 		$this->user->getCustomer()->getPlan()->update([
 			'vitamins' => json_encode($vitamins)
 		]);
 
-		return \Redirect::action('AccountController@getHome')->with('success', 'Dine præferencer blev gemt!');
+		return \Redirect::action('AccountController@getHome')->with('success', 'Vitaminer blev opdateret!'); // todo translate
 	}
 
 	function getTransactions()

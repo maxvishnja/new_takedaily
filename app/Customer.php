@@ -15,22 +15,22 @@ use Jenssegers\Date\Date;
  * Class Customer
  *
  * @package App
- * @property integer $id
- * @property integer $user_id
- * @property integer $plan_id
- * @property string $birthday
- * @property string $gender
- * @property boolean $accept_newletters
- * @property integer $order_count
- * @property integer $balance
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property string $deleted_at
- * @property-read \App\Plan $plan
- * @property-read \App\User $user
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Order[] $orders
+ * @property integer                                                                $id
+ * @property integer                                                                $user_id
+ * @property integer                                                                $plan_id
+ * @property string                                                                 $birthday
+ * @property string                                                                 $gender
+ * @property boolean                                                                $accept_newletters
+ * @property integer                                                                $order_count
+ * @property integer                                                                $balance
+ * @property \Carbon\Carbon                                                         $created_at
+ * @property \Carbon\Carbon                                                         $updated_at
+ * @property string                                                                 $deleted_at
+ * @property-read \App\Plan                                                         $plan
+ * @property-read \App\User                                                         $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Order[]             $orders
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\CustomerAttribute[] $customerAttributes
- * @property mixed $customer
+ * @property mixed                                                                  $customer
  * @method static \Illuminate\Database\Query\Builder|\App\Customer whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Customer whereUserId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Customer wherePlanId($value)
@@ -71,7 +71,7 @@ class Customer extends Model
 	 *
 	 * @var array
 	 */
-	protected $hidden = [ ];
+	protected $hidden = [];
 
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\HasOne
@@ -257,7 +257,7 @@ class Customer extends Model
 		return $attribute->update([ 'value' => $value ?: '' ]);
 	}
 
-	public function setCustomerAttributes($attributes = [ ])
+	public function setCustomerAttributes($attributes = [])
 	{
 		foreach ( $attributes as $identifier => $value )
 		{
@@ -434,18 +434,43 @@ class Customer extends Model
 		]);
 	}
 
-	public function hasManuallySelectedCombinations()
+	public function hasNewRecommendations()
 	{
-		return false; // todo
+		$alphabet = range('a', 'c');
+		$combinations    = $this->calculateCombinations();
+		$newVitamins = [];
+		$currentVitamins = [];
+		$isSimilar = true;
+
+		foreach ( $this->getVitaminModels() as $vitaminModel )
+		{
+			$currentVitamins[] = substr($vitaminModel->code, 1, 1);
+		}
+
+		foreach($combinations as $index => $combination)
+		{
+			if( $index == 'one' )
+			{
+				$combination = $alphabet[$combination - 1];
+			}
+
+			$newVitamins[] = strtolower($combination);
+		}
+
+		foreach($newVitamins as $index => $newVitamin)
+		{
+			if( strtolower($newVitamin) != $currentVitamins[$index])
+			{
+				$isSimilar = false;
+			}
+		}
+
+		return !$isSimilar;
 	}
+
 
 	public function calculateCombinations()
 	{
-		if ( $this->hasManuallySelectedCombinations() )
-		{
-			return $this->getVitamins(); // todo
-		}
-
 		$combinationLibrary = new CombinationLibrary();
 
 		$attributes = $this->customerAttributes()->where('identifier', 'LIKE', 'user_data.%')->get();
@@ -476,29 +501,34 @@ class Customer extends Model
 		return $combinationLibrary->getResult();
 	}
 
-	public function getVitamins()
+	public
+	function getVitamins()
 	{
 		return $this->getPlan()->vitamins;
 	}
 
-	public function setVitamins(array $vitamins)
+	public
+	function setVitamins(array $vitamins)
 	{
-		return $this->getPlan()->update(['vitamins' => json_encode($vitamins)]);
+		return $this->getPlan()->update([ 'vitamins' => json_encode($vitamins) ]);
 	}
 
-	public function getVitaminModels()
+	public
+	function getVitaminModels()
 	{
 		$vitamins = json_decode($this->getVitamins());
 
 		return Vitamin::whereIn('id', $vitamins)->get();
 	}
 
-	public function loadLabel()
+	public
+	function loadLabel()
 	{
 		return view('pdf.label', [ 'customer' => $this ]);
 	}
 
-	public function loadSticker()
+	public
+	function loadSticker()
 	{
 		return view('pdf.sticker', [ 'customer' => $this ]);
 	}
@@ -506,7 +536,8 @@ class Customer extends Model
 	/**
 	 * @return \PDF
 	 */
-	public function generateLabel()
+	public
+	function generateLabel()
 	{
 		return \PDF::loadView('pdf.label', [ 'customer' => $this ])
 		           ->setPaper([ 0, 0, 570, 262 ])
@@ -516,14 +547,16 @@ class Customer extends Model
 	/**
 	 * @return \PDF
 	 */
-	public function generateSticker()
+	public
+	function generateSticker()
 	{
 		return \PDF::loadView('pdf.sticker', [ 'customer' => $this ])
 		           ->setPaper([ 0, 0, 531, 723 ])
 		           ->setOrientation('portrait');
 	}
 
-	public function scopeRebillable($query)
+	public
+	function scopeRebillable($query)
 	{
 		return $query->join('plans', 'plans.id', '=', 'customers.plan_id')
 		             ->whereNull('plans.deleted_at')
@@ -532,14 +565,15 @@ class Customer extends Model
 		             ->where('plans.subscription_rebill_at', '<=', Date::now());
 	}
 
-	public function getPaymentMethods()
+	public
+	function getPaymentMethods()
 	{
 		$plan = $this->getPlan();
 
 		if ( $plan->getPaymentMethod() == '' )
 		{
 			return [
-				'methods' => [ ],
+				'methods' => [],
 				'type'    => ''
 			];
 		}

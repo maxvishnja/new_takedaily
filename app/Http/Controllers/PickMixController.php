@@ -39,8 +39,6 @@ class PickMixController extends Controller
 			     ->getCustomer()
 			     ->setVitamins($request->get('vitamins'));
 
-			// todo return success
-
 			return \Redirect::action('AccountController@getHome')
 			                ->with('success', 'Dine vitaminer blev opdateret!'); // todo translate
 		}
