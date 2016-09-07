@@ -94,7 +94,7 @@ class AccountController extends Controller
 			'vitamins' => json_encode($vitamins)
 		]);
 
-		return \Redirect::action('AccountController@getHome')->with('success', 'Vitaminer blev opdateret!'); // todo translate
+		return \Redirect::action('AccountController@getSettingsSubscription')->with('success', 'Vitaminer blev opdateret!'); // todo translate
 	}
 
 	function getTransactions()

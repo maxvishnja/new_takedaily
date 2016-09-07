@@ -5,10 +5,6 @@
 @section('title', trans('account.home.title'))
 
 @section('content')
-	@if(Auth::user()->getCustomer()->hasNewRecommendations())
-		VI HAR NYE ANBEFALINGER TIL DIG!
-	@endif
-
 	<form method="post" action="{{ URL::action('AccountController@updatePreferences') }}" id="app">
 		<h3 class="m-b-10">{{ trans('flow.questions.1-1.title') }}</h3>
 		<select name="[1][1]" v-model="user_data.gender" class="select select--regular select--full-mobile">
@@ -21,7 +17,9 @@
 		</h3>
 
 		<div class="datepicker-container-block">
-			<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker" class="input input--regular input--full-mobile" placeholder="{{ trans('flow.questions.1-2.button-text') }}"/>
+			<input type="text" name="step[1][1]" v-model="user_data.birthdate" id="birthdate-picker"
+				   class="input input--regular input--full-mobile"
+				   placeholder="{{ trans('flow.questions.1-2.button-text') }}"/>
 		</div>
 
 		<h3 class="m-t-40 m-b-10">{{ trans('flow.questions.1-3.title') }}</h3>
@@ -168,7 +166,8 @@
 		<textarea name="user_data" type="hidden" style="display: none;">@{{ $data.user_data | json }}</textarea>
 
 		<div class="m-t-30">
-			<button type="submit" class="button button--large button--green button--rounded">{{ trans('account.home.button-save-text') }}</button>
+			<button type="submit"
+					class="button button--large button--green button--rounded">{{ trans('account.home.button-save-text') }}</button>
 		</div>
 	</form>
 @endsection
@@ -208,27 +207,24 @@
 				}
 			},
 			computed: {
-				temp_age: function ()
-				{
+				temp_age: function () {
 					return this.getAge();
 				},
-                birthday: function () {
-                    var newDate = new Date(this.user_data.birthdate);
+				birthday: function () {
+					var newDate = new Date(this.user_data.birthdate);
 
-                    var months = [
-                        @foreach(trans('flow.datepicker.months_long') as $month)
-                                "{{ $month }}",
-                        @endforeach
-                    ];
+					var months = [
+						@foreach(trans('flow.datepicker.months_long') as $month)
+							"{{ $month }}",
+						@endforeach
+					];
 
-                    return newDate.getDate() + " " +  months[newDate.getMonth()] + " " +  newDate.getFullYear();
-                },
+					return newDate.getDate() + " " + months[newDate.getMonth()] + " " + newDate.getFullYear();
+				},
 			},
 			methods: {
-				getAge: function ()
-				{
-					if (this.user_data.birthdate === null)
-					{
+				getAge: function () {
+					if (this.user_data.birthdate === null) {
 						return null;
 					}
 
@@ -236,13 +232,11 @@
 					var birthDate = new Date(this.user_data.birthdate);
 					var age = today.getFullYear() - birthDate.getFullYear();
 					var m = today.getMonth() - birthDate.getMonth();
-					if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
-					{
+					if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
 						age--;
 					}
 
-					if (age !== undefined && age > 0)
-					{
+					if (age !== undefined && age > 0) {
 						this.user_data.age = age;
 
 						return this.user_data.age;
@@ -254,16 +248,16 @@
 		});
 	</script>
 	<script>
-        $('#birthdate-picker').datepicker({
-            startDate: "-100y",
-            endDate: "-18y",
-            startView: 2,
-            weekStart: 1,
-            autoclose: true,
-            format: "yyyy-mm-dd",
-            language: "{{ App::getLocale() }}"
-        }).on("changeDate", function () {
-            app.user_data.birthdate = $('#birthdate-picker').datepicker('getDate');
-        });
+		$('#birthdate-picker').datepicker({
+			startDate: "-100y",
+			endDate: "-18y",
+			startView: 2,
+			weekStart: 1,
+			autoclose: true,
+			format: "yyyy-mm-dd",
+			language: "{{ App::getLocale() }}"
+		}).on("changeDate", function () {
+			app.user_data.birthdate = $('#birthdate-picker').datepicker('getDate');
+		});
 	</script>
 @endsection

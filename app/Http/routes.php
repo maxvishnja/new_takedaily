@@ -214,6 +214,8 @@ Route::group([ 'middleware' => 'web' ], function ()
 		Route::get('settings/basic', 'AccountController@getSettingsBasic');
 		Route::post('settings/basic', 'AccountController@postSettingsBasic');
 
+		Route::get('settings/update-vitamins', 'AccountController@updateVitamins');
+
 		Route::get('settings/subscription', 'AccountController@getSettingsSubscription');
 		Route::post('settings/subscription/snooze', 'AccountController@postSettingsSubscriptionSnooze');
 		Route::get('settings/subscription/start', 'AccountController@getSettingsSubscriptionStart');

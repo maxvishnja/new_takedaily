@@ -58,8 +58,8 @@ return [
 	],
 	'settings_subscription' => [
 		'title'              => 'Abonnement - TakeDaily',
-		'header'             => 'Dit abonnement er :status',
-		'total'              => '<span class="color--brand">:amount</span><small> / måned</small>',
+		'header'             => 'Dit abonnement er <u>:status</u>',
+		'total'              => '<span>:amount</span><small> / måned</small>',
 		'next-date'          => 'Næste trækningsdato: :date',
 		'plan'               => [
 			'active'    => 'aktivt',

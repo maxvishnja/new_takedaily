@@ -1,32 +1,55 @@
 @extends('layouts.account')
-
+{{-- todo translate view --}}
 @section('pageClass', 'account account-settings account-settings-subscription')
 
 @section('title', trans('account.settings_subscription.title'))
 
 @section('content')
-	<h1>{{ trans('account.settings_subscription.header', ['status' => trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) ]) }}</h1>
+	@if(Auth::user()->getCustomer()->hasNewRecommendations()) {{-- todo translate --}}
+	<div class="card m-b-50">
+		<div class="card-body">
+			<h2 class="card_title">Vi har nye anbefalinger til dig.</h2>
+			<hr>
+			<p>Ud fra din profil kan vi se at nogle andre vitaminer måske er bedre for dig.</p>
+			<a href="{{ URL::action('AccountController@updateVitamins') }}" class="button button--green button--large">Opdater mine vitaminer</a>
+		</div>
+	</div>
+	@endif
+
+
+	<h1>{!! trans('account.settings_subscription.header', ['status' => trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) ]) !!}</h1>
 	<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true) ])]) !!}</h2>
 	@if( $plan->isActive() )
 		<p>{{ trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y H:i') ]) }}</p>
-		@if($plan->isSnoozeable())
-			<a href="#snooze-toggle" id="snooze-toggle" class="m-t-20 button button--regular button--green button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
-		@endif
 
-		@if($plan->isCancelable())
-			<div class="m-t-50">
-				<a href="{{ URL::action('AccountController@getSettingsSubscriptionCancel') }}" class="button button--small button--light button--rounded m-t-50">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
-			</div>
-		@endif
+		<div class="m-t-50">
+			@if($plan->isSnoozeable())
+				<a href="#snooze-toggle" id="snooze-toggle"
+				   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
+			@else
+				<span
+					class="button button--regular button--light button--disabled button--rounded"
+					title="Din næste trækning er indenfor 24 timer, du kan derfor ikke udskyde.">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
+			@endif
+
+			@if($plan->isCancelable())
+				<a href="{{ URL::action('AccountController@getSettingsSubscriptionCancel') }}"
+				   class="button button--regular button--white button--text-grey button--rounded">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
+			@else
+				<span
+					class="button button--regular button--white button--text-grey button--disabled button--rounded"
+					title="Din næste trækning er indenfor 48 timer, du kan derfor ikke annullere">{{ trans('account.settings_subscription.button-cancel-text') }}</span>
+			@endif
+		</div>
 	@else
-		<a href="{{ URL::action('AccountController@getSettingsSubscriptionRestart') }}" class="button button--large button--green button--rounded">{{ trans('account.settings_subscription.button-start-text') }}</a>
+		<a href="{{ URL::action('AccountController@getSettingsSubscriptionRestart') }}"
+		   class="button button--large button--green button--rounded">{{ trans('account.settings_subscription.button-start-text') }}</a>
 	@endif
 @endsection
 
 @section('footer_scripts')
 	<script>
-		$("#snooze-toggle").click(function (e)
-		{
+		$("#snooze-toggle").click(function (e) {
 			e.preventDefault();
 
 			swal({
@@ -52,10 +75,8 @@
 				allowOutsideClick: true,
 				showCancelButton: true,
 				closeOnConfirm: false,
-			}, function (inputValue)
-			{
-				if (inputValue)
-				{
+			}, function (inputValue) {
+				if (inputValue) {
 					return $("#snooze_form").submit();
 				}
 			});
