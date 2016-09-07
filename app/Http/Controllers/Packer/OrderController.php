@@ -52,9 +52,9 @@ class OrderController extends Controller
 			return \Redirect::back()->withErrors("The order (#{$id}) could not be found!");
 		}
 
-		return $order->download();
+		$this->downloadMultiple([ $id ]);
 
-		return $order->downloadSticker();
+		return \Redirect::action('Packer\OrderController@index')->with('success', 'Download links was generated!');
 	}
 
 	function markSent($id)
@@ -92,7 +92,7 @@ class OrderController extends Controller
 		return \Redirect::action('Packer\OrderController@index')->with('success', 'The action was handled!');
 	}
 
-	private function downloadMultiple($ids)
+	private function downloadMultiple($ids)// todo speed this function up
 	{
 		$stickers = [];
 		$labels   = [];
@@ -103,7 +103,7 @@ class OrderController extends Controller
 			$stickers[] = $order->loadSticker();
 		}
 
-		$newFolder    = date('Ymd_') . str_random(10);
+		$newFolder = date('Ymd_') . str_random(10);
 		\File::makeDirectory(public_path('packer/downloads/' . $newFolder));
 
 		$labelsName   = 'labels_' . date('Ymd_Hi') . '.pdf';
