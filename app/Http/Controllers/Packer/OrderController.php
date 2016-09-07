@@ -121,7 +121,6 @@ class OrderController extends Controller
 		    ->setOrientation('portrait')
 		    ->save(public_path($stickerPath));
 
-
 		\Session::flash('links', [
 			[
 				'label' => $labelsName,
