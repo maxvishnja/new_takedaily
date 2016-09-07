@@ -38,3 +38,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 _ide_helper_models.php
+/public/packer/downloads/*

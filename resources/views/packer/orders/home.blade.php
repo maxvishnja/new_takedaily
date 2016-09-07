@@ -10,12 +10,25 @@
 			<form action="{{ URL::action('Packer\OrderController@handleMultiple') }}" method="post">
 				{{ csrf_field() }}
 				<div class="pull-right" style="padding: 0 10px 20px;">
-					<button name="action" class="btn btn-primary" value="mark-sent"><i
-							class="icon-truck"></i> Mark selected as sent
-					</button>
-					<button name="action" class="btn btn-primary" value="download"><i
-							class="icon-download"></i> Download selected
-					</button>
+					<div class="btn-group">
+						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Action <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><button name="action" class="btn btn-link" value="download"><i
+										class="icon-download"></i> Download selected
+								</button></li>
+
+							<li><button name="action" class="btn btn-link" value="mark-sent"><i
+										class="icon-truck"></i> Mark selected as sent
+								</button></li>
+
+							<li><button name="action" class="btn btn-link" value="combine"><i
+										class="icon-truck"></i><i
+										class="icon-download"></i> Download and mark selected
+								</button></li>
+						</ul>
+					</div>
 				</div>
 
 				<div class="clear"></div>

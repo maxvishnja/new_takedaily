@@ -243,6 +243,16 @@ class Order extends Model
 		return $color;
 	}
 
+	public function loadLabel()
+	{
+		return $this->getCustomer()->loadLabel();
+	}
+
+	public function loadSticker()
+	{
+		return $this->getCustomer()->loadSticker();
+	}
+
 	public function download()
 	{
 		return $this->getCustomer()->generateLabel()->download('order_' . $this->getPaddedId() . '_label.pdf');

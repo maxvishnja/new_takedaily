@@ -15,15 +15,6 @@ use Jenssegers\Date\Date;
  * Class Customer
  *
  * @package App
- * @property integer id
- * @property integer user_id
- * @property integer plan_id
- * @property mixed   birthday
- * @property string  gender
- * @property integer order_count
- * @property mixed   created_at
- * @property mixed   updated_at
- * @property mixed   deleted_at
  * @property integer $id
  * @property integer $user_id
  * @property integer $plan_id
@@ -500,6 +491,16 @@ class Customer extends Model
 		$vitamins = json_decode($this->getVitamins());
 
 		return Vitamin::whereIn('id', $vitamins)->get();
+	}
+
+	public function loadLabel()
+	{
+		return view('pdf.label', [ 'customer' => $this ]);
+	}
+
+	public function loadSticker()
+	{
+		return view('pdf.sticker', [ 'customer' => $this ]);
 	}
 
 	/**
