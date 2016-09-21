@@ -638,6 +638,8 @@
 									<div id="advises-label" class="tab-block tab-block--active"></div>
 									<div id="advises-content" class="tab-block"></div>
 								</div>
+
+								@include('includes.disclaimer')
 							</div>
 							<div class="col-md-5">
 								<div class="card">

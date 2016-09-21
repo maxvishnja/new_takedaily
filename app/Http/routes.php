@@ -78,8 +78,11 @@ Route::group([ 'middleware' => 'web' ], function ()
 				$advises .= '<p>' . $advise . '</p>';
 			}
 
+			// todo either in view or here: have it tell user to go to pick-n-mix if has 1-2 advises/combinations only ("Pick n mix alternativ" in Wunderlist)
+
 			return Response::json([
 				'advises' => $advises,
+				'num_advises' => count($lib->getAdvises()),
 				'label'   => view('flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ])->render()
 			]);
 		});

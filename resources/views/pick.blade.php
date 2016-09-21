@@ -85,6 +85,7 @@
 						</div>
 					</div>
 				</div>
+				@include('includes.disclaimer')
 			</aside>
 		</div>
 	</div>
