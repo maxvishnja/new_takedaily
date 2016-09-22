@@ -1,4 +1,4 @@
-<html>
+<html>{{-- todo fix multiplage when only single sticker... --}}
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link href="{{ ('/public/css/app.css') }}" rel="stylesheet" type="text/css"/>
