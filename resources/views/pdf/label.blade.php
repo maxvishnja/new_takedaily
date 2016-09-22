@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<link href="{{ ('/public/css/app.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('/public/css/app.css') }}" rel="stylesheet" type="text/css"/>
 	<style>
 		th, td, p, div, b {
 			margin: 0;
@@ -33,7 +33,7 @@
 		}
 
 		body {
-			background: #fff url(/images/label-logo-bg.jpg) no-repeat left center;
+			background: #fff url({{ asset('/images/label-logo-bg.jpg') }}) no-repeat left center;
 			background-size: cover;
 			page-break-inside: avoid;
 			font-family: 'Montserrat', sans-serif;
@@ -82,6 +82,7 @@
 						<br/>
 						<div style="margin: 0 auto;width: 226pt; height: 40pt;">
 							<img style="width: 226pt; height: 40pt;" src="{{ asset('/images/pdf-logo.png') }}"/>
+							{{ asset('/images/label-logo-bg.jpg') }}
 						</div>
 					</td>
 				</tr>
