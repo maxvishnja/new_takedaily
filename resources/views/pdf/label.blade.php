@@ -82,7 +82,6 @@
 						<br/>
 						<div style="margin: 0 auto;width: 226pt; height: 40pt;">
 							<img style="width: 226pt; height: 40pt;" src="{{ asset('/images/pdf-logo.png') }}"/>
-							{{ asset('/images/label-logo-bg.jpg') }}
 						</div>
 					</td>
 				</tr>
