@@ -7,12 +7,7 @@
 		<a class="btn btn-default"
 		   href="{{ URL::action('Packer\OrderController@download', [ 'id' => $order->id ]) }}"><i
 				class="icon-download"></i>
-			Download label</a>
-
-		<a class="btn btn-default"
-		   href="{{ URL::action('Packer\OrderController@downloadSticker', [ 'id' => $order->id ]) }}"><i
-				class="icon-download"></i>
-			Download sticker</a>
+			Download</a>
 	</div>
 
 	<div class="clear"></div>
