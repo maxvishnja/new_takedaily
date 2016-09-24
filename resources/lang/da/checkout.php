@@ -13,6 +13,7 @@ return [
 	'mail'     => [
 		'subject'              => 'Ordrebekræftelse fra TakeDaily',
 		'subject-subscription' => 'Vi har trukket penge for dit abonnement',
+		'subject-subscription-failed' => 'Vi kunne ikke trække penge for dit abonnement!'
 	],
 	'success'  => [
 		'page-title'  => 'Din ordre blev godkendt! - TakeDaily',

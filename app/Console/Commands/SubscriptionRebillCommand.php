@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use Illuminate\Console\Command;
+use Illuminate\Mail\Message;
 
 class SubscriptionRebillCommand extends Command
 {
@@ -43,18 +44,24 @@ class SubscriptionRebillCommand extends Command
 
 		foreach($customers->get() as $customer)
 		{
+			$mailEmail = $customer->getEmail();
+			$mailName  = $customer->getName();
+
 			/* @var $customer Customer */
 			if( !$customer->rebill() )
 			{
-				$customer->getPlan()->moveRebill(1);
+				$customer->getPlan()->moveRebill(1); // consider a max attempts limit
+
+				\Mail::queue('emails.subscription-failed', [], function (Message $message) use ($mailEmail, $mailName)
+				{
+					$message->to($mailEmail, $mailName);
+					$message->subject(trans('checkout.mail.subject-subscription-failed'));
+				});
 
 				return false;
 			}
 
-			$mailEmail = $customer->getEmail();
-			$mailName  = $customer->getName();
-
-			\Mail::queue('emails.subscription', [], function ($message) use ($mailEmail, $mailName)
+			\Mail::queue('emails.subscription', [], function (Message $message) use ($mailEmail, $mailName)
 			{
 				$message->to($mailEmail, $mailName);
 				$message->subject(trans('checkout.mail.subject-subscription'));

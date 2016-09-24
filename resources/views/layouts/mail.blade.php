@@ -590,40 +590,6 @@
 			opacity: 0.8;
 		}
 
-		.footer .fblike {
-			background-image: url(https://i3.createsend1.com/static/eb/master/03-fresh/imgf/fblike.png);
-		}
-
-		.footer .tweet {
-			background-image: url(https://i4.createsend1.com/static/eb/master/03-fresh/imgf/tweet.png);
-		}
-
-		.footer .linkedinshare {
-			background-image: url(https://i5.createsend1.com/static/eb/master/03-fresh/imgf/lishare.png);
-		}
-
-		.footer .forwardtoafriend {
-			background-image: url(https://i8.createsend1.com/static/eb/master/03-fresh/imgf/forward.png);
-		}
-
-		@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-			.footer .fblike {
-				background-image: url(https://i9.createsend1.com/static/eb/master/03-fresh/imgf/fblike@2x.png) !important;
-			}
-
-			.footer .tweet {
-				background-image: url(https://i6.createsend1.com/static/eb/master/03-fresh/imgf/tweet@2x.png) !important;
-			}
-
-			.footer .linkedinshare {
-				background-image: url(https://i7.createsend1.com/static/eb/master/03-fresh/imgf/lishare@2x.png) !important;
-			}
-
-			.footer .forwardtoafriend {
-				background-image: url(https://i10.createsend1.com/static/eb/master/03-fresh/imgf/forward@2x.png) !important;
-			}
-		}
-
 		@media only screen and (max-width: 620px) {
 			.footer {
 				width: 320px !important;
@@ -1230,6 +1196,10 @@
 
 		.wrapper .footer .fblike, .wrapper .footer .tweet, .wrapper .footer .linkedinshare, .wrapper .footer .forwardtoafriend {
 			background-color: #7b7c7d
+		}
+
+		a {
+			color: #88E2C4;
 		}
 	</style>
 	<meta name="robots" content="noindex,nofollow"/>
