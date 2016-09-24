@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 	<title></title>
@@ -12,8 +13,12 @@
 			font-family: Avenir, sans-serif;
 		}
 
+		* {
+		'Montserrat', 'Open Sans', sans-serif !important;
+		}
+
 		.mso .wrapper .font-avenir {
-			font-family: sans-serif !important;
+			font-family: 'Montserrat', 'Open Sans', sans-serif !important;
 		}
 
 		.font-lato {
@@ -21,7 +26,7 @@
 		}
 
 		.mso .wrapper .font-lato {
-			font-family: Tahoma, sans-serif !important;
+			font-family: Tahoma, 'Montserrat', 'Open Sans', sans-serif !important;
 		}
 
 		.font-cabin {
@@ -29,23 +34,23 @@
 		}
 
 		.mso .wrapper .font-cabin {
-			font-family: sans-serif !important;
+			font-family: 'Montserrat', 'Open Sans', sans-serif !important;
 		}
 
 		.font-open-Sans {
-			font-family: "Open Sans", sans-serif;
+			font-family: 'Montserrat', 'Open Sans', sans-serif;
 		}
 
 		.mso .wrapper .font-open-Sans {
-			font-family: sans-serif !important;
+			font-family: 'Montserrat', 'Open Sans', sans-serif !important;
 		}
 
 		.font-roboto {
-			font-family: Roboto, Tahoma, sans-serif;
+			font-family: Montserrat, Tahoma, sans-serif;
 		}
 
 		.mso .wrapper .font-roboto {
-			font-family: Tahoma, sans-serif !important;
+			font-family: Tahoma, 'Montserrat', 'Open Sans', sans-serif !important;
 		}
 
 		.font-ubuntu {
@@ -53,7 +58,7 @@
 		}
 
 		.mso .wrapper .font-ubuntu {
-			font-family: sans-serif !important;
+			font-family: 'Montserrat', 'Open Sans', sans-serif !important;
 		}
 
 		.font-pt-sans {
@@ -61,7 +66,7 @@
 		}
 
 		.mso .wrapper .font-pt-sans {
-			font-family: "Trebuchet MS", sans-serif !important;
+			font-family: "Trebuchet MS", 'Montserrat', 'Open Sans', sans-serif !important;
 		}
 
 		.font-georgia {
@@ -97,11 +102,11 @@
 		}
 
 		.mso .wrapper .font-pompiere {
-			font-family: "Trebuchet MS", sans-serif !important;
+			font-family: "Trebuchet MS", 'Montserrat', 'Open Sans', sans-serif !important;
 		}
 
 		.font-roboto-slab {
-			font-family: "Roboto Slab", Georgia, serif;
+			font-family: "Montserrat Slab", Georgia, serif;
 		}
 
 		.mso .wrapper .font-roboto-slab {
@@ -110,134 +115,134 @@
 
 		@media only screen and (max-width: 620px) {
 			.wrapper .column .size-8 {
-				font-size:   8px !important;
+				font-size: 8px !important;
 				line-height: 14px !important;
 			}
 
 			.wrapper .column .size-9 {
-				font-size:   9px !important;
+				font-size: 9px !important;
 				line-height: 16px !important;
 			}
 
 			.wrapper .column .size-10 {
-				font-size:   10px !important;
+				font-size: 10px !important;
 				line-height: 18px !important;
 			}
 
 			.wrapper .column .size-11 {
-				font-size:   11px !important;
+				font-size: 11px !important;
 				line-height: 19px !important;
 			}
 
 			.wrapper .column .size-12 {
-				font-size:   12px !important;
+				font-size: 12px !important;
 				line-height: 19px !important;
 			}
 
 			.wrapper .column .size-13 {
-				font-size:   13px !important;
+				font-size: 13px !important;
 				line-height: 21px !important;
 			}
 
 			.wrapper .column .size-14 {
-				font-size:   14px !important;
+				font-size: 14px !important;
 				line-height: 21px !important;
 			}
 
 			.wrapper .column .size-15 {
-				font-size:   15px !important;
+				font-size: 15px !important;
 				line-height: 23px !important;
 			}
 
 			.wrapper .column .size-16 {
-				font-size:   16px !important;
+				font-size: 16px !important;
 				line-height: 24px !important;
 			}
 
 			.wrapper .column .size-17 {
-				font-size:   17px !important;
+				font-size: 17px !important;
 				line-height: 26px !important;
 			}
 
 			.wrapper .column .size-18 {
-				font-size:   17px !important;
+				font-size: 17px !important;
 				line-height: 26px !important;
 			}
 
 			.wrapper .column .size-20 {
-				font-size:   17px !important;
+				font-size: 17px !important;
 				line-height: 26px !important;
 			}
 
 			.wrapper .column .size-22 {
-				font-size:   18px !important;
+				font-size: 18px !important;
 				line-height: 26px !important;
 			}
 
 			.wrapper .column .size-24 {
-				font-size:   20px !important;
+				font-size: 20px !important;
 				line-height: 28px !important;
 			}
 
 			.wrapper .column .size-26 {
-				font-size:   22px !important;
+				font-size: 22px !important;
 				line-height: 31px !important;
 			}
 
 			.wrapper .column .size-28 {
-				font-size:   24px !important;
+				font-size: 24px !important;
 				line-height: 32px !important;
 			}
 
 			.wrapper .column .size-30 {
-				font-size:   26px !important;
+				font-size: 26px !important;
 				line-height: 34px !important;
 			}
 
 			.wrapper .column .size-32 {
-				font-size:   28px !important;
+				font-size: 28px !important;
 				line-height: 36px !important;
 			}
 
 			.wrapper .column .size-34 {
-				font-size:   30px !important;
+				font-size: 30px !important;
 				line-height: 38px !important;
 			}
 
 			.wrapper .column .size-36 {
-				font-size:   30px !important;
+				font-size: 30px !important;
 				line-height: 38px !important;
 			}
 
 			.wrapper .column .size-40 {
-				font-size:   32px !important;
+				font-size: 32px !important;
 				line-height: 40px !important;
 			}
 
 			.wrapper .column .size-44 {
-				font-size:   34px !important;
+				font-size: 34px !important;
 				line-height: 43px !important;
 			}
 
 			.wrapper .column .size-48 {
-				font-size:   36px !important;
+				font-size: 36px !important;
 				line-height: 43px !important;
 			}
 
 			.wrapper .column .size-56 {
-				font-size:   40px !important;
+				font-size: 40px !important;
 				line-height: 47px !important;
 			}
 
 			.wrapper .column .size-64 {
-				font-size:   44px !important;
+				font-size: 44px !important;
 				line-height: 50px !important;
 			}
 		}
 
 		body {
-			margin:    0;
-			padding:   0;
+			margin: 0;
+			padding: 0;
 			min-width: 100%;
 		}
 
@@ -247,23 +252,23 @@
 
 		.no-padding .wrapper .column .column-top,
 		.no-padding .wrapper .column .column-bottom {
-			font-size:   0px;
+			font-size: 0px;
 			line-height: 0px;
 		}
 
 		table {
 			border-collapse: collapse;
-			border-spacing:  0;
+			border-spacing: 0;
 		}
 
 		td {
-			padding:        0;
+			padding: 0;
 			vertical-align: top;
 		}
 
 		.spacer,
 		.border {
-			font-size:   1px;
+			font-size: 1px;
 			line-height: 1px;
 		}
 
@@ -272,12 +277,12 @@
 		}
 
 		img {
-			border:                 0;
+			border: 0;
 			-ms-interpolation-mode: bicubic;
 		}
 
 		.image {
-			font-size:            12px;
+			font-size: 12px;
 			mso-line-height-rule: at-least;
 		}
 
@@ -305,7 +310,7 @@
 		ul,
 		blockquote,
 		.image {
-			font-style:  normal;
+			font-style: normal;
 			font-weight: 400;
 		}
 
@@ -316,23 +321,23 @@
 		}
 
 		blockquote {
-			Margin-left:   0;
-			Margin-right:  0;
+			Margin-left: 0;
+			Margin-right: 0;
 			padding-right: 0;
 		}
 
 		.column-top,
 		.column-bottom {
-			font-size:                  32px;
-			line-height:                32px;
+			font-size: 32px;
+			line-height: 32px;
 			transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-			transition-duration:        150ms;
-			transition-property:        all;
+			transition-duration: 150ms;
+			transition-property: all;
 		}
 
 		.half-padding .column .column-top,
 		.half-padding .column .column-bottom {
-			font-size:   16px;
+			font-size: 16px;
 			line-height: 16px;
 		}
 
@@ -342,23 +347,23 @@
 
 		.contents {
 			table-layout: fixed;
-			width:        100%;
+			width: 100%;
 		}
 
 		.padded {
-			padding-left:  32px;
+			padding-left: 32px;
 			padding-right: 32px;
-			word-break:    break-word;
-			word-wrap:     break-word;
+			word-break: break-word;
+			word-wrap: break-word;
 		}
 
 		.wrapper {
-			display:                  table;
-			table-layout:             fixed;
-			width:                    100%;
-			min-width:                620px;
+			display: table;
+			table-layout: fixed;
+			width: 100%;
+			min-width: 620px;
 			-webkit-text-size-adjust: 100%;
-			-ms-text-size-adjust:     100%;
+			-ms-text-size-adjust: 100%;
 		}
 
 		.wrapper a {
@@ -372,24 +377,24 @@
 		.one-col,
 		.two-col,
 		.three-col {
-			Margin-left:  auto;
+			Margin-left: auto;
 			Margin-right: auto;
-			width:        600px;
+			width: 600px;
 		}
 
 		.centered {
-			Margin-left:  auto;
+			Margin-left: auto;
 			Margin-right: auto;
 		}
 
 		.btn a {
-			border-radius:   3px;
-			display:         inline-block;
-			font-size:       14px;
-			font-weight:     700;
-			line-height:     24px;
-			padding:         13px 35px 12px 35px;
-			text-align:      center;
+			border-radius: 3px;
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 24px;
+			padding: 13px 35px 12px 35px;
+			text-align: center;
 			text-decoration: none !important;
 		}
 
@@ -398,24 +403,24 @@
 		}
 
 		.two-col .btn a {
-			font-size:   12px;
+			font-size: 12px;
 			line-height: 22px;
-			padding:     10px 28px;
+			padding: 10px 28px;
 		}
 
 		.three-col .btn a,
 		.wrapper .narrower .btn a {
-			font-size:   11px;
+			font-size: 11px;
 			line-height: 19px;
-			padding:     6px 18px 5px 18px;
+			padding: 6px 18px 5px 18px;
 		}
 
 		@media only screen and (max-width: 620px) {
 			.btn a {
-				display:     block !important;
-				font-size:   14px !important;
+				display: block !important;
+				font-size: 14px !important;
 				line-height: 24px !important;
-				padding:     13px 10px 12px 10px !important;
+				padding: 13px 10px 12px 10px !important;
 			}
 		}
 
@@ -424,12 +429,12 @@
 		}
 
 		.two-col .first .padded {
-			padding-left:  32px;
+			padding-left: 32px;
 			padding-right: 16px;
 		}
 
 		.two-col .second .padded {
-			padding-left:  16px;
+			padding-left: 16px;
 			padding-right: 32px;
 		}
 
@@ -438,17 +443,17 @@
 		}
 
 		.three-col .first .padded {
-			padding-left:  32px;
+			padding-left: 32px;
 			padding-right: 8px;
 		}
 
 		.three-col .second .padded {
-			padding-left:  20px;
+			padding-left: 20px;
 			padding-right: 20px;
 		}
 
 		.three-col .third .padded {
-			padding-left:  8px;
+			padding-left: 8px;
 			padding-right: 32px;
 		}
 
@@ -469,7 +474,7 @@
 		@media only screen and (max-width: 620px) {
 			[class=wrapper] {
 				min-width: 320px !important;
-				width:     100% !important;
+				width: 100% !important;
 			}
 
 			[class=wrapper] .one-col,
@@ -481,12 +486,12 @@
 			[class=wrapper] .column,
 			[class=wrapper] .gutter {
 				display: block;
-				float:   left;
-				width:   320px !important;
+				float: left;
+				width: 320px !important;
 			}
 
 			[class=wrapper] .padded {
-				padding-left:  20px !important;
+				padding-left: 20px !important;
 				padding-right: 20px !important;
 			}
 
@@ -500,7 +505,7 @@
 
 			[class=wrapper] .image img {
 				height: auto !important;
-				width:  100% !important;
+				width: 100% !important;
 			}
 		}
 
@@ -510,28 +515,28 @@
 
 		.footer .inner {
 			padding: 58px 0 29px 0;
-			width:   600px;
+			width: 600px;
 		}
 
 		.footer .left td,
 		.footer .right td {
-			font-size:   12px;
+			font-size: 12px;
 			line-height: 22px;
 		}
 
 		.footer .left td {
 			text-align: left;
-			width:      400px;
+			width: 400px;
 		}
 
 		.footer .right td {
-			max-width:            200px;
+			max-width: 200px;
 			mso-line-height-rule: at-least;
 		}
 
 		.footer .links {
-			line-height:          26px;
-			Margin-bottom:        26px;
+			line-height: 26px;
+			Margin-bottom: 26px;
 			mso-line-height-rule: at-least;
 		}
 
@@ -552,7 +557,7 @@
 		}
 
 		.footer .campaign a {
-			font-weight:     bold;
+			font-weight: bold;
 			text-decoration: none;
 		}
 
@@ -565,23 +570,23 @@
 		.wrapper .footer .linkedinshare,
 		.wrapper .footer .forwardtoafriend {
 			background-repeat: no-repeat;
-			background-size:   200px 56px;
-			border-radius:     2px;
-			color:             #ffffff;
-			display:           block;
-			font-size:         11px;
-			font-weight:       bold;
-			line-height:       11px;
-			padding:           8px 11px 7px 28px;
-			text-align:        left;
-			text-decoration:   none;
+			background-size: 200px 56px;
+			border-radius: 2px;
+			color: #ffffff;
+			display: block;
+			font-size: 11px;
+			font-weight: bold;
+			line-height: 11px;
+			padding: 8px 11px 7px 28px;
+			text-align: left;
+			text-decoration: none;
 		}
 
 		.wrapper .footer .fblike:hover,
 		.wrapper .footer .tweet:hover,
 		.wrapper .footer .linkedinshare:hover,
 		.wrapper .footer .forwardtoafriend:hover {
-			color:   #ffffff !important;
+			color: #ffffff !important;
 			opacity: 0.8;
 		}
 
@@ -630,10 +635,10 @@
 
 			.footer .inner,
 			.footer .inner td {
-				display:    block;
+				display: block;
 				text-align: center !important;
-				max-width:  320px !important;
-				width:      320px !important;
+				max-width: 320px !important;
+				width: 320px !important;
 			}
 
 			.footer .sharing {
@@ -664,7 +669,7 @@
 		.btn,
 		.divider {
 			Margin-bottom: 0;
-			Margin-top:    0;
+			Margin-top: 0;
 		}
 
 		.wrapper .column h1 + * {
@@ -840,7 +845,7 @@
 
 		tr.border {
 			background-color: #e3e3e3;
-			height:           1px;
+			height: 1px;
 		}
 
 		tr.border td {
@@ -852,37 +857,37 @@
 		}
 
 		.first.wider .padded {
-			padding-left:  32px;
+			padding-left: 32px;
 			padding-right: 20px;
 		}
 
 		.second.wider .padded {
-			padding-left:  20px;
+			padding-left: 20px;
 			padding-right: 32px;
 		}
 
 		.first.narrower .padded {
-			padding-left:  32px;
+			padding-left: 32px;
 			padding-right: 8px;
 		}
 
 		.second.narrower .padded {
-			padding-left:  8px;
+			padding-left: 8px;
 			padding-right: 32px;
 		}
 
 		.wrapper h1 {
-			font-size:   40px;
+			font-size: 40px;
 			line-height: 48px;
 		}
 
 		.wrapper h2 {
-			font-size:   24px;
+			font-size: 24px;
 			line-height: 32px;
 		}
 
 		.wrapper h3 {
-			font-size:   18px;
+			font-size: 18px;
 			line-height: 24px;
 		}
 
@@ -899,7 +904,7 @@
 		.wrapper p,
 		.wrapper ol,
 		.wrapper ul {
-			font-size:   15px;
+			font-size: 15px;
 			line-height: 24px;
 		}
 
@@ -913,7 +918,7 @@
 		}
 
 		.wrapper blockquote {
-			Margin-left:  0;
+			Margin-left: 0;
 			padding-left: 18px;
 		}
 
@@ -922,7 +927,7 @@
 		.three-col,
 		.sidebar {
 			background-color: #ffffff;
-			table-layout:     fixed;
+			table-layout: fixed;
 		}
 
 		.wrapper .two-col blockquote,
@@ -961,14 +966,14 @@
 		}
 
 		.header {
-			Margin-left:  auto;
+			Margin-left: auto;
 			Margin-right: auto;
-			width:        600px;
+			width: 600px;
 		}
 
 		.preheader td {
 			padding-bottom: 24px;
-			padding-top:    24px;
+			padding-top: 24px;
 		}
 
 		.logo {
@@ -984,24 +989,24 @@
 		}
 
 		.logo div.logo-center img {
-			Margin-left:  auto;
+			Margin-left: auto;
 			Margin-right: auto;
 		}
 
 		.preheader td {
 			text-align: right;
-			width:      280px;
+			width: 280px;
 		}
 
 		.preheader td {
 			letter-spacing: 0.01em;
-			line-height:    17px;
-			font-weight:    400;
+			line-height: 17px;
+			font-weight: 400;
 		}
 
 		.preheader a {
 			letter-spacing: 0.03em;
-			font-weight:    700;
+			font-weight: 700;
 		}
 
 		.preheader td {
@@ -1017,17 +1022,17 @@
 			}
 
 			[class=wrapper] .header .logo {
-				padding-left:  10px !important;
+				padding-left: 10px !important;
 				padding-right: 10px !important;
 			}
 
 			[class=wrapper] .header .logo img {
 				max-width: 280px !important;
-				height:    auto !important;
+				height: auto !important;
 			}
 
 			[class=wrapper] .header .preheader td {
-				padding-top:    3px !important;
+				padding-top: 3px !important;
 				padding-bottom: 22px !important;
 			}
 
@@ -1040,24 +1045,24 @@
 			}
 
 			[class=wrapper] h1 {
-				font-size:   40px !important;
+				font-size: 40px !important;
 				line-height: 48px !important;
 			}
 
 			[class=wrapper] h2 {
-				font-size:   24px !important;
+				font-size: 24px !important;
 				line-height: 32px !important;
 			}
 
 			[class=wrapper] h3 {
-				font-size:   18px !important;
+				font-size: 18px !important;
 				line-height: 24px !important;
 			}
 
 			[class=wrapper] .column p,
 			[class=wrapper] .column ol,
 			[class=wrapper] .column ul {
-				font-size:   15px !important;
+				font-size: 15px !important;
 				line-height: 24px !important;
 			}
 
@@ -1072,7 +1077,7 @@
 
 			[class=wrapper] blockquote {
 				border-left-width: 4px !important;
-				padding-left:      18px !important;
+				padding-left: 18px !important;
 			}
 
 			[class=wrapper] table.border {
@@ -1093,113 +1098,163 @@
 	</style>
 	<!--[if !mso]><!-->
 	<style type="text/css">
-		@import url(https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400|Roboto:400,700,400italic,700italic);
+		@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 	</style>
-	<link href="https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400|Roboto:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
 	<!--<![endif]-->
 	<style type="text/css">
-		.wrapper h1 { }
+		.wrapper h1 {
+		}
 
-		.wrapper h1 { font-family: Cabin, Avenir, sans-serif }
+		.wrapper h1 {
+			font-family: 'Montserrat', 'Open Sans', sans-serif;
+		}
 
-		.mso .wrapper h1 { font-family: sans-serif !important }
+		.mso .wrapper h1 {
+			font-family: 'Montserrat', 'Open Sans', 'Montserrat', 'Open Sans', sans-serif !important
+		}
 
-		.wrapper h2 { }
+		.wrapper h2 {
+		}
 
-		.wrapper h2 { font-family: "Open Sans", sans-serif }
+		.wrapper h2 {
+			font-family: 'Montserrat', 'Open Sans', sans-serif
+		}
 
-		.mso .wrapper h2 { font-family: sans-serif !important }
+		.mso .wrapper h2 {
+			font-family: 'Montserrat', 'Open Sans', 'Montserrat', 'Open Sans', sans-serif !important
+		}
 
-		.wrapper h3 { }
+		.wrapper h3 {
+		}
 
-		.wrapper h3 { font-family: "Open Sans", sans-serif }
+		.wrapper h3 {
+			font-family: 'Montserrat', 'Open Sans', sans-serif
+		}
 
-		.mso .wrapper h3 { font-family: sans-serif !important }
+		.mso .wrapper h3 {
+			font-family: 'Montserrat', 'Open Sans', 'Montserrat', 'Open Sans', sans-serif !important
+		}
 
-		.wrapper p, .wrapper ol, .wrapper ul, .wrapper .image { }
+		.wrapper p, .wrapper ol, .wrapper ul, .wrapper .image {
+		}
 
-		.wrapper p, .wrapper ol, .wrapper ul, .wrapper .image { font-family: "Open Sans", sans-serif }
+		.wrapper p, .wrapper ol, .wrapper ul, .wrapper .image {
+			font-family: 'Montserrat', 'Open Sans', sans-serif
+		}
 
-		.mso .wrapper p, .mso .wrapper ol, .mso .wrapper ul, .mso .wrapper .image { font-family: sans-serif !important }
+		.mso .wrapper p, .mso .wrapper ol, .mso .wrapper ul, .mso .wrapper .image {
+			font-family: 'Montserrat', 'Open Sans', sans-serif !important
+		}
 
-		.wrapper .btn a { }
+		.wrapper .btn a {
+		}
 
-		.wrapper .btn a { font-family: "Open Sans", sans-serif }
+		.wrapper .btn a {
+			font-family: 'Montserrat', 'Open Sans', sans-serif
+		}
 
-		.mso .wrapper .btn a { font-family: sans-serif !important }
+		.mso .wrapper .btn a {
+			font-family: 'Montserrat', 'Open Sans', sans-serif !important
+		}
 
-		.logo div { }
+		.logo div {
+		}
 
-		.logo div { font-family: Roboto, Tahoma, sans-serif }
+		.logo div {
+			font-family: Montserrat, Tahoma, sans-serif
+		}
 
-		.mso .logo div { font-family: Tahoma, sans-serif !important }
+		.mso .logo div {
+			font-family: Tahoma, 'Montserrat', 'Open Sans', sans-serif !important
+		}
 
-		.title, .webversion, .fblike, .tweet, .linkedinshare, .forwardtoafriend, .link, .address, .permission, .campaign { }
+		.title, .webversion, .fblike, .tweet, .linkedinshare, .forwardtoafriend, .link, .address, .permission, .campaign {
+		}
 
-		.title, .webversion, .fblike, .tweet, .linkedinshare, .forwardtoafriend, .link, .address, .permission, .campaign { font-family: "Open Sans", sans-serif }
+		.title, .webversion, .fblike, .tweet, .linkedinshare, .forwardtoafriend, .link, .address, .permission, .campaign {
+			font-family: 'Montserrat', 'Open Sans', sans-serif
+		}
 
-		.mso .title, .mso .webversion, .mso .fblike, .mso .tweet, .mso .linkedinshare, .mso .forwardtoafriend, .mso .link, .mso .address, .mso .permission, .mso .campaign { font-family: sans-serif !important }
+		.mso .title, .mso .webversion, .mso .fblike, .mso .tweet, .mso .linkedinshare, .mso .forwardtoafriend, .mso .link, .mso .address, .mso .permission, .mso .campaign {
+			font-family: 'Montserrat', 'Open Sans', sans-serif !important
+		}
 
-		body, .wrapper, .emb-editor-canvas { background-color: #f5f7fa }
+		body, .wrapper, .emb-editor-canvas {
+			background-color: #88E2C4
+		}
 
-		.border { background-color: #dddee1 }
+		.border {
+			background-color: #dddee1
+		}
 
-		.wrapper h1 { color: #44a8c7 }
+		.wrapper blockquote {
+			border-left: 4px solid #88E2C4
+		}
 
-		.wrapper h2 { color: #44a8c7 }
+		.wrapper .three-col blockquote, .wrapper .narrower blockquote {
+			border-left: 2px solid #88E2C4
+		}
 
-		.wrapper h3 { color: #434547 }
+		.wrapper .btn a {
+			background-color: #5c91ad;
+			color: #fff
+		}
 
-		.wrapper p, .wrapper ol, .wrapper ul { color: #60666d }
+		.wrapper .btn a:hover {
+			color: #fff !important
+		}
 
-		.wrapper .image { color: #60666d }
+		.logo div {
+			color: #3AAC87
+		}
 
-		.wrapper a { color: #5c91ad }
+		.logo div a {
+			color: #3AAC87
+		}
 
-		.wrapper a:hover { color: #48768e !important }
+		.logo div a:hover {
+			color: #3AAC87 !important
+		}
 
-		.wrapper blockquote { border-left: 4px solid #f5f7fa }
+		.title, .webversion, .footer .inner td {
+			color: #fff
+		}
 
-		.wrapper .three-col blockquote, .wrapper .narrower blockquote { border-left: 2px solid #f5f7fa }
+		.wrapper .title a, .wrapper .webversion a, .wrapper .footer a {
+			color: #fff
+		}
 
-		.wrapper .btn a { background-color: #5c91ad; color: #fff }
+		.wrapper .title a:hover, .wrapper .webversion a:hover, .wrapper .footer a:hover {
+			color: #fff !important
+		}
 
-		.wrapper .btn a:hover { color: #fff !important }
-
-		.logo div { color: #44a8c7 }
-
-		.logo div a { color: #44a8c7 }
-
-		.logo div a:hover { color: #44a8c7 !important }
-
-		.title, .webversion, .footer .inner td { color: #b9b9b9 }
-
-		.wrapper .title a, .wrapper .webversion a, .wrapper .footer a { color: #b9b9b9 }
-
-		.wrapper .title a:hover, .wrapper .webversion a:hover, .wrapper .footer a:hover { color: #939393 !important }
-
-		.wrapper .footer .fblike, .wrapper .footer .tweet, .wrapper .footer .linkedinshare, .wrapper .footer .forwardtoafriend { background-color: #7b7c7d }
+		.wrapper .footer .fblike, .wrapper .footer .tweet, .wrapper .footer .linkedinshare, .wrapper .footer .forwardtoafriend {
+			background-color: #7b7c7d
+		}
 	</style>
 	<meta name="robots" content="noindex,nofollow"/>
-	<meta property="og:title" content="My First Campaign"/>
 </head>
 <!--[if mso]>
 <body class="mso">
 <![endif]-->
 <!--[if !mso]><!-->
-<body class="full-padding" style="margin: 0;padding: 0;min-width: 100%;background-color: #f5f7fa;">
+<body class="full-padding" style="margin: 0;padding: 0;min-width: 100%;background-color: #88E2C4;">
 <!--<![endif]-->
-<center class="wrapper" style="display: table;table-layout: fixed;width: 100%;min-width: 620px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #f5f7fa;">
-	<table class="header centered" style="border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 600px;">
+<center class="wrapper"
+		style="display: table;table-layout: fixed;width: 100%;min-width: 620px;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;background-color: #88E2C4;">
+	<table class="header centered"
+		   style="border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 600px;">
 		<tbody>
 		<tr>
 			<td style="padding: 0;vertical-align: top;">
 				<table class="preheader" style="border-collapse: collapse;border-spacing: 0;" align="right">
 					<tbody>
 					<tr>
-						<td class="emb-logo-padding-box" style="padding: 0;vertical-align: top;padding-bottom: 24px;padding-top: 24px;text-align: right;width: 280px;letter-spacing: 0.01em;line-height: 17px;font-weight: 400;font-size: 11px;">
+						<td class="emb-logo-padding-box"
+							style="padding: 0;vertical-align: top;padding-bottom: 24px;padding-top: 24px;text-align: right;width: 280px;letter-spacing: 0.01em;line-height: 17px;font-weight: 400;font-size: 11px;">
 							<div class="spacer" style="font-size: 1px;line-height: 2px;width: 100%;">&nbsp;</div>
-							<div class="title" style='font-family: "Open Sans",sans-serif;color: #b9b9b9;'>@yield('summary')</div>
+							<div class="title"
+								 style='font-family: Montserrat, sans-serif;color: #fff;'>@yield('summary')</div>
 
 						</td>
 					</tr>
@@ -1208,9 +1263,12 @@
 				<table style="border-collapse: collapse;border-spacing: 0;" align="left">
 					<tbody>
 					<tr>
-						<td class="logo emb-logo-padding-box" style="padding: 0;vertical-align: top;mso-line-height-rule: at-least;width: 280px;padding-top: 24px;padding-bottom: 24px;">
-							<div class="logo-left" style="font-weight: 700;font-family: Roboto,Tahoma,sans-serif;color: #44a8c7;font-size: 24px !important;line-height: 30px !important;" align="left" id="emb-email-header">
-								TakeDaily
+						<td class="logo emb-logo-padding-box"
+							style="padding: 0;vertical-align: top;mso-line-height-rule: at-least;width: 280px;padding-top: 24px;padding-bottom: 24px;">
+							<div class="logo-left"
+								 style="font-weight: 700;font-family: Montserrat,Tahoma,sans-serif;color: #3AAC87;font-size: 24px !important;line-height: 30px !important;"
+								 align="left" id="emb-email-header">
+								<img src="{{ asset('/images/mail-logo.png') }}" height="36" alt="Logo">
 							</div>
 						</td>
 					</tr>
@@ -1225,18 +1283,23 @@
 		<tbody>
 		<tr>
 			<td style="padding: 0;vertical-align: top;">
-				<table class="one-col" style="border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 600px;background-color: #ffffff;table-layout: fixed;" emb-background-style>
+				<table class="one-col"
+					   style="border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 600px;background-color: #ffffff;table-layout: fixed;"
+					   emb-background-style>
 					<tbody>
 					<tr>
 						<td class="column" style="padding: 0;vertical-align: top;text-align: left;">
 							<div>
-								<div class="column-top" style="font-size: 32px;line-height: 32px;transition-timing-function: cubic-bezier(0, 0, 0.2, 1);transition-duration: 150ms;transition-property: all;">
+								<div class="column-top"
+									 style="font-size: 32px;line-height: 32px;transition-timing-function: cubic-bezier(0, 0, 0.2, 1);transition-duration: 150ms;transition-property: all;">
 									&nbsp;</div>
 							</div>
-							<table class="contents" style="border-collapse: collapse;border-spacing: 0;table-layout: fixed;width: 100%;">
+							<table class="contents"
+								   style="border-collapse: collapse;border-spacing: 0;table-layout: fixed;width: 100%;">
 								<tbody>
 								<tr>
-									<td class="padded" style="padding: 0;vertical-align: top;padding-left: 32px;padding-right: 32px;word-break: break-word;word-wrap: break-word;">
+									<td class="padded"
+										style="padding: 0;vertical-align: top;padding-left: 32px;padding-right: 32px;word-break: break-word;word-wrap: break-word;">
 
 										<div style="line-height:10px;font-size:1px">&nbsp;</div>
 
@@ -1245,19 +1308,31 @@
 								</tbody>
 							</table>
 
-							<table class="contents" style="border-collapse: collapse;border-spacing: 0;table-layout: fixed;width: 100%;">
+							<table class="contents"
+								   style="border-collapse: collapse;border-spacing: 0;table-layout: fixed;width: 100%;">
 								<tbody>
 								<tr>
-									<td class="padded" style="padding: 0;vertical-align: top;padding-left: 32px;padding-right: 32px;word-break: break-word;word-wrap: break-word;">
-										<h2 class="size-24" style='font-style: normal;font-weight: 700;Margin-bottom: 0;Margin-top: 0;font-size: 24px;line-height: 32px;font-family: "Open Sans",sans-serif;color: #44a8c7;text-align: center;'>
+									<td class="padded"
+										style="color: #3AAC87 !important; padding: 0;vertical-align: top;padding-left: 32px;padding-right: 32px;word-break: break-word;word-wrap: break-word;">
+										<h2 class="size-24"
+											style='font-style: normal;font-weight: 700;Margin-bottom: 20px;Margin-top: 0;font-size: 24px;text-align: center;'>
 											<strong style="font-weight: bold;">@yield('title')</strong></h2>
-										@yield('content')
+										<div
+											style="font-family: 'Montserrat', sans-serif; font-size: 14px;color: #3AAC87;line-height: 28px; text-align: center; font-weight: normal;">
+											@yield('content')
+										</div>
+										<p class="size-16"
+										   style='font-style: normal;font-weight: 600;Margin-bottom: 0;Margin-top: 20px;text-align: center;'>
+											Mvh.<br/>
+											TakeDaily
+										</p>
 									</td>
 								</tr>
 								</tbody>
 							</table>
 
-							<div class="column-bottom" style="font-size: 32px;line-height: 32px;transition-timing-function: cubic-bezier(0, 0, 0.2, 1);transition-duration: 150ms;transition-property: all;">
+							<div class="column-bottom"
+								 style="font-size: 32px;line-height: 32px;transition-timing-function: cubic-bezier(0, 0, 0.2, 1);transition-duration: 150ms;transition-property: all;">
 								&nbsp;</div>
 						</td>
 					</tr>
@@ -1268,29 +1343,21 @@
 		</tbody>
 	</table>
 
-	<table class="footer centered" style="border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 100%;">
+	<table class="footer centered"
+		   style="border-collapse: collapse;border-spacing: 0;Margin-left: auto;Margin-right: auto;width: 100%;">
 		<tbody>
 		<tr>
 			<td style="padding: 0;vertical-align: top;">&nbsp;</td>
-			<td class="inner" style="padding: 58px 0 29px 0;vertical-align: top;width: 600px;">
-				<table class="right" style="border-collapse: collapse;border-spacing: 0;" align="right">
-					<tbody>
-					<tr>
-						<td style="padding: 0;vertical-align: top;color: #b9b9b9;font-size: 12px;line-height: 22px;max-width: 200px;mso-line-height-rule: at-least;">
-							<div class="sharing"></div>
-						</td>
-					</tr>
-					</tbody>
-				</table>
+			<td class="inner" style="padding: 30px 0 30px 0;vertical-align: top;width: 600px;">
 				<table class="left" style="border-collapse: collapse;border-spacing: 0;" align="left">
 					<tbody>
 					<tr>
-						<td style="padding: 0;vertical-align: top;color: #b9b9b9;font-size: 12px;line-height: 22px;text-align: left;width: 400px;">
+						<td style="padding: 0;vertical-align: top;color: #fff;font-size: 12px;line-height: 22px;text-align: left;width: 400px;">
 
-							<div class="address" style='font-family: "Open Sans",sans-serif;Margin-bottom: 18px;'>
+							<div class="address" style='font-family: Montserrat;Margin-bottom: 18px;'>
 								<div>TakeDaily ApS</div>
 							</div>
-							<div class="permission" style='font-family: "Open Sans",sans-serif;'>
+							<div class="permission" style='font-family: Montserrat;'>
 								<div>Du f&#229;r denne mail fordi du er kunde hos os.</div>
 							</div>
 							<div class="campaign" style='font-family: "Open Sans",sans-serif;Margin-bottom: 18px;'>
