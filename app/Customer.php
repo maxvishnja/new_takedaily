@@ -436,37 +436,37 @@ class Customer extends Model
 
 	public function hasNewRecommendations()
 	{
-		$alphabet = range('a', 'c');
+		$alphabet        = range('a', 'c');
 		$combinations    = $this->calculateCombinations();
-		$newVitamins = [];
+		$newVitamins     = [];
 		$currentVitamins = [];
-		$isSimilar = true;
+		$isSimilar       = true;
 
 		foreach ( $this->getVitaminModels() as $vitaminModel )
 		{
 			$currentVitamins[] = substr($vitaminModel->code, 1, 1);
 		}
 
-		foreach($combinations as $index => $combination)
+		foreach ( $combinations as $index => $combination )
 		{
-			if( $index == 'one' )
+			if ( $index == 'one' )
 			{
-				$combination = $alphabet[$combination - 1];
+				$combination = $alphabet[ $combination - 1 ];
 			}
 
 			$newVitamins[] = strtolower($combination);
 		}
 
-		if( count($newVitamins) != count($currentVitamins))
+		if ( count($newVitamins) != count($currentVitamins) )
 		{
 			$isSimilar = false;
 
 			return !$isSimilar;
 		}
 
-		foreach($currentVitamins as $index => $currentVitamin)
+		foreach ( $currentVitamins as $index => $currentVitamin )
 		{
-			if( $currentVitamin != $newVitamins[$index])
+			if ( $currentVitamin != $newVitamins[ $index ] )
 			{
 				$isSimilar = false;
 				continue;
@@ -509,34 +509,29 @@ class Customer extends Model
 		return $combinationLibrary->getResult();
 	}
 
-	public
-	function getVitamins()
+	public function getVitamins()
 	{
 		return $this->getPlan()->vitamins;
 	}
 
-	public
-	function setVitamins(array $vitamins)
+	public function setVitamins(array $vitamins)
 	{
 		return $this->getPlan()->update([ 'vitamins' => json_encode($vitamins) ]);
 	}
 
-	public
-	function getVitaminModels()
+	public function getVitaminModels()
 	{
 		$vitamins = json_decode($this->getVitamins());
 
 		return Vitamin::whereIn('id', $vitamins)->get();
 	}
 
-	public
-	function loadLabel()
+	public function loadLabel()
 	{
 		return view('pdf.label', [ 'customer' => $this ]);
 	}
 
-	public
-	function loadSticker()
+	public function loadSticker()
 	{
 		return view('pdf.sticker', [ 'customer' => $this ]);
 	}
@@ -544,8 +539,7 @@ class Customer extends Model
 	/**
 	 * @return \PDF
 	 */
-	public
-	function generateLabel()
+	public function generateLabel()
 	{
 		return \PDF::loadView('pdf.label', [ 'customer' => $this ])
 		           ->setPaper([ 0, 0, 570, 262 ])
@@ -555,16 +549,14 @@ class Customer extends Model
 	/**
 	 * @return \PDF
 	 */
-	public
-	function generateSticker()
+	public function generateSticker()
 	{
 		return \PDF::loadView('pdf.sticker', [ 'customer' => $this ])
 		           ->setPaper([ 0, 0, 531, 723 ])
 		           ->setOrientation('portrait');
 	}
 
-	public
-	function scopeRebillable($query)
+	public function scopeRebillable($query)
 	{
 		return $query->join('plans', 'plans.id', '=', 'customers.plan_id')
 		             ->whereNull('plans.deleted_at')
@@ -573,8 +565,7 @@ class Customer extends Model
 		             ->where('plans.subscription_rebill_at', '<=', Date::now());
 	}
 
-	public
-	function getPaymentMethods()
+	public function getPaymentMethods()
 	{
 		$plan = $this->getPlan();
 

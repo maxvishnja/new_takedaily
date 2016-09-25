@@ -11,7 +11,15 @@
 		@foreach($attributes as $attribute)
 			<label style="display: block;">
 				<span>{{ trans("attributes.{$attribute->identifier}") }}</span>
-				<input type="text" id="{{ $attribute->identifier }}" class="input input--full input--regular" name="attributes[{{ $attribute->id }}]" data-original="{{ $attribute->value }}" value="{{ Request::old($attribute->identifier, $attribute->value) }}"/>
+				@if($attribute->identifier == 'address_country')
+					<select class="select select--regular select--full" id="{{ $attribute->identifier }}" name="attributes[{{ $attribute->id }}]" data-original="{{ $attribute->value }}" value="{{ Request::old($attribute->identifier, $attribute->value) }}">
+						@foreach(trans('countries') as $countryValue => $country)
+							<option value="{{ $countryValue }}" @if($countryValue == $attribute->value) selected="selected" @endif>{{ $country }}</option>
+						@endforeach
+					</select>
+				@else
+					<input type="text" id="{{ $attribute->identifier }}" class="input input--full input--regular" name="attributes[{{ $attribute->id }}]" data-original="{{ $attribute->value }}" value="{{ Request::old($attribute->identifier, $attribute->value) }}"/>
+				@endif
 			</label>
 		@endforeach
 

@@ -99,7 +99,7 @@
 				maxVitamins: 4,
 				minVitamins: 3,
 				vitamins: [
-						@foreach($vitamins as $vitamin)
+					@foreach($vitamins as $vitamin)
 					{
 						name: "{!! $vitamin->name !!}",
 						code: "{!! $vitamin->code !!}",

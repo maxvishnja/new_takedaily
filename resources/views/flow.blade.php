@@ -618,6 +618,13 @@
 							dig</p> {{-- todo translate --}}
 					</div>
 
+					<div id="pick-n-mix-block" class="text-left" style="display: none;">
+						<h2>Vi kan ikke give dig en anbefaling...</h2>
+						<p>Ud fra de data du har angivet, kan vi desværre ikke lave en personlig anbefaling. Du kans stadigvæk vælge dine vitaminer selv, og komme igang med TakeDaily med det samme.</p>
+						<a href="/pick-n-mix"
+								class="button button--green button--large button--full-mobile m-t-20">Vælg selv dine vitaminer</a>
+					</div>{{-- todo translate --}}
+
 					<div id="advises-block" class="text-left" style="display: none;">
 						<h2>Dine anbefalinger</h2> {{-- todo translate --}}
 						<button type="submit"
@@ -638,6 +645,8 @@
 									<div id="advises-label" class="tab-block tab-block--active"></div>
 									<div id="advises-content" class="tab-block"></div>
 								</div>
+
+								<p>Ønsker du at ændre dine vitaminer? <a href="/pick-n-mix" id="link-to-change">Tryk her</a></p>
 
 								@include('includes.disclaimer')
 							</div>
@@ -970,14 +979,22 @@
 
 								setTimeout(function () {
 									$("#advises-loader").hide();
-									$("#advises-block").fadeIn();
-									$("#advises-content").html(response.advises);
-									$("#advises-label").html(response.label);
+									$("#pick-n-mix-block").hide();
+									if (response.num_advises >= 3) {
+										$("#advises-block").fadeIn();
+										$("#advises-content").html(response.advises);
+										$("#advises-label").html(response.label);
+										$("#link-to-change").attr('href', ('/pick-n-mix?selected=' + response.selected_codes));
+									}
+									else {
+										$("#pick-n-mix-block").fadeIn();
+									}
 								}, 3200 - timeout);
 							}
 						});
 					}
 					else {
+						$("#pick-n-mix-block").hide();
 						$("#advises-block").hide();
 						$("#advises-loader").show();
 					}

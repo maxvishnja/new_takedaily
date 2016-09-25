@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PickMixController extends Controller
 {
-	public function get()
+	public function get(Request $request)
 	{
 		$vitamins         = Vitamin::all();
 		$isCustomer       = \Auth::check() && \Auth::user()->isUser();
@@ -18,6 +18,10 @@ class PickMixController extends Controller
 			$selectedVitamins = json_decode(\Auth::user()
 			                                     ->getCustomer()
 			                                     ->getVitamins()); // consider is this foolproof? (what if it is not json, or such)
+		}
+		elseif ( $request->has('selected') )
+		{
+			$selectedVitamins = array_flatten(Vitamin::select('id')->whereIn('code', explode(',', $request->get('selected')))->get()->toArray());
 		}
 
 		return view('pick', compact('vitamins', 'isCustomer', 'selectedVitamins'));
