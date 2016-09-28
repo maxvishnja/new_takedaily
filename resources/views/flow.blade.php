@@ -815,7 +815,7 @@
 				current_advise_two: null,
 				current_advise_three: null,
 				temp_age: null,
-				shipping: 0, {{-- todo get from settings --}}
+				shipping: {{ $shippingPrice }},
 				price: "{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}",
 				sub_price: "{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}",
 				tax_rate: "{{ $taxRate }}",
@@ -894,10 +894,10 @@
 					return discount;
 				},
 				total: function () {
-					return this.subtotal - this.total_discount;
+					return this.subtotal - this.total_discount + this.shipping;
 				},
 				total_subscription: function () {
-					var amount = this.sub_price;
+					var amount = this.sub_price + this.shipping;
 
 					if (this.discount.applied) {
 						if (this.discount.applies_to == 'plan') {

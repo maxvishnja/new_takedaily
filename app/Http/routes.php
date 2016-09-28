@@ -61,8 +61,9 @@ Route::group([ 'middleware' => 'web' ], function ()
 
 			$zone    = new \App\Apricot\Libraries\TaxLibrary(trans('general.tax_zone'));
 			$taxRate = $zone->rate();
+			$shippingPrice = \App\Setting::getWithDefault('shipping_price', 0);
 
-			return view('flow', compact('giftcard', 'coupon', 'product', 'taxRate'));
+			return view('flow', compact('giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice'));
 		});
 
 		Route::post('flow/recommendations', function (\Illuminate\Http\Request $request)
