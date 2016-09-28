@@ -41,4 +41,16 @@ class Setting extends Model
      */
 	protected $hidden = [ ];
 
+	public static function getWithDefault($identifier = '', $default = null)
+	{
+		$setting = self::whereIdentifier($identifier)->first();
+
+		if( ! $setting )
+		{
+			return $default;
+		}
+
+		return $setting->value;
+	}
+
 }

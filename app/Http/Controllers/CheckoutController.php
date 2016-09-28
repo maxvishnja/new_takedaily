@@ -2,11 +2,13 @@
 
 use App\Apricot\Checkout\Checkout;
 use App\Apricot\Checkout\CheckoutCompletion;
+use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
 use App\Product;
+use App\Setting;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -45,7 +47,8 @@ class CheckoutController extends Controller
 		return view('checkout.index', [
 			'user_data' => json_encode(\Session::get('user_data', \Request::old('user_data', json_decode('{}')))),
 			'product'   => $product,
-			'giftcard'  => $giftcard
+			'giftcard'  => $giftcard,
+		    'shippingPrice' => Setting::getWithDefault('shipping_price', 0)
 		]);
 	}
 
