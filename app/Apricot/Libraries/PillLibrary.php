@@ -34,6 +34,7 @@ class PillLibrary
 		'3d' => 'Transparant Code 1-0K',
 		'3e' => 'Fish',
 		'3f' => 'White Code 20-1K',
+	    '3g' => ''
 	];
 
 	public static function getPill($group, $item)

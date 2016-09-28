@@ -29,6 +29,7 @@ class Vitamin extends Model
     protected $fillable = [
 	    'name',
         'code',
-        'description'
+        'description',
+        'type'
     ];
 }
