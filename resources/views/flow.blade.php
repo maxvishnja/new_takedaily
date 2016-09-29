@@ -1079,7 +1079,7 @@
 					{
 						@foreach(trans('flow.info') as $infoKey => $info)
 						case "{{ $infoKey }}":
-							swal('{!! $info !!}');
+							swal("{!! $info !!}");
 							break;
 						@endforeach
 					}

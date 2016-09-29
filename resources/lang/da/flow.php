@@ -2,7 +2,7 @@
 return [
 	'back'              => '&lsaquo; Tilbage til tidligere spørgsmål',
 	'title'             => 'Find din anbefaling - TakeDaily',
-	'scripts'           => 'Venligst aktiver javascripts!',
+	'scripts'           => 'Venligst aktiver javascripts.',
 	'steps'             => [
 		'one'   => 'PERSONLIGT',
 		'two'   => 'HELBRED',
@@ -221,6 +221,14 @@ return [
 				'1' => 'Ingen',
 				'2' => '1-2 glas',
 				'3' => '+3 glas'
+			]
+		],
+		'3-9'  => [
+			'title'   => 'Ønsker du Chiaolie eller Fiskeoile?',
+			'text'    => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfir frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne.',
+			'options' => [
+				'1' => 'Chiaolie',
+				'2' => 'Fiskeolie'
 			]
 		]
 	],
