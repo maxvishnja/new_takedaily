@@ -19,7 +19,8 @@ class CombinationSeeder extends Seeder
 			"c": true,
 			"d": true,
 			"e": true,
-			"f": false
+			"f": false,
+			"g": true
 		},
 		"B": {
 			"a": false,
@@ -27,7 +28,8 @@ class CombinationSeeder extends Seeder
 			"c": true,
 			"d": false,
 			"e": true,
-			"f": true
+			"f": true,
+			"g": true
 		},
 		"C": {
 			"a": true,
@@ -35,7 +37,8 @@ class CombinationSeeder extends Seeder
 			"c": false,
 			"d": false,
 			"e": true,
-			"f": true
+			"f": true,
+			"g": true
 		},
 		"D": {
 			"a": false,
@@ -43,7 +46,8 @@ class CombinationSeeder extends Seeder
 			"c": true,
 			"d": false,
 			"e": true,
-			"f": false
+			"f": false,
+			"g": true
 		},
 		"E": {
 			"a": true,
@@ -51,7 +55,8 @@ class CombinationSeeder extends Seeder
 			"c": true,
 			"d": true,
 			"e": true,
-			"f": false
+			"f": false,
+			"g": true
 		}
 	},
 	"2": {
@@ -62,7 +67,8 @@ class CombinationSeeder extends Seeder
 			"c": true,
 			"d": false,
 			"e": true,
-			"f": true
+			"f": true,
+			"g": true
 		},
 		"C": {
 			"a": true,
@@ -70,7 +76,8 @@ class CombinationSeeder extends Seeder
 			"c": false,
 			"d": false,
 			"e": true,
-			"f": true
+			"f": true,
+			"g": true
 		},
 		"D": {
 			"a": false,
@@ -78,7 +85,8 @@ class CombinationSeeder extends Seeder
 			"c": true,
 			"d": false,
 			"e": true,
-			"f": false
+			"f": false,
+			"g": true
 		},
 		"E": {
 			"a": true,
@@ -86,7 +94,8 @@ class CombinationSeeder extends Seeder
 			"c": true,
 			"d": true,
 			"e": true,
-			"f": false
+			"f": false,
+			"g": true
 		}
 	},
 	"3": {
@@ -97,7 +106,8 @@ class CombinationSeeder extends Seeder
 			"c": true,
 			"d": false,
 			"e": true,
-			"f": false
+			"f": false,
+			"g": true
 		},
 		"C": {
 			"a": true,
@@ -105,7 +115,8 @@ class CombinationSeeder extends Seeder
 			"c": false,
 			"d": false,
 			"e": true,
-			"f": false
+			"f": false,
+			"g": true
 		},
 		"D": false,
 		"E": false

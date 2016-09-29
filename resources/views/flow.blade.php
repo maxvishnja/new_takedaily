@@ -527,7 +527,8 @@
 						<p class="substep-explanation">{{ trans('flow.questions.3-5.text') }}</p>
 					</div>
 
-					<div data-sub-step="6" class="sub_step" v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }">
+					<div data-sub-step="6" class="sub_step"
+						 v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }">
 						<h3 class="substep-title">{{ trans('flow.questions.3-6.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
@@ -602,22 +603,25 @@
 						<p class="substep-explanation">{{ trans('flow.questions.3-8.text') }}</p>
 					</div>
 
-					<div data-sub-step="9" class="sub_step" v-bind:class="{'sub_step--skip': user_data.vegetarian > 1 && user_data.foods.fish == 1 }">
+					<div data-sub-step="9" class="sub_step"
+						 v-bind:class="{'sub_step--skip': user_data.vegetarian > 1 && user_data.foods.fish == 1 }">
 						<h3 class="substep-title">{{ trans('flow.questions.3-9.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
-								<input type="radio" name="step[3][9]" value="true" v-model="user_data.foods.chiaoil"
+								<input type="radio" name="step[3][9]" value="chiaoil" v-model="user_data.foods.oil"
 									   v-on:click="nextStep();"/>
 								<span class="icon pill-3g"></span>
 								<br/>{{ trans('flow.questions.3-9.options.1') }}
-								<a class="more-info-link" href="#" v-on:click="moreInfo('chiaoil', $event);">Mere info</a>
+								<a class="more-info-link" href="#" v-on:click="moreInfo('chiaoil', $event);">Mere
+									info</a>
 							</label>
 							<label>
-								<input type="radio" name="step[3][9]" value="true" v-model="user_data.foods.fishoil"
+								<input type="radio" name="step[3][9]" value="fishoil" v-model="user_data.foods.oil"
 									   v-on:click="nextStep();"/>
 								<span class="icon pill-3e"></span>
 								<br/>{{ trans('flow.questions.3-9.options.2') }}
-								<a class="more-info-link" href="#" v-on:click="moreInfo('fishoil', $event);">Mere info</a>
+								<a class="more-info-link" href="#" v-on:click="moreInfo('fishoil', $event);">Mere
+									info</a>
 							</label>
 						</div>
 
@@ -642,9 +646,11 @@
 
 					<div id="pick-n-mix-block" class="text-left" style="display: none;">
 						<h2>Vi kan ikke give dig en anbefaling...</h2>
-						<p>Ud fra de data du har angivet, kan vi desværre ikke lave en personlig anbefaling. Du kans stadigvæk vælge dine vitaminer selv, og komme igang med TakeDaily med det samme.</p>
+						<p>Ud fra de data du har angivet, kan vi desværre ikke lave en personlig anbefaling. Du kans
+							stadigvæk vælge dine vitaminer selv, og komme igang med TakeDaily med det samme.</p>
 						<a href="/pick-n-mix"
-								class="button button--green button--large button--full-mobile m-t-20">Vælg selv dine vitaminer</a>
+						   class="button button--green button--large button--full-mobile m-t-20">Vælg selv dine
+							vitaminer</a>
 					</div>{{-- todo translate --}}
 
 					<div id="advises-block" class="text-left" style="display: none;">
@@ -668,7 +674,8 @@
 									<div id="advises-content" class="tab-block"></div>
 								</div>
 
-								<p>Ønsker du at ændre dine vitaminer? <a href="/pick-n-mix" id="link-to-change">Tryk her</a></p>
+								<p>Ønsker du at ændre dine vitaminer? <a href="/pick-n-mix" id="link-to-change">Tryk
+										her</a></p>
 
 								@include('includes.disclaimer')
 							</div>
@@ -762,6 +769,7 @@
 				{{ csrf_field() }}
 				<input type="hidden" name="product_name"
 					   value="{{ Session::get('force_product_name', false) ? ( Session::get('product_name', 'subscription')) : 'subscription' }}"/>
+
 			</form>
 		</div>
 	</div>
@@ -804,7 +812,9 @@
 
 @section('footer_scripts')
 	<script type="text/javascript">
-		var firstStep = $(".step.step--active");
+		var firstStep = $(".step.step--active"),
+			combinationAjax,
+			combinationTimeout;
 
 		var newHeight = 1;
 		firstStep.find(".sub_step").each(function () {
@@ -865,8 +875,7 @@
 					vegetarian: null,
 					joints: null,
 					stressed: null,
-					fishoil: null,
-					chiaoil: null,
+					oil: null,
 					foods: {
 						fruits: null,
 						vegetables: null,
@@ -953,8 +962,7 @@
 						currentSubStep.removeClass("sub_step--active").removeClass('sub_step--active-animated').removeClass("sub_step--slideout-prev").removeClass("sub_step--prev").addClass("sub_step--out-animated");
 						nextSubStep.addClass('sub_step--active').removeClass("sub_step--slideout-prev").removeClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
 
-						if(nextSubStep.hasClass('sub_step--skip'))
-						{
+						if (nextSubStep.hasClass('sub_step--skip')) {
 							this.nextStep();
 						}
 
@@ -989,7 +997,15 @@
 					if (this.step == 4) {
 						var time = 0;
 
-						$.ajax({
+						if (combinationAjax) {
+							combinationAjax.abort();
+						}
+
+						if (combinationTimeout) {
+							clearTimeout(combinationTimeout);
+						}
+
+						combinationAjax = $.ajax({
 							url: '/flow/recommendations',
 							method: 'POST',
 							dataType: 'JSON',
@@ -1007,7 +1023,7 @@
 									timeout = 3199;
 								}
 
-								setTimeout(function () {
+								combinationTimeout = setTimeout(function () {
 									$("#advises-loader").hide();
 									$("#pick-n-mix-block").hide();
 									if (response.num_advises >= 3) {
@@ -1027,6 +1043,8 @@
 						$("#pick-n-mix-block").hide();
 						$("#advises-block").hide();
 						$("#advises-loader").show();
+						$("#advises-content").html('');
+						$("#advises-label").html('');
 					}
 				},
 
@@ -1048,8 +1066,7 @@
 							currentSubStep.removeClass("sub_step--active").removeClass('sub_step--active-animated').addClass("sub_step--slideout-prev").addClass("sub_step--out-animated").removeClass("sub_step--prev");
 							previousSubStep.addClass('sub_step--active').addClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
 
-							if(previousSubStep.hasClass('sub_step--skip'))
-							{
+							if (previousSubStep.hasClass('sub_step--skip')) {
 								this.previousStep();
 							}
 
@@ -1057,7 +1074,7 @@
 						}
 					}
 
-					var numberOfSubStepsInPreviousStep = previousStep.find(".sub_step:not(.sub_step--skip)").length;
+					var numberOfSubStepsInPreviousStep = previousStep.find(".sub_step").length;
 
 					this.step--;
 					this.sub_step = numberOfSubStepsInPreviousStep;
@@ -1067,16 +1084,20 @@
 
 					this.checkIfShouldGetCombinations();
 
+					var curSubStep = previousStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
+
+					if (curSubStep.hasClass('sub_step--skip')) {
+						this.previousStep();
+					}
+
 					return true;
 				},
 
-				moreInfo: function(element, event)
-				{
+				moreInfo: function (element, event) {
 					event.preventDefault();
 					event.stopPropagation();
 
-					switch(element)
-					{
+					switch (element) {
 						@foreach(trans('flow.info') as $infoKey => $info)
 						case "{{ $infoKey }}":
 							swal("{!! $info !!}");
