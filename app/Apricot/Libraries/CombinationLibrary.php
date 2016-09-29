@@ -199,19 +199,26 @@ class CombinationLibrary
 			$this->setAdvise('three', trans('flow.combinations.3.d'));
 			$this->setAdviseInfo('three', trans('flow.combination_info.3.d'));
 		}
-		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'e') && $this->isEmpty($this->groupThree) && ($data->foods->fish == '1') )
-		{
-			$this->groupThree = 'e';
-
-			$this->setAdvise('three', trans('flow.combinations.3.e'));
-			$this->setAdviseInfo('three', trans('flow.combination_info.3.e'));
-		}
 		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'f') && $this->isEmpty($this->groupThree) && ($data->foods->butter == '2') )
 		{
 			$this->groupThree = 'f';
 
 			$this->setAdvise('three', trans('flow.combinations.3.f'));
 			$this->setAdviseInfo('three', trans('flow.combination_info.3.f'));
+		}
+		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'g') && $this->isEmpty($this->groupThree) && ($data->vegetarian == '1') ) // todo calculate
+		{
+			$this->groupThree = 'g';
+// todo
+			$this->setAdvise('three', trans('flow.combinations.3.g')); // todo need info
+			$this->setAdviseInfo('three', trans('flow.combination_info.3.g')); // todo need info
+		}
+		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'e') && $this->isEmpty($this->groupThree) && ($data->foods->fish == '1') )
+		{
+			$this->groupThree = 'e';
+
+			$this->setAdvise('three', trans('flow.combinations.3.e'));
+			$this->setAdviseInfo('three', trans('flow.combination_info.3.e'));
 		}
 
 		if( is_null($this->groupOne) && is_null($this->groupTwo) && is_null($this->groupThree) )

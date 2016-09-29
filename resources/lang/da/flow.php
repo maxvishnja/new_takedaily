@@ -335,7 +335,8 @@ return [
 					du fortsætte med at spise, som du gør nu.
 					<br/><br/>
 					Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>.
-					Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.'
+					Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
+			'g' => 'Du har valgt Chiaoile' // todo
 		],
 		'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.'
@@ -359,7 +360,8 @@ return [
 			'c' => 'Nødvendige for vedligeholdelse af normale knogler<br/>For stærke knogler',
 			'd' => 'Bidrager til normal energi-givende metabolisme<br/>Bidrager til at mindske træthed og udmattelse<br/>En fit og energisk følelse',
 			'e' => 'Bidrager til normal funktion af hjertet<br/>NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA.<br/>For kardiovaskulære',
-			'f' => 'Bidrager til beskyttelse af celler mod oxidativt stress<br/>Bidrager til vedligeholdelse af normale knogler<br/>Bidrager til opretholdelse af normal muskelfunktion<br/>Bidrager til opretholdelse af normal vision<br/>For stærke knogler og muskler'
+			'f' => 'Bidrager til beskyttelse af celler mod oxidativt stress<br/>Bidrager til vedligeholdelse af normale knogler<br/>Bidrager til opretholdelse af normal muskelfunktion<br/>Bidrager til opretholdelse af normal vision<br/>For stærke knogler og muskler',
+			'g' => 'Selvvalgt Chiaoile' // todo
 		],
 	],
 	'call-me'           => [

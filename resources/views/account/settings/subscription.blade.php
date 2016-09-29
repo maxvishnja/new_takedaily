@@ -57,13 +57,9 @@
 				text: "{{ trans('account.settings_subscription.snooze_popup.text') }}" +
 				"<form method=\"post\" action=\"{{ URL::action('AccountController@postSettingsSubscriptionSnooze') }}\" id=\"snooze_form\">" +
 				"<select class=\"select select--regular m-t-10\" name=\"days\">" +
-				"<option value=\"1\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 1]) }}</option>" +
-				"<option value=\"2\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 2]) }}</option>" +
-				"<option value=\"3\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 3]) }}</option>" +
-				"<option value=\"4\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 4]) }}</option>" +
-				"<option value=\"5\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 5]) }}</option>" +
-				"<option value=\"6\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 6]) }}</option>" +
-				"<option value=\"7\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => 7]) }}</option>" +
+				@foreach(range(1,28) as $days)
+				"<option value=\"{{ $days }}\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => {{ $days }}]) }}</option>" +
+				@endforeach
 				"</select>" +
 				"<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
 				"</form>",

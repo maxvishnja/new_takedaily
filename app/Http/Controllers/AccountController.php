@@ -249,6 +249,11 @@ class AccountController extends Controller
 			return redirect()->action('AccountController@getSettingsSubscription')->withErrors(trans('messages.errors.subscription.not-snoozed'));
 		}
 
+		if( $request->get('days', 7) > 28 )
+		{
+			return redirect()->back()->withErrors('Du kan maks udskyde i 28 dage.'); // todo translate
+		}
+
 		$this->customer->getPlan()->snooze($request->get('days', 7));
 
 		return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.snoozed', [ 'days' => $request->get('days', 7) ]));
