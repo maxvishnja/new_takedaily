@@ -9,6 +9,10 @@ return [
 		'three' => 'KOST OG VANER',
 		'four'  => 'ANBEFALING'
 	],
+	'info'              => [
+		'chiaoil' => 'Chiaolie er...',
+		'fishoil' => 'Fiskeolie er...'
+	],
 	'button-order-text' => 'Bestil TakeDaily',
 	'questions'         => [
 		'1-1'  => [
@@ -342,19 +346,19 @@ return [
 							for de dage, hvor du slapper af og synder lidt.'
 	],
 	'combination_info'  => [
-		'1'    => [
-			'basic'          => 'Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance',
-			'basic-10-d'     => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler',
-			'basic-20-d'     => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler'
+		'1' => [
+			'basic'      => 'Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance',
+			'basic-10-d' => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler',
+			'basic-20-d' => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler'
 		],
-		'2'    => [
+		'2' => [
 			'A' => 'Bidrager til moderens væv vækst under graviditeten<br/>Spiller en rolle i celledeling proces<br/>Støtter væksten af din baby',
 			'B' => 'Bidrager til den normale funktion af immunsystemet<br/>Bidrager til at mindske træthed og udmattelse<br/>Bidrager til en god modstand og en følelse pasform',
 			'C' => 'Bidrager til normal energi-givende metabolisme<br/>Bidrager til at mindske træthed og udmattelse<br/>For en fit og energisk følelse',
 			'D' => 'Bidrager til den normale funktion af immunsystemet<br/>Bidrager til en god modstandsdygtighed',
 			'E' => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>For stærke knogler og muskler'
 		],
-		'3'    => [
+		'3' => [
 			'a' => 'Bidrager til beskyttelse af celler mod oxidativt stress<br/>Bidrager til den normale funktion af immunsystemet<br/>Bidrager til at mindske træthed og udmattelse<br/>Bidrager til en god modstand og en følelse pasform',
 			'b' => 'Bidrager til normal kognitiv funktion<br/>Bidrager til opretholdelse af normal hud<br/>For hjerner og sund hud',
 			'c' => 'Nødvendige for vedligeholdelse af normale knogler<br/>For stærke knogler',

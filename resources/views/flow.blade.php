@@ -610,12 +610,14 @@
 									   v-on:click="nextStep();"/>
 								<span class="icon pill-3g"></span>
 								<br/>{{ trans('flow.questions.3-9.options.1') }}
+								<a class="more-info-link" href="#" v-on:click="moreInfo('chiaoil', $event);">Mere info</a>
 							</label>
 							<label>
 								<input type="radio" name="step[3][9]" value="true" v-model="user_data.foods.fishoil"
 									   v-on:click="nextStep();"/>
 								<span class="icon pill-3e"></span>
 								<br/>{{ trans('flow.questions.3-9.options.2') }}
+								<a class="more-info-link" href="#" v-on:click="moreInfo('fishoil', $event);">Mere info</a>
 							</label>
 						</div>
 
@@ -1066,6 +1068,21 @@
 					this.checkIfShouldGetCombinations();
 
 					return true;
+				},
+
+				moreInfo: function(element, event)
+				{
+					event.preventDefault();
+					event.stopPropagation();
+
+					switch(element)
+					{
+						@foreach(trans('flow.info') as $infoKey => $info)
+						case "{{ $infoKey }}":
+							swal('{!! $info !!}');
+							break;
+						@endforeach
+					}
 				},
 
 				getAge: function () {
