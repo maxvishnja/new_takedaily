@@ -117,13 +117,13 @@ class CheckoutCompletion
 		$userData = $this->getUserData();
 
 		$this->user->getCustomer()->update([
-			'birthdate' => $userData->birthdate,
+			'birthdate' => date('Y-m-d', strtotime($userData->birthdate)),
 			'gender'    => $userData->gender == 1 ? 'male' : 'female'
 		]);
 
 		$this->user->getCustomer()->setCustomerAttributes([
 			'user_data.gender'           => $userData->gender,
-			'user_data.birthdate'        => $userData->birthdate,
+			'user_data.birthdate'        => date('Y-m-d', strtotime($userData->birthdate)),
 			'user_data.age'              => $userData->age, // todo update this each month
 			'user_data.skin'             => $userData->skin,
 			'user_data.outside'          => $userData->outside,

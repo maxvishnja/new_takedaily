@@ -26,7 +26,7 @@
 			<div class="print_label print_label--shadow hidden-xs">
 				<div class="print_label_left">
 
-					@foreach($vitamins as $vitamine)
+					@foreach($vitamins as $vitamin)
 						<div class="print_label_line">
 							<div class="print_label_line_full">
 								{{ $vitamin->name }}
@@ -48,7 +48,7 @@
 
 					<div class="m-t-50">
 						@foreach($vitamins as $vitamin)
-							<div style="display: inline-block;" class="m-t-15 icon pill-{{ $vitamine->code }}"></div>
+							<div style="display: inline-block;" class="m-t-15 icon pill-{{ $vitamin->code }}"></div>
 						@endforeach
 					</div>
 				</div>
