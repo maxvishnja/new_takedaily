@@ -6,7 +6,8 @@ return [
 		'settings'     => 'Indstillinger',
 		'subscription' => 'Abonnent',
 		'billing'      => 'Fakturering',
-		'logout'       => 'Log ud'
+		'logout'       => 'Log ud',
+		'pick'         => 'Vitaminer'
 	],
 	'links'   => '<li><a href="/gifting">Giv i gave</a></li>
 				  <li><a href="/sadan-virker-det">Sådan virker det</a></li>
