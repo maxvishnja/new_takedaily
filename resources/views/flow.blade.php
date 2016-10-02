@@ -623,6 +623,13 @@
 								<a class="more-info-link" href="#" v-on:click="moreInfo('fishoil', $event);">Mere
 									info</a>
 							</label>
+							<label>
+								<input type="radio" name="step[3][9]" value="null" v-model="user_data.foods.oil"
+									   v-on:click="nextStep();"/>
+								<span class="icon icon-no-pill"></span>
+								<br/>{{ trans('flow.questions.3-9.options.3') }}
+								<div class="more-info-link">&nbsp;</div>
+							</label>
 						</div>
 
 						<p class="substep-explanation">{{ trans('flow.questions.3-9.text') }}</p>

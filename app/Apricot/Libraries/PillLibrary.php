@@ -48,6 +48,7 @@ class PillLibrary
 				$group = 2;
 				break;
 			case 'three':
+			case 'four':
 				$group = 3;
 				break;
 		}

@@ -9,6 +9,7 @@ class CombinationLibrary
 	private $groupOne = null;
 	private $groupTwo = null;
 	private $groupThree = null;
+	private $groupFour = null;
 	private $advises = [];
 	private $advise_info = [];
 
@@ -26,7 +27,8 @@ class CombinationLibrary
 		return [
 			'one'   => $this->groupOne,
 			'two'   => $this->groupTwo,
-			'three' => $this->groupThree
+			'three' => $this->groupThree,
+			'four' => $this->groupFour,
 		];
 	}
 
@@ -221,6 +223,22 @@ class CombinationLibrary
 
 			$this->setAdvise('three', trans('flow.combinations.3.e'));
 			$this->setAdviseInfo('three', trans('flow.combination_info.3.e'));
+		}
+
+		if ( $this->isEmpty($this->groupFour) && $this->groupThree != 'e' && $this->groupThree != 'g' && ($data->foods->oil == 'fishoil') )
+		{
+			$this->groupFour = 'e';
+
+			$this->setAdvise('four', trans('flow.combinations.3.e'));
+			$this->setAdviseInfo('four', trans('flow.combination_info.3.e'));
+		}
+
+		if ( $this->isEmpty($this->groupFour) && $this->groupThree != 'e' && $this->groupThree != 'g' && ($data->foods->oil == 'chiaoil') )
+		{
+			$this->groupFour = 'g';
+
+			$this->setAdvise('four', trans('flow.combinations.3.g'));
+			$this->setAdviseInfo('four', trans('flow.combination_info.3.g'));
 		}
 
 		if ( is_null($this->groupOne) && is_null($this->groupTwo) && is_null($this->groupThree) )

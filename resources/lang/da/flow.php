@@ -225,10 +225,11 @@ return [
 		],
 		'3-9'  => [
 			'title'   => 'Ønsker du Chiaolie eller Fiskeoile?',
-			'text'    => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfir frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne.',
+			'text'    => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
 			'options' => [
 				'1' => 'Chiaolie',
-				'2' => 'Fiskeolie'
+				'2' => 'Fiskeolie',
+				'3' => 'Ingen olie'
 			]
 		]
 	],
