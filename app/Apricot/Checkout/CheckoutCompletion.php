@@ -4,6 +4,7 @@ use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\PillLibrary;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
+use App\Setting;
 use App\User;
 use App\Vitamin;
 
@@ -155,7 +156,7 @@ class CheckoutCompletion
 		{
 			$this->getUser()->getCustomer()->getPlan()->update([
 				'price'                     => MoneyLibrary::toCents($this->getCheckout()->getSubscriptionPrice()),
-				'price_shipping'            => 0, // todo un-hardcode
+				'price_shipping'            => MoneyLibrary::toCents(Setting::getWithDefault('shipping_price', 0)),
 				'subscription_started_at'   => \Date::now(),
 				'subscription_rebill_at'    => \Date::now()->addMonth(),
 				'subscription_cancelled_at' => null
@@ -184,7 +185,7 @@ class CheckoutCompletion
 		{
 			$this->getUser()->getCustomer()->getPlan()->update([
 				'price'                     => MoneyLibrary::toCents($this->getCheckout()->getSubscriptionPrice()),
-				'price_shipping'            => 0, // todo un-hardcode
+				'price_shipping'            => MoneyLibrary::toCents(Setting::getWithDefault('shipping_price', 0)),
 				'subscription_cancelled_at' => date('Y-m-d H:i:s')
 			]);
 		}
