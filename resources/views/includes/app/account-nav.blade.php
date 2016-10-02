@@ -2,7 +2,9 @@
 	<div class="container">
 		<ul class="navigation" id="profile-nav">
 			<a class="visible-sm visible-xs icon icon-cross-large toggle-mobile-nav" href="#profile-nav"></a>
+			@if($customer && !$customer->plan->isCustom())
 			<li @if(Request::getPathInfo() == '/account') class="active" @endif><a href="/account">{{ trans('nav.account.profile') }}</a></li>
+			@endif
 			<li @if(Request::getPathInfo() == '/account/transactions') class="active" @endif><a href="/account/transactions">{{ trans('nav.account.deliveries') }}</a></li>
 			<li @if(Request::getPathInfo() == '/account/settings/basic') class="active" @endif><a href="/account/settings/basic">{{ trans('nav.account.settings') }}</a></li>
 			<li @if(Request::getPathInfo() == '/account/settings/subscription') class="active" @endif><a href="/account/settings/subscription">{{ trans('nav.account.subscription') }}</a></li>

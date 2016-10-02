@@ -69,7 +69,8 @@ class Plan extends Model
 		'subscription_cancelled_at',
 		'subscription_snoozed_until',
 		'subscription_rebill_at',
-		'vitamins'
+		'vitamins',
+	    'is_custom'
 	];
 
 	/**
@@ -301,6 +302,11 @@ class Plan extends Model
 		$this->markHasNotified();
 
 		return true;
+	}
+	
+	public function isCustom()
+	{
+		return $this->is_custom == 1;
 	}
 
 }

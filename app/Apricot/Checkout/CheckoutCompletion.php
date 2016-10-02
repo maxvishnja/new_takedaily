@@ -8,8 +8,7 @@ use App\Setting;
 use App\User;
 use App\Vitamin;
 
-class CheckoutCompletion
-{
+class CheckoutCompletion {
 	private $checkout;
 
 	/** @var User */
@@ -20,8 +19,7 @@ class CheckoutCompletion
 	/** @var Giftcard */
 	private $giftcardModel;
 
-	function __construct(Checkout $checkout)
-	{
+	function __construct( Checkout $checkout ) {
 		$this->checkout = $checkout;
 	}
 
@@ -29,23 +27,19 @@ class CheckoutCompletion
 	 * @param $name
 	 * @param $email
 	 * @param $password
-	 * 
+	 *
 	 * @return $this
 	 */
-	public function createUser($name, $email, $password)
-	{
-		if( \Auth::check() )
-		{
+	public function createUser( $name, $email, $password ) {
+		if ( \Auth::check() ) {
 			$this->user = \Auth::user();
-		}
-		else
-		{
-			$user = User::create([
-				'name'     => ucwords($name),
+		} else {
+			$user = User::create( [
+				'name'     => ucwords( $name ),
 				'email'    => $email,
-				'password' => bcrypt($password),
+				'password' => bcrypt( $password ),
 				'type'     => 'user'
-			]);
+			] );
 
 			$this->user = $user;
 		}
@@ -56,243 +50,224 @@ class CheckoutCompletion
 	/**
 	 * @return Checkout
 	 */
-	public function getCheckout()
-	{
+	public function getCheckout() {
 		return $this->checkout;
 	}
 
 	/**
 	 * @return User
 	 */
-	public function getUser()
-	{
+	public function getUser() {
 		return $this->user;
 	}
 
-	public function setCustomerAttributes($attributes)
-	{
-		$this->getUser()->getCustomer()->setCustomerAttributes($attributes);
+	public function setCustomerAttributes( $attributes ) {
+		$this->getUser()->getCustomer()->setCustomerAttributes( $attributes );
 
 		return $this;
 	}
 
-	public function setPlanPayment($paymentCustomerToken, $paymentMethod)
-	{
-		$this->getUser()->getCustomer()->getPlan()->update([
+	public function setPlanPayment( $paymentCustomerToken, $paymentMethod ) {
+		$this->getUser()->getCustomer()->getPlan()->update( [
 			'payment_customer_token' => $paymentCustomerToken,
 			'payment_method'         => $paymentMethod
-		]);
+		] );
 
 		return $this;
 	}
 
-	public function setUserData($data)
-	{
+	public function setUserData( $data ) {
 		$this->userData = $data;
 
-		if ( $this->hasUserData() )
-		{
+		if ( $this->hasUserData() ) {
 			$this->updateCustomerWithUserData();
 		}
 
 		return $this;
 	}
 
-	public function getUserData()
-	{
-		return json_decode($this->userData);
+	public function getUserData() {
+		return json_decode( $this->userData );
 	}
 
-	public function getGiftcard()
-	{
+	public function getGiftcard() {
 		return $this->giftcardModel;
 	}
 
-	public function hasUserData()
-	{
-		return $this->getUserData() && count(get_object_vars($this->getUserData())) > 0;
+	public function hasUserData() {
+		return $this->getUserData() && is_object($this->getUserData()) && count( get_object_vars( $this->getUserData() ) ) > 0;
 	}
 
-	public function updateCustomerWithUserData()
-	{
+	public function updateCustomerWithUserData() {
 		$userData = $this->getUserData();
 
-		$this->user->getCustomer()->update([
-			'birthdate' => date('Y-m-d', strtotime($userData->birthdate)),
-			'gender'    => $userData->gender == 1 ? 'male' : 'female'
-		]);
+		if ( $userData ) {
+			$this->user->getCustomer()->update( [
+				'birthdate' => date( 'Y-m-d', strtotime( $userData->birthdate ) ),
+				'gender'    => $userData->gender == 1 ? 'male' : 'female'
+			] );
 
-		$this->user->getCustomer()->setCustomerAttributes([
-			'user_data.gender'           => $userData->gender,
-			'user_data.birthdate'        => date('Y-m-d', strtotime($userData->birthdate)),
-			'user_data.age'              => $userData->age, // todo update this each month
-			'user_data.skin'             => $userData->skin,
-			'user_data.outside'          => $userData->outside,
-			'user_data.pregnant'         => $userData->pregnant,
-			'user_data.diet'             => $userData->diet,
-			'user_data.sports'           => $userData->sports,
-			'user_data.lacks_energy'     => $userData->lacks_energy,
-			'user_data.smokes'           => $userData->smokes,
-			'user_data.immune_system'    => $userData->immune_system,
-			'user_data.vegetarian'       => $userData->vegetarian,
-			'user_data.joints'           => $userData->joints,
-			'user_data.stressed'         => $userData->stressed,
-			'user_data.foods.fruits'     => $userData->foods->fruits,
-			'user_data.foods.vegetables' => $userData->foods->vegetables,
-			'user_data.foods.bread'      => $userData->foods->bread,
-			'user_data.foods.wheat'      => $userData->foods->wheat,
-			'user_data.foods.dairy'      => $userData->foods->dairy,
-			'user_data.foods.meat'       => $userData->foods->meat,
-			'user_data.foods.fish'       => $userData->foods->fish,
-			'user_data.foods.butter'     => $userData->foods->butter
-		]);
+			$this->user->getCustomer()->setCustomerAttributes( [
+				'user_data.gender'           => $userData->gender,
+				'user_data.birthdate'        => date( 'Y-m-d', strtotime( $userData->birthdate ) ),
+				'user_data.age'              => $userData->age, // todo update this each month
+				'user_data.skin'             => $userData->skin,
+				'user_data.outside'          => $userData->outside,
+				'user_data.pregnant'         => $userData->pregnant,
+				'user_data.diet'             => $userData->diet,
+				'user_data.sports'           => $userData->sports,
+				'user_data.lacks_energy'     => $userData->lacks_energy,
+				'user_data.smokes'           => $userData->smokes,
+				'user_data.immune_system'    => $userData->immune_system,
+				'user_data.vegetarian'       => $userData->vegetarian,
+				'user_data.joints'           => $userData->joints,
+				'user_data.stressed'         => $userData->stressed,
+				'user_data.foods.fruits'     => $userData->foods->fruits,
+				'user_data.foods.vegetables' => $userData->foods->vegetables,
+				'user_data.foods.bread'      => $userData->foods->bread,
+				'user_data.foods.wheat'      => $userData->foods->wheat,
+				'user_data.foods.dairy'      => $userData->foods->dairy,
+				'user_data.foods.meat'       => $userData->foods->meat,
+				'user_data.foods.fish'       => $userData->foods->fish,
+				'user_data.foods.butter'     => $userData->foods->butter
+			] );
+
+		}
 
 		return $this;
 	}
 
-	public function updateCustomerPlan()
-	{
-		if ( $this->getCheckout()->getProduct()->isSubscription() )
-		{
-			$this->getUser()->getCustomer()->getPlan()->update([
-				'price'                     => MoneyLibrary::toCents($this->getCheckout()->getSubscriptionPrice()),
-				'price_shipping'            => MoneyLibrary::toCents(Setting::getWithDefault('shipping_price', 0)),
+	public function updateCustomerPlan() {
+		if ( $this->getCheckout()->getProduct()->isSubscription() ) {
+			$this->getUser()->getCustomer()->getPlan()->update( [
+				'price'                     => MoneyLibrary::toCents( $this->getCheckout()->getSubscriptionPrice() ),
+				'price_shipping'            => MoneyLibrary::toCents( Setting::getWithDefault( 'shipping_price', 0 ) ),
 				'subscription_started_at'   => \Date::now(),
 				'subscription_rebill_at'    => \Date::now()->addMonth(),
 				'subscription_cancelled_at' => null
-			]);
+			] );
 
-			// todo if session/request has 'vitamins', use them.
-			$combinations = $this->getUser()->getCustomer()->calculateCombinations();
-			$vitamins     = [ ];
-
-			foreach ( $combinations as $key => $combination )
+			if( session('vitamins', false) )
 			{
-				$pill    = PillLibrary::getPill($key, $combination);
-				$vitamin = Vitamin::select('id')->whereCode($pill)->first();
+				$vitamins = session('vitamins');
+				$this->getUser()->getCustomer()->getPlan()->update([
+					'is_custom' => 1
+				]);
+			}
+			else
+			{
+				$combinations = $this->getUser()->getCustomer()->calculateCombinations();
+				$vitamins     = [];
 
-				if ( $vitamin )
-				{
-					$vitamins[] = $vitamin->id;
+				foreach ( $combinations as $key => $combination ) {
+					$pill    = PillLibrary::getPill( $key, $combination );
+					$vitamin = Vitamin::select( 'id' )->whereCode( $pill )->first();
+
+					if ( $vitamin ) {
+						$vitamins[] = $vitamin->id;
+					}
 				}
 			}
 
-			$this->getUser()->getCustomer()->getPlan()->update([
-				'vitamins' => json_encode($vitamins)
-			]);
-		}
-		else
-		{
-			$this->getUser()->getCustomer()->getPlan()->update([
-				'price'                     => MoneyLibrary::toCents($this->getCheckout()->getSubscriptionPrice()),
-				'price_shipping'            => MoneyLibrary::toCents(Setting::getWithDefault('shipping_price', 0)),
-				'subscription_cancelled_at' => date('Y-m-d H:i:s')
-			]);
+			$this->getUser()->getCustomer()->getPlan()->update( [
+				'vitamins' => json_encode( $vitamins )
+			] );
+		} else {
+			$this->getUser()->getCustomer()->getPlan()->update( [
+				'price'                     => MoneyLibrary::toCents( $this->getCheckout()->getSubscriptionPrice() ),
+				'price_shipping'            => MoneyLibrary::toCents( Setting::getWithDefault( 'shipping_price', 0 ) ),
+				'subscription_cancelled_at' => date( 'Y-m-d H:i:s' )
+			] );
 		}
 
 		return $this;
 	}
 
-	public function handleProductActions()
-	{
+	public function handleProductActions() {
 		// giftcard
-		if ( str_contains($this->getCheckout()->getProduct()->name, 'giftcard') )
-		{
-			$this->giftcardModel = Giftcard::create([
-				'token' => strtoupper(str_random()),
+		if ( str_contains( $this->getCheckout()->getProduct()->name, 'giftcard' ) ) {
+			$this->giftcardModel = Giftcard::create( [
+				'token' => strtoupper( str_random() ),
 				'worth' => $this->getCheckout()->getProduct()->price
-			]);
+			] );
 		}
 
 		return $this;
 	}
 
-	public function deductCouponUsage()
-	{
-		if ( $this->getCheckout()->getCoupon() )
-		{
+	public function deductCouponUsage() {
+		if ( $this->getCheckout()->getCoupon() ) {
 			$this->getCheckout()->getCoupon()->reduceUsagesLeft();
 		}
 
 		return $this;
 	}
 
-	public function markGiftcardUsed()
-	{
-		if ( $this->getCheckout()->getGiftcard() )
-		{
-			$this->getUser()->getCustomer()->setBalance($this->getCheckout()->getGiftcard()->worth);
+	public function markGiftcardUsed() {
+		if ( $this->getCheckout()->getGiftcard() ) {
+			$this->getUser()->getCustomer()->setBalance( $this->getCheckout()->getGiftcard()->worth );
 			$this->getCheckout()->getGiftcard()->markUsed();
 		}
 
 		return $this;
 	}
 
-	public function fireCustomerWasBilled($chargeId)
-	{
-		\Event::fire(new CustomerWasBilled($this->getUser()->getCustomer(),
-			MoneyLibrary::toCents($this->getCheckout()->getTotal()),
+	public function fireCustomerWasBilled( $chargeId ) {
+		\Event::fire( new CustomerWasBilled( $this->getUser()->getCustomer(),
+			MoneyLibrary::toCents( $this->getCheckout()->getTotal() ),
 			$chargeId,
 			$this->getCheckout()->getProduct()->name,
 			false,
 			0,
 			$this->getCheckout()->getCoupon()
-		));
+		) );
 
 		return $this;
 	}
-	
-	public function queueEmail($password)
-	{
+
+	public function queueEmail( $password ) {
 		$data = [
 			'password'      => $password,
 			'giftcard'      => $this->getCheckout()->getGiftcard() ? $this->getCheckout()->getGiftcard()->token : null,
-			'description'   => trans("products.{$this->getCheckout()->getProduct()->name}"),
-			'priceTotal'    => MoneyLibrary::toCents($this->getCheckout()->getTotal()),
-			'priceSubtotal' => MoneyLibrary::toCents($this->getCheckout()->getSubTotal()),
-			'priceTaxes'    => MoneyLibrary::toCents($this->getCheckout()->getTaxTotal())
+			'description'   => trans( "products.{$this->getCheckout()->getProduct()->name}" ),
+			'priceTotal'    => MoneyLibrary::toCents( $this->getCheckout()->getTotal() ),
+			'priceSubtotal' => MoneyLibrary::toCents( $this->getCheckout()->getSubTotal() ),
+			'priceTaxes'    => MoneyLibrary::toCents( $this->getCheckout()->getTaxTotal() )
 		];
 
 		$mailEmail = $this->getUser()->getEmail();
 		$mailName  = $this->getUser()->getName();
 
-		\Mail::queue('emails.order', $data, function ($message) use ($mailEmail, $mailName)
-		{
-			$message->to($mailEmail, $mailName);
-			$message->subject(trans('checkout.mail.subject'));
-		});
+		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName ) {
+			$message->to( $mailEmail, $mailName );
+			$message->subject( trans( 'checkout.mail.subject' ) );
+		} );
 
 		return $this;
 	}
 
-	public function flush()
-	{
-		if( $this->getCheckout()->getProduct()->isSubscription() )
-		{
+	public function flush() {
+		if ( $this->getCheckout()->getProduct()->isSubscription() ) {
 			\Session::flush();
 		}
 
 		return $this;
 	}
 
-	public function initUpsell()
-	{
-		if( $this->getCheckout()->getProduct()->isSubscription() )
-		{
+	public function initUpsell() {
+		if ( $this->getCheckout()->getProduct()->isSubscription() ) {
 			$upsellToken = str_random();
 
-			\Session::put('upsell_token', $upsellToken);
-			\Session::put('product_name', $this->getCheckout()->getProduct()->name);
+			\Session::put( 'upsell_token', $upsellToken );
+			\Session::put( 'product_name', $this->getCheckout()->getProduct()->name );
 		}
 
 		return $this;
 	}
 
-	public function loginUser()
-	{
-		if( $this->getCheckout()->getProduct()->isSubscription() )
-		{
-			\Auth::login($this->getUser(), true);
+	public function loginUser() {
+		if ( $this->getCheckout()->getProduct()->isSubscription() ) {
+			\Auth::login( $this->getUser(), true );
 		}
 
 		return $this;

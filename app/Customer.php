@@ -442,6 +442,11 @@ class Customer extends Model
 		$currentVitamins = [];
 		$isSimilar       = true;
 
+		if(count($combinations) == 0)
+		{
+			return false;
+		}
+
 		foreach ( $this->getVitaminModels() as $vitaminModel )
 		{
 			$currentVitamins[] = substr($vitaminModel->code, 1, 1);
@@ -479,6 +484,11 @@ class Customer extends Model
 
 	public function calculateCombinations()
 	{
+		if( $this->plan->isCustom() )
+		{
+			return [];
+		}
+
 		$combinationLibrary = new CombinationLibrary();
 
 		$attributes = $this->customerAttributes()->where('identifier', 'LIKE', 'user_data.%')->get();

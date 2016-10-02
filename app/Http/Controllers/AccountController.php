@@ -33,12 +33,22 @@ class AccountController extends Controller
 
 	function getHome()
 	{
+		if( !$this->customer || $this->customer->plan->isCustom() )
+		{
+			return redirect()->action('AccountController@getSettingsBasic');
+		}
+
 		return view('account.home');
 	}
 
 
 	function updatePreferences(Request $request)
 	{
+		if( !$this->customer || $this->customer->plan->isCustom() )
+		{
+			return redirect()->back()->withErrors('Du har en selvvalgt pakke, og kan derfor ikke ændre dette.'); // todo translate
+		}
+
 		$userData = json_decode($request->get('user_data', '{}'));
 
 		$this->user->getCustomer()->update([
