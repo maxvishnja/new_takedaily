@@ -12,6 +12,10 @@
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<link rel="icon" type="image/png" href="/favicon.png"/>
 
+	@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+		<link rel="alternate" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}" hreflang="{{$localeCode}}" />
+	@endforeach
+
 	<!-- todo add meta image from page.blade.php -->
 
 	<!--[if lt IE 9]>
