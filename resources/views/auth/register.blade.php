@@ -5,7 +5,7 @@
 		<a href="{{ url('/login') }}">Har du allerede en profil?</a>
 		<hr/>
 
-		<form role="form" method="POST" action="{{ url('/register') }}">
+		<form role="form" method="POST" action="{{ URL::action('Auth\AuthController@register') }}">
 			{!! csrf_field() !!}
 
 			<label for="input_name" class="label label--full">Dit navn</label>

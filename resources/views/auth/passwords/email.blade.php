@@ -9,7 +9,7 @@
                     <h1 class="card_title">{{ trans('password_email.title') }}</h1>
                     <hr class="hr--dashed hr--small-margin"/>
 
-                    <form role="form" method="POST" action="{{ url('/password/email') }}">
+                    <form role="form" method="POST" action="{{ URL::action('Auth\PasswordController@sendResetLinkEmail') }}">
                         {!! csrf_field() !!}
 
                         <label for="input_email"

@@ -797,7 +797,7 @@
 					  class="icon icon-cross-large pull-right"></span>
 				<strong>{{ trans('flow.call-me.title') }}</strong>
 				<span>{{ trans('flow.call-me.text') }}</span>
-				<form method="post" action="/call-me" id="call-me-form">
+				<form method="post" action="{{ URL::route('ajax-call-me') }}" id="call-me-form">
 					<input type="number" pattern="\d." maxlength="14" name="phone"
 						   class="input input--regular input--plain input--no-number input--spacing input--full-mobile m-t-10"
 						   placeholder="12 34 56 78" required="required"/>
@@ -1013,7 +1013,7 @@
 						}
 
 						combinationAjax = $.ajax({
-							url: '/flow/recommendations',
+							url: '{{ URL::route('flow-recommendations') }}',
 							method: 'POST',
 							dataType: 'JSON',
 							cache: true,
@@ -1037,7 +1037,7 @@
 										$("#advises-block").fadeIn();
 										$("#advises-content").html(response.advises);
 										$("#advises-label").html(response.label);
-										$("#link-to-change").attr('href', ('/pick-n-mix?selected=' + response.selected_codes));
+										$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes));
 									}
 									else {
 										$("#pick-n-mix-block").fadeIn();

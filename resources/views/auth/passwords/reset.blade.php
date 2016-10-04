@@ -7,7 +7,7 @@
                 <div class="card">
                     <h1 class="card_title">{{ trans('password_reset.title') }}</h1>
                     <hr class="hr--dashed hr--small-margin"/>
-                    <form role="form" method="POST" action="{{ url('/password/reset') }}">
+                    <form role="form" method="POST" action="{{ URL::action('Auth\PasswordController@reset') }}">
                         {!! csrf_field() !!}
 
                         <input type="hidden" name="token" value="{{ $token }}">

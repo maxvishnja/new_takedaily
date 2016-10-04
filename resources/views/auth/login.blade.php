@@ -7,7 +7,7 @@
 				<div class="card">
 					<h1 class="card_title">{{ trans('login.title') }}</h1>
 					<hr class="hr--dashed hr--small-margin"/>
-					<form role="form" method="POST" action="{{ url('/login') }}">
+					<form role="form" method="POST" action="{{ URL::action('Auth\AuthController@login') }}">
 						{!! csrf_field() !!}
 
 						<label for="input_email" class="label label--full">{{ trans('login.email_label') }}</label>

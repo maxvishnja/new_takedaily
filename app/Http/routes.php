@@ -26,8 +26,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 		Route::group( [ 'middleware' => [ 'nonAdmin' ] ], function ()
 		{
-			Route::get( 'pick-n-mix', 'PickMixController@get' );
-			Route::post( 'pick-n-mix', 'PickMixController@post' );
+			Route::get( 'pick-n-mix', 'PickMixController@get' )->name('pick-n-mix');
+			Route::post( 'pick-n-mix', 'PickMixController@post' )->name('pick-n-mix-post');
 
 			Route::get( 'flow', function ()
 			{
@@ -66,7 +66,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$shippingPrice = \App\Setting::getWithDefault( 'shipping_price', 0 );
 
 				return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice' ) );
-			} );
+			} )->name('flow');
 
 			Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $request )
 			{
@@ -95,7 +95,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ] )->render(),
 					'selected_codes' => implode( ',', $codes )
 				] );
-			} );
+			} )->name('flow-recommendations');
 		} );
 
 		Route::post( 'flow', function ( \Illuminate\Http\Request $request )
@@ -106,7 +106,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Session::put( 'product_name', $request->get( 'product_name' ) );
 
 			return Redirect::action( 'CheckoutController@getCheckout' );
-		} );
+		} )->name('flow-post');
 
 		Route::post( 'flow-upsell', function ( \Illuminate\Http\Request $request )
 		{
@@ -132,12 +132,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Session::put( 'applied_coupon', $coupon->code );
 
 			return Redirect::to( '/flow' );
-		} );
+		} )->name('flow-upsell');
 
 		Route::get( 'gifting', function ()
 		{
 			return view( 'gifting' );
-		} );
+		} )->name('gifting');
 
 		/*
 		 * Signup
@@ -189,7 +189,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					Log::error( $ex->getMessage() );
 				}
 
-			} );
+			} )->name('checkout-webhook-mollie');
 		} );
 
 		Route::group( [ 'prefix' => 'checkout' ], function ()
@@ -255,7 +255,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				] );
 
 				return Response::json( [ 'message' => 'Tak, vi ringer til dig snarest!' ] ); // todo translate
-			} );
+			} )->name('ajax-call-me');
 		} );
 
 		/*
