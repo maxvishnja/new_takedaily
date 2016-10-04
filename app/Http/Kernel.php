@@ -29,8 +29,7 @@ class Kernel extends HttpKernel
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-			Middleware\SetLocale::class
+            \App\Http\Middleware\VerifyCsrfToken::class
         ],
 
         'api' => [
@@ -55,6 +54,9 @@ class Kernel extends HttpKernel
         'secure' => \App\Http\Middleware\SecureOnly::class,
 		'ajax' => \App\Http\Middleware\Ajax::class,
 		'packer' => \App\Http\Middleware\Packer::class,
-		'nonAdmin' => \App\Http\Middleware\NonAdmin::class
+		'nonAdmin' => \App\Http\Middleware\NonAdmin::class,
+        'localize' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
+        'localizationRedirect' => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
+        'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class
     ];
 }

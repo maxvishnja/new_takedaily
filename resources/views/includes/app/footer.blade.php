@@ -9,7 +9,8 @@
 					<form method="post" action="{{ trans('general.newsletter_url') }}" class="m-t-20 m-b-10" target="_blank">
 						<div class="row">
 							<div class="col-sm-8">
-								<input type="email" name="EMAIL" id="input_newsletters_email" placeholder="{{ trans('footer.columns.one.input-placeholder') }}" class="input input--regular input--full input--plain"/>
+								<input type="email" name="EMAIL" id="input_newsletters_email" placeholder="{{ trans('footer.columns.one.input-placeholder') }}"
+									   class="input input--regular input--full input--plain"/>
 							</div>
 							<div class="col-sm-4">
 								<button type="submit" class="button button--regular button--full button--green">{{ trans('footer.columns.one.button-text') }}</button>
@@ -46,10 +47,16 @@
 				</div>
 				<div class="col-lg-9 col-sm-8 text-right">
 					<ul class="footer_bottom_links">
-						<li class="input input--semibold input--transparent lang-selector-footer selector selector--up">{{ trans('footer.language') }}
+						<li class="input input--semibold input--transparent lang-selector-footer selector selector--up">{{ LaravelLocalization::getCurrentLocaleName() }}
 							<span class="icon icon-arrow-up-small v-a-m m-l-5"></span>
 							<ul>
-								{!! trans('footer.languages') !!}
+								@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+									<li>
+										<a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
+											{{ $properties['native'] }}
+										</a>
+									</li>
+								@endforeach
 							</ul>
 						</li>
 						{!! trans('footer.links') !!}
@@ -126,20 +133,17 @@
 @if( ! isset($_COOKIE['call-me-hidden'])  )
 
 	<script>
-		$("#call-me-form-hider").click(function ()
-		{
+		$("#call-me-form-hider").click(function () {
 			$(".call-cta").slideUp();
 			$("body").css('padding-bottom', 0);
 			Cookies.set('call-me-hidden', 1, {expires: 3});
 		});
 
-		$("#call-me-form-toggler").click(function ()
-		{
+		$("#call-me-form-toggler").click(function () {
 			$(".call-cta").toggleClass('call-cta--visible');
 		});
 
-		$("#call-me-form").submit(function (e)
-		{
+		$("#call-me-form").submit(function (e) {
 			e.preventDefault();
 
 			var form = $(this);
@@ -149,11 +153,9 @@
 				method: form.attr('method'),
 				dataType: 'JSON',
 				data: form.serialize(),
-				success: function (response)
-				{
+				success: function (response) {
 					$(".call-cta").html('<strong>' + response.message + '</strong>');
-					setTimeout(function ()
-					{
+					setTimeout(function () {
 						$(".call-cta").slideUp();
 						$("body").css('padding-bottom', 0);
 						Cookies.set('call-me-hidden', 1, {expires: 3});
@@ -162,22 +164,22 @@
 			});
 		});
 	</script>
-	@endif
+@endif
 
-		<!--Start of Tawk.to Script-->
-	<script type="text/javascript">
-		var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-		(function(){
-			var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-			s1.async=true;
-			s1.src='https://embed.tawk.to/573c49314084da3e71efb4e9/{{ trans('general.tawk_id') }}';
-			s1.charset='UTF-8';
-			s1.setAttribute('crossorigin','*');
-			s0.parentNode.insertBefore(s1,s0);
-		})();
-	</script>
-	<!--End of Tawk.to Script-->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+	var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+	(function () {
+		var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+		s1.async = true;
+		s1.src = 'https://embed.tawk.to/573c49314084da3e71efb4e9/{{ trans('general.tawk_id') }}';
+		s1.charset = 'UTF-8';
+		s1.setAttribute('crossorigin', '*');
+		s0.parentNode.insertBefore(s1, s0);
+	})();
+</script>
+<!--End of Tawk.to Script-->
 
 
-	</body>
-	</html>
+</body>
+</html>
