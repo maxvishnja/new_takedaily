@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ App::getLocale() }}">
+<html lang="{{ LaravelLocalization::getCurrentLocale() }}">
 <head>
 	<title>@yield('title', 'TakeDaily')</title>
 
