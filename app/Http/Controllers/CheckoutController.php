@@ -24,7 +24,7 @@ class CheckoutController extends Controller
 
 		if ( \Session::get('product_name') == 'subscription' && (!\Session::has('user_data') && !\Session::has('vitamins') ) )
 		{
-			return \Redirect::to('/flow')->withErrors([ trans('checkout.messages.vitamins-not-selected') ]);
+			return \Redirect::route('flow')->withErrors([ trans('checkout.messages.vitamins-not-selected') ]);
 		}
 
 		$giftcard = null;
@@ -41,7 +41,7 @@ class CheckoutController extends Controller
 
 		if( ! $product )
 		{
-			return \Redirect::to('');
+			return \Redirect::route('home');
 		}
 
 		return view('checkout.index', [
@@ -201,7 +201,7 @@ class CheckoutController extends Controller
 	{
 		if ( !$request->session()->has('order_created') )
 		{
-			return \Redirect::to('/');
+			return \Redirect::route('home');
 		}
 
 		$vitamins = \Auth::user()->getCustomer()->getVitaminModels();
@@ -219,7 +219,7 @@ class CheckoutController extends Controller
 	{
 		if ( !$request->session()->has('order_created') )
 		{
-			return \Redirect::to('/');
+			return \Redirect::route('home');
 		}
 
 		return view('checkout.success', [

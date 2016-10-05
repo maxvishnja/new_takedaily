@@ -22,7 +22,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		Route::get( '/', function ()
 		{
 			return view( 'home' );
-		} );
+		} )->name('home');
 
 		Route::group( [ 'middleware' => [ 'nonAdmin' ] ], function ()
 		{
@@ -173,7 +173,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Route::get( 'get-taxrate', 'CheckoutController@getTaxRate' );
 
 			// Charge verify
-			Route::get( 'verify/{method}', 'CheckoutController@getVerify' );
+			Route::get( 'verify/{method}', 'CheckoutController@getVerify' )->name('checkout-verify-method');
 
 			// Mollie webhook
 			Route::post( 'mollie', function ( $paymentId = 0 )

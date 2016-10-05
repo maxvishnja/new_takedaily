@@ -19,7 +19,7 @@ class Mollie implements PaymentInterface
 		$charge = [
 			"amount"      => MoneyLibrary::toMoneyFormat($amount, true, 2, '.', ''),
 			"description" => $description,
-			"redirectUrl" => \URL::to('checkout/verify/mollie'),
+			"redirectUrl" => \URL::route('checkout-verify-method', ['method' => 'mollie'])
 		];
 
 		$charge = array_merge($charge, $data);
