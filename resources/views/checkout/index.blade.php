@@ -6,6 +6,34 @@
 @section('title', trans('checkout.index.title'))
 
 @section('content')
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '{{ env('FACEBOOK_APP_ID') }}',
+				xfbml      : true,
+				version    : 'v2.6'
+			});
+
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+			});
+
+			function checkLoginState() {
+				FB.getLoginStatus(function(response) {
+					statusChangeCallback(response);
+				});
+			}
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/da_DK/sdk.js"; // todo set locale
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
 	<div class="container" id="app">
 		<div class="row">
 			<div class="col-md-4 visible-sm visible-xs text-center">
@@ -16,7 +44,6 @@
 					<div class="m-t-20 m-b-20">
 						<a href="#coupon-form-mobile" id="toggle-coupon-form-mobile">{{ trans('checkout.index.coupon.link') }}</a>
 					</div>
-
 					<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form-mobile" style="@if(!Request::old('coupon')) display: none; @endif">
 						<div class="row">
 							<div class="col-md-7">
@@ -31,7 +58,6 @@
 						<div id="coupon-form-successes-mobile" class="m-t-10"></div>
 						<div id="coupon-form-errors-mobile" class="m-t-10"></div>
 					</form>
-
 					<hr/>
 				@endif
 			</div>
@@ -48,6 +74,11 @@
 					</div>
 
 					<div class="card card--large m-b-30">
+						<fb:login-button
+							scope="public_profile,email,user_birthday"
+							onlogin="checkLoginState();">
+						</fb:login-button>
+
 						<fieldset>
 							<legend class="card_title">{{ trans('checkout.index.order.info.title') }}</legend>
 							<hr class="hr--dashed hr--small-margin"/>
