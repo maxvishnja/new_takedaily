@@ -210,14 +210,14 @@ class CombinationLibrary
 			$this->setAdvise('three', trans('flow.combinations.3.f'));
 			$this->setAdviseInfo('three', trans('flow.combination_info.3.f'));
 		}
-		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'g') && $this->isEmpty($this->groupThree) && ($data->vegetarian == '1' || $data->foods->fish != '1') && $data->foods->oil == 'chiaoil' )
+		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'g') && $this->isEmpty($this->groupThree) && ($data->vegetarian == '1' || $data->foods->fish != '1') && (isset($data->foods->oil) && $data->foods->oil == 'chiaoil') )
 		{
 			$this->groupThree = 'g';
 
 			$this->setAdvise('three', trans('flow.combinations.3.g')); // todo need info
 			$this->setAdviseInfo('three', trans('flow.combination_info.3.g')); // todo need info
 		}
-		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'e') && $this->isEmpty($this->groupThree) && ($data->foods->fish == '1' || $data->foods->oil == 'fishoil') )
+		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'e') && $this->isEmpty($this->groupThree) && ($data->foods->fish == '1' || (isset($data->foods->oil) && $data->foods->oil == 'fishoil') ))
 		{
 			$this->groupThree = 'e';
 
@@ -225,7 +225,7 @@ class CombinationLibrary
 			$this->setAdviseInfo('three', trans('flow.combination_info.3.e'));
 		}
 
-		if ( $this->isEmpty($this->groupFour) && $this->groupThree != 'e' && $this->groupThree != 'g' && ($data->foods->oil == 'fishoil') )
+		if ( $this->isEmpty($this->groupFour) && $this->groupThree != 'e' && $this->groupThree != 'g' && (isset($data->foods->oil) && $data->foods->oil == 'fishoil') )
 		{
 			$this->groupFour = 'e';
 
@@ -233,7 +233,7 @@ class CombinationLibrary
 			$this->setAdviseInfo('four', trans('flow.combination_info.3.e'));
 		}
 
-		if ( $this->isEmpty($this->groupFour) && $this->groupThree != 'e' && $this->groupThree != 'g' && ($data->foods->oil == 'chiaoil') )
+		if ( $this->isEmpty($this->groupFour) && $this->groupThree != 'e' && $this->groupThree != 'g' && (isset($data->foods->oil) && $data->foods->oil == 'chiaoil') )
 		{
 			$this->groupFour = 'g';
 

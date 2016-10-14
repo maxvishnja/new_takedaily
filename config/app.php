@@ -229,7 +229,7 @@ return [
 		'Date'                => Jenssegers\Date\Date::class,
 		'Mollie'              => Mollie\Laravel\Facades\Mollie::class,
 		'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
-		'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
+		'Bugsnag'             => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
 
 	],
 
