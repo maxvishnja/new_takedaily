@@ -179,7 +179,7 @@
 				<h3 style="margin-top: 0;" class="m-b-35">{{ trans('checkout.index.total.title') }}</h3>
 				<hr class="hr--double"/>
 
-				<table v-cloack>
+				<table v-cloak>
 					<tbody>
 					<tr>
 						<td>{{ trans("products.{$product->name}") }}</td>

@@ -203,7 +203,7 @@ class CombinationLibrary
 			$this->setAdvise('three', trans('flow.combinations.3.d'));
 			$this->setAdviseInfo('three', trans('flow.combination_info.3.d'));
 		}
-		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'f') && $this->isEmpty($this->groupThree) && ($data->foods->butter == '2') )
+//		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'f') && $this->isEmpty($this->groupThree) && ($data->foods->butter == '2') )
 		{
 			$this->groupThree = 'f';
 
