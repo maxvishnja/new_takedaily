@@ -67,7 +67,7 @@
 			</div>
 
 			<form method="post" action="">
-				<div data-step="1" data-first-sub-step="1" class="step step--active">
+				<div data-step="1" class="step step--active">
 					<div data-sub-step="1" class="sub_step sub_step--active">
 						<h3 class="substep-title">{{ trans('flow.questions.1-1.title') }}</h3>
 						<div class="sub_step_answers">
@@ -161,9 +161,8 @@
 					</div>
 				</div>
 
-				<div data-step="2" v-bind="{ 'data-first-sub-step': user_data.gender == 2 ? 1 : 2 }" class="step">
-					<div data-sub-step="1" class="sub_step sub_step--active"
-						 v-bind:class="{ 'sub_step--active': user_data.gender == 2 }">
+				<div data-step="2" class="step">
+					<div data-sub-step="1" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--skip': temp_age > 50 || user_data.gender == 1 }">
 						<h3 class="substep-title">{{ trans('flow.questions.2-1.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
@@ -183,8 +182,7 @@
 						<p class="substep-explanation">{!! trans('flow.questions.2-1.text') !!}</p>
 					</div>
 
-					<div data-sub-step="2" class="sub_step"
-						 v-bind:class="{ 'sub_step--active': user_data.gender == 1 }">
+					<div data-sub-step="2" class="sub_step">
 						<h3 class="substep-title">{{ trans('flow.questions.2-2.title') }}</h3>
 						<div class="sub_step_answers">
 							<label>
@@ -383,7 +381,7 @@
 					</div>
 				</div>
 
-				<div data-step="3" data-first-sub-step="1" class="step">
+				<div data-step="3" class="step">
 					<div data-sub-step="1" class="sub_step sub_step--active">
 						<h3 class="substep-title">{{ trans('flow.questions.3-1.title') }}</h3>
 						<div class="sub_step_answers">
@@ -636,7 +634,7 @@
 					</div>
 				</div>
 
-				<div data-step="4" data-first-sub-step="1" class="step">
+				<div data-step="4" class="step">
 					<div id="advises-loader" class="text-center">
 						<div class="spinner" style="display: inline-block;">
 							<div class="rect1"></div>
@@ -968,7 +966,7 @@
 					}
 
 					this.step++;
-					this.sub_step = nextStep.attr("data-first-sub-step") * 1;
+					this.sub_step = 1;
 
 					currentStep.removeClass("step--active");
 					nextStep.addClass("step--active");
@@ -983,6 +981,12 @@
 					nextStep.css("min-height", newHeight * 1.2);
 
 					this.checkIfShouldGetCombinations();
+
+					var curSubStep = nextStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
+
+					if (curSubStep.hasClass('sub_step--skip')) {
+						this.nextStep();
+					}
 
 					return true;
 				},
@@ -1047,7 +1051,7 @@
 					var currentStep = $(".step[data-step='" + this.step + "']");
 					var previousStep = $(".step[data-step='" + (this.step - 1) + "']");
 
-					if (this.sub_step > ( currentStep.attr('data-first-sub-step') * 1 )) {
+					if (this.sub_step > 1) {
 						var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
 						var previousSubStep = currentStep.find(".sub_step[data-sub-step='" + (this.sub_step - 1) + "']");
 
