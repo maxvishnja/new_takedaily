@@ -6,20 +6,20 @@ use App\Combination;
 
 class CombinationLibrary
 {
-	private $groupOne = null;
-	private $groupTwo = null;
-	private $groupThree = null;
-	private $groupFour = null;
-	private $advises = [];
+	private $groupOne    = null;
+	private $groupTwo    = null;
+	private $groupThree  = null;
+	private $groupFour   = null;
+	private $advises     = [];
 	private $advise_info = [];
 
 	function __construct()
 	{
 	}
 
-	function isEmpty($group)
+	function isEmpty( $group )
 	{
-		return is_null($group);
+		return is_null( $group );
 	}
 
 	function getResult()
@@ -28,7 +28,7 @@ class CombinationLibrary
 			'one'   => $this->groupOne,
 			'two'   => $this->groupTwo,
 			'three' => $this->groupThree,
-			'four' => $this->groupFour,
+			'four'  => $this->groupFour,
 		];
 	}
 
@@ -42,33 +42,33 @@ class CombinationLibrary
 		return $this->advise_info;
 	}
 
-	function combinationIsPossible($groupOne, $groupTwo = null, $groupThree = null)
+	function combinationIsPossible( $groupOne, $groupTwo = null, $groupThree = null )
 	{
-		$combination = \Cache::remember("combination_{$groupOne}{$groupTwo}{$groupThree}", 30, function () use ($groupOne, $groupTwo, $groupThree)
+		$combination = \Cache::remember( "combination_{$groupOne}{$groupTwo}{$groupThree}", 30, function () use ( $groupOne, $groupTwo, $groupThree )
 		{
-			return Combination::where(function ($query) use ($groupOne, $groupTwo, $groupThree)
+			return Combination::where( function ( $query ) use ( $groupOne, $groupTwo, $groupThree )
 			{
-				$query->where('group_1', "$groupOne");
+				$query->where( 'group_1', "$groupOne" );
 
-				if ( !is_null($groupTwo) )
+				if ( ! is_null( $groupTwo ) )
 				{
-					$query->where('group_2', "$groupTwo");
+					$query->where( 'group_2', "$groupTwo" );
 				}
 
-				if ( !is_null($groupThree) )
+				if ( ! is_null( $groupThree ) )
 				{
-					$query->where('group_3', "$groupThree");
+					$query->where( 'group_3', "$groupThree" );
 				}
 				else
 				{
-					$query->whereNull('group_3');
+					$query->whereNull( 'group_3' );
 				}
-			})->first();
-		});
+			} )->first();
+		} );
 
-		if ( !$combination )
+		if ( ! $combination )
 		{
-			if ( !is_null($groupThree) )
+			if ( ! is_null( $groupThree ) )
 			{
 				return false;
 			}
@@ -81,100 +81,56 @@ class CombinationLibrary
 		return $combination->isPossible();
 	}
 
-	private function setAdvise($num = 'one', $advise)
+	private function setAdvise( $num = 'one', $advise )
 	{
-		if ( !isset($this->advises[ $num ]) )
+		if ( ! isset( $this->advises[ $num ] ) )
 		{
 			$this->advises[ $num ] = $advise;
 		}
 	}
 
-	private function setAdviseInfo($num = 'one', $advise)
+	private function setAdviseInfo( $num = 'one', $advise )
 	{
-		if ( !isset($this->advise_info[ $num ]) )
+		if ( ! isset( $this->advise_info[ $num ] ) )
 		{
 			$this->advise_info[ $num ] = $advise;
 		}
 	}
 
-	function generateResult($data)
+	function generateResult( $data )
 	{
-		/*
-		 * Group 1
-		 */
-		if ( ($data->age < '50' && $data->gender == '2' && $data->pregnant == '2') || ($data->age < '70' && $data->gender == '1') )
-		{
-			$this->groupOne = '1';
+		$this->generateGroupOne( $data );
+		$this->generateGroupTwo( $data );
+		$this->generateGroupThree( $data );
+		$this->generateGroupFour( $data );
 
-			$this->setAdvise('one', trans('flow.combinations.1.basic'));
-			$this->setAdviseInfo('one', trans('flow.combination_info.1.basic'));
+		if ( is_null( $this->groupOne ) && is_null( $this->groupTwo ) && is_null( $this->groupThree ) && is_null($this->groupFour) )
+		{
+			$this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
 		}
-		if ( ($this->isEmpty($this->groupOne)) && ((($data->age >= '50' && $data->age <= '70') && $data->gender == '2' || ($data->skin > '1') || ($data->outside == '2'))) )
+	}
+
+	private function generateGroupFour($data)
+	{
+		if ( $this->isEmpty( $this->groupFour ) && $this->groupThree != 'e' && $this->groupThree != 'g' && ( isset( $data->foods->oil ) && $data->foods->oil == 'fishoil' ) )
 		{
-			$this->groupOne = '2';
+			$this->groupFour = 'e';
 
-			if ( ($data->age >= '50' && $data->age <= '70' && $data->gender == '2') || $data->skin > '1' )
-			{
-				$this->setAdvise('one', trans('flow.combinations.1.basic-10-d'));
-				$this->setAdviseInfo('one', trans('flow.combination_info.1.basic-10-d'));
-			}
-
-			if ( $data->outside == '2' )
-			{
-				$this->setAdvise('one', trans('flow.combinations.1.basic-10-d-alt'));
-				$this->setAdviseInfo('one', trans('flow.combination_info.1.basic-10-d-alt'));
-			}
-		}
-		if ( ($this->isEmpty($this->groupOne)) && (($data->age >= '70' && $data->gender == '1') || ($data->age >= '50' && $data->gender == '2')) )
-		{
-			$this->groupOne = '3';
-
-			$this->setAdvise('one', trans('flow.combinations.1.basic-20-d'));
-			$this->setAdviseInfo('one', trans('flow.combination_info.1.basic.20-d'));
+			$this->setAdvise( 'four', trans( 'flow.combinations.3.e' ) );
+			$this->setAdviseInfo( 'four', trans( 'flow.combination_info.3.e' ) );
 		}
 
-		/*
-		 * Group 2
-		 */
-		if ( $this->combinationIsPossible($this->groupOne, 'A') && ($data->pregnant == '1') )
+		if ( $this->isEmpty( $this->groupFour ) && $this->groupThree != 'e' && $this->groupThree != 'g' && ( isset( $data->foods->oil ) && $data->foods->oil == 'chiaoil' ) )
 		{
-			$this->groupTwo = 'A';
+			$this->groupFour = 'g';
 
-			$this->setAdvise('two', trans('flow.combinations.2.A'));
-			$this->setAdviseInfo('two', trans('flow.combination_info.2.A'));
+			$this->setAdvise( 'four', trans( 'flow.combinations.3.g' ) );
+			$this->setAdviseInfo( 'four', trans( 'flow.combination_info.3.g' ) );
 		}
-		if ( $this->combinationIsPossible($this->groupOne, 'B') && $this->isEmpty($this->groupTwo) && ($data->diet == '1') )
-		{
-			$this->groupTwo = 'B';
+	}
 
-			$this->setAdvise('two', trans('flow.combinations.2.B'));
-			$this->setAdviseInfo('two', trans('flow.combination_info.2.B'));
-		}
-		if ( $this->combinationIsPossible($this->groupOne, 'C') && $this->isEmpty($this->groupTwo) && ($data->sports == '4' || $data->lacks_energy < '3' || $data->stressed == '1') )
-		{
-			$this->groupTwo = 'C';
-
-			$this->setAdvise('two', trans('flow.combinations.2.C'));
-			$this->setAdviseInfo('two', trans('flow.combination_info.2.C'));
-		}
-		if ( $this->combinationIsPossible($this->groupOne, 'D') && $this->isEmpty($this->groupTwo) && ($data->immune_system == '1' || $data->smokes == '1' || $data->vegetarian == '1') )
-		{
-			$this->groupTwo = 'D';
-
-			$this->setAdvise('two', trans('flow.combinations.2.D'));
-			$this->setAdviseInfo('two', trans('flow.combination_info.2.D'));
-		}
-		if ( $this->combinationIsPossible($this->groupOne, 'E') && $this->isEmpty($this->groupTwo) && ($data->joints == '1') )
-		{
-			$this->groupTwo = 'E';
-
-			$this->setAdvise('two', trans('flow.combinations.2.E'));
-			$this->setAdviseInfo('two', trans('flow.combination_info.2.E'));
-		}
-
-		/*
-		 * Group 3
-		 */
+	private function generateGroupThree( $data )
+	{
 		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'a') && ($data->foods->fruits == '1' || $data->foods->vegetables == '1') )
 		{
 			$this->groupThree = 'a';
@@ -224,26 +180,78 @@ class CombinationLibrary
 			$this->setAdvise('three', trans('flow.combinations.3.e'));
 			$this->setAdviseInfo('three', trans('flow.combination_info.3.e'));
 		}
+	}
 
-		if ( $this->isEmpty($this->groupFour) && $this->groupThree != 'e' && $this->groupThree != 'g' && (isset($data->foods->oil) && $data->foods->oil == 'fishoil') )
+	private function generateGroupTwo( $data )
+	{
+		if ( $this->combinationIsPossible( $this->groupOne, 'A' ) && ( $data->pregnant == '1' ) )
 		{
-			$this->groupFour = 'e';
+			$this->groupTwo = 'A';
 
-			$this->setAdvise('four', trans('flow.combinations.3.e'));
-			$this->setAdviseInfo('four', trans('flow.combination_info.3.e'));
+			$this->setAdvise( 'two', trans( 'flow.combinations.2.A' ) );
+			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.A' ) );
 		}
-
-		if ( $this->isEmpty($this->groupFour) && $this->groupThree != 'e' && $this->groupThree != 'g' && (isset($data->foods->oil) && $data->foods->oil == 'chiaoil') )
+		if ( $this->combinationIsPossible( $this->groupOne, 'B' ) && $this->isEmpty( $this->groupTwo ) && ( $data->diet == '1' ) )
 		{
-			$this->groupFour = 'g';
+			$this->groupTwo = 'B';
 
-			$this->setAdvise('four', trans('flow.combinations.3.g'));
-			$this->setAdviseInfo('four', trans('flow.combination_info.3.g'));
+			$this->setAdvise( 'two', trans( 'flow.combinations.2.B' ) );
+			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.B' ) );
 		}
-
-		if ( is_null($this->groupOne) && is_null($this->groupTwo) && is_null($this->groupThree) )
+		if ( $this->combinationIsPossible( $this->groupOne, 'C' ) && $this->isEmpty( $this->groupTwo ) && ( $data->sports == '4' || $data->lacks_energy < '3' || $data->stressed == '1' ) )
 		{
-			$this->setAdvise('none', trans('flow.combinations.none'));
+			$this->groupTwo = 'C';
+
+			$this->setAdvise( 'two', trans( 'flow.combinations.2.C' ) );
+			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.C' ) );
+		}
+		if ( $this->combinationIsPossible( $this->groupOne, 'D' ) && $this->isEmpty( $this->groupTwo ) && ( $data->immune_system == '1' || $data->smokes == '1' || $data->vegetarian == '1' ) )
+		{
+			$this->groupTwo = 'D';
+
+			$this->setAdvise( 'two', trans( 'flow.combinations.2.D' ) );
+			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.D' ) );
+		}
+		if ( $this->combinationIsPossible( $this->groupOne, 'E' ) && $this->isEmpty( $this->groupTwo ) && ( $data->joints == '1' ) )
+		{
+			$this->groupTwo = 'E';
+
+			$this->setAdvise( 'two', trans( 'flow.combinations.2.E' ) );
+			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.E' ) );
+		}
+	}
+
+	private function generateGroupOne( $data )
+	{
+		if ( ( $data->age < '50' && $data->gender == '2' && $data->pregnant == '2' ) || ( $data->age < '70' && $data->gender == '1' ) )
+		{
+			$this->groupOne = '1';
+
+			$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
+			$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic' ) );
+		}
+		if ( ( $this->isEmpty( $this->groupOne ) ) && ( ( ( $data->age >= '50' && $data->age <= '70' ) && $data->gender == '2' || ( $data->skin > '1' ) || ( $data->outside == '2' ) ) ) )
+		{
+			$this->groupOne = '2';
+
+			if ( ( $data->age >= '50' && $data->age <= '70' && $data->gender == '2' ) || $data->skin > '1' )
+			{
+				$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
+				$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d' ) );
+			}
+
+			if ( $data->outside == '2' )
+			{
+				$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+				$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+			}
+		}
+		if ( ( $this->isEmpty( $this->groupOne ) ) && ( ( $data->age >= '70' && $data->gender == '1' ) || ( $data->age >= '50' && $data->gender == '2' ) ) )
+		{
+			$this->groupOne = '3';
+
+			$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
+			$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic.20-d' ) );
 		}
 	}
 }
