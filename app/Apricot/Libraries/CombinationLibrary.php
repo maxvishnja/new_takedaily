@@ -102,14 +102,14 @@ class CombinationLibrary
 		/*
 		 * Group 1
 		 */
-		if ( ($data->age < '50 ' && $data->gender == '2 ' && $data->pregnant == '2') || ($data->age < '70 ' && $data->gender == '1') )
+		if ( ($data->age < '50' && $data->gender == '2' && $data->pregnant == '2') || ($data->age < '70' && $data->gender == '1') )
 		{
 			$this->groupOne = '1';
 
 			$this->setAdvise('one', trans('flow.combinations.1.basic'));
 			$this->setAdviseInfo('one', trans('flow.combination_info.1.basic'));
 		}
-		if ( ($this->isEmpty($this->groupOne)) && ((($data->age >= '50' && $data->age <= '70') && $data->gender == '2)' || ($data->skin > '1') || ($data->outside == '2'))) )
+		if ( ($this->isEmpty($this->groupOne)) && ((($data->age >= '50' && $data->age <= '70') && $data->gender == '2' || ($data->skin > '1') || ($data->outside == '2'))) )
 		{
 			$this->groupOne = '2';
 
@@ -125,7 +125,7 @@ class CombinationLibrary
 				$this->setAdviseInfo('one', trans('flow.combination_info.1.basic-10-d-alt'));
 			}
 		}
-		if ( ($this->isEmpty($this->groupOne)) && (($data->age >= '70 ' && $data->gender == '1') || ($data->age >= '50' && $data->gender == '2')) )
+		if ( ($this->isEmpty($this->groupOne)) && (($data->age >= '70' && $data->gender == '1') || ($data->age >= '50' && $data->gender == '2')) )
 		{
 			$this->groupOne = '3';
 
@@ -203,7 +203,7 @@ class CombinationLibrary
 			$this->setAdvise('three', trans('flow.combinations.3.d'));
 			$this->setAdviseInfo('three', trans('flow.combination_info.3.d'));
 		}
-//		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'f') && $this->isEmpty($this->groupThree) && ($data->foods->butter == '2') )
+		if ( $this->combinationIsPossible($this->groupOne, $this->groupTwo, 'f') && $this->isEmpty($this->groupThree) && ($data->foods->butter == '2') )
 		{
 			$this->groupThree = 'f';
 
