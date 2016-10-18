@@ -223,13 +223,245 @@ class CombinationLibrary
 
 	private function generateGroupOne( $data )
 	{
-		if ( ( $data->age < '50' && $data->gender == '2' && $data->pregnant == '2' ) || ( $data->age < '70' && $data->gender == '1' ) )
+		if( $data->gender == '1')
+		{
+			// Males
+			if($data->age < '70')
+			{
+				// Below 70 of age
+				if($data->skin == '1')
+				{
+					// White skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '1';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+					}
+				}
+				else
+				{
+					// Dark / med skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+					}
+				}
+			}
+			elseif($data->age >= '70')
+			{
+				// Above 70 of age
+				if($data->skin == '1')
+				{
+					// White skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '3';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '3';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+					}
+				}
+				else
+				{
+					// Dark / med skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '3';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '3';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+					}
+				}
+			}
+		}
+		elseif ($data->gender == '2')
+		{
+			// Females
+			if($data->age < '50')
+			{
+				// Below 50 of age
+				if($data->skin == '1')
+				{
+					// White skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '1';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+					}
+				}
+				else
+				{
+					// Dark / med skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+					}
+				}
+			}
+			elseif($data->age >= '50' && $data->age < '70')
+			{
+				// Between 50-70 of age
+				if($data->skin == '1')
+				{
+					// White skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+					}
+				}
+				else
+				{
+					// Dark / med skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '2';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+					}
+				}
+			}
+			elseif($data->age >= '70')
+			{
+				// Above 70 of age
+				if($data->skin == '1')
+				{
+					// White skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '3';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '3';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+					}
+				}
+				else
+				{
+					// Dark / med skin
+					if($data->outside == '1')
+					{
+						// Outside
+						$this->groupOne = '3';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+					}
+					elseif($data->outside == '2')
+					{
+						// Not outside
+						$this->groupOne = '3';
+
+						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+					}
+				}
+			}
+		}
+
+		// Multi basic
+		if ( ( $data->age < '50' && $data->gender == '2' ) || ( $data->age < '70' && $data->gender == '1' ) )
 		{
 			$this->groupOne = '1';
 
 			$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
 			$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic' ) );
 		}
+
+		// Multi D+
 		if ( ( $this->isEmpty( $this->groupOne ) ) && ( ( ( $data->age >= '50' && $data->age <= '70' ) && $data->gender == '2' || ( $data->skin > '1' ) || ( $data->outside == '2' ) ) ) )
 		{
 			$this->groupOne = '2';
@@ -246,6 +478,8 @@ class CombinationLibrary
 				$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 			}
 		}
+
+		// Multi D+ Extra
 		if ( ( $this->isEmpty( $this->groupOne ) ) && ( ( $data->age >= '70' && $data->gender == '1' ) || ( $data->age >= '50' && $data->gender == '2' ) ) )
 		{
 			$this->groupOne = '3';
