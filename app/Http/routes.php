@@ -219,13 +219,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
 				}
 
-
 				return Response::json( [
 					'advises'        => $advises,
 					'num_advises'    => count( $lib->getAdvises() ),
 					'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ] )->render(),
 					'selected_codes' => implode( ',', $codes ),
-					'hasOil'         => $lib->hasOil(),
+					'hasOil'         => $lib->hasOil()
 				] );
 			} )->name( 'flow-recommendations' );
 		} );

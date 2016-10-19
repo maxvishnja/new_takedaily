@@ -699,6 +699,12 @@
 											<option value="chiaoil">Chiaolie</option>
 										</select>
 
+										<div v-show="user_data.foods.oil != -1" class="m-b-20">
+											<label class="regular-label">
+												<input type="checkbox" v-bind:false-value="0" v-bind:true-value="1" v-model="user_data.foods.double_oil" value="1" v-on:change="additionalVitaminChanged();"> Dobbel op på olien for kun <strong>19 kr</strong> ekstra.
+											</label>
+										</div>
+
 										<a href="#" v-on:click="moreInfo('fishoil', $event);">Hvad er fiskeolie?</a>
 										<a href="#" v-on:click="moreInfo('chiaoil', $event);">Hvad er chiaolie?</a>
 									</div>{{-- todo select oil + double up --}}
@@ -830,6 +836,12 @@
 				current_advise_two: null,
 				current_advise_three: null,
 				temp_age: null,
+				totals: [
+					{
+						name: "{{ trans('products.subscription') }}",
+						price: parseInt("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}")
+					}
+				],
 				shipping: {{ $shippingPrice }},
 				price: "{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}",
 				sub_price: "{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}",
@@ -867,7 +879,8 @@
 						meat: null,
 						fish: null,
 						butter: null,
-						oil: -1
+						oil: -1,
+						double_oil: 0
 					}
 				}
 			},
