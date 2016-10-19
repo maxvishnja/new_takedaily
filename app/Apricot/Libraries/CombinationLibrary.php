@@ -17,6 +17,11 @@ class CombinationLibrary
 	{
 	}
 
+	public function hasOil()
+	{
+		return $this->groupThree == 'e';
+	}
+
 	function isEmpty( $group )
 	{
 		return is_null( $group );

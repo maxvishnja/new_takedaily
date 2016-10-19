@@ -153,12 +153,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		Route::get( '/', function ()
 		{
 			return view( 'home' );
-		} )->name('home');
+		} )->name( 'home' );
 
 		Route::group( [ 'middleware' => [ 'nonAdmin' ] ], function ()
 		{
-			Route::get( 'pick-n-mix', 'PickMixController@get' )->name('pick-n-mix');
-			Route::post( 'pick-n-mix', 'PickMixController@post' )->name('pick-n-mix-post');
+			Route::get( 'pick-n-mix', 'PickMixController@get' )->name( 'pick-n-mix' );
+			Route::post( 'pick-n-mix', 'PickMixController@post' )->name( 'pick-n-mix-post' );
 
 			Route::get( 'flow', function ()
 			{
@@ -197,7 +197,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$shippingPrice = \App\Setting::getWithDefault( 'shipping_price', 0 );
 
 				return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice' ) );
-			} )->name('flow');
+			} )->name( 'flow' );
 
 			Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $request )
 			{
@@ -224,9 +224,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					'advises'        => $advises,
 					'num_advises'    => count( $lib->getAdvises() ),
 					'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ] )->render(),
-					'selected_codes' => implode( ',', $codes )
+					'selected_codes' => implode( ',', $codes ),
+					'hasOil'         => $lib->hasOil(),
 				] );
-			} )->name('flow-recommendations');
+			} )->name( 'flow-recommendations' );
 		} );
 
 		Route::post( 'flow', function ( \Illuminate\Http\Request $request )
@@ -237,7 +238,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Session::put( 'product_name', $request->get( 'product_name' ) );
 
 			return Redirect::action( 'CheckoutController@getCheckout' );
-		} )->name('flow-post');
+		} )->name( 'flow-post' );
 
 		Route::post( 'flow-upsell', function ( \Illuminate\Http\Request $request )
 		{
@@ -263,12 +264,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Session::put( 'applied_coupon', $coupon->code );
 
 			return Redirect::to( '/flow' );
-		} )->name('flow-upsell');
+		} )->name( 'flow-upsell' );
 
 		Route::get( 'gifting', function ()
 		{
 			return view( 'gifting' );
-		} )->name('gifting');
+		} )->name( 'gifting' );
 
 		/*
 		 * Signup
@@ -304,7 +305,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Route::get( 'get-taxrate', 'CheckoutController@getTaxRate' );
 
 			// Charge verify
-			Route::get( 'verify/{method}', 'CheckoutController@getVerify' )->name('checkout-verify-method');
+			Route::get( 'verify/{method}', 'CheckoutController@getVerify' )->name( 'checkout-verify-method' );
 
 			// Mollie webhook
 			Route::post( 'mollie', function ( $paymentId = 0 )
@@ -320,7 +321,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					Log::error( $ex->getMessage() );
 				}
 
-			} )->name('checkout-webhook-mollie');
+			} )->name( 'checkout-webhook-mollie' );
 		} );
 
 		Route::group( [ 'prefix' => 'checkout' ], function ()
@@ -386,7 +387,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				] );
 
 				return Response::json( [ 'message' => 'Tak, vi ringer til dig snarest!' ] ); // todo translate
-			} )->name('ajax-call-me');
+			} )->name( 'ajax-call-me' );
 		} );
 
 		/*

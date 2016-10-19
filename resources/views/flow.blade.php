@@ -689,17 +689,18 @@
 										</tbody>
 									</table>
 
-									<div class="m-t-20">
-										<label class="regular-label" for="oil-select">Ekstra olie</label>
+									<div class="m-t-20" v-show="!recommendation.hasOil">
+										<label class="regular-label m-b-5" for="oil-select">Ekstra olie</label>
 
-										<select name="step[3][9]" id="oil-select" class="select select--regular select--full" v-model="user_data.foods.oil" v-on:change="additionalVitaminChanged();">
+										<select name="step[3][9]" id="oil-select" class="select select--regular select--full m-b-10" v-model="user_data.foods.oil"
+												v-on:change="additionalVitaminChanged();">
 											<option value="-1">Ingen</option>
 											<option value="fishoil">Fiskeolie</option>
-											<option value="fishoil">Chiaolie</option>
+											<option value="chiaoil">Chiaolie</option>
 										</select>
 
-										<a href="#" v-on:click="moreInfo('chiaoil', $event);">Hvad er chiaolie?</a>
 										<a href="#" v-on:click="moreInfo('fishoil', $event);">Hvad er fiskeolie?</a>
+										<a href="#" v-on:click="moreInfo('chiaoil', $event);">Hvad er chiaolie?</a>
 									</div>{{-- todo select oil + double up --}}
 
 									<button type="submit"
@@ -734,7 +735,7 @@
 							</div>
 						</div>
 
-						<div class="m-b-20">
+						<div class="m-b-20 m-t-20">
 							<button type="button" class="link-button" id="send-by-mail-button">Send et link til mine
 								anbefalinger
 							</button>{{-- todo translate --}}
@@ -820,6 +821,9 @@
 		var app = new Vue({
 			el: '#app',
 			data: {
+				recommendation: {
+					hasOil: false
+				},
 				step: 1,
 				sub_step: 1,
 				current_advise_one: null,
@@ -978,10 +982,53 @@
 					return $(".step[data-step='" + this.step + "']:not(.sub_step--skip)").find(".sub_step").length;
 				},
 
+				additionalVitaminChanged: function () {
+					this.getCombinations(false, false);
+				},
+
+				getCombinations: function (checkVitamins, useTimeout) {
+					var time = 0;
+					var app = this;
+
+					if (checkVitamins) {
+						app.user_data.foods.oil = -1;
+					}
+
+					combinationAjax = $.ajax({
+						url: '{{ URL::route('flow-recommendations') }}',
+						method: 'POST',
+						dataType: 'JSON',
+						cache: true,
+						data: {user_data: $("#user_data_field").val()},
+						beforeSend: function () {
+							time = new Date();
+						},
+						success: function (response) {
+							var curTime = new Date();
+
+							var timeout = curTime.getTime() - time.getTime();
+
+							if (timeout >= 3200 || !useTimeout) {
+								timeout = 3199;
+							}
+
+							combinationTimeout = setTimeout(function () {
+								$("#advises-loader").hide();
+								$("#advises-block").fadeIn();
+								$("#advises-content").html(response.advises);
+								$("#advises-label").html(response.label);
+								$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes));
+
+								if (checkVitamins) {
+									app.recommendation.hasOil = response.hasOil;
+								}
+							}, 3200 - timeout);
+						}
+					});
+				},
+
 				checkIfShouldGetCombinations: function () {
 					if (this.step == 4) {
-						var time = 0;
-
 						if (combinationAjax) {
 							combinationAjax.abort();
 						}
@@ -990,33 +1037,7 @@
 							clearTimeout(combinationTimeout);
 						}
 
-						combinationAjax = $.ajax({
-							url: '{{ URL::route('flow-recommendations') }}',
-							method: 'POST',
-							dataType: 'JSON',
-							cache: true,
-							data: {user_data: $("#user_data_field").val()},
-							beforeSend: function () {
-								time = new Date();
-							},
-							success: function (response) {
-								var curTime = new Date();
-
-								var timeout = curTime.getTime() - time.getTime();
-
-								if (timeout >= 3200) {
-									timeout = 3199;
-								}
-
-								combinationTimeout = setTimeout(function () {
-									$("#advises-loader").hide();
-									$("#advises-block").fadeIn();
-									$("#advises-content").html(response.advises);
-									$("#advises-label").html(response.label);
-									$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes));
-								}, 3200 - timeout);
-							}
-						});
+						this.getCombinations(true, true);
 					}
 					else {
 						$("#advises-block").hide();
