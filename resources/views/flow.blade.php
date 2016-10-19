@@ -600,38 +600,6 @@
 
 						<p class="substep-explanation">{{ trans('flow.questions.3-8.text') }}</p>
 					</div>
-
-					<div data-sub-step="9" class="sub_step"
-						 v-bind:class="{'sub_step--skip': user_data.vegetarian > 1 && user_data.foods.fish == 1 }">
-						<h3 class="substep-title">{{ trans('flow.questions.3-9.title') }}</h3>
-						<div class="sub_step_answers">
-							<label>
-								<input type="radio" name="step[3][9]" value="chiaoil" v-model="user_data.foods.oil"
-									   v-on:click="nextStep();"/>
-								<span class="icon pill-3g"></span>
-								<br/>{{ trans('flow.questions.3-9.options.1') }}
-								<a class="more-info-link" href="#" v-on:click="moreInfo('chiaoil', $event);">Mere
-									info</a>
-							</label>
-							<label>
-								<input type="radio" name="step[3][9]" value="fishoil" v-model="user_data.foods.oil"
-									   v-on:click="nextStep();"/>
-								<span class="icon pill-3e"></span>
-								<br/>{{ trans('flow.questions.3-9.options.2') }}
-								<a class="more-info-link" href="#" v-on:click="moreInfo('fishoil', $event);">Mere
-									info</a>
-							</label>
-							<label>
-								<input type="radio" name="step[3][9]" value="null" v-model="user_data.foods.oil"
-									   v-on:click="nextStep();"/>
-								<span class="icon icon-no-pill"></span>
-								<br/>{{ trans('flow.questions.3-9.options.3') }}
-								<div class="more-info-link">&nbsp;</div>
-							</label>
-						</div>
-
-						<p class="substep-explanation">{{ trans('flow.questions.3-9.text') }}</p>
-					</div>
 				</div>
 
 				<div data-step="4" class="step">
@@ -668,7 +636,6 @@
 
 									<div id="advises-label-tab" class="tab-block tab-block--active">
 										<div id="advises-label"></div>
-										<div class="">Show if no oil and stuff..</div>{{-- todo select oil + double up --}}
 									</div>
 									<div id="advises-content" class="tab-block"></div>
 								</div>
@@ -721,6 +688,19 @@
 										</tr>
 										</tbody>
 									</table>
+
+									<div class="m-t-20">
+										<label class="regular-label" for="oil-select">Ekstra olie</label>
+
+										<select name="step[3][9]" id="oil-select" class="select select--regular select--full" v-model="user_data.foods.oil" v-on:change="additionalVitaminChanged();">
+											<option value="-1">Ingen</option>
+											<option value="fishoil">Fiskeolie</option>
+											<option value="fishoil">Chiaolie</option>
+										</select>
+
+										<a href="#" v-on:click="moreInfo('chiaoil', $event);">Hvad er chiaolie?</a>
+										<a href="#" v-on:click="moreInfo('fishoil', $event);">Hvad er fiskeolie?</a>
+									</div>{{-- todo select oil + double up --}}
 
 									<button type="submit"
 											class="button button--green button--huge button--full-mobile m-t-30">{{ trans('flow.button-order-text') }}</button>
@@ -874,7 +854,6 @@
 					vegetarian: null,
 					joints: null,
 					stressed: null,
-					oil: null,
 					foods: {
 						fruits: null,
 						vegetables: null,
@@ -883,7 +862,8 @@
 						dairy: null,
 						meat: null,
 						fish: null,
-						butter: null
+						butter: null,
+						oil: -1
 					}
 				}
 			},
