@@ -185,6 +185,10 @@
 						<td>{{ trans("products.{$product->name}") }}</td>
 						<td>{{ trans('general.money-vue', ['amount' => 'sub_price']) }}</td>
 					</tr>
+					<tr v-for="item in extra_totals">
+						<td>@{{ item.name }}</td>
+						<td>{{ trans('general.money-vue', ['amount' => 'item.price']) }}</td>
+					</tr>
 					@if($product->is_subscription == 1)
 						<tr>
 							<td>{{ trans('checkout.index.total.shipping') }}</td>
@@ -260,10 +264,11 @@
 			el: '#app',
 			data: {
 				company: '',
-				shipping: {{ $shippingPrice }},
-				price: {{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
-				sub_price: {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }},
+				shipping: parseFloat("{{ $shippingPrice }}"),
+				price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
+				sub_price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
 				tax_rate: 0.2,
+				extra_totals: [],
 				discount: {
 					applied: false,
 					type: null,
@@ -280,7 +285,13 @@
 				},
 				subtotal: function ()
 				{
-					return this.price;
+					var price_addition = 0;
+
+					for (var extra_price in this.extra_totals) {
+						price_addition += parseFloat(app.extra_totals[extra_price].price);
+					}
+
+					return this.price + price_addition;
 				},
 				total_sub: function ()
 				{
@@ -334,6 +345,13 @@
 				}
 			}
 		});
+
+		@for ( $i = 0; $i < ( count( $codes ) - 4 ); $i ++ )
+			app.extra_totals.push({
+				name: "{{ trans('products.oil') }}",
+				price: parseFloat("{{ \App\Setting::getWithDefault( 'vitamin_price', 0 ) }}")
+			});
+		@endfor
 	</script>
 
 	@if ( ! $giftcard )
