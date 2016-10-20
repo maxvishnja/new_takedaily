@@ -248,7 +248,7 @@
 					@endif
 
 					@if($product->is_subscription == 1)
-						{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y')]) !!}
+						{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y')]) !!}{{-- todo instead of $product->price, use also extra_prices/codes --}}
 					@endif
 				</div>
 
@@ -295,7 +295,13 @@
 				},
 				total_sub: function ()
 				{
-					return this.price - this.total_discount;
+					var price_addition = 0;
+
+					for (var extra_price in this.extra_totals) {
+						price_addition += parseFloat(app.extra_totals[extra_price].price);
+					}
+
+					return this.price + price_addition - this.total_discount;
 				},
 				total_discount: function ()
 				{
@@ -322,6 +328,10 @@
 				total_subscription: function ()
 				{
 					var amount = this.sub_price + this.shipping;
+
+					for (var extra_price in this.extra_totals) {
+						amount += parseFloat(app.extra_totals[extra_price].price);
+					}
 
 					if (this.discount.applied)
 					{

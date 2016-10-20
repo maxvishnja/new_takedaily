@@ -81,7 +81,13 @@
 				return this.price + price_addition;
 			},
 			total_sub: function () {
-				return this.price - this.total_discount;
+				var price_addition = 0;
+
+				for (var extra_price in this.extra_totals) {
+					price_addition += parseFloat(app.extra_totals[extra_price].price);
+				}
+
+				return this.price + price_addition - this.total_discount;
 			},
 			total_discount: function () {
 				if (!this.discount.applied) {

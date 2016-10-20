@@ -93,6 +93,7 @@ class CheckoutController extends Controller
 		$checkout = new Checkout();
 
 		$checkout->setProductByName( $productName )
+			// todo add extra_totals by amount of pills
 		         ->setPaymentMethod( $paymentMethod )
 		         ->appendCoupon( $couponCode )
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
@@ -149,6 +150,7 @@ class CheckoutController extends Controller
 
 		$checkout = new Checkout();
 		$checkout->setPaymentMethod( $method )
+			// todo add extra_totals by amount of pills
 		         ->setProductByName( $productName )
 		         ->appendCoupon( $couponCode )
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
@@ -177,6 +179,7 @@ class CheckoutController extends Controller
 		$email    = $request->session()->get( 'email' );
 
 		$checkoutCompletion->createUser( $name, $email, $password )
+			// todo add extra_totals by amount of pills
 		                   ->setCustomerAttributes( [
 			                   'address_city'    => $request->session()->get( 'address_city' ),
 			                   'address_line1'   => $request->session()->get( 'address_street' ),
