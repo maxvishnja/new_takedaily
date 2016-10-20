@@ -240,8 +240,6 @@
 
 					var modelParts = model.split('.');
 
-					console.log(modelParts);
-
 					if (modelParts.length == 1) {
 						this.user_data[modelParts[0]] = null;
 					}
