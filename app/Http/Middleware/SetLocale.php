@@ -17,29 +17,36 @@ class SetLocale
 	public function handle( $request, Closure $next )
 	{
 		$domainEndings = [
-			'dk'  => 'da',
-			'com' => 'en'
+			'dk'    => 'da',
+			'com'   => 'en',
+			'co.uk' => 'en',
 		];
 
-		$placeholder = 'XXXXXXXXXX';
+		$domainRedirects = [
+			'eu'   => 'com',
+			'net'  => 'com',
+			'info' => 'com',
+			'org'  => 'com',
+		];
 
-		$tldRegex = preg_quote( str_replace( '{locale}', $placeholder, env( 'DOMAIN_FORMAT' ) ) );
+		$tld = substr( strstr( $request->getHttpHost(), '.' ), 1 );
 
-		$tldRegex = str_replace( $placeholder, '([a-z\-]{2,6})', $tldRegex );
+		$locale = str_replace( '.dev', '', $tld );
 
-		preg_match( "/$tldRegex/", $request->getHost(), $matches );
-
-		if ( count( $matches ) > 0 )
+		if ( isset( $domainRedirects[ $locale ] ) )
 		{
-			$locale = $matches[1];
+			$host = $request->getUri();
+			$redirectTo = str_replace($locale, $domainRedirects[ $locale ], $host);
 
-			if ( isset( $domainEndings[ $locale ] ) )
-			{
-				$locale = $domainEndings[ $locale ];
-			}
-
-			\App::setLocale($locale);
+			return \Redirect::away($redirectTo);
 		}
+
+		if ( isset( $domainEndings[ $locale ] ) )
+		{
+			$locale = $domainEndings[ $locale ];
+		}
+
+		\App::setLocale( $locale );
 
 		return $next( $request );
 	}
