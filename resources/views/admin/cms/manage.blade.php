@@ -231,36 +231,36 @@
     <script>
 		var handlePreviewInput = $("#page_handle_preview");
 
-        @if(!isset($page) || (isset($page) && $page->url_identifier != 'home'))
-            $("#page_title").on('input', function () {
-            if (!handlePreviewInput.data('changed-manually')) {
-                generateSlug($(this).val());
-            }
-        });
+		@if( !isset($page) || (isset($page) && !$page->isLocked() ))
+			$("#page_title").on('input', function () {
+				if (!handlePreviewInput.data('changed-manually')) {
+					generateSlug($(this).val());
+				}
+			});
 
-        handlePreviewInput.on('input', function () {
-            $(this).data('changed-manually', true);
-        });
+			handlePreviewInput.on('input', function () {
+				$(this).data('changed-manually', true);
+			});
 
-        function generateSlug(value) {
-            var handle = value;
-            handle = handle.trim(' ');
-            handle = handle.toLowerCase();
-            handle = handle.replace(/(å)/g, 'a');
-            handle = handle.replace(/(ø)/g, 'o');
-            handle = handle.replace(/(æ)/g, 'ae');
-            handle = handle.replace(/\s\s+/g, ' ');
-            handle = handle.replace(/( )/g, '-');
-            handle = handle.replace(/([^a-z0-9-])/g, '');
-            handle = handle.replace(/\-\-+/g, '-');
-            handle = handle.substr(0, 50);
+			function generateSlug(value) {
+				var handle = value;
+				handle = handle.trim(' ');
+				handle = handle.toLowerCase();
+				handle = handle.replace(/(å)/g, 'a');
+				handle = handle.replace(/(ø)/g, 'o');
+				handle = handle.replace(/(æ)/g, 'ae');
+				handle = handle.replace(/\s\s+/g, ' ');
+				handle = handle.replace(/( )/g, '-');
+				handle = handle.replace(/([^a-z0-9-])/g, '');
+				handle = handle.replace(/\-\-+/g, '-');
+				handle = handle.substr(0, 50);
 
-            handlePreviewInput.val(handle);
-        }
+				handlePreviewInput.val(handle);
+			}
 
-		if (!handlePreviewInput.data('changed-manually')) {
-			generateSlug($("#page_title").val());
-		}
+			if (!handlePreviewInput.data('changed-manually')) {
+				generateSlug($("#page_title").val());
+			}
         @endif
 
         CKEDITOR.replace('page_body', {
