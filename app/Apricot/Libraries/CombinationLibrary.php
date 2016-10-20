@@ -328,7 +328,7 @@ class CombinationLibrary
 				// Pregnant
 				$this->groupOne = '1';
 
-				$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
+				$this->setAdvise( 'one', trans( 'flow.combinations.1.bas    ic' ) );
 				$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic' ) );
 			}
 			else

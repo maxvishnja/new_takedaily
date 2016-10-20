@@ -229,14 +229,16 @@
 
 @section('scripts')
     <script>
+		var handlePreviewInput = $("#page_handle_preview");
+
         @if(!isset($page) || (isset($page) && $page->url_identifier != 'home'))
             $("#page_title").on('input', function () {
-            if (!$("#page_handle_preview").data('changed-manually')) {
+            if (!handlePreviewInput.data('changed-manually')) {
                 generateSlug($(this).val());
             }
         });
 
-        $("#page_handle_preview").on('input', function () {
+        handlePreviewInput.on('input', function () {
             $(this).data('changed-manually', true);
         });
 
@@ -253,10 +255,12 @@
             handle = handle.replace(/\-\-+/g, '-');
             handle = handle.substr(0, 50);
 
-            $("#page_handle_preview").val(handle);
+            handlePreviewInput.val(handle);
         }
 
-        generateSlug($("#page_title").val());
+		if (!handlePreviewInput.data('changed-manually')) {
+			generateSlug($("#page_title").val());
+		}
         @endif
 
         CKEDITOR.replace('page_body', {
