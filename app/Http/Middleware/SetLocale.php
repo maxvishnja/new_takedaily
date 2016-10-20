@@ -32,7 +32,7 @@ class SetLocale
 		$tld = substr( strstr( $request->getHttpHost(), '.' ), 1 );
 
 		$locale = str_replace( '.dev', '', $tld );
-		$locale = str_replace( '.takedaily', '', $locale );
+		$locale = str_replace( 'takedaily.', '', $locale );
 
 		if ( isset( $domainRedirects[ $locale ] ) )
 		{
