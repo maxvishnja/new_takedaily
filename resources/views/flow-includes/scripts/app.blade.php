@@ -183,7 +183,7 @@
 					method: 'POST',
 					dataType: 'JSON',
 					cache: true,
-					data: {user_data: $("#user_data_field").val()},
+					data: { user_data: JSON.stringify(app.user_data) },
 					beforeSend: function () {
 						time = new Date();
 					},

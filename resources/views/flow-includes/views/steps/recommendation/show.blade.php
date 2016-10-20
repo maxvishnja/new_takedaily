@@ -19,7 +19,7 @@
 
 				{{--<a href="#" v-on:click="moreInfo('fishoil', $event);">Hvad er fiskeolie?</a>--}}
 				{{--<a href="#" v-on:click="moreInfo('chiaoil', $event);">Hvad er chiaolie?</a>--}}
-			</div>{{-- todo double up --}}
+			</div>
 		</div>
 
 		<div id="advises-content" class="tab-block"></div>
@@ -29,4 +29,4 @@
 			her</a></p>
 
 	@include('includes.disclaimer')
-</div>
+</div>{{-- todo translate --}}
