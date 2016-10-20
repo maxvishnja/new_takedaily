@@ -117,7 +117,7 @@ class CombinationLibrary
 
 	private function generateGroupFour( $data )
 	{
-		if ( $this->isEmpty( $this->groupFour ) && $this->groupThree != 'e' && $this->groupThree != 'g' && ( isset( $data->foods->oil ) && $data->foods->oil == 'fishoil' ) )
+		if ( $this->isEmpty( $this->groupFour ) && $this->groupThree != 'e' && $this->groupThree != 'g' && (( isset( $data->foods->oil ) && $data->foods->oil == 'fishoil' ) || $data->vegetarian == 2 ) )
 		{
 			$this->groupFour = 'e';
 
@@ -125,7 +125,7 @@ class CombinationLibrary
 			$this->setAdviseInfo( 'four', trans( 'flow.combination_info.3.e' ) );
 		}
 
-		if ( $this->isEmpty( $this->groupFour ) && $this->groupThree != 'e' && $this->groupThree != 'g' && ( isset( $data->foods->oil ) && $data->foods->oil == 'chiaoil' ) )
+		if ( $this->isEmpty( $this->groupFour ) && $this->groupThree != 'e' && $this->groupThree != 'g' && (( isset( $data->foods->oil ) && $data->foods->oil == 'chiaoil' ) || $data->vegetarian == 1) )
 		{
 			$this->groupFour = 'g';
 

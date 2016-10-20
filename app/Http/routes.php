@@ -133,7 +133,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 	/*
 	 * Frontend routes
 	 */
-	Route::group( [ 'prefix' => LaravelLocalization::setLocale(), 'middleware' => [ 'localeSessionRedirect', 'localizationRedirect' ] ], function ()
+	Route::group( [ 'middleware' => 'setLocale' ], function ()
 	{
 		/*
 		 * Auth routes
@@ -223,8 +223,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					'advises'        => $advises,
 					'num_advises'    => count( $lib->getAdvises() ),
 					'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ] )->render(),
-					'selected_codes' => implode( ',', $codes ),
-					'hasOil'         => $lib->hasOil()
+					'selected_codes' => implode( ',', $codes )
 				] );
 			} )->name( 'flow-recommendations' );
 		} );

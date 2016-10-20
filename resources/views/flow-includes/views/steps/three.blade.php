@@ -1,0 +1,220 @@
+<div data-step="3" class="step">
+	<div data-sub-step="1" class="sub_step sub_step--active">
+		<h3 class="substep-title">{{ trans('flow.questions.3-1.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-vegetables-1"></span>
+				<br/>{{ trans('flow.questions.3-1.options.1') }}</label>
+			<label>
+				<input type="radio" name="step[3][1]" value="2" v-model="user_data.foods.vegetables"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-vegetables-2"></span>
+				<br/>{{ trans('flow.questions.3-1.options.2') }}</label>
+			<label>
+				<input type="radio" name="step[3][1]" value="3" v-model="user_data.foods.vegetables"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-vegetables-3"></span>
+				<br/>{{ trans('flow.questions.3-1.options.3') }}</label>
+			<label>
+				<input type="radio" name="step[3][1]" value="4" v-model="user_data.foods.vegetables"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-vegetables-4"></span>
+				<br/>{{ trans('flow.questions.3-1.options.4') }}</label>
+			<label>
+				<input type="radio" name="step[3][1]" value="5" v-model="user_data.foods.vegetables"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-vegetables-5"></span>
+				<br/>{{ trans('flow.questions.3-1.options.5') }}</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.3-1.text') }}</p>
+	</div>
+
+	<div data-sub-step="2" class="sub_step">
+		<h3 class="substep-title">{{ trans('flow.questions.3-2.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="1"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-fruit-1"></span>
+				<br/>{{ trans('flow.questions.3-2.options.1') }}</label>
+			<label>
+				<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="2"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-fruit-2"></span>
+				<br/>{{ trans('flow.questions.3-2.options.2') }}</label>
+			<label>
+				<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" value="3"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-fruit-3"></span>
+				<br/>{{ trans('flow.questions.3-2.options.3') }}</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.3-2.text') }}</p>
+	</div>
+
+	<div data-sub-step="3" class="sub_step">
+		<h3 class="substep-title">{{ trans('flow.questions.3-3.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-bread-1"></span>
+				<br/>{{ trans('flow.questions.3-3.options.1') }}</label>
+			<label>
+				<input type="radio" name="step[3][3]" value="2" v-model="user_data.foods.bread"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-bread-2"></span>
+				<br/>{{ trans('flow.questions.3-3.options.2') }}</label>
+			<label>
+				<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-bread-3"></span>
+				<br/>{{ trans('flow.questions.3-3.options.3') }}</label>
+			<label>
+				<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-bread-4"></span>
+				<br/>{{ trans('flow.questions.3-3.options.4') }}</label>
+			<label>
+				<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-bread-5"></span>
+				<br/>{{ trans('flow.questions.3-3.options.5') }}</label>
+		</div>
+
+		<p class="substep-explanation">{!! trans('flow.questions.3-3.text') !!}</p>
+	</div>
+
+	<div data-sub-step="4" class="sub_step">
+		<h3 class="substep-title">{{ trans('flow.questions.3-4.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-butter-yes"></span>
+				<br/>{{ trans('flow.questions.3-4.options.1') }}
+			</label>
+			<label>
+				<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-butter-no"></span>
+				<br/>{{ trans('flow.questions.3-4.options.2') }}
+			</label>
+			<label>
+				<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-butter-sometimes"></span>
+				<br/>{{ trans('flow.questions.3-4.options.3') }}
+			</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.3-4.text') }}</p>
+	</div>
+
+	<div data-sub-step="5" class="sub_step">
+		<h3 class="substep-title">{{ trans('flow.questions.3-5.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-pasta-1"></span>
+				<br/>{{ trans('flow.questions.3-5.options.1') }}</label>
+			<label>
+				<input type="radio" name="step[3][5]" value="2" v-model="user_data.foods.wheat"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-pasta-2"></span>
+				<br/>{{ trans('flow.questions.3-5.options.2') }}</label>
+			<label>
+				<input type="radio" name="step[3][5]" value="3" v-model="user_data.foods.wheat"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-pasta-3"></span>
+				<br/>{{ trans('flow.questions.3-5.options.3') }}</label>
+			<label>
+				<input type="radio" name="step[3][5]" value="4" v-model="user_data.foods.wheat"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-pasta-4"></span>
+				<br/>{{ trans('flow.questions.3-5.options.4') }}</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.3-5.text') }}</p>
+	</div>
+
+	<div data-sub-step="6" class="sub_step"
+		 v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }">
+		<h3 class="substep-title">{{ trans('flow.questions.3-6.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-meat-1"></span>
+				<br/>{{ trans('flow.questions.3-6.options.1') }}</label>
+			<label>
+				<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-meat-2"></span>
+				<br/>{{ trans('flow.questions.3-6.options.2') }}</label>
+			<label>
+				<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-meat-3"></span>
+				<br/>{{ trans('flow.questions.3-6.options.3') }}</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.3-6.text') }}</p>
+	</div>
+
+	<div data-sub-step="7" class="sub_step">
+		<h3 class="substep-title">{{ trans('flow.questions.3-7.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[3][7]" value="1" v-model="user_data.foods.fish"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-fish-1"></span>
+				<br/>{{ trans('flow.questions.3-7.options.1') }}
+			</label>
+			<label>
+				<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-fish-2"></span>
+				<br/>{{ trans('flow.questions.3-7.options.2') }}
+			</label>
+			<label>
+				<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-fish-3"></span>
+				<br/>{{ trans('flow.questions.3-7.options.3') }}
+			</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.3-7.text') }}</p>
+	</div>
+
+	<div data-sub-step="8" class="sub_step">
+		<h3 class="substep-title">{{ trans('flow.questions.3-8.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-milk-1"></span>
+				<br/>{{ trans('flow.questions.3-8.options.1') }}
+			</label>
+			<label>
+				<input type="radio" name="step[3][8]" value="2" v-model="user_data.foods.dairy"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-milk-2"></span>
+				<br/>{{ trans('flow.questions.3-8.options.2') }}
+			</label>
+			<label>
+				<input type="radio" name="step[3][8]" value="3" v-model="user_data.foods.dairy"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-milk-3"></span>
+				<br/>{{ trans('flow.questions.3-8.options.3') }}
+			</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.3-8.text') }}</p>
+	</div>
+</div>

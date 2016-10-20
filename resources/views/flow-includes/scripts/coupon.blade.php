@@ -1,0 +1,49 @@
+<script>
+	$("#toggle-coupon-form").click(function (e) {
+		e.preventDefault();
+
+		$("#coupon-field").toggle();
+	});
+
+	$("#coupon-button").click(function () {
+		var button = $(this);
+
+		$.ajax({
+			url: "{{ URL::action('CheckoutController@applyCoupon') }}",
+			method: "POST",
+			data: {"coupon": $("#coupon-input").val()},
+			headers: {
+				'X-CSRF-TOKEN': "{{ csrf_token() }}"
+			},
+			dataType: 'JSON',
+			beforeSend: function () {
+				button.text('Vent...').prop('disabled', true); // todo translate
+			},
+			complete: function () {
+				button.text('Anvend').prop('disabled', false); // todo translate
+			},
+			success: function (response) {
+				$("#coupon-form-successes").text(response.message);
+				$("#coupon-form-errors").text('');
+
+				app.discount.applied = true;
+				app.discount.type = response.coupon.discount_type;
+				app.discount.amount = response.coupon.discount;
+				app.discount.applies_to = response.coupon.applies_to;
+				app.discount.description = response.coupon.description;
+				app.discount.code = response.coupon.code;
+			},
+			error: function (response) {
+				$("#coupon-form-errors").text(response.responseJSON.message);
+				$("#coupon-form-successes").text('');
+
+				app.discount.applied = false;
+				app.discount.code = '';
+			}
+		});
+	});
+
+	if ($("#coupon-input").val().length > 0) {
+		$("#coupon-button").click();
+	}
+</script>
