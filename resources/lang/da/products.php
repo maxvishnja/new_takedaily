@@ -8,5 +8,6 @@ return [
 	'shipping'            => 'Fragt',
 	'balance'             => 'Betalt med gavekort el. lign.',
 	'refund'              => 'Tilbagebetaling',
-	'coupon'              => 'Kuponkode tilføjet'
+	'coupon'              => 'Kuponkode tilføjet',
+	'oil'                 => 'Ekstra olie'
 ];

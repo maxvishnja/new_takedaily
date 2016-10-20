@@ -6,6 +6,10 @@
 				<td>{{ trans("products." . (Session::get('force_product_name', false) ? ( Session::get('product_name', 'subscription')) : 'subscription')) }}</td>
 				<td>{{ trans('general.money-vue', ['amount' => 'sub_price']) }}</td>
 			</tr>
+			<tr v-for="item in extra_totals">
+				<td>@{{ item.name }}</td>
+				<td>{{ trans('general.money-vue', ['amount' => 'item.price']) }}</td>
+			</tr>
 			@if($product->is_subscription == 1)
 				<tr>
 					<td>{{ trans('checkout.index.total.shipping') }}</td>

@@ -30,13 +30,23 @@ class CombinationLibrary
 
 	function getResult()
 	{
-		return [
+		$result = [
 			'one'   => $this->groupOne,
 			'two'   => $this->groupTwo,
 			'three' => $this->groupThree,
 			'four'  => $this->groupFour,
-		    'five' => $this->groupFive
+			'five' => $this->groupFive
 		];
+
+		foreach($result as $item => $value)
+		{
+			if( is_null($value))
+			{
+				unset($result[$item]);
+			}
+		}
+
+		return $result;
 	}
 
 	function getAdvises()
@@ -120,7 +130,7 @@ class CombinationLibrary
 
 	private function generateGroupFive( $data )
 	{
-		if ( $data->double_oil == 1 )
+		if ( $data->double_oil == '1' )
 		{
 			$this->groupFive = $this->groupFour;
 

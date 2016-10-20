@@ -11,12 +11,7 @@
 			current_advise_two: null,
 			current_advise_three: null,
 			temp_age: null,
-			totals: [
-				{
-					name: "{{ trans('products.subscription') }}",
-					price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}")
-				}
-			],
+			extra_totals: [],
 			shipping: parseFloat("{{ $shippingPrice }}"),
 			price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
 			sub_price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
@@ -77,7 +72,13 @@
 				return this.total_sub * this.tax_rate;
 			},
 			subtotal: function () {
-				return this.price;
+				var price_addition = 0;
+
+				for (var extra_price in this.extra_totals) {
+					price_addition += parseFloat(app.extra_totals[extra_price].price);
+				}
+
+				return this.price + price_addition;
 			},
 			total_sub: function () {
 				return this.price - this.total_discount;
@@ -183,7 +184,7 @@
 					method: 'POST',
 					dataType: 'JSON',
 					cache: true,
-					data: { user_data: JSON.stringify(app.user_data) },
+					data: {user_data: JSON.stringify(app.user_data)},
 					beforeSend: function () {
 						time = new Date();
 					},
@@ -202,7 +203,7 @@
 							$("#advises-content").html(response.advises);
 							$("#advises-label").html(response.label);
 							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes));
-							// todo add totals
+							app.extra_totals = response.totals;
 						}, 3200 - timeout);
 					}
 				});
