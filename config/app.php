@@ -62,6 +62,7 @@ return [
 		[ 'code' => 'en', 'tld' => 'com', 'name' => 'English' ],
 		[ 'code' => 'se', 'tld' => 'se', 'name' => 'Svenska' ],
 		[ 'code' => 'de', 'tld' => 'de', 'name' => 'Deutch' ],
+		[ 'code' => 'nl', 'tld' => 'nl', 'name' => 'Nederlands' ],
 	],
 	/*
 	|--------------------------------------------------------------------------
