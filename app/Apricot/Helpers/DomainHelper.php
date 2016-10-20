@@ -8,6 +8,7 @@ class DomainHelper
 
 		$curTld = substr( strstr( \Request::getHttpHost(), '.' ), 1 );
 		$curTld = str_replace( '.dev', '', $curTld );
+		$curTld = str_replace( '.takedaily', '', $curTld );
 
 		return str_replace($curTld, $toTld, $url);
 	}
