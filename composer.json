@@ -25,7 +25,6 @@
 		"predis/predis": "^1.0",
 		"watson/rememberable": "^1.0",
 		"doctrine/dbal": "^2.5",
-		"mcamara/laravel-localization": "1.1.*",
 		"bugsnag/bugsnag-laravel": "^2.0"
 	},
 	"require-dev": {

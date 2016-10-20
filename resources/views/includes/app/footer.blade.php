@@ -47,13 +47,13 @@
 				</div>
 				<div class="col-lg-9 col-sm-8 text-right">
 					<ul class="footer_bottom_links">
-						<li class="input input--semibold input--transparent lang-selector-footer selector selector--up">{{ LaravelLocalization::getCurrentLocaleName() }}
+						<li class="input input--semibold input--transparent lang-selector-footer selector selector--up">{{ trans('footer.language') }}
 							<span class="icon icon-arrow-up-small v-a-m m-l-5"></span>
 							<ul>
-								@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+								@foreach(config('app.locales') as $locale)
 									<li>
-										<a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
-											{{ $properties['native'] }}
+										<a rel="alternate" hreflang="{{ $locale['code'] }}" href="{{ \App\Apricot\Helpers\DomainHelper::convertTldTo($locale['tld']) }}">
+											{{ $locale['name'] }}
 										</a>
 									</li>
 								@endforeach

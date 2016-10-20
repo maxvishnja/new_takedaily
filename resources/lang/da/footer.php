@@ -15,6 +15,7 @@ return [
 			'info'  => '+45 1234 5678<br/><a href="mailto:support@takedaily.dk">support@takedaily.dk</a>'
 		],
 	],
+	'language' => 'Dansk',
 	'copyright' => 'TakeDaily',
 	'links'     => '<li><a href="/about">Om TakeDaily</a></li>
 					<li><a href="/faq">FAQ</a></li>

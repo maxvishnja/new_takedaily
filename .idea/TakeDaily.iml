@@ -94,7 +94,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/flysystem-aws-s3-v3" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/mcamara/laravel-localization" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mollie/laravel-mollie" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mollie/mollie-api-php" />
@@ -201,7 +200,6 @@
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem-aws-s3-v3" />
           <root url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
-          <root url="file://$MODULE_DIR$/vendor/mcamara/laravel-localization" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
           <root url="file://$MODULE_DIR$/vendor/mollie/laravel-mollie" />
           <root url="file://$MODULE_DIR$/vendor/mollie/mollie-api-php" />
@@ -294,7 +292,6 @@
           <root url="file://$MODULE_DIR$/vendor/league/flysystem" />
           <root url="file://$MODULE_DIR$/vendor/league/flysystem-aws-s3-v3" />
           <root url="file://$MODULE_DIR$/vendor/maximebf/debugbar" />
-          <root url="file://$MODULE_DIR$/vendor/mcamara/laravel-localization" />
           <root url="file://$MODULE_DIR$/vendor/mockery/mockery" />
           <root url="file://$MODULE_DIR$/vendor/mollie/laravel-mollie" />
           <root url="file://$MODULE_DIR$/vendor/mollie/mollie-api-php" />

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ LaravelLocalization::getCurrentLocale() }}">
+<html lang="{{ App::getLocale() }}">
 <head>
 	<title>@yield('title', 'TakeDaily')</title>
 
@@ -11,10 +11,6 @@
 
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<link rel="icon" type="image/png" href="/favicon.png"/>
-
-	@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-		<link rel="alternate" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}" hreflang="{{$localeCode}}" />
-	@endforeach
 
 	<!-- todo add meta image from page.blade.php -->
 
