@@ -233,6 +233,23 @@
 					return false;
 				}
 
+				// resets some data
+				this.user_data.double_oil = 0;
+				if (this.step < 4) {
+					var model = $("[name='step[" + this.step + "][" + this.sub_step + "]']").data('model');
+
+					var modelParts = model.split('.');
+
+					console.log(modelParts);
+
+					if (modelParts.length == 1) {
+						this.user_data[modelParts[0]] = null;
+					}
+					else {
+						this.user_data[modelParts[0]][modelParts[1]] = null;
+					}
+				}
+
 				var currentStep = $(".step[data-step='" + this.step + "']");
 				var previousStep = $(".step[data-step='" + (this.step - 1) + "']");
 

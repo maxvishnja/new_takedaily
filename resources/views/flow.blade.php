@@ -10,6 +10,7 @@
 	@include('flow-includes.views.noscript')
 
 	<div id="app" class="flow-container">
+		<pre>@{{ $data | json }}</pre>
 		@include('flow-includes.views.progress')
 
 		<div class="container">

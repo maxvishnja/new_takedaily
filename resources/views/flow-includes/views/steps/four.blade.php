@@ -19,8 +19,8 @@
 				class="button button--green button--large visible-xs button--full-mobile m-t-30 m-b-30">{{ trans('flow.button-order-text') }}</button>
 
 		<div class="row">
-			@include('flow-includes.views.recommendation.show')
-			@include('flow-includes.views.recommendation.totals')
+			@include('flow-includes.views.steps.recommendation.show')
+			@include('flow-includes.views.steps.recommendation.totals')
 		</div>
 
 		<div class="m-b-20 m-t-20">
