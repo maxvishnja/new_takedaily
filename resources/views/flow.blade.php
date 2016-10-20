@@ -839,13 +839,13 @@
 				totals: [
 					{
 						name: "{{ trans('products.subscription') }}",
-						price: parseInt("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}")
+						price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}")
 					}
 				],
-				shipping: {{ $shippingPrice }},
-				price: "{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}",
-				sub_price: "{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}",
-				tax_rate: "{{ $taxRate }}",
+				shipping: parseFloat("{{ $shippingPrice }}"),
+				price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
+				sub_price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
+				tax_rate: parseFloat("{{ $taxRate }}"),
 				discount: {
 					applied: false,
 					type: null,
