@@ -44,11 +44,15 @@ class PillLibrary
 			case 'one':
 				$group = 1;
 				break;
+
 			case 'two':
 				$group = 2;
 				break;
+
+			default:
 			case 'three':
 			case 'four':
+			case 'five':
 				$group = 3;
 				break;
 		}

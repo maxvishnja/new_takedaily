@@ -10,6 +10,7 @@ class CombinationLibrary
 	private $groupTwo    = null;
 	private $groupThree  = null;
 	private $groupFour   = null;
+	private $groupFive   = null;
 	private $advises     = [];
 	private $advise_info = [];
 
@@ -34,6 +35,7 @@ class CombinationLibrary
 			'two'   => $this->groupTwo,
 			'three' => $this->groupThree,
 			'four'  => $this->groupFour,
+		    'five' => $this->groupFive
 		];
 	}
 
@@ -108,10 +110,22 @@ class CombinationLibrary
 		$this->generateGroupTwo( $data );
 		$this->generateGroupThree( $data );
 		$this->generateGroupFour( $data );
+		$this->generateGroupFive( $data );
 
-		if ( is_null( $this->groupOne ) && is_null( $this->groupTwo ) && is_null( $this->groupThree ) && is_null( $this->groupFour ) )
+		if ( is_null( $this->groupOne ) && is_null( $this->groupTwo ) && is_null( $this->groupThree ) && is_null( $this->groupFour ) && is_null( $this->groupFive ) )
 		{
 			$this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
+		}
+	}
+
+	private function generateGroupFive( $data )
+	{
+		if ( $data->double_oil == 1 )
+		{
+			$this->groupFive = $this->groupFour;
+
+			$this->setAdvise( 'five', $this->advises['four'] );
+			$this->setAdviseInfo( 'five', $this->advise_info['four'] );
 		}
 	}
 
