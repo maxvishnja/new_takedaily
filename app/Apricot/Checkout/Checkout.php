@@ -137,7 +137,14 @@ class Checkout
 		{
 			$lib = new CombinationLibrary;
 
-			$lib->generateResult( $request->session()->get( 'user_data' ) );
+			$userData = $request->session()->get( 'user_data' );
+
+			if( json_decode($userData))
+			{
+				$userData = json_decode($userData);
+			}
+
+			$lib->generateResult( $userData );
 
 			foreach ( $lib->getResult() as $combKey => $combVal )
 			{

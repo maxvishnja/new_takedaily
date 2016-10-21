@@ -150,7 +150,7 @@ class CheckoutController extends Controller
 
 		$checkout = new Checkout();
 		$checkout->setPaymentMethod( $method )
-			     ->setProductByName( $productName )
+		         ->setProductByName( $productName )
 		         ->setupTotals( $request )
 		         ->appendCoupon( $couponCode )
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
@@ -179,13 +179,13 @@ class CheckoutController extends Controller
 		$email    = $request->session()->get( 'email' );
 
 		$checkoutCompletion->createUser( $name, $email, $password )
-			               ->setCustomerAttributes( [
-				'address_city'    => $request->session()->get( 'address_city' ),
-				'address_line1'   => $request->session()->get( 'address_street' ),
-				'address_country' => $request->session()->get( 'address_country' ),
-				'address_postal'  => $request->session()->get( 'address_zipcode' ),
-				'company'         => $request->session()->get( 'company' ),
-			] )
+		                   ->setCustomerAttributes( [
+			                   'address_city'    => $request->session()->get( 'address_city' ),
+			                   'address_line1'   => $request->session()->get( 'address_street' ),
+			                   'address_country' => $request->session()->get( 'address_country' ),
+			                   'address_postal'  => $request->session()->get( 'address_zipcode' ),
+			                   'company'         => $request->session()->get( 'company' ),
+		                   ] )
 		                   ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
 		                   ->setUserData( $request->session()->get( 'user_data', '{}' ) )
 		                   ->updateCustomerPlan()
