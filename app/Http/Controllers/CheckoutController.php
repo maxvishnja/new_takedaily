@@ -2,6 +2,7 @@
 
 use App\Apricot\Checkout\Checkout;
 use App\Apricot\Checkout\CheckoutCompletion;
+use App\Apricot\Helpers\PaymentMethods;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
@@ -50,7 +51,14 @@ class CheckoutController extends Controller
 		{
 			$lib = new \App\Apricot\Libraries\CombinationLibrary();
 
-			$lib->generateResult( $request->session()->get( 'user_data' ) );
+			$userData = $request->session()->get( 'user_data' );
+
+			if( json_decode($userData))
+			{
+				$userData = json_decode($userData);
+			}
+
+			$lib->generateResult( $userData );
 
 			foreach ( $lib->getResult() as $combKey => $combVal )
 			{
@@ -63,7 +71,8 @@ class CheckoutController extends Controller
 			'product'       => $product,
 			'giftcard'      => $giftcard,
 			'shippingPrice' => Setting::getWithDefault( 'shipping_price', 0 ),
-			'codes'         => $codes
+			'codes'         => $codes,
+		    'paymentMethods' => PaymentMethods::getAcceptedMethodsForCountry(\App::getLocale())
 		] );
 	}
 

@@ -263,32 +263,12 @@
 			</div>
 		@endif
 
-		{{--<div class="block block--seven text-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-push-2">
-						<h2>{{ trans('home.blocks.seven.title') }}</h2>
-						<h3>{{ trans('home.blocks.seven.subtitle') }}</h3>
-						<p>{{ trans('home.blocks.seven.text') }}</p>
-						{!! trans('home.blocks.seven.button') !!}
-					</div>
-				</div>
+		<div class="video-popup" id="video_popup">
+			<div class="video-popup_container">
+				<div class="video-popup-close" id="video_popup_close"><span class="icon icon-cross-large"></span></div>
+				<div id="video_popup-content"></div>
 			</div>
 		</div>
-
-		<div class="container">
-			<div class="block block--eight text-center">
-				<div class="row">
-					<div class="col-md-8 col-md-push-2">
-						<img src="/images/product_box_large.png" alt="TakeDaily boks"/>
-						<h2>{!! trans('home.blocks.eight.title') !!}</h2>
-						<p>{{ trans('home.blocks.eight.text') }}</p>
-
-						{!! trans('home.blocks.eight.button') !!}
-					</div>
-				</div>
-			</div>
-		</div>--}}
 	</main>
 @endsection
 
@@ -296,25 +276,37 @@
 	<script>
 		$("#slider_one").slider();
 		$("#slider_two").slider();
-		{{--
-				var ctaBlock = $(".header_footer");
-				var headerBlock = $("header.header--landing");
+			{{--
+					var ctaBlock = $(".header_footer");
+					var headerBlock = $("header.header--landing");
 
-				$(window).scroll(function ()
-				{
-					if ($(this).scrollTop() > (headerBlock.height()))
+					$(window).scroll(function ()
 					{
-						ctaBlock.addClass('header_footer--sticky');
-					}
-					else
-					{
-						ctaBlock.removeClass('header_footer--sticky');
-					}
-				});
-				--}}
-
+						if ($(this).scrollTop() > (headerBlock.height()))
+						{
+							ctaBlock.addClass('header_footer--sticky');
+						}
+						else
+						{
+							ctaBlock.removeClass('header_footer--sticky');
+						}
+					});
+					--}}
+		var videoPopup = $("#video_popup");
+		var videoPopupContent = $("#video_popup-content");
 		$("#video-toggle, #video-toggle-two").click(function (e) {
-			alert('START VIDEO!'); // todo
+			videoPopupContent.html('<iframe width="960" height="540" src="https://www.youtube.com/embed/r0iLfAV0pIg" frameborder="0" allowfullscreen></iframe>');
+			videoPopup.fadeIn(200);
+		});
+
+		$("#video_popup_close").click(function () {
+			videoPopupContent.html('');
+			videoPopup.hide();
+		});
+
+		$(".video-popup").click(function(e)
+		{
+
 		});
 
 		var header_slider = $(".header_slides");

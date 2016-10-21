@@ -4,17 +4,21 @@
 	<hr class="hr--dashed hr--small-margin"/>
 
 	<div class="payment-methods">
-		<label class="payment-method-icon payment-method-icon-mastercard" data-toggle="payment-method-cc">
-			<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
-		</label>
+		@if(in_array('stripe', $paymentMethods))
+			<label class="payment-method-icon payment-method-icon-mastercard" data-toggle="payment-method-cc">
+				<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
+			</label>
 
-		<label class="payment-method-icon payment-method-icon-visa" data-toggle="payment-method-cc">
-			<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
-		</label>
+			<label class="payment-method-icon payment-method-icon-visa" data-toggle="payment-method-cc">
+				<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
+			</label>
+		@endif
 
-		<label class="payment-method-icon payment-method-icon-ideal" data-toggle="-">
-			<input type="radio" name="payment_method" value="mollie" class="payment_method_input"/>
-		</label>
+		@if(in_array('mollie', $paymentMethods))
+			<label class="payment-method-icon payment-method-icon-ideal" data-toggle="-">
+				<input type="radio" name="payment_method" value="mollie" class="payment_method_input"/>
+			</label>
+		@endif
 	</div>
 </div>
 
