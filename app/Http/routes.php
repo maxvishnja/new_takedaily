@@ -219,15 +219,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
 				}
 
-				$totals = [];
-
-				for ( $i = 0; $i < ( count( $codes ) - 4 ); $i ++ )
-				{
-					$totals[] = [
-						'name'  => trans('products.oil'),
-						'price' => \App\Setting::getWithDefault( 'vitamin_price', 0 )
-					];
-				}
+				$totals = \App\Apricot\Helpers\ExtraPills::getTotalsFor($codes);
 
 				return Response::json( [
 					'advises'        => $advises,

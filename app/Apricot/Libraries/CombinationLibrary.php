@@ -480,7 +480,7 @@ class CombinationLibrary
 		}
 
 		// Multi basic
-		if ( ( $data->age < '50' && $data->gender == '2' ) || ( $data->age < '70' && $data->gender == '1' ) )
+		if ( ( $this->isEmpty( $this->groupOne ) ) && ( $data->age < '50' && $data->gender == '2' ) || ( $data->age < '70' && $data->gender == '1' ) )
 		{
 			$this->groupOne = '1';
 

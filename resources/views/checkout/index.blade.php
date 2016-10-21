@@ -356,12 +356,12 @@
 			}
 		});
 
-		@for ( $i = 0; $i < ( count( $codes ) - 4 ); $i ++ )
+		@foreach (App\Apricot\Helpers\ExtraPills::getTotalsFor($codes) as $total )
 			app.extra_totals.push({
-				name: "{{ trans('products.oil') }}",
-				price: parseFloat("{{ \App\Setting::getWithDefault( 'vitamin_price', 0 ) }}")
+				name: "{{ $total->name }}",
+				price: parseFloat("{{ $total->price }}")
 			});
-		@endfor
+		@endforeach
 	</script>
 
 	@if ( ! $giftcard )
