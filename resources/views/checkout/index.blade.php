@@ -358,8 +358,8 @@
 
 		@foreach (App\Apricot\Helpers\ExtraPills::getTotalsFor($codes) as $total )
 			app.extra_totals.push({
-				name: "{{ $total->name }}",
-				price: parseFloat("{{ $total->price }}")
+				name: "{{ $total['name'] }}",
+				price: parseFloat("{{ $total['price'] }}")
 			});
 		@endforeach
 	</script>
