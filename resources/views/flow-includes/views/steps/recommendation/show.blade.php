@@ -12,13 +12,19 @@
 		<div id="advises-label-tab" class="tab-block tab-block--active">
 			<div id="advises-label"></div>
 
-			<div class="m-t-20" v-show="user_data.double_oil == 0">
-				Tilføj 1000 mg premium fiskolie mere til din TakeDaily for kun 19 kr./mdr
-				Tilføj 1000 mg premium chiaolie mere til din TakeDaily for kun 19 kr./mdr
-				<a href="#" class="button" v-on:click="addAdditionalOil();">Tilføj</a>
+			<div class="m-t-20 card" v-show="user_data.double_oil == 0">
+				<div class="card_content text-center">
+					<strong v-show="result.three == 'e' || result.four == 'e'">Tilføj 1000 mg premium fiskolie mere til din TakeDaily for kun 19 kr./mdr</strong>{{-- todo unhardcode --}}
+					<strong v-show="result.three == 'g' || result.four == 'g'">Tilføj 1000 mg premium chiaolie mere til din TakeDaily for kun 19 kr./mdr</strong>{{-- todo unhardcode --}}
 
-				{{--<a href="#" v-on:click="moreInfo('fishoil', $event);">Hvad er fiskeolie?</a>--}}
-				{{--<a href="#" v-on:click="moreInfo('chiaoil', $event);">Hvad er chiaolie?</a>--}}
+					<a href="#" class="m-t-10 button button-green-border button-doubleup" v-on:click="addAdditionalOil($event);">
+						<span class="icon icon-double"></span>
+						<span>Få dobbelt op på olien</span>{{-- todo translate --}}
+					</a>
+
+					{{--<a href="#" v-on:click="moreInfo('fishoil', $event);">Hvad er fiskeolie?</a>--}}
+					{{--<a href="#" v-on:click="moreInfo('chiaoil', $event);">Hvad er chiaolie?</a>--}}
+				</div>
 			</div>
 		</div>
 

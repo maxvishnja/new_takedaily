@@ -12,6 +12,7 @@
 			current_advise_three: null,
 			temp_age: null,
 			extra_totals: [],
+			result: {},
 			shipping: parseFloat("{{ $shippingPrice }}"),
 			price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
 			sub_price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
@@ -176,7 +177,9 @@
 				return $(".step[data-step='" + this.step + "']:not(.sub_step--skip)").find(".sub_step").length;
 			},
 
-			addAdditionalOil: function () {
+			addAdditionalOil: function (event) {
+				event.preventDefault();
+
 				this.user_data.double_oil = 1;
 				this.getCombinations(false);
 			},
@@ -204,12 +207,14 @@
 						}
 
 						combinationTimeout = setTimeout(function () {
-							$("#advises-loader").hide();
-							$("#advises-block").fadeIn();
 							$("#advises-content").html(response.advises);
 							$("#advises-label").html(response.label);
 							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes));
+							app.result = response.result;
 							app.extra_totals = response.totals;
+
+							$("#advises-loader").hide();
+							$("#advises-block").fadeIn();
 						}, 3200 - timeout);
 					}
 				});
