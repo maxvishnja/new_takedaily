@@ -356,26 +356,66 @@ return [
 	],
 	'combination_info'  => [
 		'1' => [
-			'basic'      => 'Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance',
-			'basic-10-d' => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler',
-			'basic-10-d-alt' => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler',
-			'basic-20-d' => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler'
+			'basic'      => '<span class="icon icon-balance-flow flow-promise-icon"></span> Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance',
+			'basic-10-d' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> Bidrager til normal muskelfunktion<br/>
+							<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
+							<span class="icon icon-balance-flow flow-promise-icon"></span> Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler',
+
+			'basic-10-d-alt' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> Bidrager til normal muskelfunktion<br/>
+								<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
+								<span class="icon icon-balance-flow flow-promise-icon"></span> Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler',
+
+			'basic-20-d' => '<span class="icon icon-musle-flow flow-promise-icon"></span> Bidrager til normal muskelfunktion<br/>
+							<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
+							<span class="icon icon-balance-flow flow-promise-icon"></span> Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler'
 		],
 		'2' => [
-			'A' => 'Bidrager til moderens væv vækst under graviditeten<br/>Spiller en rolle i celledeling proces<br/>Støtter væksten af din baby',
-			'B' => 'Bidrager til den normale funktion af immunsystemet<br/>Bidrager til at mindske træthed og udmattelse<br/>Bidrager til en god modstand og en følelse pasform',
-			'C' => 'Bidrager til normal energi-givende metabolisme<br/>Bidrager til at mindske træthed og udmattelse<br/>For en fit og energisk følelse',
-			'D' => 'Bidrager til den normale funktion af immunsystemet<br/>Bidrager til en god modstandsdygtighed',
-			'E' => 'Bidrager til normal muskelfunktion<br/>Bidrager til vedligeholdelse af normale knogler<br/>For stærke knogler og muskler'
+			'A' => '<span class="icon icon-tissue-flow flow-promise-icon"></span> Bidrager til moderens væv vækst under graviditeten<br/>
+					<span class="icon icon-cell-flow flow-promise-icon"></span> Spiller en rolle i celledeling proces<br/>
+					<span class="icon icon-baby-flow flow-promise-icon"></span> Støtter væksten af din baby',
+
+			'B' => '<span class="icon icon-shield-flow flow-promise-icon"></span> Bidrager til den normale funktion af immunsystemet<br/>
+					<span class="icon icon-lightning-flow flow-promise-icon"></span> Bidrager til at mindske træthed og udmattelse<br/>
+					<span class="icon icon-resistance-flow flow-promise-icon"></span> Bidrager til en god modstand og en følelse pasform',
+
+			'C' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> Bidrager til normal energi-givende metabolisme<br/>
+					<span class="icon icon-lightning-flow flow-promise-icon"></span> Bidrager til at mindske træthed og udmattelse<br/>
+					<span class="icon icon-energy-flow flow-promise-icon"></span> For en fit og energisk følelse',
+
+			'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> Bidrager til den normale funktion af immunsystemet<br/>
+					<span class="icon icon-resistance-flow flow-promise-icon"></span> Bidrager til en god modstandsdygtighed',
+
+			'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> Bidrager til normal muskelfunktion<br/>
+					<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
+					For stærke knogler og muskler'
 		],
 		'3' => [
-			'a' => 'Bidrager til beskyttelse af celler mod oxidativt stress<br/>Bidrager til den normale funktion af immunsystemet<br/>Bidrager til at mindske træthed og udmattelse<br/>Bidrager til en god modstand og en følelse pasform',
-			'b' => 'Bidrager til normal kognitiv funktion<br/>Bidrager til opretholdelse af normal hud<br/>For hjerner og sund hud',
-			'c' => 'Nødvendige for vedligeholdelse af normale knogler<br/>For stærke knogler',
-			'd' => 'Bidrager til normal energi-givende metabolisme<br/>Bidrager til at mindske træthed og udmattelse<br/>En fit og energisk følelse',
-			'e' => 'Bidrager til normal funktion af hjertet<br/>NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA.<br/>For kardiovaskulære',
-			'f' => 'Bidrager til beskyttelse af celler mod oxidativt stress<br/>Bidrager til vedligeholdelse af normale knogler<br/>Bidrager til opretholdelse af normal muskelfunktion<br/>Bidrager til opretholdelse af normal vision<br/>For stærke knogler og muskler',
-			'g' => 'Selvvalgt Chiaoile' // todo
+			'a' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> Bidrager til beskyttelse af celler mod oxidativt stress<br/>
+					<span class="icon icon-shield-flow flow-promise-icon"></span> Bidrager til den normale funktion af immunsystemet<br/>
+					<span class="icon icon-lightning-flow flow-promise-icon"></span> Bidrager til at mindske træthed og udmattelse<br/>
+					<span class="icon icon-resistance-flow flow-promise-icon"></span> Bidrager til en god modstand og en følelse pasform',
+
+			'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> Bidrager til normal kognitiv funktion<br/>
+					<span class="icon icon-skin-flow flow-promise-icon"></span> Bidrager til opretholdelse af normal hud<br/>
+					<span class="icon icon-brain-flow flow-promise-icon"></span> For hjerner og sund hud',
+
+			'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> Nødvendige for vedligeholdelse af normale knogler<br/>
+					For stærke knogler',
+
+			'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> Bidrager til normal energi-givende metabolisme<br/>
+					<span class="icon icon-resistance-flow flow-promise-icon"></span> Bidrager til at mindske træthed og udmattelse<br/>
+					<span class="icon icon-energy-flow flow-promise-icon"></span> En fit og energisk følelse',
+
+			'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> Bidrager til normal funktion af hjertet<br/> <!-- // todo NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. -->
+					For kardiovaskulære',
+
+			'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> Bidrager til beskyttelse af celler mod oxidativt stress<br/>
+					<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
+					<span class="icon icon-muscle-flow flow-promise-icon"></span> Bidrager til opretholdelse af normal muskelfunktion<br/>
+					<span class="icon icon-eye-flow flow-promise-icon"></span> Bidrager til opretholdelse af normal vision<br/>
+					For stærke knogler og muskler',
+
+			'g' => '<span class="icon icon-chia...-flow flow-promise-icon"></span>  Selvvalgt Chiaoile' // todo
 		],
 	],
 	'call-me'           => [
