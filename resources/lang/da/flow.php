@@ -356,66 +356,66 @@ return [
 	],
 	'combination_info'  => [
 		'1' => [
-			'basic'      => '<span class="icon icon-balance-flow flow-promise-icon"></span> Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance',
-			'basic-10-d' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> Bidrager til normal muskelfunktion<br/>
-							<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
-							<span class="icon icon-balance-flow flow-promise-icon"></span> Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler',
+			'basic'      => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance</div>',
+			'basic-10-d' => '<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+							<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
+							<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
 
-			'basic-10-d-alt' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> Bidrager til normal muskelfunktion<br/>
-								<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
-								<span class="icon icon-balance-flow flow-promise-icon"></span> Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler',
+			'basic-10-d-alt' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+								<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
+								<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
 
-			'basic-20-d' => '<span class="icon icon-musle-flow flow-promise-icon"></span> Bidrager til normal muskelfunktion<br/>
-							<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
-							<span class="icon icon-balance-flow flow-promise-icon"></span> Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler'
+			'basic-20-d' => '<span class="icon icon-musle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+							<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
+							<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>'
 		],
 		'2' => [
-			'A' => '<span class="icon icon-tissue-flow flow-promise-icon"></span> Bidrager til moderens væv vækst under graviditeten<br/>
-					<span class="icon icon-cell-flow flow-promise-icon"></span> Spiller en rolle i celledeling proces<br/>
-					<span class="icon icon-baby-flow flow-promise-icon"></span> Støtter væksten af din baby',
+			'A' => '<span class="icon icon-tissue-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til moderens væv vækst under graviditeten</div>
+					<div class="clear"></div><span class="icon icon-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Spiller en rolle i celledeling proces</div>
+					<div class="clear"></div><span class="icon icon-baby-flow flow-promise-icon"></span> <div class="flow-promise-text">Støtter væksten af din baby</div>',
 
-			'B' => '<span class="icon icon-shield-flow flow-promise-icon"></span> Bidrager til den normale funktion af immunsystemet<br/>
-					<span class="icon icon-lightning-flow flow-promise-icon"></span> Bidrager til at mindske træthed og udmattelse<br/>
-					<span class="icon icon-resistance-flow flow-promise-icon"></span> Bidrager til en god modstand og en følelse pasform',
+			'B' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
+					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>',
 
-			'C' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> Bidrager til normal energi-givende metabolisme<br/>
-					<span class="icon icon-lightning-flow flow-promise-icon"></span> Bidrager til at mindske træthed og udmattelse<br/>
-					<span class="icon icon-energy-flow flow-promise-icon"></span> For en fit og energisk følelse',
+			'C' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
+					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
+					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">For en fit og energisk følelse</div>',
 
-			'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> Bidrager til den normale funktion af immunsystemet<br/>
-					<span class="icon icon-resistance-flow flow-promise-icon"></span> Bidrager til en god modstandsdygtighed',
+			'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstandsdygtighed</div>',
 
-			'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> Bidrager til normal muskelfunktion<br/>
-					<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
-					For stærke knogler og muskler'
+			'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
+					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>'
 		],
 		'3' => [
-			'a' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> Bidrager til beskyttelse af celler mod oxidativt stress<br/>
-					<span class="icon icon-shield-flow flow-promise-icon"></span> Bidrager til den normale funktion af immunsystemet<br/>
-					<span class="icon icon-lightning-flow flow-promise-icon"></span> Bidrager til at mindske træthed og udmattelse<br/>
-					<span class="icon icon-resistance-flow flow-promise-icon"></span> Bidrager til en god modstand og en følelse pasform',
+			'a' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
+					<div class="clear"></div><span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
+					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>',
 
-			'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> Bidrager til normal kognitiv funktion<br/>
-					<span class="icon icon-skin-flow flow-promise-icon"></span> Bidrager til opretholdelse af normal hud<br/>
-					<span class="icon icon-brain-flow flow-promise-icon"></span> For hjerner og sund hud',
+			'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal kognitiv funktion</div>
+					<div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal hud</div>
+					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">For hjerner og sund hud</div>',
 
-			'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> Nødvendige for vedligeholdelse af normale knogler<br/>
-					For stærke knogler',
+			'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Nødvendige for vedligeholdelse af normale knogler</div>
+					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler</div>',
 
-			'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> Bidrager til normal energi-givende metabolisme<br/>
-					<span class="icon icon-resistance-flow flow-promise-icon"></span> Bidrager til at mindske træthed og udmattelse<br/>
-					<span class="icon icon-energy-flow flow-promise-icon"></span> En fit og energisk følelse',
+			'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
+					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">En fit og energisk følelse</div>',
 
-			'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> Bidrager til normal funktion af hjertet<br/> <!-- // todo NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. -->
-					For kardiovaskulære',
+			'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal funktion af hjertet</div> <!-- // todo NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. -->
+					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For kardiovaskulære</div>',
 
-			'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> Bidrager til beskyttelse af celler mod oxidativt stress<br/>
-					<span class="icon icon-bone-flow flow-promise-icon"></span> Bidrager til vedligeholdelse af normale knogler<br/>
-					<span class="icon icon-muscle-flow flow-promise-icon"></span> Bidrager til opretholdelse af normal muskelfunktion<br/>
-					<span class="icon icon-eye-flow flow-promise-icon"></span> Bidrager til opretholdelse af normal vision<br/>
-					For stærke knogler og muskler',
+			'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
+					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
+					<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal muskelfunktion</div>
+					<div class="clear"></div><span class="icon icon-eye-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal vision</div>
+					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
 
-			'g' => '<span class="icon icon-chia...-flow flow-promise-icon"></span>  Selvvalgt Chiaoile' // todo
+			'g' => '<span class="icon icon-chia...-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>' // todo
 		],
 	],
 	'call-me'           => [
