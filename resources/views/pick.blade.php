@@ -72,7 +72,8 @@
 						</div>
 
 						<div v-show="numOils == 1" class="m-t-20 m-b-20 text-center">
-							<a href="#" class="button button-green-border button-doubleup" v-bind:class="{ 'button-green-border--active': double_oil }" v-on:click="toggleDoubleOil($event)">
+							<a href="#" class="button button-green-border button-doubleup" v-bind:class="{ 'button-green-border--active': double_oil }"
+							   v-on:click="toggleDoubleOil($event)">
 								<span class="icon icon-double"></span>
 								<span v-show="!double_oil">Få dobbelt op på olien</span>
 								<span v-show="double_oil">Undlad dobbelt op</span>
@@ -80,6 +81,9 @@
 						</div>
 
 						<form action="" method="post">
+							@if( !$isCustomer )
+								<div class="pick-n-mix-total">{{ trans('general.money-vue', ['amount' => 'cartTotal']) }}</div>
+							@endif
 							<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
 								@if( !$isCustomer )
@@ -94,15 +98,18 @@
 							{{ csrf_field() }}
 						</form>
 
-						<div v-show="!hasSelectedEnoughVitamins" v-bind:class="{ 'm-t-10': numSelectedVitamins > 0 }" class="text-center notice">
+						<div v-show="!hasSelectedEnoughVitamins" class="m-t-10 text-center notice">
 							Du mangler at vælge mindst @{{ minVitamins - numSelectedVitamins }} vitamin<span
 								v-show="(minVitamins - numSelectedVitamins) > 1">er</span>.
 						</div>
 					</div>
 				</div>
-				@include('includes.disclaimer')
+				<div class="hidden-xs hidden-sm">@include('includes.disclaimer')</div>
 			</aside>
 		</div>
+	</div>
+	<div class="visible-xs visible-sm">
+		<div class="container">@include('includes.disclaimer')</div>
 	</div>
 @endsection
 
@@ -117,7 +124,7 @@
 				minVitamins: 3,
 				groupTranslations: {
 					@foreach(trans('pick.groups') as $key => $group)
-						"{{ $key }}": "{{ $group }}",
+					"{{ $key }}": "{{ $group }}",
 					@endforeach
 				},
 				vitamins: [
@@ -163,6 +170,27 @@
 					});
 
 					return groups;
+				},
+				cartItems: function () {
+					// todo get prices from db and such
+					var items = [];
+
+					items.push({name: "subscription", price: 149});
+
+					if (this.double_oil) {
+						items.push({name: "Double up", price: 19});
+					}
+
+					return items;
+				},
+				cartTotal: function () {
+					var total = 0;
+
+					this.cartItems.filter(function (item) {
+						total += item.price;
+					});
+
+					return total;
 				}
 			},
 			methods: {
@@ -170,6 +198,10 @@
 					event.preventDefault();
 
 					vitamin.isSelected = false;
+
+					if (this.numOils == 0) {
+						this.double_oil = false;
+					}
 				},
 				addVitamin: function (vitamin, event) {
 					event.preventDefault();
@@ -181,6 +213,10 @@
 					}
 
 					vitamin.isSelected = true;
+
+					if (this.numOils == 2) {
+						this.double_oil = false;
+					}
 				},
 				toggleVitamin: function (vitamin, event) {
 
@@ -196,8 +232,7 @@
 						return vitamin.type == group;
 					});
 				},
-				toggleDoubleOil: function(event)
-				{
+				toggleDoubleOil: function (event) {
 					event.preventDefault();
 
 					this.double_oil = !this.double_oil;
