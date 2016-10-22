@@ -71,15 +71,16 @@
 							<div class="clear"></div>
 						</div>
 
-						<div v-show="numOils == 1" class="m-t-20 m-b-20">
-							<a href="#" class="button button-green-border button-doubleup">
+						<div v-show="numOils == 1" class="m-t-20 m-b-20 text-center">
+							<a href="#" class="button button-green-border button-doubleup" v-bind:class="{ 'button-green-border--active': double_oil }" v-on:click="toggleDoubleOil($event)">
 								<span class="icon icon-double"></span>
-								Double up
+								<span v-show="!double_oil">Få dobbelt op på olien</span>
+								<span v-show="double_oil">Undlad dobbelt op</span>
 							</a>
 						</div>
 
 						<form action="" method="post">
-							<button type="submit" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
+							<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
 								@if( !$isCustomer )
 									Gå til bestilling
@@ -93,7 +94,7 @@
 							{{ csrf_field() }}
 						</form>
 
-						<div v-show="!hasSelectedEnoughVitamins" class="m-t-10 text-center notice">
+						<div v-show="!hasSelectedEnoughVitamins" v-bind:class="{ 'm-t-10': numSelectedVitamins > 0 }" class="text-center notice">
 							Du mangler at vælge mindst @{{ minVitamins - numSelectedVitamins }} vitamin<span
 								v-show="(minVitamins - numSelectedVitamins) > 1">er</span>.
 						</div>
@@ -111,6 +112,7 @@
 			el: '#app',
 			data: {
 				show_popup: false,
+				double_oil: false,
 				maxVitamins: 4,
 				minVitamins: 3,
 				groupTranslations: {
@@ -193,6 +195,12 @@
 					return this.vitamins.filter(function (vitamin) {
 						return vitamin.type == group;
 					});
+				},
+				toggleDoubleOil: function(event)
+				{
+					event.preventDefault();
+
+					this.double_oil = !this.double_oil;
 				}
 			}
 		});

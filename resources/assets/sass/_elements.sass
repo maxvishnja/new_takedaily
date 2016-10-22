@@ -140,6 +140,28 @@ label.label--error
 	appearance: none
 	outline: none
 
+	&.button-green-border
+		background: #FFF
+		border: 1px solid $main-green
+		color: $main-green
+		padding: 10px 20px
+
+		&.button-green-border--active
+			border: 1px solid $greyish
+			color: $greyish
+
+			.icon
+				transform: rotate(180deg)
+				filter: brightness(0)
+				opacity: 0.35
+
+		&:hover
+			background: #F0FFFA
+
+	&.button-doubleup
+		.icon
+			margin-right: 8px
+
 	&.button--regular
 		padding: 8px 30px
 		line-height: 1.5
