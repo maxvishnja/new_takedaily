@@ -243,8 +243,7 @@ return [
 								Det sørger vi for.',
 			'basic-10-d-alt' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
 							Du skal fx have lidt ekstra D-vitamin, fordi du ikke kommer så meget ud i solen. Det sørger vi for.',
-			'basic-20-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
-							<p>I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.'
+			'basic-20-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis. I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.'
 		],
 		'2'    => [
 			'A' => 'Du er gravid eller ønsker at blive det. Tillykke! I den søde ventetid, sørger TakeDaily for, at du og din baby får de særlige tilskud, I har brug for.

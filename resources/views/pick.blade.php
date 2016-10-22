@@ -13,8 +13,8 @@
 		<div class="col-md-8">
 			<div class="row" v-cloak="">
 				<div v-for="group in groups">
-					<div class="clear"></div>
 					<h2 class="text-center">@{{ groupTranslations[group] }}</h2>
+
 					<div class="col-md-6" v-for="vitamin in vitaminsInGroup(group)">
 						<div class="vitamin-item" v-on:click="toggleVitamin(vitamin, $event)" v-bind:class="{ 'vitamin-item--selected': vitamin.isSelected }">
 							<div class="vitamin-item-action">
@@ -35,7 +35,7 @@
 
 							<div class="vitamin-item-right">
 								<strong>@{{ vitamin.name }}</strong>
-								<p>@{{ vitamin.description }}</p>
+								<p v-html="vitamin.description"></p>
 							</div>
 						</div>
 					</div>
