@@ -9,161 +9,38 @@
 @section('title', trans('pick.title'))
 
 @section('content')
-	<style>
-		.cart-bubble {
-			display: none;
-		}
-		@media all and (max-width: 991px) {
-			.cart-bubble {
-				display: block;
-				height: 60px;
-				width: 60px;
-				border-radius: 100%;
-				background: #fff;
-				box-shadow: 0 0 40px rgba(0, 0, 0, .25);
-				z-index: 3;
-				text-align: center;
-				left: 50%;
-				margin-left: -30px;
-				bottom: 60px;
-				position: fixed;
-				padding: 18px;
-				user-select: none;
-				cursor: pointer;
-				transition: box-shadow 200ms, transform 200ms;
-			}
-
-			.cart-bubble:focus,
-			.cart-bubble:hover,
-			.cart-bubble:active {
-				transform: translateY(-5px);
-				box-shadow: 0 0 50px rgba(0, 0, 0, .35);
-			}
-
-			.cart-bubble .icon.icon-cart {
-				position: relative;
-				margin: 0 auto;
-			}
-
-			.cart-bubble:hover + aside#sticky {
-				transform: translateY(-5px);
-			}
-
-			.cart-bubble .cart-bubble_count {
-				position: absolute;
-				font-size: 12px;
-				color: #fff;
-				font-weight: 600;
-				padding: 2px 0;
-				text-align: center;
-				line-height: 1;
-				background: #555;
-				border: 2px solid #fff;
-				right: -7px;
-				bottom: -8px;
-				display: block;
-				border-radius: 100%;
-				height: 19px;
-				width: 19px;
-			}
-
-			aside#sticky {
-				display: none;
-				bottom: 140px;
-				z-index: 3;
-				position: fixed;
-				width: 90%;
-				left: 5%;
-				background: #FFF;
-				border: 2px solid #3AAC87;
-				box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15);
-				border-radius: 10px;
-				padding: 20px;
-				transition: transform 200ms;
-			}
-
-			aside#sticky .card {
-				border: none;
-				border-radius: 0;
-				box-shadow: none;
-				padding: 0;
-			}
-
-			aside#sticky p {
-				margin-bottom: 0;
-			}
-
-			aside#sticky:after, aside#sticky:before {
-				top: 100%;
-				left: 50%;
-				border: solid transparent;
-				content: " ";
-				height: 0;
-				width: 0;
-				position: absolute;
-				pointer-events: none;
-			}
-
-			aside#sticky:after {
-				border-color: rgba(255, 255, 255, 0);
-				border-top-color: #fff;
-				border-width: 10px;
-				margin-left: -10px;
-			}
-
-			aside#sticky:before {
-				border-color: rgba(58, 172, 135, 0);
-				border-top-color: #3AAC87;
-				border-width: 13px;
-				margin-left: -13px;
-			}
-
-			aside#sticky.enabled {
-				display: block;
-			}
-		}
-
-		@media all and (max-height: 600px) {
-			aside#sticky {
-				bottom: 100px;
-			}
-
-			aside#sticky p {
-				line-height: 1.2;
-			}
-
-			.cart-bubble {
-				bottom: 20px;
-			}
-		}
-	</style>
-
 	<div class="container" id="app">
 		<div class="col-md-8">
 			<div class="row" v-cloak="">
-				<div class="col-md-6" v-for="vitamin in vitamins">
-					<div class="vitamin-item" v-on:click="toggleVitamin(vitamin, $event)" v-bind:class="{ 'vitamin-item--selected': vitamin.isSelected }">
-						<div class="vitamin-item-action">
-							<a href="#" v-show="!vitamin.isSelected"
-							   class="button button--green button--circular">
-								<span class="icon icon-plus"></span> Vælg denne
-							</a>
+				<div v-for="group in groups">
+					<div class="clear"></div>
+					<h2 class="text-center">@{{ groupTranslations[group] }}</h2>
+					<div class="col-md-6" v-for="vitamin in vitaminsInGroup(group)">
+						<div class="vitamin-item" v-on:click="toggleVitamin(vitamin, $event)" v-bind:class="{ 'vitamin-item--selected': vitamin.isSelected }">
+							<div class="vitamin-item-action">
+								<a href="#" v-show="!vitamin.isSelected"
+								   class="button button--green button--circular">
+									<span class="icon icon-plus"></span> Vælg denne
+								</a>
 
-							<a href="#" v-show="vitamin.isSelected"
-							   class="button button--green button--circular button--grey">
-								<span class="icon icon-cross-16"></span> Fravælg denne
-							</a>
-						</div>
+								<a href="#" v-show="vitamin.isSelected"
+								   class="button button--green button--circular button--grey">
+									<span class="icon icon-cross-16"></span> Fravælg denne
+								</a>
+							</div>
 
-						<div class="vitamin-item-left">
-							<span class="icon pill-@{{ vitamin.code }}"></span>
-						</div>
+							<div class="vitamin-item-left">
+								<span class="icon pill-@{{ vitamin.code }}"></span>
+							</div>
 
-						<div class="vitamin-item-right">
-							<strong>@{{ vitamin.name }}</strong>
-							<p>@{{ vitamin.description }}</p>
+							<div class="vitamin-item-right">
+								<strong>@{{ vitamin.name }}</strong>
+								<p>@{{ vitamin.description }}</p>
+							</div>
 						</div>
 					</div>
+
+					<div class="clear"></div>
 				</div>
 			</div>
 		</div>
@@ -194,6 +71,13 @@
 							<div class="clear"></div>
 						</div>
 
+						<div v-show="numOils == 1" class="m-t-20 m-b-20">
+							<a href="#" class="button button-green-border button-doubleup">
+								<span class="icon icon-double"></span>
+								Double up
+							</a>
+						</div>
+
 						<form action="" method="post">
 							<button type="submit" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
@@ -208,7 +92,6 @@
 
 							{{ csrf_field() }}
 						</form>
-
 
 						<div v-show="!hasSelectedEnoughVitamins" class="m-t-10 text-center notice">
 							Du mangler at vælge mindst @{{ minVitamins - numSelectedVitamins }} vitamin<span
@@ -230,6 +113,11 @@
 				show_popup: false,
 				maxVitamins: 4,
 				minVitamins: 3,
+				groupTranslations: {
+					@foreach(trans('pick.groups') as $key => $group)
+						"{{ $key }}": "{{ $group }}",
+					@endforeach
+				},
 				vitamins: [
 						@foreach($vitamins as $vitamin)
 					{
@@ -237,6 +125,7 @@
 						code: "{!! $vitamin->code !!}",
 						id: "{{ $vitamin->id }}",
 						description: "{!! $vitamin->description !!}",
+						type: "{{ $vitamin->type }}",
 						isSelected: @if( in_array($vitamin->id, $selectedVitamins) ) true @else false @endif
 					},
 					@endforeach
@@ -256,6 +145,22 @@
 				},
 				numSelectedVitamins: function () {
 					return this.selectedVitamins.length;
+				},
+				numOils: function () {
+					return this.selectedVitamins.filter(function (vitamin) {
+						return vitamin.type == "oil";
+					}).length;
+				},
+				groups: function () {
+					var groups = [];
+
+					this.vitamins.filter(function (vitamin) {
+						if (groups.indexOf(vitamin.type) === -1) {
+							groups.push(vitamin.type)
+						}
+					});
+
+					return groups;
 				}
 			},
 			methods: {
@@ -270,7 +175,6 @@
 					if (this.hasSelectedMaxVitamins) {
 						alert('Du har valgt det maksimale antal vitaminer, fravælg en for at vælge denne.'); // todo translate
 
-
 						return false;
 					}
 
@@ -278,14 +182,17 @@
 				},
 				toggleVitamin: function (vitamin, event) {
 
-					if(vitamin.isSelected)
-					{
+					if (vitamin.isSelected) {
 						this.removeVitamin(vitamin, event);
 					}
-					else
-					{
+					else {
 						this.addVitamin(vitamin, event);
 					}
+				},
+				vitaminsInGroup: function (group) {
+					return this.vitamins.filter(function (vitamin) {
+						return vitamin.type == group;
+					});
 				}
 			}
 		});
