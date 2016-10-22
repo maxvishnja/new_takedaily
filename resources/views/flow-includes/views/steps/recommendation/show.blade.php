@@ -15,7 +15,7 @@
 			<div class="m-t-20 card" v-show="user_data.double_oil == 0">
 				<div class="card_content text-center">
 					<strong v-show="result.three == 'e' || result.four == 'e'">Tilføj 1000 mg premium fiskolie mere til din TakeDaily for kun 19 kr./mdr</strong>{{-- todo unhardcode --}}
-					<strong v-show="result.three == 'g' || result.four == 'g'">Tilføj 1000 mg premium chiaolie mere til din TakeDaily for kun 19 kr./mdr</strong>{{-- todo unhardcode --}}
+					<strong v-show="result.three == 'g' || result.four == 'g'">Tilføj 1000 mg premium chia seed olie mere til din TakeDaily for kun 19 kr./mdr</strong>{{-- todo unhardcode --}}
 
 					<a href="#" class="m-t-10 button button-green-border button-doubleup" v-on:click="addAdditionalOil($event);">
 						<span class="icon icon-double"></span>
