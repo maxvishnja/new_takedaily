@@ -29,7 +29,6 @@ class CustomerServiceProvider extends ServiceProvider
 		{
 			$customer->plan->delete();
 
-
 			foreach ( $customer->orders as $order )
 			{
 				$order->delete();

@@ -9,6 +9,7 @@ use App\Apricot\Libraries\TaxLibrary;
 use App\Events\CustomerWasBilled;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 use Jenssegers\Date\Date;
 
 /**
@@ -524,8 +525,15 @@ class Customer extends Model
 		return $this->getPlan()->vitamins;
 	}
 
-	public function setVitamins(array $vitamins)
+	public function setVitamins($vitamins)
 	{
+		if(is_object($vitamins))
+		{
+			$vitamins = $vitamins->toArray();
+		}
+
+		// todo update price too!
+
 		return $this->getPlan()->update([ 'vitamins' => json_encode($vitamins) ]);
 	}
 

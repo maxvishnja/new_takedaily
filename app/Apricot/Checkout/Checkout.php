@@ -139,7 +139,7 @@ class Checkout
 
 			$userData = $request->session()->get( 'user_data' );
 
-			if( json_decode($userData))
+			if( is_string($userData) && json_decode($userData))
 			{
 				$userData = json_decode($userData);
 			}

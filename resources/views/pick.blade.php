@@ -81,9 +81,8 @@
 						</div>
 
 						<form action="" method="post">
-							@if( !$isCustomer )
-								<div class="pick-n-mix-total" v-show="numSelectedVitamins > 0">{{ trans('general.money-vue', ['amount' => 'cartTotal']) }}</div>
-							@endif
+							{{-- todo when logged in, fix double_oil!! --}}
+							<div class="pick-n-mix-total" v-show="numSelectedVitamins > 0">{{ trans('general.money-vue', ['amount' => 'cartTotal']) }}</div>
 							<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
 								@if( !$isCustomer )
@@ -94,7 +93,8 @@
 							</button>
 
 							<input type="hidden" value="@{{ vitamin.id }}" name="vitamins[]" v-for="vitamin in selectedVitamins"/>
-							<input type="hidden" value="@{{ vitamin.id }}" name="extra_vitamins[]" v-for="vitamin in vitaminsInGroup('oil')" v-if="double_oil && vitaminIsSelected(vitamin)"/>
+							<input type="hidden" value="@{{ vitamin.id }}" name="extra_vitamins[]" v-for="vitamin in vitaminsInGroup('oil')"
+								   v-if="double_oil && vitaminIsSelected(vitamin)"/>
 
 							{{ csrf_field() }}
 						</form>
@@ -179,9 +179,8 @@
 					items.push({name: "subscription", price: 149});
 
 					if (this.numSelectedVitamins > 4) {
-						for(var i = 0; i < this.numSelectedVitamins - 4; i++)
-						{
-							items.push({ name: "Extra vitamin", price: 19 });
+						for (var i = 0; i < this.numSelectedVitamins - 4; i++) {
+							items.push({name: "Extra vitamin", price: 19});
 						}
 					}
 
@@ -236,8 +235,7 @@
 						return vitamin.type == group;
 					});
 				},
-				vitaminIsSelected: function(vitamin)
-				{
+				vitaminIsSelected: function (vitamin) {
 					return vitamin.isSelected;
 				},
 				toggleDoubleOil: function (event) {

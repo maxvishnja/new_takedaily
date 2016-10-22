@@ -16,7 +16,6 @@ class PlanServiceProvider extends ServiceProvider
 	{
 		Plan::deleting(function ($plan)
 		{
-			$plan->products()->delete();
 		});
 	}
 

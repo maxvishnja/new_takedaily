@@ -12,7 +12,7 @@ class CheckoutCompletion {
 	private $checkout;
 
 	/** @var User */
-	private $user;
+	public $user;
 
 	private $userData;
 

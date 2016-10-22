@@ -53,9 +53,9 @@ class CheckoutController extends Controller
 
 			$userData = $request->session()->get( 'user_data' );
 
-			if( json_decode($userData))
+			if ( is_string($userData) && json_decode( $userData ) )
 			{
-				$userData = json_decode($userData);
+				$userData = json_decode( $userData );
 			}
 
 			$lib->generateResult( $userData );
@@ -65,18 +65,18 @@ class CheckoutController extends Controller
 				$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
 			}
 		}
-		elseif($request->session()->has('vitamins'))
+		elseif ( $request->session()->has( 'vitamins' ) )
 		{
-			$codes = $request->session()->get('vitamins');
+			$codes = $request->session()->get( 'vitamins' );
 		}
 
 		return view( 'checkout.index', [
-			'user_data'     => json_encode( \Session::get( 'user_data', \Request::old( 'user_data', json_decode( '{}' ) ) ) ),
-			'product'       => $product,
-			'giftcard'      => $giftcard,
-			'shippingPrice' => Setting::getWithDefault( 'shipping_price', 0 ),
-			'codes'         => $codes,
-		    'paymentMethods' => PaymentMethods::getAcceptedMethodsForCountry(\App::getLocale())
+			'user_data'      => json_encode( \Session::get( 'user_data', \Request::old( 'user_data', json_decode( '{}' ) ) ) ),
+			'product'        => $product,
+			'giftcard'       => $giftcard,
+			'shippingPrice'  => Setting::getWithDefault( 'shipping_price', 0 ),
+			'codes'          => $codes,
+			'paymentMethods' => PaymentMethods::getAcceptedMethodsForCountry( \App::getLocale() )
 		] );
 	}
 
@@ -191,25 +191,34 @@ class CheckoutController extends Controller
 		$name     = $request->session()->get( 'name' );
 		$email    = $request->session()->get( 'email' );
 
-		$checkoutCompletion->createUser( $name, $email, $password )
-		                   ->setCustomerAttributes( [
-			                   'address_city'    => $request->session()->get( 'address_city' ),
-			                   'address_line1'   => $request->session()->get( 'address_street' ),
-			                   'address_country' => $request->session()->get( 'address_country' ),
-			                   'address_postal'  => $request->session()->get( 'address_zipcode' ),
-			                   'company'         => $request->session()->get( 'company' ),
-		                   ] )
-		                   ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
-		                   ->setUserData( $request->session()->get( 'user_data', '{}' ) )
-		                   ->updateCustomerPlan()
-		                   ->handleProductActions()
-		                   ->deductCouponUsage()
-		                   ->markGiftcardUsed()
-		                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ) )
-		                   ->queueEmail( $password )
-		                   ->flush()
-		                   ->initUpsell()
-		                   ->loginUser();
+		$checkoutCompletion->createUser( $name, $email, $password );
+
+		try
+		{
+			$checkoutCompletion->setCustomerAttributes( [
+				'address_city'    => $request->session()->get( 'address_city' ),
+				'address_line1'   => $request->session()->get( 'address_street' ),
+				'address_country' => $request->session()->get( 'address_country' ),
+				'address_postal'  => $request->session()->get( 'address_zipcode' ),
+				'company'         => $request->session()->get( 'company' ),
+			] )
+           ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
+           ->setUserData( $request->session()->get( 'user_data', '{}' ) )
+           ->updateCustomerPlan()
+           ->handleProductActions()
+           ->deductCouponUsage()
+           ->markGiftcardUsed()
+           ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ) )
+           ->queueEmail( $password )
+           ->flush()
+           ->initUpsell()
+           ->loginUser();
+		} catch ( \Exception $exception )
+		{
+			$checkoutCompletion->user->delete();
+
+			return \Redirect::back()->withErrors($exception->getMessage()); // todo refund charge + withInput
+		}
 
 		// fixme userData being null/false if failed somewhere.
 

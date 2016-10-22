@@ -116,6 +116,11 @@ class CombinationLibrary
 
 	function generateResult( $data )
 	{
+		if( !isset($data->gender) )
+		{
+			return [];
+		}
+
 		$this->generateGroupOne( $data );
 		$this->generateGroupTwo( $data );
 		$this->generateGroupThree( $data );
