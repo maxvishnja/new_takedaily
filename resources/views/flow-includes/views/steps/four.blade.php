@@ -24,9 +24,7 @@
 		</div>
 
 		<div class="m-b-20 m-t-20">
-			<button type="button" class="link-button" id="send-by-mail-button">Send et link til mine
-				anbefalinger
-			</button>{{-- todo translate --}}
+			<button type="button" class="link-button" id="send-by-mail-button">Send et link til mine anbefalinger</button>{{-- todo translate --}}
 		</div>
 	</div>
 

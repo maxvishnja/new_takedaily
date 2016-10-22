@@ -10,4 +10,9 @@ class FlowCompletion extends Model
 		'token',
 		'user_data'
 	];
+
+	public function getUserDataAttribute($userData)
+	{
+		return json_decode($userData);
+	}
 }

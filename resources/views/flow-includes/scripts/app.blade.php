@@ -11,6 +11,7 @@
 			current_advise_two: null,
 			current_advise_three: null,
 			temp_age: null,
+			recommendation_token: '',
 			extra_totals: [],
 			result: {},
 			shipping: parseFloat("{{ $shippingPrice }}"),
@@ -173,8 +174,9 @@
 				return true;
 			},
 
-			getSubStepsForStep: function () {
-				return $(".step[data-step='" + this.step + "']:not(.sub_step--skip)").find(".sub_step").length;
+			getSubStepsForStep: function (step) {
+				step = step || this.step;
+				return $(".step[data-step='" + step + "']:not(.sub_step--skip)").find(".sub_step").length;
 			},
 
 			addAdditionalOil: function (event) {
@@ -182,6 +184,13 @@
 
 				this.user_data.double_oil = 1;
 				this.getCombinations(false);
+			},
+
+			goToRecommendations: function () {
+				var steps = $(".sub_step:not(.sub_step--skip)").length;
+				for (var i = 1; i <= steps; i++) {
+					this.nextStep();
+				}
 			},
 
 			getCombinations: function (useTimeout) {
@@ -212,6 +221,7 @@
 							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes));
 							app.result = response.result;
 							app.extra_totals = response.totals;
+							app.recommendation_token = response.token;
 
 							$("#advises-loader").hide();
 							$("#advises-block").fadeIn();
@@ -350,5 +360,15 @@
 			}
 		}
 	});
+
+	@if(count($userData) > 0)
+		app.user_data = JSON.parse('{!! json_encode($userData) !!}');
+
+		// This part is only for securing that Vue has updated elements..
+		// I've not found it necessary but rather safe than sorry.
+		setTimeout(function () {
+			app.goToRecommendations();
+		}, 50);
+	@endif
 
 </script>

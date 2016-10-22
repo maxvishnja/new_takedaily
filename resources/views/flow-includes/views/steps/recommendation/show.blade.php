@@ -31,8 +31,7 @@
 		<div id="advises-content" class="tab-block"></div>
 	</div>
 
-	<p>Ønsker du at ændre dine vitaminer? <a href="/pick-n-mix" id="link-to-change">Tryk
-			her</a></p>
+	<p>Ønsker du at ændre dine vitaminer? <a href="/pick-n-mix" id="link-to-change">Tryk her</a></p>
 
 	@include('includes.disclaimer')
 </div>{{-- todo translate --}}

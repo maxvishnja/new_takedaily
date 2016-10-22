@@ -160,7 +160,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Route::get( 'pick-n-mix', 'PickMixController@get' )->name( 'pick-n-mix' );
 			Route::post( 'pick-n-mix', 'PickMixController@post' )->name( 'pick-n-mix-post' );
 
-			Route::get( 'flow', function ()
+			Route::get( 'flow', function (\Illuminate\Http\Request $request)
 			{
 				$giftcard = null;
 
@@ -196,8 +196,34 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$taxRate       = $zone->rate();
 				$shippingPrice = \App\Setting::getWithDefault( 'shipping_price', 0 );
 
-				return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice' ) );
+				$userData = [];
+
+				if($request->has('token'))
+				{
+					$flowCompletion = \App\FlowCompletion::whereToken($request->get('token'))->first();
+
+					if( $flowCompletion )
+					{
+						$userData = $flowCompletion->user_data;
+					}
+				}
+
+				return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice', 'userData' ) );
 			} )->name( 'flow' );
+
+			Route::post( 'flow/send-recommendation', function ( \Illuminate\Http\Request $request )
+			{
+				// todo validate has email and token
+				$to = $request->get( 'email' );
+
+				Mail::queue( 'emails.recommendation', [ 'token' => $request->get( 'token' ) ], function ( \Illuminate\Mail\Message $message ) use ( $to )
+				{
+					$message->to( $to );
+					$message->subject( 'Din TakeDaily anbefaling' ); // todo translate
+				} );
+
+				return Response::json( [ 'message' => 'mail added to queue' ] );
+			} );
 
 			Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $request )
 			{
@@ -221,13 +247,26 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 				$totals = \App\Apricot\Helpers\ExtraPills::getTotalsFor( $codes );
 
+				$token = str_random( 16 );
+
+				while ( \App\FlowCompletion::whereToken( $token )->limit( 1 )->count() > 0 )
+				{
+					$token = str_random( 16 );
+				}
+
+				$flowCompletion = \App\FlowCompletion::create( [
+					'token'     => $token,
+					'user_data' => $request->get( 'user_data' )
+				] );
+
 				return Response::json( [
 					'advises'        => $advises,
 					'num_advises'    => count( $lib->getAdvises() ),
 					'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ] )->render(),
 					'selected_codes' => implode( ',', $codes ),
 					'totals'         => $totals,
-					'result'         => $lib->getResult()
+					'result'         => $lib->getResult(),
+					'token'          => $flowCompletion->token
 				] );
 			} )->name( 'flow-recommendations' );
 		} );

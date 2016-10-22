@@ -1,5 +1,9 @@
 <script>{{-- todo translate --}}
-	$("#send-by-mail-button").click(function () {
+	var sendByMailBtn = $("#send-by-mail-button");
+
+	sendByMailBtn.click(function (e) {
+		e.preventDefault();
+
 		swal({
 			title: "Send anbefaling",
 			text: "Indtast din e-mail adresse:",
@@ -17,7 +21,9 @@
 				return false;
 			}
 
-			setTimeout(function () {
+			$.post('/flow/send-recommendation', { token: app.recommendation_token, email: inputValue }).done(function () {
+				sendByMailBtn.hide();
+
 				swal({
 					title: "{{ trans('message.success-title') }}",
 					text: "Anbefalingen blev sendt!",
@@ -28,7 +34,7 @@
 					confirmButtonColor: "#3AAC87",
 					timer: 6000
 				});
-			}, 2000);
+			});
 		});
 	});
 </script>
