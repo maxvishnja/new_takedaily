@@ -151,6 +151,10 @@ class Checkout
 				$codes[] = PillLibrary::getPill( $combKey, $combVal );
 			}
 		}
+		elseif( $request->session()->has('vitamins'))
+		{
+			$codes = $request->session()->get('vitamins');
+		}
 
 		foreach(ExtraPills::getTotalsFor($codes) as $extraPill)
 		{

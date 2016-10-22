@@ -65,6 +65,10 @@ class CheckoutController extends Controller
 				$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
 			}
 		}
+		elseif($request->session()->has('vitamins'))
+		{
+			$codes = $request->session()->get('vitamins');
+		}
 
 		return view( 'checkout.index', [
 			'user_data'     => json_encode( \Session::get( 'user_data', \Request::old( 'user_data', json_decode( '{}' ) ) ) ),

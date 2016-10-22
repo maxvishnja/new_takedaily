@@ -53,7 +53,7 @@
 			<aside id="sticky" v-bind:class="{'enabled': show_popup}">
 				<div class="card">
 					<div v-cloak="">
-						<div class="cart-selection" v-for="vitamin in selectedVitamins">
+						<div class="cart-selection" v-for="vitamin in selectedVitamins | orderBy 'type'">
 							<div class="cart-selection_item cart-selection_code">
 								<span class="icon pill-@{{ vitamin.code }}"></span>
 							</div>
@@ -82,7 +82,7 @@
 
 						<form action="" method="post">
 							@if( !$isCustomer )
-								<div class="pick-n-mix-total">{{ trans('general.money-vue', ['amount' => 'cartTotal']) }}</div>
+								<div class="pick-n-mix-total" v-show="numSelectedVitamins > 0">{{ trans('general.money-vue', ['amount' => 'cartTotal']) }}</div>
 							@endif
 							<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
@@ -94,11 +94,12 @@
 							</button>
 
 							<input type="hidden" value="@{{ vitamin.id }}" name="vitamins[]" v-for="vitamin in selectedVitamins"/>
+							<input type="hidden" value="@{{ vitamin.id }}" name="extra_vitamins[]" v-for="vitamin in vitaminsInGroup('oil')" v-if="double_oil && vitaminIsSelected(vitamin)"/>
 
 							{{ csrf_field() }}
 						</form>
 
-						<div v-show="!hasSelectedEnoughVitamins" class="m-t-10 text-center notice">
+						<div v-show="!hasSelectedEnoughVitamins" v-bind:class="{ 'm-t-10': numSelectedVitamins > 0 }" class="text-center notice">
 							Du mangler at vælge mindst @{{ minVitamins - numSelectedVitamins }} vitamin<span
 								v-show="(minVitamins - numSelectedVitamins) > 1">er</span>.
 						</div>
@@ -153,7 +154,7 @@
 					return this.numSelectedVitamins >= this.minVitamins;
 				},
 				numSelectedVitamins: function () {
-					return this.selectedVitamins.length;
+					return this.selectedVitamins.length + (this.double_oil ? 1 : 0); // todo unhardcode this crap
 				},
 				numOils: function () {
 					return this.selectedVitamins.filter(function (vitamin) {
@@ -177,8 +178,11 @@
 
 					items.push({name: "subscription", price: 149});
 
-					if (this.double_oil) {
-						items.push({name: "Double up", price: 19});
+					if (this.numSelectedVitamins > 4) {
+						for(var i = 0; i < this.numSelectedVitamins - 4; i++)
+						{
+							items.push({ name: "Extra vitamin", price: 19 });
+						}
 					}
 
 					return items;
@@ -231,6 +235,10 @@
 					return this.vitamins.filter(function (vitamin) {
 						return vitamin.type == group;
 					});
+				},
+				vitaminIsSelected: function(vitamin)
+				{
+					return vitamin.isSelected;
 				},
 				toggleDoubleOil: function (event) {
 					event.preventDefault();
