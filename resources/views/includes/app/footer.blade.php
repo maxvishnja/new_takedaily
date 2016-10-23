@@ -42,8 +42,10 @@
 			<div class="row">
 				<div class="col-lg-3 col-sm-4">
 					<span class="footer_bottom_copy">&copy; {{ date('Y') }} {{ trans('footer.copyright') }}.</span>
-					<span class="icon icon-card-mastercard m-r-5 v-a-m" title="Mastercard"></span>
-					<span class="icon icon-card-visa m-l-5 v-a-m" title="Visa"></span>
+					<div class="visible-sm m-t-10"></div>
+					@foreach(\App\Apricot\Helpers\PaymentMethods::getIconsForMethods(\App\Apricot\Helpers\PaymentMethods::getAcceptedMethodsForCountry(App::getLocale())) as $method)
+						<span class="icon icon-card-{{ $method }} m-r-5 v-a-m" title="{{ ucfirst($method) }}"></span>
+					@endforeach
 				</div>
 				<div class="col-lg-9 col-sm-8 text-right">
 					<ul class="footer_bottom_links">

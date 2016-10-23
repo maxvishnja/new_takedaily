@@ -17,7 +17,7 @@ return [
 	],
 	'language' => 'Dansk',
 	'copyright' => 'TakeDaily',
-	'links'     => '<li><a href="/about">Om TakeDaily</a></li>
+	'links'     => '<li class="hidden-sm hidden-md"><a href="/about">Om TakeDaily</a></li>
 					<li><a href="/faq">FAQ</a></li>
 					<li><a href="/privacy">Fortrolighed & cookies</a></li>
 					<li><a href="/terms">Vilkår og betingelser</a></li>'
