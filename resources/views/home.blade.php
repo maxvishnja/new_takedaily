@@ -55,7 +55,7 @@
 										<span id="video-toggle-two" class="icon icon-play"></span>
 									</div>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-4 hidden-sm hidden-xs">
 									<div class="splash_circle pull-right hidden-xs">
 										<span>{!! trans('home.header.splash.text') !!}</span>
 										<strong>{!! trans('home.header.splash.price') !!}</strong>

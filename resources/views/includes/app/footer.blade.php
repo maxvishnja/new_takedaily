@@ -13,7 +13,7 @@
 									   class="input input--regular input--full input--plain"/>
 							</div>
 							<div class="col-sm-4">
-								<button type="submit" class="button button--regular button--full button--green">{{ trans('footer.columns.one.button-text') }}</button>
+								<button type="submit" class="button button--regular button--full button--green" style="padding-left: 0; padding-right: 0;">{{ trans('footer.columns.one.button-text') }}</button>
 							</div>
 						</div>
 						<input type="hidden" name="_token" value="{{ csrf_token() }}"/>

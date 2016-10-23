@@ -484,7 +484,7 @@ class CombinationLibrary
 			}
 		}
 
-		// Multi basic
+		/*// Multi basic
 		if ( ( $this->isEmpty( $this->groupOne ) ) && ( $data->age < '50' && $data->gender == '2' ) || ( $data->age < '70' && $data->gender == '1' ) )
 		{
 			$this->groupOne = '1';
@@ -518,6 +518,6 @@ class CombinationLibrary
 
 			$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
 			$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic.20-d' ) );
-		}
+		}*/
 	}
 }
