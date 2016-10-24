@@ -3,7 +3,6 @@
 use App\Apricot\Checkout\Checkout;
 use App\Apricot\Checkout\CheckoutCompletion;
 use App\Apricot\Helpers\PaymentMethods;
-use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\Giftcard;
