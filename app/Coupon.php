@@ -64,7 +64,7 @@ class Coupon extends Model
 
 	function usage()
 	{
-		return $this->applies_to == 'order' ? 'ordren' : 'abonnentet'; // todo translate
+		return strtolower(trans("usage.{$this->applies_to}"));
 	}
 
 	function isAmount()
