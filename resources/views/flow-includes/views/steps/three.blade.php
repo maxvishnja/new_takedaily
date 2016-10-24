@@ -68,17 +68,17 @@
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-bread-2"></span>
 				<br/>{{ trans('flow.questions.3-3.options.2') }}</label>
-			<label v-show="user_data.gender == 2 && user_data.age >= 51">
+			<label>
 				<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread" data-model="foods.bread"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-bread-3"></span>
 				<br/>{{ trans('flow.questions.3-3.options.3') }}</label>
-			<label v-show="(user_data.gender == 2 && user_data.age <= 50) || (user_data.gender == 1 && user_data.age >= 70)">
+			<label>
 				<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" data-model="foods.bread"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-bread-4"></span>
 				<br/>{{ trans('flow.questions.3-3.options.4') }}</label>
-			<label v-show="user_data.gender == 1 && user_data.age < 70">
+			<label>
 				<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" data-model="foods.bread"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-bread-5"></span>
@@ -98,16 +98,16 @@
 				<br/>{{ trans('flow.questions.3-4.options.1') }}
 			</label>
 			<label>
-				<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" data-model="foods.butter"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-portion-butter-no"></span>
-				<br/>{{ trans('flow.questions.3-4.options.2') }}
-			</label>
-			<label>
 				<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" data-model="foods.butter"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-butter-sometimes"></span>
 				<br/>{{ trans('flow.questions.3-4.options.3') }}
+			</label>
+			<label>
+				<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" data-model="foods.butter"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-butter-no"></span>
+				<br/>{{ trans('flow.questions.3-4.options.2') }}
 			</label>
 		</div>
 
@@ -151,16 +151,16 @@
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-meat-1"></span>
 				<br/>{{ trans('flow.questions.3-6.options.1') }}</label>
-			{{--<label>
-				<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" data-model="foods.meat"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-portion-meat-2"></span>
-				<br/>{{ trans('flow.questions.3-6.options.2') }}</label>--}}
 			<label>
 				<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" data-model="foods.meat"
 					   v-on:click="nextStep();"/>
-				<span class="icon icon-portion-meat-3"></span>
+				<span class="icon icon-portion-meat-2"></span>
 				<br/>{{ trans('flow.questions.3-6.options.2') }}</label>
+			<label>
+				<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat" data-model="foods.meat"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-meat-3"></span>
+				<br/>{{ trans('flow.questions.3-6.options.3') }}</label>
 		</div>
 
 		<p class="substep-explanation">{{ trans('flow.questions.3-6.text') }}</p>
@@ -212,6 +212,12 @@
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-milk-3"></span>
 				<br/>{{ trans('flow.questions.3-8.options.3') }}
+			</label>
+			<label>
+				<input type="radio" name="step[3][8]" value="4" v-model="user_data.foods.dairy" data-model="foods.dairy"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-portion-milk-4"></span>
+				<br/>{{ trans('flow.questions.3-8.options.4') }}
 			</label>
 		</div>
 

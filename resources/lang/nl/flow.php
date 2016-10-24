@@ -214,13 +214,14 @@ return [
 			]
 		],
 		'3-8'  => [
-			'title'   => 'Hvor meget mælk drikker du om dagen?',
+			'title'   => 'Hvor mange mejeriprodukter får du dagligt?',
 			'text'    => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
 							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.',
 			'options' => [
 				'1' => 'Ingen',
-				'2' => '1-2 glas',
-				'3' => '+3 glas'
+				'2' => '1 portion',
+				'3' => '2-3 portioner',
+				'4' => '3-4 portioner',
 			]
 		],
 		'3-9'  => [

@@ -191,14 +191,14 @@ class CombinationLibrary
 			$this->setAdvise( 'three', trans( 'flow.combinations.3.a' ) );
 			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.a' ) );
 		}
-		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'b' ) && $this->isEmpty( $this->groupThree ) && (( $data->foods->bread == '1' || $data->foods->wheat == '1' ) || ($data->gender == '2' && $data->age >= '51' && $data->foods->bread != '3') || (($data->gender == '2' && $data->age <= '50' && $data->foods->bread != '4') || ($data->gender == '1' && $data->age >= '70' && $data->foods->bread != '4')) || ($data->gender == '1' && $data->age <= '70' && $data->foods->bread != '5'))  )
+		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'b' ) && $this->isEmpty( $this->groupThree ) && (( $data->foods->bread == '1' || $data->foods->wheat == '1' ) || ($data->gender == '2' && $data->age >= '51' && $data->foods->bread != '3') || (($data->gender == '2' && $data->age <= '50' && $data->foods->bread != '4') || ($data->gender == '1' && $data->age >= '70' && $data->foods->bread != '4')) || ($data->gender == '1' && $data->age <= '70' && $data->foods->bread != '5') || ($data->age > '50' && $data->foods->wheat != '3') || ($data->age <= '50' && $data->foods->wheat != '4') )  )
 		{
 			$this->groupThree = 'b';
 
 			$this->setAdvise( 'three', trans( 'flow.combinations.3.b' ) );
 			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.b' ) );
 		}
-		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'c' ) && $this->isEmpty( $this->groupThree ) && ( $data->foods->dairy == '1' ) )
+		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'c' ) && $this->isEmpty( $this->groupThree ) && (( $data->foods->dairy == '1' ) || ($data->age <= '50' && $data->foods->dairy != '3') || ($data->age > '50' && $data->foods->dairy != '4')) )
 		{
 			$this->groupThree = 'c';
 

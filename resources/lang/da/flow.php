@@ -193,7 +193,7 @@ return [
 				'1' => 'Ingen',
 				'2' => '1-2 portioner (50-100 gram)',
 				'3' => '3-4 portioner (150-200 gram)',
-				'4' => '+5 portioner (+250 gram)'
+				'4' => '4-5 portioner (+250 gram)'
 			]
 		],
 		'3-6'  => [
@@ -201,7 +201,8 @@ return [
 			'text'    => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern.',
 			'options' => [
 				'1' => 'Aldrig',
-				'2' => 'Et par gange om ugen eller mere'
+				'2' => 'Et par gange om ugen eller mere',
+				'3' => 'Hver dag',
 			]
 		],
 		'3-7'  => [
