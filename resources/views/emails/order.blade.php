@@ -38,7 +38,7 @@
 	</table>
 
 	@if( isset($password) && !is_null($password) )
-		<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">TakeDaily kodeord</h3>
+		<h3 style="margin-top: 20px;font-family: 'Open Sans',sans-serif; font-size: 18px;">TakeDaily kodeord</h3>
 		<p class="size-14" style='font-style: normal;font-weight: 400;Margin-bottom: 0;Margin-top: 16px;font-size: 14px;line-height: 24px;font-family: "Open Sans",sans-serif;color: #60666d;'>
 			Dit kodeord til TakeDaily er: <strong>{{ $password }}</strong>
 		</p>
