@@ -181,6 +181,7 @@ return [
 		\Jenssegers\Date\DateServiceProvider::class,
 		Mollie\Laravel\MollieServiceProvider::class,
 		Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
+		Barryvdh\TranslationManager\ManagerServiceProvider::class,
 
 		/*
 		 * App providers
