@@ -79,7 +79,7 @@
 <body>
 <div style="width: 80%; margin: auto;">
     <h1>Translation Manager</h1>
-    <p>Warning, translations are not visible until they are exported back to the app/lang file, using 'php artisan translation:export' command or publish button.</p>
+    <p>Warning, translations are not visible until they are exported back to the app/lang file, using the publish button.</p>
     <div class="alert alert-success success-import" style="display:none;">
         <p>Done importing, processed <strong class="counter">N</strong> items! Reload this page to refresh the groups!</p>
     </div>
