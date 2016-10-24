@@ -1,19 +1,22 @@
 <?php
 
-return array(
+return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Routes group config
-    |--------------------------------------------------------------------------
-    |
-    | The default group settings for the elFinder routes.
-    |
-    */
-    'route' => [
-        'prefix' => 'translations',
-        'middleware' => 'auth',
-    ],
+	/*
+	|--------------------------------------------------------------------------
+	| Routes group config
+	|--------------------------------------------------------------------------
+	|
+	| The default group settings for the elFinder routes.
+	|
+	*/
+	'route'          => [
+		'prefix'     => 'translations',
+		'middleware' => [
+			'web',
+			'auth',
+		],
+	],
 
 	/**
 	 * Enable deletion of translations
@@ -23,17 +26,17 @@ return array(
 	'delete_enabled' => true,
 
 	/**
-	 * Exclude specific groups from Laravel Translation Manager. 
+	 * Exclude specific groups from Laravel Translation Manager.
 	 * This is useful if, for example, you want to avoid editing the official Laravel language files.
 	 *
 	 * @type array
 	 *
-	 * 	array(
-	 *		'pagination',
-	 *		'reminders',
-	 *		'validation',
-	 *	)
+	 *    array(
+	 *        'pagination',
+	 *        'reminders',
+	 *        'validation',
+	 *    )
 	 */
-	'exclude_groups' => array(),
+	'exclude_groups' => [],
 
-);
+];

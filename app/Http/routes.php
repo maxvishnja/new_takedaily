@@ -434,7 +434,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		/*
 		 * CMS dynamic routing
 		 */
-		Route::get( '{identifier}', function ( $identifier )
+		Route::get( 'page/{identifier}', function ( $identifier )
 		{
 			$repo = new \App\Apricot\Repositories\PageRepository();
 			$page = $repo->findByIdentifier( $identifier )
