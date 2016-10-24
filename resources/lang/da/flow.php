@@ -96,13 +96,14 @@ return [
 			]
 		],
 		'2-6'  => [
-			'title'   => 'Vil du gerne styrke dit immunforsvar?',
+			'title'   => 'Hvordan føler du at dit immunforsvar er i øjeblikket?',
 			'text'    => 'De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit
 							immunforsvar, fordi det hjælper kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil
 							undgå at blive syg.',
 			'options' => [
-				'1' => 'Ja, jeg vil gerne beskyttes bedre',
-				'2' => 'Nej, det behøver jeg ikke'
+				'1' => 'Godt',
+				'2' => 'Moderat',
+				'3' => 'Dårligt'
 			]
 		],
 		'2-7'  => [
@@ -196,21 +197,19 @@ return [
 			]
 		],
 		'3-6'  => [
-			'title'   => 'Hvor meget kød spiser du om dagen?',
+			'title'   => 'Hvor ofte spiser du kød (og kød produkter)?',
 			'text'    => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern.',
 			'options' => [
-				'1' => '0-75 gram',
-				'2' => '76-150 gram',
-				'3' => '+150 gram'
+				'1' => 'Aldrig',
+				'2' => 'Et par gange om ugen eller mere'
 			]
 		],
 		'3-7'  => [
-			'title'   => 'Hvor ofte spiser du fisk?',
+			'title'   => 'Spiser du fisk mindst én gang om ugen?',
 			'text'    => 'Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.',
 			'options' => [
-				'1' => 'Aldrig / sjældent',
-				'2' => 'En gang om ugen',
-				'3' => 'To, eller flere, gange om ugen'
+				'1' => 'Nej',
+				'2' => 'Ja'
 			]
 		],
 		'3-8'  => [

@@ -128,8 +128,14 @@
 			<label>
 				<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" data-model="immune_system"
 					   v-on:click="nextStep();"/>
-				<span class="icon icon-immune-ignore"></span>
+				<span class="icon icon-immune-moderate"></span>
 				<br/>{{ trans('flow.questions.2-6.options.2') }}
+			</label>
+			<label>
+				<input type="radio" name="step[2][6]" value="3" v-model="user_data.immune_system" data-model="immune_system"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-immune-ignore"></span>
+				<br/>{{ trans('flow.questions.2-6.options.3') }}
 			</label>
 		</div>
 
