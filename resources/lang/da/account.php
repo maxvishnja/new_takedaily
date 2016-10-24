@@ -75,5 +75,15 @@ return [
 			'button-snooze-text' => 'Udskyd',
 			'button-close-text'  => 'Annuller'
 		]
-	]
+	],
+    'general' => [
+    	'errors' => [
+    		'custom-package-cant-change' => 'Du har en selvvalgt pakke, og kan derfor ikke ændre dette.',
+	        'max-snooze' => 'Du kan maks udskyde i 28 dage.'
+	    ],
+        'successes' => [
+        	'preferences-saved' => 'Dine præferencer blev gemt!',
+            'vitamins-updated' => 'Vitaminer blev opdateret!'
+        ]
+    ]
 ];

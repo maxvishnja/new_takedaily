@@ -5,6 +5,7 @@ use App\Customer;
 use App\User;
 use App\Vitamin;
 use Illuminate\Http\Request;
+use Stripe\Error\Card;
 
 class AccountController extends Controller
 {
@@ -46,7 +47,7 @@ class AccountController extends Controller
 	{
 		if( !$this->customer || $this->customer->plan->isCustom() )
 		{
-			return redirect()->back()->withErrors('Du har en selvvalgt pakke, og kan derfor ikke ændre dette.'); // todo translate
+			return redirect()->back()->withErrors(trans('account.general.errors.custom-package-cant-change'));
 		}
 
 		$userData = json_decode($request->get('user_data', '{}'));
@@ -81,7 +82,7 @@ class AccountController extends Controller
 			'user_data.foods.butter'     => $userData->foods->butter
 		]);
 
-		return \Redirect::action('AccountController@getHome')->with('success', 'Dine præferencer blev gemt!'); // todo translate
+		return \Redirect::action('AccountController@getHome')->with('success', trans('account.general.successes.preferences-saved'));
 	}
 
 	function updateVitamins()
@@ -104,7 +105,7 @@ class AccountController extends Controller
 			'vitamins' => json_encode($vitamins)
 		]);
 
-		return \Redirect::action('AccountController@getSettingsSubscription')->with('success', 'Vitaminer blev opdateret!'); // todo translate
+		return \Redirect::action('AccountController@getSettingsSubscription')->with('success', trans('account.general.successes.vitamins-updated'));
 	}
 
 	function getTransactions()
@@ -261,7 +262,7 @@ class AccountController extends Controller
 
 		if( $request->get('days', 7) > 28 )
 		{
-			return redirect()->back()->withErrors('Du kan maks udskyde i 28 dage.'); // todo translate
+			return redirect()->back()->withErrors(trans('account.general.errors.max-snooze'));
 		}
 
 		$this->customer->getPlan()->snooze($request->get('days', 7));
