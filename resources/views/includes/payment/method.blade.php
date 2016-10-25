@@ -1,5 +1,5 @@
-<div class="card card--large m-b-30" id="method-card">{{-- todo translate the entire card --}}
-	<legend class="card_title">Betalingsmetode</legend>
+<div class="card card--large m-b-30" id="method-card">
+	<legend class="card_title">{{ trans('checkout.index.method.title') }}</legend>
 	<div class="clear"></div>
 	<hr class="hr--dashed hr--small-margin"/>
 
@@ -45,7 +45,7 @@
 			<div class="col-md-7">
 				<!-- Card Number -->
 				<label class="label label--full checkout--label" for="ccnumber">{{ trans('checkout.index.order.billing.card.number') }}</label>
-				<input type="tel" data-validate="false" class="input input--medium input--spacing input--semibold input--full" id="ccnumber" autocomplete="cc-number" size="20" maxlength="20" placeholder="{{ trans('checkout.index.order.billing.card.number-placeholder') }}" class="card-number form-control" data-stripe="number" pattern="\d*" required="required"/>
+				<input type="tel" data-validate="false" class="input input--medium input--spacing input--semibold input--full" id="ccnumber" autocomplete="cc-number" size="20" maxlength="20" placeholder="{{ trans('checkout.index.order.billing.card.number-placeholder') }}" data-stripe="number" pattern="\d*" required="required"/>
 			</div>
 			<div class="col-md-5 hidden-xs hidden-sm">
 				<label class="label label--full checkout--label">&nbsp;</label>
@@ -92,7 +92,7 @@
 				<!-- CVV/CVC -->
 				<label class="label label--full checkout--label" for="cc-csc" title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }}
 					({{ trans('checkout.index.order.billing.card.cvc-title') }})</label>
-				<input data-validate="false" type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-csc" autocomplete="cc-csc" size="4" maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" class="card-cvc form-control" data-stripe="cvc" required="required" pattern="\d*"/>
+				<input data-validate="false" type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-csc" autocomplete="cc-csc" size="4" maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" data-stripe="cvc" required="required" pattern="\d*"/>
 			</div>
 		</div>
 
@@ -124,14 +124,7 @@
 				}
 			}
 
-			if ($(".payment_method_input:checked").val() == 'stripe')
-			{
-				usesStripe = true;
-			}
-			else
-			{
-				usesStripe = false;
-			}
+			usesStripe = ($(".payment_method_input:checked").val() == 'stripe');
 
 			checkErrors();
 		});
@@ -143,7 +136,7 @@
 			{
 				$methodCard = $("#method-card");
 
-				alert('Du har ikke valgt en betalingsmetode! Prøv igen.'); // todo translate
+				alert('{{ trans('checkout.index.method.errors.no-method') }}');
 
 				$("body, html").stop().animate({
 					scrollTop: $methodCard.offset().top

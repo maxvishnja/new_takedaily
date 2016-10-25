@@ -84,6 +84,12 @@ return [
 						d. :date
 					</p>
 
-					<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>'
+					<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>',
+	    'method' => [
+			'title' => 'Betalingsmetode',
+			'errors' => [
+				'no-method' => 'Du har ikke valgt en betalingsmetode! Prøv igen.'
+			]
+	    ]
 	]
 ];
