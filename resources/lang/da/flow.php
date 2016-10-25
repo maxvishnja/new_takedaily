@@ -154,13 +154,13 @@ return [
 			]
 		],
 		'3-2'  => [
-			'title'   => 'Hvor meget frugt spiser/drikker du om dagen?',
+			'title'   => 'Hvor meget frugt spiser du om dagen?',
 			'text'    => 'Frugt er en vigtig kilde til C-vitamin. Frugtjuice kan kun tælle for ét stykke frugt om dagen. Så du kan
 							fint nøjes med et enkelt glas.',
 			'options' => [
 				'1' => 'Intet',
-				'2' => '1 stk. / glas',
-				'3' => '2 stk. / glas'
+				'2' => '1 stk.',
+				'3' => '2 stk. eller mere'
 			]
 		],
 		'3-3'  => [
