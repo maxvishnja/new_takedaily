@@ -1,17 +1,17 @@
 @extends('layouts.account')
-{{-- todo translate view --}}
+
 @section('pageClass', 'account account-settings account-settings-subscription')
 
 @section('title', trans('account.settings_subscription.title'))
 
 @section('content')
-	@if(Auth::user()->getCustomer()->hasNewRecommendations()) {{-- todo translate --}}
+	@if(Auth::user()->getCustomer()->hasNewRecommendations())
 	<div class="card m-b-50">
 		<div class="card-body">
-			<h2 class="card_title">Vi har nye anbefalinger til dig.</h2>
+			<h2 class="card_title">{{ trans('account.settings_subscription.new-recommendation.title') }}</h2>
 			<hr>
-			<p>Ud fra din profil kan vi se at nogle andre vitaminer måske er bedre for dig.</p>
-			<a href="{{ URL::action('AccountController@updateVitamins') }}" class="button button--green button--large">Opdater mine vitaminer</a>
+			<p>{{ trans('account.settings_subscription.new-recommendation.text') }}</p>
+			<a href="{{ URL::action('AccountController@updateVitamins') }}" class="button button--green button--large">{{ trans('account.settings_subscription.new-recommendation.btn') }}</a>
 		</div>
 	</div>
 	@endif
@@ -29,7 +29,7 @@
 			@else
 				<span
 					class="button button--regular button--light button--disabled button--rounded"
-					title="Din næste trækning er indenfor 24 timer, du kan derfor ikke udskyde.">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
+					title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
 			@endif
 
 			@if($plan->isCancelable())
@@ -38,7 +38,7 @@
 			@else
 				<span
 					class="button button--regular button--white button--text-grey button--disabled button--rounded"
-					title="Din næste trækning er indenfor 48 timer, du kan derfor ikke annullere">{{ trans('account.settings_subscription.button-cancel-text') }}</span>
+					title="{{ trans('account.settings_subscription.cant-cancel') }}">{{ trans('account.settings_subscription.button-cancel-text') }}</span>
 			@endif
 		</div>
 	@else

@@ -74,7 +74,14 @@ return [
 			'option'             => ':days dage',
 			'button-snooze-text' => 'Udskyd',
 			'button-close-text'  => 'Annuller'
-		]
+		],
+	    'new-recommendation' => [
+	    	'title' => 'Vi har nye anbefalinger til dig.',
+	        'text' => 'Ud fra din profil kan vi se at nogle andre vitaminer måske er bedre for dig.',
+	        'btn' => 'Opdater mine vitaminer'
+	    ],
+	    'cant-snooze' => 'Din næste trækning er indenfor 24 timer, du kan derfor ikke udskyde.',
+	    'cant-cancel' => 'Din næste trækning er indenfor 48 timer, du kan derfor ikke annullere'
 	],
     'general' => [
     	'errors' => [
