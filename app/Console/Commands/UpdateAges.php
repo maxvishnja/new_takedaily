@@ -43,7 +43,7 @@ class UpdateAges extends Command
 
         foreach($customersWithBirthdates as $customer)
         {
-			$customer->setCustomerAttribute('user_data.age', (new Date($customer->birthdate))->diffInYears());
+			$customer->setCustomerAttribute('user_data.age', (new Date($customer->birthdate))->diffInYears(), false);
         }
     }
 }

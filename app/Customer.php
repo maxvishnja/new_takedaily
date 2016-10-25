@@ -241,7 +241,7 @@ class Customer extends Model
 		return $lib->getCustomer($this);
 	}
 
-	public function setCustomerAttribute($identifier, $value)
+	public function setCustomerAttribute($identifier, $value, $force = true)
 	{
 		$attribute = $this->customerAttributes()->where('identifier', $identifier)->first();
 
@@ -252,6 +252,11 @@ class Customer extends Model
 				'value'      => $value ?: ''
 			]);
 
+			return true;
+		}
+
+		if(!$force && $attribute->value == $value)
+		{
 			return true;
 		}
 
