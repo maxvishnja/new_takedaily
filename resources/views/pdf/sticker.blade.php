@@ -20,20 +20,20 @@
 		html {
 			line-height: 1;
 			margin: 0;
-			width: 531pt;
-			height: 723pt;
+			width: 643pt;
+			height: 907pt;
 			overflow: hidden;
 			page-break-inside: avoid;
 		}
 
 		@page {
-			size: 531pt 723pt;
+			size: 643pt 907pt;
 			margin: 0;
 			padding: 0;
 		}
 
 		body {
-			background: #fff url({{ asset('/images/label-logo-bg.jpg') }}) no-repeat left center;
+			background: #fff;
 			background-size: cover;
 			page-break-inside: avoid;
 			font-family: 'Montserrat', sans-serif;
@@ -82,7 +82,6 @@
 						<br/>
 						<br/>
 						<div style="margin: 0 auto;width: 226pt; height: 40pt;">
-							<img style="width: 226pt; height: 40pt;" src="{{ asset('/images/pdf-logo.png') }}"/>
 						</div>
 					</td>
 				</tr>

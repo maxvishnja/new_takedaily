@@ -575,7 +575,7 @@ class Customer extends Model
 	public function generateSticker()
 	{
 		return \PDF::loadView('pdf.sticker', [ 'customer' => $this ])
-		           ->setPaper([ 0, 0, 531, 723 ])
+		           ->setPaper([ 0, 0, 643, 907 ])
 		           ->setOrientation('portrait');
 	}
 

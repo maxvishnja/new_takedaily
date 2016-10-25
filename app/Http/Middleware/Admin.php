@@ -48,10 +48,10 @@ class Admin
 			}
 		}
 
-		if ( Auth::user() && !Auth::user()->isAdmin() )
-		{
-			return response('Page not found.', 404);
-		}
+//		if ( Auth::user() && !Auth::user()->isAdmin() )
+//		{
+//			return response('Page not found.', 404);
+//		}
 
 		return $next($request);
 	}
