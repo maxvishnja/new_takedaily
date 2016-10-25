@@ -254,16 +254,19 @@
 
 				// resets some data
 				if (this.step < 4) {
-					var model = $("[name='step[" + this.step + "][" + this.sub_step + "]']").data('model');
+					$.each($("[name='step[" + this.step + "][" + this.sub_step + "]']"), function(i, input)
+					{
+						var model = $(input).data('model');
 
-					var modelParts = model.split('.');
+						var modelParts = model.split('.');
 
-					if (modelParts.length == 1) {
-						this.user_data[modelParts[0]] = null;
-					}
-					else {
-						this.user_data[modelParts[0]][modelParts[1]] = null;
-					}
+						if (modelParts.length == 1) {
+							app.user_data[modelParts[0]] = $(input).data('default') !== undefined ? $(input).data('default') : null;
+						}
+						else {
+							app.user_data[modelParts[0]][modelParts[1]] = $(input).data('default') !== undefined ? $(input).data('default') : null;
+						}
+					});
 				}
 
 				var currentStep = $(".step[data-step='" + this.step + "']");

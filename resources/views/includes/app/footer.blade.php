@@ -170,23 +170,21 @@
 	</script>
 @endif
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-	var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-	(function () {
-		var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-		s1.async = true;
-		s1.src = 'https://embed.tawk.to/573c49314084da3e71efb4e9/{{ trans('general.tawk_id') }}';
-		s1.charset = 'UTF-8';
-		s1.setAttribute('crossorigin', '*');
-		s0.parentNode.insertBefore(s1, s0);
-	})();
-</script>
-<!--End of Tawk.to Script-->
-
-
-
 @if(App::environment() != 'local')
+	<!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+		var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+		(function () {
+			var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+			s1.async = true;
+			s1.src = 'https://embed.tawk.to/573c49314084da3e71efb4e9/{{ trans('general.tawk_id') }}';
+			s1.charset = 'UTF-8';
+			s1.setAttribute('crossorigin', '*');
+			s0.parentNode.insertBefore(s1, s0);
+		})();
+	</script>
+	<!--End of Tawk.to Script-->
+
 	<!-- Facebook Pixel Code -->
 	<script>
 		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
