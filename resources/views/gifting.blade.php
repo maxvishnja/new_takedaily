@@ -2,14 +2,14 @@
 
 @section('pageClass', 'gifting')
 
-@section('title', 'Giv TakeDaily i gave - TakeDaily')
+@section('title', trans('gifting.title'))
 {{-- todo transalte --}}
 @section('content')
 	<div class="container text-center">
 		<div class="gifting-block">
-			<h1>Giv TakeDaily i gave</h1>
-			<h2>Hvor mange måneder ønsker du at give?</h2>
-			<form action="/checkout" id="giftingForm" method="get">
+			<h1>{{ trans('gifting.title-element') }}</h1>
+			<h2>{{ trans('gifting.subtitle') }}</h2>
+			<form action="{{ url()->action('CheckoutController@getCheckout') }}" id="giftingForm" method="get">
 				<div class="gifting-selectors">
 					<label class="gifting-selector" for="months_input_1">
 						<input type="radio" name="product_name" value="giftcard_1" id="months_input_1"/>
