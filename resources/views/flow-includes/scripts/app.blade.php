@@ -59,6 +59,22 @@
 				}
 			}
 		},
+		watch: {
+			'user_data.pregnancy.week': function(val, oldVal)
+			{
+				if(val != '0' && val != 0)
+				{
+					this.user_data.pregnancy.wish = 0;
+				}
+			},
+			'user_data.pregnancy.wish': function(val, oldVal)
+			{
+				if(val != '0' && val != 0)
+				{
+					this.user_data.pregnancy.week = 0;
+				}
+			},
+		},
 		computed: {
 			temp_age: function () {
 				return this.getAge();

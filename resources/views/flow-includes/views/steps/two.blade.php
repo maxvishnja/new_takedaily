@@ -169,7 +169,7 @@
 			{{-- todo add weeks field AND "I wish to be" field" --}}
 			<label class="text-center flow_label_noclick">
 				<span>{{ trans('flow.questions.2-8.button-text') }}</span><br/>
-				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-on:change="nextStep(); user_data.pregnancy.wish = 0;" v-model="user_data.pregnancy.week" class="select select--full m-t-10">
+				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-on:change="nextStep();" v-model="user_data.pregnancy.week" class="select select--full m-t-10">
 					<option value="0">{{ trans('flow.questions.2-8.pick-one') }}</option>
 					@foreach(range(1,38) as $week)
 						<option value="{{ $week }}">{{ trans('flow.questions.2-8.select') }} {{ $week }}</option>
@@ -178,7 +178,7 @@
 			</label>
 			<label>
 				<input type="radio" name="step[2][8]" value="1" v-model="user_data.pregnancy.wish" data-model="pregnancy.wish"
-					   v-on:click="nextStep(); user_data.pregnancy.week = 0"/>
+					   v-on:click="nextStep();"/>
 				<span class="icon icon-pregnant-yes"></span>
 				<span class="icon icon-pregnant-no"></span>
 				<br/>{{ trans('flow.questions.2-8.i-have-a-wish') }}
