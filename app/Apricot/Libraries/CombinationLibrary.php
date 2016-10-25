@@ -212,7 +212,7 @@ class CombinationLibrary
 			$this->setAdvise( 'three', trans( 'flow.combinations.3.f' ) );
 			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.f' ) );
 		}
-		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'd' ) && $this->isEmpty( $this->groupThree ) && ( $data->foods->fish == '1' || $data->foods->meat == '1' || $data->vegetarian == '1' ) )
+		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'd' ) && $this->isEmpty( $this->groupThree ) && ( $data->foods->meat == '1' || $data->vegetarian == '1' ) )
 		{
 			$this->groupThree = 'd';
 

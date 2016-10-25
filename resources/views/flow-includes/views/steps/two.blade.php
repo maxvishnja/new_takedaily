@@ -168,10 +168,8 @@
 		<div class="sub_step_answers">
 			{{-- todo add weeks field AND "I wish to be" field" --}}
 			<label class="text-center flow_label_noclick">
-								<span class="icon calendar-icon"
-									  style="vertical-align: middle; margin-right: 6px;"></span>
 				<span>{{ trans('flow.questions.2-8.button-text') }}</span><br/>
-				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-model="user_data.pregnancy.week" class="select select--full m-t-10">
+				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-on:change="nextStep(); user_data.pregnancy.wish = 0;" v-model="user_data.pregnancy.week" class="select select--full m-t-10">
 					<option value="0">{{ trans('flow.questions.2-8.pick-one') }}</option>
 					@foreach(range(1,38) as $week)
 						<option value="{{ $week }}">{{ trans('flow.questions.2-8.select') }} {{ $week }}</option>
@@ -180,12 +178,14 @@
 			</label>
 			<label>
 				<input type="radio" name="step[2][8]" value="1" v-model="user_data.pregnancy.wish" data-model="pregnancy.wish"
-					   v-on:click="nextStep();"/>
+					   v-on:click="nextStep(); user_data.pregnancy.week = 0"/>
+				<span class="icon icon-pregnant-yes"></span>
+				<span class="icon icon-pregnant-no"></span>
 				<br/>{{ trans('flow.questions.2-8.i-have-a-wish') }}
 			</label>
 		</div>
 
-		<p class="substep-explanation">{!! trans('flow.questions.2-12.text') !!}</p>
+		<p class="substep-explanation">{!! trans('flow.questions.2-8.text') !!}</p>
 	</div>
 
 	<div data-sub-step="9" class="sub_step">
