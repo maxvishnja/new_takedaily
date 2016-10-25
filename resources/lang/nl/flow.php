@@ -206,7 +206,7 @@ return [
 			]
 		],
 		'3-7'  => [
-			'title'   => 'Spiser du fisk mindst én gang om ugen?',
+			'title'   => 'Spiser du fed fish mindst én gang om ugen?',
 			'text'    => 'Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.',
 			'options' => [
 				'1' => 'Nej',
@@ -485,5 +485,30 @@ return [
 			'select-month' => 'Vælg måned',
 			'select-year'  => 'Vælg årstal',
 		]
-	]
+	],
+	'show'              => [
+		'supplements'     => 'Supplementer',
+		'description'     => 'Beskrivelse',
+		'change-vitamins' => 'Ønsker du at ændre dine vitaminer?',
+		'click-me'        => 'Tryk her'
+	],
+    'four' => [
+    	'wait' => 'Vent venligst..',
+        'wait-text' => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
+        'your-recommendations' => 'Dine anbefalinger',
+        'send-them' => 'Send et link til mine anbefalinger',
+        'send' => [
+        	'title' => 'Send anbefaling',
+            'email' => 'Indtast din e-mail adresse:',
+            'send' => 'Send',
+            'cancel' => 'Annuller',
+            'placeholder' => 'navn@email.dk',
+            'error' => 'Du skal indtaste din e-mail!',
+            'success' => 'Anbefalingen blev sendt!'
+        ]
+    ],
+    'coupon' => [
+    	'wait' => 'Vent...',
+        'apply' => 'Anvend'
+    ]
 ];
