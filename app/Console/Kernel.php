@@ -5,6 +5,7 @@ namespace App\Console;
 use App\Console\Commands\GenerateSitemapCommand;
 use App\Console\Commands\NotifyPendingRebills;
 use App\Console\Commands\SubscriptionRebillCommand;
+use App\Console\Commands\UpdateAges;
 use App\Console\Commands\UpdateCurrencies;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -19,7 +20,8 @@ class Kernel extends ConsoleKernel
 	protected $commands = [
 		SubscriptionRebillCommand::class,
 		UpdateCurrencies::class,
-		NotifyPendingRebills::class
+		NotifyPendingRebills::class,
+	    UpdateAges::class
 	];
 
 	/**
@@ -43,5 +45,8 @@ class Kernel extends ConsoleKernel
 		         ->name('notify-user-of-incoming-rebill')
 		         ->hourly()
 		         ->withoutOverlapping();
+
+		$schedule->call('customers:age-update')
+		         ->daily();
 	}
 }
