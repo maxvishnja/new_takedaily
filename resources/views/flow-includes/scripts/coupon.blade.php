@@ -17,10 +17,10 @@
 			},
 			dataType: 'JSON',
 			beforeSend: function () {
-				button.text('Vent...').prop('disabled', true); // todo translate
+				button.text('{{ trans('flow.coupon.wait') }}').prop('disabled', true);
 			},
 			complete: function () {
-				button.text('Anvend').prop('disabled', false); // todo translate
+				button.text('{{ trans('flow.coupon.apply') }}').prop('disabled', false);
 			},
 			success: function (response) {
 				$("#coupon-form-successes").text(response.message);

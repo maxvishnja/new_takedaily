@@ -506,5 +506,9 @@ return [
             'error' => 'Du skal indtaste din e-mail!',
             'success' => 'Anbefalingen blev sendt!'
         ]
+    ],
+    'coupon' => [
+    	'wait' => 'Vent...',
+        'apply' => 'Anvend'
     ]
 ];

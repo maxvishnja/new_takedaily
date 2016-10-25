@@ -1,4 +1,4 @@
-<script>{{-- todo translate --}}
+<script>
 	var sendByMailBtn = $("#send-by-mail-button");
 
 	sendByMailBtn.click(function (e) {
