@@ -9,5 +9,6 @@ return [
 	'balance'             => 'Betalt med gavekort el. lign.',
 	'refund'              => 'Tilbagebetaling',
 	'coupon'              => 'Kuponkode tilføjet',
-	'oil'                 => 'Ekstra olie'
+	'oil'                 => 'Ekstra olie',
+	'extra'               => 'Ekstra vitamin'
 ];

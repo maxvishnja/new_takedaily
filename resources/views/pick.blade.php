@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-{{-- todo translate --}}
-
 @section('pageClass', 'page-pick')
 
 @section('mainClasses', 'm-b-50 m-t-50')
@@ -20,12 +18,12 @@
 							<div class="vitamin-item-action">
 								<a href="#" v-show="!vitamin.isSelected"
 								   class="button button--green button--circular">
-									<span class="icon icon-plus"></span> Vælg denne
+									<span class="icon icon-plus"></span> {{ trans('pick.select-btn') }}
 								</a>
 
 								<a href="#" v-show="vitamin.isSelected"
 								   class="button button--green button--circular button--grey">
-									<span class="icon icon-cross-16"></span> Fravælg denne
+									<span class="icon icon-cross-16"></span> {{ trans('pick.deselect-btn') }}
 								</a>
 							</div>
 
@@ -76,9 +74,9 @@
 							<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
 								@if( !$isCustomer )
-									Gå til bestilling
+									{{ trans('pick.btn-order')}}
 								@else
-									Gem ændringer
+									{{ trans('pick.btn-save') }}
 								@endif
 							</button>
 
@@ -88,8 +86,7 @@
 						</form>
 
 						<div v-show="!hasSelectedEnoughVitamins" v-bind:class="{ 'm-t-10': numSelectedVitamins > 0 }" class="text-center notice">
-							Du mangler at vælge mindst @{{ minVitamins - numSelectedVitamins }} vitamin<span
-								v-show="(minVitamins - numSelectedVitamins) > 1">er</span>.
+							{!! trans('pick.min-vitamins') !!}
 						</div>
 					</div>
 				</div>
@@ -160,14 +157,13 @@
 					return groups;
 				},
 				cartItems: function () {
-					// todo get prices from db and such
 					var items = [];
 
-					items.push({name: "subscription", price: 149});
+					items.push({name: "{{ trans('products.subscription') }}", price: 149}); // todo get prices from db and such (convert currency)
 
 					if (this.numSelectedVitamins > 4) {
 						for (var i = 0; i < this.numSelectedVitamins - 4; i++) {
-							items.push({name: "Extra vitamin", price: 19}); // todo translate
+							items.push({name: "{{ trans('products.extra') }}", price: 19}); // todo get prices from db and such (convert currency)
 						}
 					}
 
@@ -193,7 +189,7 @@
 					event.preventDefault();
 
 					if (this.hasSelectedMaxVitamins) {
-						alert('Du har valgt det maksimale antal vitaminer, fravælg en for at vælge denne.'); // todo translate
+						alert('pick.errors.too-many');
 
 						return false;
 					}
