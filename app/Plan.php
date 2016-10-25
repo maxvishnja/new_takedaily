@@ -170,7 +170,7 @@ class Plan extends Model
 
 	public function rebilled()
 	{
-		$this->subscription_rebill_at = Date::now()->addMonth();
+		$this->subscription_rebill_at = Date::now()->addDays(28);
 		$this->save();
 
 		$this->markHasNotified(false);
@@ -307,6 +307,14 @@ class Plan extends Model
 	public function isCustom()
 	{
 		return $this->is_custom == 1;
+	}
+
+	public function setIsCustom($isCustom = false)
+	{
+		$this->is_custom = $isCustom ? 1 : 0;
+		$this->save();
+
+		return true;
 	}
 
 }

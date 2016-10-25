@@ -107,30 +107,7 @@ class CheckoutCompletion {
 				'gender'    => $userData->gender == 1 ? 'male' : 'female'
 			] );
 
-			$this->user->getCustomer()->setCustomerAttributes( [
-				'user_data.gender'           => $userData->gender,
-				'user_data.birthdate'        => date( 'Y-m-d', strtotime( $userData->birthdate ) ),
-				'user_data.age'              => $userData->age,
-				'user_data.skin'             => $userData->skin,
-				'user_data.outside'          => $userData->outside,
-				'user_data.pregnant'         => $userData->pregnant,
-				'user_data.diet'             => $userData->diet,
-				'user_data.sports'           => $userData->sports,
-				'user_data.lacks_energy'     => $userData->lacks_energy,
-				'user_data.smokes'           => $userData->smokes,
-				'user_data.immune_system'    => $userData->immune_system,
-				'user_data.vegetarian'       => $userData->vegetarian,
-				'user_data.joints'           => $userData->joints,
-				'user_data.stressed'         => $userData->stressed,
-				'user_data.foods.fruits'     => $userData->foods->fruits,
-				'user_data.foods.vegetables' => $userData->foods->vegetables,
-				'user_data.foods.bread'      => $userData->foods->bread,
-				'user_data.foods.wheat'      => $userData->foods->wheat,
-				'user_data.foods.dairy'      => $userData->foods->dairy,
-				'user_data.foods.meat'       => $userData->foods->meat,
-				'user_data.foods.fish'       => $userData->foods->fish,
-				'user_data.foods.butter'     => $userData->foods->butter
-			] );
+			$this->user->getCustomer()->updateUserdata($userData);
 
 		}
 
@@ -143,7 +120,7 @@ class CheckoutCompletion {
 				'price'                     => MoneyLibrary::toCents( $this->getCheckout()->getSubscriptionPrice() ),
 				'price_shipping'            => MoneyLibrary::toCents( Setting::getWithDefault( 'shipping_price', 0 ) ),
 				'subscription_started_at'   => \Date::now(),
-				'subscription_rebill_at'    => \Date::now()->addMonth(),
+				'subscription_rebill_at'    => \Date::now()->addDays(28+5),
 				'subscription_cancelled_at' => null
 			] );
 

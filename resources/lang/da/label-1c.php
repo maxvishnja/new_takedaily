@@ -1,0 +1,114 @@
+<?php
+return [
+	'name'     => 'Basis multivitamin og mineraltablet med 20 µg D-vitamin',
+	'praises'  => [
+		'one' => 'Bidrager til normal muskelfunktion',
+		'two' => 'Bidrager til vedligeholdelse af normale knogler'
+	],
+	'ingredients' => 'Fyldstof (calcium hydrogen phosphate dihydrate), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E132)), ferrobisglycinate, L-ascorbinsyre, zinkgluconat, DL-alfa-tocopherolacetat, nicotinamid, cholecalciferol, L-selenmethionin, antiklumpemiddel (magnesium stearate), calcium-D-pantothenat, retinylacetat, cyanocobalamin, phylloquinon (phytomenadion), pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid, chrompicolinat, pteroylmonoglutaminsyre, kaliumjodid, D-biotin',
+	'vitamins' => [
+		[
+			'name'    => 'Vitamin A',
+			'amount'  => '400 µg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Vitamin D',
+			'amount'  => '20 µg',
+			'percent' => '400'
+		],
+		[
+			'name'    => 'Vitamin E',
+			'amount'  => '6 mg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Vitamin K',
+			'amount'  => '37,5 mg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Vitamin C',
+			'amount'  => '40 mg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Thiamin',
+			'amount'  => '0,55 mg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Riboflavin',
+			'amount'  => '0,7 mg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Niacin',
+			'amount'  => '8 mg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Vitamin B6',
+			'amount'  => '0,7 mg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Folsyre',
+			'amount'  => '100 µg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Vitamin B12',
+			'amount'  => '1,25 µg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Biotin',
+			'amount'  => '25 µg',
+			'percent' => '50'
+		],
+		[
+			'name'    => 'Panthothensyre',
+			'amount'  => '3 mg',
+			'percent' => '50'
+		],
+	],
+    'minerals' => [
+	    [
+		    'name'    => 'Calcium',
+		    'amount'  => '166,6 mg',
+		    'percent' => '21'
+	    ],
+	    [
+		    'name'    => 'Phosphor',
+		    'amount'  => '128,7 mg',
+		    'percent' => '18'
+	    ],
+	    [
+		    'name'    => 'Jern',
+		    'amount'  => '7 mg',
+		    'percent' => '50'
+	    ],
+	    [
+		    'name'    => 'Zink',
+		    'amount'  => '2,5 mg',
+		    'percent' => '25'
+	    ],
+	    [
+		    'name'    => 'Selen',
+		    'amount'  => '27,5 mg',
+		    'percent' => '50'
+	    ],
+	    [
+		    'name'    => 'Chrom',
+		    'amount'  => '20 µg',
+		    'percent' => '50'
+	    ],
+	    [
+		    'name'    => 'Jod',
+		    'amount'  => '75 µg',
+		    'percent' => '50'
+	    ],
+    ],
+    'disclaimer' => ''
+];

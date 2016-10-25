@@ -163,7 +163,16 @@
 		<p class="substep-explanation">{{ trans('flow.questions.2-7.text') }}</p>
 	</div>
 
-	<div data-sub-step="8" class="sub_step">
+	<div data-sub-step="8" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--skip': user_data.pregnant != 3 }">{{-- todo set the "3" to "1" --}}
+		<h3 class="substep-title">{{ trans('flow.questions.2-1.title') }}</h3>
+		<div class="sub_step_answers">
+			{{-- todo add weeks field AND "I wish to be" field" --}}
+		</div>
+
+		<p class="substep-explanation">{!! trans('flow.questions.2-1.text') !!}</p>
+	</div>
+
+	<div data-sub-step="9" class="sub_step">
 		<h3 class="substep-title">{{ trans('flow.questions.2-8.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -183,7 +192,7 @@
 		<p class="substep-explanation">{{ trans('flow.questions.2-8.text') }}</p>
 	</div>
 
-	<div data-sub-step="9" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
+	<div data-sub-step="10" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
 		<h3 class="substep-title">{{ trans('flow.questions.2-9.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -203,7 +212,7 @@
 		<p class="substep-explanation">{{ trans('flow.questions.2-9.text') }}</p>
 	</div>
 
-	<div data-sub-step="10" class="sub_step">
+	<div data-sub-step="11" class="sub_step">
 		<h3 class="substep-title">{{ trans('flow.questions.2-10.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>

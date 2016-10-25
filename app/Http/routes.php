@@ -160,7 +160,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Route::get( 'pick-n-mix', 'PickMixController@get' )->name( 'pick-n-mix' );
 			Route::post( 'pick-n-mix', 'PickMixController@post' )->name( 'pick-n-mix-post' );
 
-			Route::get( 'flow', function (\Illuminate\Http\Request $request)
+			Route::get( 'flow', function ( \Illuminate\Http\Request $request )
 			{
 				$giftcard = null;
 
@@ -198,11 +198,11 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 				$userData = [];
 
-				if($request->has('token'))
+				if ( $request->has( 'token' ) )
 				{
-					$flowCompletion = \App\FlowCompletion::whereToken($request->get('token'))->first();
+					$flowCompletion = \App\FlowCompletion::whereToken( $request->get( 'token' ) )->first();
 
-					if( $flowCompletion )
+					if ( $flowCompletion )
 					{
 						$userData = $flowCompletion->user_data;
 					}
@@ -275,10 +275,38 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		{
 			$userData = json_decode( $request->get( 'user_data' ) );
 
-			Session::put( 'user_data', $userData );
-			Session::put( 'product_name', $request->get( 'product_name' ) );
+			if ( Auth::check() )
+			{
+				Auth::user()->getCustomer()->updateUserdata( $userData );
+				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
 
-			return Redirect::action( 'CheckoutController@getCheckout' );
+				$combinations = Auth::user()->getCustomer()->calculateCombinations();
+				$vitamins     = [];
+
+				foreach ( $combinations as $key => $combination )
+				{
+					$pill    = \App\Apricot\Libraries\PillLibrary::getPill( $key, $combination );
+					$vitamin = \App\Vitamin::select( 'id' )->whereCode( $pill )->first();
+
+					if ( $vitamin )
+					{
+						$vitamins[] = $vitamin->id;
+					}
+				}
+
+				$this->getUser()->getCustomer()->getPlan()->update( [
+					'vitamins' => json_encode( $vitamins )
+				] );
+
+				return Redirect::to( '' );
+			}
+			else
+			{
+				Session::put( 'user_data', $userData );
+				Session::put( 'product_name', $request->get( 'product_name' ) );
+
+				return Redirect::action( 'CheckoutController@getCheckout' );
+			}
 		} )->name( 'flow-post' );
 
 		Route::post( 'flow-upsell', function ( \Illuminate\Http\Request $request )

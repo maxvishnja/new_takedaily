@@ -33,6 +33,10 @@
 				skin: null,
 				outside: null,
 				pregnant: null,
+				pregnancy: {
+					date: null,
+					wish: null
+				},
 				diet: null,
 				sports: null,
 				lacks_energy: null,
