@@ -117,16 +117,16 @@
 			</div>
 		</div>
 
-		<div class="block block--promises">{{-- todo translate block --}}
+		<div class="block block--promises">
 			<div class="container">
-				<h2 class="text-center">Hvad vi lover dig</h2>
+				<h2 class="text-center">{{ trans('home.blocks.promises.title') }}</h2>
 				<div class="promise-container">
 					<div class="promise-item">
 						<img src="/images/promises/promise_1.png" alt=""/>
 					</div>
 
 					<div class="promise-item">
-						<p>Gratis rådgivning af TakeDailys egne professionelle diætister ernæringseksperter</p>
+						<p>{{ trans('home.blocks.promises.promise-1') }}</p>
 					</div>
 
 					<div class="promise-item">
@@ -134,14 +134,12 @@
 					</div>
 
 					<div class="promise-item">
-						<p>Vi bruger organiske kapsler til hurtigere optagelse og de bedste vitaminer, mineraler og
-							omega fedtsyrer på markedet.
-							<a href="/page/how-it-works">Læs mere her</a></p>
+						<p>{{ trans('home.blocks.promises.promise-2') }}
+							<a href="/page/how-it-works">{{ trans('home.blocks.promises.read-more') }}</a></p>
 					</div>
 
 					<div class="promise-item">
-						<p>Vi springer alle fordyrende mellemled over og leverer direkte fra fabrik til din dør, på den
-							måde er vi langt billigere end de fleste andre på markedet</p>
+						<p>{{ trans('home.blocks.promises.promise-3') }}</p>
 					</div>
 
 					<div class="promise-item">
@@ -149,9 +147,7 @@
 					</div>
 
 					<div class="promise-item">
-						<p>Med vores specialudviklede algoritme, skræddersyer vi den optimale kombination af lige netop
-							det du har brug for.
-							<a href="{{ url()->route('flow') }}">Kom i gang her</a></p>
+						<p>{{ trans('home.blocks.promises.promise-4') }} <a href="{{ url()->route('flow') }}">{{ trans('home.blocks.promises.get-started') }}</a></p>
 					</div>
 
 					<div class="promise-item">
@@ -161,23 +157,17 @@
 			</div>
 		</div>
 
-		<div class="block block--reviews">{{-- todo translate block --}}
+		<div class="block block--reviews">
 			<div class="container">
-				<h2 class="text-center">Hvad vores kunder siger</h2>
+				<h2 class="text-center">{{ trans('home.blocks.reviews.title') }}</h2>
 
 				<div class="row">
-					<div class="col-sm-4 review-item text-center">
-						<img src="https://s3.amazonaws.com/uifaces/faces/twitter/dgclegg/128.jpg" alt="">
-						<blockquote>”Som vegetar er jeg SUPER glad for min månedlige Takedaily pakke!”</blockquote>
-					</div>
-					<div class="col-sm-4 review-item text-center">
-						<img src="https://s3.amazonaws.com/uifaces/faces/twitter/gergelyjanko/128.jpg" alt="">
-						<blockquote>”Som vegetar er jeg SUPER glad for min månedlige Takedaily pakke!”</blockquote>
-					</div>
-					<div class="col-sm-4 review-item text-center">
-						<img src="https://s3.amazonaws.com/uifaces/faces/twitter/jimmuirhead/128.jpg" alt="">
-						<blockquote>”Som vegetar er jeg SUPER glad for min månedlige Takedaily pakke!”</blockquote>
-					</div>
+					@foreach(trans('home.blocks.reviews.items') as $review)
+						<div class="col-sm-4 review-item text-center">
+							<img src="{{ $review['image'] }}" alt="{{ $review['name'] }}">
+							<blockquote>”{{ $review['text'] }}”</blockquote>
+						</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
@@ -233,22 +223,7 @@
 	<script>
 		$("#slider_one").slider();
 		$("#slider_two").slider();
-			{{--
-					var ctaBlock = $(".header_footer");
-					var headerBlock = $("header.header--landing");
 
-					$(window).scroll(function ()
-					{
-						if ($(this).scrollTop() > (headerBlock.height()))
-						{
-							ctaBlock.addClass('header_footer--sticky');
-						}
-						else
-						{
-							ctaBlock.removeClass('header_footer--sticky');
-						}
-					});
-					--}}
 		var videoPopup = $("#video_popup");
 		var videoPopupContent = $("#video_popup-content");
 		$("#video-toggle, #video-toggle-two").click(function (e) {
@@ -261,14 +236,12 @@
 			videoPopup.hide();
 		});
 
-		$(".video-popup").click(function()
-		{
+		$(".video-popup").click(function () {
 			videoPopupContent.html('');
 			videoPopup.hide();
 		});
 
-		$(".video-popup_container").click(function(e)
-		{
+		$(".video-popup_container").click(function (e) {
 			e.stopPropagation();
 		});
 
