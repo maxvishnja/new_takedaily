@@ -2,9 +2,9 @@
 	<div class="tabs m-b-30">
 		<div class="options">
 			<div data-tab="#advises-label-tab" class="tab tab-toggler tab--active">
-				Supplementer
+				{{ trans('flow.show.supplements') }}
 			</div>
-			<div data-tab="#advises-content" class="tab tab-toggler">Beskrivelse</div>
+			<div data-tab="#advises-content" class="tab tab-toggler">{{ trans('flow.show.description') }}</div>
 
 			<div class="clear"></div>
 		</div>
@@ -16,7 +16,7 @@
 		<div id="advises-content" class="tab-block"></div>
 	</div>
 
-	<p>Ønsker du at ændre dine vitaminer? <a href="/pick-n-mix" id="link-to-change">Tryk her</a></p>
+	<p>{{ trans('flow.show.change-vitamins') }} <a href="{{ url()->route('pick-n-mix') }}" id="link-to-change">{{ trans('flow.show.click-me') }}</a></p>
 
 	@include('includes.disclaimer')
-</div>{{-- todo translate --}}
+</div>

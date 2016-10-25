@@ -3,7 +3,7 @@
 @section('pageClass', 'gifting')
 
 @section('title', trans('gifting.title'))
-{{-- todo transalte --}}
+
 @section('content')
 	<div class="container text-center">
 		<div class="gifting-block">

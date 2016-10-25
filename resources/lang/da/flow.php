@@ -485,5 +485,11 @@ return [
 			'select-month' => 'Vælg måned',
 			'select-year'  => 'Vælg årstal',
 		]
+	],
+	'show'              => [
+		'supplements'     => 'Supplementer',
+		'description'     => 'Beskrivelse',
+		'change-vitamins' => 'Ønsker du at ændre dine vitaminer?',
+		'click-me'        => 'Tryk her'
 	]
 ];
