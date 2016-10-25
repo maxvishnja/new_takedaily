@@ -1,6 +1,7 @@
 <?php
 namespace App\Apricot\Libraries;
 
+// todo start checking if combination is possible again
 
 use App\Combination;
 
@@ -184,6 +185,14 @@ class CombinationLibrary
 
 	private function generateGroupThree( $data )
 	{
+
+		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'd' ) && $this->isEmpty( $this->groupThree ) && ( $data->vegetarian == '1' ) )
+		{
+			$this->groupThree = 'd';
+
+			$this->setAdvise( 'three', trans( 'flow.combinations.3.d' ) );
+			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.d' ) );
+		}
 		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'a' ) && ( $data->foods->fruits == '1' || $data->foods->vegetables == '1' ) )
 		{
 			$this->groupThree = 'a';
@@ -212,7 +221,7 @@ class CombinationLibrary
 			$this->setAdvise( 'three', trans( 'flow.combinations.3.f' ) );
 			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.f' ) );
 		}
-		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'd' ) && $this->isEmpty( $this->groupThree ) && ( $data->foods->meat == '1' || $data->vegetarian == '1' ) )
+		if ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'd' ) && $this->isEmpty( $this->groupThree ) && ( $data->foods->meat == '1' ) )
 		{
 			$this->groupThree = 'd';
 
