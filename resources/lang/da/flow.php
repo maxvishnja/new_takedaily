@@ -206,7 +206,7 @@ return [
 			]
 		],
 		'3-7'  => [
-			'title'   => 'Spiser du fisk mindst én gang om ugen?',
+			'title'   => 'Spiser du fed fish mindst én gang om ugen?',
 			'text'    => 'Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.',
 			'options' => [
 				'1' => 'Nej',
