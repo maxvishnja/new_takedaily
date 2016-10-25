@@ -11,6 +11,8 @@ return [
 			'price' => '149<small> kr.</small>',
 			'info'  => 'Ingen binding'
 		],
+		'what-is' => 'Hvad er TakeDaily?',
+		'pick'              => 'eller vælg selv dine egne vitaminer',
 		'cta'               => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>'
 	],
 	'blocks' => [

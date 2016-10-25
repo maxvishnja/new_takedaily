@@ -26,14 +26,13 @@
 					<div class="header_slide header_slide--active" data-slide="1">
 						<div class="container">
 							<h1>{!! trans('home.header.title-1') !!}</h1>
-							<a href="/flow"
+							<a href="{{ url()->route('flow') }}"
 							   class="button button--rounded button--huge button--landing button--white m-t-30">
 								<strong>{!! trans('home.header.button-click-here') !!}</strong>
 							</a>
-							<div class="or-pick-mix-link-container"><a href="/pick-n-mix">eller vælg selv dine egne
-									vitaminer</a></div>
+							<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('home.header.pick') }}</a></div>
 							<div class="headervideo-block">
-								<strong>Hvad er TakeDaily?</strong>{{-- todo translate --}}
+								<strong>{{ trans('home.header.what-is') }}</strong>
 								<span id="video-toggle" class="icon icon-play"></span>
 							</div>
 						</div>
@@ -44,14 +43,13 @@
 							<div class="row">
 								<div class="col-md-8">
 									<h1>{!! trans('home.header.title-1') !!}</h1>
-									<a href="/flow"
+									<a href="{{ url()->route('flow') }}"
 									   class="button button--rounded button--huge button--landing button--green m-t-30">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
-									<div class="or-pick-mix-link-container"><a href="/pick-n-mix">eller vælg selv
-											dine egne vitaminer</a></div>
+									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('home.header.pick') }}</a></div>
 									<div class="headervideo-block">
-										<strong>Hvad er TakeDaily?</strong>{{-- todo translate --}}
+										<strong>{{ trans('home.header.what-is') }}</strong>
 										<span id="video-toggle-two" class="icon icon-play"></span>
 									</div>
 								</div>
@@ -114,8 +112,7 @@
 				<div class="text-center m-t-50">
 					{!! trans('home.blocks.one.button') !!}
 
-					<div class="m-t-20"><a href="/pick-n-mix">eller vælg selv dine egne
-							vitaminer</a></div>
+					<div class="m-t-20"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('home.header.pick') }}</a></div>
 				</div>
 			</div>
 		</div>
@@ -139,7 +136,7 @@
 					<div class="promise-item">
 						<p>Vi bruger organiske kapsler til hurtigere optagelse og de bedste vitaminer, mineraler og
 							omega fedtsyrer på markedet.
-							<a href="/how-it-works">Læs mere her</a></p>
+							<a href="/page/how-it-works">Læs mere her</a></p>
 					</div>
 
 					<div class="promise-item">
@@ -154,7 +151,7 @@
 					<div class="promise-item">
 						<p>Med vores specialudviklede algoritme, skræddersyer vi den optimale kombination af lige netop
 							det du har brug for.
-							<a href="/flow">Kom i gang her</a></p>
+							<a href="{{ url()->route('flow') }}">Kom i gang her</a></p>
 					</div>
 
 					<div class="promise-item">
@@ -197,45 +194,6 @@
 			</div>
 		</div>
 
-		{{--<div class="container">
-			<div class="block block--three text-center">
-				<div class="row">
-					<div class="col-md-4">
-						<img src="/images/dietist.png" class="img--rounded"
-							 alt="{{ trans('home.blocks.three.name') }}"/>
-						<span class="dietist-name">{{ trans('home.blocks.three.name') }}</span>
-					</div>
-					<div class="col-md-8">
-						<blockquote>{!! trans('home.blocks.three.quote') !!}</blockquote>
-
-						{!! trans('home.blocks.three.button') !!}
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="block block--four hidden-xs">
-			<div class="container">
-				<video src="/video/animation.mp4" autoplay="autoplay" loop="loop" poster="/video/thumbnail.png"
-					   oncontextmenu="return false;" muted="muted">
-					<source type="video/mp4" src="/video/animation.mp4"/>
-					<source type="video/ogv" src="/video/animation.ogv"/>
-					<source type="video/webm" src="/video/animation.webm"/>
-				</video>
-			</div>
-		</div>
-
-		<div class="block block--five">
-			<img src="//placehold.it/640x420" alt="Image"/>
-
-			<div class="block_content text-center">
-				{!! trans('home.blocks.five.body') !!}
-				{!! trans('home.blocks.five.button') !!}
-			</div>
-
-			<div class="clear"></div>
-		</div>--}}
-
 		@if( is_array( trans('home.blocks.six.slides') ) )
 			<div class="block block--six">
 				<div class="slider_container" id="slider_two">
@@ -251,8 +209,7 @@
 										<p class="text-center">{{ $slide['text'] }}</p>
 										<div class="text-center">
 											{!! $slide['button'] !!}
-											<div class="m-t-20"><a href="/pick-n-mix">eller vælg selv dine egne
-													vitaminer</a></div>
+											<div class="m-t-20"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('home.header.pick') }}</a></div>
 										</div>
 									</div>
 								</div>
@@ -304,9 +261,15 @@
 			videoPopup.hide();
 		});
 
-		$(".video-popup").click(function(e)
+		$(".video-popup").click(function()
 		{
+			videoPopupContent.html('');
+			videoPopup.hide();
+		});
 
+		$(".video-popup_container").click(function(e)
+		{
+			e.stopPropagation();
 		});
 
 		var header_slider = $(".header_slides");
