@@ -1,30 +1,25 @@
 <?php
 return [
-	'name'     => 'Supplement til slankediæt',
-	'praises'  => [
-		'one' => 'Bidrager til immunsystemets normale funktion',
+	'name'        => 'Supplement til aktiv livsstil',
+	'praises'     => [
+		'one' => 'Bidrager til et normalt energistofskifte',
 		'two' => 'Bidrager til at mindske træthed og udmattelse'
 	],
-	'ingredients' => 'Fyldstof (microcrystalline cellulose), L-ascorbinsyre, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E132)), antiklumpningsmiddel (magnesium stearate), retinylacetat, cyanocobalamin, phytomenadion, pyridoxal-5’-phosphat, thiaminhydrochlorid',
-	'vitamins' => [
-		[
-			'name'    => 'Vitamin A',
-			'amount'  => '800 µg',
-			'percent' => '100'
-		],
-		[
-			'name'    => 'Vitamin K',
-			'amount'  => '113 µg',
-			'percent' => '150'
-		],
-		[
-			'name'    => 'Vitamin C',
-			'amount'  => '120 mg',
-			'percent' => '150'
-		],
+	'ingredients' => 'Magnesiumhydroxid, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E140)), fyldstof (microcrystalline cellulose), ferrofumarat, nicotinamid, panthothensyre, antiklumpningsmiddel (magnesium stearate), cyanocobalamin, pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid',
+	'vitamins'    => [
 		[
 			'name'    => 'Thiamin (B1)',
 			'amount'  => '1,65 mg',
+			'percent' => '150'
+		],
+		[
+			'name'    => 'Riboflavin (B2)',
+			'amount'  => '2,1 mg',
+			'percent' => '150'
+		],
+		[
+			'name'    => 'Niacin',
+			'amount'  => '24 mg',
 			'percent' => '150'
 		],
 		[
@@ -36,7 +31,24 @@ return [
 			'name'    => 'Vitamin B12',
 			'amount'  => '3,75 µg',
 			'percent' => '150'
+		],
+		[
+			'name'    => 'Panthothensyre',
+			'amount'  => '9 mg',
+			'percent' => '150'
 		]
 	],
-    'disclaimer' => '*100 % til gravide, 200 % af de almindelige anbefalinger'
+	'minerals'    => [
+		[
+			'name'    => 'Magnesium',
+			'amount'  => '200 mg',
+			'percent' => '53'
+		],
+		[
+			'name'    => 'Jern',
+			'amount'  => '10 mg',
+			'percent' => '71'
+		],
+	],
+	'disclaimer'  => ''
 ];

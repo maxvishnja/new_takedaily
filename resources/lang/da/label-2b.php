@@ -1,12 +1,12 @@
 <?php
 return [
-	'name'     => 'Supplement til slankediæt',
-	'praises'  => [
+	'name'        => 'Supplement til slankediæt',
+	'praises'     => [
 		'one' => 'Bidrager til immunsystemets normale funktion',
 		'two' => 'Bidrager til at mindske træthed og udmattelse'
 	],
 	'ingredients' => 'Fyldstof (microcrystalline cellulose), L-ascorbinsyre, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E132)), antiklumpningsmiddel (magnesium stearate), retinylacetat, cyanocobalamin, phytomenadion, pyridoxal-5’-phosphat, thiaminhydrochlorid',
-	'vitamins' => [
+	'vitamins'    => [
 		[
 			'name'    => 'Vitamin A',
 			'amount'  => '800 µg',
@@ -38,5 +38,5 @@ return [
 			'percent' => '150'
 		]
 	],
-    'disclaimer' => '*100 % til gravide, 200 % af de almindelige anbefalinger'
+	'disclaimer'  => ''
 ];
