@@ -541,3 +541,9 @@
 		});
 	</script>
 @endsection
+
+@section('tracking-scripts')
+	<script>
+		fbq('track', 'AddToCart');
+	</script>
+@endsection

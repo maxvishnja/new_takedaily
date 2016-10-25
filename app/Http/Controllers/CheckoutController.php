@@ -221,6 +221,9 @@ class CheckoutController extends Controller
 
 		// fixme userData being null/false if failed somewhere.
 
+		$request->session()->flash('order_price', $checkout->getTotal());
+		$request->session()->flash('order_currency', trans('general.currency'));
+
 		if ( $checkout->getProduct()->isSubscription() )
 		{
 			return \Redirect::action( 'CheckoutController@getSuccess' )
