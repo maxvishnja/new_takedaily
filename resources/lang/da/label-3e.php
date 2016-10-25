@@ -1,30 +1,41 @@
 <?php
 return [
-	'name'        => 'Supplement til lavt indtag af smør',
+	'name'        => 'Fiskeolie',
 	'praises'     => [
-		'one'   => 'Bidrager til at beskytte cellerne mod oxidativt stress',
-		'two'   => 'Bidrager til vedligeholdelse af normale knogler',
-		'three' => 'Bidrager til normal muskelfunktion',
-		'four'  => 'Bidrager til vedligeholdelsen af et normalt syn'
+		'one'   => 'Bæredygtigt fiskeri, dobbeltrenset, 100 % naturligt, Friends Of the Sea (FOS) certificeret',
+		'two'   => 'EPA og DHA hjælper til normal hjertefunktion. Den gavnlige effekt opnåes ved et dagligt indtag på 250 mg EPA og DHA.',
+		'three' => 'DHA hjælper til at vedligeholde en normal hjernefunktion og et normalt syn. Den gavnlige effekt opnåes ved et dagligt indtag på 250 mg DHA.'
 	],
-	'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171)),  DL-α-tocopherylacetat, retinylacetat, antiklumpningsmiddel (magnesium stearate), cholecalciferol',
+	'ingredients' => 'Koncentreret fiskeolie, gelatinekapsel (gelatine (fra ko), konsistensmiddel (glycerol), vand), antioxidant (D-alpha-tocopherol koncentrat)',
+	'other-vitamins' => [
+		[
+			'name' => 'Koncentreret fiskeolie',
+		    'amount' => '1000 mg',
+		    'percent' => '*'
+		],
+		[
+			'name' => 'Omega-3 heraf',
+		    'amount' => '550 mg',
+		    'percent' => '*'
+		],
+		[
+			'name' => 'EPA (Eicosapentaensyre)',
+		    'amount' => '330 mg',
+		    'percent' => '*'
+		],
+		[
+			'name' => 'DHA (Docosahexaensyre)',
+		    'amount' => '220 mg',
+		    'percent' => '*'
+		],
+	],
 	'vitamins'    => [
 		[
-			'name'    => 'Vitamin A',
-			'amount'  => '800 µg',
-			'percent' => '100'
-		],
-		[
-			'name'    => 'Vitamin D',
-			'amount'  => '10 µg',
-			'percent' => '200'
-		],
-		[
 			'name'    => 'Vitamin E',
-			'amount'  => '12 mg',
-			'percent' => '100'
+			'amount'  => '10 mg',
+			'percent' => '83'
 		],
 	],
-	'minerals' => [],
-	'disclaimer'  => ''
+	'minerals'    => [],
+	'disclaimer'  => '*Referenceindtag (RI) ikke fastlagt'
 ];
