@@ -172,15 +172,15 @@ return [
 			]
 		],
 		'3-3'  => [
-			'title'   => 'Hvor mange skiver brød spiser du om dagen?',
+			'title'   => 'Hvor mange skiver brød spiser du gennemsnitligt om dagen?',
 			'text'    => 'Havregrød eller lign. tæller for én skive brød.<br/><br/>Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Vælg fuldkorn. Det mætter rigtig godt. Det får
 							dig til at spise mindre og gør det lettere at holde vægten. B-vitamin og jern fra brødet giver dig energi.',
 			'options' => [
 				'1' => 'Intet',
 				'2' => '1-2 stk.',
 				'3' => '3-4 stk.',
-				'4' => '4-5 stk.',
-				'5' => '+6 stk.'
+				'4' => '4-6 stk.',
+				'5' => '6-8 stk.'
 			]
 		],
 		'3-4'  => [
@@ -194,7 +194,7 @@ return [
 			]
 		],
 		'3-5'  => [
-			'title'   => 'Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser du om dagen?',
+			'title'   => 'Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser gennemsnitligt du om dagen?',
 			'text'    => 'Pasta, ris, kartofler og lignende er fyldt med gode kulhydrater og indeholder næsten ingen fedt. Og så er
 							de en vigtig kilde til B-vitamin og mineraler.',
 			'options' => [
@@ -222,7 +222,7 @@ return [
 			]
 		],
 		'3-8'  => [
-			'title'   => 'Hvor mange mejeriprodukter får du dagligt?',
+			'title'   => 'Hvor mange mejeriprodukter får du gennemsnitligt om dagen?',
 			'text'    => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
 							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.',
 			'options' => [
