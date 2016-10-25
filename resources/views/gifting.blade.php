@@ -13,26 +13,26 @@
 				<div class="gifting-selectors">
 					<label class="gifting-selector" for="months_input_1">
 						<input type="radio" name="product_name" value="giftcard_1" id="months_input_1"/>
-						<strong class="gifting-price">149 kr.</strong>
-						<span class="gifting-months">1 måned</span>
+						<strong class="gifting-price">149 kr.</strong>{{-- todo get price from DB --}}
+						<span class="gifting-months">{{ trans('gifting.giftcard_1' }}{{ trans('gifting.giftcard_1 }}</span>
 
-						<button class="button button--green button--full" type="button">Vælg gavekort</button>
+						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
 					</label>
 
 					<label class="gifting-selector" for="months_input_3">
 						<input type="radio" name="product_name" value="giftcard_3" id="months_input_3"/>
-						<strong class="gifting-price">447 kr.</strong>
-						<span class="gifting-months">3 måneder</span>
+						<strong class="gifting-price">447 kr.</strong>{{-- todo get price from DB --}}
+						<span class="gifting-months">{{ trans('gifting.giftcard_3 }}</span>
 
-						<button class="button button--green button--full" type="button">Vælg gavekort</button>
+						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
 					</label>
 
 					<label class="gifting-selector" for="months_input_6">
 						<input type="radio" name="product_name" value="giftcard_6" id="months_input_6"/>
-						<strong class="gifting-price">894 kr.</strong>
-						<span class="gifting-months">6 måneder</span>
+						<strong class="gifting-price">894 kr.</strong>{{-- todo get price from DB --}}
+						<span class="gifting-months">{{ trans('gifting.giftcard_6') }}</span>
 
-						<button class="button button--green button--full" type="button">Vælg gavekort</button>
+						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
 					</label>
 				</div>
 			</form>
@@ -41,22 +41,21 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-4 text-center"><img height="110"
 																	 src="/images/gifting/step_1.png"
-																	 alt="">
-				<h3>1. Vælg et gavekort</h3>
-				<p>Du kan vælge at give enten 1, 3 eller 6 måneders TakeDaily til en du holder af.</p>
+																	 alt="{{ trans('gifting.steps.one.title') }}">
+				<h3>{{ trans('gifting.steps.one.title') }}</h3>
+				<p>{{ trans('gifting.steps.one.text') }}</p>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 text-center"><img height="110"
 																	 src="/images/gifting/step_2.png"
-																	 alt="">
-				<h3>2. Vi sender gavekortet</h3>
-				<p>Du modtager gavekortet direkte på din e-mail, så der er ingen ventetid eller besvær, du har gaven
-					lige med det samme.</p>
+																	 alt="{{ trans('gifting.steps.two.title') }}">
+				<h3>{{ trans('gifting.steps.two.title') }}</h3>
+				<p>{{ trans('gifting.steps.two.text') }}</p>
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 text-center"><img height="110"
 																	 src="/images/gifting/step_3.png"
-																	 alt="">
-				<h3>3. Giv gaven</h3>
-				<p>Du printer bare gavekortet ud og giver det som gave.</p>
+																	 alt="{{ trans('gifting.steps.three.title') }}">
+				<h3>{{ trans('gifting.steps.three.title') }}</h3>
+				<p>{{ trans('gifting.steps.three.text') }}</p>
 			</div>
 		</div>
 	</div>
