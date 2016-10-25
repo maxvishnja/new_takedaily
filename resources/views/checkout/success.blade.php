@@ -76,7 +76,6 @@
 
 @section('tracking-scripts')
 	<script>
-		alert("{{ session('order_price', '0.00') }}");
 		fbq('track', 'Purchase', {value: '{{ session('order_price', '0.00') }}', currency: '{{ session('order_currency', 'EUR') }}'});
 
 		@if(Auth::check())
