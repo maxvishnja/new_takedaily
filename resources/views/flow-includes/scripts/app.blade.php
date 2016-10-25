@@ -35,6 +35,7 @@
 				pregnant: null,
 				pregnancy: {
 					date: null,
+					week: 0,
 					wish: null
 				},
 				diet: null,
@@ -46,7 +47,6 @@
 				vegetarian: null,
 				joints: null,
 				stressed: null,
-				double_oil: 0,
 				foods: {
 					fruits: null,
 					vegetables: null,
@@ -183,13 +183,6 @@
 				return $(".step[data-step='" + step + "']:not(.sub_step--skip)").find(".sub_step").length;
 			},
 
-			addAdditionalOil: function (event) {
-				event.preventDefault();
-
-				this.user_data.double_oil = 1;
-				this.getCombinations(false);
-			},
-
 			goToRecommendations: function () {
 				var steps = $(".sub_step:not(.sub_step--skip)").length;
 				for (var i = 1; i <= steps; i++) {
@@ -260,7 +253,6 @@
 				}
 
 				// resets some data
-				this.user_data.double_oil = 0;
 				if (this.step < 4) {
 					var model = $("[name='step[" + this.step + "][" + this.sub_step + "]']").data('model');
 

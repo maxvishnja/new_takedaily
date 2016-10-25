@@ -619,6 +619,7 @@ class Customer extends Model
 			'user_data.outside'          => $userData->outside,
 			'user_data.pregnant'         => $userData->pregnant,
 			'user_data.pregnancy.date'   => $userData->pregnancy->date,
+			'user_data.pregnancy.week'   => $userData->pregnancy->week,
 			'user_data.pregnancy.wish'   => $userData->pregnancy->wish,
 			'user_data.diet'             => $userData->diet,
 			'user_data.sports'           => $userData->sports,

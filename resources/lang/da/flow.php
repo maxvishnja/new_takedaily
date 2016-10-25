@@ -115,7 +115,7 @@ return [
 				'2' => 'Nej'
 			]
 		],
-		'2-8'  => [
+		'2-9'  => [
 			'title'   => 'Spiser du som en kanin?',
 			'text'    => 'Kød indeholder masser af jern, B1- og B12-vitamin. Begge vitaminer er vigtige komponenter i dit
 							energistofskifte. B1 omsætter fx kulhydrat til druesukker. Når druesukker forbrændes i kroppen skabes energi.',
@@ -124,7 +124,7 @@ return [
 				'2' => 'Nej, jeg spiser også kød og fisk'
 			]
 		],
-		'2-9'  => [
+		'2-10'  => [
 			'title'   => 'Har du ømme muskler eller ondt i dine led?',
 			'text'    => 'Nogle næringsstoffer er gode for dine led og muskler. Mangel på D-vitamin kan ligefrem give svage muskler
 							og muskelsmerter.',
@@ -133,7 +133,7 @@ return [
 				'2' => 'Nej'
 			]
 		],
-		'2-10' => [
+		'2-11' => [
 			'title'   => 'Tager du allerede vitaminer og/eller mineraler?',
 			'text'    => 'Testresultatet er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
 							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre tilskud.',
@@ -141,6 +141,14 @@ return [
 				'1' => 'Ja',
 				'2' => 'Nej'
 			]
+		],
+		'2-8' => [
+			'title'   => 'Angiv hvor langt i din graviditet du er, eller at du ønsker at blive det',
+			'text'    => '',
+		    'button-text' => 'Hvor langt er du i din graviditet?',
+		    'select' => 'Uge',
+		    'pick-one' => 'Vælg uge her',
+		    'i-have-a-wish' => 'Jeg ønsker at blive gravid'
 		],
 		'3-1'  => [
 			'title'   => 'Hvor mange grønsager spiser du dagligt?',

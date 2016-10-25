@@ -163,48 +163,44 @@
 		<p class="substep-explanation">{{ trans('flow.questions.2-7.text') }}</p>
 	</div>
 
-	<div data-sub-step="8" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--skip': user_data.pregnant != 3 }">{{-- todo set the "3" to "1" --}}
-		<h3 class="substep-title">{{ trans('flow.questions.2-1.title') }}</h3>
+	<div data-sub-step="8" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--skip': user_data.pregnant != 1 }">
+		<h3 class="substep-title">{{ trans('flow.questions.2-8.title') }}</h3>
 		<div class="sub_step_answers">
 			{{-- todo add weeks field AND "I wish to be" field" --}}
+			<label class="text-center flow_label_noclick">
+								<span class="icon calendar-icon"
+									  style="vertical-align: middle; margin-right: 6px;"></span>
+				<span>{{ trans('flow.questions.2-8.button-text') }}</span><br/>
+				<select name="step[2][8]" data-model="pregnancy.week" v-model="user_data.pregnancy.week" class="select select--full m-t-10">
+					<option value="0">{{ trans('flow.questions.2-8.pick-one') }}</option>
+					@foreach(range(1,38) as $week)
+						<option value="{{ $week }}">{{ trans('flow.questions.2-8.select') }} {{ $week }}</option>
+					@endforeach
+				</select>
+			</label>
+			<label>
+				<input type="radio" name="step[2][8]" value="1" v-model="user_data.pregnancy.wish" data-model="pregnancy.wish"
+					   v-on:click="nextStep();"/>
+				<br/>{{ trans('flow.questions.2-8.i-have-a-wish') }}
+			</label>
 		</div>
 
-		<p class="substep-explanation">{!! trans('flow.questions.2-1.text') !!}</p>
+		<p class="substep-explanation">{!! trans('flow.questions.2-12.text') !!}</p>
 	</div>
 
 	<div data-sub-step="9" class="sub_step">
-		<h3 class="substep-title">{{ trans('flow.questions.2-8.title') }}</h3>
-		<div class="sub_step_answers">
-			<label>
-				<input type="radio" name="step[2][8]" value="1" v-model="user_data.vegetarian" data-model="vegetarian"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-vegetarian-yes"></span>
-				<br/>{{ trans('flow.questions.2-8.options.1') }}
-			</label>
-			<label>
-				<input type="radio" name="step[2][8]" value="2" v-model="user_data.vegetarian" data-model="vegetarian"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-meat"></span>
-				<br/>{{ trans('flow.questions.2-8.options.2') }}
-			</label>
-		</div>
-
-		<p class="substep-explanation">{{ trans('flow.questions.2-8.text') }}</p>
-	</div>
-
-	<div data-sub-step="10" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
 		<h3 class="substep-title">{{ trans('flow.questions.2-9.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
-				<input type="radio" name="step[2][9]" value="1" v-model="user_data.joints" data-model="joints"
+				<input type="radio" name="step[2][9]" value="1" v-model="user_data.vegetarian" data-model="vegetarian"
 					   v-on:click="nextStep();"/>
-				<span class="icon icon-joint-yes"></span>
+				<span class="icon icon-vegetarian-yes"></span>
 				<br/>{{ trans('flow.questions.2-9.options.1') }}
 			</label>
 			<label>
-				<input type="radio" name="step[2][9]" value="2" v-model="user_data.joints" data-model="joints"
+				<input type="radio" name="step[2][9]" value="2" v-model="user_data.vegetarian" data-model="vegetarian"
 					   v-on:click="nextStep();"/>
-				<span class="icon icon-joint-no"></span>
+				<span class="icon icon-meat"></span>
 				<br/>{{ trans('flow.questions.2-9.options.2') }}
 			</label>
 		</div>
@@ -212,23 +208,43 @@
 		<p class="substep-explanation">{{ trans('flow.questions.2-9.text') }}</p>
 	</div>
 
-	<div data-sub-step="11" class="sub_step">
+	<div data-sub-step="10" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
 		<h3 class="substep-title">{{ trans('flow.questions.2-10.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
-				<input type="radio" name="step[2][10]" value="1" v-on:click="nextStep();"
-					   v-model="user_data.supplements" data-model="supplements"/>
-				<span class="icon icon-supplement-yes"></span>
+				<input type="radio" name="step[2][10]" value="1" v-model="user_data.joints" data-model="joints"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-joint-yes"></span>
 				<br/>{{ trans('flow.questions.2-10.options.1') }}
 			</label>
 			<label>
-				<input type="radio" name="step[2][10]" value="2" v-on:click="nextStep();"
-					   v-model="user_data.supplements" data-model="supplements"/>
-				<span class="icon icon-supplement-no"></span>
+				<input type="radio" name="step[2][10]" value="2" v-model="user_data.joints" data-model="joints"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-joint-no"></span>
 				<br/>{{ trans('flow.questions.2-10.options.2') }}
 			</label>
 		</div>
 
 		<p class="substep-explanation">{{ trans('flow.questions.2-10.text') }}</p>
+	</div>
+
+	<div data-sub-step="11" class="sub_step">
+		<h3 class="substep-title">{{ trans('flow.questions.2-11.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[2][11]" value="1" v-on:click="nextStep();"
+					   v-model="user_data.supplements" data-model="supplements"/>
+				<span class="icon icon-supplement-yes"></span>
+				<br/>{{ trans('flow.questions.2-11.options.1') }}
+			</label>
+			<label>
+				<input type="radio" name="step[2][11]" value="2" v-on:click="nextStep();"
+					   v-model="user_data.supplements" data-model="supplements"/>
+				<span class="icon icon-supplement-no"></span>
+				<br/>{{ trans('flow.questions.2-11.options.2') }}
+			</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.2-11.text') }}</p>
 	</div>
 </div>
