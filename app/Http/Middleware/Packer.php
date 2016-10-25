@@ -43,7 +43,7 @@ class Packer
 		    }
 	    }
 
-	    if ( \Auth::user() && !\Auth::user()->isPacker() )
+	    if ( \Auth::user() && !(\Auth::user()->isPacker() || \Auth::user()->isAdmin()) )
 	    {
 		    return response('Page not found.', 404);
 	    }
