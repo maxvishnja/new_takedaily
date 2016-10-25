@@ -71,17 +71,7 @@
 							<div class="clear"></div>
 						</div>
 
-						<div v-show="numOils == 1" class="m-t-20 m-b-20 text-center">
-							<a href="#" class="button button-green-border button-doubleup" v-bind:class="{ 'button-green-border--active': double_oil }"
-							   v-on:click="toggleDoubleOil($event)">
-								<span class="icon icon-double"></span>
-								<span v-show="!double_oil">Få dobbelt op på olien</span>
-								<span v-show="double_oil">Undlad dobbelt op</span>
-							</a>
-						</div>
-
 						<form action="" method="post">
-							{{-- todo when logged in, fix double_oil!! --}}
 							<div class="pick-n-mix-total" v-show="numSelectedVitamins > 0">{{ trans('general.money-vue', ['amount' => 'cartTotal']) }}</div>
 							<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
@@ -93,8 +83,6 @@
 							</button>
 
 							<input type="hidden" value="@{{ vitamin.id }}" name="vitamins[]" v-for="vitamin in selectedVitamins"/>
-							<input type="hidden" value="@{{ vitamin.id }}" name="extra_vitamins[]" v-for="vitamin in vitaminsInGroup('oil')"
-								   v-if="double_oil && vitaminIsSelected(vitamin)"/>
 
 							{{ csrf_field() }}
 						</form>
@@ -120,7 +108,6 @@
 			el: '#app',
 			data: {
 				show_popup: false,
-				double_oil: false,
 				maxVitamins: 4,
 				minVitamins: 3,
 				groupTranslations: {
@@ -154,7 +141,7 @@
 					return this.numSelectedVitamins >= this.minVitamins;
 				},
 				numSelectedVitamins: function () {
-					return this.selectedVitamins.length + (this.double_oil ? 1 : 0); // todo unhardcode this crap
+					return this.selectedVitamins.length;
 				},
 				numOils: function () {
 					return this.selectedVitamins.filter(function (vitamin) {
@@ -180,7 +167,7 @@
 
 					if (this.numSelectedVitamins > 4) {
 						for (var i = 0; i < this.numSelectedVitamins - 4; i++) {
-							items.push({name: "Extra vitamin", price: 19});
+							items.push({name: "Extra vitamin", price: 19}); // todo translate
 						}
 					}
 
@@ -201,10 +188,6 @@
 					event.preventDefault();
 
 					vitamin.isSelected = false;
-
-					if (this.numOils == 0) {
-						this.double_oil = false;
-					}
 				},
 				addVitamin: function (vitamin, event) {
 					event.preventDefault();
@@ -216,10 +199,6 @@
 					}
 
 					vitamin.isSelected = true;
-
-					if (this.numOils == 2) {
-						this.double_oil = false;
-					}
 				},
 				toggleVitamin: function (vitamin, event) {
 
@@ -237,11 +216,6 @@
 				},
 				vitaminIsSelected: function (vitamin) {
 					return vitamin.isSelected;
-				},
-				toggleDoubleOil: function (event) {
-					event.preventDefault();
-
-					this.double_oil = !this.double_oil;
 				}
 			}
 		});

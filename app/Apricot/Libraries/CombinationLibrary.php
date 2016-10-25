@@ -135,13 +135,13 @@ class CombinationLibrary
 
 	private function generateGroupFive( $data )
 	{
-		if ( isset($data->double_oil) && $data->double_oil == '1' )
+		/*if ( isset($data->double_oil) && $data->double_oil == '1' )
 		{
 			$this->groupFive = $this->groupFour;
 
 			$this->setAdvise( 'five', $this->advises['four'] );
 			$this->setAdviseInfo( 'five', $this->advise_info['four'] );
-		}
+		}*/
 	}
 
 	private function generateGroupFour( $data )
