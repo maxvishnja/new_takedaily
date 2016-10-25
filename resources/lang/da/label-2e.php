@@ -1,4 +1,4 @@
-<?php //
+<?php
 return [
 	'name'        => 'Supplement til led',
 	'praises'     => [],
