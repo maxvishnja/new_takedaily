@@ -38,5 +38,6 @@ return [
 			'percent' => '150'
 		]
 	],
+	'minerals' => [],
 	'disclaimer'  => ''
 ];

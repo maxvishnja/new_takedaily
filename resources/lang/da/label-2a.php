@@ -18,5 +18,6 @@ return [
 			'percent' => '100/200'
 		]
 	],
+	'minerals' => [],
     'disclaimer' => '*100 % til gravide, 200 % af de almindelige anbefalinger'
 ];
