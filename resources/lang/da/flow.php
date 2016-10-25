@@ -496,6 +496,15 @@ return [
     	'wait' => 'Vent venligst..',
         'wait-text' => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
         'your-recommendations' => 'Dine anbefalinger',
-        'send-them' => 'Send et link til mine anbefalinger'
+        'send-them' => 'Send et link til mine anbefalinger',
+        'send' => [
+        	'title' => 'Send anbefaling',
+            'email' => 'Indtast din e-mail adresse:',
+            'send' => 'Send',
+            'cancel' => 'Annuller',
+            'placeholder' => 'navn@email.dk',
+            'error' => 'Du skal indtaste din e-mail!',
+            'success' => 'Anbefalingen blev sendt!'
+        ]
     ]
 ];

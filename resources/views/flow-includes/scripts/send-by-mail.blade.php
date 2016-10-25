@@ -5,28 +5,28 @@
 		e.preventDefault();
 
 		swal({
-			title: "Send anbefaling",
-			text: "Indtast din e-mail adresse:",
+			title: "{{ trans('flow.four.send.title') }}",
+			text: "{{ trans('flow.four.send.email') }}",
 			type: "input",
 			showCancelButton: true,
 			confirmButtonColor: "#3AAC87",
-			confirmButtonText: "Send",
-			cancelButtonText: "Annuller",
+			confirmButtonText: "{{ trans('flow.four.send.send') }}",
+			cancelButtonText: "{{ trans('flow.four.send.cancel') }}",
 			closeOnConfirm: false,
-			inputPlaceholder: "navn@email.dk",
+			inputPlaceholder: "{{ trans('flow.four.send.placeholder') }}",
 			showLoaderOnConfirm: true
 		}, function (inputValue) {
 			if (inputValue === false || inputValue === "") {
-				swal.showInputError("Du skal indtaste din e-mail!");
+				swal.showInputError("{{ trans('flow.four.send.error') }}");
 				return false;
 			}
 
-			$.post('/flow/send-recommendation', { token: app.recommendation_token, email: inputValue }).done(function () {
+			$.post('{{ url()->route('flow-recommendations') }}', { token: app.recommendation_token, email: inputValue }).done(function () {
 				sendByMailBtn.hide();
 
 				swal({
 					title: "{{ trans('message.success-title') }}",
-					text: "Anbefalingen blev sendt!",
+					text: "{{ trans('flow.four.send.success') }}",
 					type: "success",
 					html: true,
 					allowOutsideClick: true,
