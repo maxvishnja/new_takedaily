@@ -1,6 +1,6 @@
 <?php
 return [
-	'name'        => ' Supplement til lavt indtag af mejeriprodukter',
+	'name'        => 'Supplement til lavt indtag af mejeriprodukter',
 	'praises'     => [
 		'one'   => 'Bidrager til vedligeholdelse af normale knogler'
 	],
