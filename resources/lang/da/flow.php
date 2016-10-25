@@ -491,5 +491,11 @@ return [
 		'description'     => 'Beskrivelse',
 		'change-vitamins' => 'Ønsker du at ændre dine vitaminer?',
 		'click-me'        => 'Tryk her'
-	]
+	],
+    'four' => [
+    	'wait' => 'Vent venligst..',
+        'wait-text' => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
+        'your-recommendations' => 'Dine anbefalinger',
+        'send-them' => 'Send et link til mine anbefalinger'
+    ]
 ];

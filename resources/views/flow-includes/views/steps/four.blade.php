@@ -8,13 +8,12 @@
 			<div class="rect5"></div>
 		</div>
 
-		<h2>Vent venligst..</h2> {{-- todo translate --}}
-		<p>Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til
-			dig</p> {{-- todo translate --}}
+		<h2>{{ trans('flow.four.wait') }}</h2>
+		<p>{{ trans('flow.four.wait-text') }}</p>
 	</div>
 
 	<div id="advises-block" class="text-left" style="display: none;">
-		<h2>Dine anbefalinger</h2> {{-- todo translate --}}
+		<h2>{{ trans('flow.four.your-recommendations') }}</h2>
 		<button type="submit"
 				class="button button--green button--large visible-xs button--full-mobile m-t-30 m-b-30">{{ trans('flow.button-order-text') }}</button>
 
@@ -24,7 +23,7 @@
 		</div>
 
 		<div class="m-b-20 m-t-20">
-			<button type="button" class="link-button" id="send-by-mail-button">Send et link til mine anbefalinger</button>{{-- todo translate --}}
+			<button type="button" class="link-button" id="send-by-mail-button">{{ trans('flow.four.send-them') }}</button>
 		</div>
 	</div>
 
