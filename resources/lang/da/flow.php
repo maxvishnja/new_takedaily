@@ -147,10 +147,10 @@ return [
 			'text'    => 'Grøntsager er en vigtig kilde til C-vitamin, folsyre og kalium.',
 			'options' => [
 				'1' => 'Ingen',
-				'2' => '1 portion (50 gram)',
-				'3' => '2 portioner (100 gram)',
-				'4' => '3 portioner (150 gram)',
-				'5' => '+4 portioner (+200 gram)'
+				'2' => '1 portion (100 gram)',
+				'3' => '2 portioner (200 gram)',
+				'4' => '3 portioner (300 gram)',
+				'5' => '+4 portioner (+300 gram)'
 			]
 		],
 		'3-2'  => [
