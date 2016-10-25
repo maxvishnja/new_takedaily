@@ -14,7 +14,7 @@
 					<label class="gifting-selector" for="months_input_1">
 						<input type="radio" name="product_name" value="giftcard_1" id="months_input_1"/>
 						<strong class="gifting-price">149 kr.</strong>{{-- todo get price from DB --}}
-						<span class="gifting-months">{{ trans('gifting.giftcard_1') }}{{ trans('gifting.giftcard_1 }}</span>
+						<span class="gifting-months">{{ trans('gifting.giftcard_1') }}</span>
 
 						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
 					</label>
@@ -22,7 +22,7 @@
 					<label class="gifting-selector" for="months_input_3">
 						<input type="radio" name="product_name" value="giftcard_3" id="months_input_3"/>
 						<strong class="gifting-price">447 kr.</strong>{{-- todo get price from DB --}}
-						<span class="gifting-months">{{ trans('gifting.giftcard_3 }}</span>
+						<span class="gifting-months">{{ trans('gifting.giftcard_3') }}</span>
 
 						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
 					</label>
