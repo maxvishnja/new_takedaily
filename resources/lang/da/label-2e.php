@@ -3,6 +3,7 @@ return [
 	'name'        => 'Supplement til led',
 	'praises'     => [],
 	'ingredients' => 'Magnesiumhydroxid, dicalciumcitrate, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E110)), dikaliumphosphate, L-ascorbinsyre, calciumcarbonat, antiklumpningsmiddel (magnesium stearate), manganogluconat, cholecalciferol',
+	'other-vitamins' => [],
 	'vitamins'    => [
 		[
 			'name'    => 'Vitamin D',

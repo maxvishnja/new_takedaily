@@ -6,6 +6,7 @@ return [
 		'two' => 'Bidrager til vedligeholdelse af normale knogler'
 	],
 	'ingredients' => 'Fyldstof (calcium hydrogen phosphate dihydrate), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E141)), ferrobisglycinate, L-ascorbinsyre, zinkgluconat, DL-alfa-tocopherolacetat, nicotinamid, L-selenmethionin, antiklumpemiddel (magnesium stearate), cholecalciferol, calcium-D-pantothenat, retinylacetat, cyanocobalamin, phylloquinon (phytomenadion), pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid, chrompicolinat, pteroylmonoglutaminsyre, kaliumjodid, D-biotin',
+	'other-vitamins' => [],
 	'vitamins' => [
 		[
 			'name'    => 'Vitamin A',

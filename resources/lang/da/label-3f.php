@@ -8,6 +8,7 @@ return [
 		'four'  => 'Bidrager til vedligeholdelsen af et normalt syn'
 	],
 	'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171)),  DL-α-tocopherylacetat, retinylacetat, antiklumpningsmiddel (magnesium stearate), cholecalciferol',
+	'other-vitamins' => [],
 	'vitamins'    => [
 		[
 			'name'    => 'Vitamin A',

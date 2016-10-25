@@ -1,30 +1,51 @@
 <?php
 return [
-	'name'        => 'Supplement til lavt indtag af smør',
+	'name'        => 'Chiafrøolie',
 	'praises'     => [
-		'one'   => 'Bidrager til at beskytte cellerne mod oxidativt stress',
-		'two'   => 'Bidrager til vedligeholdelse af normale knogler',
-		'three' => 'Bidrager til normal muskelfunktion',
-		'four'  => 'Bidrager til vedligeholdelsen af et normalt syn'
+		'one'   => 'ALA bidrager til vedligehold af normale blodcholesterol niveauer. Den gavnlige effekt opnåes ved et dagligt indtag på 2 g ALA.',
+		'two'   => 'Erstatning af mættede fedtsyrer med umættede fedtsyrer i kosten medvirker til vedligeholdelse af normale kolesterolniveauer i blodet',
+		'three' => 'Højt indhold af omega-3 fedtsyrer',
+		'four' => 'Højt indhold af flerumættede fedtsyrer'
 	],
-	'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171)),  DL-α-tocopherylacetat, retinylacetat, antiklumpningsmiddel (magnesium stearate), cholecalciferol',
-	'vitamins'    => [
+	'ingredients' => 'Chiafrøolie, K-Caps (hydroxypropylmethylcellulose, vand), antiklumpemiddel (silica)',
+	'other-vitamins' => [
 		[
-			'name'    => 'Vitamin A',
-			'amount'  => '800 µg',
-			'percent' => '100'
+			'name' => 'Chiaolie',
+			'amount' => '580 mg',
+			'percent' => '*'
 		],
 		[
-			'name'    => 'Vitamin D',
-			'amount'  => '10 µg',
-			'percent' => '200'
+			'name' => 'Heraf',
+			'amount' => '',
+			'percent' => ''
 		],
 		[
-			'name'    => 'Vitamin E',
-			'amount'  => '12 mg',
-			'percent' => '100'
+			'name' => 'Mættede fedtsyrer',
+			'amount' => '58,58 mg',
+			'percent' => '*'
+		],
+		[
+			'name' => 'Enkeltumættede fedtsyrer',
+			'amount' => '45,24 mg',
+			'percent' => '*'
+		],
+		[
+			'name' => 'Flerumættede fedtsyrer',
+			'amount' => '470,38 mg',
+			'percent' => '*'
+		],
+		[
+			'name' => 'Heraf',
+			'amount' => '',
+			'percent' => ''
+		],
+		[
+			'name' => 'Alfalinolensyre (ALA)',
+			'amount' => '369,5 mg',
+			'percent' => '*'
 		],
 	],
-	'minerals' => [],
-	'disclaimer'  => ''
+	'vitamins'    => [],
+	'minerals'    => [],
+	'disclaimer'  => '*Referenceindtag (RI) ikke fastlagt'
 ];

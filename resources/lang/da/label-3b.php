@@ -6,6 +6,7 @@ return [
 		'two'   => 'Bidrager til vedligeholdelse af normal hud'
 	],
 	'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E172)),  ferrobisglycinat, nicotinamid, antiklumpningsmiddel (magnesium stearate), pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid, pteroylmonoglutaminsyre, kaliumjodid',
+	'other-vitamins' => [],
 	'vitamins'    => [
 		[
 			'name'    => 'Thiamin (B1)',

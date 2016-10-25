@@ -6,6 +6,7 @@ return [
 		'two'   => 'Bidrager til at nedsætte træthed og udmattelse'
 	],
 	'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand),  ferrobisglycinat, antiklumpningsmiddel (magnesium stearate), cyanocobalamin, pyridoxal-5’-phosphat, thiaminhydrochlorid',
+	'other-vitamins' => [],
 	'vitamins'    => [
 		[
 			'name'    => 'Thiamin (B1)',

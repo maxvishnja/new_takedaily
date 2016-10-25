@@ -5,6 +5,7 @@ return [
 		'one' => 'Bidrager til den normale funktion af immunforsvaret'
 	],
 	'ingredients' => 'Fyldstof (calcium hydrogen phosphate dihydrate), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E129, E171)), ferrobisglycinate, L-ascorbinsyre, zinkgluconat, DL-alfa-tocopherolacetat, nicotinamid, L-selenmethionin, antiklumpemiddel (magnesium stearate), calcium-D-pantothenat, retinylacetat, cyanocobalamin, cholecalciferol, phylloquinon (phytomenadion), pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid, chrompicolinat, pteroylmonoglutaminsyre, kaliumjodid, D-biotin',
+	'other-vitamins' => [],
 	'vitamins' => [
 		[
 			'name'    => 'Vitamin A',

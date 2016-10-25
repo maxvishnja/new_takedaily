@@ -7,6 +7,7 @@ return [
 		'three' => 'Bidrager til at mindske træthed og udmattelse'
 	],
 	'ingredients' => 'Dikaliumphosphat, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E141)), L-ascorbinsyre, fyldstof (microcrystalline cellulose), antiklumpningsmiddel (magnesium stearate), beta-caroten, pteroylmonoglutaminsyre',
+	'other-vitamins' => [],
 	'vitamins'    => [
 		[
 			'name'    => 'Vitamin A',
