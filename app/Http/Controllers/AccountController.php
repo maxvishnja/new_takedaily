@@ -60,7 +60,7 @@ class AccountController extends Controller
 		$this->user->getCustomer()->setCustomerAttributes([
 			'user_data.gender'           => $userData->gender,
 			'user_data.birthdate'        => $userData->birthdate,
-			'user_data.age'              => $userData->age, // todo update this each month
+			'user_data.age'              => $userData->age,
 			'user_data.skin'             => $userData->skin,
 			'user_data.outside'          => $userData->outside,
 			'user_data.pregnant'         => $userData->pregnant,
