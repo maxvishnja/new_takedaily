@@ -21,7 +21,7 @@
 				return false;
 			}
 
-			$.post('{{ url()->route('flow-recommendations') }}', { token: app.recommendation_token, email: inputValue }).done(function () {
+			$.post('{{ url()->route('send-flow-recommendations') }}', { token: app.recommendation_token, email: inputValue }).done(function () {
 				sendByMailBtn.hide();
 
 				swal({

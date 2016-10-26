@@ -226,7 +226,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				} );
 
 				return Response::json( [ 'message' => 'mail added to queue' ] );
-			} );
+			} )->name('send-flow-recommendations');
 
 			Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $request )
 			{
