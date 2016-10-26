@@ -301,7 +301,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					'vitamins' => json_encode( $vitamins )
 				] );
 
-				return Redirect::to( '' );
+				return Redirect::to( '' ); // todo fix redirect!
 			}
 			else
 			{
