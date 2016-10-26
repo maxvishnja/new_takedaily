@@ -184,13 +184,9 @@
 		})();
 	</script>
 	<script>
-		@yield('tawk-script', 'Tawk_API = Tawk_API || {};
-		Tawk_API.onStatusChange = function (status){
-			if(status === "online")
-			{
-				Tawk_API.toggle();
-			}
-		};')
+		(function () {
+			@yield('tawk-script', 'Tawk_API = Tawk_API || {};Tawk_API.toggle();')
+		})();
 	</script>
 	<!--End of Tawk.to Script-->
 
