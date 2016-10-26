@@ -119,7 +119,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			return view( 'packer.home', [
 				'orders_today'      => $orderRepo->getToday()
 				                                 ->count(),
-				'sidebar_numOrders' => $orderRepo->getNotShipped()
+				'sidebar_numOrders' => $orderRepo->getPaid()
 				                                 ->count()
 			] );
 		} );
