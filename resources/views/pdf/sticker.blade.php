@@ -114,5 +114,11 @@
 		@endif
 	</div>
 
-	<p style="font-weight: 200;font-size: 9pt;color: #1A8562;line-height: 14pt;position: absolute; bottom: 0; height: 15mm; width: 70%; left: 15%; text-align: center">{{ trans('label-product.recommended-daily-use') }}<br/>{{ trans('label-product.info') }}</p>
+	<p style="font-weight: 200;font-size: 9pt;color: #1A8562;line-height: 14pt;position: absolute; bottom: 0; height: 15mm; width: 70%; left: 15%; text-align: center">
+		@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
+			{{ trans("label-{$vitaminModel->code}.disclaimer") }}<br/>
+		@endif
+		{{ trans('label-product.recommended-daily-use') }}<br/>
+		{{ trans('label-product.info') }}
+	</p>
 </div>
