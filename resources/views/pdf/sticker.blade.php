@@ -65,62 +65,10 @@
 <body>
 
 
-<table style="width: 570pt; margin: 0; padding: 0;">
+<table style="width: 643pt; margin: 0; padding: 0;">
 	<tbody style="width: 100%;">
 	<tr style="width: 100%;">
-		<td style="width: 310pt;">
-			<table style="margin: 50pt 30pt 10pt; width: 260pt; height: 180pt;">
-				<tbody style="width: 100%;">
-				@foreach($customer->getVitaminModels() as $vitamine)
-					<tr style="width: 100%">
-						<td style="padding: 5pt 0;width: 100%; text-align: left; color: #444; font-size: 15pt;">{{ $vitamine->code }}</td>
-					</tr>
-				@endforeach
 
-				<tr style="width: 100%">
-					<td colspan="2" style="width: 100%;">
-						<br/>
-						<br/>
-						<div style="margin: 0 auto;width: 226pt; height: 40pt;">
-						</div>
-					</td>
-				</tr>
-				</tbody>
-			</table>
-		</td>
-
-		<td style="width: 260pt;color: #333; vertical-align: top">
-			<table style="margin: 50pt 0 10pt; width: 200pt; height: 180pt;">
-				<tbody style="width: 100%;">
-				<tr style="width: 100%;">
-					<td style="color: #333;font-size: 16pt;padding: 5pt 0;width: 100%; text-align: right;">
-						<strong>{{ $customer->getName() }}</strong></td>
-				</tr>
-
-				<tr style="width: 100%;">
-					<td style="color: #333;font-size: 16pt;padding: 5pt 0;width: 100%; text-align: right;">{{ $customer->getCustomerAttribute('address_line1') }}</td>
-				</tr>
-
-				<tr style="width: 100%;">
-					<td style="color: #333;font-size: 16pt;padding: 5pt 0;width: 100%; text-align: right;">{{ $customer->getCustomerAttribute('address_postal') }}
-						, {{ $customer->getCustomerAttribute('address_city') }}</td>
-				</tr>
-
-				<tr style="width: 100%;">
-					<td style="color: #333;font-size: 16pt;padding: 5pt 0;width: 100%; text-align: right;">{{ ucfirst($customer->getCustomerAttribute('address_country')) }}</td>
-				</tr>
-
-				<tr style="width: 100%; text-align: right;">
-					<td style="width: 100%; text-align: right; padding-top: 20pt;">
-						@foreach($customer->getVitaminModels() as $vitamine)
-							<img style="width: 29pt; height: 30pt;"
-								 src="{{ asset('/images/icons/pills/pill-' . $vitamine->code . '@2x.png') }}"/>
-						@endforeach
-					</td>
-				</tr>
-				</tbody>
-			</table>
-		</td>
 	</tr>
 	</tbody>
 </table>
