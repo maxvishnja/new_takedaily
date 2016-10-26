@@ -278,7 +278,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		{
 			$userData = json_decode( $request->get( 'user_data' ) );
 
-			if ( Auth::check() )
+			if ( Auth::check() && Auth::user()->isUser() )
 			{
 				Auth::user()->getCustomer()->updateUserdata( $userData );
 				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
@@ -305,6 +305,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			}
 			else
 			{
+				if( Auth::check() && !Auth::user()->isUser())
+				{
+					Auth::logout();
+				}
 				Session::put( 'user_data', $userData );
 				Session::put( 'product_name', $request->get( 'product_name' ) );
 

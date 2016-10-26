@@ -1,1 +1,0 @@
-Du er over 20 år gammel! Og en test: {{ $customer->getName() }}

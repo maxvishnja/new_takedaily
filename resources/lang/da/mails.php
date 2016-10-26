@@ -6,7 +6,7 @@
 		    'content' => 'Hej, da du har et abonnent hos os, har vi nu oprettet en ny ordre og trukket pengene for den. Du kan se dine ordre under "Mit TakeDaily" på vores hjemmeside.'
 		],
 	    'mailflow' => [
-	    	'demo-flow' => [
+	    	'everyone-above-70' => [
 	    		'subject' => 'Demo test'
 		    ]
 	    ]

@@ -87,7 +87,7 @@
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_name">{{ trans('checkout.index.order.info.name') }}
 										<span class="required">*</span></label>
-									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('name')) input--error @endif" id="input_info_name" data-validate="true" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" name="name" required="required" aria-required="true" value="{{ Request::old('name', (Auth::user() ? Auth::user()->name: '')) }}"/>
+									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('name')) input--error @endif" id="input_info_name" data-validate="true" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" name="name" required="required" aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->name: '')) }}"/>
 								</div>
 							</div>
 
@@ -95,7 +95,7 @@
 								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_email">{{ trans('checkout.index.order.info.email') }}
 										<span class="required">*</span></label>
-									<input type="email" class="input input--medium input--semibold input--full @if($errors->has('email')) input--error @endif" id="input_info_email" data-validate="true" placeholder="{{ trans('checkout.index.order.info.email-placeholder') }}" name="email" required="required" aria-required="true" value="{{ Request::old('email', (Auth::user() ? Auth::user()->email : '')) }}"/>
+									<input type="email" class="input input--medium input--semibold input--full @if($errors->has('email')) input--error @endif" id="input_info_email" data-validate="true" placeholder="{{ trans('checkout.index.order.info.email-placeholder') }}" name="email" required="required" aria-required="true" value="{{ Request::old('email', (Auth::user() && Auth::user()->isUser() ? Auth::user()->email : '')) }}"/>
 								</div>
 							</div>
 
@@ -103,19 +103,19 @@
 								<div class="col-md-4">
 									<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}
 										<span class="required">*</span></label>
-									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_street')) input--error @endif" id="input_info_address_street" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.street-placeholder') }}" name="address_street" required="required" aria-required="true" value="{{ Request::old('address_street', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_line1') : '')) }}"/>
+									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_street')) input--error @endif" id="input_info_address_street" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.street-placeholder') }}" name="address_street" required="required" aria-required="true" value="{{ Request::old('address_street', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_line1') : '')) }}"/>
 								</div>
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 									<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }}
 										<span class="required">*</span></label>
-									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zipcode')) input--error @endif" id="input_info_address_zipcode" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}" name="address_zipcode" required="required" aria-required="true" value="{{ Request::old('address_zipcode', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
+									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zipcode')) input--error @endif" id="input_info_address_zipcode" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}" name="address_zipcode" required="required" aria-required="true" value="{{ Request::old('address_zipcode', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 								</div>
 								<div class="col-md-4">
 									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 									<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
 										<span class="required">*</span></label>
-									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_city')) input--error @endif" id="input_info_address_city" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.city-placeholder') }}" name="address_city" required="required" aria-required="true" value="{{ Request::old('address_city', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
+									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_city')) input--error @endif" id="input_info_address_city" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.city-placeholder') }}" name="address_city" required="required" aria-required="true" value="{{ Request::old('address_city', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
 								</div>
 							</div>
 
@@ -125,7 +125,7 @@
 										<span class="required">*</span></label>
 									<select name="address_country" id="country-selector" class="select select--medium select--semibold select--full" required="required" aria-required="true" data-validate="true">
 										@foreach(\App\TaxZone::all() as $zone)
-											<option @if( Request::old('address_country', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', 'denmark') : 'denmark')) == $zone->name ) selected="selected" @endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
+											<option @if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', 'denmark') : 'denmark')) == $zone->name ) selected="selected" @endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
 										@endforeach
 									</select>
 								</div>
@@ -133,7 +133,7 @@
 									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 									<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}
 										<span class="optional pull-right">{{ trans('checkout.index.order.info.optional') }}</span></label>
-									<input type="text" class="input input--medium input--semibold input--full" id="input_info_company" placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company" value="{{ Request::old('company', (Auth::user() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
+									<input type="text" class="input input--medium input--semibold input--full" id="input_info_company" placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company" value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
 								</div>
 							</div>
 						</fieldset>

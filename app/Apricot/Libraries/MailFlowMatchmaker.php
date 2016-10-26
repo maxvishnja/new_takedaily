@@ -83,6 +83,14 @@ class MailFlowMatchmaker
 				return date('m');
 				break;
 
+			case 'newyears':
+				return date('m-d') == '12-31' ? 1 : 0;
+				break;
+
+			case 'christmas':
+				return date('m-d') == '12-24' ? 1 : 0; // todo 24 or 25??
+				break;
+
 			case 'is-summer':
 				$summerMonths = [4,5,6,7,8,9];
 				return in_array(date('m'), $summerMonths) ? 1 : 0;
@@ -111,6 +119,10 @@ class MailFlowMatchmaker
 			case 'user_data':
 				$subKey = explode('.', $key)[1];
 				return $customer->getCustomerAttribute("user_data.$subKey", null);
+				break;
+
+			case 'birthday':
+				return date('m-d', strtotime($customer->getCustomerAttribute("user_data.birthdate", null))) == date('m-d') ? 1 : 0;
 				break;
 
 			default:
