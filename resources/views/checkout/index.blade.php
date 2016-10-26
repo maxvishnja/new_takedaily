@@ -176,6 +176,7 @@
 			</div><!-- /Form-->
 			<div class="visible-sm visible-xs m-b-50"></div>
 			<div class="col-md-4">
+				{{-- todo show vitamins here if some are present in session or recommendations --}}
 				<h3 style="margin-top: 0;" class="m-b-35">{{ trans('checkout.index.total.title') }}</h3>
 				<hr class="hr--double"/>
 
