@@ -105,7 +105,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		view()->composer( 'packer.sidebar', function ( $view )
 		{
 			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
-			$view->with( 'sidebar_numOrders', $orderRepo->paid()->shippable()
+			$view->with( 'sidebar_numOrders', $orderRepo->getPaid()->shippable()
 			                                            ->count()  );
 		} );
 
