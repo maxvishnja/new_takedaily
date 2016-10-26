@@ -14,13 +14,13 @@ class CreateMailFlowCustomersTable extends Migration
     {
         Schema::create('mail_flow_customers', function (Blueprint $table) {
 	        $table->increments('id');
-	        $table->integer('mail_flow_id')->index();
-	        $table->integer('customer_id')->index();
+	        $table->integer('mail_flow_id', false, true)->index();
+	        $table->integer('customer_id', false, true)->index();
 	        $table->timestamps();
 
 	        $table->foreign('mail_flow_id')
 	              ->references('id')
-	              ->on('mail_flow');
+	              ->on('mail_flows');
 
 	        $table->foreign('customer_id')
 	              ->references('id')

@@ -65,7 +65,7 @@ class Customer extends Model
 	 * @var array
 	 */
 
-	protected $fillable = [ 'user_id', 'plan_id', 'balance' ];
+	protected $fillable = [ 'user_id', 'plan_id', 'balance', 'is_mailflowable', 'order_count', 'accept_newletters' ];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -544,6 +544,11 @@ class Customer extends Model
 		$combinationLibrary->generateResult( $data );
 
 		return $combinationLibrary->getResult();
+	}
+
+	public function scopeMailFlowable($query)
+	{
+		return $query->where('is_mailflowable', 1)->where('accept_newletters', 1);
 	}
 
 	public function getVitamins()

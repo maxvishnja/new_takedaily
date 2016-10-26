@@ -13,12 +13,13 @@ class MailFlowSeeder extends Seeder
 	{
 		$mailFlow = \App\MailFlow::create( [
 			'name'       => 'Demo flow',
-			'identifier' => 'demo-flow',
-			'is_active'  => 1
+			'identifier' => 'demo-flow'
 		] );
 
-		$mailFlow->conditions()->create([
-
-		]);
+		$mailFlow->conditions()->create( [
+			'key'   => 'user_data.age',
+			'type'  => '>=',
+			'value' => '50'
+		] );
 	}
 }

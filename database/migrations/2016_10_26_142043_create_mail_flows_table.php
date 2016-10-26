@@ -17,6 +17,7 @@ class CreateMailFlowsTable extends Migration
             $table->string('name', 40);
             $table->string('identifier', 20);
             $table->boolean('is_active')->default(1);
+            $table->boolean('only_once')->default(1);
             $table->timestamps();
         });
     }

@@ -150,6 +150,9 @@ class CheckoutCompletion {
 				'vitamins' => json_encode( $vitamins )
 			] );
 		} else {
+			$this->getUser()->getCustomer()->update([
+				'is_mailflowable' => 0
+			]);
 			$this->getUser()->getCustomer()->getPlan()->update( [
 				'price'                     => MoneyLibrary::toCents( $this->getCheckout()->getSubscriptionPrice() ),
 				'price_shipping'            => MoneyLibrary::toCents( Setting::getWithDefault( 'shipping_price', 0 ) ),

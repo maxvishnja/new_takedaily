@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\GenerateSitemapCommand;
+use App\Console\Commands\MailFlowSender;
 use App\Console\Commands\NotifyPendingRebills;
 use App\Console\Commands\SubscriptionRebillCommand;
 use App\Console\Commands\UpdateAges;
@@ -21,7 +22,8 @@ class Kernel extends ConsoleKernel
 		SubscriptionRebillCommand::class,
 		UpdateCurrencies::class,
 		NotifyPendingRebills::class,
-	    UpdateAges::class
+	    UpdateAges::class,
+	    MailFlowSender::class
 	];
 
 	/**
