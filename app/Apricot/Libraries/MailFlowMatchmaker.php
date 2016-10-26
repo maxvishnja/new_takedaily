@@ -39,9 +39,7 @@ class MailFlowMatchmaker
 
 			if ( $isAMatch )
 			{
-				// todo send
-
-				$mailFlow->customers()->create(['customer_id' => $customer->id]);
+				$mailFlow->sendTo($customer);
 			}
 		}
 	}
