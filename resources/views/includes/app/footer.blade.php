@@ -185,7 +185,10 @@
 	</script>
 	<script>
 		(function () {
-			@yield('tawk-script', 'Tawk_API = Tawk_API || {};Tawk_API.toggle();')
+			setTimeout(function()
+			{
+				@yield('tawk-script', 'Tawk_API = Tawk_API || {};Tawk_API.toggle();')
+			}, 10);
 		})();
 	</script>
 	<!--End of Tawk.to Script-->
