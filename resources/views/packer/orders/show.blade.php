@@ -2,14 +2,6 @@
 
 @section('content')
 
-
-	<div class="btn-group pull-right" style="margin-bottom:20px">
-		<a class="btn btn-default"
-		   href="{{ URL::action('Packer\OrderController@download', [ 'id' => $order->id ]) }}"><i
-				class="icon-download"></i>
-			Download</a>
-	</div>
-
 	<div class="clear"></div>
 
 	<div class="module">

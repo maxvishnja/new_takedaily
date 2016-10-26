@@ -106,7 +106,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		{
 			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
 			$view->with( 'sidebar_numOrders', $orderRepo->getToday()->paid()->shippable()
-			                                            ->count() );
+			                                            ->count()  );
 		} );
 
 		Route::get( 'login', 'Auth\PackerAuthController@showLoginForm' );
