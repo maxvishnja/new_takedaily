@@ -132,13 +132,13 @@
 	</script>
 @endif
 
-@if( ! isset($_COOKIE['call-me-hidden'])  )
+@if( ! isset($_COOKIE['call-me-is-hidden'])  )
 
 	<script>
 		$("#call-me-form-hider").click(function () {
 			$(".call-cta").slideUp();
 			$("body").css('padding-bottom', 0);
-			Cookies.set('call-me-hidden', 1, {expires: 3});
+			Cookies.set('call-me-is-hidden', 1, {expires: 1});
 		});
 
 		$("#call-me-form-toggler").click(function () {
@@ -160,7 +160,7 @@
 					setTimeout(function () {
 						$(".call-cta").slideUp();
 						$("body").css('padding-bottom', 0);
-						Cookies.set('call-me-hidden', 1, {expires: 3});
+						Cookies.set('call-me-is-hidden', 1, {expires: 3});
 					}, 2500);
 
 					fbq('track', 'Lead');
