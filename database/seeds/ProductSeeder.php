@@ -32,5 +32,11 @@ class ProductSeeder extends Seeder
 			'price' => \App\Apricot\Libraries\MoneyLibrary::toCents(894),
 			'is_subscription' => 0
 		]);
+
+		\App\Product::create([
+			'name' => 'package',
+			'price' => \App\Apricot\Libraries\MoneyLibrary::toCents(149),
+			'is_subscription' => 1
+		]);
     }
 }

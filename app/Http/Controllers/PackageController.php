@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Vitamin;
 use Illuminate\Http\Request;
 
-class PickMixController extends Controller
+class PackageController extends Controller
 {
 	public function get( Request $request )
 	{
@@ -50,8 +50,8 @@ class PickMixController extends Controller
 		}
 
 		\Session::remove( 'user_data' );
-		\Session::put( 'vitamins', $vitamins );
-		\Session::put( 'product_name', 'subscription' );
+		\Session::put( 'package', '' );
+		\Session::put( 'product_name', 'package' );
 
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}

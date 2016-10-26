@@ -105,7 +105,7 @@
 			el: '#app',
 			data: {
 				show_popup: false,
-				maxVitamins: 5,
+				maxVitamins: 4,
 				minVitamins: 3,
 				groupTranslations: {
 					@foreach(trans('pick.groups') as $key => $group)

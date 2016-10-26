@@ -317,4 +317,9 @@ class Plan extends Model
 		return true;
 	}
 
+	public function getPackage()
+	{
+		// todo
+	}
+
 }

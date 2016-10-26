@@ -10,5 +10,6 @@ return [
 	'refund'              => 'Tilbagebetaling',
 	'coupon'              => 'Kuponkode tilføjet',
 	'oil'                 => 'Ekstra olie',
-	'extra'               => 'Ekstra vitamin'
+	'extra'               => 'Ekstra vitamin',
+	'package'             => 'Selvvalgt pakke'
 ];
