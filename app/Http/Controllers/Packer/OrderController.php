@@ -12,130 +12,106 @@ class OrderController extends Controller
 
 	private $repo;
 
-	function __construct(OrderRepository $repo)
+	function __construct( OrderRepository $repo )
 	{
 		$this->repo = $repo;
-		\App::setLocale('en');
+		\App::setLocale( 'en' );
 	}
 
 	function index()
 	{
-		$orders = $this->repo->getPaid()->orderBy('created_at', 'DESC')->with('customer.plan')->get();
+		$orders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
 
-		return view('packer.orders.home', [
+		return view( 'packer.orders.home', [
 			'orders' => $orders
-		]);
+		] );
 	}
 
-	function show($id)
+	function show( $id )
 	{
-		$order = Order::find($id);
+		$order = Order::find( $id );
 
-		if ( !$order )
+		if ( ! $order )
 		{
-			return \Redirect::back()->withErrors("The order (#{$id}) could not be found!");
+			return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
 		}
 
-		$order->load('customer.customerAttributes');
+		$order->load( 'customer.customerAttributes' );
 
-		return view('packer.orders.show', [
+		return view( 'packer.orders.show', [
 			'order' => $order
-		]);
+		] );
 	}
 
-	function download($id)
+	function download( $id )
 	{
-		$order = Order::find($id);
+		$order = Order::find( $id );
 
-		if ( !$order )
+		if ( ! $order )
 		{
-			return \Redirect::back()->withErrors("The order (#{$id}) could not be found!");
+			return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
 		}
 
-		$this->downloadMultiple([ $id ]);
+		return $this->downloadMultiple( [ $id ] );
 
-		return \Redirect::action('Packer\OrderController@index')->with('success', 'Download links was generated!');
+		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'Download links was generated!' );
 	}
 
-	function markSent($id)
+	function markSent( $id )
 	{
-		$order = Order::find($id);
+		$order = Order::find( $id );
 
-		if ( !$order )
+		if ( ! $order )
 		{
-			return \Redirect::back()->withErrors("The order (#{$id}) could not be found!");
+			return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
 		}
 
 		$order->markSent();
 
-		return \Redirect::action('Packer\OrderController@index')->with('success', 'The order was marked as sent!');
+		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The order was marked as sent!' );
 	}
 
-	function handleMultiple(Request $request)
+	function handleMultiple( Request $request )
 	{
-		switch ( $request->get('action') )
+		switch ( $request->get( 'action' ) )
 		{
 			case 'download':
-				$this->downloadMultiple($request->get('ordersForAction'));
+				$this->downloadMultiple( $request->get( 'ordersForAction' ) );
 				break;
 
 			case 'mark-sent':
-				$this->markMultipleAsSent($request->get('ordersForAction'));
+				$this->markMultipleAsSent( $request->get( 'ordersForAction' ) );
 				break;
 
 			case 'combine':
-				$this->markMultipleAsSent($request->get('ordersForAction'));
-				$this->downloadMultiple($request->get('ordersForAction'));
+				$this->markMultipleAsSent( $request->get( 'ordersForAction' ) );
+				$this->downloadMultiple( $request->get( 'ordersForAction' ) );
 				break;
 		}
 
-		return \Redirect::action('Packer\OrderController@index')->with('success', 'The action was handled!');
+		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The action was handled!' );
 	}
 
-	private function downloadMultiple($ids)// todo speed this function up
+	private function downloadMultiple( $ids )// todo speed this function up
 	{
-		$stickers = [];
-		$labels   = [];
+		$printables = [];
 
-		foreach ( Order::whereIn('id', $ids)->get() as $order )
+		foreach ( Order::whereIn( 'id', $ids )->get() as $order )
 		{
-			$labels[]   = $order->loadLabel();
-			$stickers[] = $order->loadSticker();
+			$printables[] = [
+				'label'   => $order->loadLabel(),
+				'sticker' => $order->loadSticker()
+			];
 		}
 
-		$newFolder = date('Ymd_') . str_random(10);
-		\File::makeDirectory(public_path('packer/downloads/' . $newFolder));
-
-		$labelsName   = 'labels_' . date('Ymd_His') . '.pdf';
-		$labelPath    = 'packer/downloads/' . $newFolder . '/' . $labelsName;
-		$stickersName = 'stickers_' . date('Ymd_His') . '.pdf';
-		$stickerPath  = 'packer/downloads/' . $newFolder . '/' . $stickersName;
-
-		\PDF::loadView('pdf.multiple-labels', [ 'labels' => $labels ])
-		    ->setPaper([ 0, 0, 570, 262 ])
-		    ->setOrientation('landscape')
-		    ->save(public_path($labelPath));
-
-		\PDF::loadView('pdf.multiple-stickers', [ 'stickers' => $stickers ])
-		    ->setPaper([ 0, 0, 531, 723 ])
-		    ->setOrientation('portrait')
-		    ->save(public_path($stickerPath));
-
-		\Session::flash('links', [
-			[
-				'label' => $labelsName,
-				'url'   => url($labelPath)
-			],
-			[
-				'label' => $stickersName,
-				'url'   => url($stickerPath)
-			]
-		]);
+		return view( 'packer.print', [
+			'printables' => $printables
+		] );
 	}
 
-	private function markMultipleAsSent($ids)
+	private function markMultipleAsSent( $ids )
 	{
-		foreach ( Order::whereIn('id', $ids)->get() as $order )
+		foreach ( Order::whereIn( 'id', $ids )->get() as $order )
 		{
 			$order->markSent();
 		}
