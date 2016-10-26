@@ -20,7 +20,7 @@ class OrderController extends Controller
 
 	function index()
 	{
-		$orders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
+		$orders = $this->repo->getPaid()->shippable()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
 
 		return view( 'packer.orders.home', [
 			'orders' => $orders
