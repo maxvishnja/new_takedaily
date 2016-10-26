@@ -138,7 +138,7 @@
 		$("#call-me-form-hider").click(function () {
 			$(".call-cta").slideUp();
 			$("body").css('padding-bottom', 0);
-			Cookies.set('call-me-is-hidden', 1, {expires: 1});
+//			Cookies.set('call-me-is-hidden', 1, {expires: 1});
 		});
 
 		$("#call-me-form-toggler").click(function () {
