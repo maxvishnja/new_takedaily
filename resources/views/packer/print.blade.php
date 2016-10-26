@@ -10,9 +10,12 @@
 		page-break-after: always;
 	}
 
+	.print:last-child {
+		page-break-after: auto;
+	}
+
 	@page {
 		margin: 0;
-		padding: 0;
 		size: 297mm 210mm;
 	}
 
@@ -47,8 +50,8 @@
 ?>
 @foreach($printables as $printable)
 	<?php $cur++; ?>
-	<div style="width: 210mm; height: 297mm;">
-		<div style="width: 174mm; height: 297mm; background: #fff;">
+	<div class="print" style="width: 210mm; height: 290mm;overflow: hidden">
+		<div style="width: 174mm;">
 			<div style="width: 174mm; height: 240mm;">
 				<div style="padding: 10mm 7mm; position: relative">
 					{!! $printable['sticker'] !!}
@@ -67,7 +70,6 @@
 		<div class="pb"></div>
 	@endif
 @endforeach
-
 <script>
 	window.print();
 </script>

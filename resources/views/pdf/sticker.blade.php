@@ -5,7 +5,7 @@
 		flex-direction: column;
 		flex-wrap: wrap;
 		height: 178mm;
-		width: 174mm;
+		width: 160mm;
 	}
 
 	.vitamins .vitamin {
@@ -48,8 +48,8 @@
 					<table style="width: 100%;">
 						<thead>
 						<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
-							<th style="text-align: left;width: 97pt;">{{ trans('label-product.titles.vitamins') }}</th>
-							<th style="text-align: center;width: 120pt;">{{ trans('label-product.titles.amount') }}</th>
+							<th style="text-align: left;width: 40%;">{{ trans('label-product.titles.vitamins') }}</th>
+							<th style="text-align: center;width: 40%;">{{ trans('label-product.titles.amount') }}</th>
 							<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
 						</tr>
 						</thead>
@@ -69,8 +69,8 @@
 					<table style="width: 100%;">
 						<thead>
 						<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
-							<th style="text-align: left;width: 97pt;">{{ trans('label-product.titles.minerals') }}</th>
-							<th style="text-align: center;width: 120pt;">{{ trans('label-product.titles.amount') }}</th>
+							<th style="text-align: left;width: 40%;">{{ trans('label-product.titles.minerals') }}</th>
+							<th style="text-align: center;width: 40%;">{{ trans('label-product.titles.amount') }}</th>
 							<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
 						</tr>
 						</thead>
@@ -90,8 +90,8 @@
 					<table style="width: 100%;">
 						<thead>
 						<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
-							<th style="text-align: left;width: 97pt;"></th>
-							<th style="text-align: center;width: 120pt;">{{ trans('label-product.titles.amount') }}</th>
+							<th style="text-align: left;width: 40%;"></th>
+							<th style="text-align: center;width: 40%;">{{ trans('label-product.titles.amount') }}</th>
 							<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
 						</tr>
 						</thead>
@@ -107,10 +107,10 @@
 					</table>
 				@endif
 
-				<p style="font-weight: 200; color: #3AAC87; font-size: 7pt; margin: 4pt 0;">{{ trans('label-product.ingredients') }}: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
+				<p style="font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0;">{{ trans('label-product.ingredients') }}: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
 			</div>
 		@endforeach
 	</div>
 
-	<p style="font-weight: 200;font-size: 9pt;color: #3AAC87;line-height: 14pt;position: absolute; bottom: 0; height: 15mm; width: 70%; left: 15%; text-align: center">{{ trans('label-product.recommended-daily-use') }}<br/>{{ trans('label-product.info') }}</p>
+	<p style="font-weight: 200;font-size: 9pt;color: #1A8562;line-height: 14pt;position: absolute; bottom: 0; height: 15mm; width: 70%; left: 15%; text-align: center">{{ trans('label-product.recommended-daily-use') }}<br/>{{ trans('label-product.info') }}</p>
 </div>

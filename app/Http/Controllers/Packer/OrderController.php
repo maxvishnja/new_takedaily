@@ -52,7 +52,7 @@ class OrderController extends Controller
 			return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
 		}
 
-		return $this->downloadMultiple( [ $id ] );
+		return $this->downloadMultiple( [ $id ] ); // todo open in popup
 
 		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'Download links was generated!' );
 	}
