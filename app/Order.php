@@ -274,4 +274,9 @@ class Order extends Model
 		return $query->where('is_shippable', 1);
 	}
 
+	public function scopePaid($query)
+	{
+		return $query->where('state', 'paid');
+	}
+
 }
