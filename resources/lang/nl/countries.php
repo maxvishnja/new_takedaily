@@ -1,9 +1,11 @@
 <?php
-return [
-	'denmark'     => 'Danmark',
-	'norway'      => 'Norge',
-	'sweden'      => 'Sverige',
-	'netherlands' => 'Holland',
-	'germany'     => 'Tyskland',
-	'poland'      => 'Polen'
-];
+
+return array (
+  'denmark' => 'Denenmarken',
+  'norway' => 'Noorwegen
+',
+  'sweden' => 'Zweden',
+  'netherlands' => 'Nederland',
+  'germany' => 'Duitsland',
+  'poland' => 'Polen',
+);
