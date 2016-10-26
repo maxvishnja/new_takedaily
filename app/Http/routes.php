@@ -155,7 +155,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			return view( 'home' );
 		} )->name( 'home' );
 
-		Route::group( [ 'middleware' => [ 'nonAdmin' ] ], function ()
+		Route::group( [], function ()
 		{
 			Route::get( 'pick-n-mix', 'PickMixController@get' )->name( 'pick-n-mix' );
 			Route::post( 'pick-n-mix', 'PickMixController@post' )->name( 'pick-n-mix-post' );
