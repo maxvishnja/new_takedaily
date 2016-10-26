@@ -106,9 +106,9 @@ class OrderController extends Controller
 		$newFolder = date('Ymd_') . str_random(10);
 		\File::makeDirectory(public_path('packer/downloads/' . $newFolder));
 
-		$labelsName   = 'labels_' . date('Ymd_Hi') . '.pdf';
+		$labelsName   = 'labels_' . date('Ymd_His') . '.pdf';
 		$labelPath    = 'packer/downloads/' . $newFolder . '/' . $labelsName;
-		$stickersName = 'stickers_' . date('Ymd_Hi') . '.pdf';
+		$stickersName = 'stickers_' . date('Ymd_His') . '.pdf';
 		$stickerPath  = 'packer/downloads/' . $newFolder . '/' . $stickersName;
 
 		\PDF::loadView('pdf.multiple-labels', [ 'labels' => $labels ])

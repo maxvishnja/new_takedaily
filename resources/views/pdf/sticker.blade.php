@@ -65,30 +65,31 @@
 <body>
 
 
-<table style="width: 591pt; height: 834pt; margin: 0; padding: 0;">
+<table style="width: 100%; margin: 0 auto; padding: 0">
 	<tbody style="width: 100%;">
 	<tr style="width: 100%;">
 		<!-- Main block -->
-		<td style="width:100%; padding: 37pt 27pt 36pt">
-			<h1>Produceret og tilpasset til Lars Madsen</h1>
-			<p>Hej Lars, her er en lille tekst til dit label. Pt. er der ikke noget rigtigt infromation her, men det kommer der snart. Lige nu tester vi bare for at se hvordan det ser ud. Indholdet vil selvfølgeligt være væsentligt mere spændende, og vitaminerne vil være tilpasset dit behov ligeså.</p>
+		<td style="width:100%; padding: 37pt 27pt 36pt; position: relative;">
+			<h1 style="margin: 0; font-weight: normal;font-size: 18pt;color: #1A8562;text-align: center;">Produceret og tilpasset til <strong>{{ $customer->getName() }}</strong></h1>
+			<p style="text-align: justify; font-weight: 200;font-size: 13pt;color: #1A8562;margin: 23pt 0 20pt;line-height: 20pt;">Hej {{ $customer->getFirstname() }}, her er en lille tekst til dit label. Pt. er der ikke noget rigtigt infromation her, men det kommer der snart. Lige nu tester vi bare for at se hvordan det ser ud. Indholdet vil selvfølgeligt være væsentligt mere spændende, og vitaminerne vil være tilpasset dit behov ligeså.</p>
 
 			<table style="width:100%">
 				<tbody>
 				<tr>
 					<td style="width:50%;">
-						<h2>Vitamin 1</h2>
-						<p>Bidrager til den normale funktion af immunforsvaret.</p>
+						<img src="{{ asset('/images/icons/pills/pill-1a@2x.png') }}" alt="Vitamin icon" style="float: right;width:29pt; height: 30pt;">
+						<h2 style="font-weight: bold; font-size: 15pt; margin: 0 0 2pt; color: #1A8562">Vitamin 1</h2>
+						<p style="margin: 0 0 10pt; line-height: 14pt; font-size: 9pt; color: #1A8562;">Bidrager til den normale funktion af immunforsvaret.</p>
 
 						<table style="width: 100%;">
 							<thead>
-							<tr>
+							<tr style="font-weight: bold;font-size: 8pt; color: #1A8562;">
 								<th style="text-align: left;">Vitaminer</th>
 								<th style="text-align: center;">Mængde</th>
 								<th style="text-align: right;">Procent</th>
 							</tr>
 							</thead>
-							<tbody>
+							<tbody style="font-size: 8pt; color:#1A8562;">
 							<tr>
 								<td style="text-align: left;">Vitamin A</td>
 								<td style="text-align: center;">10 mg</td>
@@ -101,18 +102,19 @@
 					</td>
 
 					<td style="width:50%;">
-						<h2>Vitamin 1</h2>
-						<p>Bidrager til den normale funktion af immunforsvaret.</p>
+						<img src="{{ asset('/images/icons/pills/pill-1a@2x.png') }}" alt="Vitamin icon" style="float: right;width:29pt; height: 30pt;">
+						<h2 style="font-weight: bold; font-size: 15pt; margin: 0 0 2pt; color: #1A8562">Vitamin 1</h2>
+						<p style="margin: 0 0 10pt; line-height: 14pt; font-size: 9pt; color: #1A8562;">Bidrager til den normale funktion af immunforsvaret.</p>
 
 						<table style="width: 100%;">
 							<thead>
-							<tr>
+							<tr style="font-weight: bold;font-size: 8pt; color: #1A8562;">
 								<th style="text-align: left;">Vitaminer</th>
 								<th style="text-align: center;">Mængde</th>
 								<th style="text-align: right;">Procent</th>
 							</tr>
 							</thead>
-							<tbody>
+							<tbody style="font-size: 8pt; color:#1A8562;">
 							<tr>
 								<td style="text-align: left;">Vitamin A</td>
 								<td style="text-align: center;">10 mg</td>
@@ -128,18 +130,19 @@
 
 				<tr>
 					<td style="width:50%;">
-						<h2>Vitamin 1</h2>
-						<p>Bidrager til den normale funktion af immunforsvaret.</p>
+						<img src="{{ asset('/images/icons/pills/pill-1a@2x.png') }}" alt="Vitamin icon" style="float: right;width:29pt; height: 30pt;">
+						<h2 style="font-weight: bold; font-size: 15pt; margin: 0 0 2pt; color: #1A8562">Vitamin 1</h2>
+						<p style="margin: 0 0 10pt; line-height: 14pt; font-size: 9pt; color: #1A8562;">Bidrager til den normale funktion af immunforsvaret.</p>
 
 						<table style="width: 100%;">
 							<thead>
-							<tr>
+							<tr style="font-weight: bold;font-size: 8pt; color: #1A8562;">
 								<th style="text-align: left;">Vitaminer</th>
 								<th style="text-align: center;">Mængde</th>
 								<th style="text-align: right;">Procent</th>
 							</tr>
 							</thead>
-							<tbody>
+							<tbody style="font-size: 8pt; color:#1A8562;">
 							<tr>
 								<td style="text-align: left;">Vitamin A</td>
 								<td style="text-align: center;">10 mg</td>
@@ -152,18 +155,19 @@
 					</td>
 
 					<td style="width:50%;">
-						<h2>Vitamin 1</h2>
-						<p>Bidrager til den normale funktion af immunforsvaret.</p>
+						<img src="{{ asset('/images/icons/pills/pill-1a@2x.png') }}" alt="Vitamin icon" style="float: right;width:29pt; height: 30pt;">
+						<h2 style="font-weight: bold; font-size: 15pt; margin: 0 0 2pt; color: #1A8562">Vitamin 1</h2>
+						<p style="margin: 0 0 10pt; line-height: 14pt; font-size: 9pt; color: #1A8562;">Bidrager til den normale funktion af immunforsvaret.</p>
 
 						<table style="width: 100%;">
 							<thead>
-							<tr>
+							<tr style="font-weight: bold;font-size: 8pt; color: #1A8562;">
 								<th style="text-align: left;">Vitaminer</th>
 								<th style="text-align: center;">Mængde</th>
 								<th style="text-align: right;">Procent</th>
 							</tr>
 							</thead>
-							<tbody>
+							<tbody style="font-size: 8pt; color:#1A8562;">
 							<tr>
 								<td style="text-align: left;">Vitamin A</td>
 								<td style="text-align: center;">10 mg</td>
@@ -177,6 +181,9 @@
 				</tr>
 				</tbody>
 			</table>
+
+			<p style="font-weight: 200;font-size: 9pt;color: #3AAC87;line-height: 14pt;position: absolute; bottom: 36pt; width: 50%; left: 25%; text-align: center">Anbefalet daglig dosis: 1 kapsel taget med vand til et måltid.<br/>
+				Næringsindhold pr. anbefalet daglig dosis angivet i mængde og procent af referenceindtag (RI) til vokse samt børn fra 11 år. </p>
 		</td>
 		<!-- Main block end -->
 	</tr>
