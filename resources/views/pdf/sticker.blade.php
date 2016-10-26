@@ -34,7 +34,7 @@
 <div style="width: 100%; height: 220mm; padding: 0;position: relative;">
 	<div style="height: 26mm">
 		<h1 style="margin: 0; font-weight: normal;font-size: 16pt;color: #1A8562;text-align: center;">{{ trans('label-product.produced-for') }} <strong>{{ $customer->getName() }}</strong></h1>
-		<p style="text-align: justify; font-weight: 200;font-size: 10pt;color: #1A8562;margin: 10pt 0;line-height: 17pt;">{{ trans('label-product.for-me', ['name' => $customer->getFirstname() ]) }}</p>
+		<p style="text-align: center; font-weight: 200;font-size: 10pt;color: #1A8562;margin: 8pt 0 12pt;line-height: 17pt;">{{ trans('label-product.for-me', ['name' => $customer->getFirstname() ]) }}</p>
 	</div>
 
 	<div class="vitamins">
