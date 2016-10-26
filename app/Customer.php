@@ -201,6 +201,11 @@ class Customer extends Model
 		return ! is_null( $this->getBirthday() );
 	}
 
+	public function hasPlan()
+	{
+		return $this->plan; // eww.. fixme
+	}
+
 	public function getBirthday()
 	{
 		return $this->getCustomerAttribute( 'user_data.birthdate', $this->birthday );
