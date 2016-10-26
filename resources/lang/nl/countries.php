@@ -2,8 +2,7 @@
 
 return array (
   'denmark' => 'Denenmarken',
-  'norway' => 'Noorwegen
-',
+  'norway' => 'Noorwegen',
   'sweden' => 'Zweden',
   'netherlands' => 'Nederland',
   'germany' => 'Duitsland',
