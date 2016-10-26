@@ -1,20 +1,22 @@
-<div>
-	@foreach($customer->getVitaminModels() as $vitamine)
-			{{ $vitamine->code }}
-	@endforeach
+<style>
+	address {
+		font-style: normal;
+		color: #333;
+		font-size: 18pt;
+		line-height: 1.3;
+	}
+</style>
 
-		<img style="width: 226pt; height: 40pt;" src="{{ asset('/images/pdf-logo.png') }}"/>
+<div style="height: 50mm; width: 160mm">
+		<img style="width: 112pt; height: 59pt; float: right" src="{{ asset('/images/logo-postnl@2x.png') }}"/>
 
 		<address>
-			<div><strong>{{ $customer->getName() }}</strong></div>
+			<div style="margin-bottom: 6pt;"><strong>{{ $customer->getName() }}</strong></div>
 			{{ $customer->getCustomerAttribute('address_line1') }}<br/>
+			@if($customer->getCustomerAttribute('address_line2') != '')
+				{{ $customer->getCustomerAttribute('address_line2') }}<br/>
+			@endif
 			{{ $customer->getCustomerAttribute('address_postal') }}, {{ $customer->getCustomerAttribute('address_city') }}<br/>
 			{{ ucfirst($customer->getCustomerAttribute('address_country')) }}<br/>
 		</address>
-
-
-		@foreach($customer->getVitaminModels() as $vitamine)
-			<img style="width: 29pt; height: 30pt;"
-				 src="{{ asset('/images/icons/pills/pill-' . $vitamine->code . '@2x.png') }}"/>
-		@endforeach
 </div>
