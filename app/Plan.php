@@ -137,14 +137,14 @@ class Plan extends Model
 	{
 		return $this->isActive()
 		&& !$this->isSnoozed()
-		&& Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 1
+		&& Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 4
 		&& Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt()) > Date::now();
 	}
 
 	public function isCancelable()
 	{
 		return Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 1
-		&& Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInHours() >= 48
+		&& Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 4
 		&& Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt()) > Date::now();
 	}
 
@@ -259,7 +259,7 @@ class Plan extends Model
 	 */
 	public function scopeRebillPending($query)
 	{
-		return $query->where('subscription_rebill_at', '<=', Date::now()->addDays(2))
+		return $query->where('subscription_rebill_at', '<=', Date::now()->addDays(4))
 		             ->where(function (Builder $where)
 		             {
 			             $where->whereNull('subscription_snoozed_until')
@@ -296,7 +296,7 @@ class Plan extends Model
 		\Mail::send('emails.pending-rebill', [ 'rebillAt' => $this->getRebillAt() ], function (Message $message) use ($customer)
 		{
 			$message->to($customer->getEmail(), $customer->getName())
-			        ->subject('Vi sender din næste pakke om 48 timer!');
+			        ->subject('Vi sender din næste pakke om 24 timer!');
 		});
 
 		$this->markHasNotified();

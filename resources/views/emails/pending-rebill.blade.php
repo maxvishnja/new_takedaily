@@ -1,7 +1,7 @@
 @extends('layouts.mail')
 
-@section('title', 'En ny pakke afsendes indenfor 48 timer') <!-- todo translate -->
-@section('summary', 'Vi sender din næste pakke om 48 timer!') <!-- todo translate -->
+@section('title', 'En ny pakke afsendes indenfor 24 timer') <!-- todo translate -->
+@section('summary', 'Vi sender din næste pakke om 24 timer!') <!-- todo translate -->
 
 @section('content')
 	<p>Din næste forsendelse oprettes d. {{ Date::createFromFormat('Y-m-d H:i:s', $rebillAt)->format('j. M Y H:i') }}</p>
