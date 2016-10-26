@@ -86,6 +86,7 @@ class Order extends Model
 		'shipping_country',
 		'shipping_zipcode',
 		'shipping_company',
+	    'is_shippable'
 	];
 	
 	/**
@@ -136,6 +137,11 @@ class Order extends Model
 	public function getSubTotalShipping()
 	{
 		return $this->sub_total_shipping;
+	}
+
+	public function isShippable()
+	{
+		return $this->is_shippable == 1;
 	}
 
 	public function getTotalTaxes()
@@ -261,6 +267,11 @@ class Order extends Model
 	public function downloadSticker()
 	{
 		return $this->getCustomer()->generateSticker()->download('order_' . $this->getPaddedId() . '_sticker.pdf');
+	}
+
+	public function scopeShippable($query)
+	{
+		return $query->where('is_shippable', 1);
 	}
 
 }

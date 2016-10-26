@@ -382,6 +382,13 @@ class Customer extends Model
 			] );
 		}
 
+		if(!$product->isSubscription())
+		{
+			$order->update([
+				'is_shippable' => 0
+			]);
+		}
+
 		return $order;
 	}
 

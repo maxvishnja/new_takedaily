@@ -45,7 +45,7 @@ class OrderController extends Controller
 
 	function printAll()
 	{
-		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->select('id')->get();
+		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->shippable()->select('id')->get();
 
 		return $this->downloadMultiple( array_flatten($printableOrders->toArray()) );
 	}

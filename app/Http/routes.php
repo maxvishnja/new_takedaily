@@ -117,9 +117,9 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
 
 			return view( 'packer.home', [
-				'orders_today'      => $orderRepo->getToday()
+				'orders_today'      => $orderRepo->getToday()->shippable()
 				                                 ->count(),
-				'sidebar_numOrders' => $orderRepo->getPaid()
+				'sidebar_numOrders' => $orderRepo->getPaid()->shippable()
 				                                 ->count()
 			] );
 		} );
