@@ -548,3 +548,5 @@
 		fbq('track', 'AddToCart');
 	</script>
 @endsection
+
+@section('tawk-script', '')
