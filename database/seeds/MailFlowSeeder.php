@@ -17,6 +17,8 @@ class MailFlowSeeder extends Seeder
 			'is_active'  => 1
 		] );
 
-		$mailFlow->conditions()->
+		$mailFlow->conditions()->create([
+
+		]);
 	}
 }
