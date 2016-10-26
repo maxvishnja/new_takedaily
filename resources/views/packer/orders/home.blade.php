@@ -11,7 +11,10 @@
 				{{ csrf_field() }}
 				<div class="pull-right" style="padding: 0 10px 20px;">
 					<div class="btn-group">
-						<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a target="_blank" href="{{ url()->action('Packer\OrderController@printAll') }}" type="button" class="btn btn-primary">
+							Print all
+						</a>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Action <span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu">
@@ -73,10 +76,6 @@
 										   href="{{ URL::action('Packer\OrderController@markSent', [ 'id' => $order->id ]) }}"><i
 												class="icon-truck"></i>
 											Mark sent</a>
-										<a class="btn btn-default"
-										   href="{{ URL::action('Packer\OrderController@download', [ 'id' => $order->id ]) }}"><i
-												class="icon-download"></i>
-											Download</a>
 									@else
 										<a class="btn btn-default"
 										   href="{{ URL::action('Packer\OrderController@show', [ 'id' => $order->id ]) }}"><i

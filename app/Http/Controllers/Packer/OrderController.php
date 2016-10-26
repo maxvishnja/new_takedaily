@@ -43,18 +43,11 @@ class OrderController extends Controller
 		] );
 	}
 
-	function download( $id )
+	function printAll()
 	{
-		$order = Order::find( $id );
+		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->select('id')->get();
 
-		if ( ! $order )
-		{
-			return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
-		}
-
-		return $this->downloadMultiple( [ $id ] ); // todo open in popup
-
-		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'Download links was generated!' );
+		return $this->downloadMultiple( array_flatten($printableOrders->toArray()) );
 	}
 
 	function markSent( $id )
