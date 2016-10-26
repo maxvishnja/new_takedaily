@@ -182,8 +182,15 @@
 			s1.setAttribute('crossorigin', '*');
 			s0.parentNode.insertBefore(s1, s0);
 		})();
-
-		@yield('tawk-script', 'Tawk_API.toggle();')
+	</script>
+	<script>
+		@yield('tawk-script', 'Tawk_API = Tawk_API || {};
+		Tawk_API.onStatusChange = function (status){
+			if(status === "online")
+			{
+				Tawk_API.toggle();
+			}
+		};')
 	</script>
 	<!--End of Tawk.to Script-->
 
