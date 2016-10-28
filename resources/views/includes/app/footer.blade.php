@@ -13,7 +13,8 @@
 									   class="input input--regular input--full input--plain"/>
 							</div>
 							<div class="col-sm-4">
-								<button type="submit" class="button button--regular button--full button--green" style="padding-left: 0; padding-right: 0;">{{ trans('footer.columns.one.button-text') }}</button>
+								<button type="submit" class="button button--regular button--full button--green"
+										style="padding-left: 0; padding-right: 0;">{{ trans('footer.columns.one.button-text') }}</button>
 							</div>
 						</div>
 						<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
@@ -174,28 +175,41 @@
 	</script>
 @endif
 
-@if(App::environment() != 'local')
-	<!--Start of Tawk.to Script-->
-	<script type="text/javascript">
-		var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-		(function () {
-			var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-			s1.async = true;
-			s1.src = 'https://embed.tawk.to/573c49314084da3e71efb4e9/{{ trans('general.tawk_id') }}';
-			s1.charset = 'UTF-8';
-			s1.setAttribute('crossorigin', '*');
-			s0.parentNode.insertBefore(s1, s0);
-		})();
-	</script>
-	<!--End of Tawk.to Script-->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+	var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+	(function () {
+		var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+		s1.async = true;
+		s1.src = 'https://embed.tawk.to/573c49314084da3e71efb4e9/{{ trans('general.tawk_id') }}';
+		s1.charset = 'UTF-8';
+		s1.setAttribute('crossorigin', '*');
+		s0.parentNode.insertBefore(s1, s0);
+	})();
+</script>
+<!--End of Tawk.to Script-->
 
+@if(App::environment() != 'local')
 	<!-- Facebook Pixel Code -->
 	<script>
-		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-			n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-			n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-			t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-			document,'script','https://connect.facebook.net/en_US/fbevents.js');
+		!function (f, b, e, v, n, t, s) {
+			if (f.fbq)return;
+			n = f.fbq = function () {
+				n.callMethod ?
+					n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+			};
+			if (!f._fbq) f._fbq = n;
+			n.push = n;
+			n.loaded = !0;
+			n.version = '2.0';
+			n.queue = [];
+			t = b.createElement(e);
+			t.async = !0;
+			t.src = v;
+			s = b.getElementsByTagName(e)[0];
+			s.parentNode.insertBefore(t, s)
+		}(window,
+			document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
 		fbq('init', '201670066926857');
 		fbq('track', "PageView");
@@ -203,12 +217,12 @@
 	</script>
 
 	<noscript>
-		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=201670066926857&ev=PageView&noscript=1" />
+		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=201670066926857&ev=PageView&noscript=1"/>
 	</noscript>
 	<!-- End Facebook Pixel Code -->
 	@yield('tracking-scripts')
-@endif
+	@endif
 
 
-</body>
-</html>
+	</body>
+	</html>
