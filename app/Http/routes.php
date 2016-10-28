@@ -152,8 +152,17 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		 */
 		Route::get( '/', function ()
 		{
-			return view( 'home' );
+			$faqs = (new \App\Apricot\Repositories\FaqRepository())->get();
+
+			return view( 'home', compact('faqs') );
 		} )->name( 'home' );
+
+		Route::get( '/faq', function ()
+		{
+			$faqs = (new \App\Apricot\Repositories\FaqRepository())->get();
+
+			return view( 'faq.home', compact('faqs') );
+		} )->name( 'faq' );
 
 		Route::group( [], function ()
 		{

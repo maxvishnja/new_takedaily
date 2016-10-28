@@ -1,0 +1,46 @@
+.faq
+	display: block
+	padding: 15px
+	border-top: 1px solid rgba(0, 0, 0, .1)
+	position: relative
+	overflow: hidden
+
+	&:hover:not(.uncloseable)
+		cursor: pointer
+		background: rgba(0, 0, 0, .02)
+
+	&:first-child
+		border-top: 0
+
+	&.open
+		&.uncloseable
+			.faq_answer
+				display: block
+
+		.faq_header
+			.icon
+				transform: rotate(180deg)
+
+	.faq_answer
+		display: none
+		line-height: 1.6
+		font-weight: 200
+		padding: 0 0 15px
+
+	.faq_header
+		padding: 15px 0
+		position: relative
+
+		strong
+			font-weight: normal
+			font-size: 16px
+			display: block
+			margin-right: 33px
+
+		.icon
+			position: absolute
+			top: 50%
+			margin-top: -4px
+			right: 15px
+			transition: transform 300ms
+

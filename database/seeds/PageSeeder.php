@@ -24,19 +24,6 @@ class PageSeeder extends Seeder
 			'layout'           => 'plain'
 		]);
 
-		// FAQ
-		\App\Page::create([
-			'url_identifier'   => 'faq',
-			'title'            => 'Ofte stillede spørgsmål',
-			'sub_title'        => '',
-			'body'             => '...',
-			'meta_title'       => 'Opret et abonnent på vitaminer',
-			'meta_description' => 'Opret et abonnent på vitaminer hos TakeDaily',
-			'meta_image'       => '',
-			'is_locked'        => 0,
-			'layout'           => 'plain'
-		]);
-
 		// About
 		\App\Page::create([
 			'url_identifier'   => 'about',

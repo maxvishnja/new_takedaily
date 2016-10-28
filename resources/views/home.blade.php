@@ -212,8 +212,29 @@
 			</div>
 		@endif
 
-		<div class="block--faq">
+		<div class="block--faq m-t-30 m-b-30">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-push-2">
+						<div class="faqs">
+							@foreach($faqs as $faq)
+								<div class="faq">
+									<div class="faq_header">
+										<strong>{{ $faq->question }}</strong>
+										<span class="icon icon-arrow-down"></span>
 
+										<div class="clear"></div>
+									</div>
+
+									<div class="faq_answer">
+										{!! $faq->answer !!}
+									</div>
+								</div>
+							@endforeach
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div class="video-popup" id="video_popup">
@@ -284,5 +305,22 @@
 		setTimeout(function () {
 			$(".header_slide_nav_item[data-slide='2']").click();
 		}, 3000);
+
+		$(".faq").click(function()
+		{
+			var currentFaq = $(".faq.open");
+			var thisFaq = $(this);
+
+			if(currentFaq !== undefined)
+			{
+				currentFaq.find('.faq_answer').stop().slideUp(300); // Sadly, height is dynamic so CSS animations is no option.
+				currentFaq.removeClass('open');
+			}
+
+			thisFaq.addClass('open');
+			thisFaq.find('.faq_answer').stop().slideDown(300); // Sadly, height is dynamic so CSS animations is no option.
+		});
+
+		$(".faq")[0].click();
 	</script>
 @endsection
