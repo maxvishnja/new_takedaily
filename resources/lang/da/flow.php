@@ -158,20 +158,20 @@ return [
 				],
 			'2-9'  =>
 				[
-					'title'   => 'Har du ømme muskler eller ondt i dine led?',
-					'text'    => 'Nogle næringsstoffer er gode for dine led og muskler. Mangel på D-vitamin kan ligefrem give svage muskler
-							og muskelsmerter.',
-					'options' =>
+					'title'         => 'Er du vegetar/veganer?',
+					'text'          => 'Kød indeholder masser af jern, B1- og B12-vitamin. Disse vitaminer er vigtige komponenter i dit
+					energistofskifte. Desuden er mælkeprodukter en vigtig kilde til calcium, der holder knogler og muskler stærke.',
+					'options'       =>
 						[
-							1 => 'Ja',
-							2 => 'Nej',
+							1 => 'Ja, jeg er vegetar',
+							2 => 'Nej, jeg spiser også kød og fisk',
 						],
 				],
 			'2-10' =>
 				[
-					'title'   => 'Tager du allerede vitaminer og/eller mineraler?',
-					'text'    => 'Testresultatet er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
-							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre tilskud.',
+					'title'   => 'Har du ømme muskler eller ondt i dine led?',
+					'text'    => 'Nogle næringsstoffer er gode for dine led og muskler. Mangel på D-vitamin kan ligefrem give svage muskler
+							og muskelsmerter.',
 					'options' =>
 						[
 							1 => 'Ja',

@@ -147,9 +147,7 @@ Het is belangrijk dat je tijdens het afvallen geen tekorten aan vitamines en min
 			'2-8'  =>
 				[
 					'title'         => 'Hoeveel weken bent u zwanger?',
-					'text'          => 'Vlees bevat veel ijzer, vitamine B1 en B12. De B-vitamines en ijzer spelen een belangrijke rol in de energiestofwisseling van het lichaam. Zuivelproducten zijn daarnaast nog een belangrijke bron van vitamine B2 en calcium. Calcium is belangrijk voor de botten en spieren. 
-
-Het is belangrijk geen tekorten te ontwikkelen aan vitaminen en mineralen.',
+					'text'          => 'Vlees bevat veel ijzer, vitamine B1 en B12. De B-vitamines en ijzer spelen een belangrijke rol in de energiestofwisseling van het lichaam. Zuivelproducten zijn daarnaast nog een belangrijke bron van vitamine B2 en calcium. Calcium is belangrijk voor de botten en spieren. Het is belangrijk geen tekorten te ontwikkelen aan vitaminen en mineralen.',
 					'options'       =>
 						[
 							1 => 'Hoelang bent u zwanger?',
@@ -157,11 +155,21 @@ Het is belangrijk geen tekorten te ontwikkelen aan vitaminen en mineralen.',
 						],
 					'button-text'   => 'Hoeveel weken bent u reeds zwanger?',
 					'i-have-a-wish' => 'Ik ben nog niet zwanger, maar probeer zwanger te worden',
-					'select'        => 'week
-',
+					'select'        => 'week',
 					'pick-one'      => 'Kies hier de week',
 				],
 			'2-9'  =>
+				[
+					'title'   => 'Er du vegetar/veganer?',
+					'text'    => 'Kød indeholder masser af jern, B1- og B12-vitamin. Disse vitaminer er vigtige komponenter i dit
+					energistofskifte. Desuden er mælkeprodukter en vigtig kilde til calcium, der holder knogler og muskler stærke.',
+					'options' =>
+						[
+							1 => 'Ja, jeg er vegetar',
+							2 => 'Nej, jeg spiser også kød og fisk',
+						],
+				],
+			'2-10' =>
 				[
 					'title'   => 'Heb je pijnlijke spieren en/of gewrichten?',
 					'text'    => 'Bepaalde vitamines en mineralen zijn goed voor je gewrichten en spieren. Vitamine D speelt een rol bij het behouden van sterke en soepele spieren. Gebrek aan vitamine D kan leiden tot spierpijn en spierzwakte.',
@@ -171,7 +179,7 @@ Het is belangrijk geen tekorten te ontwikkelen aan vitaminen en mineralen.',
 							2 => 'Nee',
 						],
 				],
-			'2-10' =>
+			'2-11' =>
 				[
 					'title'   => 'Gebruik je momenteel vitamine- en/of mineralensupplementen?',
 					'text'    => 'De resultaten van deze test zijn gebaseerd op uw specifieke leeftstijl en eetpatroon. TakeDaily draagt zorg dat jij alle vitaminen en mineralen binnenkrijgt die je nodig hebt. Als de TakeDaily supplementen worden gebruikt, zijn andere vitaminen-/mineralensupplementen niet meer nodig. 
