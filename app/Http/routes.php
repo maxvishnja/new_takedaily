@@ -152,136 +152,148 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		 */
 		Route::get( '/', function ()
 		{
-			$faqs = (new \App\Apricot\Repositories\FaqRepository())->get();
+			$faqs = ( new \App\Apricot\Repositories\FaqRepository() )->get();
 
-			return view( 'home', compact('faqs') );
+			return view( 'home', compact( 'faqs' ) );
 		} )->name( 'home' );
 
 		Route::get( '/faq', function ()
 		{
-			$faqs = (new \App\Apricot\Repositories\FaqRepository())->get();
+			$faqs = ( new \App\Apricot\Repositories\FaqRepository() )->get();
 
-			return view( 'faq.home', compact('faqs') );
+			return view( 'faq.home', compact( 'faqs' ) );
 		} )->name( 'faq' );
 
-		Route::group( [], function ()
+		Route::get( '/faq/{identifier}', function ( $identifier )
 		{
-			Route::get( 'pick-n-mix', 'PickMixController@get' )->name( 'pick-n-mix' );
-			Route::post( 'pick-n-mix', 'PickMixController@post' )->name( 'pick-n-mix-post' );
+			$repo = new \App\Apricot\Repositories\FaqRepository;
 
-			Route::get( 'pick-package', 'PackageController@get' )->name( 'pick-package' );
-			Route::post( 'pick-package', 'PackageController@post' )->name( 'pick-package-post' );
+			$faq = $repo->findByIdentifier( $identifier );
 
-			Route::get( 'flow', function ( \Illuminate\Http\Request $request )
+			if ( ! $faq )
 			{
-				$giftcard = null;
+				abort( 404 );
+			}
 
-				if ( \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name', 'subscription' ) == 'subscription' )
-				{
-					$giftcard = \App\Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
-					                         ->where( 'token', \Session::get( 'giftcard_token' ) )
-					                         ->where( 'is_used', 0 )
-					                         ->first();
-				}
 
-				if ( Auth::user() && Auth::user()
-				                         ->getCustomer()
-				)
-				{
-					return redirect( '/pick-n-mix' )->with( 'warning', 'Du har allerede en konto, du kan ændre dine vitaminer eller logge ud og oprette en ny konto.' ); // todo translate
-				}
-
-				$product = \App\Product::whereName( 'subscription' )
-				                       ->first();
-
-				// todo fixme giftcard is not taken into consideration
-
-				// Coupon
-				$coupon = null;
-				if ( \Session::has( 'applied_coupon' ) )
-				{
-					$couponRepository = new \App\Apricot\Repositories\CouponRepository();
-					$coupon           = $couponRepository->findByCoupon( \Session::get( 'applied_coupon' ) );
-				}
-
-				$zone          = new \App\Apricot\Libraries\TaxLibrary( trans( 'general.tax_zone' ) );
-				$taxRate       = $zone->rate();
-				$shippingPrice = \App\Setting::getWithDefault( 'shipping_price', 0 );
-
-				$userData = [];
-
-				if ( $request->has( 'token' ) )
-				{
-					$flowCompletion = \App\FlowCompletion::whereToken( $request->get( 'token' ) )->first();
-
-					if ( $flowCompletion )
-					{
-						$userData = $flowCompletion->user_data;
-					}
-				}
-
-				return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice', 'userData' ) );
-			} )->name( 'flow' );
-
-			Route::post( 'flow/send-recommendation', function ( \Illuminate\Http\Request $request )
-			{
-				// todo validate has email and token
-				$to = $request->get( 'email' );
-
-				Mail::queue( 'emails.recommendation', [ 'token' => $request->get( 'token' ) ], function ( \Illuminate\Mail\Message $message ) use ( $to )
-				{
-					$message->to( $to );
-					$message->subject( 'Din TakeDaily anbefaling' ); // todo translate
-				} );
-
-				return Response::json( [ 'message' => 'mail added to queue' ] );
-			} )->name( 'send-flow-recommendations' );
-
-			Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $request )
-			{
-				$lib = new \App\Apricot\Libraries\CombinationLibrary();
-
-				$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
-
-				$advises = '';
-
-				foreach ( $lib->getAdvises() as $adviseKey => $advise )
-				{
-					$advises .= '<p>' . $advise . '</p>';
-				}
-
-				$codes = [];
-
-				foreach ( $lib->getResult() as $combKey => $combVal )
-				{
-					$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
-				}
-
-				$totals = \App\Apricot\Helpers\ExtraPills::getTotalsFor( $codes );
-
-				$token = str_random( 16 );
-
-				while ( \App\FlowCompletion::whereToken( $token )->limit( 1 )->count() > 0 )
-				{
-					$token = str_random( 16 );
-				}
-
-				$flowCompletion = \App\FlowCompletion::create( [
-					'token'     => $token,
-					'user_data' => $request->get( 'user_data' )
-				] );
-
-				return Response::json( [
-					'advises'        => $advises,
-					'num_advises'    => count( $lib->getAdvises() ),
-					'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ] )->render(),
-					'selected_codes' => implode( ',', $codes ),
-					'totals'         => $totals,
-					'result'         => $lib->getResult(),
-					'token'          => $flowCompletion->token
-				] );
-			} )->name( 'flow-recommendations' );
+			return view( 'faq.view', compact( $faq ) );
 		} );
+
+		Route::get( 'pick-n-mix', 'PickMixController@get' )->name( 'pick-n-mix' );
+		Route::post( 'pick-n-mix', 'PickMixController@post' )->name( 'pick-n-mix-post' );
+
+		Route::get( 'pick-package', 'PackageController@get' )->name( 'pick-package' );
+		Route::post( 'pick-package', 'PackageController@post' )->name( 'pick-package-post' );
+
+		Route::get( '/flow', function ( \Illuminate\Http\Request $request )
+		{
+			$giftcard = null;
+
+			if ( \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name', 'subscription' ) == 'subscription' )
+			{
+				$giftcard = \App\Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
+				                         ->where( 'token', \Session::get( 'giftcard_token' ) )
+				                         ->where( 'is_used', 0 )
+				                         ->first();
+			}
+
+			if ( Auth::user() && Auth::user()
+			                         ->getCustomer()
+			)
+			{
+				return redirect( '/pick-n-mix' )->with( 'warning', 'Du har allerede en konto, du kan ændre dine vitaminer eller logge ud og oprette en ny konto.' ); // todo translate
+			}
+
+			$product = \App\Product::whereName( 'subscription' )
+			                       ->first();
+
+			// todo fixme giftcard is not taken into consideration
+
+			// Coupon
+			$coupon = null;
+			if ( \Session::has( 'applied_coupon' ) )
+			{
+				$couponRepository = new \App\Apricot\Repositories\CouponRepository();
+				$coupon           = $couponRepository->findByCoupon( \Session::get( 'applied_coupon' ) );
+			}
+
+			$zone          = new \App\Apricot\Libraries\TaxLibrary( trans( 'general.tax_zone' ) );
+			$taxRate       = $zone->rate();
+			$shippingPrice = \App\Setting::getWithDefault( 'shipping_price', 0 );
+
+			$userData = [];
+
+			if ( $request->has( 'token' ) )
+			{
+				$flowCompletion = \App\FlowCompletion::whereToken( $request->get( 'token' ) )->first();
+
+				if ( $flowCompletion )
+				{
+					$userData = $flowCompletion->user_data;
+				}
+			}
+
+			return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice', 'userData' ) );
+		} )->name( 'flow' );
+
+		Route::post( 'flow/send-recommendation', function ( \Illuminate\Http\Request $request )
+		{
+			// todo validate has email and token
+			$to = $request->get( 'email' );
+
+			Mail::queue( 'emails.recommendation', [ 'token' => $request->get( 'token' ) ], function ( \Illuminate\Mail\Message $message ) use ( $to )
+			{
+				$message->to( $to );
+				$message->subject( 'Din TakeDaily anbefaling' ); // todo translate
+			} );
+
+			return Response::json( [ 'message' => 'mail added to queue' ] );
+		} )->name( 'send-flow-recommendations' );
+
+		Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $request )
+		{
+			$lib = new \App\Apricot\Libraries\CombinationLibrary();
+
+			$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
+
+			$advises = '';
+
+			foreach ( $lib->getAdvises() as $adviseKey => $advise )
+			{
+				$advises .= '<p>' . $advise . '</p>';
+			}
+
+			$codes = [];
+
+			foreach ( $lib->getResult() as $combKey => $combVal )
+			{
+				$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
+			}
+
+			$totals = \App\Apricot\Helpers\ExtraPills::getTotalsFor( $codes );
+
+			$token = str_random( 16 );
+
+			while ( \App\FlowCompletion::whereToken( $token )->limit( 1 )->count() > 0 )
+			{
+				$token = str_random( 16 );
+			}
+
+			$flowCompletion = \App\FlowCompletion::create( [
+				'token'     => $token,
+				'user_data' => $request->get( 'user_data', '{}' )
+			] );
+
+			return Response::json( [
+				'advises'        => $advises,
+				'num_advises'    => count( $lib->getAdvises() ),
+				'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ] )->render(),
+				'selected_codes' => implode( ',', $codes ),
+				'totals'         => $totals,
+				'result'         => $lib->getResult(),
+				'token'          => $flowCompletion->token
+			] );
+		} )->name( 'flow-recommendations' );
 
 		Route::post( 'flow', function ( \Illuminate\Http\Request $request )
 		{
@@ -467,13 +479,13 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 
 				\App\Call::create( [
-					'phone'  => $request->get( 'phone' ),
-					'period' => $request->get( 'period' ),
-					'call_at'   => $request->get( 'date' ),
-					'status' => 'requested'
+					'phone'   => $request->get( 'phone' ),
+					'period'  => $request->get( 'period' ),
+					'call_at' => $request->get( 'date' ),
+					'status'  => 'requested'
 				] );
 
-				return Response::json( [ 'message' => trans('flow.call-me.success') ] );
+				return Response::json( [ 'message' => trans( 'flow.call-me.success' ) ] );
 			} )->name( 'ajax-call-me' );
 		} );
 

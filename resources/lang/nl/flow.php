@@ -41,8 +41,7 @@ return [
 			'1-3'  =>
 				[
 					'title'   => 'Wat is jouw huidskleur of  met welk type komt jouw huidskleur het meeste overeen?',
-					'text'    => 'Als je een lichte huidskleur hebt kan jouw huid bij gelijke, alledaagse blootstelling
-aan zonlicht meer vitamine D aanmaken dan een natuurlijke getinte huid en donkere huid. Extra vitamine D is belangrijk voor mensen die geen lichte huid hebben.',
+					'text'    => 'Als je een lichte huidskleur hebt kan jouw huid bij gelijke, alledaagse blootstelling aan zonlicht meer vitamine D aanmaken dan een natuurlijke getinte huid en donkere huid. Extra vitamine D is belangrijk voor mensen die geen lichte huid hebben.',
 					'options' =>
 						[
 							1 => 'Licht',
@@ -54,10 +53,9 @@ aan zonlicht meer vitamine D aanmaken dan een natuurlijke getinte huid en donker
 				[
 					'title'   => 'Ben je elke dag minimaal 15-30 minuten buiten tussen 11.00-15.00 uur met gezicht en handen onbedekt?',
 					'text'    => 'Vitamine D is een van de weinige vitamines die het lichaam zelf kan maken. Hiervoor dien je dagelijks tussen 11:00-15:00 uur minimaal 15-30 minuten buiten te komen met minimaal handen en gezicht onbedekt. Tussen 11:00-15.00 uur staat de zon op zijn hoogst en is jouw lichaam in staat om vitamine D aan te maken met behulp van het zonlicht. 
-
-Personen die dagelijks weinig buitenkomen, de zon mijden of buiten
-lichaamsbedekkende
-kleding dragen, kunnen een vitamine D-tekort oplopen als zij geen vitamine D supplement gebruiken. Bij volwassenen en ouderen kan een vitamine D-tekort op den duur leiden tot botontkalking en/of spierzwakte.',
+								Personen die dagelijks weinig buitenkomen, de zon mijden of buiten
+								lichaamsbedekkende
+								kleding dragen, kunnen een vitamine D-tekort oplopen als zij geen vitamine D supplement gebruiken. Bij volwassenen en ouderen kan een vitamine D-tekort op den duur leiden tot botontkalking en/of spierzwakte.',
 					'options' =>
 						[
 							1 => 'Ja',
@@ -67,9 +65,7 @@ kleding dragen, kunnen een vitamine D-tekort oplopen als zij geen vitamine D sup
 			'2-1'  =>
 				[
 					'title'   => 'Ben je zwanger of probeer je zwanger te worden?',
-					'text'    => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt tot week 11 van de zwangerschap. Foliumzuur speelt een belangrijke rol bij de vroege ontwikkeling van het ongeboren kind. Foliumzuursupplementen kunnen zonder risico gedurende de gehele zwangerschap gebruikt worden.
-
-Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel goed voor de baby en jou.',
+					'text'    => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt tot week 11 van de zwangerschap. Foliumzuur speelt een belangrijke rol bij de vroege ontwikkeling van het ongeboren kind. Foliumzuursupplementen kunnen zonder risico gedurende de gehele zwangerschap gebruikt worden. Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel goed voor de baby en jou.',
 					'options' =>
 						[
 							1 => 'Ja',
@@ -79,9 +75,7 @@ Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel g
 			'2-2'  =>
 				[
 					'title'   => 'Ben je momenteel op dieet om gewicht te verliezen?',
-					'text'    => 'In de periode dat je gewicht probeert te verliezen, kan de behoefte aan bepaalde vitamines en mineralen toenemen. Je dieet kan mogelijk te eenzijdig zijn, waardoor je lichaam behoefte heeft aan extra vitamines en mineralen. Je behoefte aan vitamine C is hoger als je meer gewicht hebt. Vitamine C zorgt samen met vitamine A mede voor een goede weesrtand. De B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam.
-
-Het is belangrijk dat je tijdens het afvallen geen tekorten aan vitamines en mineralen ontwikkelt.',
+					'text'    => 'In de periode dat je gewicht probeert te verliezen, kan de behoefte aan bepaalde vitamines en mineralen toenemen. Je dieet kan mogelijk te eenzijdig zijn, waardoor je lichaam behoefte heeft aan extra vitamines en mineralen. Je behoefte aan vitamine C is hoger als je meer gewicht hebt. Vitamine C zorgt samen met vitamine A mede voor een goede weesrtand. De B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam. Het is belangrijk dat je tijdens het afvallen geen tekorten aan vitamines en mineralen ontwikkelt.',
 					'options' =>
 						[
 							1 => 'Ja',
@@ -96,8 +90,7 @@ Het is belangrijk dat je tijdens het afvallen geen tekorten aan vitamines en min
 						[
 							1 => 'Zelden',
 							2 => 'Eenmaal per week',
-							3 => 'Tweemaal per week
-',
+							3 => 'Tweemaal per week',
 							4 => 'Vaker ',
 						],
 				],
@@ -118,8 +111,7 @@ Het is belangrijk dat je tijdens het afvallen geen tekorten aan vitamines en min
 					'options' =>
 						[
 							1 => 'Iedere dag',
-							2 => 'Af en toe
-',
+							2 => 'Af en toe',
 							3 => 'Zelden',
 						],
 				],
@@ -182,9 +174,7 @@ Het is belangrijk dat je tijdens het afvallen geen tekorten aan vitamines en min
 			'2-11' =>
 				[
 					'title'   => 'Gebruik je momenteel vitamine- en/of mineralensupplementen?',
-					'text'    => 'De resultaten van deze test zijn gebaseerd op uw specifieke leeftstijl en eetpatroon. TakeDaily draagt zorg dat jij alle vitaminen en mineralen binnenkrijgt die je nodig hebt. Als de TakeDaily supplementen worden gebruikt, zijn andere vitaminen-/mineralensupplementen niet meer nodig. 
-
-Wil je extra supplementen gebruiken naast de TakeDaily supplementen, raadpleeg dan altijd eerst jouw huisarts.',
+					'text'    => 'De resultaten van deze test zijn gebaseerd op uw specifieke leeftstijl en eetpatroon. TakeDaily draagt zorg dat jij alle vitaminen en mineralen binnenkrijgt die je nodig hebt. Als de TakeDaily supplementen worden gebruikt, zijn andere vitaminen-/mineralensupplementen niet meer nodig. Wil je extra supplementen gebruiken naast de TakeDaily supplementen, raadpleeg dan altijd eerst jouw huisarts.',
 					'options' =>
 						[
 							1 => 'Ja',
@@ -207,9 +197,7 @@ Wil je extra supplementen gebruiken naast de TakeDaily supplementen, raadpleeg d
 			'3-2'  =>
 				[
 					'title'   => 'Hoeveel fruit eet je dagelijks?',
-					'text'    => 'Fruit is een belangrijke bron van foliumzuur, vitamine C, kalium en vezels.
-
-Tel twee kleine stukken fruit (bijvoorbeeld mandarijnen en kiwi\'s) als 1 stuk fruit. Vruchtensap telt niet als fruit.',
+					'text'    => 'Fruit is een belangrijke bron van foliumzuur, vitamine C, kalium en vezels. Tel twee kleine stukken fruit (bijvoorbeeld mandarijnen en kiwi\'s) als 1 stuk fruit. Vruchtensap telt niet als fruit.',
 					'options' =>
 						[
 							1 => 'Geen',
@@ -219,11 +207,8 @@ Tel twee kleine stukken fruit (bijvoorbeeld mandarijnen en kiwi\'s) als 1 stuk f
 				],
 			'3-3'  =>
 				[
-					'title'   => 'Hoeveel boterhammen eet je gemiddeld per dag?
-',
-					'text'    => 'Een portie havermout telt als één snee brood. 
-
-Brood is een belangrijke bron van B-vitamines, ijzer en voedingsvezels. Brood is de belangrijkste bron van jodium in Nederland. Kies bij voorkeur volkoren varianten. Het verzadigd goed en zorgt ervoor dat u minder snel weer trek hebt en maakt het gemakkelijker om het gewicht te houden.',
+					'title'   => 'Hoeveel boterhammen eet je gemiddeld per dag?',
+					'text'    => 'Een portie havermout telt als één snee brood. Brood is een belangrijke bron van B-vitamines, ijzer en voedingsvezels. Brood is de belangrijkste bron van jodium in Nederland. Kies bij voorkeur volkoren varianten. Het verzadigd goed en zorgt ervoor dat u minder snel weer trek hebt en maakt het gemakkelijker om het gewicht te houden.',
 					'options' =>
 						[
 							1 => 'Geen',
@@ -236,9 +221,7 @@ Brood is een belangrijke bron van B-vitamines, ijzer en voedingsvezels. Brood is
 			'3-4'  =>
 				[
 					'title'   => 'Gebruik je halvarine/margarine/boter op je brood en/of tijdens het koken?',
-					'text'    => 'Halvarine en margarine zijn belangrijke bronnen van vitamine A en D. Boter is een belangrijke bron van vitamine A.
- 
-Olieen bevat geen vitamine A en D, ',
+					'text'    => 'Halvarine en margarine zijn belangrijke bronnen van vitamine A en D. Boter is een belangrijke bron van vitamine A. Olieen bevat geen vitamine A en D, ',
 					'options' =>
 						[
 							1 => 'Ja',
@@ -249,9 +232,7 @@ Olieen bevat geen vitamine A en D, ',
 			'3-5'  =>
 				[
 					'title'   => 'Hoeveel porties aardappelen, rijst, pasta, couscous en quinoa, e.d. eet je gemiddeld per dag?',
-					'text'    => 'Pasta, rijst, aardappelen, couscous e.d. zijn een belangrijke bron van B-vitamines en mineralen. Kies bij voorkeur volkoren variantien. 
-
-',
+					'text'    => 'Pasta, rijst, aardappelen, couscous e.d. zijn een belangrijke bron van B-vitamines en mineralen. Kies bij voorkeur volkoren variantien.',
 					'options' =>
 						[
 							1 => 'Geen',
@@ -275,10 +256,8 @@ Olieen bevat geen vitamine A en D, ',
 				[
 					'title'   => 'Eet je minimaal 1 keer per week 100 gram vette vis (zoals zalm, makreel, haring e.d.)?',
 					'text'    => 'Vis bevat gezonde visvetzuren. Deze vetzuren zijn goed voor hart en bloedvaten. Hoe vetter de vis, hoe meer gezonde vertzuren de vis bevat. Naast visvetzuren bevat vis onder andere de mineralen seleen en jodium.
-
-VETTE VIS: haring, makreel, zalm, sardines, bokking, kaviaar, paling, sprot. 
-
-Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weinig visvetzuren omdat het magere, witte vis is. ',
+								VETTE VIS: haring, makreel, zalm, sardines, bokking, kaviaar, paling, sprot. 
+								Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weinig visvetzuren omdat het magere, witte vis is. ',
 					'options' =>
 						[
 							1 => 'Nee',
@@ -288,8 +267,7 @@ Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weini
 			'3-8'  =>
 				[
 					'title'   => 'Hoeveel porties zuivel gebruik je gemiddeld per dag?',
-					'text'    => 'Zuivelproducten bevatten essentiële voedingsstoffen als vitamine B2, B12 en 
-calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuivel dat je per dag nodig hebt hangt af van jouw leeftijd.',
+					'text'    => 'Zuivelproducten bevatten essentiële voedingsstoffen als vitamine B2, B12 en calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuivel dat je per dag nodig hebt hangt af van jouw leeftijd.',
 					'options' =>
 						[
 							1 => 'Geen',
@@ -309,30 +287,20 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 							3 => 'Ingen olie',
 						],
 				],
-			'2-11' =>
-				[
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nee',
-						],
-					'title'   => 'Gebruikt u momenteel al vitaminen-/mineralensupplementen?',
-				],
 		],
 	'combinations'      =>
 		[
-			1      =>
-				[
-					'basic'          => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis',
-					'basic-10-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
+			1      => [
+				'basic'          => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis',
+				'basic-10-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
 							Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">din alder</span>
 								<span v-show="( user_data.age >= \'50\'&& user_data.age <= \'70\') && user_data.skin > \'1\'">og</span>
 								<span v-show="user_data.skin > \'1\'">mørke hudfarve</span>.
 								Det sørger vi for.',
-					'basic-10-d-alt' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
+				'basic-10-d-alt' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
 							Du skal fx have lidt ekstra D-vitamin, fordi du ikke kommer så meget ud i solen. Det sørger vi for.',
-					'basic-20-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis. I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.',
-				],
+				'basic-20-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis. I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.',
+			],
 			2      =>
 				[
 					'A' => 'Du er gravid eller ønsker at blive det. Tillykke! I den søde ventetid, sørger TakeDaily for, at du og din baby får de særlige tilskud, I har brug for.
@@ -365,14 +333,12 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 								dit energiniveau.</span>',
 					'D' => '<span v-show="user_data.immune_system == 1">
 								De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit immunforsvar, fordi det hjælper
-								kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil undgå at blive syg.
-</span>
+								kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil undgå at blive syg.</span>
 							<span v-show="user_data.smokes == 1">
 								Vi anbefaler selvfølgelig, at du stopper med at ryge. Men så længe du ryger, sørger TakeDaily for, at du får lidt ekstra
 								C-vitamin. Det er nemlig videnskabeligt bevist, at behovet for C-vitamin er større, når du ryger, fordi tobaksrøg ilter og
 								ødelægger vitaminet. Stopper du med at ryge, så husk at ændre din profil på <a href="/account" target="_blank">Mit Take
-									Daily</a>.
-</span>
+									Daily</a>.</span>
 							<span v-show="user_data.vegetarian == 1">
 								Kød indeholder masser af jern, B1- og B12-vitamin. Som vegetar kan det være svært at få nok af det hele gennem kosten. Begge
 								B-vitaminer er vigtige komponenter i dit energistofskifte. B1 omsætter fx kulhydrat til druesukker, og når druesukker forbrændes
@@ -388,8 +354,7 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 						at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
 						Begynder du at spise mere frugt, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så
-						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
-</span>
+						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.</span>
 					<span v-show="user_data.foods.vegetables == 1">
 						Grøntsager er en vigtig kilde til B9-vitamin, C-vitamin, folsyre og kalium. TakeDaily sørger for, at du får det, du behøver –
 						og så kan du fortsætte med at spise, som du gør nu.
@@ -403,8 +368,7 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 						føler dig frisk hver dag.
 						<br/><br/>
 						Begynder du at spise mere brød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så
-						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
-</span>
+						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.</span>
 					<span v-show="user_data.foods.wheat == 1">
 						Du spiser ikke nok pasta, ris og kartofler, og derfor går din krop glip af gode kulhydrater, som er en vigtig kilde til
 						B-vitamin og mineraler. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
@@ -513,9 +477,9 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 					2 => '13:00 - 15:00 uur',
 					3 => '15:00 - 17:00 uur',
 				],
-		    'today' => 'I dag',
-		    'tomorrow' => 'I morgen',
-		    'success' => 'Tak, vi ringer til dig snarest!'
+			'today'       => 'I dag',
+			'tomorrow'    => 'I morgen',
+			'success'     => 'Tak, vi ringer til dig snarest!'
 		],
 	'datepicker'        =>
 		[
@@ -536,8 +500,7 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 				],
 			'months_short' =>
 				[
-					1  => 'Jan
-',
+					1  => 'Jan',
 					2  => 'Feb',
 					3  => 'Mrt',
 					4  => 'Apr',
@@ -552,8 +515,7 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 				],
 			'days_long'    =>
 				[
-					1 => 'Zondag
-',
+					1 => 'Zondag',
 					2 => 'Maandag',
 					3 => 'Dinsdag',
 					4 => 'Woensdag',
@@ -584,8 +546,7 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 	'show'              =>
 		[
 			'supplements'     => 'Supplementen',
-			'description'     => 'Beschrijving
-',
+			'description'     => 'Beschrijving',
 			'change-vitamins' => 'Wil je jouw vitaminenpakket veranderen?',
 			'click-me'        => 'Klik hier',
 		],
@@ -597,12 +558,10 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 			'send-them'            => 'Stuur mij een link met mijn persoonlijke advies',
 			'send'                 =>
 				[
-					'title'       => 'Mijn persoonlijk advies versturen
-',
+					'title'       => 'Mijn persoonlijk advies versturen',
 					'email'       => 'Jouw emailadres:',
 					'send'        => 'Versturen',
-					'cancel'      => 'Annuleren
-',
+					'cancel'      => 'Annuleren',
 					'placeholder' => 'navn@email.dk',
 					'error'       => 'Zou je je emailadres in kunnen vullen?',
 					'success'     => 'Mijn persoonlijk advies is verstuurd',

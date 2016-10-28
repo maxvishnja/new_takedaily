@@ -19,7 +19,7 @@ class SetLocale
 		$domainEndings = [
 			'dk'    => 'da',
 			'com'   => 'en',
-			'co.uk' => 'en',
+			'co.uk' => 'en'
 		];
 
 		$domainRedirects = [
@@ -36,10 +36,10 @@ class SetLocale
 
 		if ( isset( $domainRedirects[ $locale ] ) )
 		{
-			$host = $request->getUri();
-			$redirectTo = str_replace($locale, $domainRedirects[ $locale ], $host);
+			$host       = $request->getUri();
+			$redirectTo = str_replace( $locale, $domainRedirects[ $locale ], $host );
 
-			return \Redirect::away($redirectTo);
+			return \Redirect::away( $redirectTo );
 		}
 
 		if ( isset( $domainEndings[ $locale ] ) )
