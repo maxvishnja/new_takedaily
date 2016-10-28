@@ -183,14 +183,6 @@
 			s0.parentNode.insertBefore(s1, s0);
 		})();
 	</script>
-	<script>
-		(function () {
-			setTimeout(function()
-			{
-				@yield('tawk-script', 'Tawk_API = Tawk_API || {};Tawk_API.toggle();')
-			}, 10);
-		})();
-	</script>
 	<!--End of Tawk.to Script-->
 
 	<!-- Facebook Pixel Code -->
