@@ -186,7 +186,7 @@ class CheckoutController extends Controller
 
 		$checkoutCompletion = new CheckoutCompletion( $checkout );
 
-		$password = str_random( 8 );
+		$password = ($request->session()->has( 'user_data') && isset(json_decode($request->session()->get( 'user_data'))->birthdate)) ? date('Y-m-d', strtotime(json_decode($request->session()->get( 'user_data'))->birthdate)) : str_random( 8 );
 		$name     = $request->session()->get( 'name' );
 		$email    = $request->session()->get( 'email' );
 
