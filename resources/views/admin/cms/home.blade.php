@@ -37,7 +37,7 @@
 							<div class="btn-group">
 								<a class="btn btn-info" href="{{ URL::action('Dashboard\PageController@edit', [ 'id' => $page->id ]) }}"><i class="icon-pencil"></i>
 									Rediger</a>
-								<a class="btn btn-default" href="/@if($page->url_identifier != 'home'){{ $page->url_identifier }}@endif" target="_blank"><i class="icon-eye-open"></i>
+								<a class="btn btn-default" href="/@if($page->url_identifier != 'home')page/{{ $page->url_identifier }}@endif" target="_blank"><i class="icon-eye-open"></i>
 									Vis</a>
 							</div>
 						</td>
