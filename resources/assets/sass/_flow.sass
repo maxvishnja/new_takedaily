@@ -13,6 +13,28 @@
 body.page-flow
 	height: 100%
 
+	.flow-helper
+		position: absolute
+		right: 10px
+		top: 10px
+		text-align: center
+
+		.flow-helper_button
+			background: #fafafa
+			border: 1px solid #eee
+			border-radius: 2px
+			padding: 8px 14px
+			display: inline-block
+			margin-right: 10px
+
+			&:hover
+				text-decoration: none
+				background: #f7f7f7
+				border-color: #ccc
+
+			&:last-child
+				margin-right: 0
+
 	#advises-block a
 		color: $main-green-dark
 		text-decoration: underline
@@ -28,6 +50,7 @@ body.page-flow
 		font-weight: normal
 
 	.flow-container
+
 		h3.substep-title
 			font-weight: normal
 			font-size: 26px
