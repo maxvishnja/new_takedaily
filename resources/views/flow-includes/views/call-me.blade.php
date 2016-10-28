@@ -17,7 +17,7 @@
 			<form method="post" action="{{ URL::route('ajax-call-me') }}" id="call-me-form">
 				<input type="number" pattern="\d." maxlength="14" name="phone"
 					   class="input input--regular input--plain input--no-number input--spacing input--full-mobile m-t-10"
-					   placeholder="12 34 56 78" required="required"/>
+					   placeholder="{{ trans('flow.call-me.placeholder') }}" required="required"/>
 				<select class="select select--regular select--spacing select--plain select--full-mobile m-t-10"
 						name="period">
 					@foreach(trans('flow.call-me.options') as $option)

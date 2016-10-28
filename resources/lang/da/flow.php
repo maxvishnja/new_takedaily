@@ -483,6 +483,7 @@ Olie indeholder hverken A- eller D-vitamin.',
 		],
 	'call-me'           =>
 		[
+			'placeholder' => '12 34 56 78',
 			'title'       => 'Har du brug for rådgivning / hjælp?',
 			'text'        => 'Bliv ringet op, indtast dit tlf. nummer og vælg tidspunkt.',
 			'button-text' => 'Ring mig op',

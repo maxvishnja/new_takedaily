@@ -501,6 +501,7 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 		],
 	'call-me'           =>
 		[
+			'placeholder' => '12 34 56 78 90',
 			'title'       => 'Heb je geen tijd om de test in te vullen?',
 			'text'        => 'Wil je graag dat wij je bellen voor het geven van een persoonlijk advies? Vermeld dan hieronder jouw telefoonnummer en de tijd dat je gebeld wilt worden.',
 			'button-text' => 'Versturen',
