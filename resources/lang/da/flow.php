@@ -1,323 +1,323 @@
 <?php
 
-return [
-	'back'              => '&lsaquo; Tilbage til tidligere spørgsmål',
-	'title'             => 'Find din anbefaling - TakeDaily',
-	'scripts'           => 'Venligst aktiver javascripts.',
-	'steps'             =>
-		[
-			'one'   => 'PERSONLIGT',
-			'two'   => 'HELBRED',
-			'three' => 'KOST OG VANER',
-			'four'  => 'ANBEFALING',
-		],
-	'info'              =>
-		[
-			'chiaoil' => 'Chiaolie er...',
-			'fishoil' => 'Fiskeolie er...',
-		],
-	'button-order-text' => 'Bestil TakeDaily',
-	'questions'         =>
-		[
-			'1-1'  =>
-				[
-					'title'   => 'Hvilket køn er du?',
-					'text'    => 'Mænd og kvinder kan have brug for forskellige mængder vitaminer og mineraler.
+return array (
+  'back' => '&lsaquo; Tilbage til tidligere spørgsmål',
+  'title' => 'Find din anbefaling - TakeDaily',
+  'scripts' => 'Venligst aktiver javascripts.',
+  'steps' => 
+  array (
+    'one' => 'PERSONLIGT',
+    'two' => 'HELBRED',
+    'three' => 'KOST OG VANER',
+    'four' => 'ANBEFALING',
+  ),
+  'info' => 
+  array (
+    'chiaoil' => 'Chiaolie er...',
+    'fishoil' => 'Fiskeolie er...',
+  ),
+  'button-order-text' => 'Bestil TakeDaily',
+  'questions' => 
+  array (
+    '1-1' => 
+    array (
+      'title' => 'Hvilket køn er du?',
+      'text' => 'Mænd og kvinder kan have brug for forskellige mængder vitaminer og mineraler.
 ',
-					'options' =>
-						[
-							1 => 'Mand',
-							2 => 'Kvinde',
-						],
-				],
-			'1-2'  =>
-				[
-					'title'              => 'Hvor gammel er du?',
-					'title-alt'          => 'Vi ved det godt. Man spørger ikke en kvinde om hendes alder, men vi lover, vi ikke siger det til nogen.',
-					'age'                => 'Din fødselsdag',
-					'text'               => 'Når du bliver ældre, vil din krops behov for vitaminer og mineraler ændre sig. For eksempel har du brug for mere D-vitamin til at holde dine knogler stærke og muskler smidige.',
-					'button-text'        => 'Vælg din fødselsdagsdato',
-					'button-submit-text' => 'Ja, min fødselsdag er d. <strong>{{birthday}}</strong>',
-				],
-			'1-3'  =>
-				[
-					'title'   => 'Hvilken hudfarve matcher din bedst?',
-					'text'    => 'Er du lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud er mørkere. Så har du ikke en lys hudfarve, kan du have brug for D-vitamin-tilskud.',
-					'options' =>
-						[
-							1 => 'Lys',
-							2 => 'Medium',
-							3 => 'Mørk',
-						],
-				],
-			'1-4'  =>
-				[
-					'title'   => 'Er du udenfor hver dag mellem klokken 11.00 og 15.00 i minimum 15-30 minutter?',
-					'text'    => 'Du skal være udenfor i minimum 15-30 minutter hver dag, mellem 11.00-15.00, hvis du vil være sikker på, at din krop producerer nok D-vitamin. Hvis du ikke er ude hver dag, hvis du undgår solen eller hvis du går tildækket, vil din krop ikke være i stand til at producere tilstrækkeligt med D-vitamin.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-						],
-				],
-			'2-1'  =>
-				[
-					'title'   => 'Er du gravid, eller drømmer du om at blive det?',
-					'text'    => 'Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
+      'options' => 
+      array (
+        1 => 'Mand',
+        2 => 'Kvinde',
+      ),
+    ),
+    '1-2' => 
+    array (
+      'title' => 'Hvor gammel er du?',
+      'title-alt' => 'Vi ved det godt. Man spørger ikke en kvinde om hendes alder, men vi lover, vi ikke siger det til nogen.',
+      'age' => 'Din fødselsdag',
+      'text' => 'Når du bliver ældre, vil din krops behov for vitaminer og mineraler ændre sig. For eksempel har du brug for mere D-vitamin til at holde dine knogler stærke og muskler smidige.',
+      'button-text' => 'Vælg din fødselsdagsdato',
+      'button-submit-text' => 'Ja, min fødselsdag er d. <strong>{{birthday}}</strong>',
+    ),
+    '1-3' => 
+    array (
+      'title' => 'Hvilken hudfarve matcher din bedst?',
+      'text' => 'Er du lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud er mørkere. Så har du ikke en lys hudfarve, kan du have brug for D-vitamin-tilskud.',
+      'options' => 
+      array (
+        1 => 'Lys',
+        2 => 'Medium',
+        3 => 'Mørk',
+      ),
+    ),
+    '1-4' => 
+    array (
+      'title' => 'Er du udenfor hver dag mellem klokken 11.00 og 15.00 i minimum 15-30 minutter?',
+      'text' => 'Du skal være udenfor i minimum 15-30 minutter hver dag, mellem 11.00-15.00, hvis du vil være sikker på, at din krop producerer nok D-vitamin. Hvis du ikke er ude hver dag, hvis du undgår solen eller hvis du går tildækket, vil din krop ikke være i stand til at producere tilstrækkeligt med D-vitamin.',
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nej',
+      ),
+    ),
+    '2-1' => 
+    array (
+      'title' => 'Er du gravid, eller drømmer du om at blive det?',
+      'text' => 'Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
 							Sundhedsstyrelsen anbefaler, at du tager tilskud af folsyre, som er et B-vitamin, allerede fra du tænker på at blive gravid til 12
 							uger inde i graviditeten. Folsyre kan uden problemer tages gennem hele graviditeten. Folsyre er vigtigt, når barnets centralnervesystem udvikles.
 							<br/><br/>
 							Det kan desuden være en god ide, at tage fiskeolie gennem hele graviditeten. Det er godt for både barnet og dig.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-						],
-				],
-			'2-2'  =>
-				[
-					'title'   => 'Er du på slankekur?',
-					'text'    => 'Når din kost bliver mere fedtfattig, bliver den måske også mere ensidig, end den plejer. Og så er det vigtigt, at du stadig får de vitaminer og mineraler, som du normalt ville indtage igennem din kost. A-vitamin er godt for din hud og sammen med C-vitamin sikrer det at dit immunsystem fungere optimalt. B-vitaminer er vigtige for dit energiniveau. Så ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-						],
-				],
-			'2-3'  =>
-				[
-					'title'   => 'Hvor meget og hvor ofte motionerer du?',
-					'text'    => 'Motion er både godt for din sundhed og dit velbefindende. Hvis du dyrker meget motion, har du brug for nogle ekstra vitaminer og mineraler. B-vitaminer og jern er vigtige for dit energiniveau og din ydeevne.',
-					'options' =>
-						[
-							1 => 'Sjældent',
-							2 => 'Én gang om ugen',
-							3 => 'To gange om ugen',
-							4 => 'Oftere',
-						],
-				],
-			'2-4'  =>
-				[
-					'title'   => 'Føler du dig stresset?',
-					'text'    => 'I en stresset periode har du brug for lidt ekstra vitaminer, som kan hjælpe dig med at slappe mere af. B-vitamin giver ro på og hjælper dit nervesystem og immunforsvar med at fungere optimalt.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-						],
-				],
-			'2-5'  =>
-				[
-					'title'   => 'Føler du dig træt og mangler du energi?',
-					'text'    => 'B-vitaminerne spiller en afgørende rolle for dit energiniveau. Mangel på disse vitaminer kan derfor føre til træthed og energimangel.',
-					'options' =>
-						[
-							1 => 'Hver dag',
-							2 => 'Af og til',
-							3 => 'Sjældent',
-						],
-				],
-			'2-6'  =>
-				[
-					'title'   => 'Hvordan føler du at dit immunforsvar er i øjeblikket?',
-					'text'    => 'De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nej',
+      ),
+    ),
+    '2-2' => 
+    array (
+      'title' => 'Er du på slankekur?',
+      'text' => 'Når din kost bliver mere fedtfattig, bliver den måske også mere ensidig, end den plejer. Og så er det vigtigt, at du stadig får de vitaminer og mineraler, som du normalt ville indtage igennem din kost. A-vitamin er godt for din hud og sammen med C-vitamin sikrer det at dit immunsystem fungere optimalt. B-vitaminer er vigtige for dit energiniveau. Så ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo.',
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nej',
+      ),
+    ),
+    '2-3' => 
+    array (
+      'title' => 'Hvor meget og hvor ofte motionerer du?',
+      'text' => 'Motion er både godt for din sundhed og dit velbefindende. Hvis du dyrker meget motion, har du brug for nogle ekstra vitaminer og mineraler. B-vitaminer og jern er vigtige for dit energiniveau og din ydeevne.',
+      'options' => 
+      array (
+        1 => 'Sjældent',
+        2 => 'Én gang om ugen',
+        3 => 'To gange om ugen',
+        4 => 'Oftere',
+      ),
+    ),
+    '2-4' => 
+    array (
+      'title' => 'Føler du dig stresset?',
+      'text' => 'I en stresset periode har du brug for lidt ekstra vitaminer, som kan hjælpe dig med at slappe mere af. B-vitamin giver ro på og hjælper dit nervesystem og immunforsvar med at fungere optimalt.',
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nej',
+      ),
+    ),
+    '2-5' => 
+    array (
+      'title' => 'Føler du dig træt og mangler du energi?',
+      'text' => 'B-vitaminerne spiller en afgørende rolle for dit energiniveau. Mangel på disse vitaminer kan derfor føre til træthed og energimangel.',
+      'options' => 
+      array (
+        1 => 'Hver dag',
+        2 => 'Af og til',
+        3 => 'Sjældent',
+      ),
+    ),
+    '2-6' => 
+    array (
+      'title' => 'Hvordan føler du at dit immunforsvar er i øjeblikket?',
+      'text' => 'De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit
 							immunforsvar, fordi det hjælper kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil
 							undgå at blive syg.',
-					'options' =>
-						[
-							1 => 'Godt',
-							2 => 'Moderat',
-							3 => 'Dårligt',
-						],
-				],
-			'2-7'  =>
-				[
-					'title'   => 'Ryger du?',
-					'text'    => 'Det er videnskabeligt bevist, at behovet for C-vitamin er større, hvis du ryger, fordi tobaksrøg ilter og
+      'options' => 
+      array (
+        1 => 'Godt',
+        2 => 'Moderat',
+        3 => 'Dårligt',
+      ),
+    ),
+    '2-7' => 
+    array (
+      'title' => 'Ryger du?',
+      'text' => 'Det er videnskabeligt bevist, at behovet for C-vitamin er større, hvis du ryger, fordi tobaksrøg ilter og
 							ødelægger vitaminet.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-						],
-				],
-			'2-8'  =>
-				[
-					'title'         => 'Er du vegetar/veganer?',
-					'text'          => 'Kød indeholder masser af jern, B1- og B12-vitamin. Disse vitaminer er vigtige komponenter i dit
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nej',
+      ),
+    ),
+    '2-8' => 
+    array (
+      'title' => 'Er du vegetar/veganer?',
+      'text' => 'Kød indeholder masser af jern, B1- og B12-vitamin. Disse vitaminer er vigtige komponenter i dit
 					energistofskifte. Desuden er mælkeprodukter en vigtig kilde til calcium, der holder knogler og muskler stærke.',
-					'options'       =>
-						[
-							1 => 'Ja, jeg er vegetar',
-							2 => 'Nej, jeg spiser også kød og fisk',
-						],
-					'button-text'   => 'Hvor langt er du i din graviditet?',
-					'select'        => 'Uge',
-					'pick-one'      => 'Vælg uge her',
-					'i-have-a-wish' => 'Jeg ønsker at blive gravid',
-				],
-			'2-9'  =>
-				[
-					'title'   => 'Har du ømme muskler eller ondt i dine led?',
-					'text'    => 'Nogle næringsstoffer er gode for dine led og muskler. Mangel på D-vitamin kan ligefrem give svage muskler
+      'options' => 
+      array (
+        1 => 'Ja, jeg er vegetar',
+        2 => 'Nej, jeg spiser også kød og fisk',
+      ),
+      'button-text' => 'Hvor langt er du i din graviditet?',
+      'select' => 'Uge',
+      'pick-one' => 'Vælg uge her',
+      'i-have-a-wish' => 'Jeg ønsker at blive gravid',
+    ),
+    '2-9' => 
+    array (
+      'title' => 'Har du ømme muskler eller ondt i dine led?',
+      'text' => 'Nogle næringsstoffer er gode for dine led og muskler. Mangel på D-vitamin kan ligefrem give svage muskler
 							og muskelsmerter.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-						],
-				],
-			'2-10' =>
-				[
-					'title'   => 'Tager du allerede vitaminer og/eller mineraler?',
-					'text'    => 'Testresultatet er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nej',
+      ),
+    ),
+    '2-10' => 
+    array (
+      'title' => 'Tager du allerede vitaminer og/eller mineraler?',
+      'text' => 'Testresultatet er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
 							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre tilskud.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-						],
-				],
-			'3-1'  =>
-				[
-					'title'   => 'Hvor mange grønsager spiser du dagligt?',
-					'text'    => 'Grøntsager er en vigtig kilde til C-vitamin, folsyre og kalium.',
-					'options' =>
-						[
-							1 => 'Ingen',
-							2 => '100 gram',
-							3 => '200 gram',
-							4 => '+300 gram',
-							5 => '+4 portioner (+300 gram)',
-						],
-				],
-			'3-2'  =>
-				[
-					'title'   => 'Hvor meget frugt spiser du om dagen?',
-					'text'    => 'Frugt er en vigtig kilde til C-vitamin, folsyre, kalium og kostfibre. 
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nej',
+      ),
+    ),
+    '3-1' => 
+    array (
+      'title' => 'Hvor mange grønsager spiser du dagligt?',
+      'text' => 'Grøntsager er en vigtig kilde til C-vitamin, folsyre og kalium.',
+      'options' => 
+      array (
+        1 => 'Ingen',
+        2 => '100 gram',
+        3 => '200 gram',
+        4 => '+300 gram',
+        5 => '+4 portioner (+300 gram)',
+      ),
+    ),
+    '3-2' => 
+    array (
+      'title' => 'Hvor meget frugt spiser du om dagen?',
+      'text' => 'Frugt er en vigtig kilde til C-vitamin, folsyre, kalium og kostfibre. 
 
 1 stk. frugt svarer til et mellemstørrelse æble, to mindre frugter som en kiwi og en mandarin eller en skål med bær.
 ',
-					'options' =>
-						[
-							1 => 'Intet',
-							2 => '1 stk.',
-							3 => '2 stk. eller mere',
-						],
-				],
-			'3-3'  =>
-				[
-					'title'   => 'Hvor mange skiver brød spiser du om dagen?',
-					'text'    => 'Havregrød eller lign. tæller for én skive brød.<br/><br/>Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Vælg fuldkorn. Det mætter rigtig godt. Det får
+      'options' => 
+      array (
+        1 => 'Intet',
+        2 => '1 stk.',
+        3 => '2 stk. eller mere',
+      ),
+    ),
+    '3-3' => 
+    array (
+      'title' => 'Hvor mange skiver brød spiser du om dagen?',
+      'text' => 'Havregrød eller lign. tæller for én skive brød.<br/><br/>Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Vælg fuldkorn. Det mætter rigtig godt. Det får
 							dig til at spise mindre og gør det lettere at holde vægten. ',
-					'options' =>
-						[
-							1 => 'Intet',
-							2 => '1-2 stk.',
-							3 => '3-4 stk.',
-							4 => '4-5 stk.',
-							5 => '+6 stk.',
-						],
-				],
-			'3-4'  =>
-				[
-					'title'   => 'Kommer du smør eller margarine på brødet eller bruger du det i din daglige madlavning?',
-					'text'    => 'Margarine er en vigtige kilder til A-vitamin og D-vitamin, og smør er en god kilde til A-vitamin. Begge vitaminer er vigtige for kroppens immunforsvar.
+      'options' => 
+      array (
+        1 => 'Intet',
+        2 => '1-2 stk.',
+        3 => '3-4 stk.',
+        4 => '4-5 stk.',
+        5 => '+6 stk.',
+      ),
+    ),
+    '3-4' => 
+    array (
+      'title' => 'Kommer du smør eller margarine på brødet eller bruger du det i din daglige madlavning?',
+      'text' => 'Margarine er en vigtige kilder til A-vitamin og D-vitamin, og smør er en god kilde til A-vitamin. Begge vitaminer er vigtige for kroppens immunforsvar.
 Olie indeholder hverken A- eller D-vitamin.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-							3 => 'Nogle gange',
-						],
-				],
-			'3-5'  =>
-				[
-					'title'   => 'Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser du om dagen?',
-					'text'    => 'Pasta, ris, kartofler og lignende er fyldt med gode kulhydrater og indeholder næsten ingen fedt. Og så er
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nej',
+        3 => 'Nogle gange',
+      ),
+    ),
+    '3-5' => 
+    array (
+      'title' => 'Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser du om dagen?',
+      'text' => 'Pasta, ris, kartofler og lignende er fyldt med gode kulhydrater og indeholder næsten ingen fedt. Og så er
 							de en vigtig kilde til B-vitamin og mineraler.',
-					'options' =>
-						[
-							1 => 'Ingen',
-							2 => '1-2 portioner (50-100 gram)',
-							3 => '3-4 portioner (150-200 gram)',
-							4 => '4-5 portioner (+250 gram)',
-						],
-				],
-			'3-6'  =>
-				[
-					'title'   => 'Hvor ofte spiser du kød (og kød produkter)?',
-					'text'    => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern.',
-					'options' =>
-						[
-							1 => 'Aldrig',
-							2 => 'Et par gange om ugen eller mere',
-							3 => 'Hver dag',
-						],
-				],
-			'3-7'  =>
-				[
-					'title'   => 'Hvor ofte spiser du laks, hellefisk, makrel, pigvar, sild, ørred eller anden fed fisk til aftensmad? ',
-					'text'    => 'Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.',
-					'options' =>
-						[
-							1 => 'Nej',
-							2 => 'Ja',
-						],
-				],
-			'3-8'  =>
-				[
-					'title'   => 'Hvor mange mejeriprodukter får du dagligt?',
-					'text'    => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
+      'options' => 
+      array (
+        1 => 'Ingen',
+        2 => '1-2 portioner (50-100 gram)',
+        3 => '3-4 portioner (150-200 gram)',
+        4 => '4-5 portioner (+250 gram)',
+      ),
+    ),
+    '3-6' => 
+    array (
+      'title' => 'Hvor ofte spiser du kød (og kød produkter)?',
+      'text' => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern.',
+      'options' => 
+      array (
+        1 => 'Aldrig',
+        2 => 'Et par gange om ugen eller mere',
+        3 => 'Hver dag',
+      ),
+    ),
+    '3-7' => 
+    array (
+      'title' => 'Hvor ofte spiser du laks, hellefisk, makrel, pigvar, sild, ørred eller anden fed fisk til aftensmad? ',
+      'text' => 'Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.',
+      'options' => 
+      array (
+        1 => 'Nej',
+        2 => 'Ja',
+      ),
+    ),
+    '3-8' => 
+    array (
+      'title' => 'Hvor mange mejeriprodukter får du dagligt?',
+      'text' => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
 							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.',
-					'options' =>
-						[
-							1 => 'Ingen',
-							2 => '1 portion',
-							3 => '2-3 portioner',
-							4 => '3-4 portioner',
-						],
-				],
-			'3-9'  =>
-				[
-					'title'   => 'Ønsker du Chiaolie eller Fiskeoile?',
-					'text'    => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
-					'options' =>
-						[
-							1 => 'Chiaolie',
-							2 => 'Fiskeolie',
-							3 => 'Ingen olie',
-						],
-				],
-			'2-11' =>
-				[
-					'title'   => 'Tager du allerede vitaminer og/eller mineraler?',
-					'text'    => 'Testresultatet er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
+      'options' => 
+      array (
+        1 => 'Ingen',
+        2 => '1 portion',
+        3 => '2-3 portioner',
+        4 => '3-4 portioner',
+      ),
+    ),
+    '3-9' => 
+    array (
+      'title' => 'Ønsker du Chiaolie eller Fiskeoile?',
+      'text' => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
+      'options' => 
+      array (
+        1 => 'Chiaolie',
+        2 => 'Fiskeolie',
+        3 => 'Ingen olie',
+      ),
+    ),
+    '2-11' => 
+    array (
+      'title' => 'Tager du allerede vitaminer og/eller mineraler?',
+      'text' => 'Testresultatet er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
 							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre tilskud.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-						],
-				],
-		],
-	'combinations'      =>
-		[
-			1      =>
-				[
-					'basic'          => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis',
-					'basic-10-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nej',
+      ),
+    ),
+  ),
+  'combinations' => 
+  array (
+    1 => 
+    array (
+      'basic' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis',
+      'basic-10-d' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
 							Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">din alder</span>
 								<span v-show="( user_data.age >= \'50\'&& user_data.age <= \'70\') && user_data.skin > \'1\'">og</span>
 								<span v-show="user_data.skin > \'1\'">mørke hudfarve</span>.
 								Det sørger vi for.',
-					'basic-10-d-alt' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
+      'basic-10-d-alt' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
 							Du skal fx have lidt ekstra D-vitamin, fordi du ikke kommer så meget ud i solen. Det sørger vi for.',
-					'basic-20-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis. I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.',
-				],
-			2      =>
-				[
-					'A' => 'Du er gravid eller ønsker at blive det. Tillykke! I den søde ventetid, sørger TakeDaily for, at du og din baby får de særlige tilskud, I har brug for.
+      'basic-20-d' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis. I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.',
+    ),
+    2 => 
+    array (
+      'A' => 'Du er gravid eller ønsker at blive det. Tillykke! I den søde ventetid, sørger TakeDaily for, at du og din baby får de særlige tilskud, I har brug for.
 							<br/><br/>
 							Gennem hele graviditeten er det godt for udviklingen af babyens knogler og muskler at tage et tilskud af D-vitamin. Fiskeolie…
 							<br/><br/>
@@ -327,7 +327,7 @@ Olie indeholder hverken A- eller D-vitamin.',
 							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin), allerede når du begynder at drømme om en baby. Du skal tage folsyre
 							helt fra graviditetens begyndelse, da det har betydning for celledelingen og arvematerialet i kroppens celler. Folsyre nedsætter
 							risikoen for alvorlige medfødte misdannelser af hjerne og rygmarv (neuralrørsdefekter).',
-					'B' => 'Når du er på slankekur, har du brug for lidt ekstra vitaminer og mineraler. TakeDaily giver dig det helt rigtige miks. Husk også
+      'B' => 'Når du er på slankekur, har du brug for lidt ekstra vitaminer og mineraler. TakeDaily giver dig det helt rigtige miks. Husk også
 								at slappe af, sove og dyrke motion.
 								<br/><br/>
 								Når du har fokus på at spise fedtfattigt, bliver din kost typisk mere ensidig, end den plejer, og så har du brug for et tilskud
@@ -335,7 +335,7 @@ Olie indeholder hverken A- eller D-vitamin.',
 								varieret kost. A-vitamin er godt for din hud og dit immunsystem. Mens C-vitamin øger kroppens evne til at nedbryde fedt. Så
 								ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo. Lidt ekstra B-vitamin sørger for, at du kan præstere
 								mere, hvis du træner hårdt, og er også med til at producere og reparere celler.',
-					'C' => '<span v-show="user_data.sports == 4">
+      'C' => '<span v-show="user_data.sports == 4">
 								Når du motionerer så meget, som du gør lige nu, har du brug for ekstra vitaminer og mineraler. Vi har sammensat lige det, din
 								krop har behov for, så den kan yde sit maksimale, når du træner.
 								<br/><br/>
@@ -345,7 +345,7 @@ Olie indeholder hverken A- eller D-vitamin.',
 							<span v-show="user_data.lacks_energy < 3 || user_data.stressed == 1">
 								Når du føler dig træt og mangler energi, mangler du også B-vitaminer. Både B1, B2 , B3, B5 og B6 spiller en afgørende rolle for
 								dit energiniveau.</span>',
-					'D' => '<span v-show="user_data.immune_system == 1">
+      'D' => '<span v-show="user_data.immune_system == 1">
 								De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit immunforsvar, fordi det hjælper
 								kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil undgå at blive syg.
 </span>
@@ -359,13 +359,13 @@ Olie indeholder hverken A- eller D-vitamin.',
 								Kød indeholder masser af jern, B1- og B12-vitamin. Som vegetar kan det være svært at få nok af det hele gennem kosten. Begge
 								B-vitaminer er vigtige komponenter i dit energistofskifte. B1 omsætter fx kulhydrat til druesukker, og når druesukker forbrændes
 								i kroppen skabes energi.</span>',
-					'E' => '
+      'E' => '
 						Når du har ømme muskler og led har du brug for nogle gode næringsstoffer. Mangel på D-vitamin kan ligefrem give svage muskler og
 						muskelsmerter. Glukosamin/chonodroitin stimulerer bruskcellerne og er godt, hvis dine led fx er slidte.',
-				],
-			3      =>
-				[
-					'a' => '<span v-show="user_data.foods.fruits == 1">
+    ),
+    3 => 
+    array (
+      'a' => '<span v-show="user_data.foods.fruits == 1">
 						Frugt er en vigtig kilde til C-vitamin. Din krop får ikke nok frugt, og derfor heller ikke nok C-vitamin. TakeDaily sørger for,
 						at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
@@ -379,7 +379,7 @@ Olie indeholder hverken A- eller D-vitamin.',
 						Begynder du at spise flere grøntsager, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit Take
 							Daily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug
 						for.</span>',
-					'b' => '<span v-show="user_data.foods.bread == 1">
+      'b' => '<span v-show="user_data.foods.bread == 1">
 						Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Du spiser ikke nok brød i hverdagen, så du har brug for lidt ekstra
 						B-vitamin og jern. Når du ikke får nok jern, vil du ofte føle dig sløv. TakeDaily giver dig præcis det, der skal til, for at du
 						føler dig frisk hver dag.
@@ -394,7 +394,7 @@ Olie indeholder hverken A- eller D-vitamin.',
 						Begynder du at spise mere ris, pasta eller det, der ligner, skal du huske at ændre din profil på
 						<a href="/account" target="_blank">Mit TakeDaily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
 						indeholder lige præcis de doser, du har brug for.</span>',
-					'c' => '
+      'c' => '
 						Du får ikke mejerprodukter nok, og derfor heller ikke nok kalcium og B2-vitamin. Begge dele har dine knogler og led brug for. Vi
 						sørger for at afstemme din dosis efter din alder. Den har nemlig indflydelse på, hvor meget kalcium og B2-vitamin din krop har
 						behov for.
@@ -402,188 +402,188 @@ Olie indeholder hverken A- eller D-vitamin.',
 						Begynder du at få flere mejeriprodukter i din daglige kost, skal du huske at ændre din profil på
 						<a href="/account" target="_blank">Mit TakeDaily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
 						indeholder lige præcis de doser, du har brug for.',
-					'd' => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. TakeDaily sørger for, at du får det,
+      'd' => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. TakeDaily sørger for, at du får det,
 							du behøver – og så kan du fortsætte med at spise, som du gør nu.
 							<br/><br/>
 							Begynder du at spise kød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så er du
 							sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-					'e' => '
+      'e' => '
 						Du spiser ikke nok fisk, og derfor bliver din krop snydt for sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som
 						D-vitamin, jod og selen. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
 						Begynder du at spise mere fisk, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så
 						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-					'f' => '
+      'f' => '
 					Din daglige kost indeholder ikke nok smør, margarine eller olie, som er vigtige kilder til A-vitamin og D-vitamin. Du har brug
 					for begge vitaminer. Blandt andet for at styrke dit immunforsvar. TakeDaily sørger for, at du får det, du behøver – og så kan
 					du fortsætte med at spise, som du gør nu.
 					<br/><br/>
 					Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>.
 					Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-					'g' => 'Du har valgt Chiaoile',
-				],
-			'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
+      'g' => 'Du har valgt Chiaoile',
+    ),
+    'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.',
-		],
-	'combination_info'  =>
-		[
-			1 =>
-				[
-					'basic'          => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance</div>',
-					'basic-10-d'     => '<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+  ),
+  'combination_info' => 
+  array (
+    1 => 
+    array (
+      'basic' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance</div>',
+      'basic-10-d' => '<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
 							<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
 							<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
-					'basic-10-d-alt' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+      'basic-10-d-alt' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
 								<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
 								<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
-					'basic-20-d'     => '<span class="icon icon-musle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+      'basic-20-d' => '<span class="icon icon-musle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
 							<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
 							<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
-				],
-			2 =>
-				[
-					'A' => '<span class="icon icon-tissue-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til moderens væv vækst under graviditeten</div>
+    ),
+    2 => 
+    array (
+      'A' => '<span class="icon icon-tissue-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til moderens væv vækst under graviditeten</div>
 					<div class="clear"></div><span class="icon icon-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Spiller en rolle i celledeling proces</div>
 					<div class="clear"></div><span class="icon icon-baby-flow flow-promise-icon"></span> <div class="flow-promise-text">Støtter væksten af din baby</div>',
-					'B' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
+      'B' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
 					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
 					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>',
-					'C' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
+      'C' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
 					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
 					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">For en fit og energisk følelse</div>',
-					'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
+      'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
 					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstandsdygtighed</div>',
-					'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+      'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
 					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
 					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
-				],
-			3 =>
-				[
-					'a' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
+    ),
+    3 => 
+    array (
+      'a' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
 					<div class="clear"></div><span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
 					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
 					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>',
-					'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal kognitiv funktion</div>
+      'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal kognitiv funktion</div>
 					<div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal hud</div>
 					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">For hjerner og sund hud</div>',
-					'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Nødvendige for vedligeholdelse af normale knogler</div>
+      'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Nødvendige for vedligeholdelse af normale knogler</div>
 					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler</div>',
-					'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
+      'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
 					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
 					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">En fit og energisk følelse</div>',
-					'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal funktion af hjertet</div> <!-- // todo NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. -->
+      'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal funktion af hjertet</div> <!-- // todo NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. -->
 					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For kardiovaskulære</div>',
-					'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
+      'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
 					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
 					<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal muskelfunktion</div>
 					<div class="clear"></div><span class="icon icon-eye-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal vision</div>
 					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
-					'g' => '<span class="icon icon-chia...-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>',
-				],
-		],
-	'call-me'           =>
-		[
-			'title'       => 'Brug for rådgivning eller hjælp?',
-			'text'        => 'Bliv ringet op, indtast dit tlf. nummer og vælg tidspunkt.',
-			'button-text' => 'Ring mig op',
-			'deny'        => 'Ellers tak. Luk besked.',
-			'options'     =>
-				[
-					0 => '09:00 - 11:00',
-					1 => '11:00 - 13:00',
-					2 => '13:00 - 15:00',
-					3 => '15:00 - 17:00',
-				],
-		],
-	'datepicker'        =>
-		[
-			'months_long'  =>
-				[
-					1  => 'Januar',
-					2  => 'Februar',
-					3  => 'Marts',
-					4  => 'April',
-					5  => 'Maj',
-					6  => 'Juni',
-					7  => 'Juli',
-					8  => 'August',
-					9  => 'September',
-					10 => 'Oktober',
-					11 => 'November',
-					12 => 'December',
-				],
-			'months_short' =>
-				[
-					1  => 'Jan',
-					2  => 'Feb',
-					3  => 'Mar',
-					4  => 'Apr',
-					5  => 'Maj',
-					6  => 'Jun',
-					7  => 'Jul',
-					8  => 'Aug',
-					9  => 'Sep',
-					10 => 'Okt',
-					11 => 'Nov',
-					12 => 'Dec',
-				],
-			'days_long'    =>
-				[
-					1 => 'Søndag',
-					2 => 'Mandag',
-					3 => 'Tirsdag',
-					4 => 'Onsdag',
-					5 => 'Torsdag',
-					6 => 'Fredag',
-					7 => 'Lørdag',
-				],
-			'days_short'   =>
-				[
-					1 => 'Søn',
-					2 => 'Man',
-					3 => 'Tir',
-					4 => 'Ons',
-					5 => 'Tor',
-					6 => 'Fre',
-					7 => 'Lør',
-				],
-			'buttons'      =>
-				[
-					'clear'        => 'Nulstil',
-					'close'        => 'Luk',
-					'next-month'   => 'Næste måned',
-					'prev-month'   => 'Tidligere måned',
-					'select-month' => 'Vælg måned',
-					'select-year'  => 'Vælg årstal',
-				],
-		],
-	'show'              =>
-		[
-			'supplements'     => 'Supplementer',
-			'description'     => 'Beskrivelse',
-			'change-vitamins' => 'Ønsker du at ændre dine vitaminer?',
-			'click-me'        => 'Tryk her',
-		],
-	'four'              =>
-		[
-			'wait'                 => 'Vent venligst..',
-			'wait-text'            => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
-			'your-recommendations' => 'Dine anbefalinger',
-			'send-them'            => 'Send et link til mine anbefalinger',
-			'send'                 =>
-				[
-					'title'       => 'Send anbefaling',
-					'email'       => 'Indtast din e-mail adresse:',
-					'send'        => 'Send',
-					'cancel'      => 'Annuller',
-					'placeholder' => 'navn@email.dk',
-					'error'       => 'Du skal indtaste din e-mail!',
-					'success'     => 'Anbefalingen blev sendt!',
-				],
-		],
-	'coupon'            =>
-		[
-			'wait'  => 'Vent...',
-			'apply' => 'Anvend',
-		],
-];
+      'g' => '<span class="icon icon-chia...-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>',
+    ),
+  ),
+  'call-me' => 
+  array (
+    'title' => 'Har du ikke tid til at udfylde formularen?',
+    'text' => 'Bliv ringet op, indtast dit tlf. nummer og vælg tidspunkt.',
+    'button-text' => 'Ring mig op',
+    'deny' => 'Ellers tak. Luk besked.',
+    'options' => 
+    array (
+      0 => '09:00 - 11:00',
+      1 => '11:00 - 13:00',
+      2 => '13:00 - 15:00',
+      3 => '15:00 - 17:00',
+    ),
+  ),
+  'datepicker' => 
+  array (
+    'months_long' => 
+    array (
+      1 => 'Januar',
+      2 => 'Februar',
+      3 => 'Marts',
+      4 => 'April',
+      5 => 'Maj',
+      6 => 'Juni',
+      7 => 'Juli',
+      8 => 'August',
+      9 => 'September',
+      10 => 'Oktober',
+      11 => 'November',
+      12 => 'December',
+    ),
+    'months_short' => 
+    array (
+      1 => 'Jan',
+      2 => 'Feb',
+      3 => 'Mar',
+      4 => 'Apr',
+      5 => 'Maj',
+      6 => 'Jun',
+      7 => 'Jul',
+      8 => 'Aug',
+      9 => 'Sep',
+      10 => 'Okt',
+      11 => 'Nov',
+      12 => 'Dec',
+    ),
+    'days_long' => 
+    array (
+      1 => 'Søndag',
+      2 => 'Mandag',
+      3 => 'Tirsdag',
+      4 => 'Onsdag',
+      5 => 'Torsdag',
+      6 => 'Fredag',
+      7 => 'Lørdag',
+    ),
+    'days_short' => 
+    array (
+      1 => 'Søn',
+      2 => 'Man',
+      3 => 'Tir',
+      4 => 'Ons',
+      5 => 'Tor',
+      6 => 'Fre',
+      7 => 'Lør',
+    ),
+    'buttons' => 
+    array (
+      'clear' => 'Nulstil',
+      'close' => 'Luk',
+      'next-month' => 'Næste måned',
+      'prev-month' => 'Tidligere måned',
+      'select-month' => 'Vælg måned',
+      'select-year' => 'Vælg årstal',
+    ),
+  ),
+  'show' => 
+  array (
+    'supplements' => 'Supplementer',
+    'description' => 'Beskrivelse',
+    'change-vitamins' => 'Ønsker du at ændre dine vitaminer?',
+    'click-me' => 'Tryk her',
+  ),
+  'four' => 
+  array (
+    'wait' => 'Vent venligst..',
+    'wait-text' => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
+    'your-recommendations' => 'Dine anbefalinger',
+    'send-them' => 'Send et link til mine anbefalinger',
+    'send' => 
+    array (
+      'title' => 'Send anbefaling',
+      'email' => 'Indtast din e-mail adresse:',
+      'send' => 'Send',
+      'cancel' => 'Annuller',
+      'placeholder' => 'navn@email.dk',
+      'error' => 'Du skal indtaste din e-mail!',
+      'success' => 'Anbefalingen blev sendt!',
+    ),
+  ),
+  'coupon' => 
+  array (
+    'wait' => 'Vent...',
+    'apply' => 'Anvend',
+  ),
+);

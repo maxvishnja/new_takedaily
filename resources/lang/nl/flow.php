@@ -1,20 +1,20 @@
 <?php
 
 return array (
-  'back' => '&lsaquo; Tilbage til tidligere spørgsmål',
+  'back' => '‹ Terug naar de vorige vraag',
   'title' => 'Find din anbefaling - TakeDaily',
   'scripts' => 'Venligst aktiver javascripts.',
   'steps' => 
   array (
-    'one' => 'PERSONLIGT',
-    'two' => 'HELBRED',
-    'three' => 'KOST OG VANER',
-    'four' => 'ANBEFALING',
+    'one' => 'Personalia',
+    'two' => 'Leefstijl',
+    'three' => 'Eetpatroon',
+    'four' => 'Persoonlijk advies',
   ),
   'info' => 
   array (
-    'chiaoil' => 'Chiaolie er...',
-    'fishoil' => 'Fiskeolie er...',
+    'chiaoil' => 'Chiaolie is..',
+    'fishoil' => 'Visolie is...',
   ),
   'button-order-text' => 'Bestel TakeDaily',
   'questions' => 
@@ -22,7 +22,7 @@ return array (
     '1-1' => 
     array (
       'title' => 'Wat is jouw geslacht?',
-      'text' => 'De behoeften aan vitaminen en mineralen van vrouwen en mannen verschilt.',
+      'text' => 'De behoeften van vrouwen en mannen aan vitaminen en mineralen verschilt.',
       'options' => 
       array (
         1 => 'Man',
@@ -32,29 +32,32 @@ return array (
     '1-2' => 
     array (
       'title' => 'Wat is jouw leeftijd?',
-      'title-alt' => 'We weten dat je een vrouw natuurlijk nooit om haar leeftijd moet vragen. Wij zullen het geheim houden, dat beloven wij.',
+      'title-alt' => 'Wat is jouw leeftijd?',
       'age' => 'Geboortedaum',
-      'text' => 'Als je ouder wordt, verandert jouw behoefte aan vitaminen en mineralen. De behoefte aan vitamine D neemt bijvoorbeeld toe naarmate je ouder wordt. Vitamine D is belangrijk voor sterke botten en soepele spieren.',
+      'text' => 'Als je ouder wordt, verandert jouw behoefte aan vitaminen en mineralen. De behoefte aan vitamine D bijvoorbeeld neemt toe naarmate je ouder wordt. Vitamine D is belangrijk voor sterke botten en soepele spieren.',
       'button-text' => 'Kies jouw geboortedatum',
       'button-submit-text' => 'Ja, mijn geboortedatum is',
     ),
     '1-3' => 
     array (
-      'title' => 'Wat is jouw huidkleur of welk type komt het best overeen met jouw type huidskleur?',
+      'title' => 'Wat is jouw huidskleur of  met welk type komt jouw huidskleur het meeste overeen?',
       'text' => 'Als je een lichte huidskleur hebt kan jouw huid bij gelijke, alledaagse blootstelling
-aan zonlicht meer vitamine D aanmaken dan een donkere huid. Mensen die geen lichte huid hebben, hebben extra vitamine D nodig. ',
+aan zonlicht meer vitamine D aanmaken dan een natuurlijke getinte huid en donkere huid. Extra vitamine D is belangrijk voor mensen die geen lichte huid hebben.',
       'options' => 
       array (
         1 => 'Licht',
-        2 => 'Medium',
+        2 => 'Getint',
         3 => 'Donker',
       ),
     ),
     '1-4' => 
     array (
-      'title' => 'Ben je dagelijks tussen 11.00-15.00 uur buiten voor minimaal 15-30 minuten?',
-      'text' => 'Om dagelijks voldoende vitamine D aan te kunnen maken, dien je elke dag 15-30 minuten buiten te zijn tussen 11.00- 15.00 uur. Hierbij dienen minimaal handen en gezicht onbedekt te zijn. Tussen 11:00-15.00 uur staat de zon op zijn hoogst en is jouw lichaam instaat om vitamine D aan te maken met behulp van het zonlicht. Personen die dagelijks weinig buitenkomen, de zon mijden of buiten lichaamsbedekkende
-kleding dragen, kunnen de vitamine D tekort oplopen.',
+      'title' => 'Ben je elke dag minimaal 15-30 minuten buiten tussen 11.00-15.00 uur met gezicht en handen onbedekt?',
+      'text' => 'Vitamine D is een van de weinige vitamines die het lichaam zelf kan maken. Hiervoor dien je dagelijks tussen 11:00-15:00 uur minimaal 15-30 minuten buiten te komen met minimaal handen en gezicht onbedekt. Tussen 11:00-15.00 uur staat de zon op zijn hoogst en is jouw lichaam in staat om vitamine D aan te maken met behulp van het zonlicht. 
+
+Personen die dagelijks weinig buitenkomen, de zon mijden of buiten
+lichaamsbedekkende
+kleding dragen, kunnen een vitamine D-tekort oplopen als zij geen vitamine D supplement gebruiken. Bij volwassenen en ouderen kan een vitamine D-tekort op den duur leiden tot botontkalking en/of spierzwakte.',
       'options' => 
       array (
         1 => 'Ja',
@@ -63,8 +66,8 @@ kleding dragen, kunnen de vitamine D tekort oplopen.',
     ),
     '2-1' => 
     array (
-      'title' => 'Bent je zwanger of heb je een zwangerschapswens?',
-      'text' => 'De behoefte aan bepaalde vitamine en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken als je een zwangerschapswens hebt tot week 10 van de zwangerschap. Foliumzuur draagt bij tot de groei van het ongeboren kind en kan gebruikt worden gedurende de gehele zwangerschap.
+      'title' => 'Ben je zwanger of probeer je zwanger te worden?',
+      'text' => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt tot week 11 van de zwangerschap. Foliumzuur speelt een belangrijke rol bij de vroege ontwikkeling van het ongeboren kind. Foliumzuursupplementen kunnen zonder risico gedurende de gehele zwangerschap gebruikt worden.
 
 Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel goed voor de baby en jou.',
       'options' => 
@@ -75,10 +78,10 @@ Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel g
     ),
     '2-2' => 
     array (
-      'title' => 'Ben je op dieet om gewicht te verliezen/ af te valen?',
-      'text' => 'In de periode dat je gewicht probeert te verliezen, kan de behoefte aan bepaalde vitaminen en mineralen toenemen. Je dieet kan mogelijk eenzijdig en onvoldoende gevarieerd zijn, waardoor je lichaam behoefte heeft aan extra vitaminen en mineralen. Je behoefte aan vitamine C is hoger als je als je zwaarder bent. Vitamine C zorgt samen met vitamine A mede voor een goede weesrtand. De B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam.
+      'title' => 'Ben je momenteel op dieet om gewicht te verliezen?',
+      'text' => 'In de periode dat je gewicht probeert te verliezen, kan de behoefte aan bepaalde vitamines en mineralen toenemen. Je dieet kan mogelijk te eenzijdig zijn, waardoor je lichaam behoefte heeft aan extra vitamines en mineralen. Je behoefte aan vitamine C is hoger als je meer gewicht hebt. Vitamine C zorgt samen met vitamine A mede voor een goede weesrtand. De B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam.
 
-Het is belangrijk dat  je tijdens het afvallen geen tekorten aan vitamen en mineralen ontwikkelt.',
+Het is belangrijk dat je tijdens het afvallen geen tekorten aan vitamines en mineralen ontwikkelt.',
       'options' => 
       array (
         1 => 'Ja',
@@ -88,7 +91,7 @@ Het is belangrijk dat  je tijdens het afvallen geen tekorten aan vitamen en mine
     '2-3' => 
     array (
       'title' => 'Hoe vaak sport je?',
-      'text' => 'Bewegen is goed voor zowel jouw gezondheid en welzijn. Als je vaak sport, heb je extra behoefte aan bepaalde vitamines en mineralen. B-vitamines en ijzer zorgen bijvoorbeeld voor het bevorderen van de energiestofwisseling en lichamelijke prestaties. ',
+      'text' => 'Bewegen is goed voor zowel jouw gezondheid als welzijn. Als je vaak sport, heb je extra behoefte aan bepaalde vitamines en mineralen. B-vitamines en ijzer zorgen bijvoorbeeld voor het bevorderen van de energiestofwisseling en lichamelijke prestaties.',
       'options' => 
       array (
         1 => 'Zelden',
@@ -110,7 +113,7 @@ Het is belangrijk dat  je tijdens het afvallen geen tekorten aan vitamen en mine
     ),
     '2-5' => 
     array (
-      'title' => 'Voel je je moe en heb je een tekort aan energie?',
+      'title' => 'Hoe vaak voel je je moe en ervaar je een tekort aan energie?',
       'text' => 'B-vitamines spelen een belangrijke rol in het energieniveau van jouw lichaam. Een tekort aan  B-vitamines kan leiden tot vermoeidheid en een verlaging van het energieniveau.',
       'options' => 
       array (
@@ -123,10 +126,10 @@ Het is belangrijk dat  je tijdens het afvallen geen tekorten aan vitamen en mine
     '2-6' => 
     array (
       'title' => 'Hoe is jouw weerstand (immuunsysteem) momenteel?',
-      'text' => 'Bepaalde vitaminen kunnen jouw weerstand/immuunsysteem versterken. Vitamine C is belangrijk voor het immuunsysteem; het helpt het lichaam bij het produceren van witte bloedcellen. Ook vitamine A en D zijn belangrijk als je niet ziek wilt worden,',
+      'text' => 'Bepaalde vitamines kunnen jouw weerstand/immuunsysteem versterken. Vitamine C is belangrijk voor het immuunsysteem; het helpt het lichaam bij het produceren van witte bloedcellen. Ook vitamine A en D zijn belangrijk als je niet ziek wilt worden,',
       'options' => 
       array (
-        1 => 'Good',
+        1 => 'Goed',
         2 => 'Redelijk',
         3 => 'Slecht',
       ),
@@ -134,7 +137,7 @@ Het is belangrijk dat  je tijdens het afvallen geen tekorten aan vitamen en mine
     '2-7' => 
     array (
       'title' => 'Rook je?',
-      'text' => 'Het is wetenschappelijk bewezen dat de behoefte aan vitamine C hoger is als je rookt, omdat er meer vitamine C in het lichaam wordt afgebroken als je rookt.',
+      'text' => 'Het is wetenschappelijk bewezen dat de behoefte aan vitamine C hoger is als je rookt, omdat er meer vitamine C in het lichaam wordt afgebroken.',
       'options' => 
       array (
         1 => 'Ja',
@@ -143,20 +146,25 @@ Het is belangrijk dat  je tijdens het afvallen geen tekorten aan vitamen en mine
     ),
     '2-8' => 
     array (
-      'title' => 'Ben je vegetarier of veganist?',
+      'title' => 'Hoeveel weken bent u zwanger?',
       'text' => 'Vlees bevat veel ijzer, vitamine B1 en B12. De B-vitamines en ijzer spelen een belangrijke rol in de energiestofwisseling van het lichaam. Zuivelproducten zijn daarnaast nog een belangrijke bron van vitamine B2 en calcium. Calcium is belangrijk voor de botten en spieren. 
 
 Het is belangrijk geen tekorten te ontwikkelen aan vitaminen en mineralen.',
       'options' => 
       array (
-        1 => 'Ja',
+        1 => 'Hoelang bent u zwanger?',
         2 => 'Nee',
       ),
+      'button-text' => 'Hoeveel weken bent u reeds zwanger?',
+      'i-have-a-wish' => 'Ik ben nog niet zwanger, maar probeer zwanger te worden',
+      'select' => 'week
+',
+      'pick-one' => 'Kies hier de week',
     ),
     '2-9' => 
     array (
       'title' => 'Heb je pijnlijke spieren en/of gewrichten?',
-      'text' => 'Bepaalde vitaminen en mineralen zijn goed voor je gewrichten en spieren. Vitamine D speelt een rol bij het behouden van sterke en soepele spieren. Gebrek aan vitamine D kan leiden tot spierpijn en spierzwakte.',
+      'text' => 'Bepaalde vitamines en mineralen zijn goed voor je gewrichten en spieren. Vitamine D speelt een rol bij het behouden van sterke en soepele spieren. Gebrek aan vitamine D kan leiden tot spierpijn en spierzwakte.',
       'options' => 
       array (
         1 => 'Ja',
@@ -165,9 +173,10 @@ Het is belangrijk geen tekorten te ontwikkelen aan vitaminen en mineralen.',
     ),
     '2-10' => 
     array (
-      'title' => 'Tager du allerede vitaminer og/eller mineraler?',
-      'text' => 'Testresultatet er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
-							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre tilskud.',
+      'title' => 'Gebruik je momenteel vitamine- en/of mineralensupplementen?',
+      'text' => 'De resultaten van deze test zijn gebaseerd op uw specifieke leeftstijl en eetpatroon. TakeDaily draagt zorg dat jij alle vitaminen en mineralen binnenkrijgt die je nodig hebt. Als de TakeDaily supplementen worden gebruikt, zijn andere vitaminen-/mineralensupplementen niet meer nodig. 
+
+Wil je extra supplementen gebruiken naast de TakeDaily supplementen, raadpleeg dan altijd eerst jouw huisarts.',
       'options' => 
       array (
         1 => 'Ja',
@@ -183,7 +192,7 @@ Het is belangrijk geen tekorten te ontwikkelen aan vitaminen en mineralen.',
         1 => 'Nooit',
         2 => '100 gram',
         3 => '200 gram',
-        4 => '+300 gram',
+        4 => '300 gram of meer',
         5 => '+4 portioner (+200 gram)',
       ),
     ),
@@ -197,7 +206,7 @@ Tel twee kleine stukken fruit (bijvoorbeeld mandarijnen en kiwi\'s) als 1 stuk f
       array (
         1 => 'Geen',
         2 => '1 stuk',
-        3 => '2 stuk of meer',
+        3 => '2 stuks of meer',
       ),
     ),
     '3-3' => 
@@ -206,19 +215,19 @@ Tel twee kleine stukken fruit (bijvoorbeeld mandarijnen en kiwi\'s) als 1 stuk f
 ',
       'text' => 'Een portie havermout telt als één snee brood. 
 
-Brood is een belangrijke bron van B-vitamines, ijzer en voedingsvezels. Kies volkorern varianten. Het verzadigd goed en zorgt ervoor dat u minder snel weer trek hebt en maakt het gemakkelijker om het gewicht te houden. ',
+Brood is een belangrijke bron van B-vitamines, ijzer en voedingsvezels. Brood is de belangrijkste bron van jodium in Nederland. Kies bij voorkeur volkoren varianten. Het verzadigd goed en zorgt ervoor dat u minder snel weer trek hebt en maakt het gemakkelijker om het gewicht te houden.',
       'options' => 
       array (
         1 => 'Geen',
         2 => '1-2 sneden brood ',
         3 => '3-4 sneden brood ',
         4 => '4-5 sneden brood',
-        5 => '6 sneden brood of mee',
+        5 => '6 sneden brood of meer',
       ),
     ),
     '3-4' => 
     array (
-      'title' => 'Hoe gebruik je halvarine, margarine en boter op je brood en/of tijdens het koken?',
+      'title' => 'Gebruik je halvarine/margarine/boter op je brood en/of tijdens het koken?',
       'text' => 'Halvarine en margarine zijn belangrijke bronnen van vitamine A en D. Boter is een belangrijke bron van vitamine A.
  
 Olieen bevat geen vitamine A en D, ',
@@ -231,49 +240,54 @@ Olieen bevat geen vitamine A en D, ',
     ),
     '3-5' => 
     array (
-      'title' => 'Hoeveel porties aardappelen, rijst, pasta, couscous en quinoa ',
-      'text' => 'Pasta, ris, kartofler og lignende er fyldt med gode kulhydrater og indeholder næsten ingen fedt. Og så er
-							de en vigtig kilde til B-vitamin og mineraler.',
+      'title' => 'Hoeveel porties aardappelen, rijst, pasta, couscous en quinoa, e.d. eet je gemiddeld per dag?',
+      'text' => 'Pasta, rijst, aardappelen, couscous e.d. zijn een belangrijke bron van B-vitamines en mineralen. Kies bij voorkeur volkoren variantien. 
+
+',
       'options' => 
       array (
-        1 => 'Ingen',
-        2 => '1-2 portioner (50-100 gram)',
-        3 => '3-4 portioner (150-200 gram)',
-        4 => '4-5 portioner (+250 gram)',
+        1 => 'Geen',
+        2 => '1-2 porties (50-100 gram)',
+        3 => '3-4 porties(150-200 gram)',
+        4 => '4-5 porties of meer (200-250 gram)',
       ),
     ),
     '3-6' => 
     array (
-      'title' => 'Hvor ofte spiser du kød (og kød produkter)?',
-      'text' => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern.',
+      'title' => 'Hoe vaak eet jij vlees en vleeswaren?',
+      'text' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en de mineralen ijzer, zink en seleen.',
       'options' => 
       array (
-        1 => 'Aldrig',
-        2 => 'Et par gange om ugen eller mere',
-        3 => 'Hver dag',
+        1 => 'Geen',
+        2 => 'Een aantal dagen per week',
+        3 => 'Iedere dag',
       ),
     ),
     '3-7' => 
     array (
-      'title' => 'Spiser du fed fish mindst én gang om ugen?',
-      'text' => 'Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.',
+      'title' => 'Eet je minimaal 1 keer per week 100 gram vette vis (zoals zalm, makreel, haring e.d.)?',
+      'text' => 'Vis bevat gezonde visvetzuren. Deze vetzuren zijn goed voor hart en bloedvaten. Hoe vetter de vis, hoe meer gezonde vertzuren de vis bevat. Naast visvetzuren bevat vis onder andere de mineralen seleen en jodium.
+
+VETTE VIS: haring, makreel, zalm, sardines, bokking, kaviaar, paling, sprot. 
+
+Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weinig visvetzuren omdat het magere, witte vis is. ',
       'options' => 
       array (
-        1 => 'Nej',
+        1 => 'Nee',
         2 => 'Ja',
       ),
     ),
     '3-8' => 
     array (
-      'title' => 'Hvor mange mejeriprodukter får du dagligt?',
-      'text' => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
-							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.',
+      'title' => 'Hoeveel porties zuivel gebruik je gemiddeld per dag?',
+      'text' => 'Zuivelproducten bevatten essentiële voedingsstoffen als vitamine B2, B12 en 
+calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuivel dat je per dag nodig hebt hangt af van jouw leeftijd.',
       'options' => 
       array (
-        1 => 'Ingen',
-        2 => '1 portion',
-        3 => '2-3 portioner',
-        4 => '3-4 portioner',
+        1 => 'Geen',
+        2 => '1 portie (150 ml/gram)',
+        3 => '2-3 porties (300-450 ml/gram)',
+        4 => '3-4 porties (450-600 ml/gram)',
       ),
     ),
     '3-9' => 
@@ -283,9 +297,18 @@ Olieen bevat geen vitamine A en D, ',
       'options' => 
       array (
         1 => 'Chiaolie',
-        2 => 'Fiskeolie',
+        2 => 'Visolie',
         3 => 'Ingen olie',
       ),
+    ),
+    '2-11' => 
+    array (
+      'options' => 
+      array (
+        1 => 'Ja',
+        2 => 'Nee',
+      ),
+      'title' => 'Gebruikt u momenteel al vitaminen-/mineralensupplementen?',
     ),
   ),
   'combinations' => 
@@ -470,30 +493,31 @@ Olieen bevat geen vitamine A en D, ',
   ),
   'call-me' => 
   array (
-    'title' => 'Har du ikke tid til at udfylde formularen?',
-    'text' => 'Bliv ringet op, indtast dit tlf. nummer og vælg tidspunkt.',
-    'button-text' => 'Bel mij',
+    'title' => 'Heb je geen tijd om de test in te vullen?',
+    'text' => 'Wil je graag dat wij je bellen voor het geven van een persoonlijk advies? Vermeld dan hieronder jouw telefoonnummer en de tijd dat je gebeld wilt worden.',
+    'button-text' => 'Versturen',
     'deny' => 'Ellers tak. Luk besked.',
     'options' => 
     array (
-      0 => '09:00 - 11:00',
-      1 => '11:00 - 13:00',
-      2 => '13:00 - 15:00',
-      3 => '15:00 - 17:00',
+      0 => '09:00 - 11:00 uur',
+      1 => '11:00 - 13:00 uur',
+      2 => '13:00 - 15:00 uur',
+      3 => '15:00 - 17:00 uur
+',
     ),
   ),
   'datepicker' => 
   array (
     'months_long' => 
     array (
-      1 => 'Januar',
-      2 => 'Februar',
-      3 => 'Marts',
+      1 => 'Januari',
+      2 => 'Februari',
+      3 => 'Maart',
       4 => 'April',
-      5 => 'Maj',
+      5 => 'Mei',
       6 => 'Juni',
       7 => 'Juli',
-      8 => 'August',
+      8 => 'Augustus',
       9 => 'September',
       10 => 'Oktober',
       11 => 'November',
@@ -501,11 +525,12 @@ Olieen bevat geen vitamine A en D, ',
     ),
     'months_short' => 
     array (
-      1 => 'Januari',
+      1 => 'Jan
+',
       2 => 'Feb',
-      3 => 'Mar',
+      3 => 'Mrt',
       4 => 'Apr',
-      5 => 'Maj',
+      5 => 'Mei',
       6 => 'Jun',
       7 => 'Jul',
       8 => 'Aug',
@@ -516,61 +541,65 @@ Olieen bevat geen vitamine A en D, ',
     ),
     'days_long' => 
     array (
-      1 => 'Søndag',
-      2 => 'Mandag',
-      3 => 'Tirsdag',
-      4 => 'Onsdag',
-      5 => 'Torsdag',
-      6 => 'Fredag',
-      7 => 'Lørdag',
+      1 => 'Zondag
+',
+      2 => 'Maandag',
+      3 => 'Dinsdag',
+      4 => 'Woensdag',
+      5 => 'Donderdag',
+      6 => 'Vrijdag',
+      7 => 'Zaterdag',
     ),
     'days_short' => 
     array (
-      1 => 'Søn',
-      2 => 'Man',
-      3 => 'Tir',
-      4 => 'Ons',
-      5 => 'Tor',
-      6 => 'Fre',
-      7 => 'Lør',
+      1 => 'Zo',
+      2 => 'Ma',
+      3 => 'Di',
+      4 => 'Woe',
+      5 => 'Do',
+      6 => 'Vrij',
+      7 => 'Zat',
     ),
     'buttons' => 
     array (
-      'clear' => 'Nulstil',
-      'close' => 'Luk',
-      'next-month' => 'Næste måned',
-      'prev-month' => 'Tidligere måned',
-      'select-month' => 'Vælg måned',
-      'select-year' => 'Vælg årstal',
+      'clear' => 'Resetten',
+      'close' => 'Dicht',
+      'next-month' => 'Volgende maand',
+      'prev-month' => 'Afgelopen maand',
+      'select-month' => 'Kies een maand',
+      'select-year' => 'Kies een jaar',
     ),
   ),
   'show' => 
   array (
-    'supplements' => 'Supplementer',
-    'description' => 'Beskrivelse',
-    'change-vitamins' => 'Ønsker du at ændre dine vitaminer?',
-    'click-me' => 'Tryk her',
+    'supplements' => 'Supplementen',
+    'description' => 'Beschrijving
+',
+    'change-vitamins' => 'Wil je jouw vitaminenpakket veranderen?',
+    'click-me' => 'Klik hier',
   ),
   'four' => 
   array (
-    'wait' => 'Vent venligst..',
-    'wait-text' => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
-    'your-recommendations' => 'Dine anbefalinger',
-    'send-them' => 'Send et link til mine anbefalinger',
+    'wait' => 'Even geduld a.u.b.',
+    'wait-text' => 'Even geduld a.u.b., TakeDaily stelt nu jouw persoonlijke pakket samen',
+    'your-recommendations' => 'Jouw persoonlijk advies',
+    'send-them' => 'Stuur mij een link met mijn persoonlijke advies',
     'send' => 
     array (
-      'title' => 'Send anbefaling',
-      'email' => 'Indtast din e-mail adresse:',
-      'send' => 'Send',
-      'cancel' => 'Annuller',
+      'title' => 'Mijn persoonlijk advies versturen
+',
+      'email' => 'Jouw emailadres:',
+      'send' => 'Versturen',
+      'cancel' => 'Annuleren
+',
       'placeholder' => 'navn@email.dk',
-      'error' => 'Du skal indtaste din e-mail!',
-      'success' => 'Anbefalingen blev sendt!',
+      'error' => 'Zou je je emailadres in kunnen vullen?',
+      'success' => 'Mijn persoonlijk advies is verstuurd',
     ),
   ),
   'coupon' => 
   array (
-    'wait' => 'Vent...',
-    'apply' => 'Anvend',
+    'wait' => 'Wacht...',
+    'apply' => 'Gebruik',
   ),
 );

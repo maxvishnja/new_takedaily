@@ -1,8 +1,11 @@
-<?php return [
-	'title' => 'Log ind på dit TakeDaily',
-	'email_label' => 'Din e-mail adresse',
-	'password_label' => 'Din adgangskode',
-	'remember_me' => 'Husk mig',
-	'button' => 'Log ind',
-	'forgot' => 'Glemt dit kodeord?'
-];
+<?php
+
+return array (
+  'title' => 'Meld je aan bij Mijn Takedaily',
+  'email_label' => 'Jouw e-mailadres
+',
+  'password_label' => 'Jouw wachtwoord',
+  'remember_me' => 'Onthoudtmij',
+  'button' => 'Log in',
+  'forgot' => 'Wachtwoord vergeten?',
+);

@@ -1,25 +1,29 @@
 <?php
-return [
-	'title'         => 'Giv TakeDaily i gave',
-	'title-element' => 'Giv TakeDaily i gave',
-	'subtitle'      => 'Hvor mange måneder ønsker du at give?',
-	'select'        => 'Vælg gavekort',
-	'giftcard_1'    => '1 måned',
-	'giftcard_3'    => '3 måneder',
-	'giftcard_6'    => '6 måneder',
-	'steps'         => [
-		'one'   => [
-			'title' => '1. Vælg et gavekort',
-			'text'  => 'Du kan vælge at give enten 1, 3 eller 6 måneders TakeDaily til en du holder af.'
-		],
-		'two'   => [
-			'title' => '2. Vi sender gavekortet',
-			'text'  => 'Du modtager gavekortet direkte på din e-mail, så der er ingen ventetid eller besvær, du har gaven
-					lige med det samme.'
-		],
-		'three' => [
-			'title' => '3. Giv gaven',
-			'text'  => 'Du printer bare gavekortet ud og giver det som gave.'
-		]
-	]
-];
+
+return array (
+  'title' => 'Geef TakeDaily cadeau',
+  'title-element' => 'Geef TakeDaily cadeau',
+  'subtitle' => 'Hoeveel maanden wil je TakeDaily cadeau geven?',
+  'select' => 'Kies cadeaubon',
+  'giftcard_1' => '1 maand',
+  'giftcard_3' => '3 maanden',
+  'giftcard_6' => '6 maanden',
+  'steps' => 
+  array (
+    'one' => 
+    array (
+      'title' => '1. Kies de gewenste cadeaubon',
+      'text' => 'Je kunt iemand 1, 3 of 6 maanden een TakeDaily abonnement cadeau geven.',
+    ),
+    'two' => 
+    array (
+      'title' => '2. Ontvang de cadeaubon van TakeDaily ',
+      'text' => 'De cadeaubon ontvang je direct in jouw e-mail.',
+    ),
+    'three' => 
+    array (
+      'title' => '3. Geef de bon cadeau',
+      'text' => 'Je print de cadeaubon en geeft hem cadeau.',
+    ),
+  ),
+);
