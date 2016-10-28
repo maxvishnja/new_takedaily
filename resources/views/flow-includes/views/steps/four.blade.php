@@ -29,4 +29,6 @@
 
 	<textarea name="user_data" id="user_data_field" type="hidden"
 			  style="display: none;">@{{ $data.user_data | json }}</textarea>
+
+	<input type="hidden" name="flow-token" v-model="recommendation_token" />
 </div>

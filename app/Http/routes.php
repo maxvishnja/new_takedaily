@@ -222,6 +222,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			$shippingPrice = \App\Setting::getWithDefault( 'shipping_price', 0 );
 
 			$userData = [];
+			$delay    = 3200;
 
 			if ( $request->has( 'token' ) )
 			{
@@ -230,10 +231,11 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				if ( $flowCompletion )
 				{
 					$userData = $flowCompletion->user_data;
+					$delay    = 0;
 				}
 			}
 
-			return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice', 'userData' ) );
+			return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice', 'userData', 'delay' ) );
 		} )->name( 'flow' );
 
 		Route::post( 'flow/send-recommendation', function ( \Illuminate\Http\Request $request )
@@ -284,6 +286,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				'user_data' => $request->get( 'user_data', '{}' )
 			] );
 
+			$request->session()->set( 'flow-completion-token', $flowCompletion->token );
+
 			return Response::json( [
 				'advises'        => $advises,
 				'num_advises'    => count( $lib->getAdvises() ),
@@ -332,6 +336,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				}
 				Session::put( 'user_data', $userData );
 				Session::put( 'product_name', $request->get( 'product_name' ) );
+				Session::put( 'flow-completion-token', $request->get( 'flow-token' ) );
 
 				return Redirect::action( 'CheckoutController@getCheckout' );
 			}
@@ -359,12 +364,16 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			] );
 
 			Session::put( 'applied_coupon', $coupon->code );
+			Session::forget('flow-completion-token');
 
 			return Redirect::to( '/flow' );
 		} )->name( 'flow-upsell' );
 
 		Route::get( 'gifting', function ()
 		{
+			\Session::forget( 'user_data' );
+			\Session::forget('flow-completion-token');
+
 			return view( 'gifting' );
 		} )->name( 'gifting' );
 

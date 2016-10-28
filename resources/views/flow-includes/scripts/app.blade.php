@@ -209,6 +209,7 @@
 			getCombinations: function (useTimeout) {
 				var time = 0;
 				var app = this;
+				var delay = parseInt("{{ $delay }}");
 
 				combinationAjax = $.ajax({
 					url: '{{ URL::route('flow-recommendations') }}',
@@ -224,8 +225,8 @@
 
 						var timeout = curTime.getTime() - time.getTime();
 
-						if (timeout >= 3200 || !useTimeout) {
-							timeout = 3199;
+						if (timeout >= delay || !useTimeout) {
+							timeout = delay - 1;
 						}
 
 						combinationTimeout = setTimeout(function () {
@@ -238,7 +239,7 @@
 
 							$("#advises-loader").hide();
 							$("#advises-block").fadeIn();
-						}, 3200 - timeout);
+						}, delay - timeout);
 					}
 				});
 			},

@@ -49,7 +49,8 @@ class PackageController extends Controller
 			                ->with( 'success', 'Dine vitaminer blev opdateret!' ); // todo translate
 		}
 
-		\Session::remove( 'user_data' );
+		\Session::forget( 'user_data' );
+		\Session::forget('flow-completion-token');
 		\Session::put( 'package', '' );
 		\Session::put( 'product_name', 'package' );
 

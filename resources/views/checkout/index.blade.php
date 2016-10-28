@@ -37,7 +37,11 @@
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
 
-	@include('includes.promo')
+	<div class="container m-t-20">
+		@if(Request::session()->has('flow-completion-token'))
+			<a href="{{ url()->route('flow',['token' => Request::session()->get('flow-completion-token') ]) }}">{{ trans('checkout.back') }}</a>
+		@endif
+	</div>
 
 	<div class="container m-t-50" id="app">
 		<div class="row">
@@ -283,6 +287,10 @@
 					@if($product->is_subscription == 1)
 						{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y')]) !!}{{-- todo instead of $product->price, use also extra_prices/codes --}}
 					@endif
+
+					<div class="m-t-20">
+						@include('includes.promo')
+					</div>
 				</div>
 
 			</div><!-- /Totals-->

@@ -75,4 +75,8 @@
 			<div id="coupon-form-errors" class="m-t-10"></div>
 		</div>
 	</div>
+
+	<div class="card card--no-style m-t-20">
+		@include('includes.promo')
+	</div>
 </div>
