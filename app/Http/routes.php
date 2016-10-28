@@ -106,7 +106,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		{
 			$orderRepo = new \App\Apricot\Repositories\OrderRepository();
 			$view->with( 'sidebar_numOrders', $orderRepo->getPaid()->shippable()
-			                                            ->count()  );
+			                                            ->count() );
 		} );
 
 		Route::get( 'login', 'Auth\PackerAuthController@showLoginForm' );
@@ -226,7 +226,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				} );
 
 				return Response::json( [ 'message' => 'mail added to queue' ] );
-			} )->name('send-flow-recommendations');
+			} )->name( 'send-flow-recommendations' );
 
 			Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $request )
 			{
@@ -305,7 +305,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			}
 			else
 			{
-				if( Auth::check() && !Auth::user()->isUser())
+				if ( Auth::check() && ! Auth::user()->isUser() )
 				{
 					Auth::logout();
 				}
@@ -447,7 +447,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			{
 				$validator = Validator::make( $request->all(), [
 					'phone'  => 'required',
-					'period' => 'required'
+					'period' => 'required',
+					'date'   => 'required'
 				] );
 
 				if ( $validator->fails() )
@@ -459,10 +460,11 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				\App\Call::create( [
 					'phone'  => $request->get( 'phone' ),
 					'period' => $request->get( 'period' ),
+					'call_at'   => $request->get( 'date' ),
 					'status' => 'requested'
 				] );
 
-				return Response::json( [ 'message' => 'Tak, vi ringer til dig snarest!' ] ); // todo translate
+				return Response::json( [ 'message' => trans('flow.call-me.success') ] );
 			} )->name( 'ajax-call-me' );
 		} );
 

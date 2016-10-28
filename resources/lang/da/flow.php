@@ -495,6 +495,9 @@ Olie indeholder hverken A- eller D-vitamin.',
 					2 => '13:00 - 15:00',
 					3 => '15:00 - 17:00',
 				],
+			'today' => 'I dag',
+			'tomorrow' => 'I morgen',
+			'success' => 'Tak, vi ringer til dig snarest!'
 		],
 	'datepicker'        =>
 		[

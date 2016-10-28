@@ -37,7 +37,8 @@ class Call extends Model
 	protected $fillable = [
 		'phone',
 		'period',
-		'status'
+		'status',
+	    'call_at'
 	];
 	
 	/**

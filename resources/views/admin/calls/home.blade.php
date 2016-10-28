@@ -20,7 +20,7 @@
 				@foreach($calls as $call)
 					<tr>
 						<td><a href="tel:{{ $call->phone }}">{{ $call->phone }}</a></td>
-						<td>{{ $call->period }}</td>
+						<td>{{ $call->call_at }} {{ $call->period }}</td>
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $call->created_at)->format('j. M Y H:i') }}</td>
 						<td>
 							@if($call->status == 'requested' )

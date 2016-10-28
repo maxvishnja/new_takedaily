@@ -19,6 +19,12 @@
 					   class="input input--regular input--plain input--no-number input--spacing input--full-mobile m-t-10"
 					   placeholder="{{ trans('flow.call-me.placeholder') }}" required="required"/>
 				<select class="select select--regular select--spacing select--plain select--full-mobile m-t-10"
+						name="date">
+						<option value="{{ date('Y-m-d') }}">{{ trans('flow.call-me.today') }}</option>
+						<option value="{{ date('Y-m-d', strtotime('+1 day')) }}">{{ trans('flow.call-me.tomorrow') }}</option>
+				</select>
+
+				<select class="select select--regular select--spacing select--plain select--full-mobile m-t-10"
 						name="period">
 					@foreach(trans('flow.call-me.options') as $option)
 						<option value="{{ $option }}">{{ $option }}</option>

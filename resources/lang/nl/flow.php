@@ -511,9 +511,11 @@ calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuive
 					0 => '09:00 - 11:00 uur',
 					1 => '11:00 - 13:00 uur',
 					2 => '13:00 - 15:00 uur',
-					3 => '15:00 - 17:00 uur
-',
+					3 => '15:00 - 17:00 uur',
 				],
+		    'today' => 'I dag',
+		    'tomorrow' => 'I morgen',
+		    'success' => 'Tak, vi ringer til dig snarest!'
 		],
 	'datepicker'        =>
 		[
