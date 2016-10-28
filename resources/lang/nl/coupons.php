@@ -1,14 +1,15 @@
 <?php
 
-return [
-	'type' => [
-		'percentage' => 'Procentdel',
-		'amount' => 'Beløb',
-		'free_shipping' => 'Gratis fragt'
-	],
-
-	'applies' => [
-		'plan' => 'Abonnement',
-		'order' => 'Ordre'
-	]
-];
+return array (
+  'type' => 
+  array (
+    'percentage' => 'Percentage',
+    'amount' => 'Bedrag',
+    'free_shipping' => 'Gratis verzendkosten',
+  ),
+  'applies' => 
+  array (
+    'plan' => 'Abonnement',
+    'order' => 'Order',
+  ),
+);

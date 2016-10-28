@@ -1,14 +1,15 @@
 <?php
 
-return [
-	'type' => [
-		'percentage' => 'Percentage',
-		'amount' => 'Amount',
-		'free_shipping' => 'Free shipping'
-	],
-
-	'applies' => [
-		'plan' => 'Subscription',
-		'order' => 'Order'
-	]
-];
+return array (
+  'type' => 
+  array (
+    'percentage' => 'Percentage',
+    'amount' => 'Amount',
+    'free_shipping' => 'Free shipping',
+  ),
+  'applies' => 
+  array (
+    'plan' => 'Subscription',
+    'order' => 'Order',
+  ),
+);

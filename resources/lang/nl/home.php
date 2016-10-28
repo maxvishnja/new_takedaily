@@ -5,23 +5,23 @@ return array (
   array (
     'title-1' => 'Håndplukkede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
     'title-2' => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
-    'button-click-here' => 'Tag vores test <small class="button-line2">Det tager under 2 minutter</small>',
+    'button-click-here' => 'Doe de test <small class="button-line2">Duurt slechts enkele  minuten</small>',
     'button-gift-text' => 'Geef TakeDaily cadeau',
     'splash' => 
     array (
-      'text' => '4 ugers forbrug af<br/>vitaminer, mineraler og omega.',
-      'price' => '149<small> euro.</small>',
+      'text' => '4 weken <br/>vitamines en mineralen voor',
+      'price' => '18,95<small> euro.</small>',
       'info' => 'Ingen binding',
     ),
     'what-is' => 'Wat is TakeDaily?',
-    'pick' => 'eller vælg selv dine egne vitaminer',
+    'pick' => 'Of stel je eigen pakket samen',
     'cta' => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>',
   ),
   'blocks' => 
   array (
     'reviews' => 
     array (
-      'title' => 'Wat onze klanten zeggen',
+      'title' => 'Wat zeggen onze klanten',
       'items' => 
       array (
         0 => 
@@ -60,7 +60,7 @@ return array (
       'description' => '',
       'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Doe de test<small class="button-line2">Duurt slechts enkele minuten</small></strong>
 							</a>',
       'steps' => 
       array (
@@ -83,7 +83,7 @@ return array (
     ),
     'two' => 
     array (
-      'title' => 'Lev lidt sundere.<br/>Start indefra med TakeDaily.',
+      'title' => 'Lev lidt sundere.<br/>Start vandaag nog met TakeDaily!',
       'body' => '<p>
 							At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv være en udfordring. Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take Daily er diamentrale modsætninger.
 						</p>
@@ -91,12 +91,12 @@ return array (
 						<p>Ved du præcist hvad du vil have, kan du naturligvis også selv håndplukke dine vitaminer og kosttilskud.</p>',
       'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--white button--text-green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Doe de test<small class="button-line2">Duurt slects enkele minuten</small></strong>
 							</a>',
     ),
     'three' => 
     array (
-      'name' => 'Suzan, diætist',
+      'name' => 'Suzan, dietist',
       'quote' => '“Prevention is better than cure. Well said and well understood! But there are
 							certain types of headaches, which are part and parcel of you; gifted to you by birth! Sinus
 							headache is one of them, unfortunately.”',
@@ -117,8 +117,8 @@ return array (
       array (
         'one' => 
         array (
-          'title' => 'Spiser du sundt, men tillader dig selv en cigaret i ny og næ?',
-          'text' => 'Ryger du engang imellem, nedbryder røgen mange af de C-vitaminer, du indtager.',
+          'title' => 'Rook je?',
+          'text' => 'Als je rookt heb je meer vitamine C nodig. Door de sigarettenrook wordt er meer vitamine C in het lichaam afgebroken.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
@@ -126,20 +126,20 @@ return array (
         ),
         'two' => 
         array (
-          'title' => 'Er du vegetar, men ikke fan af bælgfrugter, soyabønner og tofu?',
-          'text' => 'Som vegetar er det svært at få jern og B-vitaminer nok.',
+          'title' => 'Ben je een vegetariër, maar geen grote fan van peulvruchten, sojabonen en tofu?',
+          'text' => 'Als vegetariër is het,   door het ontbreken van vlees en vis in jouw dieet, belangrijk dat je geen vitamine B12 en/of ijzer tekort ontwikkelt,',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Doe de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>
 							</a>',
         ),
         'three' => 
         array (
-          'title' => 'Har du lidt for meget om ørene for tiden?',
-          'text' => 'I en stresset periode har du brug for lidt ekstra B-vitamin.',
+          'title' => 'Ervaar je momenteel veel stress in je leven?',
+          'text' => 'In een stressvolle periode, kunnen B-vitamines je helpen meer te ontspannen.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Doe de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>
 							</a>',
         ),
         'four' => 
