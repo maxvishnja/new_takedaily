@@ -190,8 +190,7 @@ return [
 							1 => 'Nooit',
 							2 => '100 gram',
 							3 => '200 gram',
-							4 => '300 gram of meer',
-							5 => '+4 portioner (+200 gram)',
+							4 => '300 gram of meer'
 						],
 				],
 			'3-2'  =>

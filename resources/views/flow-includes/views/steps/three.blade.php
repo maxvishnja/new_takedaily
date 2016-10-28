@@ -22,11 +22,6 @@
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-vegetables-4"></span>
 				<br/>{{ trans('flow.questions.3-1.options.4') }}</label>
-			<label>
-				<input type="radio" name="step[3][1]" value="5" v-model="user_data.foods.vegetables" data-model="foods.vegetables"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-portion-vegetables-5"></span>
-				<br/>{{ trans('flow.questions.3-1.options.5') }}</label>
 		</div>
 
 		<p class="substep-explanation">{{ trans('flow.questions.3-1.text') }}</p>

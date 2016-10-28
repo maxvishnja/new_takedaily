@@ -187,8 +187,7 @@ return [
 							1 => 'Ingen',
 							2 => '100 gram',
 							3 => '200 gram',
-							4 => '+300 gram',
-							5 => '+4 portioner (+300 gram)',
+							4 => '+300 gram'
 						],
 				],
 			'3-2'  =>
