@@ -501,6 +501,10 @@ Olie indeholder hverken A- eller D-vitamin.',
 		],
 	'datepicker'        =>
 		[
+			'pick-decade' => 'Vælg årti',
+			'pick-year' => 'Vælg år',
+			'pick-month' => 'Vælg måned',
+			'pick-day' => 'Vælg dag',
 			'months_long'  =>
 				[
 					1  => 'Januar',

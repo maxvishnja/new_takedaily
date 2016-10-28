@@ -1,3 +1,13 @@
+<style>
+	.datepicker-decades:before {  content: "{!! trans('flow.datepicker.pick-decade') !!}";  }
+
+	.datepicker-years:before {  content: "{!! trans('flow.datepicker.pick-year') !!}";  }
+
+	.datepicker-months:before {  content: "{!! trans('flow.datepicker.pick-month') !!}";  }
+
+	.datepicker-days:before {  content: "{!! trans('flow.datepicker.pick-day') !!}";  }
+</style>
+
 <script>
 	$('#openPicker').datepicker({
 		startDate: "-100y",
