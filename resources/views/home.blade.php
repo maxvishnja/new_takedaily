@@ -212,6 +212,10 @@
 			</div>
 		@endif
 
+		<div class="block--faq">
+
+		</div>
+
 		<div class="video-popup" id="video_popup">
 			<div class="video-popup_container">
 				<div class="video-popup-close" id="video_popup_close"><span class="icon icon-cross-large"></span></div>
