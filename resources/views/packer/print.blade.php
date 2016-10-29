@@ -42,6 +42,49 @@
 		margin: 0;
 		padding: 0;
 	}
+
+	/*
+	 * Sticker
+	 */
+	.vitamins {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		height: 178mm;
+		width: 160mm;
+	}
+
+	.vitamins .vitamin {
+		width: 50%;
+		padding: 5pt;
+	}
+
+	.vitamins .vitamin:nth-child(2n+1) {
+		/*border-right: 1px solid #CCE9E0;*/
+	}
+
+	.vitamins .vitamin:nth-child(1),
+	.vitamins .vitamin:nth-child(2) {
+		/*border-bottom: 1px solid #CCE9E0;*/
+	}
+
+	.vitamins .vitamin:nth-child(2n+2) {
+	}
+
+	.vitamin thead th,
+	.vitamin tbody td {
+		padding-bottom: 1pt;
+	}
+
+	/*
+	 * Label
+	 */
+	address {
+		font-style: normal;
+		color: #333;
+		font-size: 18pt;
+		line-height: 1.3;
+	}
 </style>
 
 <body>

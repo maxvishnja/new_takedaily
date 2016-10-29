@@ -1,35 +1,4 @@
 {{-- todo set locale based on customer --}}
-<style>
-	.vitamins {
-		display: flex;
-		flex-direction: column;
-		flex-wrap: wrap;
-		height: 178mm;
-		width: 160mm;
-	}
-
-	.vitamins .vitamin {
-		width: 50%;
-		padding: 5pt;
-	}
-
-	.vitamins .vitamin:nth-child(2n+1) {
-		/*border-right: 1px solid #CCE9E0;*/
-	}
-
-	.vitamins .vitamin:nth-child(1),
-	.vitamins .vitamin:nth-child(2) {
-		/*border-bottom: 1px solid #CCE9E0;*/
-	}
-
-	.vitamins .vitamin:nth-child(2n+2) {
-	}
-
-	.vitamin thead th,
-	.vitamin tbody td {
-		padding-bottom: 1pt;
-	}
-</style>
 
 <div style="width: 100%; height: 220mm; padding: 0;position: relative;">
 	<div style="height: 26mm">
@@ -38,7 +7,7 @@
 	</div>
 
 	<div class="vitamins">
-		@if($customer->hasPlan())
+		@if($customer->hasPlan() )
 			@foreach($customer->getVitaminModels() as $vitaminModel)
 				<div class="vitamin">
 					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:19pt; height: 20pt;">
@@ -109,15 +78,15 @@
 					@endif
 
 					<p style="font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0;">{{ trans('label-product.ingredients') }}: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
+					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
+						<p style="font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0;">{{ trans("label-{$vitaminModel->code}.disclaimer") }}</p>
+					@endif
 				</div>
 			@endforeach
 		@endif
 	</div>
 
 	<p style="font-weight: 200;font-size: 9pt;color: #1A8562;line-height: 14pt;position: absolute; bottom: 0; height: 15mm; width: 70%; left: 15%; text-align: center">
-		@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
-			{{ trans("label-{$vitaminModel->code}.disclaimer") }}<br/>
-		@endif
 		{{ trans('label-product.recommended-daily-use') }}<br/>
 		{{ trans('label-product.info') }}
 	</p>

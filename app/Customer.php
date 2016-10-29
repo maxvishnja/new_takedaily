@@ -572,6 +572,11 @@ class Customer extends Model
 	{
 		$vitamins = json_decode( $this->getVitamins() );
 
+		if(is_null($vitamins))
+		{
+			return [];
+		}
+
 		return Vitamin::whereIn( 'id', $vitamins )->get();
 	}
 

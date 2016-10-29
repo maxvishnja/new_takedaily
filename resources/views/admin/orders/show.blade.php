@@ -1,8 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-
-
+{{--
 	<div class="btn-group pull-right" style="margin-bottom:20px">
 		<a class="btn btn-default"
 		   href="{{ URL::action('Dashboard\OrderController@download', [ 'id' => $order->id ]) }}"><i
@@ -13,7 +12,7 @@
 		   href="{{ URL::action('Dashboard\OrderController@downloadSticker', [ 'id' => $order->id ]) }}"><i
 				class="icon-download"></i>
 			Download sticker</a>
-	</div>
+	</div>--}}
 
 	<div class="clear"></div>
 
@@ -127,6 +126,6 @@
 				</tr>
 				</tfoot>
 			</table>
-		</div>
+		</div>{{-- todo format currency to DKK --}}
 	</div><!--/.module-->
 @stop

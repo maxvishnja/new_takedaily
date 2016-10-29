@@ -1,12 +1,3 @@
-<style>
-	address {
-		font-style: normal;
-		color: #333;
-		font-size: 18pt;
-		line-height: 1.3;
-	}
-</style>
-
 <div style="height: 50mm; width: 160mm">
 		<img style="width: 112pt; height: 59pt; float: right" src="{{ asset('/images/logo-postnl@2x.png') }}"/>
 
