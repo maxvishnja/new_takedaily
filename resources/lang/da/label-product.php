@@ -10,7 +10,7 @@ return [
 		'percent'  => 'Procent',
 		'minerals' => 'Mineraler'
 	],
-	'for-me' => 'Hej :name, her er en lille tekst til dit label. Pt. er der ikke noget rigtigt infromation her, men det kommer der snart. Lige nu tester vi bare for at se hvordan det ser ud. Indholdet vil selvfølgeligt være væsentligt mere spændende, og vitaminerne vil være tilpasset dit behov ligeså.',
+	'for-me' => 'Hej :name, her er en lille tekst til dit label. Pt. er der ikke noget rigtigt infromation her, men det kommer der snart.',
 	'produced-for' => 'Produceret og tilpasset til',
 	'regular-description'           => 'Denne kasse indeholder dine kosttilskud for 28 dage, åben 1 lomme pr. dag.<br/>
 										Anbefalet daglig dosis bør ikke overskrides.<br/>

@@ -1,8 +1,9 @@
 {{-- todo set locale based on customer --}}
 
 <div style="width: 100%; height: 220mm; padding: 0;position: relative;">
-	<div style="height: 26mm">
-		<h1 style="margin: 0; font-weight: normal;font-size: 16pt;color: #1A8562;text-align: center;">{{ trans('label-product.produced-for') }} <strong>{{ $customer->getName() }}</strong></h1>
+	<div style="height: 20mm">
+		<h1 style="margin: 0; font-weight: normal;font-size: 16pt;color: #1A8562;text-align: center;">{{ trans('label-product.produced-for') }}
+			<strong>{{ $customer->getName() }}</strong></h1>
 		<p style="text-align: center; font-weight: 200;font-size: 10pt;color: #1A8562;margin: 8pt 0 12pt;line-height: 17pt;">{{ trans('label-product.for-me', ['name' => $customer->getFirstname() ]) }}</p>
 	</div>
 
@@ -10,7 +11,7 @@
 		@if($customer->hasPlan() )
 			@foreach($customer->getVitaminModels() as $vitaminModel)
 				<div class="vitamin">
-					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:19pt; height: 20pt;">
+					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt;">
 					<h2 style="font-weight: bold; font-size: 11pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
 					<p style="margin: 0 0 6pt; line-height: 12pt; font-size: 8pt; color: #1A8562;">Bidrager til den normale funktion af immunforsvaret.</p>
 
@@ -86,7 +87,14 @@
 		@endif
 	</div>
 
-	<p style="font-weight: 200;font-size: 9pt;color: #1A8562;line-height: 14pt;position: absolute; bottom: 0; height: 15mm; width: 70%; left: 15%; text-align: center">
+	<div style="text-align: center">
+		@if($customer->hasPlan() && $customer->getPlan()->hasFishoil())
+			<img src="{{ asset('/images/foa_logo.png') }}" style="height: 11mm" alt="Friends of the Sea">
+		@endif
+		<img src="{{ asset('/images/kcaps.jpeg') }}" style="height: 11mm" alt="K-Caps">
+	</div>
+
+	<p style="font-weight: 200;font-size: 9pt;color: #1A8562;line-height: 10pt;position: absolute; bottom: 0; height: 10mm; width: 70%; left: 15%; text-align: center">
 		{{ trans('label-product.recommended-daily-use') }}<br/>
 		{{ trans('label-product.info') }}
 	</p>

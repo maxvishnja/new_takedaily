@@ -26,19 +26,19 @@ use Jenssegers\Date\Date;
  * @property \Carbon\Carbon     $updated_at
  * @property string             $deleted_at
  * @property-read \App\Customer $customer
- * @method static \Illuminate\Database\Query\Builder|\App\Plan whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePaymentCustomerToken($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePaymentMethod($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePrice($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePriceShipping($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan whereVitamins($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionStartedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionCancelledAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionSnoozedUntil($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionRebillAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Plan whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereId( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePaymentCustomerToken( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePaymentMethod( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePrice( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan wherePriceShipping( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereVitamins( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionStartedAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionCancelledAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionSnoozedUntil( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereSubscriptionRebillAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereCreatedAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereUpdatedAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Plan whereDeletedAt( $value )
  * @method static \Illuminate\Database\Query\Builder|\App\Plan rebillPending()
  * @mixin \Eloquent
  * @method static \Illuminate\Database\Query\Builder|\App\Plan notNotifiedPending()
@@ -70,7 +70,7 @@ class Plan extends Model
 		'subscription_snoozed_until',
 		'subscription_rebill_at',
 		'vitamins',
-	    'is_custom'
+		'is_custom'
 	];
 
 	/**
@@ -85,36 +85,48 @@ class Plan extends Model
 	 */
 	public function customer()
 	{
-		return $this->belongsTo('App\Customer', 'id', 'plan_id');
+		return $this->belongsTo( 'App\Customer', 'id', 'plan_id' );
 	}
 
 	public function isActive()
 	{
-		return !$this->isCancelled() && !is_null($this->getRebillAt());
+		return ! $this->isCancelled() && ! is_null( $this->getRebillAt() );
 	}
 
 	public function isCancelled()
 	{
-		return !is_null($this->getSubscriptionCancelledAt());
+		return ! is_null( $this->getSubscriptionCancelledAt() );
+	}
+
+	public function hasFishoil()
+	{
+		$vitamins = json_decode( $this->vitamins );
+
+		if ( is_null( $vitamins ) )
+		{
+			return false;
+		}
+
+		return Vitamin::whereIn( 'id', $vitamins )->where('code', '3e')->limit(1)->count() == 1; // todo unhardcode the 3e code
 	}
 
 	public function isSnoozed()
 	{
-		if ( !is_null($this->getSubscriptionSnoozedUntil()) && Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionSnoozedUntil())
-		                                                           ->diffInSeconds() <= 0
+		if ( ! is_null( $this->getSubscriptionSnoozedUntil() ) && Date::createFromFormat( 'Y-m-d H:i:s', $this->getSubscriptionSnoozedUntil() )
+		                                                              ->diffInSeconds() <= 0
 		)
 		{
 			$this->subscription_snoozed_until = null;
 			$this->save();
 		}
 
-		return !is_null($this->getSubscriptionSnoozedUntil());
+		return ! is_null( $this->getSubscriptionSnoozedUntil() );
 	}
 
-	public function snooze($days = 7)
+	public function snooze( $days = 7 )
 	{
 		// consider checking if $this->isSnoozeable()
-		$newDate = Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->addDays($days);
+		$newDate = Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->addDays( $days );
 
 		$this->subscription_snoozed_until = $newDate;
 		$this->subscription_rebill_at     = $newDate;
@@ -123,9 +135,9 @@ class Plan extends Model
 		return true;
 	}
 
-	public function moveRebill($days = 1)
+	public function moveRebill( $days = 1 )
 	{
-		$newDate = Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->addDays($days);
+		$newDate = Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->addDays( $days );
 
 		$this->subscription_rebill_at = $newDate;
 		$this->save();
@@ -136,16 +148,16 @@ class Plan extends Model
 	public function isSnoozeable()
 	{
 		return $this->isActive()
-		&& !$this->isSnoozed()
-		&& Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 4
-		&& Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt()) > Date::now();
+		       && ! $this->isSnoozed()
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getSubscriptionStartedAt() )->diffInDays() >= 4
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() ) > Date::now();
 	}
 
 	public function isCancelable()
 	{
-		return Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionStartedAt())->diffInDays() >= 1
-		&& Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 4
-		&& Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt()) > Date::now();
+		return Date::createFromFormat( 'Y-m-d H:i:s', $this->getSubscriptionStartedAt() )->diffInDays() >= 1
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->diffInDays() >= 4
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() ) > Date::now();
 	}
 
 	public function cancel()
@@ -170,10 +182,10 @@ class Plan extends Model
 
 	public function rebilled()
 	{
-		$this->subscription_rebill_at = Date::now()->addDays(28);
+		$this->subscription_rebill_at = Date::now()->addDays( 28 );
 		$this->save();
 
-		$this->markHasNotified(false);
+		$this->markHasNotified( false );
 
 		return true;
 	}
@@ -247,9 +259,9 @@ class Plan extends Model
 	{
 		$customerToken = $this->getPaymentCustomerToken();
 
-		$paymentMethod = new PaymentHandler(PaymentDelegator::getMethod($this->getPaymentMethod()));
+		$paymentMethod = new PaymentHandler( PaymentDelegator::getMethod( $this->getPaymentMethod() ) );
 
-		return $paymentMethod->getCustomer($customerToken);
+		return $paymentMethod->getCustomer( $customerToken );
 	}
 
 	/**
@@ -257,15 +269,15 @@ class Plan extends Model
 	 *
 	 * @return mixed
 	 */
-	public function scopeRebillPending($query)
+	public function scopeRebillPending( $query )
 	{
-		return $query->where('subscription_rebill_at', '<=', Date::now()->addDays(4))
-		             ->where(function (Builder $where)
+		return $query->where( 'subscription_rebill_at', '<=', Date::now()->addDays( 4 ) )
+		             ->where( function ( Builder $where )
 		             {
-			             $where->whereNull('subscription_snoozed_until')
-			                   ->orWhere('subscription_snoozed_until', '<=', Date::now());
-		             })
-		             ->whereNull('subscription_cancelled_at');
+			             $where->whereNull( 'subscription_snoozed_until' )
+			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now() );
+		             } )
+		             ->whereNull( 'subscription_cancelled_at' );
 	}
 
 	/**
@@ -273,12 +285,12 @@ class Plan extends Model
 	 *
 	 * @return mixed
 	 */
-	public function scopeNotNotifiedPending($query)
+	public function scopeNotNotifiedPending( $query )
 	{
-		return $query->where('has_notified_pending_rebill', 0);
+		return $query->where( 'has_notified_pending_rebill', 0 );
 	}
 
-	private function markHasNotified($hasNotified = true)
+	private function markHasNotified( $hasNotified = true )
 	{
 		$this->has_notified_pending_rebill = $hasNotified ? 1 : 0;
 
@@ -293,23 +305,23 @@ class Plan extends Model
 	{
 		$customer = $this->customer;
 
-		\Mail::send('emails.pending-rebill', [ 'rebillAt' => $this->getRebillAt() ], function (Message $message) use ($customer)
+		\Mail::send( 'emails.pending-rebill', [ 'rebillAt' => $this->getRebillAt() ], function ( Message $message ) use ( $customer )
 		{
-			$message->to($customer->getEmail(), $customer->getName())
-			        ->subject('Vi sender din næste pakke om 24 timer!');
-		});
+			$message->to( $customer->getEmail(), $customer->getName() )
+			        ->subject( 'Vi sender din næste pakke om 24 timer!' );
+		} );
 
 		$this->markHasNotified();
 
 		return true;
 	}
-	
+
 	public function isCustom()
 	{
 		return $this->is_custom == 1;
 	}
 
-	public function setIsCustom($isCustom = false)
+	public function setIsCustom( $isCustom = false )
 	{
 		$this->is_custom = $isCustom ? 1 : 0;
 		$this->save();
