@@ -2,8 +2,8 @@
 return [
 	'name'     => 'Graviditets supplement',
 	'praises'  => [
-		'one' => 'Bidrager til vævsvæksten hos den gravide kvinde',
-		'two' => 'Folat spiller en rolle i celledelingsprocessen'
+		'tissue' => 'Bidrager til vævsvæksten hos den gravide kvinde',
+		'cell' => 'Folat spiller en rolle i celledelingsprocessen'
 	],
 	'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E104, E129)), antiklumpningsmiddel (magnesium stearate), cholecalciferol, pteroylmonoglutaminsyre',
 	'other-vitamins' => [],

@@ -2,8 +2,8 @@
 return [
 	'name'        => 'Supplement til slankediæt',
 	'praises'     => [
-		'one' => 'Bidrager til immunsystemets normale funktion',
-		'two' => 'Bidrager til at mindske træthed og udmattelse'
+		'resistance' => 'Bidrager til immunsystemets normale funktion',
+		'metabolism' => 'Bidrager til at mindske træthed og udmattelse'
 	],
 	'ingredients' => 'Fyldstof (microcrystalline cellulose), L-ascorbinsyre, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E132)), antiklumpningsmiddel (magnesium stearate), retinylacetat, cyanocobalamin, phytomenadion, pyridoxal-5’-phosphat, thiaminhydrochlorid',
 	'other-vitamins' => [],

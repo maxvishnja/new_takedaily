@@ -1,10 +1,10 @@
 {{-- todo set locale based on customer --}}
 
 <div style="width: 100%; height: 220mm; padding: 0;position: relative;">
-	<div style="height: 20mm">
+	<div style="height: 18mm">
 		<h1 style="margin: 0; font-weight: normal;font-size: 16pt;color: #1A8562;text-align: center;">{{ trans('label-product.produced-for') }}
 			<strong>{{ $customer->getName() }}</strong></h1>
-		<p style="text-align: center; font-weight: 200;font-size: 10pt;color: #1A8562;margin: 8pt 0 12pt;line-height: 17pt;">{{ trans('label-product.for-me', ['name' => $customer->getFirstname() ]) }}</p>
+		<p style="text-align: center; font-weight: 200;font-size: 10pt;color: #1A8562;margin: 8pt 0 12pt;line-height: 13pt;">{{ trans('label-product.for-me', ['name' => $customer->getFirstname() ]) }}</p>
 	</div>
 
 	<div class="vitamins">
@@ -13,7 +13,13 @@
 				<div class="vitamin">
 					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt;">
 					<h2 style="font-weight: bold; font-size: 11pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
-					<p style="margin: 0 0 6pt; line-height: 12pt; font-size: 8pt; color: #1A8562;">Bidrager til den normale funktion af immunforsvaret.</p>
+					<div style="margin-bottom: 2px;font-size: 8pt; color: #1A8562;">
+						@if(is_array(trans("label-{$vitaminModel->code}.praises")))
+							@foreach(trans("label-{$vitaminModel->code}.praises") as $praiseIcon => $praise)
+								<div style="margin-bottom: 2px"><span style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praiseIcon . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>  {!! $praise !!}</div>
+							@endforeach
+						@endif
+					</div>
 
 					@if(is_array(trans("label-{$vitaminModel->code}.vitamins")) && count(trans("label-{$vitaminModel->code}.vitamins")) > 0)
 						<table style="width: 100%;">

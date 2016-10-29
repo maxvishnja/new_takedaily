@@ -3,7 +3,7 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<link href="{{ asset('/public/css/app.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css"/>
 </head>
 <style>
 	.pb {
@@ -73,7 +73,7 @@
 
 	.vitamin thead th,
 	.vitamin tbody td {
-		padding-bottom: 1pt;
+		padding-bottom: 0pt;
 	}
 
 	/*
@@ -89,10 +89,10 @@
 
 <body>
 <?php
-	$cur= 0;
+$cur = 0;
 ?>
 @foreach($printables as $printable)
-	<?php $cur++; ?>
+	<?php $cur ++; ?>
 	<div class="print" style="width: 210mm; height: 290mm;overflow: hidden">
 		<div style="width: 174mm;">
 			<div style="width: 174mm; height: 240mm;">
