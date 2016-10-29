@@ -16,7 +16,11 @@
 					<div style="margin-bottom: 2px;font-size: 8pt; color: #1A8562;">
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")))
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praiseIcon => $praise)
-								<div style="margin-bottom: 2px"><span style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praiseIcon . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>  {!! $praise !!}</div>
+								<div style="margin-bottom: 2px">
+									@if(!in_array($praiseIcon, ['one', 'two','three','four']))
+										<span style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praiseIcon . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>
+									@endif
+									{!! $praise !!}</div>
 							@endforeach
 						@endif
 					</div>
@@ -84,7 +88,8 @@
 						</table>
 					@endif
 
-					<p style="font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0;">{{ trans('label-product.ingredients') }}: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
+					<p style="font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0;">{{ trans('label-product.ingredients') }}
+						: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
 						<p style="font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0;">{{ trans("label-{$vitaminModel->code}.disclaimer") }}</p>
 					@endif
