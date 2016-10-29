@@ -2,7 +2,7 @@
 return [
 	'name'        => 'Supplement til immunforsvaret',
 	'praises'     => [
-		'resistance' => 'Bidrager til immunsystemets normale funktion'
+		'shield' => 'Bidrager til immunsystemets normale funktion'
 	],
 	'ingredients' => 'Fyldstof (microcrystalline cellulose), L-ascorbinsyre, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E110, E127)), zinkgluconat, L-selenmethionin, retinylacetat, antiklumpningsmiddel (magnesium stearate), cholecalciferol, cyanocobalamin, pyridoxal-5’-phosphat, pteroylmonoglutaminsyre',
 	'other-vitamins' => [],

@@ -3,7 +3,7 @@ return [
 	'name'        => 'Supplement til vegetarkost',
 	'praises'     => [
 		'energy'   => 'Bidrager til et normalt energistofskifte',
-		'metabolism'   => 'Bidrager til at nedsætte træthed og udmattelse'
+		'lightning'   => 'Bidrager til at nedsætte træthed og udmattelse'
 	],
 	'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand),  ferrobisglycinat, antiklumpningsmiddel (magnesium stearate), cyanocobalamin, pyridoxal-5’-phosphat, thiaminhydrochlorid',
 	'other-vitamins' => [],

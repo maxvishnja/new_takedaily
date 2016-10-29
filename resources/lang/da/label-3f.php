@@ -2,7 +2,7 @@
 return [
 	'name'        => 'Supplement til lavt indtag af smør',
 	'praises'     => [
-		'cell'   => 'Bidrager til at beskytte cellerne mod oxidativt stress',
+		'shield-cell'   => 'Bidrager til at beskytte cellerne mod oxidativt stress',
 		'bone'   => 'Bidrager til vedligeholdelse af normale knogler',
 		'muscle' => 'Bidrager til normal muskelfunktion',
 		'eye'  => 'Bidrager til vedligeholdelsen af et normalt syn'

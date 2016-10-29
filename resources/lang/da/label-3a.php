@@ -2,9 +2,9 @@
 return [
 	'name'        => 'Supplement til lavt indtag af frugt og grønt',
 	'praises'     => [
-		'cell'   => 'Bidrager til beskyttelse af celler mod oxidativt stress',
-		'resistance'   => 'Bidrager til den normale funktion af immunforsvaret',
-		'energy' => 'Bidrager til at mindske træthed og udmattelse'
+		'shield-cell'   => 'Bidrager til beskyttelse af celler mod oxidativt stress',
+		'shield'   => 'Bidrager til den normale funktion af immunforsvaret',
+		'lightning' => 'Bidrager til at mindske træthed og udmattelse'
 	],
 	'ingredients' => 'Dikaliumphosphat, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E141)), L-ascorbinsyre, fyldstof (microcrystalline cellulose), antiklumpningsmiddel (magnesium stearate), beta-caroten, pteroylmonoglutaminsyre',
 	'other-vitamins' => [],
