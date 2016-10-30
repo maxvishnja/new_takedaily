@@ -616,9 +616,8 @@ table.table
 @media all and (max-width: 767px)
 	.card
 		&.card-padding-fixer
-			[class*="col-"],
-			[class^="col-xs-"]
-				padding: 0
+			&.card--large
+				padding: 20px
 
 	table.table
 		&.table--responsive
