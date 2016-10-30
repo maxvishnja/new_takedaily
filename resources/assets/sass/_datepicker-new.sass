@@ -49,7 +49,7 @@
 .datepicker table tr td
 	&.new, &.old
 		color: #777
-	&.day:hover, &.focused
+	&.day:hover
 		background: #eee
 		cursor: pointer
 	&.disabled
@@ -99,8 +99,6 @@ fieldset[disabled] .datepicker table tr td.highlighted
 
 .datepicker table tr td
 	&.highlighted
-		&.focused
-			background: #afd9ee
 		&.disabled
 			background: #d9edf7
 			color: #777
@@ -145,8 +143,6 @@ fieldset[disabled] .datepicker table tr td.today
 
 .datepicker table tr td
 	&.today
-		&.focused
-			background: #ffc966
 		&.disabled
 			background: #ffdb99
 			color: #777
@@ -191,8 +187,6 @@ fieldset[disabled] .datepicker table tr td.range
 		border-color: #bbb
 
 .datepicker table tr td.range
-	&.focused
-		background: #d5d5d5
 	&.disabled
 		background: #eee
 		color: #777
@@ -237,8 +231,6 @@ fieldset[disabled] .datepicker table tr td.range.highlighted
 
 .datepicker table tr td.range
 	&.highlighted
-		&.focused
-			background: #c1d7e3
 		&.disabled
 			background: #e4eef3
 			color: #777
@@ -471,8 +463,6 @@ fieldset[disabled] .datepicker table tr td.active
 	margin: 1%
 	cursor: pointer
 	border-radius: 4px
-	&.focused, &:hover
-		background: #eee
 	&.disabled
 		background: 0 0
 		color: #777
