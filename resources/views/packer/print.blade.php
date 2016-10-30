@@ -84,6 +84,7 @@
 		color: #333;
 		font-size: 18pt;
 		line-height: 1.3;
+		text-transform: uppercase;
 	}
 </style>
 

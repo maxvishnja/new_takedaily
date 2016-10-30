@@ -7,7 +7,7 @@
 			@if($customer->getCustomerAttribute('address_line2') != '')
 				{{ $customer->getCustomerAttribute('address_line2') }}<br/>
 			@endif
-			{{ $customer->getCustomerAttribute('address_postal') }}, {{ $customer->getCustomerAttribute('address_city') }}<br/>
+			{{ $customer->getCustomerAttribute('address_postal') }}&nbsp;&nbsp;{{ $customer->getCustomerAttribute('address_city') }}<br/>
 			{{ ucfirst($customer->getCustomerAttribute('address_country')) }}<br/>
 		</address>
 </div>
