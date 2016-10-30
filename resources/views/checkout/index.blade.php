@@ -85,7 +85,7 @@
 						<div class="rect5"></div>
 					</div>
 
-					<div class="card card--large m-b-30">
+					<div class="card card--large m-b-30 card-padding-fixer">
 						<fb:login-button
 							scope="public_profile,email,user_birthday"
 							onlogin="checkLoginState();">

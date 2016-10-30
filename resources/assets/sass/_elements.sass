@@ -614,6 +614,12 @@ table.table
 		display: inline-block
 
 @media all and (max-width: 767px)
+	.card
+		&.card-padding-fixer
+			[class*="col-"],
+			[class^="col-xs-"]
+				padding: 0
+
 	table.table
 		&.table--responsive
 			thead

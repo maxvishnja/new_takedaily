@@ -1,4 +1,4 @@
-<div class="card card--large m-b-30" id="method-card">
+<div class="card card--large m-b-30 card-padding-fixer" id="method-card">
 	<legend class="card_title">{{ trans('checkout.index.method.title') }}</legend>
 	<div class="clear"></div>
 	<hr class="hr--dashed hr--small-margin"/>
