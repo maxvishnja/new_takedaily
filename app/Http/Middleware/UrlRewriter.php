@@ -24,7 +24,7 @@ class UrlRewriter
 
 		if ( $rewrite = $rewrite->first() )
 		{
-			return \Redirect::to($rewrite->actual_path, $rewrite->redirect_type)->send();
+			return redirect()->to($rewrite->actual_path, $rewrite->redirect_type)->send();
 		}
 
 		return $next($request);
