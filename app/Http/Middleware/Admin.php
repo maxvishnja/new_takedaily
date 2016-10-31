@@ -14,6 +14,7 @@ class Admin
 	protected $except = [
 		'dashboard/login',
 	];
+
 	/**
 	 * Handle an incoming request.
 	 *
@@ -23,35 +24,36 @@ class Admin
 	 *
 	 * @return mixed
 	 */
-	public function handle($request, Closure $next, $guard = null)
+	public function handle( $request, Closure $next, $guard = null )
 	{
-		foreach ($this->except as $except) {
-			if ($except !== '/') {
-				$except = trim($except, '/');
+		foreach ( $this->except as $except )
+		{
+			if ( $except !== '/' )
+			{
+				$except = trim( $except, '/' );
 			}
 
-			if ($request->is($except)) {
-				return $next($request);
+			if ( $request->is( $except ) )
+			{
+				return $next( $request );
 			}
 		}
 
-		if ( \Auth::guard($guard)->guest() )
+		if ( \Auth::guard( $guard )->guest() )
 		{
 			if ( $request->ajax() )
 			{
-				return response('Unauthorized.', 401);
+				return response( 'Unauthorized.', 401 );
 			}
-			else
-			{
-				return redirect()->guest('dashboard/login');
-			}
+
+			return redirect()->guest( 'dashboard/login' );
 		}
 
-		if ( \Auth::user() && !\Auth::user()->isAdmin() )
+		if ( \Auth::user() && ! \Auth::user()->isAdmin() )
 		{
-			return response('Page not found.', 404);
+			return response( 'Page not found.', 404 );
 		}
 
-		return $next($request);
+		return $next( $request );
 	}
 }
