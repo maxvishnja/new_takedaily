@@ -31,12 +31,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			return view( 'admin.home', [
 				'orders_today'    => $orderRepo->getToday()
-				                               ->count(),
+				                               ->count() ?: 0,
 				'customers_today' => $customerRepo->getToday()
-				                                  ->count(),
+				                                  ->count() ?: 0,
 				'money_today'     => $orderRepo->getToday()
 				                               ->whereNotIn( 'state', [ 'new', 'cancelled' ] )
-				                               ->sum( 'total' ),
+				                               ->sum( 'total' ) ?: 0,
 				'sales_year'      => $salesYear,
 				'customers_year'  => $customersYear
 			] );
