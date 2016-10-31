@@ -5,6 +5,7 @@ return [
 	'need-help' => 'Har du brug for hjælp?',
 	'contact' => 'Ring på tlf.: 48 16 54 09',
 	'opening-hours' => '(mandag-fredag kl. 9-15)',
+	'trustpilot' => 'Vores kunder elsker os!',
 
 	'free-shipping'   => 'Gratis fragt',
 	'no-cuffs'        => 'Ingen binding',
