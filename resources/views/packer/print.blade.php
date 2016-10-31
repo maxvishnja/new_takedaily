@@ -115,7 +115,8 @@ $cur = 0;
 	@endif
 @endforeach
 <script>
-	window.print();
+	setTimeout(function () { window.print(); }, 500);
+	window.onfocus = function () { setTimeout(function () { window.close(); }, 500); }
 </script>
 </body>
 </html>

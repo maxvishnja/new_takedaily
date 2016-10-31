@@ -127,6 +127,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		Route::resource( 'orders', 'Packer\OrderController' );
 		Route::get( 'orders/mark-sent/{id}', 'Packer\OrderController@markSent' );
 		Route::get( 'download', 'Packer\OrderController@printAll' );
+		Route::get( 'ship', 'Packer\OrderController@shipAll' );
 		Route::post( 'orders/handle-multiple', 'Packer\OrderController@handleMultiple' );
 	} );
 

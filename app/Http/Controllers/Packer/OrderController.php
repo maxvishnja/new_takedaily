@@ -50,6 +50,19 @@ class OrderController extends Controller
 		return $this->downloadMultiple( array_flatten($printableOrders->toArray()) );
 	}
 
+	function shipAll()
+	{
+		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->shippable()->select('id')->get();
+
+		/** @var Order $order */
+		foreach($printableOrders as $order)
+		{
+			$order->markSent();
+		}
+
+		return \Redirect::back()->with('success', 'Done!');
+	}
+
 	function markSent( $id )
 	{
 		$order = Order::find( $id );

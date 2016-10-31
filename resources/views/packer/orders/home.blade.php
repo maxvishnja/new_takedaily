@@ -14,23 +14,9 @@
 						<a target="_blank" href="{{ url()->action('Packer\OrderController@printAll') }}" type="button" class="btn btn-primary">
 							Print all
 						</a>
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Action <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><button name="action" class="btn btn-link" value="download"><i
-										class="icon-download"></i> Download selected
-								</button></li>
-
-							<li><button name="action" class="btn btn-link" value="mark-sent"><i
-										class="icon-truck"></i> Mark selected as sent
-								</button></li>
-
-							<li><button name="action" class="btn btn-link" value="combine"><i
-										class="icon-truck"></i><i
-										class="icon-download"></i> Download and mark selected
-								</button></li>
-						</ul>
+						<a href="{{ url()->action('Packer\OrderController@shipAll') }}" type="button" class="btn btn-default">
+							Mark all as shipped
+						</a>
 					</div>
 				</div>
 
