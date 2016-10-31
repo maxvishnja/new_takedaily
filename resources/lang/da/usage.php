@@ -1,5 +1,6 @@
 <?php
-	return [
-		'order' => 'Ordren',
-	    'plan' => 'Abonnentet'
-	];
+
+return array (
+  'order' => 'Ordren',
+  'plan' => 'Abonnentet',
+);
