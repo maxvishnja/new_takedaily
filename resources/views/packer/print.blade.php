@@ -94,7 +94,7 @@ $cur = 0;
 ?>
 @foreach($printables as $printable)
 	<?php $cur ++; ?>
-	<div class="print" style="width: 210mm; height: 290mm;overflow: hidden">
+	<div class="print" style="width: 210mm; height: 290mm;">
 		<div style="width: 174mm;">
 			<div style="width: 174mm; height: 240mm;">
 				<div style="padding: 10mm 7mm; position: relative">
@@ -115,8 +115,7 @@ $cur = 0;
 	@endif
 @endforeach
 <script>
-	setTimeout(function () { window.print(); }, 500);
-	window.onfocus = function () { setTimeout(function () { window.close(); }, 500); }
+	window.print();
 </script>
 </body>
 </html>

@@ -26,7 +26,6 @@
 					   class="datatable-1 table table-bordered table-striped display" width="100%">
 					<thead>
 					<tr>
-						<th></th>
 						<th>#</th>
 						<th>Status</th>
 						<th>Vitamins</th>
@@ -37,10 +36,6 @@
 					<tbody>
 					@foreach($orders as $order)
 						<tr>
-							<td>
-								<label style="padding: 5px; display: block; text-align: center;"><input
-										name="ordersForAction[]" value="{{ $order->id }}" type="checkbox"/></label>
-							</td>
 							<td>
 								<a href="{{ URL::action('Packer\OrderController@show', [ 'id' => $order->id ]) }}">{{ $order->getPaddedId() }}</a>
 							</td>
@@ -85,16 +80,16 @@
 			$('.datatable-1').dataTable({
 				"columnDefs": [
 					{
-						"targets": [5],
+						"targets": [4],
 						"sortable": false,
 						"searchable": false
 					},
 					{
-						"targets": [3, 4, 5],
+						"targets": [2, 3, 4],
 						"searchable": false
 					},
 				],
-				"aaSorting": [[4, 'desc']]
+				"aaSorting": [[3, 'desc']]
 			});
 			$('.dataTables_paginate').addClass('btn-group datatable-pagination');
 			$('.dataTables_paginate > a').wrapInner('<span />');
