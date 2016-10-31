@@ -37,8 +37,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				'money_today'     => $orderRepo->getToday()
 				                               ->whereNotIn( 'state', [ 'new', 'cancelled' ] )
 				                               ->sum( 'total' ) ?: 0,
-				'sales_year'      => $salesYear,
-				'customers_year'  => $customersYear
+				'sales_year'      => $salesYear ?: [],
+				'customers_year'  => $customersYear ?: []
 			] );
 		} );
 
