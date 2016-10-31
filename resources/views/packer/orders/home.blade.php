@@ -57,6 +57,10 @@
 										   href="{{ URL::action('Packer\OrderController@markSent', [ 'id' => $order->id ]) }}"><i
 												class="icon-truck"></i>
 											Mark sent</a>
+										{{--<a class="btn btn-default"
+										   href="{{ URL::action('Packer\OrderController@print', [ 'id' => $order->id ]) }}"><i
+												class="icon-download"></i>
+											Print</a>--}}
 									@else
 										<a class="btn btn-default"
 										   href="{{ URL::action('Packer\OrderController@show', [ 'id' => $order->id ]) }}"><i

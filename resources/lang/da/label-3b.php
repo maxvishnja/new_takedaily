@@ -2,8 +2,8 @@
 return [
 	'name'        => 'Supplement til lavt indtag af brød, ris og pasta',
 	'praises'     => [
-		'brain-cog'   => 'Bidrager til normal kognitiv funktion',
-		'skin'   => 'Bidrager til vedligeholdelse af normal hud'
+		'brain-cog',
+		'skin'
 	],
 	'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E172)),  ferrobisglycinat, nicotinamid, antiklumpningsmiddel (magnesium stearate), pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid, pteroylmonoglutaminsyre, kaliumjodid',
 	'other-vitamins' => [],

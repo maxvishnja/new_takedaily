@@ -2,7 +2,7 @@
 return [
 	'name'        => 'Supplement til lavt indtag af mejeriprodukter',
 	'praises'     => [
-		'bone'   => 'Bidrager til vedligeholdelse af normale knogler'
+		'bone'
 	],
 	'ingredients' => 'Calciumcarbonat, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E172, E171)), antiklumpningsmiddel (magnesium stearate), cyanocobalamin, riboflavin',
 	'other-vitamins' => [],

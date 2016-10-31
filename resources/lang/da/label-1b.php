@@ -2,8 +2,8 @@
 return [
 	'name'     => 'Basis multivitamin og mineraltablet med D-vitamin',
 	'praises'  => [
-		'muscle' => 'Bidrager til normal muskelfunktion',
-		'bone' => 'Bidrager til vedligeholdelse af normale knogler'
+		'muscle',
+		'bone'
 	],
 	'ingredients' => 'Fyldstof (calcium hydrogen phosphate dihydrate), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E141)), ferrobisglycinate, L-ascorbinsyre, zinkgluconat, DL-alfa-tocopherolacetat, nicotinamid, L-selenmethionin, antiklumpemiddel (magnesium stearate), cholecalciferol, calcium-D-pantothenat, retinylacetat, cyanocobalamin, phylloquinon (phytomenadion), pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid, chrompicolinat, pteroylmonoglutaminsyre, kaliumjodid, D-biotin',
 	'other-vitamins' => [],

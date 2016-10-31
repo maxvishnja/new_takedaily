@@ -1,10 +1,9 @@
 {{-- todo set locale based on customer --}}
 
 <div style="width: 100%; height: 220mm; padding: 0;position: relative;">
-	<div style="height: 15mm">
-		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: center;">{{ trans('label-product.produced-for') }}
+	<div style="height: 7mm">
+		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: right;">{{ trans('label-product.produced-for') }}
 			<strong>{{ $customer->getName() }}</strong></h1>
-		<p style="text-align: center; font-weight: 200;font-size: 9pt;color: #1A8562;margin: 6pt 0 0;line-height: 11pt;">{{ trans('label-product.for-me', ['name' => $customer->getFirstname() ]) }}</p>
 	</div>
 
 	<div class="vitamins">
@@ -14,15 +13,10 @@
 					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt;">
 					<h2 style="font-weight: bold; font-size: 10.5pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
 					<div style="margin: 4pt; font-size: 7pt; line-height: 1.2; color: #1A8562;">
-						@if(is_array(trans("label-{$vitaminModel->code}.praises")))
-							@foreach(trans("label-{$vitaminModel->code}.praises") as $praiseIcon => $praise)
-								<div style="margin-bottom: 1.5pt">
-									@if(!in_array($praiseIcon, ['one', 'two','three','four']))
-										<span
-											style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praiseIcon . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>
-									@endif
-									{!! $praise !!}
-								</div>
+						@if(is_array(trans("label-{$vitaminModel->code}.praises")) && count(trans("label-{$vitaminModel->code}.praises")) > 0)
+							{{ trans('label-product.good-for') }}
+							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise)
+								<span style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>
 							@endforeach
 						@endif
 					</div>
@@ -93,7 +87,7 @@
 					<p style="line-height: 1.2; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 4pt;">{{ trans('label-product.ingredients') }}
 						: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
-						<p style="line-height: 1.2; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0 0;">{{ trans("label-{$vitaminModel->code}.disclaimer") }}</p>
+						<p style="line-height: 1.2; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
 				</div>
 			@endforeach

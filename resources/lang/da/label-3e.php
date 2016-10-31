@@ -1,11 +1,7 @@
 <?php
 return [
 	'name'        => 'Fiskeolie',
-	'praises'     => [
-		'one'   => 'Bæredygtigt fiskeri, dobbeltrenset, 100 % naturligt, Friends Of the Sea (FOS) certificeret',
-		'brain'   => 'EPA og DHA hjælper til normal hjertefunktion. Den gavnlige effekt opnåes ved et dagligt indtag på 250 mg EPA og DHA.',
-		'eye' => 'DHA hjælper til at vedligeholde en normal hjernefunktion og et normalt syn. Den gavnlige effekt opnåes ved et dagligt indtag på 250 mg DHA.'
-	],
+	'praises'     => [],
 	'ingredients' => 'Koncentreret fiskeolie, gelatinekapsel (gelatine (fra ko), konsistensmiddel (glycerol), vand), antioxidant (D-alpha-tocopherol koncentrat)',
 	'other-vitamins' => [
 		[
@@ -37,5 +33,7 @@ return [
 		],
 	],
 	'minerals'    => [],
-	'disclaimer'  => '*Referenceindtag (RI) ikke fastlagt'
+	'disclaimer'  => '*Referenceindtag (RI) ikke fastlagt<br/>Bæredygtigt fiskeri, dobbeltrenset, 100 % naturligt, Friends Of the Sea (FOS) certificeret
+<br/>EPA og DHA hjælper til normal hjertefunktion. Den gavnlige effekt opnåes ved et dagligt indtag på 250 mg EPA og DHA.
+<br/>DHA hjælper til at vedligeholde en normal hjernefunktion og et normalt syn. Den gavnlige effekt opnåes ved et dagligt indtag på 250 mg DHA'
 ];
