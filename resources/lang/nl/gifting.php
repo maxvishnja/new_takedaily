@@ -18,7 +18,7 @@ return array (
     'two' => 
     array (
       'title' => '2. Ontvang de cadeaubon van TakeDaily ',
-      'text' => 'De cadeaubon ontvang je direct in jouw e-mail.',
+      'text' => 'De cadeaubon ontvang je direct na de betaling in jouw e-mail.',
     ),
     'three' => 
     array (

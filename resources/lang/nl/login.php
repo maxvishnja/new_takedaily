@@ -5,7 +5,7 @@ return array (
   'email_label' => 'Jouw e-mailadres
 ',
   'password_label' => 'Jouw wachtwoord',
-  'remember_me' => 'Onthoudtmij',
+  'remember_me' => 'Onthoud mij',
   'button' => 'Log in',
   'forgot' => 'Wachtwoord vergeten?',
 );

@@ -21,7 +21,7 @@ return array (
   array (
     'reviews' => 
     array (
-      'title' => 'Wat zeggen onze klanten',
+      'title' => 'Wat klanten over TakeDaily zeggen...',
       'items' => 
       array (
         0 => 
@@ -46,9 +46,9 @@ return array (
     ),
     'promises' => 
     array (
-      'title' => 'Wij beloven...',
+      'title' => 'Wat TakeDaily belooft...',
       'promise-1' => 'Gratis advies van onze eigen professionele TakeDaily diëtisten en voedingsdeskundigen',
-      'promise-2' => 'Gebruik te maken van  de beste kwaliteit vitamines, mineralen en visolie op de markt en organische capsules voor een snellere opname in het lichaam.',
+      'promise-2' => 'Gebruik te maken van de beste kwaliteit vitamines, mineralen en visolie op de markt en organische capsules voor een snellere opname in het lichaam.',
       'promise-3' => 'Geen gebruik te maken van de tussenhandel, waardoor we onze supplementen veel goedkoper kunnen aanbieden dan de meeste andere aanbieders op de markt.',
       'promise-4' => 'Dat onze test speciaal ontwikkeld is door professionele dietisten en voedingskundigen, hierdoor kunnen wij jou de vitaminen en mineralen adviseren in de hoeveelheden die precies aansluiten op jouw individuele behoeften.',
       'read-more' => 'Lees hier meer',
@@ -77,7 +77,7 @@ return array (
         'three' => 
         array (
           'title' => 'Ontvang jouw TakeDaily supplementen',
-          'text' => 'Ontvang jouw TakeDaily pakket gratis thuis of op kantoor.',
+          'text' => 'Ontvang jouw TakeDaily vitamines en mineralen thuis of op kantoor.',
         ),
       ),
     ),
