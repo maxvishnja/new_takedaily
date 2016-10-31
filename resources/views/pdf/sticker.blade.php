@@ -1,10 +1,10 @@
 {{-- todo set locale based on customer --}}
 
 <div style="width: 100%; height: 220mm; padding: 0;position: relative;">
-	<div style="height: 18mm">
-		<h1 style="margin: 0; font-weight: normal;font-size: 16pt;color: #1A8562;text-align: center;">{{ trans('label-product.produced-for') }}
+	<div style="height: 15mm">
+		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: center;">{{ trans('label-product.produced-for') }}
 			<strong>{{ $customer->getName() }}</strong></h1>
-		<p style="text-align: center; font-weight: 200;font-size: 10pt;color: #1A8562;margin: 8pt 0 12pt;line-height: 13pt;">{{ trans('label-product.for-me', ['name' => $customer->getFirstname() ]) }}</p>
+		<p style="text-align: center; font-weight: 200;font-size: 9pt;color: #1A8562;margin: 6pt 0 0;line-height: 11pt;">{{ trans('label-product.for-me', ['name' => $customer->getFirstname() ]) }}</p>
 	</div>
 
 	<div class="vitamins">
@@ -12,15 +12,17 @@
 			@foreach($customer->getVitaminModels() as $vitaminModel)
 				<div class="vitamin">
 					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt;">
-					<h2 style="font-weight: bold; font-size: 11pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
-					<div style="margin-bottom: 2px;font-size: 8pt; color: #1A8562;">
+					<h2 style="font-weight: bold; font-size: 10.5pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
+					<div style="margin: 4pt; font-size: 7pt; line-height: 1.2; color: #1A8562;">
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")))
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praiseIcon => $praise)
-								<div style="margin-bottom: 2px">
+								<div style="margin-bottom: 1.5pt">
 									@if(!in_array($praiseIcon, ['one', 'two','three','four']))
-										<span style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praiseIcon . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>
+										<span
+											style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praiseIcon . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>
 									@endif
-									{!! $praise !!}</div>
+									{!! $praise !!}
+								</div>
 							@endforeach
 						@endif
 					</div>
@@ -88,10 +90,10 @@
 						</table>
 					@endif
 
-					<p style="font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0;">{{ trans('label-product.ingredients') }}
-						: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
+					<p style="line-height: 1.2; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 4pt;">
+						{{ trans('label-product.ingredients') }}: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
-						<p style="font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0;">{{ trans("label-{$vitaminModel->code}.disclaimer") }}</p>
+						<p style="line-height: 1.2; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0 0;">{{ trans("label-{$vitaminModel->code}.disclaimer") }}</p>
 					@endif
 				</div>
 			@endforeach
@@ -100,12 +102,12 @@
 
 	<div style="text-align: center">
 		@if($customer->hasPlan() && $customer->getPlan()->hasFishoil())
-			<img src="{{ asset('/images/foa_logo.png') }}" style="height: 11mm" alt="Friends of the Sea">
+			<img src="{{ asset('/images/foa_logo.png') }}" style="height: 8mm; margin-right: 4pt;" alt="Friends of the Sea">
 		@endif
-		<img src="{{ asset('/images/kcaps.jpeg') }}" style="height: 11mm" alt="K-Caps">
+		<img src="{{ asset('/images/kcaps.jpeg') }}" style="height: 8mm" alt="K-Caps">
 	</div>
 
-	<p style="font-weight: 200;font-size: 9pt;color: #1A8562;line-height: 10pt;position: absolute; bottom: 0; height: 10mm; width: 70%; left: 15%; text-align: center">
+	<p style="font-weight: 200;font-size: 7.5pt;color: #1A8562;line-height: 8pt;position: absolute; bottom: 0; height: 11mm; width: 70%; left: 15%; text-align: center">
 		{{ trans('label-product.recommended-daily-use') }}<br/>
 		{{ trans('label-product.info') }}
 	</p>

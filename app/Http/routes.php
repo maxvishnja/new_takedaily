@@ -364,7 +364,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			] );
 
 			Session::put( 'applied_coupon', $coupon->code );
-			Session::forget('flow-completion-token');
+			Session::forget( 'flow-completion-token' );
 
 			return Redirect::to( '/flow' );
 		} )->name( 'flow-upsell' );
@@ -372,7 +372,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		Route::get( 'gifting', function ()
 		{
 			\Session::forget( 'user_data' );
-			\Session::forget('flow-completion-token');
+			\Session::forget( 'flow-completion-token' );
+			\Session::forget( 'vitamins' );
 
 			return view( 'gifting' );
 		} )->name( 'gifting' );

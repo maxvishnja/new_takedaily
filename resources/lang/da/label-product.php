@@ -1,7 +1,7 @@
 <?php
 return [
 	'recommended-daily-use' => 'Anbefalet daglig dosis:',
-	'info'                  => 'Næringsindhold pr. anbefalet daglig dosis angivet i mængde og procent af referenceindtag (RI) til vokse samt børn fra 11 år.',
+	'info'                  => 'Næringsindhold pr. anbefalet daglig dosis angivet i mængde og procent af referenceindtag (RI) til vokse samt børn fra 11 år. Bør ikke stå i stedet for en sund og varieret kost',
 	'dose'                  => '1 kapsel taget med vand til et måltid',
 	'ingredients'           => 'Ingredienser',
 	'titles'                => [
