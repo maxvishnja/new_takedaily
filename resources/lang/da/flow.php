@@ -142,14 +142,8 @@ return [
 				],
 			'2-8'  =>
 				[
-					'title'         => 'Er du vegetar/veganer?',
-					'text'          => 'Kød indeholder masser af jern, B1- og B12-vitamin. Disse vitaminer er vigtige komponenter i dit
-					energistofskifte. Desuden er mælkeprodukter en vigtig kilde til calcium, der holder knogler og muskler stærke.',
-					'options'       =>
-						[
-							1 => 'Ja, jeg er vegetar',
-							2 => 'Nej, jeg spiser også kød og fisk',
-						],
+					'title'         => 'Hvor langt er du, eller ønsker du at blive gravid?',
+					'text'          => 'Du har brug for et tilskud af folsyre allerede fra du planlægger at blive gravid til du er 12 uger inde i graviditeten.',
 					'button-text'   => 'Hvor langt er du i din graviditet?',
 					'select'        => 'Uge',
 					'pick-one'      => 'Vælg uge her',
