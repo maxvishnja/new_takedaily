@@ -151,10 +151,10 @@ return [
 				],
 			'2-9'  =>
 				[
-					'title'         => 'Er du vegetar/veganer?',
-					'text'          => 'Kød indeholder masser af jern, B1- og B12-vitamin. Disse vitaminer er vigtige komponenter i dit
+					'title'   => 'Er du vegetar/veganer?',
+					'text'    => 'Kød indeholder masser af jern, B1- og B12-vitamin. Disse vitaminer er vigtige komponenter i dit
 					energistofskifte. Desuden er mælkeprodukter en vigtig kilde til calcium, der holder knogler og muskler stærke.',
-					'options'       =>
+					'options' =>
 						[
 							1 => 'Ja, jeg er vegetar',
 							2 => 'Nej, jeg spiser også kød og fisk',
@@ -487,16 +487,16 @@ Olie indeholder hverken A- eller D-vitamin.',
 					2 => '13:00 - 15:00',
 					3 => '15:00 - 17:00',
 				],
-			'today' => 'I dag',
-			'tomorrow' => 'I morgen',
-			'success' => 'Tak, vi ringer til dig snarest!'
+			'today'       => 'I dag',
+			'tomorrow'    => 'I morgen',
+			'success'     => 'Tak, vi ringer til dig snarest!'
 		],
 	'datepicker'        =>
 		[
-			'pick-decade' => 'Vælg årti',
-			'pick-year' => 'Vælg år',
-			'pick-month' => 'Vælg måned',
-			'pick-day' => 'Vælg dag',
+			'pick-decade'  => 'Vælg årti',
+			'pick-year'    => 'Vælg år',
+			'pick-month'   => 'Vælg måned',
+			'pick-day'     => 'Vælg dag',
 			'months_long'  =>
 				[
 					1  => 'Januar',

@@ -23,10 +23,10 @@
 				<div class="col-md-4 footer_column text-center">
 					<h3 class="footer_title">{{ trans('footer.columns.two.title') }}</h3>
 					@if(trans('footer.social.facebook') != '')
-						<a href="{{ trans('footer.social.facebook') }}" target="_blank"><span class="icon icon-facebook v-a-m m-r-10"></span></a>
+						<a href="{{ trans('footer.social.facebook') }}" rel="nofollow" target="_blank"><span class="icon icon-facebook v-a-m m-r-10"></span></a>
 					@endif
 					@if(trans('footer.social.instagram') != '')
-						<a href="{{ trans('footer.social.instagram') }}" target="_blank"><span class="icon icon-instagram v-a-m m-l-10"></span></a>
+						<a href="{{ trans('footer.social.instagram') }}" rel="nofollow" target="_blank"><span class="icon icon-instagram v-a-m m-l-10"></span></a>
 					@endif
 				</div>
 				<div class="col-md-4 footer_column text-center">

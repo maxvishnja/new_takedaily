@@ -184,6 +184,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		Route::post( 'pick-n-mix', 'PickMixController@post' )->name( 'pick-n-mix-post' );
 
 		Route::get( 'pick-package', 'PackageController@get' )->name( 'pick-package' );
+		Route::get( 'pick-package/select/{id}', 'PackageController@get' )->name( 'pick-package-select' );
 		Route::post( 'pick-package', 'PackageController@post' )->name( 'pick-package-post' );
 
 		Route::get( '/flow', function ( \Illuminate\Http\Request $request )

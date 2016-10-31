@@ -2,29 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Package;
 use App\Vitamin;
 use Illuminate\Http\Request;
 
 class PackageController extends Controller
 {
-	public function get( Request $request )
+	public function get()
 	{
-		$vitamins         = Vitamin::all();
-		$isCustomer       = \Auth::check() && \Auth::user()->isUser();
-		$selectedVitamins = [];
+		$packages         = Package::select(['id', 'identifier'])->get();
 
-		if ( $isCustomer )
-		{
-			$selectedVitamins = json_decode( \Auth::user()
-			                                      ->getCustomer()
-			                                      ->getVitamins() ); // consider is this foolproof? (what if it is not json, or such)
-		}
-		elseif ( $request->has( 'selected' ) )
-		{
-			$selectedVitamins = array_flatten( Vitamin::select( 'id' )->whereIn( 'code', explode( ',', $request->get( 'selected' ) ) )->get()->toArray() );
-		}
+		return view( 'package-picker', compact( 'packages' ) );
+	}
 
-		return view( 'pick', compact( 'vitamins', 'isCustomer', 'selectedVitamins' ) );
+	public function select($id)
+	{
+
 	}
 
 	public function post( Request $request )

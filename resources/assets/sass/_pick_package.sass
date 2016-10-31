@@ -1,0 +1,186 @@
+body.page-package-pick
+	.cart-selection
+		padding: 5px
+		margin-bottom: 10px
+		display: block
+
+		.cart-selection_item
+			float: left
+
+			&.cart-selection_code
+				width: 20%
+
+			&.cart-selection_name
+				width: 60%
+
+			&.cart-selection_action
+				width: 20%
+				text-align: right
+
+	.vitamin-item
+		background: $white
+		box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.20)
+		border-radius: 3px
+		padding: 20px
+		margin-bottom: 30px
+		position: relative
+		//height: 110px
+
+		&.vitamin-item--selected
+			background: rgba($main-green, 0.05)
+
+			&:after
+				content: ""
+				display: block
+				position: absolute
+				right: 10px
+				top: 10px
+				width: 10px
+				height: 10px
+				background: $main-green
+				border-radius: 100%
+
+		.vitamin-item-left,
+		.vitamin-item-right
+			display: table-cell
+			vertical-align: top
+
+		.vitamin-item-left
+			padding-right: 14px
+
+		.vitamin-item-action
+			display: none
+			position: absolute
+			left: 0
+			top: 0
+			width: 100%
+			height: 100%
+			z-index: 1
+			border-radius: 3px
+			background: rgba(255, 255, 255, 0.9)
+			padding: 20px
+			text-align: center
+
+		&:hover
+			.vitamin-item-action
+				display: block
+
+		strong
+			font-weight: $weight-semibold
+			font-size: 14px
+			color: $greyish-brown
+
+		p
+			font-size: 13px
+			color: $warm-grey
+
+		a.button
+			.icon
+				margin-right: 6px
+
+				&.icon-plus
+					vertical-align: -3px
+
+				&.icon-cross-16
+					vertical-align: -2px
+
+body.page-package-pick
+	.cart-bubble
+		display: none
+
+	.pick-n-mix-total
+		text-align: center
+		font-size: 20px
+		font-weight: $weight-semibold
+
+	@media all and (max-width: 991px)
+		.cart-bubble
+			display: block
+			height: 60px
+			width: 60px
+			border-radius: 100%
+			background: #fff
+			box-shadow: 0 0 40px rgba(0, 0, 0, 0.25)
+			z-index: 3
+			text-align: center
+			left: 50%
+			margin-left: -30px
+			bottom: 60px
+			position: fixed
+			padding: 18px
+			user-select: none
+			cursor: pointer
+			transition: box-shadow 200ms, transform 200ms
+			&:focus, &:hover, &:active
+				transform: translateY(-5px)
+				box-shadow: 0 0 50px rgba(0, 0, 0, 0.35)
+			.icon.icon-cart
+				position: relative
+				margin: 0 auto
+			&:hover + aside#sticky
+				transform: translateY(-5px)
+			.cart-bubble_count
+				position: absolute
+				font-size: 12px
+				color: #fff
+				font-weight: 600
+				padding: 2px 0
+				text-align: center
+				line-height: 1
+				background: #555
+				border: 2px solid #fff
+				right: -7px
+				bottom: -8px
+				display: block
+				border-radius: 100%
+				height: 19px
+				width: 19px
+		aside#sticky
+			display: none
+			bottom: 140px
+			z-index: 3
+			position: fixed
+			width: 90%
+			left: 5%
+			background: #FFF
+			border: 2px solid #3AAC87
+			box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.15)
+			border-radius: 10px
+			padding: 20px
+			transition: transform 200ms
+			.card
+				border: none
+				border-radius: 0
+				box-shadow: none
+				padding: 0
+			p
+				margin-bottom: 0
+			&:after, &:before
+				top: 100%
+				left: 50%
+				border: solid transparent
+				content: " "
+				height: 0
+				width: 0
+				position: absolute
+				pointer-events: none
+			&:after
+				border-color: rgba(255, 255, 255, 0)
+				border-top-color: #fff
+				border-width: 10px
+				margin-left: -10px
+			&:before
+				border-color: rgba(58, 172, 135, 0)
+				border-top-color: #3AAC87
+				border-width: 13px
+				margin-left: -13px
+			&.enabled
+				display: block
+
+	@media all and (max-height: 600px)
+		aside#sticky
+			bottom: 100px
+			p
+				line-height: 1.2
+		.cart-bubble
+			bottom: 20px

@@ -2,13 +2,14 @@
 {{-- todo translate --}}
 @section('pageClass', 'page page-faq')
 
-@section('title', "Faqs - TakeDaily")
+@section('title', trans('faq.title'))
 
 @section('mainClasses', 'm-b-50 m-t-50')
 
 @section('content')
 	<div class="container">
 		<article>
+			<h1 class="text-center">{{ trans('faq.title') }}</h1>
 			<div class="row">
 				<div class="col-md-8 col-md-push-2">
 					<div class="faqs">
