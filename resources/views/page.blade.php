@@ -38,6 +38,14 @@
 			@endif
 			{!! $page->body !!}
 		</article>
+
+		<div class="text-center m-t-50">
+			<a href="{{ url()->route('flow') }}"
+			   class="button button--rounded button--huge button--landing button--green">
+				<strong>{!! trans('home.header.button-click-here') !!}</strong>
+			</a>
+			<div class="m-t-10"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('home.header.pick') }}</a></div>
+		</div>
 	</div>
 
 	@if( $page->layout == 'header' )
