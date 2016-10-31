@@ -68,16 +68,20 @@
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-bread-3"></span>
 				<br/>{{ trans('flow.questions.3-3.options.3') }}</label>
+			@if(trans('flow.questions.3-3.options.4') != '')
 			<label>
 				<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" data-model="foods.bread"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-bread-4"></span>
 				<br/>{{ trans('flow.questions.3-3.options.4') }}</label>
+			@endif
+			@if(trans('flow.questions.3-3.options.5') != '')
 			<label>
 				<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" data-model="foods.bread"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-bread-5"></span>
 				<br/>{{ trans('flow.questions.3-3.options.5') }}</label>
+			@endif
 		</div>
 
 		<p class="substep-explanation">{!! trans('flow.questions.3-3.text') !!}</p>

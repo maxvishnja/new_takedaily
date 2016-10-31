@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 return array (
   'back' => '&lsaquo; Tilbage til tidligere spørgsmål',
   'title' => 'Find din anbefaling - TakeDaily',
@@ -64,6 +65,71 @@ return array (
     array (
       'title' => 'Er du gravid, eller drømmer du om at blive det?',
       'text' => 'Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
+=======
+return [
+	'back'              => '&lsaquo; Tilbage til tidligere spørgsmål',
+	'title'             => 'Find din anbefaling - TakeDaily',
+	'scripts'           => 'Venligst aktiver javascripts.',
+	'steps'             =>
+		[
+			'one'   => 'PERSONLIGT',
+			'two'   => 'HELBRED',
+			'three' => 'KOST OG VANER',
+			'four'  => 'ANBEFALING',
+		],
+	'info'              =>
+		[
+			'chiaoil' => 'Chiaolie er...',
+			'fishoil' => 'Fiskeolie er...',
+		],
+	'button-order-text' => 'Bestil TakeDaily',
+	'questions'         =>
+		[
+			'1-1'  =>
+				[
+					'title'   => 'Hvilket køn er du?',
+					'text'    => 'Mænd og kvinder kan have brug for forskellige mængder vitaminer og mineraler.',
+					'options' =>
+						[
+							1 => 'Mand',
+							2 => 'Kvinde',
+						],
+				],
+			'1-2'  =>
+				[
+					'title'              => 'Hvor gammel er du?',
+					'title-alt'          => 'Vi ved det godt. Man spørger ikke en kvinde om hendes alder, men vi lover, vi ikke siger det til nogen.',
+					'age'                => 'Din fødselsdag',
+					'text'               => 'Når du bliver ældre, vil din krops behov for vitaminer og mineraler ændre sig. For eksempel har du brug for mere D-vitamin til at holde dine knogler stærke og muskler smidige.',
+					'button-text'        => 'Vælg din fødselsdagsdato',
+					'button-submit-text' => 'Ja, min fødselsdag er d. <strong>{{birthday}}</strong>',
+				],
+			'1-3'  =>
+				[
+					'title'   => 'Hvilken hudfarve matcher din bedst?',
+					'text'    => 'Er du lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud er mørkere. Så har du ikke en lys hudfarve, kan du have brug for D-vitamin-tilskud.',
+					'options' =>
+						[
+							1 => 'Lys',
+							2 => 'Medium',
+							3 => 'Mørk',
+						],
+				],
+			'1-4'  =>
+				[
+					'title'   => 'Er du udenfor hver dag mellem klokken 11.00 og 15.00 i minimum 15-30 minutter?',
+					'text'    => 'Du skal være udenfor i minimum 15-30 minutter hver dag, mellem 11.00-15.00, hvis du vil være sikker på, at din krop producerer nok D-vitamin. Hvis du ikke er ude hver dag, hvis du undgår solen eller hvis du går tildækket, vil din krop ikke være i stand til at producere tilstrækkeligt med D-vitamin.',
+					'options' =>
+						[
+							1 => 'Ja',
+							2 => 'Nej',
+						],
+				],
+			'2-1'  =>
+				[
+					'title'   => 'Er du gravid, eller drømmer du om at blive det?',
+					'text'    => 'Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
+>>>>>>> 2b295bc3643515fefb6565db2d745b7897bce3a7
 							Sundhedsstyrelsen anbefaler, at du tager tilskud af folsyre, som er et B-vitamin, allerede fra du tænker på at blive gravid til 12
 							uger inde i graviditeten. Folsyre kan uden problemer tages gennem hele graviditeten. Folsyre er vigtigt, når barnets centralnervesystem udvikles.
 							<br/><br/>
@@ -135,6 +201,7 @@ return array (
       'title' => 'Ryger du?',
       'text' => 'Det er videnskabeligt bevist, at behovet for C-vitamin er større, hvis du ryger, fordi tobaksrøg ilter og
 							ødelægger vitaminet.',
+<<<<<<< HEAD
       'options' => 
       array (
         1 => 'Ja',
@@ -160,6 +227,27 @@ return array (
     array (
       'title' => 'Er du vegetar/veganer?',
       'text' => 'Kød indeholder masser af jern, B1- og B12-vitamin. Disse vitaminer er vigtige komponenter i dit
+=======
+					'options' =>
+						[
+							1 => 'Ja',
+							2 => 'Nej',
+						],
+				],
+			'2-8'  =>
+				[
+					'title'         => 'Hvor langt er du, eller ønsker du at blive gravid?',
+					'text'          => 'Du har brug for et tilskud af folsyre allerede fra du planlægger at blive gravid til du er 12 uger inde i graviditeten.',
+					'button-text'   => 'Hvor langt er du i din graviditet?',
+					'select'        => 'Uge',
+					'pick-one'      => 'Vælg uge her',
+					'i-have-a-wish' => 'Jeg ønsker at blive gravid',
+				],
+			'2-9'  =>
+				[
+					'title'         => 'Er du vegetar/veganer?',
+					'text'          => 'Kød indeholder masser af jern, B1- og B12-vitamin. Disse vitaminer er vigtige komponenter i dit
+>>>>>>> 2b295bc3643515fefb6565db2d745b7897bce3a7
 					energistofskifte. Desuden er mælkeprodukter en vigtig kilde til calcium, der holder knogler og muskler stærke.',
       'options' => 
       array (
@@ -198,6 +286,7 @@ return array (
 
 1 stk. frugt svarer til et mellemstørrelse æble, to mindre frugter som en kiwi og en mandarin eller en skål med bær.
 ',
+<<<<<<< HEAD
       'options' => 
       array (
         1 => 'Intet',
@@ -269,6 +358,79 @@ Fede fisk indeholder sunde fiskeolier kaldet Omega-3-fedtsyrer samt D-vitamin, j
     array (
       'title' => 'Hvor mange mejeriprodukter får du dagligt?',
       'text' => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
+=======
+					'options' =>
+						[
+							1 => 'Intet',
+							2 => '1 stk.',
+							3 => '2 stk. eller mere',
+						],
+				],
+			'3-3'  =>
+				[
+					'title'   => 'Hvor mange skiver brød spiser du om dagen?',
+					'text'    => 'Havregrød eller lign. tæller for én skive brød.<br/><br/>Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Vælg fuldkorn. Det mætter rigtig godt. Det får
+							dig til at spise mindre og gør det lettere at holde vægten. ',
+					'options' =>
+						[
+							1 => 'Intet',
+							2 => '1-2 skiver.',
+							3 => '+3 skiver.',
+							4 => '',
+							5 => '',
+						],
+				],
+			'3-4'  =>
+				[
+					'title'   => 'Kommer du smør eller margarine på brødet eller bruger du det i din daglige madlavning?',
+					'text'    => 'Margarine er en vigtige kilder til A-vitamin og D-vitamin, og smør er en god kilde til A-vitamin. Begge vitaminer er vigtige for kroppens immunforsvar.
+Olie indeholder hverken A- eller D-vitamin.',
+					'options' =>
+						[
+							1 => 'Ja',
+							2 => 'Nej',
+							3 => 'Nogle gange',
+						],
+				],
+			'3-5'  =>
+				[
+					'title'   => 'Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser du om dagen?',
+					'text'    => 'Pasta, ris, kartofler og lignende er fyldt med gode kulhydrater og indeholder næsten ingen fedt. Og så er
+							de en vigtig kilde til B-vitamin og mineraler.',
+					'options' =>
+						[
+							1 => 'Ingen',
+							2 => '1-2 portioner (50-100 gram)',
+							3 => '3-4 portioner (150-200 gram)',
+							4 => '4-5 portioner (+250 gram)',
+						],
+				],
+			'3-6'  =>
+				[
+					'title'   => 'Hvor ofte spiser du kød og kødprodukter?',
+					'text'    => 'Kødprodukter er fx kødpålæg, pølser eller leverpostej. Kød er en vigtig kilde til protein og B-vitaminer samt mineralerne zink, selen og jern.',
+					'options' =>
+						[
+							1 => 'Aldrig',
+							2 => 'Et par gange om ugen eller mere',
+							3 => 'Hver dag',
+						],
+				],
+			'3-7'  =>
+				[
+					'title'   => 'Hvor ofte spiser du laks, hellefisk, makrel, pigvar, sild, ørred eller anden fed fisk til aftensmad? ',
+					'text'    => 'Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.',
+					'options' =>
+						[
+							1 => 'Nej',
+							2 => 'Ja',
+						],
+				],
+			'3-8'  =>
+				[
+					'title'   => 'Hvor mange mejeriprodukter får du dagligt?',
+					'text'    => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
+>>>>>>> 2b295bc3643515fefb6565db2d745b7897bce3a7
 							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.',
       'options' => 
       array (
