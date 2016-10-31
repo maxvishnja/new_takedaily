@@ -46,7 +46,6 @@
 @stop
 
 @section('scripts')
-	{{ dd($sales_year->) }}
 	<script>
 		var d1 = [
 			@for($i = 0; $i <= 12; $i++)
