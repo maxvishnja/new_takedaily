@@ -56,7 +56,7 @@
 
 	.vitamins .vitamin {
 		width: 50%;
-		padding: 2.5pt;
+		padding: 3pt;
 	}
 
 	.vitamins .vitamin:nth-child(2n+1) {
@@ -73,7 +73,7 @@
 
 	.vitamin thead th,
 	.vitamin tbody td {
-		padding-bottom: 1pt;
+		padding-bottom: 2pt;
 	}
 
 	/*
