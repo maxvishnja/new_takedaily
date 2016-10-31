@@ -43,15 +43,15 @@ class Admin
 		{
 			if ( $request->ajax() )
 			{
-				return response( 'Unauthorized.', 401 )->send();
+				return response( 'Unauthorized.', 401 );
 			}
 
-			return redirect()->guest( 'dashboard/login' )->send();
+			return redirect()->guest( 'dashboard/login' );
 		}
 
 		if ( \Auth::user() && ! \Auth::user()->isAdmin() )
 		{
-			return response( 'Page not found.', 404 )->send();
+			return response( 'Page not found.', 404 );
 		}
 
 		return $next( $request );
