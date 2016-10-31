@@ -238,8 +238,8 @@ Olie indeholder hverken A- eller D-vitamin.',
 				],
 			'3-6'  =>
 				[
-					'title'   => 'Hvor ofte spiser du kød (og kød produkter)?',
-					'text'    => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern.',
+					'title'   => 'Hvor ofte spiser du kød og kødprodukter?',
+					'text'    => 'Kødprodukter er fx kødpålæg, pølser eller leverpostej. Kød er en vigtig kilde til protein og B-vitaminer samt mineralerne zink, selen og jern.',
 					'options' =>
 						[
 							1 => 'Aldrig',
