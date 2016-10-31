@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class Admin
 {
@@ -36,7 +35,7 @@ class Admin
 			}
 		}
 
-		if ( Auth::guard($guard)->guest() )
+		if ( \Auth::guard($guard)->guest() )
 		{
 			if ( $request->ajax() )
 			{
@@ -48,7 +47,7 @@ class Admin
 			}
 		}
 
-		if ( Auth::user() && !Auth::user()->isAdmin() )
+		if ( \Auth::user() && !\Auth::user()->isAdmin() )
 		{
 			return response('Page not found.', 404);
 		}
