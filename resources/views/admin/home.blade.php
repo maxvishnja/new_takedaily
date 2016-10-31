@@ -46,17 +46,17 @@
 @stop
 
 @section('scripts')
-	{{ dd($sales_year) }}
+	{{ dd($sales_year->) }}
 	<script>
 		var d1 = [
 			@for($i = 0; $i <= 12; $i++)
-				[ {{ 12 - $i }} , {{ $sales_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1)->first() ? number_format($sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total / 100, 2, '.', '') : 0 }} ],
+				[ {{ 12 - $i }} , {{ $sales_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1)->first() != null ? number_format($sales_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total / 100, 2, '.', '') : 0 }} ],
 			@endfor
 		];
 
 		var d2 = [
 			@for($i = 0; $i <= 12; $i++)
-				[ {{ 12 - $i }} , {{ $customers_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1)->first() ? $customers_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total : 0 }} ],
+				[ {{ 12 - $i }} , {{ $customers_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1)->first() != null ? $customers_year->where('year', date('Y', strtotime("-$i months")) * 1)->where('month', date('n', strtotime("-$i months")) * 1)->first()->total : 0 }} ],
 			@endfor
 		];
 
