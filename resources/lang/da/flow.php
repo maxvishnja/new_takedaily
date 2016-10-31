@@ -22,8 +22,7 @@ return [
 			'1-1'  =>
 				[
 					'title'   => 'Hvilket køn er du?',
-					'text'    => 'Mænd og kvinder kan have brug for forskellige mængder vitaminer og mineraler.
-',
+					'text'    => 'Mænd og kvinder kan have brug for forskellige mængder vitaminer og mineraler.',
 					'options' =>
 						[
 							1 => 'Mand',

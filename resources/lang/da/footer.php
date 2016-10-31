@@ -2,7 +2,7 @@
 
 return [
 	'social' => [
-		'instagram' => '',
+		'instagram' => 'https://www.instagram.com/takedaily_dk/',
 		'facebook' => 'https://www.facebook.com/takedaily.dk'
 	],
 	'columns'   =>
