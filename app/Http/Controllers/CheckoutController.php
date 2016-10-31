@@ -66,7 +66,11 @@ class CheckoutController extends Controller
 		}
 		elseif ( $request->session()->has( 'vitamins' ) )
 		{
-			$codes = $request->session()->get( 'vitamins' );
+			$codes = collect($request->session()->get( 'vitamins' ));
+			$codes = $codes->map(function($val)
+			{
+				return (int) $val;
+			});
 		}
 
 		return view( 'checkout.index', [

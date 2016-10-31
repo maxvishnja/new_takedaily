@@ -28,7 +28,7 @@
 	</div>
 
 	<div class="m-t-20">
-		<p>{{ trans('promo.trustpilot') }}</p>
+		<h4>{{ trans('promo.trustpilot') }}</h4>
 		<a target="_blank" rel="nofollow" href="https://trustpilot.com/review/{{ Request::getHost() }}"><img src="{{ asset('/images/tp/4.png') }}" height="24" alt="Trustpilot"></a>
 	</div>
 </div>

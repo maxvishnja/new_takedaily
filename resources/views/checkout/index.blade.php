@@ -219,6 +219,14 @@
 						<td>{{ trans("products.{$product->name}") }}</td>
 						<td>{{ trans('general.money-vue', ['amount' => 'sub_price']) }}</td>
 					</tr>
+					@if(count($codes) > 0)
+						@foreach($codes as $code)
+							<tr>
+								<td>{{ !is_int($code) ? \App\Apricot\Libraries\PillLibrary::$codes[$code] : \App\Vitamin::find($code)->name }}</td>
+								<td></td>
+							</tr>
+						@endforeach
+					@endif
 					<tr v-for="item in extra_totals">
 						<td>@{{ item.name }}</td>
 						<td>{{ trans('general.money-vue', ['amount' => 'item.price']) }}</td>
