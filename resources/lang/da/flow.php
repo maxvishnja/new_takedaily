@@ -19,29 +19,29 @@ return [
 	'button-order-text' => 'Bestil TakeDaily',
 	'questions'         =>
 		[
-			'1-1' =>
+			'1-1'  =>
 				[
-					'title' => 'Hvilket køn er du?',
-					'text' => 'Mænd og kvinder kan have brug for forskellige mængder vitaminer og mineraler.',
+					'title'   => 'Hvilket køn er du?',
+					'text'    => 'Mænd og kvinder kan have brug for forskellige mængder vitaminer og mineraler.',
 					'options' =>
 						[
 							1 => 'Mand',
 							2 => 'Kvinde',
 						],
 				],
-			'1-2' =>
+			'1-2'  =>
 				[
-					'title' => 'Hvor gammel er du?',
-					'title-alt' => 'Vi ved det godt - man spørger ikke en kvinde om hendes alder, men vi lover, vi ikke siger det til nogen.',
-					'age' => 'Din fødselsdag',
-					'text' => 'Når du bliver ældre, vil din krops behov for vitaminer og mineraler ændre sig. Eksempelvis får du brug for mere D-vitamin til at holde dine knogler stærke og muskler smidige.',
-					'button-text' => 'Vælg din fødselsdagsdato',
+					'title'              => 'Hvor gammel er du?',
+					'title-alt'          => 'Vi ved det godt - man spørger ikke en kvinde om hendes alder, men vi lover, vi ikke siger det til nogen.',
+					'age'                => 'Din fødselsdag',
+					'text'               => 'Når du bliver ældre, vil din krops behov for vitaminer og mineraler ændre sig. Eksempelvis får du brug for mere D-vitamin til at holde dine knogler stærke og muskler smidige.',
+					'button-text'        => 'Vælg din fødselsdagsdato',
 					'button-submit-text' => 'Ja, min fødselsdag er d. <strong>{{birthday}}</strong>',
 				],
-			'1-3' =>
+			'1-3'  =>
 				[
-					'title' => 'Hvilken hudfarve matcher din bedst?',
-					'text' => 'Er du lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud er mørkere. Så har du ikke en lys hudfarve, kan du have brug for et D-vitamin-tilskud.',
+					'title'   => 'Hvilken hudfarve matcher din bedst?',
+					'text'    => 'Er du lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud er mørkere. Så har du ikke en lys hudfarve, kan du have brug for et D-vitamin-tilskud.',
 					'options' =>
 						[
 							1 => 'Lys',
@@ -49,19 +49,20 @@ return [
 							3 => 'Mørk',
 						],
 				],
-			'1-4' =>
+			'1-4'  =>
 				[
-					'title' => 'Er du udenfor hver dag i mindst 15-30 minutter?',
-					'text' => 'Du skal være ude mellem klokken 11.00-15.00, hvis du vil være sikker på, at din krop producerer nok D-vitamin. Hvis du ikke er ude hver dag, hvis du undgår solen eller hvis du går tildækket, vil din krop ikke være i stand til at producere tilstrækkeligt med D-vitamin.',
+					'title'   => 'Er du udenfor hver dag i mindst 15-30 minutter?',
+					'text'    => 'Du skal være ude mellem klokken 11.00-15.00, hvis du vil være sikker på, at din krop producerer nok D-vitamin. Hvis du ikke er ude hver dag, hvis du undgår solen eller hvis du går tildækket, vil din krop ikke være i stand til at producere tilstrækkeligt med D-vitamin.',
 					'options' =>
 						[
 							1 => 'Ja',
 							2 => 'Nej',
 						],
 				],
-			'2-1' =>
-				[					'title' => 'Er du gravid, eller drømmer du om at blive det?',
-					'text' => 'Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
+			'2-1'  =>
+				[
+					'title'   => 'Er du gravid, eller drømmer du om at blive det?',
+					'text'    => 'Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
 							Sundhedsstyrelsen anbefaler, at du tager tilskud af folsyre, som er et B-vitamin, allerede fra du tænker på at blive gravid til 12
 							uger inde i graviditeten. Folsyre kan uden problemer tages gennem hele graviditeten. Folsyre er vigtigt, når barnets centralnervesystem udvikles.
 							<br/><br/>
@@ -224,10 +225,10 @@ Olie indeholder hverken A- eller D-vitamin.',
 							3 => 'Nogle gange',
 						],
 				],
-			'3-5' =>
+			'3-5'  =>
 				[
-					'title' => 'Hvor mange kartofler, ris, pasta eller lignede spiser du om dagen?',
-					'text' => 'Kartofler, ris, pasta, quinoa, couscus og lignende er fyldt med gode kulhydrater, B-vitaminer og mineraler. Kroppen, og især hjernen, har brug for kulhydrater for at fungere optimalt. ',
+					'title'   => 'Hvor mange kartofler, ris, pasta eller lignede spiser du om dagen?',
+					'text'    => 'Kartofler, ris, pasta, quinoa, couscus og lignende er fyldt med gode kulhydrater, B-vitaminer og mineraler. Kroppen, og især hjernen, har brug for kulhydrater for at fungere optimalt. ',
 					'options' =>
 						[
 							1 => 'Ingen',
@@ -249,8 +250,9 @@ Olie indeholder hverken A- eller D-vitamin.',
 				],
 			'3-7'  =>
 				[
-					'title'   => 'Hvor ofte spiser du laks, hellefisk, makrel, pigvar, sild, ørred eller anden fed fisk til aftensmad? ',
-					'text'    => 'Fisk indeholder sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som D-vitamin, jod og selen.',
+					'title'   => 'Hvor ofte spiser du fed fisk til aftensmad?',
+					'text'    => 'Fede fisk er: Hellefisk, laks, makrel, pighaj, sild, stenbider, ørred, ål og ålekvabbe.
+Fede fisk indeholder sunde fiskeolier kaldet Omega-3-fedtsyrer samt D-vitamin, jod, zink og selen.',
 					'options' =>
 						[
 							1 => 'Nej',
@@ -262,42 +264,43 @@ Olie indeholder hverken A- eller D-vitamin.',
 					'title'   => 'Hvor mange mejeriprodukter får du dagligt?',
 					'text'    => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
 							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.',
-      'options' =>
-      [
-        1 => 'Ingen',
-        2 => '1 portion',
-        3 => '2-3 portioner',
-        4 => '3-4 portioner',
-      ],
-    ],
-    '3-9' =>
-    [
-      'title' => 'Ønsker du Chiaolie eller Fiskeoile?',
-      'text' => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
-      'options' =>
-      [
-        1 => 'Chiaolie',
-        2 => 'Fiskeolie',
-        3 => 'Ingen olie',
-      ],
-    ],
-    '2-11' =>
-    [
-      'title' => 'Tager du allerede vitaminer og/eller mineraler?',
-      'text' => 'Resultatet af denne test er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
+					'options' =>
+						[
+							1 => 'Ingen',
+							2 => '1 portion',
+							3 => '2-3 portioner',
+							4 => '3-4 portioner',
+						],
+				],
+			'3-9'  =>
+				[
+					'title'   => 'Ønsker du Chiaolie eller Fiskeoile?',
+					'text'    => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
+					'options' =>
+						[
+							1 => 'Chiaolie',
+							2 => 'Fiskeolie',
+							3 => 'Ingen olie',
+						],
+				],
+			'2-11' =>
+				[
+					'title'   => 'Tager du allerede vitaminer og/eller mineraler?',
+					'text'    => 'Resultatet af denne test er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
 							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre kosttilskud.',
-      'options' =>
-      [
-        1 => 'Ja',
-        2 => 'Nej',
-      ],
-    ],
-  ],
-  'combinations' =>
-  [
-    1 =>
-    [      'basic' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis',
-      'basic-10-d' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
+					'options' =>
+						[
+							1 => 'Ja',
+							2 => 'Nej',
+						],
+				],
+		],
+	'combinations'      =>
+		[
+			1      =>
+				[
+					'basic'          => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis',
+					'basic-10-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
 							Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">din alder</span>
 								<span v-show="( user_data.age >= \'50\'&& user_data.age <= \'70\') && user_data.skin > \'1\'">og</span>
 								<span v-show="user_data.skin > \'1\'">mørke hudfarve</span>.
