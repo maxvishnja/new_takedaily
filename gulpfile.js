@@ -28,6 +28,7 @@ elixir(function (mix) {
     });
 
     mix.sass('app.sass', false, {indentedSyntax: true});
+    mix.sass('print.sass', false, {indentedSyntax: true});
 
     mix.scripts([
         '/vendor/jquery.min.js',
