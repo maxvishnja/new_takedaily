@@ -29,19 +29,19 @@ return [
 				],
 			3 =>
 				[
-					'name'    => 'Vitamin B6',
+					'name'    => 'Vitamin B6 (Pyridoxin)',
 					'amount'  => '2,1 mg',
 					'percent' => '150',
 				],
 			4 =>
 				[
-					'name'    => 'Folsyre',
+					'name'    => 'Vitamin B9 (Folsyre)',
 					'amount'  => '300 µg',
 					'percent' => '150',
 				],
 			5 =>
 				[
-					'name'    => 'Vitamin B12',
+					'name'    => 'Vitamin B12 (Kobalamin)',
 					'amount'  => '3,75 µg',
 					'percent' => '150',
 				],

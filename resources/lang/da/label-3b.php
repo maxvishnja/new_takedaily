@@ -12,31 +12,31 @@ return [
 		[
 			0 =>
 				[
-					'name'    => 'Thiamin (B1)',
+					'name'    => 'Vitamin B1 (Thiamin)',
 					'amount'  => '1,65 mg',
 					'percent' => '150',
 				],
 			1 =>
 				[
-					'name'    => 'Riboflavin (B2)',
+					'name'    => 'Vitamin B2 (Riboflavin)',
 					'amount'  => '2,1 mg',
 					'percent' => '150',
 				],
 			2 =>
 				[
-					'name'    => 'Niacin',
+					'name'    => 'Vitamin B3 (Niacin)',
 					'amount'  => '24 mg',
 					'percent' => '150',
 				],
 			3 =>
 				[
-					'name'    => 'Vitamin B6',
+					'name'    => 'Vitamin B6 (Pyridoxin)',
 					'amount'  => '2,1 mg',
 					'percent' => '150',
 				],
 			4 =>
 				[
-					'name'    => 'Folsyre',
+					'name'    => 'Vitamin B9 (Folsyre)',
 					'amount'  => '300 µg',
 					'percent' => '150',
 				],

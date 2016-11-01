@@ -7,42 +7,42 @@ return [
 			'energy'    => 'Et normalt energistofskifte',
 			'lightning' => 'At mindske træthed og udmattelse',
 		],
-	'ingredients' => 'Magnesiumhydroxid, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E140)), fyldstof (microcrystalline cellulose), ferrofumarat, nicotinamid, panthothensyre, antiklumpningsmiddel (magnesium stearate), cyanocobalamin, pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid',
+	'ingredients' => 'Magnesiumhydroxid, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E140)), fyldstof (microcrystalline cellulose), ferrofumarat, nicotinamid, Vitamin B5 (Panthothensyre), antiklumpningsmiddel (magnesium stearate), cyanocobalamin, pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid',
 	'vitamins'    =>
 		[
 			0 =>
 				[
-					'name'    => 'Thiamin (B1)',
+					'name'    => 'Vitamin B1 (Thiamin)',
 					'amount'  => '1,65 mg',
 					'percent' => '150',
 				],
 			1 =>
 				[
-					'name'    => 'Riboflavin (B2)',
+					'name'    => 'Vitamin B2 (Riboflavin)',
 					'amount'  => '2,1 mg',
 					'percent' => '150',
 				],
 			2 =>
 				[
-					'name'    => 'Niacin',
+					'name'    => 'Vitamin B3 (Niacin)',
 					'amount'  => '24 mg',
 					'percent' => '150',
 				],
 			3 =>
 				[
-					'name'    => 'Vitamin B6',
+					'name'    => 'Vitamin B6 (Pyridoxin)',
 					'amount'  => '2,1 mg',
 					'percent' => '150',
 				],
 			4 =>
 				[
-					'name'    => 'Vitamin B12',
+					'name'    => 'Vitamin B12 (Kobalamin)',
 					'amount'  => '3,75 µg',
 					'percent' => '150',
 				],
 			5 =>
 				[
-					'name'    => 'Panthothensyre',
+					'name'    => 'Vitamin B5 (Panthothensyre)',
 					'amount'  => '9 mg',
 					'percent' => '150',
 				],

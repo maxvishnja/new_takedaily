@@ -53,37 +53,37 @@ return [
 				],
 			7  =>
 				[
-					'name'    => 'Niacin',
+					'name'    => 'Vitamin B3 (Niacin)',
 					'amount'  => '8 mg',
 					'percent' => '50',
 				],
 			8  =>
 				[
-					'name'    => 'Vitamin B6',
+					'name'    => 'Vitamin B6 (Pyridoxin)',
 					'amount'  => '0,7 mg',
 					'percent' => '50',
 				],
 			9  =>
 				[
-					'name'    => 'Folsyre',
+					'name'    => 'Vitamin B9 (Folsyre)',
 					'amount'  => '100 µg',
 					'percent' => '50',
 				],
 			10 =>
 				[
-					'name'    => 'Vitamin B12',
+					'name'    => 'Vitamin B12 (Kobalamin)',
 					'amount'  => '1,25 µg',
 					'percent' => '50',
 				],
 			11 =>
 				[
-					'name'    => 'Biotin',
+					'name'    => 'Vitamin B8 (Biotin)',
 					'amount'  => '25 µg',
 					'percent' => '50',
 				],
 			12 =>
 				[
-					'name'    => 'Panthothensyre',
+					'name'    => 'Vitamin B5 (Panthothensyre)',
 					'amount'  => '3 mg',
 					'percent' => '50',
 				],

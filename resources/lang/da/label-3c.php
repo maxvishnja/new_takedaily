@@ -11,7 +11,7 @@ return [
 		[
 			0 =>
 				[
-					'name'    => 'Riboflavin (B2)',
+					'name'    => 'Vitamin B2 (Riboflavin)',
 					'amount'  => '2,1 mg',
 					'percent' => '150',
 				],

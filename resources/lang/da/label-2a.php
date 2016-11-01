@@ -18,7 +18,7 @@ return [
 				],
 			1 =>
 				[
-					'name'    => 'Folsyre',
+					'name'    => 'Vitamin B9 (Folsyre)',
 					'amount'  => '400 µg',
 					'percent' => '100/200',
 				],

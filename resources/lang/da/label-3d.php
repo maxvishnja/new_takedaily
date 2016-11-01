@@ -12,13 +12,13 @@ return [
 		[
 			0 =>
 				[
-					'name'    => 'Thiamin (B1)',
+					'name'    => 'Vitamin B1 (Thiamin)',
 					'amount'  => '1,65 mg',
 					'percent' => '150',
 				],
 			1 =>
 				[
-					'name'    => 'Vitamin B6',
+					'name'    => 'Vitamin B6 (Pyridoxin)',
 					'amount'  => '2,1 mg',
 					'percent' => '150',
 				],
