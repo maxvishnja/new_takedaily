@@ -50,7 +50,7 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
-		height: 192mm;
+		height: 190mm;
 		width: 160mm;
 	}
 
