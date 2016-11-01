@@ -76,7 +76,7 @@ return [
 			'2-2'  =>
 				[
 					'title'   => 'Er du på slankekur?',
-					'text'    => 'Når din kost bliver mere fedtfattig, bliver den måske også mere ensidig, end den plejer. Og så er det vigtigt, at du stadig får de vitaminer og mineraler, som du normalt ville indtage igennem din kost. A-vitamin er godt for din hud og sammen med C-vitamin sikrer det at dit immunsystem fungere optimalt. B-vitaminer er vigtige for dit energiniveau. Så ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo.',
+					'text'    => 'Når din kost bliver mere fedtfattig, bliver den ofte også mere ensidig. Og så er det vigtigt, at du stadig får de vitaminer og mineraler, som du normalt ville indtage igennem din kost. A-vitamin er godt for din hud og sammen med C-vitamin sikrer det at dit immunsystem fungere optimalt. B-vitaminer er vigtige for dit energiniveau. Så ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo.',
 					'options' =>
 						[
 							1 => 'Ja',
@@ -86,7 +86,7 @@ return [
 			'2-3'  =>
 				[
 					'title'   => 'Hvor meget og hvor ofte motionerer du?',
-					'text'    => 'Motion er både godt for din sundhed og dit velbefindende. Hvis du dyrker meget motion, har du brug for nogle ekstra vitaminer og mineraler. B-vitaminer og jern er vigtige for dit energiniveau og din ydeevne.',
+					'text'    => 'Motion er både godt for din sundhed og dit velbefindende. Hvis du dyrker meget motion, har du brug for nogle ekstra vitaminer og mineraler. B-vitaminer og jern er vigtigt for dit energiniveau og din ydeevne.',
 					'options' =>
 						[
 							1 => 'Sjældent',
@@ -98,7 +98,7 @@ return [
 			'2-4'  =>
 				[
 					'title'   => 'Føler du dig stresset?',
-					'text'    => 'I en stresset periode har du brug for lidt ekstra vitaminer, som kan hjælpe dig med at slappe mere af. B-vitamin giver ro på og hjælper dit nervesystem og immunforsvar med at fungere optimalt.',
+					'text'    => 'I en stresset periode har du brug for lidt ekstra vitaminer, som kan hjælpe dig til at slappe af. B-vitamin giver ro på kroppen og hjælper dit nervesystem og immunforsvar med at fungere optimalt.',
 					'options' =>
 						[
 							1 => 'Ja',
@@ -118,8 +118,8 @@ return [
 				],
 			'2-6'  =>
 				[
-					'title'   => 'Hvordan føler du at dit immunforsvar er i øjeblikket?',
-					'text'    => 'De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit
+					'title'   => 'Hvordan fungerer dit immunforsvar er i øjeblikket?',
+					'text'    => 'De rette vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit
 							immunforsvar, fordi det hjælper kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil
 							undgå at blive syg.',
 					'options' =>
@@ -156,9 +156,10 @@ return [
 					energistofskifte. Desuden er mælkeprodukter en vigtig kilde til calcium, der holder knogler og muskler stærke.',
 					'options' =>
 						[
-							1 => 'Ja, jeg er vegetar',
+							1 => 'Ja, jeg er vegetar/veganer',
 							2 => 'Nej, jeg spiser også kød og fisk',
 						],
+
 				],
 			'2-10' =>
 				[
@@ -173,14 +174,15 @@ return [
 				],
 			'3-1'  =>
 				[
-					'title'   => 'Hvor mange grønsager spiser du dagligt?',
-					'text'    => 'Grøntsager er en vigtig kilde til C-vitamin, folsyre og kalium.',
+					'title'   => 'Hvor mange grønsager spiser du om dagen?',
+					'text'    => 'Grøntsager er en vigtig kilde til mange forskellige næringsstoffer, blandt andet C-vitamin, folsyre og kalium.',
 					'options' =>
 						[
 							1 => 'Ingen',
 							2 => '100 gram',
 							3 => '200 gram',
-							4 => '+300 gram'
+							4 => '+300 gram',
+							5 => '+4 portioner (+300 gram)',
 						],
 				],
 			'3-2'  =>
@@ -316,7 +318,7 @@ Olie indeholder hverken A- eller D-vitamin.',
 							Vi håber, du snart får dit ønske om en baby opfyldt. Mens du prøver at blive gravid, har din krop brug for særlige vitaminer og
 							mineraler. Det sørger TakeDaily for.
 							<br/><br/>
-							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin), allerede når du begynder at drømme om en baby. Du skal tage folsyre
+							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin], allerede når du begynder at drømme om en baby. Du skal tage folsyre
 							helt fra graviditetens begyndelse, da det har betydning for celledelingen og arvematerialet i kroppens celler. Folsyre nedsætter
 							risikoen for alvorlige medfødte misdannelser af hjerne og rygmarv (neuralrørsdefekter).',
 					'B' => 'Når du er på slankekur, har du brug for lidt ekstra vitaminer og mineraler. TakeDaily giver dig det helt rigtige miks. Husk også
@@ -331,11 +333,11 @@ Olie indeholder hverken A- eller D-vitamin.',
 								Når du motionerer så meget, som du gør lige nu, har du brug for ekstra vitaminer og mineraler. Vi har sammensat lige det, din
 								krop har behov for, så den kan yde sit maksimale, når du træner.
 								<br/><br/>
-								B-vitamin sørger fx for, at du kan præstere mere ved højintensitetstræning og er med til at producere og reparere celler. Jern
+								B-vitamin indgår blandt andet i kroppens energiomsætning, og er med til at producere og reparere celler. Jern
 								er også vigtigt, når du motionerer meget. Det sørger nemlig for, at ilten transporteres rundt i kroppen.
 								</span>
 							<span v-show="user_data.lacks_energy < 3 || user_data.stressed == 1">
-								Når du føler dig træt og mangler energi, mangler du også B-vitaminer. Både B1, B2 , B3, B5 og B6 spiller en afgørende rolle for
+								Når du føler dig træt og mangler energi, mangler du ofte B-vitaminer. Både B1, B2 , B3, B5 og B6 spiller en afgørende rolle for
 								dit energiniveau.</span>',
 					'D' => '<span v-show="user_data.immune_system == 1">
 								De rigtige vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit immunforsvar, fordi det hjælper
@@ -348,12 +350,10 @@ Olie indeholder hverken A- eller D-vitamin.',
 									Daily</a>.
 </span>
 							<span v-show="user_data.vegetarian == 1">
-								Kød indeholder masser af jern, B1- og B12-vitamin. Som vegetar kan det være svært at få nok af det hele gennem kosten. Begge
-								B-vitaminer er vigtige komponenter i dit energistofskifte. B1 omsætter fx kulhydrat til druesukker, og når druesukker forbrændes
-								i kroppen skabes energi.</span>',
-					'E' => '
-						Når du har ømme muskler og led har du brug for nogle gode næringsstoffer. Mangel på D-vitamin kan ligefrem give svage muskler og
-						muskelsmerter. Glukosamin/chonodroitin stimulerer bruskcellerne og er godt, hvis dine led fx er slidte.',
+								Kød indeholder masser af jern, B1- og B12-vitamin. Som vegetar eller veganer kan det være svært at få nok af det hele gennem kosten. Begge
+								B-vitaminer er vigtige komponenter i dit energistofskifte. B12-vitamin, som udelukkende findes i animalske fødevarer, spiller blandt andet en essentiel rolle i kroppens omsætning af fedt og opbygningen af nye blodlegemer.</span>',
+					'E' => 'Når du har ømme muskler og led har du brug for nogle gode næringsstoffer. Mangel på D-vitamin kan ligefrem give svage muskler og
+						muskelsmerter. Glukosamin/chonodroitin stimulerer bruskcellerne og er godt, hvis dine led er slidte.',
 				],
 			3      =>
 				[
@@ -380,7 +380,7 @@ Olie indeholder hverken A- eller D-vitamin.',
 						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
 </span>
 					<span v-show="user_data.foods.wheat == 1">
-						Du spiser ikke nok pasta, ris og kartofler, og derfor går din krop glip af gode kulhydrater, som er en vigtig kilde til
+						Du spiser ikke mange kartofler, ris, pasta eller lignende, og derfor går din krop glip af  nogle gode kulhydrater, som er en vigtig kilde til
 						B-vitamin og mineraler. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
 						Begynder du at spise mere ris, pasta eller det, der ligner, skal du huske at ændre din profil på
@@ -394,19 +394,17 @@ Olie indeholder hverken A- eller D-vitamin.',
 						Begynder du at få flere mejeriprodukter i din daglige kost, skal du huske at ændre din profil på
 						<a href="/account" target="_blank">Mit TakeDaily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
 						indeholder lige præcis de doser, du har brug for.',
-					'd' => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. TakeDaily sørger for, at du får det,
+					'd' => 'Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. TakeDaily sørger for, at du får det,
 							du behøver – og så kan du fortsætte med at spise, som du gør nu.
 							<br/><br/>
 							Begynder du at spise kød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så er du
 							sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-					'e' => '
-						Du spiser ikke nok fisk, og derfor bliver din krop snydt for sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som
-						D-vitamin, jod og selen. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
+					'e' => 'Du spiser ikke nok fed fisk, og derfor bliver din krop snydt for de sunde fiskeolier med Omega-3 fedtsyrer og vitaminer som
+						D-vitamin, jod, zink og selen. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
 						Begynder du at spise mere fisk, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så
 						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-					'f' => '
-					Din daglige kost indeholder ikke nok smør, margarine eller olie, som er vigtige kilder til A-vitamin og D-vitamin. Du har brug
+					'f' => 'Din daglige kost indeholder ikke nok smør eller margarine som er vigtige kilder til A-vitamin og D-vitamin. Du har brug
 					for begge vitaminer. Blandt andet for at styrke dit immunforsvar. TakeDaily sørger for, at du får det, du behøver – og så kan
 					du fortsætte med at spise, som du gør nu.
 					<br/><br/>
