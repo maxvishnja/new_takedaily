@@ -10,7 +10,7 @@ class PackageController extends Controller
 {
 	public function get()
 	{
-		$packages         = Package::select(['id', 'identifier'])->get();
+		$packages         = Package::select(['id', 'identifier'])->orderBy('id', 'ASC')->get();
 
 		return view( 'package-picker', compact( 'packages' ) );
 	}
