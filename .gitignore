@@ -9,6 +9,8 @@ Homestead.json
 # Project specific
 /public/css/app.css.map
 /public/css/app.css
+/public/css/print.css
+/public/css/print.css.map
 /public/uploads/*/*/*
 /public/images/sprite*
 /public/js/app.js
