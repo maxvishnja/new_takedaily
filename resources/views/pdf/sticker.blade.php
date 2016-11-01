@@ -2,7 +2,7 @@
 
 <div style="width: 100%; height: 220mm; padding: 0;position: relative;">
 	<div style="height: 7mm">
-		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: right;">{{ trans('label-product.produced-for') }}
+		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
 			<strong>{{ $customer->getName() }}</strong></h1>
 	</div>
 
@@ -14,9 +14,13 @@
 					<h2 style="font-weight: bold; font-size: 10.5pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
 					<div style="margin: 4pt; font-size: 7pt; line-height: 1.2; color: #1A8562;">
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")) && count(trans("label-{$vitaminModel->code}.praises")) > 0)
-							{{ trans('label-product.good-for') }}
-							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise)
-								<span style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>
+							<div>{{ trans('label-product.good-for') }}</div>
+							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
+								<div>
+									<span
+										style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>
+									{{ $praiseText }}
+								</div>
 							@endforeach
 						@endif
 					</div>
