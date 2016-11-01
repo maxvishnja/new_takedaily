@@ -19,29 +19,29 @@ return [
 	'button-order-text' => 'Bestil TakeDaily',
 	'questions'         =>
 		[
-			'1-1'  =>
+			'1-1' =>
 				[
-					'title'   => 'Hvilket køn er du?',
-					'text'    => 'Mænd og kvinder kan have brug for forskellige mængder vitaminer og mineraler.',
+					'title' => 'Hvilket køn er du?',
+					'text' => 'Mænd og kvinder kan have brug for forskellige mængder vitaminer og mineraler.',
 					'options' =>
 						[
 							1 => 'Mand',
 							2 => 'Kvinde',
 						],
 				],
-			'1-2'  =>
+			'1-2' =>
 				[
-					'title'              => 'Hvor gammel er du?',
-					'title-alt'          => 'Vi ved det godt. Man spørger ikke en kvinde om hendes alder, men vi lover, vi ikke siger det til nogen.',
-					'age'                => 'Din fødselsdag',
-					'text'               => 'Når du bliver ældre, vil din krops behov for vitaminer og mineraler ændre sig. For eksempel har du brug for mere D-vitamin til at holde dine knogler stærke og muskler smidige.',
-					'button-text'        => 'Vælg din fødselsdagsdato',
+					'title' => 'Hvor gammel er du?',
+					'title-alt' => 'Vi ved det godt - man spørger ikke en kvinde om hendes alder, men vi lover, vi ikke siger det til nogen.',
+					'age' => 'Din fødselsdag',
+					'text' => 'Når du bliver ældre, vil din krops behov for vitaminer og mineraler ændre sig. Eksempelvis får du brug for mere D-vitamin til at holde dine knogler stærke og muskler smidige.',
+					'button-text' => 'Vælg din fødselsdagsdato',
 					'button-submit-text' => 'Ja, min fødselsdag er d. <strong>{{birthday}}</strong>',
 				],
-			'1-3'  =>
+			'1-3' =>
 				[
-					'title'   => 'Hvilken hudfarve matcher din bedst?',
-					'text'    => 'Er du lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud er mørkere. Så har du ikke en lys hudfarve, kan du have brug for D-vitamin-tilskud.',
+					'title' => 'Hvilken hudfarve matcher din bedst?',
+					'text' => 'Er du lys i huden, kan du producere mere D-vitamin, når du opholder dig i solen, end hvis din hud er mørkere. Så har du ikke en lys hudfarve, kan du have brug for et D-vitamin-tilskud.',
 					'options' =>
 						[
 							1 => 'Lys',
@@ -49,20 +49,19 @@ return [
 							3 => 'Mørk',
 						],
 				],
-			'1-4'  =>
+			'1-4' =>
 				[
-					'title'   => 'Er du udenfor hver dag mellem klokken 11.00 og 15.00 i minimum 15-30 minutter?',
-					'text'    => 'Du skal være udenfor i minimum 15-30 minutter hver dag, mellem 11.00-15.00, hvis du vil være sikker på, at din krop producerer nok D-vitamin. Hvis du ikke er ude hver dag, hvis du undgår solen eller hvis du går tildækket, vil din krop ikke være i stand til at producere tilstrækkeligt med D-vitamin.',
+					'title' => 'Er du udenfor hver dag i mindst 15-30 minutter?',
+					'text' => 'Du skal være ude mellem klokken 11.00-15.00, hvis du vil være sikker på, at din krop producerer nok D-vitamin. Hvis du ikke er ude hver dag, hvis du undgår solen eller hvis du går tildækket, vil din krop ikke være i stand til at producere tilstrækkeligt med D-vitamin.',
 					'options' =>
 						[
 							1 => 'Ja',
 							2 => 'Nej',
 						],
 				],
-			'2-1'  =>
-				[
-					'title'   => 'Er du gravid, eller drømmer du om at blive det?',
-					'text'    => 'Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
+			'2-1' =>
+				[					'title' => 'Er du gravid, eller drømmer du om at blive det?',
+					'text' => 'Nogle vitaminer og mineraler skal du have flere af, når du er gravid eller gerne vil være det.
 							Sundhedsstyrelsen anbefaler, at du tager tilskud af folsyre, som er et B-vitamin, allerede fra du tænker på at blive gravid til 12
 							uger inde i graviditeten. Folsyre kan uden problemer tages gennem hele graviditeten. Folsyre er vigtigt, når barnets centralnervesystem udvikles.
 							<br/><br/>
@@ -318,13 +317,13 @@ Olie indeholder hverken A- eller D-vitamin.',
 							Vi håber, du snart får dit ønske om en baby opfyldt. Mens du prøver at blive gravid, har din krop brug for særlige vitaminer og
 							mineraler. Det sørger TakeDaily for.
 							<br/><br/>
-							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin], allerede når du begynder at drømme om en baby. Du skal tage folsyre
+							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin), allerede når du begynder at drømme om en baby. Du skal tage folsyre
 							helt fra graviditetens begyndelse, da det har betydning for celledelingen og arvematerialet i kroppens celler. Folsyre nedsætter
 							risikoen for alvorlige medfødte misdannelser af hjerne og rygmarv (neuralrørsdefekter).',
 					'B' => 'Når du er på slankekur, har du brug for lidt ekstra vitaminer og mineraler. TakeDaily giver dig det helt rigtige miks. Husk også
 								at slappe af, sove og dyrke motion.
 								<br/><br/>
-								Når du har fokus på at spise fedtfattigt, bliver din kost typisk mere ensidig, end den plejer, og så har du brug for et tilskud
+								Når du har fokus på at spise fedtfattigt, bliver din kost typisk mere ensidig, og så har du brug for et tilskud
 								K-vitamin. Det er i det hele taget vigtigt, at du stadig får de vitaminer og mineraler, som du normalt indtager igennem en
 								varieret kost. A-vitamin er godt for din hud og dit immunsystem. Mens C-vitamin øger kroppens evne til at nedbryde fedt. Så
 								ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo. Lidt ekstra B-vitamin sørger for, at du kan præstere
