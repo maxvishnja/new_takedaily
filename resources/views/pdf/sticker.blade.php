@@ -3,7 +3,7 @@
 <div style="width: 100%; height: 220mm; padding: 0;position: relative;">
 	<div style="height: 7mm">
 		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
-			<strong>{{ $customer->getName() }}</strong></h1>
+			<strong>{{ strlen($customer->getName()) > 25 ? \Illuminate\Support\Str::words($customer->getName(), 1, '') : $customer->getName() }}</strong></h1>
 	</div>
 
 	<div class="vitamins">
