@@ -13,7 +13,7 @@ require('laravel-elixir-spritesmith');
  |
  */
 
-//elixir.extend('sourcemaps', false);
+elixir.extend('sourcemaps', false);
 
 
 elixir(function (mix) {
@@ -44,7 +44,7 @@ elixir(function (mix) {
         '/vendor/payment.jquery.js',
         '/vendor/js.cookie.js',
         //'/vendor/video.js',
-        '/app.js',
+        '/app.js'
     ], 'public/js/app.js');
 
     mix.scripts([
