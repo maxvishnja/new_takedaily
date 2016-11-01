@@ -88,10 +88,9 @@
 						</table>
 					@endif
 
-					<p style="line-height: 1.2; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 4pt;">{{ trans('label-product.ingredients') }}
-						: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
+					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6.5pt; margin: 2pt 0 0;">{{ trans('label-product.ingredients') }}: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
-						<p style="line-height: 1.2; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6.5pt; margin: 4pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
 				</div>
 			@endforeach
@@ -105,8 +104,8 @@
 		<img src="{{ asset('/images/kcaps.jpeg') }}" style="height: 8mm" alt="K-Caps">
 	</div>
 
-	<p style="font-weight: 200;font-size: 7.5pt;color: #1A8562;line-height: 8pt;position: absolute; bottom: 0; height: 11mm; width: 70%; left: 15%; text-align: center">
-		{{ trans('label-product.recommended-daily-use') }}<br/>
-		{{ trans('label-product.info') }}
-	</p>
+	<div style="font-weight: 200;font-size: 7pt;color: #1A8562;line-height: 1;position: absolute; bottom: 0; height: 14mm; width: 70%; left: 15%; text-align: center">
+		<strong>{{ trans('label-product.recommended-daily-use') }}</strong> {{ trans('label-product.info') }}<br/>
+		<div><strong>{{ trans('label-product.contains') }}</strong> · {{ trans('label-product.address') }}</div>
+	</div>
 </div>

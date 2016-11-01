@@ -2,7 +2,7 @@
 
 return [
 	'recommended-daily-use' => 'Anbefalet daglig dosis:',
-	'info'                  => 'Næringsindhold pr. anbefalet daglig dosis angivet i mængde og procent af referenceindtag (RI) til vokse samt børn fra 11 år. Bør ikke stå i stedet for en sund og varieret kost',
+	'info'                  => 'Næringsindhold pr. anbefalet daglig dosis angivet i mængde og procent af referenceindtag (RI) til vokse samt børn fra 11 år. 1 blisterpakning dagligt til voksne samt børn fra 11 år og derover. Tages i forbindelse med et måltid. Dagsdosis bør ikke overskrides. Bør kun efter aftale med læge eller sundhedsplejerske anvendes af gravide eller børn under 1 år. Kosttilskud bør ikke erstatte en varieret kost.',
 	'dose'                  => '1 kapsel taget med vand til et måltid',
 	'ingredients'           => 'Ingredienser',
 	'titles'                =>
@@ -42,4 +42,5 @@ return [
 	'address'               => 'Take Daily, Vimmelskaftet 43, 1161 København K, Danmark',
 	'production'            => 'Produceret i Spanien',
 	'good-for'              => 'Bidrager til:',
+	'contains'              => 'Kosttilskud'
 ];

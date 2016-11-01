@@ -74,7 +74,7 @@
 
 	.vitamin thead th,
 	.vitamin tbody td {
-		padding-bottom: 2pt;
+		padding-bottom: 1.6pt;
 	}
 
 	/*
