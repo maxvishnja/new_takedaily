@@ -224,17 +224,16 @@ Olie indeholder hverken A- eller D-vitamin.',
 							3 => 'Nogle gange',
 						],
 				],
-			'3-5'  =>
+			'3-5' =>
 				[
-					'title'   => 'Hvor mange portioner pasta, ris, kartofler, couscous, quinoa og lignede spiser du om dagen?',
-					'text'    => 'Pasta, ris, kartofler og lignende er fyldt med gode kulhydrater og indeholder næsten ingen fedt. Og så er
-							de en vigtig kilde til B-vitamin og mineraler.',
+					'title' => 'Hvor mange kartofler, ris, pasta eller lignede spiser du om dagen?',
+					'text' => 'Kartofler, ris, pasta, quinoa, couscus og lignende er fyldt med gode kulhydrater, B-vitaminer og mineraler. Kroppen, og især hjernen, har brug for kulhydrater for at fungere optimalt. ',
 					'options' =>
 						[
 							1 => 'Ingen',
-							2 => '1-2 portioner (50-100 gram)',
-							3 => '3-4 portioner (150-200 gram)',
-							4 => '4-5 portioner (+250 gram)',
+							2 => '50-100 gram',
+							3 => '150-200 gram',
+							4 => '+250 gram',
 						],
 				],
 			'3-6'  =>
@@ -263,43 +262,42 @@ Olie indeholder hverken A- eller D-vitamin.',
 					'title'   => 'Hvor mange mejeriprodukter får du dagligt?',
 					'text'    => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
 							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.',
-					'options' =>
-						[
-							1 => 'Ingen',
-							2 => '1 portion',
-							3 => '2-3 portioner',
-							4 => '3-4 portioner',
-						],
-				],
-			'3-9'  =>
-				[
-					'title'   => 'Ønsker du Chiaolie eller Fiskeoile?',
-					'text'    => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
-					'options' =>
-						[
-							1 => 'Chiaolie',
-							2 => 'Fiskeolie',
-							3 => 'Ingen olie',
-						],
-				],
-			'2-11' =>
-				[
-					'title'   => 'Tager du allerede vitaminer og/eller mineraler?',
-					'text'    => 'Testresultatet er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
-							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre tilskud.',
-					'options' =>
-						[
-							1 => 'Ja',
-							2 => 'Nej',
-						],
-				],
-		],
-	'combinations'      =>
-		[
-			1      =>
-				[
-					'basic'          => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis',
-					'basic-10-d'     => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
+      'options' =>
+      [
+        1 => 'Ingen',
+        2 => '1 portion',
+        3 => '2-3 portioner',
+        4 => '3-4 portioner',
+      ],
+    ],
+    '3-9' =>
+    [
+      'title' => 'Ønsker du Chiaolie eller Fiskeoile?',
+      'text' => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
+      'options' =>
+      [
+        1 => 'Chiaolie',
+        2 => 'Fiskeolie',
+        3 => 'Ingen olie',
+      ],
+    ],
+    '2-11' =>
+    [
+      'title' => 'Tager du allerede vitaminer og/eller mineraler?',
+      'text' => 'Resultatet af denne test er baseret på din kost og din livsstil. TakeDaily sørger for, at du får alle de vitaminer
+							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre kosttilskud.',
+      'options' =>
+      [
+        1 => 'Ja',
+        2 => 'Nej',
+      ],
+    ],
+  ],
+  'combinations' =>
+  [
+    1 =>
+    [      'basic' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis',
+      'basic-10-d' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
 							Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">din alder</span>
 								<span v-show="( user_data.age >= \'50\'&& user_data.age <= \'70\') && user_data.skin > \'1\'">og</span>
 								<span v-show="user_data.skin > \'1\'">mørke hudfarve</span>.
