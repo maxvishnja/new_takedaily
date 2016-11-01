@@ -7,7 +7,7 @@ return array (
     'one' => 'ALA bidrager til vedligehold af normale blodcholesterol niveauer. Den gavnlige effekt opnåes ved et dagligt indtag på 2 g ALA.',
     'two' => 'Erstatning af mættede fedtsyrer med umættede fedtsyrer i kosten medvirker til vedligeholdelse af normale kolesterolniveauer i blodet',
     'three' => 'Højt indhold af omega-3 fedtsyrer',
-    'four' => 'Højt indhold af flerumættede fedtsyrer',
+    'four' => 'Rig på omega-3 fedtsyrer',
   ),
   'ingredients' => 'Chiafrøolie, K-Caps (hydroxypropylmethylcellulose, vand), antiklumpningsmiddel (silica)',
   'other-vitamins' => 
@@ -56,7 +56,5 @@ return array (
     ),
   ),
   'disclaimer' => '*Referenceindtag (RI) ikke fastlagt<br/>ALA bidrager til vedligehold af normale blodcholesterol niveauer. Den gavnlige effekt opnåes ved et dagligt indtag på 2 g ALA.
-<br/>Erstatning af mættede fedtsyrer med umættede fedtsyrer i kosten medvirker til vedligeholdelse af normale kolesterolniveauer i blodet
-<br/>Højt indhold af omega-3 fedtsyrer
-<br/>Højt indhold af flerumættede fedtsyrer',
+',
 );

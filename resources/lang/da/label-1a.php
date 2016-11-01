@@ -100,7 +100,7 @@ return array (
     ),
     1 => 
     array (
-      'name' => 'Phosphor',
+      'name' => 'Fosfor',
       'amount' => '128,7 mg',
       'percent' => '18',
     ),

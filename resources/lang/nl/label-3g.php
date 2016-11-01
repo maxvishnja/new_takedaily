@@ -12,6 +12,7 @@ return array (
     array (
       'percent' => '*',
       'name' => 'Alfa-linoleenzuur (ALA)',
+      'amount' => '369,5 mg',
     ),
     1 => 
     array (
@@ -27,17 +28,21 @@ return array (
     2 => 
     array (
       'amount' => '58,58 mg',
-      'name' => 'waarvan verzadigde vertzuren',
+      'name' => 'Verzadigde vertzuren',
+      'percent' => '*',
     ),
     3 => 
     array (
       'name' => 'Enkelvoudig onverzadigde vetzuren',
+      'percent' => '*',
+      'amount' => '45,24 mg',
     ),
     4 => 
     array (
       'name' => 'Meervoudig onverzadigde vetzuren
 ',
       'percent' => '*',
+      'amount' => '470,38 mg',
     ),
   ),
   'praises' => 
@@ -49,4 +54,5 @@ return array (
   ),
   'name' => 'Chiazaadolie',
   'ingredients' => 'Chiazaadolie, K-Caps (hydroxypropylmethylcellulose, water), antiklontermiddel (silica)',
+  'disclaimer' => '* Referentie inname (RI) bepalen<br/>Alfa-linoleenzuur (ALA) helpt het cholesterolniveau gezond te houden. Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.<br/>Rijk aan omega 3-vetzuren',
 );
