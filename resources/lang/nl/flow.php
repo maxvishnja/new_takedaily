@@ -36,7 +36,7 @@ return [
 					'age'                => 'Geboortedaum',
 					'text'               => 'Als je ouder wordt, verandert jouw behoefte aan vitaminen en mineralen. De behoefte aan vitamine D bijvoorbeeld neemt toe naarmate je ouder wordt. Vitamine D is belangrijk voor sterke botten en soepele spieren.',
 					'button-text'        => 'Kies jouw geboortedatum',
-					'button-submit-text' => 'Ja, mijn geboortedatum is',
+					'button-submit-text' => 'Ja, mijn geboortedatum is {{birthday}}',
 				],
 			'1-3'  =>
 				[
