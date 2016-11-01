@@ -53,14 +53,14 @@
 							<td>
 								<div class="btn-group">
 									@if($order->state == 'paid' )
-										<a class="btn btn-default"
+										<a class="btn btn-primary"
 										   href="{{ URL::action('Packer\OrderController@markSent', [ 'id' => $order->id ]) }}"><i
 												class="icon-truck"></i>
 											Mark sent</a>
-										{{--<a class="btn btn-default"
+										<a class="btn btn-default" target="_blank"
 										   href="{{ URL::action('Packer\OrderController@print', [ 'id' => $order->id ]) }}"><i
 												class="icon-download"></i>
-											Print</a>--}}
+											Print</a>
 									@else
 										<a class="btn btn-default"
 										   href="{{ URL::action('Packer\OrderController@show', [ 'id' => $order->id ]) }}"><i

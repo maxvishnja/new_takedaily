@@ -77,6 +77,11 @@ class OrderController extends Controller
 		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The order was marked as sent!' );
 	}
 
+	function print( $id )
+	{
+		return $this->downloadMultiple( [$id] );
+	}
+
 	function handleMultiple( Request $request )
 	{
 		switch ( $request->get( 'action' ) )
