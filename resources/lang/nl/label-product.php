@@ -1,26 +1,35 @@
 <?php
 
-return [
-	'weight'                => 'Gewicht',
-	'address'               => 'Take Daily, Vimmelskaftet 43, 1161 København K, Danmark',
-	'batch'                 => 'Batchnr.',
-	'expiration'            => 'Ten minste houdbaar tot einde:',
-	'dose'                  => '1 x daags 1 capsule bij voorkeur bij een maaltijd, met voldoende water innemen. Aanbevolen dosering niet overschrijden.',
-	'ingredients'           => 'ingrediënten',
-	'production'            => 'Geproduceerd in Spanje',
-	'titles'                =>
-		[
-			'amount'   => 'Per tablet',
-			'minerals' => 'Mineralen',
-			'percent'  => '% ADH',
-			'vitamins' => 'Vitamines',
-		],
-	'recommended-daily-use' => 'De aanbevolen dagdosering :',
-	'regular-description'   => 'Inhoud: deze verpakking bevat jouw supplementen voor 28 dagen geopend 1 per zak. vandaag. <br/>
-Alle producten zijn geschikt voor veganisten. <br/>
+return array (
+  'weight' => 'Gewicht',
+  'address' => 'Take Daily, Vimmelskaftet 43, 1161 København K, Danmark',
+  'batch' => 'Batchnr.',
+  'expiration' => 'Ten minste houdbaar tot einde:',
+  'dose' => 'Voor volwassenen vanaf 18 jaar: Dagelijks 1 capsule, tenzij anders geadviseerd. Aanbevolen dosering niet overschrijden. Bij voorkeur bij een maaltijd met voldoende water innemen',
+  'ingredients' => 'Ingrediënten',
+  'production' => 'Geproduceerd in Spanje',
+  'titles' => 
+  array (
+    'amount' => 'Per tablet',
+    'minerals' => 'Mineralen',
+    'percent' => 
+    array (
+      'explanation' => '*RI = referentie inname. RI komt overeen met ADH (aanbevolen dagelijkse hoeveelheid)',
+    ),
+    'vitamins' => 'Vitamines',
+  ),
+  'recommended-daily-use' => 'De aanbevolen dagdosering :',
+  'regular-description' => 'Voedingssupplement <br/>
+Bevat 28 capsules. Open slechts 1 doordrukstrip per dag. <br/>
+Alle producten zijn geschikt voor vegetariërs en veganisten. <br/>
 Alle capsules gemaakt van HPMC, chemisch gemodificeerd cellulose. <br/>
 Een voedingssupplement is geen vervanging van een gevarieerde, gezonde en evenwichtige voeding. <br/>
-Bij gelijktijd gebruik van andere supplementen, de gebruiksaanwijzing goed lezen, aangezien deze supplementen dezelde ingrediënten kunnen bevatten. In geval van overdosering raadpleeg uw arts.
-Raadpleeg in het geval van zwangerschap, lactatie, ziekte of medicijngebruik voor gebruik eerst uw arts. <br/>
-BEWAREN Beneden 25ºC op een droge plaats bewaren. Na gebruik hoes weer om verpakking plaatsen. Buiten het bereik van kinderen bewaren. Het product niet gebruiken als het verpakkingsfolie bij ontvangst reeds is geopend. <br/>',
-];
+Bij gelijktijdig gebruik van andere supplementen, de gebruiksaanwijzing goed lezen, aangezien deze supplementen dezelde ingrediënten kunnen bevatten. In geval van overdosering raadpleeg uw arts.
+Raadpleeg in het geval van zwangerschap, lactatie, ziekte of medicijngebruik voor gebruik eerst een deskundige. <br/>
+Dit voedingssupplement is niet geschikt voor personen jonger dan 18 jaar. <br/>
+BEWAREN Droog en op
+kamertemperatuur bewaren. Na gebruik hoes weer om verpakking plaatsen. Buiten het bereik van jonge kinderen bewaren. Als de doordrukstrip beschadigd of open is, de supplementen niet gebruiken. <br/>',
+  'produced-for' => 'Geproduceerd en afgestemd op de behoeften van:',
+  'good-for' => 'Draagt bij aan:',
+  'info' => 'Voedingsinformatie. 1 capsule bevat:',
+);
