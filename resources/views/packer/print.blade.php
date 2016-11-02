@@ -118,7 +118,7 @@ $cur = 0;
 <script>
 	setTimeout(function () {
 		window.print();
-	}, 1000);
+	}, 2000);
 </script>
 </body>
 </html>
