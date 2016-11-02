@@ -3,7 +3,6 @@
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	{{--	<link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css"/>--}}
 	<link href="{{ asset('/css/print.css') }}" rel="stylesheet" type="text/css"/>
 </head>
 <style>
