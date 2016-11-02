@@ -76,7 +76,7 @@ return array (
     '2-2' => 
     array (
       'title' => 'Er du på slankekur?',
-      'text' => 'Når din kost bliver mere fedtfattig, bliver den ofte også mere ensidig. Og så er det vigtigt, at du stadig får de vitaminer og mineraler, som du normalt ville indtage igennem din kost. A-vitamin er godt for din hud og sammen med C-vitamin sikrer det at dit immunsystem fungere optimalt. B-vitaminer er vigtige for dit energiniveau. Så ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo.',
+      'text' => 'Når din kost bliver mere fedtfattig, bliver den ofte også mere ensidig. Og så er det vigtigt, at du stadig får de vitaminer og mineraler, som du normalt ville indtage igennem din kost. A-vitamin er godt for din hud og sammen med C-vitamin sikrer det at dit immunforsvar fungere optimalt. B-vitaminer er vigtige for dit energiniveau. Så ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo.',
       'options' => 
       array (
         1 => 'Ja',
@@ -216,7 +216,7 @@ return array (
     array (
       'title' => 'Kommer du smør eller margarine på brødet eller bruger du det i din daglige madlavning?',
       'text' => 'Margarine er en vigtige kilder til A-vitamin og D-vitamin, og smør er en god kilde til A-vitamin. Begge vitaminer er vigtige for kroppens immunforsvar.
-Olie indeholder hverken A- eller D-vitamin.',
+',
       'options' => 
       array (
         1 => 'Ja',
@@ -251,7 +251,7 @@ Olie indeholder hverken A- eller D-vitamin.',
     array (
       'title' => 'Hvor ofte spiser du fed fisk til aftensmad?',
       'text' => 'Fede fisk er: Hellefisk, laks, makrel, pighaj, sild, stenbider, ørred, ål og ålekvabbe.
-Fede fisk indeholder sunde fiskeolier kaldet Omega-3-fedtsyrer samt D-vitamin, jod, zink og selen.',
+Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, jod, zink og selen.',
       'options' => 
       array (
         1 => 'Nej',

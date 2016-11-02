@@ -73,12 +73,12 @@ return array (
         'two' => 
         array (
           'title' => 'Vi skræddersyr dit TakeDaily',
-          'text' => 'Vi udvælger dine vitaminer og mineraler i koncentrationer, der passer nøjagtigt til dig.',
+          'text' => 'På baggrund af din test udvælger vi de vitaminer og mineraler, som netop du har brug for, og i de helt rigtige koncentrationer. ',
         ),
         'three' => 
         array (
           'title' => 'Du modtager din TakeDaily',
-          'text' => 'Du får leveret din æske gratis derhjemme eller på kontoret, hvis det passer dig bedre.',
+          'text' => 'Du får leveret din personlige TakeDaily-æske gratis derhjemme eller på kontoret, hvis det passer dig bedre.',
         ),
       ),
     ),

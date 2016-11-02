@@ -9,7 +9,7 @@ return array (
   array (
     'vitamins' => 'Vitaminer',
     'amount' => 'Mængde',
-    'percent' => 'Procent',
+    'percent' => '% RI*',
     'minerals' => 'Mineraler',
   ),
   'produced-for' => 'Produceret og tilpasset til',
