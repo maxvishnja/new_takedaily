@@ -32,4 +32,5 @@ kamertemperatuur bewaren. Na gebruik hoes weer om verpakking plaatsen. Buiten he
   'produced-for' => 'Geproduceerd en afgestemd op de behoeften van:',
   'good-for' => 'Draagt bij aan:',
   'info' => 'Voedingsinformatie. 1 capsule bevat:',
+  'contains' => 'Voedingssupplement',
 );
