@@ -51,7 +51,7 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
-		height: 202mm;
+		height: 204mm;
 		width: 166mm;
 	}
 
@@ -98,7 +98,7 @@ $cur = 0;
 	<div class="print" style="width: 210mm; height: 290mm;">
 		<div style="width: 174mm;">
 			<div style="width: 174mm; height: 240mm;">
-				<div style="padding: 5mm 4mm; position: relative">
+				<div style="padding: 4mm; position: relative">
 					{!! $printable['sticker'] !!}
 				</div>
 			</div>
