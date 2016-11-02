@@ -1,3 +1,4 @@
+<?php App::setLocale($customer->getLocale()); ?>
 <div style="height: 50mm; width: 160mm">
 		<img style="width: 112pt; height: 59pt; float: right" src="{{ asset('/images/logo-postnl@2x.png') }}"/>
 

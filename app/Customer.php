@@ -65,7 +65,7 @@ class Customer extends Model
 	 * @var array
 	 */
 
-	protected $fillable = [ 'user_id', 'plan_id', 'balance', 'is_mailflowable', 'order_count', 'accept_newletters' ];
+	protected $fillable = [ 'user_id', 'plan_id', 'balance', 'is_mailflowable', 'order_count', 'accept_newletters', 'locale' ];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -88,6 +88,11 @@ class Customer extends Model
 	public function user()
 	{
 		return $this->hasOne( 'App\User', 'id', 'user_id' );
+	}
+
+	public function getLocale()
+	{
+		return $this->locale;
 	}
 
 	/**

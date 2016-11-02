@@ -25,6 +25,7 @@ class AccountServiceProvider extends ServiceProvider
 				$customer->user_id = $user->id;
 				$customer->plan_id = Plan::create()->id;
 				$customer->accept_newletters = 1;
+				$customer->locale = \App::getLocale();
 
 				$customer->save();
 			}

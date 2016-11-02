@@ -111,7 +111,8 @@ class OrderController extends Controller
 		{
 			$printables[] = [
 				'label'   => $order->loadLabel(),
-				'sticker' => $order->loadSticker()
+				'sticker' => $order->loadSticker(),
+			    'locale' => $order->getCustomer()->getLocale()
 			];
 		}
 

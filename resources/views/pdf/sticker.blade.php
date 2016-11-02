@@ -1,5 +1,4 @@
-{{-- todo set locale based on customer --}}
-
+<?php App::setLocale($customer->getLocale()); ?>
 <div style="width: 100%; height: 230mm; padding: 0;position: relative;">
 	<div style="height: 7mm">
 		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
