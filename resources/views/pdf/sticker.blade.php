@@ -14,12 +14,11 @@
 					<h2 style="font-weight: bold; font-size: 10.5pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
 					<div style="margin: 4pt; font-size: 7pt; line-height: 1.2; color: #1A8562;">
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")) && count(trans("label-{$vitaminModel->code}.praises")) > 0)
-							<span style="margin-right: 2pt">{{ trans('label-product.good-for') }}</span>
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
-								<span style="margin-right: 5pt">
+								<div style="margin-bottom: 1pt">
 									<img src="{{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}" style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; " />
-									{{ $praiseText }}
-								</span>
+									{{ trans('label-product.good-for') }} {{ $praiseText }}
+								</div>
 							@endforeach
 						@endif
 					</div>
