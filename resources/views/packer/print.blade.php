@@ -95,8 +95,8 @@ $cur = 0;
 ?>
 @foreach($printables as $printable)
 	<?php $cur ++; ?>
-	<div class="print" style="width: 210mm; height: 290mm;">
-		<div style="width: 174mm; height: 290mm; position: relative">
+	<div class="print" style="width: 210mm; height: 297mm;">
+		<div style="width: 174mm; height: 297mm; position: relative">
 			<div style="width: 174mm; height: 240mm;">
 				<div style="padding: 4mm; position: relative">
 					{!! $printable['sticker'] !!}
