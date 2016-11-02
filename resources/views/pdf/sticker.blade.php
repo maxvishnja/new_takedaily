@@ -16,9 +16,8 @@
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")) && count(trans("label-{$vitaminModel->code}.praises")) > 0)
 							<div>{{ trans('label-product.good-for') }}</div>
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
-								<div>
-									<span
-										style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; background: url({{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}) no-repeat center center; background-size: cover;"></span>
+								<div style="margin-bottom: 1pt;">
+									<img src="{{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}" style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; " />
 									{{ $praiseText }}
 								</div>
 							@endforeach

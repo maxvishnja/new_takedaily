@@ -115,10 +115,5 @@ $cur = 0;
 		<div class="pb"></div>
 	@endif
 @endforeach
-<script>
-	setTimeout(function () {
-		window.print();
-	}, 2000);
-</script>
 </body>
 </html>
