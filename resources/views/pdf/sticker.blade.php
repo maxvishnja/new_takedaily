@@ -1,6 +1,6 @@
 {{-- todo set locale based on customer --}}
 
-<div style="width: 100%; height: 220mm; padding: 0;position: relative;">
+<div style="width: 100%; height: 230mm; padding: 0;position: relative;">
 	<div style="height: 7mm">
 		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
 			<strong>{{ strlen($customer->getName()) > 25 ? \Illuminate\Support\Str::words($customer->getName(), 1, '') : $customer->getName() }}</strong></h1>
@@ -100,10 +100,10 @@
 		@if($customer->hasPlan() && $customer->getPlan()->hasFishoil())
 			<img src="{{ asset('/images/foa_logo.png') }}" style="height: 8mm; margin-right: 4pt;" alt="Friends of the Sea">
 		@endif
-		<img src="{{ asset('/images/kcaps.jpeg') }}" style="height: 8mm" alt="K-Caps">
+		{{--<img src="{{ asset('/images/kcaps.jpeg') }}" style="height: 8mm" alt="K-Caps">--}}
 	</div>
 
-	<div style="font-weight: 200;font-size: 7pt;color: #1A8562;line-height: 1;position: absolute; bottom: 0; height: 14mm; width: 70%; left: 15%; text-align: center">
+	<div style="font-weight: 200;font-size: 7pt;color: #1A8562;line-height: 1;position: absolute; bottom: 0; text-align: center">
 		<strong>{{ trans('label-product.recommended-daily-use') }}</strong> {{ trans('label-product.info') }}<br/>
 		<div><strong>{{ trans('label-product.contains') }}</strong> · {{ trans('label-product.address') }}</div>
 	</div>

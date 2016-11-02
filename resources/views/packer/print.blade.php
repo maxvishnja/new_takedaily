@@ -51,8 +51,8 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
-		height: 190mm;
-		width: 160mm;
+		height: 200mm;
+		width: 166mm;
 	}
 
 	.vitamins .vitamin {
@@ -98,7 +98,7 @@ $cur = 0;
 	<div class="print" style="width: 210mm; height: 290mm;">
 		<div style="width: 174mm;">
 			<div style="width: 174mm; height: 240mm;">
-				<div style="padding: 10mm 7mm; position: relative">
+				<div style="padding: 5mm 4mm; position: relative">
 					{!! $printable['sticker'] !!}
 				</div>
 			</div>
