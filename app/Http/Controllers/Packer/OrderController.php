@@ -110,7 +110,6 @@ class OrderController extends Controller
 
 		foreach ( Order::whereIn( 'id', $ids )->get() as $order )
 		{
-		return $order->loadSticker();
 			$printables[] = [
 				'label'   => $order->loadLabel(),
 				'sticker' => $order->loadSticker(),
