@@ -96,14 +96,14 @@ $cur = 0;
 @foreach($printables as $printable)
 	<?php $cur ++; ?>
 	<div class="print" style="width: 210mm; height: 290mm;">
-		<div style="width: 174mm;">
+		<div style="width: 174mm; height: 297mm; position: relative">
 			<div style="width: 174mm; height: 238mm;">
 				<div style="padding: 4mm; position: relative">
 					{!! $printable['sticker'] !!}
 				</div>
 			</div>
 
-			<div style="width: 174mm;height: 57mm;">
+			<div style="width: 174mm;height: 57mm; position: absolute; bottom: 0">
 				<div style="padding: 3.5mm 7mm; position: relative">
 					{!! $printable['label'] !!}
 				</div>
