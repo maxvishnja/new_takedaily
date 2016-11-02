@@ -110,6 +110,18 @@ class Plan extends Model
 		return Vitamin::whereIn( 'id', $vitamins )->where('code', '3e')->limit(1)->count() == 1; // todo unhardcode the 3e code
 	}
 
+	public function hasChiaoil()
+	{
+		$vitamins = json_decode( $this->vitamins );
+
+		if ( is_null( $vitamins ) )
+		{
+			return false;
+		}
+
+		return Vitamin::whereIn( 'id', $vitamins )->where('code', '3g')->limit(1)->count() == 1; // todo unhardcode the 3e code
+	}
+
 	public function isSnoozed()
 	{
 		if ( ! is_null( $this->getSubscriptionSnoozedUntil() ) && Date::createFromFormat( 'Y-m-d H:i:s', $this->getSubscriptionSnoozedUntil() )
