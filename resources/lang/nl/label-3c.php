@@ -30,9 +30,6 @@ return array (
   'praises' => 
   array (
     'bone' => 'Calcium speelt een rol bij het behoud van sterke botten en soepele spieren',
-    'one' => 'Calcium speelt een rol bij het behoud van sterke botten en soepele spieren',
-    0 => 'Bot',
-    'two' => 'Vitaminen B2, B12 en calcium ondersteunen het energieniveau',
     'energy' => 'Vitaminen B2, B12 en calcium ondersteunen het energieniveau',
   ),
 );

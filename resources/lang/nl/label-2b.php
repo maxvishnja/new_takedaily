@@ -44,12 +44,6 @@ return array (
   'praises' => 
   array (
     'shield' => 'Vitamine A en C dragen bij aan het normale functioneren van het immuunsysteem',
-    'one' => 'Vitamine A en C dragen bij aan het normale functioneren van het immuunsysteem',
-    'two' => 'De B-vitamines (B1, B6 en B12) bevorderen de energiestofwisseling',
     'lightning' => 'De B-vitamines (B1, B6 en B12) bevorderen de energiestofwisseling',
-    0 => 'shield',
-    1 => 'one',
-    2 => 'two',
-    3 => 'lightning',
   ),
 );

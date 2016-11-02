@@ -13,13 +13,8 @@ return array (
   ),
   'praises' => 
   array (
-    1 => '
-',
     'energy' => 'Vitamine B1, B6, B12 en  ijzer dragen aan een normale energiestofwisseling',
-    'one' => 'Vitamine B1, B6, B12 en  ijzer dragen aan een normale energiestofwisseling',
-    0 => 'Energie',
     'lightning' => 'Vitamine B1, B6, B12 en  ijzer helpen om vermoeidheid en moeheid te verminderen',
-    'two' => 'Vitamine B1, B6, B12 en  ijzer helpen om vermoeidheid en moeheid te verminderen',
   ),
   'vitamins' => 
   array (

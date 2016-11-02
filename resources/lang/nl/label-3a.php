@@ -40,15 +40,9 @@ return array (
   'name' => 'Supplement ter aanvulling van de dagelijkse groente- en fruitinname',
   'praises' => 
   array (
-    'one' => 'Vitamine C draagt bij tot de bescherming van cellen tegen oxidatieve schade',
     'shield' => 'Vitamine A, C en foliumzuur helpen de normale werking van het immuunsysteem',
-    'two' => 'Vitamine A, C en foliumzuur helpen de normale werking van het immuunsysteem',
     'shield-cell' => 'Vitamine C draagt bij tot de bescherming van cellen tegen oxidatieve schade',
-    'three' => 'Foliumzuur en vitamine C helpen om vermoeidheid en moeheid te verminderen',
     'lightning' => 'Foliumzuur en vitamine C helpen om vermoeidheid en moeheid te verminderen',
-    0 => 'shield-cell',
-    1 => 'shield',
-    2 => 'lightning',
   ),
   'ingredients' => 'Dikaliumwaterstoffosfaat, K-Caps (hydroxypropylmethylcellulose, water, kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat), betacaroteen, pteroymonoglutaminezuur',
 );

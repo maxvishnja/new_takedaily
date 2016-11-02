@@ -20,9 +20,8 @@ return array (
   'name' => 'Een supplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn met de aanbevolen hoeveelheid foliumzuur en vitamine D conform het advies van de Gezondheidsraad',
   'praises' => 
   array (
-    0 => 'cell',
-    'one' => 'Foliumzuur draagt bij aan de groei van het ongeboren kind',
     'tissue' => 'Foliumzuur draagt bij aan de groei van het ongeboren kind',
+    'cell' => 'Foliumzuur draagt bij aan de groei van het ongeboren kind',
   ),
   'disclaimer' => '** Specifiek aangepaste dosering voor zwangere vrouwen en vrouwen die zwanger willen worden conform het advies van de Gezondheidsraad',
 );

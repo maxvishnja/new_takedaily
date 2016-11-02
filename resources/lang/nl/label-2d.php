@@ -45,7 +45,7 @@ return array (
     4 => 
     array (
       'amount' => '800 µg',
-      'name' => 'Foliumzuur',
+      'name' => 'Vitamin B11 (Foliumzuur)',
       'percent' => '150',
     ),
     5 => 
@@ -58,9 +58,7 @@ return array (
   'name' => 'Supplement ter ondersteuning van het immuunsysteem',
   'praises' => 
   array (
-    'one' => 'Vitamine A, B6, foliumzuur, B12, C, D en de mineralen seleen en zink dragen bij aan het normale functioneren van het immuunsysteem',
     'shield' => 'Vitamine A, B6, foliumzuur, B12, C, D en de mineralen seleen en zink dragen bij aan het normale functioneren van het immuunsysteem',
-    0 => 'shield',
   ),
   'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, K-Caps (hydroxypropylmethycellulose, water, kleurstoffen (E171, E110, E127)), zinkgluconaat, selenomethionine, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol, cyanocobalamine, pyridoxaal-5-fosfaat, pteroymonoglutaminezuur',
 );
