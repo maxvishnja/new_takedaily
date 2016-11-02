@@ -49,7 +49,7 @@ return array (
   'name' => 'Multivitaminen- & mineralensupplement met 20 microgram vitamine D ',
   'praises' => 
   array (
-    'bone' => 'Multi Vitamin D+ Extra is een multivitaminen- & mineralensupplement met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen, mineralen en spoorelementen. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan vitamines en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid.  ',
+    'bone' => 'Multi Vitamin D+ Extra is een multivitaminen- & mineralensupplement met 20 mcg vitamine D. Het bevat een uitgebalanceerde combinatie van essentiële vitamines en mineralen ter ondersteuning van een optimale gezondheid.',
     0 => 'muscle',
     1 => 'bone',
   ),

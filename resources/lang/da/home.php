@@ -48,7 +48,7 @@ return array (
     array (
       'title' => 'Hvad vi lover dig',
       'promise-1' => 'Gratis rådgivning af TakeDailys egne professionelle diætister ernæringseksperter',
-      'promise-2' => 'Vi bruger organiske kapsler til hurtigere optagelse og de bedste vitaminer, mineraler og omega fedtsyrer på markedet.',
+      'promise-2' => 'Vi bruger de bedste vitaminer, mineraler og omega-3 fedtsyrer på markedet samt organiske kapsler, der sikrer en hurtigere optagelse i kroppen.',
       'promise-3' => 'Vi springer alle fordyrende mellemled over og leverer direkte fra fabrik til din dør, på den måde er vi langt billigere end de fleste andre på markedet.',
       'promise-4' => 'Med vores specialudviklede algoritme, skræddersyer vi den optimale kombination af lige netop det du har brug for.',
       'read-more' => 'Læs mere her',

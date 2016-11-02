@@ -50,7 +50,7 @@ return array (
   'praises' => 
   array (
     'bone' => 'De Multi Vitamin D+ is een
-multivitaminen- & mineralensupplement voor volwassenen vanaf 18 jaar met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ in jouw dagelijkse behoefte aan vitamines en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid.  ',
+multivitaminen- & mineralensupplement met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid.',
     0 => 'muscle',
     1 => 'bone',
   ),
