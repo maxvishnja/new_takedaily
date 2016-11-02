@@ -115,5 +115,9 @@ $cur = 0;
 		<div class="pb"></div>
 	@endif
 @endforeach
+
+<script>
+	window.print();
+</script>
 </body>
 </html>
