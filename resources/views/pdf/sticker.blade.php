@@ -97,13 +97,14 @@
 	</div>
 
 	<div style="text-align: center">
-		@if($customer->hasPlan() && $customer->getPlan()->hasFishoil())
-			<img src="{{ asset('/images/foa_logo.png') }}" style="height: 8mm; margin-right: 4pt;" alt="Friends of the Sea">
-		@endif
 		{{--<img src="{{ asset('/images/kcaps.jpeg') }}" style="height: 8mm" alt="K-Caps">--}}
 	</div>
 
 	<div style="font-weight: 200;font-size: 7pt;color: #1A8562;line-height: 1;position: absolute; bottom: 0; text-align: center">
+
+		@if($customer->hasPlan() && $customer->getPlan()->hasFishoil())
+			<img src="{{ asset('/images/foa_logo.png') }}" style="float: left; height: 8mm; margin-right: 4pt;" alt="Friends of the Sea">
+		@endif
 		<strong>{{ trans('label-product.recommended-daily-use') }}</strong> {{ trans('label-product.info') }}<br/>
 		<div><strong>{{ trans('label-product.contains') }}</strong> · {{ trans('label-product.address') }}</div>
 	</div>
