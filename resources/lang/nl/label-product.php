@@ -30,7 +30,7 @@ Dit voedingssupplement is niet geschikt voor personen jonger dan 18 jaar. <br/>
 BEWAREN Droog en op
 kamertemperatuur bewaren. Na gebruik hoes weer om verpakking plaatsen. Buiten het bereik van jonge kinderen bewaren. Als de doordrukstrip beschadigd of open is, de supplementen niet gebruiken. <br/>',
   'produced-for' => 'Geproduceerd en afgestemd op de behoeften van:',
-  'good-for' => 'Draagt bij aan:',
+  'good-for' => 'Draagt bij aan',
   'info' => 'Voedingsinformatie. 1 capsule bevat:',
   'contains' => 'Voedingssupplement',
 );
