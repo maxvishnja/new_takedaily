@@ -61,5 +61,5 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, K-Caps (hydroxypropylmethycellulose, water, kleurstof (E140)), vulstof (microkristallijne cellulose), ijzerfumaraat, nicotinamide, pantotheenzuur, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, riboflavine, thiamine hydrochloride',
+  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, K-Caps (hydroxypropylmethycellulose, water, kleurstof (E140)), vulstof (microkristallijne cellulose), ijzerfumaraat, nicotinamide, pantotheenzuur, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride',
 );

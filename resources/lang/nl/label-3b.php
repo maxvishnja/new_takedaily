@@ -50,5 +50,5 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse brood, rijst en pasta inname',
-  'ingredients' => 'Vulstof (microkristallijne cellulose), K-Caps (hydroxypropylmethycellulose, water, kleurstof (E172)), ijzer bisglycinaat, nicotinamide, antiklontermiddel (magnesiumstearaat), pyridoxaal-5-fosfaat, riboflavine, thiamine hydrochloride, pteroylmonoglutaminezuur, kaliumjodide',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), K-Caps (hydroxypropylmethycellulose, water, kleurstof (E172)), ijzer bisglycinaat, nicotinamide, antiklontermiddel (magnesiumstearaat), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, pteroylmonoglutaminezuur, kaliumjodide',
 );

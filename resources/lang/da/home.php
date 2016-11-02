@@ -4,7 +4,7 @@ return array (
   'header' => 
   array (
     'title-1' => 'Håndplukkede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
-    'title-2' => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
+    'title-2' => 'TakeDaily udvælger vitaminer og mineraler i præcis de koncentrationer, som du har brug for.',
     'button-click-here' => 'Tag vores test <small class="button-line2">Det tager under 2 minutter</small>',
     'button-gift-text' => 'Giv TakeDaily i gave',
     'splash' => 
@@ -14,7 +14,7 @@ return array (
       'info' => 'Ingen binding',
     ),
     'what-is' => 'Hvad er TakeDaily?',
-    'pick' => 'eller vælg selv dine egne vitaminer',
+    'pick' => 'eller vælg selv dine vitaminer',
     'cta' => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>',
   ),
   'blocks' => 
@@ -47,10 +47,10 @@ return array (
     'promises' => 
     array (
       'title' => 'Hvad vi lover dig',
-      'promise-1' => 'Gratis rådgivning af TakeDailys egne professionelle diætister ernæringseksperter',
+      'promise-1' => 'Gratis rådgivning af TakeDailys egne professionelle diætister og ernæringseksperter',
       'promise-2' => 'Vi bruger de bedste vitaminer, mineraler og omega-3 fedtsyrer på markedet samt organiske kapsler, der sikrer en hurtigere optagelse i kroppen.',
-      'promise-3' => 'Vi springer alle fordyrende mellemled over og leverer direkte fra fabrik til din dør, på den måde er vi langt billigere end de fleste andre på markedet.',
-      'promise-4' => 'Med vores specialudviklede algoritme, skræddersyer vi den optimale kombination af lige netop det du har brug for.',
+      'promise-3' => 'Vi springer alle de dyre mellemled over og leverer direkte fra fabrikken til din dør. På den måde er vi langt billigere end de fleste andre på markedet.',
+      'promise-4' => 'Med vores specialudviklede algoritme skræddersyer vi den optimale kombination af lige netop de vitaminer og mineraler, som du har brug for.',
       'read-more' => 'Læs mere her',
       'get-started' => 'Kom i gang her',
     ),
@@ -73,7 +73,7 @@ return array (
         'two' => 
         array (
           'title' => 'Vi skræddersyr dit TakeDaily',
-          'text' => 'På baggrund af din test udvælger vi de vitaminer og mineraler, som netop du har brug for, og i de helt rigtige koncentrationer. ',
+          'text' => 'På baggrund af din test udvælger vi de vitaminer og mineraler, som netop du har brug for, i de helt rette koncentrationer. ',
         ),
         'three' => 
         array (
@@ -84,7 +84,7 @@ return array (
     ),
     'two' => 
     array (
-      'title' => 'Lev lidt sundere.<br/>Start indefra med TakeDaily.',
+      'title' => 'Lev sundere.<br/>Start indefra med TakeDaily.',
       'body' => '<p>
 							At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv være en udfordring. Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take Daily er diamentrale modsætninger.
 						</p>
@@ -119,7 +119,7 @@ return array (
         'one' => 
         array (
           'title' => 'Spiser du sundt, men tillader dig selv en cigaret i ny og næ?',
-          'text' => 'Ryger du engang imellem, nedbryder røgen mange af de C-vitaminer, du indtager.',
+          'text' => 'Ryger du engang imellem, nedbryder røgen meget af det C-vitamin, som du indtager.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
@@ -128,7 +128,7 @@ return array (
         'two' => 
         array (
           'title' => 'Er du vegetar, men ikke fan af bælgfrugter, soyabønner og tofu?',
-          'text' => 'Som vegetar er det svært at få jern og B-vitaminer nok.',
+          'text' => 'Som vegetar eller veganer er det svært at få nok jern og B-vitaminer.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
@@ -137,7 +137,7 @@ return array (
         'three' => 
         array (
           'title' => 'Har du lidt for meget om ørene for tiden?',
-          'text' => 'I en stresset periode har du brug for lidt ekstra B-vitamin.',
+          'text' => 'I en stresset periode har du brug for lidt ekstra B-vitaminer.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
@@ -158,7 +158,7 @@ return array (
     array (
       'title' => 'Online konsultation',
       'subtitle' => 'Hvilke vitaminer og mineraler mangler du?',
-      'text' => 'Vores dygtige diætister står bag spørgsmålene, som giver svar på, hvilke vitaminer og mineraler, du skal tage for at få din krop i balance. Der er 39 spørgsmål, og efter 2 minutter har du dit resultat.',
+      'text' => 'Vores dygtige diætister står bag de spørgsmål, som giver os svar på, hvilke vitaminer og mineraler, du skal tage for at få din krop i balance. Der er 39 spørgsmål, og efter kun 2 minutter har du dit resultat.',
       'button' => '<a href="/flow" class="button button--green button--rounded button--large">Start på TakeDaily i dag</a>',
     ),
     'eight' => 

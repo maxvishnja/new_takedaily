@@ -37,5 +37,5 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), K-Caps (hydroxypropylmethycellulose, water), ijzer bisglycinaat, antiklontermiddel (magnesiumstearaat), pyridoxaal-5-fosfaat, thiamine hydrochloride',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), K-Caps (hydroxypropylmethycellulose, water), ijzer bisglycinaat, antiklontermiddel (magnesiumstearaat), pyridoxaal-5-fosfaat, thiaminehydrochloride',
 );
