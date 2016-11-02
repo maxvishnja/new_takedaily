@@ -41,6 +41,6 @@ return [
 	'batch'                 => 'Bach nr:',
 	'address'               => 'Take Daily, Vimmelskaftet 43, 1161 København K, Danmark',
 	'production'            => 'Produceret i Spanien',
-	'good-for'              => 'Bidrager til:',
+	'good-for'              => 'Bidrager til',
 	'contains'              => 'Kosttilskud'
 ];
