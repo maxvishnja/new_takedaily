@@ -313,10 +313,10 @@
 			el: '#app',
 			data: {
 				company: '',
-				shipping: parseFloat("{{ $shippingPrice }}"),
-				price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
-				sub_price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
-				tax_rate: 0.2,
+				shipping: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), $shippingPrice) }}"),
+				price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)) }}"),
+				sub_price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)) }}"),
+				tax_rate: parseFloat("0.2"),
 				extra_totals: [],
 				discount: {
 					applied: false,
@@ -395,7 +395,7 @@
 		@foreach (App\Apricot\Helpers\ExtraPills::getTotalsFor($codes) as $total )
 			app.extra_totals.push({
 			name: "{{ $total['name'] }}",
-			price: parseFloat("{{ $total['price'] }}")
+			price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), $total['price']) }}")
 		});
 		@endforeach
 	</script>
