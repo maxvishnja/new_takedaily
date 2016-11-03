@@ -140,6 +140,7 @@ class CheckoutController extends Controller
 		$request->session()->put( 'address_country', $request->get( 'address_country' ) );
 		$request->session()->put( 'company', $request->get( 'company' ) );
 		$request->session()->put( 'cvr', $request->get( 'cvr' ) );
+		$request->session()->put( 'phone', $request->get( 'phone' ) );
 		$request->session()->put( 'product_name', $request->get( 'product_name' ) );
 		$request->session()->put( 'user_data', $request->get( 'user_data' ) );
 		$request->session()->put( 'price', $checkout->getSubscriptionPrice() );
@@ -186,7 +187,8 @@ class CheckoutController extends Controller
 				                'address_city'    => $request->session()->get( 'address_city' ),
 				                'address_country' => $request->session()->get( 'address_country' ),
 				                'company'         => $request->session()->get( 'company' ),
-				                'cvr'             => $request->session()->get( 'cvr' )
+				                'cvr'             => $request->session()->get( 'cvr' ),
+				                'phone'             => $request->session()->get( 'phone' ),
 			                ] ); // todo translate
 		}
 
@@ -209,6 +211,7 @@ class CheckoutController extends Controller
 				'address_postal'  => $request->session()->get( 'address_zipcode' ),
 				'company'         => $request->session()->get( 'company' ),
 				'cvr'             => $request->session()->get( 'cvr' ),
+				'phone'             => $request->session()->get( 'phone' ),
 			] )
 			                   ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
 			                   ->setUserData( $request->session()->get( 'user_data', '{}' ) )

@@ -41,6 +41,8 @@ return [
 							'name'                => 'Dit fulde navn',
 							'name-placeholder'    => 'Lars Jensen',
 							'email'               => 'Din e-mail adresse',
+							'phone'               => 'Dit tlf. nummer',
+							'phone-placeholder'   => '12345678',
 							'email-placeholder'   => 'lars-jensen@gmail.com',
 							'address'             =>
 								[
@@ -53,7 +55,7 @@ return [
 									'country'             => 'Land',
 								],
 							'optional'            => 'valgfrit',
-							'is-company' => 'Jeg handler som en virksomhed',
+							'is-company'          => 'Jeg handler som en virksomhed',
 							'company'             => 'Firmanavn',
 							'cvr'                 => 'CVR',
 							'cvr-placeholder'     => 'DK-12345678',
