@@ -31,47 +31,47 @@ class Checkout
 	/** @var Coupon */
 	private $coupon;
 
-	public function appendCoupon($couponCode)
+	public function appendCoupon( $couponCode )
 	{
 		$couponRepository = new CouponRepository();
-		$coupon           = $couponRepository->findByCoupon($couponCode);
+		$coupon           = $couponRepository->findByCoupon( $couponCode );
 
-		if ( $coupon && !$this->getProduct()->isGiftcard() )
+		if ( $coupon && ! $this->getProduct()->isGiftcard() )
 		{
 			$this->coupon = $coupon;
 
 			if ( $coupon->discount_type == 'percentage' )
 			{
-				$this->deductTotal($coupon->discount / 100);
+				$this->deductTotal( $coupon->discount / 100, true );
 			}
 			elseif ( $coupon->discount_type == 'amount' )
 			{
-				$this->deductTotal(MoneyLibrary::toMoneyFormat($coupon->discount));
+				$this->deductTotal( \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString( config( 'app.base_currency' ), trans( 'general.currency' ), MoneyLibrary::toMoneyFormat( $coupon->discount ) ) );
 			}
 
 			if ( $coupon->applies_to == 'plan' )
 			{
-				$this->setSubscriptionPrice($this->getTotal());
+				$this->setSubscriptionPrice( $this->getTotal() );
 			}
 		}
 
 		return $this;
 	}
 
-	public function setProduct(Product $product, $updatePrices = true)
+	public function setProduct( Product $product, $updatePrices = true )
 	{
 		$this->product = $product;
 
 		if ( $updatePrices )
 		{
-			$this->setTotal(MoneyLibrary::toMoneyFormat($this->getProduct()->price));
-			$this->setSubscriptionPrice($this->getProduct()->is_subscription == 1 ? MoneyLibrary::toMoneyFormat($this->getProduct()->price) : 0);
+			$this->setTotal( MoneyLibrary::toMoneyFormat( $this->getProduct()->price ) );
+			$this->setSubscriptionPrice( $this->getProduct()->is_subscription == 1 ? MoneyLibrary::toMoneyFormat( $this->getProduct()->price ) : 0 );
 		}
 
 		return $this;
 	}
 
-	public function createCustomer($name, $email)
+	public function createCustomer( $name, $email )
 	{
 		if ( \Auth::check() && $customer = \Auth::user()->getCustomer() )
 		{
@@ -79,7 +79,7 @@ class Checkout
 		}
 		else
 		{
-			$this->paymentCustomer = $this->getPaymentHandler()->createCustomer($name, $email);
+			$this->paymentCustomer = $this->getPaymentHandler()->createCustomer( $name, $email );
 		}
 
 		return $this;
@@ -90,16 +90,16 @@ class Checkout
 		return $this->paymentCustomer;
 	}
 
-	public function setProductByName($name = 'subscription')
+	public function setProductByName( $name = 'subscription' )
 	{
-		$product = Product::where('name', $name)->first();
+		$product = Product::where( 'name', $name )->first();
 
-		if ( !$product )
+		if ( ! $product )
 		{
 			return false;
 		}
 
-		return $this->setProduct($product);
+		return $this->setProduct( $product );
 	}
 
 	/**
@@ -110,9 +110,16 @@ class Checkout
 		return $this->product;
 	}
 
-	public function deductTotal($byAmount)
+	public function deductTotal( $byAmount, $percentage = false )
 	{
-		$this->setTotal($this->getTotal() - $byAmount);
+		if ( ! $percentage )
+		{
+			$this->setTotal( $this->getTotal() - $byAmount );
+		}
+		else
+		{
+			$this->setTotal( $this->getTotal() * $byAmount );
+		}
 
 		return $this;
 	}
@@ -122,14 +129,14 @@ class Checkout
 		return $this->total;
 	}
 
-	public function setTotal($newTotal)
+	public function setTotal( $newTotal )
 	{
 		$this->total = $newTotal;
 
 		return $this;
 	}
 
-	public function setupTotals(Request $request)
+	public function setupTotals( Request $request )
 	{
 		$codes = [];
 
@@ -139,9 +146,9 @@ class Checkout
 
 			$userData = $request->session()->get( 'user_data' );
 
-			if( is_string($userData) && json_decode($userData))
+			if ( is_string( $userData ) && json_decode( $userData ) )
 			{
-				$userData = json_decode($userData);
+				$userData = json_decode( $userData );
 			}
 
 			$lib->generateResult( $userData );
@@ -151,14 +158,14 @@ class Checkout
 				$codes[] = PillLibrary::getPill( $combKey, $combVal );
 			}
 		}
-		elseif( $request->session()->has('vitamins'))
+		elseif ( $request->session()->has( 'vitamins' ) )
 		{
-			$codes = $request->session()->get('vitamins');
+			$codes = $request->session()->get( 'vitamins' );
 		}
 
-		foreach(ExtraPills::getTotalsFor($codes) as $extraPill)
+		foreach ( ExtraPills::getTotalsFor( $codes ) as $extraPill )
 		{
-			$this->addToTotal($extraPill['price']);
+			$this->addToTotal( $extraPill['price'] );
 		}
 
 		return $this;
@@ -174,7 +181,7 @@ class Checkout
 
 	public function setPaymentHandler()
 	{
-		$this->paymentHandler = new PaymentHandler($this->getPaymentMethod());
+		$this->paymentHandler = new PaymentHandler( $this->getPaymentMethod() );
 
 		return $this;
 	}
@@ -187,9 +194,9 @@ class Checkout
 		return $this->paymentMethod;
 	}
 
-	public function setPaymentMethod($method, $setHandler = true)
+	public function setPaymentMethod( $method, $setHandler = true )
 	{
-		$this->paymentMethod = PaymentDelegator::getMethod($method);
+		$this->paymentMethod = PaymentDelegator::getMethod( $method );
 
 		if ( $setHandler )
 		{
@@ -199,15 +206,15 @@ class Checkout
 		return $this;
 	}
 
-	public function appendGiftcard($id, $token)
+	public function appendGiftcard( $id, $token )
 	{
 		$giftcard = null;
 
-		if ( !$this->getProduct()->isGiftcard() )
+		if ( ! $this->getProduct()->isGiftcard() )
 		{
-			$giftcard = Giftcard::where('id', $id)
-			                    ->where('token', $token)
-			                    ->where('is_used', 0)
+			$giftcard = Giftcard::where( 'id', $id )
+			                    ->where( 'token', $token )
+			                    ->where( 'is_used', 0 )
 			                    ->first();
 		}
 
@@ -224,16 +231,16 @@ class Checkout
 		return $this->total;
 	}
 
-	public function setSubscriptionPrice($newPrice)
+	public function setSubscriptionPrice( $newPrice )
 	{
 		$this->subscriptionPrice = $newPrice;
 
 		return $this;
 	}
 
-	public function addToTotal($byAmount)
+	public function addToTotal( $byAmount )
 	{
-		$this->setTotal($this->getTotal() + $byAmount);
+		$this->setTotal( $this->getTotal() + $byAmount );
 
 		return $this;
 	}
@@ -241,7 +248,7 @@ class Checkout
 	public function makeInitialPayment()
 	{
 		return $this->getPaymentHandler()
-		            ->makeInitialPayment(MoneyLibrary::toCents($this->getTotal()), $this->getCustomer());
+		            ->makeInitialPayment( MoneyLibrary::toCents( $this->getTotal() ), $this->getCustomer() );
 	}
 
 	public function getCoupon()
@@ -254,9 +261,9 @@ class Checkout
 		return $this->giftcard;
 	}
 
-	public function setTaxLibrary($country)
+	public function setTaxLibrary( $country )
 	{
-		$this->taxLibrary = new TaxLibrary($country);
+		$this->taxLibrary = new TaxLibrary( $country );
 
 		return $this;
 	}
