@@ -320,7 +320,5 @@
 			thisFaq.addClass('open');
 			thisFaq.find('.faq_answer').stop().slideDown(300); // Sadly, height is dynamic so CSS animations is no option.
 		});
-
-		$(".faq")[0].click();
 	</script>
 @endsection
