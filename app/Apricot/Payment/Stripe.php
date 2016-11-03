@@ -179,7 +179,14 @@ class Stripe implements PaymentInterface
 	{
 		$customer = Customer::retrieve($customerId);
 
-		return $customer->sources;
+		$array = [];
+
+		foreach($customer->sources->all()->data as $source)
+		{
+			$array[] = $source;
+		}
+
+		return $array;
 	}
 
 	/**
