@@ -14,9 +14,9 @@
 			recommendation_token: '',
 			extra_totals: [],
 			result: {},
-			shipping: parseFloat("{{ $shippingPrice }}"),
-			price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
-			sub_price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price) }}"),
+			shipping: parseFloat("{{ (new \App\Apricot\Helpers\Money($shippingPrice))->toCurrency(trans('general.currency')) }}"),
+			price: parseFloat("{{ $giftcard ? 0 : (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)))->toCurrency(trans('general.currency')) }}"),
+			sub_price: parseFloat("{{ (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)))->toCurrency(trans('general.currency')) }}"),
 			tax_rate: parseFloat("{{ $taxRate }}"),
 			discount: {
 				applied: false,

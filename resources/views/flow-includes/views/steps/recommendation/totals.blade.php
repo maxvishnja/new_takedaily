@@ -14,8 +14,7 @@
 				<tr>
 					<td>{{ trans('checkout.index.total.shipping') }}</td>
 					<td>
-													<span
-														v-show="shipping == 0">{{ trans('checkout.index.total.free') }}</span>
+						<span v-show="shipping == 0">{{ trans('checkout.index.total.free') }}</span>
 						<span
 							v-show="shipping > 0">{{ trans('general.money-vue', ['amount' => 'shipping']) }}</span>
 					</td>
@@ -24,7 +23,7 @@
 			@if($giftcard)
 				<tr>
 					<td>{{ trans('checkout.index.total.giftcard	') }}</td>
-					<td>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth, true, 2, '.')]) }}</td>
+					<td>{{ trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth, true, 2, '.')))->toCurrency(trans('general.currency'))]) }}</td>
 				</tr>
 			@endif
 			<tr v-show="discount.applied">

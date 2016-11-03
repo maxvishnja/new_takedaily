@@ -24,7 +24,7 @@ class ExtraPills
 		{
 			$totals[] = [
 				'name'  => trans( 'products.oil' ),
-				'price' => \App\Setting::getWithDefault( 'vitamin_price', 0 )
+				'price' => (new \App\Apricot\Helpers\Money(\App\Setting::getWithDefault( 'vitamin_price', 0 )))->toCurrency(trans('general.currency'))
 			];
 		}
 
