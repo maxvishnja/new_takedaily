@@ -142,7 +142,7 @@
 							</div>
 
 							<div class="row m-b-50 m-sm-b-20">
-								<div class="col-md-4">
+								<div class="col-md-5">
 									<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}
 										<span class="required">*</span></label>
 									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_street')) input--error @endif"
@@ -159,7 +159,7 @@
 										   name="address_zipcode" required="required" aria-required="true"
 										   value="{{ Request::old('address_zipcode', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-3">
 									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 									<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
 										<span class="required">*</span></label>
