@@ -24,7 +24,7 @@
 				<tr>
 					<td data-th="#">#{{ $order->getPaddedId() }}</td>
 					<td data-th="{{ trans('account.transactions.table.date') }}">{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
-					<td data-th="{{ trans('account.transactions.table.amount') }}"><strong>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true)]) }}</strong></td>
+					<td data-th="{{ trans('account.transactions.table.amount') }}"><strong>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true))]) }}</strong></td>
 					<td data-th="{{ trans('account.transactions.table.status') }}"><span class="state-label state-label--{{ $order->state  }}">{{ trans("order.state.{$order->state}") }}</span></td>
 					<td data-th="&nbsp;"><a href="{{URL::action('AccountController@getTransaction', [ 'id' => $order->id ]) }}" class="button button--small button--rounded button--grey">{{ trans('account.transactions.button-show-text') }}</a></td>
 				</tr>
