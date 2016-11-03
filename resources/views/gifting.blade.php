@@ -13,7 +13,7 @@
 				<div class="gifting-selectors">
 					<label class="gifting-selector" for="months_input_1">
 						<input type="radio" name="product_name" value="giftcard_1" id="months_input_1"/>
-						<strong class="gifting-price">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString('DKK', trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Product::where('name', 'giftcard_1')->first()->price))]) }}</strong>
+						<strong class="gifting-price">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Product::where('name', 'giftcard_1')->first()->price))]) }}</strong>
 						<span class="gifting-months">{{ trans('gifting.giftcard_1') }}</span>
 
 						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
@@ -21,7 +21,7 @@
 
 					<label class="gifting-selector" for="months_input_3">
 						<input type="radio" name="product_name" value="giftcard_3" id="months_input_3"/>
-						<strong class="gifting-price">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString('DKK', trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Product::where('name', 'giftcard_3')->first()->price))]) }}</strong>
+						<strong class="gifting-price">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Product::where('name', 'giftcard_3')->first()->price))]) }}</strong>
 						<span class="gifting-months">{{ trans('gifting.giftcard_3') }}</span>
 
 						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
@@ -29,7 +29,7 @@
 
 					<label class="gifting-selector" for="months_input_6">
 						<input type="radio" name="product_name" value="giftcard_6" id="months_input_6"/>
-						<strong class="gifting-price">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString('DKK', trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Product::where('name', 'giftcard_6')->first()->price))]) }}</strong>
+						<strong class="gifting-price">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Product::where('name', 'giftcard_6')->first()->price))]) }}</strong>
 						<span class="gifting-months">{{ trans('gifting.giftcard_6') }}</span>
 
 						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
