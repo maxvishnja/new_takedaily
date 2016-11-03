@@ -7,6 +7,25 @@
 
 @section('content')
 	<script>
+		function statusChangeCallback(response)
+		{
+			if(response.status == 'connected')
+			{
+				$("#facebookloginbox").hide();
+
+				FB.api('/me?fields=email,name', function(response) {
+					$("#input_info_name").val(response.name);
+					$("#input_info_email").val(response.email);
+				});
+			}
+		}
+
+		function checkLoginState() {
+			FB.getLoginStatus(function (response) {
+				statusChangeCallback(response);
+			});
+		}
+
 		window.fbAsyncInit = function () {
 			FB.init({
 				appId: '{{ env('FACEBOOK_APP_ID') }}',
@@ -17,12 +36,6 @@
 			FB.getLoginStatus(function (response) {
 				statusChangeCallback(response);
 			});
-
-			function checkLoginState() {
-				FB.getLoginStatus(function (response) {
-					statusChangeCallback(response);
-				});
-			}
 		};
 
 		(function (d, s, id) {
@@ -32,7 +45,7 @@
 			}
 			js = d.createElement(s);
 			js.id = id;
-			js.src = "//connect.facebook.net/da_DK/sdk.js"; // todo set locale
+			js.src = "//connect.facebook.net/{{ trans('general.locale') }}/sdk.js";
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
@@ -86,10 +99,14 @@
 					</div>
 
 					<div class="card card--large m-b-30 card-padding-fixer">
-						<fb:login-button
-							scope="public_profile,email,user_birthday"
-							onlogin="checkLoginState();">
-						</fb:login-button>
+						<div class="text-center" id="facebookloginbox">
+							<fb:login-button
+								size="large"
+								scope="public_profile,email"
+								onlogin="checkLoginState();">Log ind med Facebook
+							</fb:login-button>
+						<hr>
+						</div>
 
 						<fieldset>
 							<legend class="card_title">{{ trans('checkout.index.order.info.title') }}</legend>
@@ -160,7 +177,7 @@
 
 								<div class="col-md-12 m-t-50 m-sm-t-20">
 									<label for="is_company">
-										<input id="is_company" type="checkbox" v-model="is_company" /> {{ trans('checkout.index.order.info.is-company') }}
+										<input id="is_company" type="checkbox" v-model="is_company"/> {{ trans('checkout.index.order.info.is-company') }}
 									</label>
 								</div>
 
