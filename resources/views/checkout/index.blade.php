@@ -145,7 +145,7 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<label class="label label--full checkout--label" for="input_info_address_country">{{ trans('checkout.index.order.info.address.country') }}
 										<span class="required">*</span></label>
 									<select name="address_country" id="country-selector" class="select select--medium select--semibold select--full" required="required"
@@ -157,13 +157,30 @@
 										@endforeach
 									</select>
 								</div>
-								<div class="col-md-6">
-									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
-									<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}
-										<span class="optional pull-right">{{ trans('checkout.index.order.info.optional') }}</span></label>
-									<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
-										   placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company"
-										   value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
+
+								<div class="col-md-12 m-t-50 m-sm-t-20">
+									<label for="is_company">
+										<input type="checkbox" v-model="is_company" /> {{ trans('checkout.index.order.info.is-company') }}
+									</label>
+								</div>
+
+								<div v-show="is_company">
+									<div class="col-md-6">
+										<div class="m-t-10"></div>
+										<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}
+											<span class="optional pull-right">{{ trans('checkout.index.order.info.optional') }}</span></label>
+										<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
+											   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
+											   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
+									</div>
+									<div class="col-md-6">
+										<div class="m-t-10"></div>
+										<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}
+											<span class="optional pull-right">{{ trans('checkout.index.order.info.optional') }}</span></label>
+										<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
+											   placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company"
+											   value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
+									</div>
 								</div>
 							</div>
 						</fieldset>
@@ -196,7 +213,7 @@
 							{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y')]) !!}
 						</div>
 					@endif
-ƒ
+
 					{{ csrf_field() }}
 
 					<div class="hidden">

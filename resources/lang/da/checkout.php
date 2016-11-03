@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'back' => '‹ Gå tilbage til anbefalingen',
+	'back'     => '‹ Gå tilbage til anbefalingen',
 	'messages' =>
 		[
 			'vitamins-not-selected' => 'Vi skal finde dine vitaminer før du kan handle.',
@@ -53,8 +53,11 @@ return [
 									'country'             => 'Land',
 								],
 							'optional'            => 'valgfrit',
-							'company'             => 'CVR / Firma',
-							'company-placeholder' => 'DK-12345678',
+							'is-company' => 'Jeg handler som en virksomhed',
+							'company'             => 'Firmanavn',
+							'cvr'                 => 'CVR',
+							'cvr-placeholder'     => 'DK-12345678',
+							'company-placeholder' => 'Virksomhedens navn',
 						],
 					'billing'            =>
 						[
