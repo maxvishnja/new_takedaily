@@ -160,7 +160,7 @@
 
 								<div class="col-md-12 m-t-50 m-sm-t-20">
 									<label for="is_company">
-										<input type="checkbox" v-model="is_company" /> {{ trans('checkout.index.order.info.is-company') }}
+										<input id="is_company" type="checkbox" v-model="is_company" /> {{ trans('checkout.index.order.info.is-company') }}
 									</label>
 								</div>
 

@@ -52,7 +52,7 @@ class CheckoutController extends Controller
 
 			$userData = $request->session()->get( 'user_data' );
 
-			if ( is_string($userData) && json_decode( $userData ) )
+			if ( is_string( $userData ) && json_decode( $userData ) )
 			{
 				$userData = json_decode( $userData );
 			}
@@ -66,11 +66,11 @@ class CheckoutController extends Controller
 		}
 		elseif ( $request->session()->has( 'vitamins' ) )
 		{
-			$codes = collect($request->session()->get( 'vitamins' ));
-			$codes = $codes->map(function($val)
+			$codes = collect( $request->session()->get( 'vitamins' ) );
+			$codes = $codes->map( function ( $val )
 			{
 				return (int) $val;
-			});
+			} );
 		}
 
 		return view( 'checkout.index', [
@@ -139,6 +139,7 @@ class CheckoutController extends Controller
 		$request->session()->put( 'address_zipcode', $request->get( 'address_zipcode' ) );
 		$request->session()->put( 'address_country', $request->get( 'address_country' ) );
 		$request->session()->put( 'company', $request->get( 'company' ) );
+		$request->session()->put( 'cvr', $request->get( 'cvr' ) );
 		$request->session()->put( 'product_name', $request->get( 'product_name' ) );
 		$request->session()->put( 'user_data', $request->get( 'user_data' ) );
 		$request->session()->put( 'price', $checkout->getSubscriptionPrice() );
@@ -184,13 +185,16 @@ class CheckoutController extends Controller
 				                'address_street'  => $request->session()->get( 'address_street' ),
 				                'address_city'    => $request->session()->get( 'address_city' ),
 				                'address_country' => $request->session()->get( 'address_country' ),
-				                'company'         => $request->session()->get( 'company' )
+				                'company'         => $request->session()->get( 'company' ),
+				                'cvr'             => $request->session()->get( 'cvr' )
 			                ] ); // todo translate
 		}
 
 		$checkoutCompletion = new CheckoutCompletion( $checkout );
 
-		$password = ($request->session()->has( 'user_data') && isset(json_decode($request->session()->get( 'user_data'))->birthdate)) ? date('Y-m-d', strtotime(json_decode($request->session()->get( 'user_data'))->birthdate)) : str_random( 8 );
+		$password = ( $request->session()->has( 'user_data' ) && isset( json_decode( $request->session()
+		                                                                                     ->get( 'user_data' ) )->birthdate ) ) ? date( 'Y-m-d', strtotime( json_decode( $request->session()
+		                                                                                                                                                                            ->get( 'user_data' ) )->birthdate ) ) : str_random( 8 );
 		$name     = $request->session()->get( 'name' );
 		$email    = $request->session()->get( 'email' );
 
@@ -204,29 +208,30 @@ class CheckoutController extends Controller
 				'address_country' => $request->session()->get( 'address_country' ),
 				'address_postal'  => $request->session()->get( 'address_zipcode' ),
 				'company'         => $request->session()->get( 'company' ),
+				'cvr'             => $request->session()->get( 'cvr' ),
 			] )
-           ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
-           ->setUserData( $request->session()->get( 'user_data', '{}' ) )
-           ->updateCustomerPlan()
-           ->handleProductActions()
-           ->deductCouponUsage()
-           ->markGiftcardUsed()
-           ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ) )
-           ->queueEmail( $password )
-           ->flush()
-           ->initUpsell()
-           ->loginUser();
+			                   ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
+			                   ->setUserData( $request->session()->get( 'user_data', '{}' ) )
+			                   ->updateCustomerPlan()
+			                   ->handleProductActions()
+			                   ->deductCouponUsage()
+			                   ->markGiftcardUsed()
+			                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ) )
+			                   ->queueEmail( $password )
+			                   ->flush()
+			                   ->initUpsell()
+			                   ->loginUser();
 		} catch ( \Exception $exception )
 		{
 			$checkoutCompletion->user->delete();
 
-			return \Redirect::back()->withErrors($exception->getMessage()); // todo refund charge + withInput
+			return \Redirect::back()->withErrors( $exception->getMessage() ); // todo refund charge + withInput
 		}
 
 		// fixme userData being null/false if failed somewhere.
 
-		$request->session()->flash('order_price', $checkout->getTotal());
-		$request->session()->flash('order_currency', trans('general.currency'));
+		$request->session()->flash( 'order_price', $checkout->getTotal() );
+		$request->session()->flash( 'order_currency', trans( 'general.currency' ) );
 
 		if ( $checkout->getProduct()->isSubscription() )
 		{
