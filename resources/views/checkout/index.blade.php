@@ -152,7 +152,7 @@
 											aria-required="true" data-validate="true">
 										@foreach(\App\TaxZone::all() as $zone)
 											<option
-												@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', 'denmark') : 'denmark')) == $zone->name ) selected="selected"
+												@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', trans('general.tax_zone')) : trans('general.tax_zone'))) == $zone->name ) selected="selected"
 												@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
 										@endforeach
 									</select>
@@ -196,7 +196,7 @@
 							{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y')]) !!}
 						</div>
 					@endif
-
+ƒ
 					{{ csrf_field() }}
 
 					<div class="hidden">
