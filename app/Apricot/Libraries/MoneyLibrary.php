@@ -30,7 +30,7 @@ class MoneyLibrary
 	 */
 	public static function convertCurrencies(Currency $baseCurrency, Currency $toCurrency, $amount = 100)
 	{
-		return $toCurrency->rate / $baseCurrency->rate * $amount;
+		return round($toCurrency->rate / $baseCurrency->rate * $amount, 2);
 	}
 
 	/**

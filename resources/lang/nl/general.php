@@ -1,8 +1,8 @@
 <?php
 
 return array (
-  'money' => ':amount euro.',
-  'money-vue' => '{{ :amount | currency \'\' }} euro',
+  'money' => '€ :amount',
+  'money-vue' => '€ {{ :amount | currency \'\' }}',
   'tawk_id' => 'default',
   'tax_zone' => 'netherlands',
   'currency' => 'EUR',
