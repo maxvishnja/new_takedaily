@@ -73,7 +73,7 @@ return array (
         'two' => 
         array (
           'title' => 'Vi skræddersyr dit TakeDaily',
-          'text' => 'På baggrund af din test udvælger vi de vitaminer og mineraler, som netop du har brug for, i de helt rette koncentrationer. ',
+          'text' => 'På baggrund af din test udvælger vi de vitaminer og mineraler, som du har brug for, i de rette koncentrationer. ',
         ),
         'three' => 
         array (
@@ -86,10 +86,10 @@ return array (
     array (
       'title' => 'Lev sundere.<br/>Start indefra med TakeDaily.',
       'body' => '<p>
-							At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv være en udfordring. Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take Daily er diamentrale modsætninger.
+							Det kan være svært at finde ud af, hvilke vitaminer og kosttilskud man har brug for. Hylderne bugner af forskellige kosttilskud ofte med høje vitaminkoncentrationener. Hos TakeDaily sætter vi en ære i at tilpasse vores produkter, så du hverken får for mange eller for få vitaminer. 
 						</p>
-						<p>Vi udvælger og sammensætter omhyggeligt de vitaminer og mineraler, som lige præcis din krop har brug for. Koncentrationerne er individuelle og kommer i din helt egen æske.</p>
-						<p>Ved du præcist hvad du vil have, kan du naturligvis også selv håndplukke dine vitaminer og kosttilskud.</p>',
+Vitaminerne pakker vi til dig i dagsrationer, så de lige til at tage. Nemt og enkelt.					<p></p>
+						<p>Ved du præcist, hvad du vil have, kan du naturligvis også selv vælge dine vitaminer og kosttilskud.</p>',
       'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--white button--text-green m-t-30">
 								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>

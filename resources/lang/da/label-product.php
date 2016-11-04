@@ -8,13 +8,13 @@ return array (
   'titles' => 
   array (
     'vitamins' => 'Vitaminer',
-    'amount' => 'Mængde',
-    'percent' => '% RI*',
+    'amount' => 'Pr. kapsel',
+    'percent' => '%RI*',
     'minerals' => 'Mineraler',
   ),
   'produced-for' => 'Produceret og tilpasset til',
   'expiration' => 'Mindst holdbar til og med:',
-  'weight' => 'Vægt:',
+  'weight' => 'Nettovægt:',
   'batch' => 'Bach nr:',
   'address' => 'Take Daily ApS - Vimmelskaftet 43 - 1161 København K',
   'production' => 'Produceret i Spanien',

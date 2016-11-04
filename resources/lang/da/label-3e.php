@@ -8,7 +8,7 @@ return array (
     'heart' => 'Normal hjertefunktion.',
     'brain' => 'Normal hjernefunktion',
   ),
-  'ingredients' => 'Koncentreret fiskeolie, gelatinekapsel (gelatine (fra ko), konsistensmiddel (glycerol), vand), antioxidant (D-alpha-tocopherol koncentrat)',
+  'ingredients' => 'Fiskeolie, gelatinekapsel (gelatine (fra ko), konsistensmiddel (glycerol), vand), antioxidant (D-alpha-tocopherol koncentrat)',
   'other-vitamins' => 
   array (
     0 => 
@@ -19,7 +19,7 @@ return array (
     ),
     1 => 
     array (
-      'name' => 'Omega-3 heraf',
+      'name' => 'Omega-3 (55%) heraf ',
       'amount' => '550 mg',
       'percent' => '*',
     ),

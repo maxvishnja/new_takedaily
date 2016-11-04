@@ -47,5 +47,9 @@ return array (
   ),
   'name' => 'Chiazaadolie',
   'ingredients' => 'Chiazaadolie, K-Caps (hydroxypropylmethylcellulose, water), antiklontermiddel (silica)',
-  'disclaimer' => '* Referentie inname (RI) bepalen<br/>Alfa-linoleenzuur (ALA) helpt het cholesterolniveau gezond te houden. Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.<br/>Rijk aan omega 3-vetzuren',
+  'disclaimer' => '* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.<br/>Rijk aan omega 3-vetzuren',
+  'praises' => 
+  array (
+    'blood' => 'Alfa-linoleenzuur (ALA) helpt het cholesterolniveau gezond te houden.*',
+  ),
 );

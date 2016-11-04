@@ -40,7 +40,7 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, K-Caps (hydroxypropylmethycellulose, water, kleurstoffen (E171, E132)), antiklontermiddel (magnesiumstearaat), retinylacetaat, cyanocobalamine, fytomenadion, pyridoxaal-5-fosfaat, thiamine hydrochloride',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, K-Caps (hydroxypropylmethycellulose, water, kleurstoffen (E171, E132)), antiklontermiddel (magnesiumstearaat), retinylacetaat, cyanocobalamine, fytomenadion, pyridoxaal-5-fosfaat, thiaminehydrochloride',
   'praises' => 
   array (
     'shield' => 'Vitamine A en C dragen bij aan het normale functioneren van het immuunsysteem',

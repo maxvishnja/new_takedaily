@@ -60,5 +60,5 @@ return array (
   array (
     'shield' => 'Vitamine A, B6, foliumzuur, B12, C, D en de mineralen seleen en zink dragen bij aan het normale functioneren van het immuunsysteem',
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, K-Caps (hydroxypropylmethycellulose, water, kleurstoffen (E171, E110, E127)), zinkgluconaat, selenomethionine, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol, cyanocobalamine, pyridoxaal-5-fosfaat, pteroymonoglutaminezuur',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, K-Caps (hydroxypropylmethycellulose, water, kleurstoffen (E171, E110, E127)), zinkgluconaat, L-selenomethionine, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol, cyanocobalamine, pyridoxaal-5-fosfaat, pteroymonoglutaminezuur',
 );

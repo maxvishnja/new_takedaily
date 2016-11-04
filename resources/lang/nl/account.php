@@ -4,9 +4,9 @@ return array (
   'home' => 
   array (
     'title' => 'Mijn TakeDaily',
-    'years' => 'år',
-    'pick' => '--- vælg ---',
-    'button-save-text' => 'Gem præferencer',
+    'years' => 'jaar',
+    'pick' => '--- kiezen ---',
+    'button-save-text' => 'Gegevens opslaan',
   ),
   'transaction' => 
   array (
@@ -46,25 +46,25 @@ return array (
   ),
   'settings_basic' => 
   array (
-    'title' => 'Indstillinger - TakeDaily',
-    'header' => 'Indstillinger',
-    'button-save-text' => 'Gem',
+    'title' => 'Instellingen - TakeDaily',
+    'header' => 'Jouw bezorgadres',
+    'button-save-text' => 'Opslaan',
   ),
   'settings_billing' => 
   array (
     'title' => 'Fakturering - TakeDaily',
     'header' => 'Betalingsmetode',
     'no-method' => 'Ingen betalingsmetode fundet!',
-    'button-add-method-text' => 'Tilføj ny',
+    'button-add-method-text' => 'Voeg nieuwe toe',
     'button-update-text' => 'Opdater',
     'card-exp' => 'Udløb: ',
-    'button-remove-text' => 'Fjern',
+    'button-remove-text' => 'Afgelegen',
     'add' => 
     array (
-      'button-cancel-text' => 'Annuller',
-      'button-add-text' => 'Fortsæt',
-      'title' => 'Tilføj betalingsmetode - TakeDaily',
-      'header' => 'Ny betalingsmetode',
+      'button-cancel-text' => 'Annuleren',
+      'button-add-text' => 'Voortzetten',
+      'title' => 'Voeg betaalmethode toe - Take Daily',
+      'header' => 'Nieuwe betaalmethode',
     ),
   ),
   'settings_subscription' => 
@@ -94,13 +94,13 @@ return array (
   array (
     'errors' => 
     array (
-      'custom-package-cant-change' => 'Du har en selvvalgt pakke, og kan derfor ikke ændre dette.',
-      'max-snooze' => 'Du kan maks udskyde i 28 dage.',
+      'custom-package-cant-change' => 'Je hebt een zelf pakket samengesteld en is daarom  niet te veranderen.',
+      'max-snooze' => 'Je kunt alleen uitstellen gedurende 28 dagen',
     ),
     'successes' => 
     array (
-      'preferences-saved' => 'Dine præferencer blev gemt!',
-      'vitamins-updated' => 'Vitaminer blev opdateret!',
+      'preferences-saved' => 'Jouw voorkeuren zijn opgeslagen!',
+      'vitamins-updated' => 'Vitamines zijn bijgewerkt!',
     ),
   ),
 );
