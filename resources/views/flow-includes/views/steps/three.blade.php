@@ -174,17 +174,17 @@
 				<span class="icon icon-portion-fish-1"></span>
 				<br/>{{ trans('flow.questions.3-7.options.1') }}
 			</label>
-			{{--<label>
+			<label>
 				<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" data-model="foods.fish"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-fish-2"></span>
 				<br/>{{ trans('flow.questions.3-7.options.2') }}
-			</label>--}}
+			</label>
 			<label>
-				<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" data-model="foods.fish"
+				<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish" data-model="foods.fish"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-portion-fish-3"></span>
-				<br/>{{ trans('flow.questions.3-7.options.2') }}
+				<br/>{{ trans('flow.questions.3-7.options.3') }}
 			</label>
 		</div>
 
