@@ -65,6 +65,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		Route::resource( 'page-translations', 'Dashboard\PageTranslationController' );
 		Route::get( 'page-translations/{id}/delete', 'Dashboard\PageTranslationController@delete' );
 
+		Route::resource( 'faq', 'Dashboard\FaqController' );
+		Route::resource( 'faq-translations', 'Dashboard\FaqTranslationController' );
+		Route::get( 'faq-translations/{id}/delete', 'Dashboard\FaqTranslationController@delete' );
+
 		Route::any( 'upload/image', function ( \Illuminate\Http\Request $request )
 		{
 			if ( $request->hasFile( 'upload' ) )

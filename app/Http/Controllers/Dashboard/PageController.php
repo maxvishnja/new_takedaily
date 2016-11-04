@@ -119,8 +119,8 @@ class PageController extends Controller
 		if ( $oldIdentifier != $page->url_identifier && $request->get('add_rewrite', 0) == 1 )
 		{
 			UrlRewrite::create([
-				'requested_path' => '/' . $oldIdentifier,
-				'actual_path'    => '/' . $page->url_identifier
+				'requested_path' => '/page/' . $oldIdentifier,
+				'actual_path'    => '/page/' . $page->url_identifier
 			]);
 
 			\Cache::tags('url_rewrites')->flush();

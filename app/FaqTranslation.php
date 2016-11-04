@@ -13,4 +13,9 @@ class FaqTranslation extends Model
 		'answer',
 	    'faq_id'
 	];
+
+	public function faq()
+	{
+		return $this->belongsTo(Faq::class);
+	}
 }

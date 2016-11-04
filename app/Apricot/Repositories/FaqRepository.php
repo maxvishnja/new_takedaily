@@ -4,6 +4,12 @@ use App\Faq;
 
 class FaqRepository
 {
+
+	public function all()
+	{
+		return Faq::orderBy('created_at', 'DESC')->get();
+	}
+
 	public function get()
 	{
 		$faqs = Faq::with( [
