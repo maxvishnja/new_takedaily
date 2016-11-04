@@ -261,9 +261,9 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
 								Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weinig visvetzuren omdat het magere, witte vis is. ',
 					'options' =>
 						[
-							1 => '0',
-							2 => '1-2',
-							3 => '+3',
+							1 => '0 gange',
+							2 => '1-2 gange',
+							3 => '+3 gange',
 						],
 				],
 			'3-8'  =>
