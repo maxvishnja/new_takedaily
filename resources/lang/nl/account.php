@@ -12,37 +12,37 @@ return array (
   array (
     'title' => 'Levering #:id - TakeDaily',
     'header' => 'Levering #:id',
-    'title-shipping' => 'Leveringsadresse',
+    'title-shipping' => 'Bezorgadres',
     'table' => 
     array (
       'headers' => 
       array (
-        'description' => 'Beskrivelse',
-        'amount' => 'Beløb',
-        'taxes' => 'Moms',
-        'total' => 'Total',
+        'description' => 'Beschrijving',
+        'amount' => 'Bedrag',
+        'taxes' => 'BTW',
+        'total' => 'Totaal',
       ),
       'totals' => 
       array (
-        'subtotal' => 'Subtotal',
-        'shipping' => 'Fragt',
-        'taxes' => 'Moms',
-        'total' => 'Total',
+        'subtotal' => 'Subtotaal',
+        'shipping' => 'Bezorgkosten',
+        'taxes' => 'BTW',
+        'total' => 'Totaal',
       ),
     ),
   ),
   'transactions' => 
   array (
-    'title' => 'Leveringer - TakeDaily',
-    'header' => 'Dine leveringer',
-    'no-results' => 'Ingen leveringer fundet',
+    'title' => 'Leveringen - TakeDaily',
+    'header' => 'Jouw levering',
+    'no-results' => 'Geen leveringen gevonden',
     'table' => 
     array (
-      'date' => 'Dato',
-      'amount' => 'Beløb',
+      'date' => 'Datum',
+      'amount' => 'Bedrag',
       'status' => 'Status',
     ),
-    'button-show-text' => 'Vis',
+    'button-show-text' => 'Tonen',
   ),
   'settings_basic' => 
   array (
@@ -52,12 +52,12 @@ return array (
   ),
   'settings_billing' => 
   array (
-    'title' => 'Fakturering - TakeDaily',
-    'header' => 'Betalingsmetode',
-    'no-method' => 'Ingen betalingsmetode fundet!',
+    'title' => 'Betaling - TakeDaily',
+    'header' => 'Betaalmethode',
+    'no-method' => 'Geen betaalmethode gevonden!',
     'button-add-method-text' => 'Voeg nieuwe toe',
-    'button-update-text' => 'Opdater',
-    'card-exp' => 'Udløb: ',
+    'button-update-text' => 'Verversen',
+    'card-exp' => 'Vervaldatum:',
     'button-remove-text' => 'Afgelegen',
     'add' => 
     array (
@@ -69,25 +69,35 @@ return array (
   ),
   'settings_subscription' => 
   array (
-    'title' => 'Abonnement - TakeDaily',
-    'header' => 'Dit abonnement er <u>:status</u>',
-    'total' => '<span>:amount</span><small> / måned</small>',
-    'next-date' => 'Næste trækningsdato: :date',
+    'title' => 'Abonnement  - TakeDaily',
+    'header' => '
+Vertalen uit het: Nederlands
+Uw abonnement is <u>: Status </ u>',
+    'total' => '<span>:hoeveelheid</span><small> / maand</small>',
+    'next-date' => 'Volgende tekening datum :: datum',
     'plan' => 
     array (
-      'active' => 'aktivt',
-      'cancelled' => 'afsluttet',
+      'active' => 'Actief ',
+      'cancelled' => 'Voltooid',
     ),
-    'button-snooze-text' => 'Udskyd næste forsendelse',
-    'button-cancel-text' => 'Opsig',
-    'button-start-text' => 'Start abonnement fra i dag',
+    'button-snooze-text' => 'Volgende zendig uitstellen',
+    'button-cancel-text' => 'Annuleren',
+    'button-start-text' => 'Start abonnement vanaf nu',
     'snooze_popup' => 
     array (
-      'title' => 'Snooze abonnent',
-      'text' => 'Hvor langt tid?',
-      'option' => ':days dage',
-      'button-snooze-text' => 'Udskyd',
-      'button-close-text' => 'Annuller',
+      'title' => 'Uitstellen abonnement ',
+      'text' => 'Hoelang?',
+      'option' => ':days dagen',
+      'button-snooze-text' => 'Uitstellen',
+      'button-close-text' => 'Annuleren',
+    ),
+    'cant-cancel' => 'Jouw volgende levering is binnen 24 uur. Je kunt de bestelling helaas niet meer uitstellen.',
+    'cant-snooze' => 'Jouw volgende levering is binnen 24 uur. Je kunt de bestelling helaas niet meer uitstellen.',
+    'new-recommendation' => 
+    array (
+      'btn' => 'Ververs mijn vitamines',
+      'text' => 'Vanuit uw profiel, kunnen we zien dat sommige andere vitaminen beter voor u zou kunnen zijn.',
+      'title' => 'We hebben een nieuw advies voor je.',
     ),
   ),
   'general' => 
