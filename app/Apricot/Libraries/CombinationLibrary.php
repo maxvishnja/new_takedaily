@@ -166,7 +166,7 @@ class CombinationLibrary
 			}
 		}
 
-		if ( $this->isEmpty( $this->groupFour ) && ( $data->vegetarian == '2' || $data->foods->fish == '1' ) )
+		if ( $this->isEmpty( $this->groupFour ) && ( $data->vegetarian == '2' || $data->foods->fish == '1' || $data->foods->fish == '2' ) )
 		{
 			$this->groupFour = 'e';
 
