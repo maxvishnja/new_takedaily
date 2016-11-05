@@ -13,6 +13,11 @@ return [
 		'button'  => 'Fortsæt handlen her',
 		'subject' => 'Din TakeDaily anbefaling'
 	],
+	'new-password'   => [
+		'title'   => 'Dit nye kodeord er:',
+		'summary' => 'Du får her dit nye kodeord til TakeDaily',
+		'subject' => '' // todo use this somwwhere......
+	],
 	'subscription'   => [
 		'title'   => 'Vi har trukket penge',
 		'summary' => 'Du blev faktureret af TakeDaily',
