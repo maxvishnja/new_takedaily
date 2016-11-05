@@ -1,10 +1,10 @@
 @extends('layouts.mail')
 
-@section('title', 'Din ordre blev afsendt') <!-- todo translate -->
-@section('summary', 'Din ordre hos TakeDaily blev afsendt!') <!-- todo translate -->
+@section('title', trans('mails.order-sent.title'))
+@section('summary', trans('mails.order-sent.summary'))
 
 @section('content')
 	<p>
-		Din ordre på TakeDaily blev markeret som "afsendt".
+		{{ trans('mails.order-sent.text') }}
 	</p>
 @endsection

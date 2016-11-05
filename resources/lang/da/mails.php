@@ -6,6 +6,11 @@ return [
 		'reason'      => 'Du får denne mail fordi du er kunde hos os.',
 		'unsubscribe' => 'Det er ikke muligt at opsige denne type mail.'
 	],
+	'order-sent' => [
+		'title'   => 'Din ordre blev afsendt',
+		'summary' => 'Din ordre hos TakeDaily blev afsendt!',
+	    'text' => 'Din ordre på TakeDaily blev markeret som "afsendt".'
+	],
 	'recommendation' => [
 		'title'   => 'Din anbefaling',
 		'summary' => 'Her er din TakeDaily anbefaling',
