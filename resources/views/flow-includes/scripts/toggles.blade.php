@@ -8,6 +8,35 @@
 	.datepicker-days:before {  content: "{!! trans('flow.datepicker.pick-day') !!}";  }
 </style>
 
+
+<style>
+	.datepicker .prev,
+	.datepicker .next {
+		width: 30px;
+		height: 20px;
+		font-size: 0;
+		color: transparent;
+	}
+
+	.datepicker .prev,
+	.datepicker .prev:hover,
+	.datepicker .prev:focus {
+		background-size: 26px 26px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-image: url(/images/icons/icon-prev.png) !important;
+	}
+
+	.datepicker .next,
+	.datepicker .next:hover,
+	.datepicker .next:focus {
+		background-size: 26px 26px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-image: url(/images/icons/icon-next.png) !important;
+	}
+</style>
+
 <script>
 	$('#openPicker').datepicker({
 		startDate: "-100y",

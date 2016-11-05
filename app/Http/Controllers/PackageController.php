@@ -16,7 +16,22 @@ class PackageController extends Controller
 
 	public function select( $id )
 	{
-		echo $id;
+		/**
+		 * @var Package $package
+		 */
+		$package = Package::find($id);
+
+		if( ! $package)
+		{
+			return redirect()->back()->withErrors('Package not found.'); // todo translate
+		}
+
+		if( $package->isDirect() )
+		{
+			// todo redirect
+		}
+
+		return view('package-picker-select', compact('package'));
 	}
 
 	public function post( Request $request )

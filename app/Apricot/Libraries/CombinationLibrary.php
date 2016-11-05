@@ -147,6 +147,11 @@ class CombinationLibrary
 
 	private function generateGroupFour( $data )
 	{
+		if( isset($data->custom) && isset($data->custom->four) )
+		{
+			$this->groupFour = $data->custom->four;
+		}
+
 		if ( isset( $data->foods->oil ) )
 		{
 			if ( $this->isEmpty( $this->groupFour ) && ( $data->foods->oil == 'fishoil' )  )
@@ -185,6 +190,10 @@ class CombinationLibrary
 
 	private function generateGroupThree( $data )
 	{
+		if( isset($data->custom) && isset($data->custom->three) )
+		{
+			$this->groupThree = $data->custom->three;
+		}
 
 		if ( $data->vegetarian == '1' )
 		{
@@ -232,6 +241,10 @@ class CombinationLibrary
 
 	private function generateGroupTwo( $data )
 	{
+		if( isset($data->custom) && isset($data->custom->two) )
+		{
+			$this->groupTwo = $data->custom->two;
+		}
 
 		// A
 		if ( $this->combinationIsPossible( $this->groupOne, 'A' ) && ( $data->pregnant == '1' ) )
@@ -299,6 +312,11 @@ class CombinationLibrary
 
 	private function generateGroupOne( $data )
 	{
+		if( isset($data->custom) && isset($data->custom->one) )
+		{
+			$this->groupOne = $data->custom->one;
+		}
+
 		if ( $data->gender == '1' )
 		{
 			// Males

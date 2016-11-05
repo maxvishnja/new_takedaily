@@ -171,7 +171,7 @@
 				<span>{{ trans('flow.questions.2-8.button-text') }}</span><br/>
 				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-on:change="nextStep();" v-model="user_data.pregnancy.week" class="select select--full m-t-10">
 					<option value="0">{{ trans('flow.questions.2-8.pick-one') }}</option>
-					@foreach(range(1,38) as $week)
+					@foreach(range(1,40) as $week)
 						<option value="{{ $week }}">{{ trans('flow.questions.2-8.select') }} {{ $week }}</option>
 					@endforeach
 				</select>
