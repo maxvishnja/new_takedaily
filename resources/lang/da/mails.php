@@ -18,6 +18,12 @@ return [
 		'summary' => 'Du blev faktureret af TakeDaily',
 		'content' => 'Hej, da du har et abonnent hos os, har vi nu oprettet en ny ordre og trukket pengene for den. Du kan se dine ordre under "Mit TakeDaily" på vores hjemmeside.'
 	],
+	'rebill-failed'  => [
+		'title'   => 'Vi kan ikke trække penge for dit abonnement',
+		'summary' => 'TakeDaily har forgæves forsøgt at fakturere dig for dit abonnement',
+		'text'    => 'Hej, vi har netop forsøgt at trække penge for dit aktive abonnement, men fejlede. Dette kan skyldes flere ting, bl.a. at betalingsmetoden er udløbet, eller at der ikke er dækning på kontoen.',
+		'text2'   => 'Ønsker du at modtage din TakeDaily pakke beder vi dig derfor gennemgå dine konti, og betalingsmetoden du anvender. Vi forsøger automatisk igen indenfor 24 timer.',
+	],
 	'pending'        => [
 		'subject'      => 'Vi sender din næste pakke om 24 timer!',
 		'title'        => 'En ny pakke afsendes indenfor 24 timer',
