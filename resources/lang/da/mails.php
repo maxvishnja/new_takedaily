@@ -13,6 +13,14 @@ return [
 		'button'  => 'Fortsæt handlen her',
 		'subject' => 'Din TakeDaily anbefaling'
 	],
+	'password' => [
+
+		'title'   => 'Din nye adgangskode på TakeDaily',
+		'summary' => 'Nulstil din adgangskode her',
+		'ignore' => 'Har du ikke bedt om at nulstille din adgangskode, så ignorer venligst denne mail.',
+		'text' => 'Du har bedt om at nulstille din adgangskode på TakeDaily. For at gøre dette, skal du trykke her: <a href=":link">Nulstil min adgangskode</a>',
+		'subject' => '' // todo use this somwwhere......
+	],
 	'new-password'   => [
 		'title'   => 'Dit nye kodeord er:',
 		'summary' => 'Du får her dit nye kodeord til TakeDaily',

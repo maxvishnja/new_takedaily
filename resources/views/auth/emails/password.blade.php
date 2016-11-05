@@ -1,12 +1,12 @@
 @extends('layouts.mail')
 
-@section('title', 'Din nye adgangskode på TakeDaily') <!-- todo translate -->
-@section('summary', 'Nulstil din adgangskode her') <!-- todo translate -->
+@section('title', trans('mails.password.title'))
+@section('summary', trans('mails.password.summary'))
 
 @section('content')
 	<p>
-		Du har bedt om at nulstille din adgangskode på TakeDaily. For at gøre dette, skal du trykke her: <a href="{{ url('password/reset/'.$token) }}">Nulstil min adgangskode</a>, eller her: <br/><br/>	<a href="{{ url('password/reset/'.$token) }}">{{ url('password/reset/'.$token) }}</a>
+		{!! trans('mails.password.text', ['link' => url("password/reset/{$token}")]) !!}
 	</p>
 
-	<p>Har du ikke bedt om at nulstille din adgangskode, så ignorer venligst denne mail.</p>
+	<p>{{ trans('mails.password.ignore') }}</p>
 @endsection
