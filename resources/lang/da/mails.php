@@ -9,7 +9,8 @@ return [
 	'order-sent' => [
 		'title'   => 'Din ordre blev afsendt',
 		'summary' => 'Din ordre hos TakeDaily blev afsendt!',
-	    'text' => 'Din ordre på TakeDaily blev markeret som "afsendt".'
+	    'text' => 'Din ordre på TakeDaily blev markeret som "afsendt".',
+	    'subject' => 'Din ordre blev afsendt!'
 	],
 	'recommendation' => [
 		'title'   => 'Din anbefaling',

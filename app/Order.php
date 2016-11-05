@@ -167,7 +167,7 @@ class Order extends Model
 			\Mail::queue( 'emails.order-sent', [], function ( Message $message ) use ( $receiverName, $receiverEmail )
 			{
 				$message->to( $receiverEmail, $receiverName );
-				$message->subject( 'Din ordre blev afsendt!' ); // todo translate
+				$message->subject( trans('mails.order-sent.subject') );
 			} ); // todo fire event instead
 		}
 
