@@ -1,17 +1,16 @@
 @extends('layouts.mail')
 
-@section('title', 'Tak for din ordre hos TakeDaily') <!-- todo translate -->
-@section('summary', 'Din ordrebekræftelse fra TakeDaily') <!-- todo translate -->
+@section('title', trans('mails.order.title'))
+@section('summary', trans('mails.order.summary'))
 
 @section('content')
 	@if( isset($giftcard) && !is_null($giftcard) )
-		<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">Gavekort</h3>
+		<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">{{ trans('mails.order.giftcard.title') }}</h3>
 		<p class="size-14" style='font-style: normal;font-weight: 400;Margin-bottom: 0;Margin-top: 16px;font-size: 14px;line-height: 24px;font-family: "Open Sans",sans-serif;color: #60666d;'>
-			Gavekortets kode er: <strong>{{ $giftcard }}</strong>
+			{{ trans('mails.order.giftcard.code-is') }} <strong>{{ $giftcard }}</strong>
 			<br/>
-			For at indløse det, skal indløseren besøge denne side:
-			<a href="{{ URL::to('gc', [ 'token' => $giftcard ]) }}" targe="_blank">{{ URL::to('gc', [ 'token' => $giftcard ]) }}</a> og gennemføre ordren som
-			normalt.
+			{{ trans('mails.order.giftcard.to-use') }}
+			<a href="{{ URL::to('gc', [ 'token' => $giftcard ]) }}" target="_blank">{{ URL::to('gc', [ 'token' => $giftcard ]) }}</a> {{ trans('mails.order.giftcard.order') }}
 		</p>
 	@endif
 
