@@ -63,7 +63,7 @@ class UpdateCurrencies extends Command
 		    //\Cache::flush(); // todo only flush currency cache
 
 	    } catch (\Error $ex){
-		    // todo.. could not get currency
+		    \Log::error('Could not get currencies: ' . $ex->getMessage());
 	    }
     }
 }
