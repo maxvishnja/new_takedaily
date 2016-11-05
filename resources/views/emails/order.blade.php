@@ -23,15 +23,15 @@
 		</tr>
 		<tr>
 			<td style="border: 1px solid #ddd; padding: 7px;"><strong>{{ trans('mails.order.overview.subtotal') }}</strong></td>
-			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((new \App\Apricot\Helpers\Money($priceSubtotal)->toCurrency(trans('general.currency')), true)]) }}</td>
+			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((new \App\Apricot\Helpers\Money($priceSubtotal))->toCurrency(trans('general.currency')), true)]) }}</td>
 		</tr>
 		<tr>
 			<td style="border: 1px solid #ddd; padding: 7px;"><strong>{{ trans('mails.order.overview.taxes') }}</strong></td>
-			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((new \App\Apricot\Helpers\Money($priceTaxes)->toCurrency(trans('general.currency')), true)]) }}</td>
+			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((new \App\Apricot\Helpers\Money($priceTaxes))->toCurrency(trans('general.currency')), true)]) }}</td>
 		</tr>
 		<tr>
 			<td style="border: 1px solid #ddd; padding: 7px;"><strong>{{ trans('mails.order.overview.total') }}</strong></td>
-			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((new \App\Apricot\Helpers\Money($priceTotal)->toCurrency(trans('general.currency')), true)]) }}</td>
+			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((new \App\Apricot\Helpers\Money($priceTotal))->toCurrency(trans('general.currency')), true)]) }}</td>
 		</tr>
 		</tbody>
 	</table>
