@@ -14,32 +14,32 @@
 		</p>
 	@endif
 
-	<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">Ordreoversigt</h3>
+	<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">{{ trans('mails.order.overview.title') }}</h3>
 	<table class="size-14" style="border-spacing: 0;border-collapse: collapse;vertical-align: top;width: 100%;font-style: normal;font-weight: 400;font-size: 14px;line-height: 24px;font-family: 'Open Sans',sans-serif;color: #60666d;">
 		<tbody>
 		<tr>
-			<td style="border: 1px solid #ddd; padding: 7px;"><strong>Bestilling</strong></td>
+			<td style="border: 1px solid #ddd; padding: 7px;"><strong>{{ trans('mails.order.overview.description') }}</strong></td>
 			<td style="border: 1px solid #ddd; padding: 7px;">{{ $description }}</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid #ddd; padding: 7px;"><strong>Subtotal</strong></td>
-			<td style="border: 1px solid #ddd; padding: 7px;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($priceSubtotal, true) }} DKK</td>
+			<td style="border: 1px solid #ddd; padding: 7px;"><strong>{{ trans('mails.order.overview.subtotal') }}</strong></td>
+			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((new \App\Apricot\Helpers\Money($priceSubtotal)->toCurrency(trans('general.currency')), true)]) }}</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid #ddd; padding: 7px;"><strong>Moms</strong></td>
-			<td style="border: 1px solid #ddd; padding: 7px;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($priceTaxes, true) }} DKK</td>
+			<td style="border: 1px solid #ddd; padding: 7px;"><strong>{{ trans('mails.order.overview.taxes') }}</strong></td>
+			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((new \App\Apricot\Helpers\Money($priceTaxes)->toCurrency(trans('general.currency')), true)]) }}</td>
 		</tr>
 		<tr>
-			<td style="border: 1px solid #ddd; padding: 7px;"><strong>Beløb i alt</strong></td>
-			<td style="border: 1px solid #ddd; padding: 7px;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($priceTotal, true) }} DKK</td>
+			<td style="border: 1px solid #ddd; padding: 7px;"><strong>{{ trans('mails.order.overview.total') }}</strong></td>
+			<td style="border: 1px solid #ddd; padding: 7px;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((new \App\Apricot\Helpers\Money($priceTotal)->toCurrency(trans('general.currency')), true)]) }}</td>
 		</tr>
 		</tbody>
 	</table>
 
 	@if( isset($password) && !is_null($password) )
-		<h3 style="margin-top: 20px;font-family: 'Open Sans',sans-serif; font-size: 18px;">TakeDaily kodeord</h3>
+		<h3 style="margin-top: 20px;font-family: 'Open Sans',sans-serif; font-size: 18px;">{{ trans('mails.order.password.title') }}</h3>
 		<p class="size-14" style='font-style: normal;font-weight: 400;Margin-bottom: 0;Margin-top: 16px;font-size: 14px;line-height: 24px;font-family: "Open Sans",sans-serif;color: #60666d;'>
-			Dit kodeord til TakeDaily er: <strong>{{ $password }}</strong>
+			{{ trans('mails.order.password.it-is') }} <strong>{{ $password }}</strong>
 		</p>
 	@endif
 @endsection

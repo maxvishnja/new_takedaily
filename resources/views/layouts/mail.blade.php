@@ -1,3 +1,4 @@
+<?php App::setLocale($locale); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -1293,7 +1294,7 @@
 										</div>
 										<p class="size-16"
 										   style='font-style: normal;font-weight: 600;Margin-bottom: 0;Margin-top: 20px;text-align: center;'>
-											Mvh.<br/>
+											{{ trans('mails.general.regards') }}<br/>
 											TakeDaily
 										</p>
 									</td>
@@ -1325,14 +1326,13 @@
 						<td style="padding: 0;vertical-align: top;color: #fff;font-size: 12px;line-height: 22px;text-align: left;width: 400px;">
 
 							<div class="address" style='font-family: Montserrat;Margin-bottom: 18px;'>
-								<div>TakeDaily ApS</div>
+								<div>{{ trans('mails.general.company') }}</div>
 							</div>
 							<div class="permission" style='font-family: Montserrat;'>
-								<div>Du f&#229;r denne mail fordi du er kunde hos os.</div>
+								<div>{{ trans('mails.general.reason') }}</div>
 							</div>
 							<div class="campaign" style='font-family: "Open Sans",sans-serif;Margin-bottom: 18px;'>
-
-								<unsubscribe>Det er ikke muligt at opsige denne type mail.</unsubscribe>
+								<unsubscribe>{{ trans('mails.general.unsubscribe') }}</unsubscribe>
 							</div>
 						</td>
 					</tr>
