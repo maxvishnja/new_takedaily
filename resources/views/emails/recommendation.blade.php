@@ -1,12 +1,12 @@
 @extends('layouts.mail')
 
-@section('title', 'Din anbefaling') <!-- todo translate -->
-@section('summary', 'Her er din TakeDaily anbefaling') <!-- todo translate -->
+@section('title', trans('mails.recommendation.title'))
+@section('summary', trans('mails.recommendation.summary'))
 
 @section('content')
 	<p>
-		Hej, du har modtaget en TakeDaily anbefaling. Du kan fortsætte handlen på linket herunder.
+		{{ trans('mails.recommendation.text') }}
 	</p>
 
-	<a href="{{ url('/flow/?token=' . $token) }}">Fortsæt handlen her</a> {{-- todo button --}}
+	<a href="{{ url('/flow/?token=' . $token) }}">{{ trans('mails.recommendation.button') }}</a> {{-- todo button --}}
 @endsection

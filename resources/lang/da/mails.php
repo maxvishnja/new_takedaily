@@ -1,17 +1,23 @@
 <?php
 return [
-	'general'      => [
+	'general'        => [
 		'regards'     => 'Mvh.',
 		'company'     => 'Takedaily ApS',
 		'reason'      => 'Du får denne mail fordi du er kunde hos os.',
 		'unsubscribe' => 'Det er ikke muligt at opsige denne type mail.'
 	],
-	'subscription' => [
+	'recommendation' => [
+		'title'   => 'Din anbefaling',
+		'summary' => 'Her er din TakeDaily anbefaling',
+		'text'    => 'Hej, du har modtaget en TakeDaily anbefaling. Du kan fortsætte handlen på linket herunder.',
+		'button'  => 'Fortsæt handlen her'
+	],
+	'subscription'   => [
 		'title'   => 'Vi har trukket penge',
 		'summary' => 'Du blev faktureret af TakeDaily',
 		'content' => 'Hej, da du har et abonnent hos os, har vi nu oprettet en ny ordre og trukket pengene for den. Du kan se dine ordre under "Mit TakeDaily" på vores hjemmeside.'
 	],
-	'pending'      => [
+	'pending'        => [
 		'title'        => 'En ny pakke afsendes indenfor 24 timer',
 		'summary'      => 'Vi sender din næste pakke om 24 timer!',
 		'next-order'   => 'Din næste forsendelse oprettes d. :date',
@@ -19,7 +25,7 @@ return [
 		'snooze-text'  => 'Vi tillader at du som kunde, kan udskyde din forsendelse - f.eks. hvis du ikke har fået taget alle vitaminerne, eller bare ønsker at vente med at betale og modtage.',
 		'snooze-link'  => 'Ønsker du at udskyde? I så fald, så <a href=":link" target="_blank">Tryk her</a> og så hjælper vi dig.'
 	],
-	'order'        => [
+	'order'          => [
 		'title'    => 'Tak for din ordre hos TakeDaily',
 		'summary'  => 'Din ordrebekræftelse fra TakeDaily',
 		'giftcard' => [
@@ -40,7 +46,7 @@ return [
 			'it-is' => 'Dit kodeord til TakeDaily er:'
 		]
 	],
-	'mailflow'     => [
+	'mailflow'       => [
 		'everyone-above-70' => [
 			'subject' => 'Demo test'
 		]
