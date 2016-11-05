@@ -44,5 +44,5 @@ return array (
     'shield-cell' => 'Vitamine C draagt bij tot de bescherming van cellen tegen oxidatieve schade',
     'lightning' => 'Foliumzuur en vitamine C helpen om vermoeidheid en moeheid te verminderen',
   ),
-  'ingredients' => 'Dikaliumwaterstoffosfaat, K-Caps (hydroxypropylmethylcellulose, water, kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat), beta-caroteen, pteroymonoglutaminezuur',
+  'ingredients' => 'Dikaliumwaterstoffosfaat, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat), beta-caroteen, pteroymonoglutaminezuur',
 );

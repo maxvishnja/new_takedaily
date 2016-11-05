@@ -16,7 +16,7 @@ return array (
       'percent' => '200**',
     ),
   ),
-  'ingredients' => 'vulstof (microkristallijne cellulose), K-Caps (hydroxypropylmethycellulose, water, kleurstoffen (E171, E104, E129)), antiklontermiddel (magnesiumstearaat), cholecalciferol, pteroylmonoglutaminezuur',
+  'ingredients' => 'vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E104, E129)), antiklontermiddel (magnesiumstearaat), cholecalciferol, pteroylmonoglutaminezuur',
   'name' => 'Een supplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn met de aanbevolen hoeveelheid foliumzuur en vitamine D conform het advies van de Gezondheidsraad',
   'praises' => 
   array (

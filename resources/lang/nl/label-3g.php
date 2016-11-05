@@ -7,12 +7,13 @@ return array (
     array (
       'name' => 'Waarvan
 ',
+      'percent' => 'Omega 3-vetzuren',
     ),
     6 => 
     array (
       'percent' => '*',
       'name' => 'Alfa-linoleenzuur (ALA)',
-      'amount' => '369,5 mg',
+      'amount' => '371,20 mg',
     ),
     1 => 
     array (
@@ -35,18 +36,24 @@ return array (
     array (
       'name' => 'Enkelvoudig onverzadigde vetzuren',
       'percent' => '*',
-      'amount' => '45,24 mg',
+      'amount' => '37,00 mg',
     ),
     4 => 
     array (
       'name' => 'Meervoudig onverzadigde vetzuren
 ',
       'percent' => '*',
-      'amount' => '470,38 mg',
+      'amount' => '482,56 mg',
+    ),
+    7 => 
+    array (
+      'name' => 'Alfa-linoleenzuur (ALA)',
+      'percent' => '*',
+      'amount' => '369,46 mg',
     ),
   ),
   'name' => 'Chiazaadolie',
-  'ingredients' => 'Chiazaadolie, K-Caps (hydroxypropylmethylcellulose, water), antiklontermiddel (silica)',
+  'ingredients' => 'Chiazaadolie, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol)), antiklontermiddel (silica)',
   'disclaimer' => '* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.<br/>Rijk aan omega 3-vetzuren',
   'praises' => 
   array (

@@ -30,25 +30,31 @@ return array (
     3 => 
     array (
       'name' => 'Enkeltumættede fedtsyrer',
-      'amount' => '45,24 mg',
+      'amount' => '37,00 mg',
       'percent' => '*',
     ),
     4 => 
     array (
       'name' => 'Flerumættede fedtsyrer',
-      'amount' => '470,38 mg',
+      'amount' => '482,56 mg',
       'percent' => '*',
     ),
     5 => 
     array (
       'name' => 'Heraf',
       'amount' => '',
-      'percent' => '',
+      'percent' => 'Omega-3',
     ),
     6 => 
     array (
       'name' => 'Alfalinolensyre (ALA)',
-      'amount' => '369,5 mg',
+      'amount' => '371,20 mg',
+      'percent' => '*',
+    ),
+    7 => 
+    array (
+      'amount' => '369,46 mg',
+      'name' => 'Alfalinolensyre (ALA)',
       'percent' => '*',
     ),
   ),

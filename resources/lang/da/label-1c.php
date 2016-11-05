@@ -7,7 +7,8 @@ return array (
     'muscle' => 'Normal muskelfunktion',
     'bone' => 'Vedligeholdelse af normale knogler',
   ),
-  'ingredients' => 'Fyldstof (calcium hydrogen phosphate dihydrate), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E132)), ferrobisglycinate, L-ascorbinsyre, zinkgluconat, DL-alfa-tocopherolacetat, nicotinamid, cholecalciferol, L-selenmethionin, antiklumpemiddel (magnesium stearate), calcium-D-pantothenat, retinylacetat, cyanocobalamin, phylloquinon (phytomenadion), pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid, chrompicolinat, pteroylmonoglutaminsyre, kaliumjodid, D-biotin',
+  'ingredients' => 'Fyldstof (dicalciumphosphatdihydrat), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E132), jern bisglycinate, L-ascorbinsyre, zinkgluconat, DL-alpha-tocopherylacetat, cholecalciferol, nicotinamid , L-selenomethionin, antiklumpningsmiddel (magnesiumstearat), calcium-D-pantothenat, retinylacetat, cyanocobalamin, phylloquinon (phytomenadion), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, chrompicolinat, pteroylmonoglutamic syre, kaliumiodid, D-biotin
+',
   'vitamins' => 
   array (
     0 => 
@@ -94,13 +95,13 @@ return array (
     0 => 
     array (
       'name' => 'Calcium',
-      'amount' => '166,6 mg',
-      'percent' => '21',
+      'amount' => '165 mg',
+      'percent' => '20',
     ),
     1 => 
     array (
-      'name' => 'Phosphor',
-      'amount' => '128,7 mg',
+      'name' => 'Fosfor',
+      'amount' => '127,5 mg',
       'percent' => '18',
     ),
     2 => 

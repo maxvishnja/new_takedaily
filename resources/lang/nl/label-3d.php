@@ -37,5 +37,5 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), K-Caps (hydroxypropylmethycellulose, water), ijzer bisglycinaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, thiaminehydrochloride',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), ijzer bisglycinaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, thiaminehydrochloride',
 );

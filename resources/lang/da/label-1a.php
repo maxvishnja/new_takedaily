@@ -6,7 +6,8 @@ return array (
   array (
     'shield' => 'Den normale funktion af immunforsvaret',
   ),
-  'ingredients' => 'Fyldstof (calcium hydrogen phosphate dihydrate), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E129, E171)), ferrobisglycinate, L-ascorbinsyre, zinkgluconat, DL-alfa-tocopherolacetat, nicotinamid, L-selenmethionin, antiklumpemiddel (magnesium stearate), calcium-D-pantothenat, retinylacetat, cyanocobalamin, cholecalciferol, phylloquinon (phytomenadion), pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid, chrompicolinat, pteroylmonoglutaminsyre, kaliumjodid, D-biotin',
+  'ingredients' => 'Fyldstof (dicalciumphosphatdihydrat), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E129), jern bisglycinate, L-ascorbinsyre, zinkgluconat, DL-alpha-tocopherylacetat, nicotinamid, L -selenomethionine, antiklumpningsmiddel (magnesiumstearat), calcium-D-pantothenat, retinylacetat, cyanocobalamin, cholecalciferol, phylloquinon (phytomenadion), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, chrompicolinat, pteroylmonoglutamic syre, kaliumiodid, D-biotin
+',
   'vitamins' => 
   array (
     0 => 
@@ -71,13 +72,13 @@ return array (
     ),
     10 => 
     array (
-      'name' => 'Vitamin B12',
+      'name' => 'Vitamin B12 (kobalamin)',
       'amount' => '1,25 µg',
       'percent' => '50',
     ),
     11 => 
     array (
-      'name' => 'Biotin',
+      'name' => 'Vitamin B8 (biotin)',
       'amount' => '25 µg',
       'percent' => '50',
     ),
@@ -94,7 +95,7 @@ return array (
     array (
       'name' => 'Calcium',
       'amount' => '166,6 mg',
-      'percent' => '21',
+      'percent' => '20',
     ),
     1 => 
     array (

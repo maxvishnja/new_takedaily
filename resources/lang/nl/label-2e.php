@@ -32,5 +32,5 @@ return array (
     ),
   ),
   'name' => 'Supplement voor de spieren en gewrichten',
-  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, calciumcitraat 4-hydraat, K-Caps (hydroxypropylmethylcellulose, water, kleurstoffen (E171, E110)), dikaliumfosfaat, L-ascorbinezuur, calciumcarbonaat, antiklontermiddel (magnesiumstearaat), mangaangluconaat, cholecalciferol',
+  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, calciumcitraat 4-hydraat, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E110)), dikaliumfosfaat, L-ascorbinezuur, calciumcarbonaat, antiklontermiddel (magnesiumstearaat), mangaangluconaat, cholecalciferol',
 );

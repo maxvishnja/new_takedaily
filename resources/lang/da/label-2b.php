@@ -7,7 +7,8 @@ return array (
     'shield' => 'Immunsystemets normale funktion',
     'lightning' => 'At mindske træthed og udmattelse',
   ),
-  'ingredients' => 'Fyldstof (microcrystalline cellulose), L-ascorbinsyre, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E132)), antiklumpningsmiddel (magnesium stearate), retinylacetat, cyanocobalamin, phytomenadion, pyridoxal-5’-phosphat, thiaminhydrochlorid',
+  'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), L-ascorbinsyre, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E132), antiklumpningsmiddel (magnesiumstearat), retinylacetat, cyanocobalamin, phytomenadion, pyridoxal-5 phosphat, thiamin-hydrochlorid
+',
   'vitamins' => 
   array (
     0 => 
@@ -30,7 +31,7 @@ return array (
     ),
     3 => 
     array (
-      'name' => 'Vitamin B1 (Thiamin)',
+      'name' => 'Vitamin B1 (Tiamin)',
       'amount' => '1,65 mg',
       'percent' => '150',
     ),

@@ -37,15 +37,15 @@ return array (
       'title' => 'Bestelling',
       'info' => 
       array (
-        'title' => 'Jouw informatie',
+        'title' => 'Jouw gegegens',
         'name' => 'Voor- en achternaam',
         'name-placeholder' => 'Lars Jensen',
         'email' => 'Jouw e-mailadres',
         'email-placeholder' => 'lars-jensen@gmail.com',
         'address' => 
         array (
-          'street' => 'Straat en huisnummer',
-          'street-placeholder' => 'Søndre Skovvej 123',
+          'street' => 'Straat/huisnummer/toevoeging',
+          'street-placeholder' => 'Søndre Skovvej 123A',
           'zipcode' => 'Postcode',
           'zipcode-placeholder' => '1234 AB',
           'city' => 'Woonplaats',
@@ -77,13 +77,13 @@ return array (
     ),
     'total' => 
     array (
-      'title' => 'Orderoverzicht',
+      'title' => 'Jouw bestelling',
       'shipping' => 'Verzendkosten',
       'free' => 'Gratis',
       'giftcard' => 'Waarde cadeaubon',
-      'taxes' => 'Heraf moms',
+      'taxes' => 'BTW',
       'coupon' => 'Kortingscode',
-      'total' => 'Totaol',
+      'total' => 'Totaal',
     ),
     'coupon' => 
     array (

@@ -71,13 +71,13 @@ return array (
         ),
         'two' => 
         array (
-          'title' => 'Vi skræddersyr dit TakeDaily',
-          'text' => 'Wij selecteren de vitaminen en mineralen in de hoeveelheden die precies aansluiten op jouw individuele behoeften.',
+          'title' => 'We bepalen jouw behoeften',
+          'text' => 'Wij selecteren de vitaminen en mineralen in de hoeveelheden die precies aansluiten op jouw individuele behoeften',
         ),
         'three' => 
         array (
-          'title' => 'Ontvang jouw TakeDaily supplementen',
-          'text' => 'Ontvang jouw TakeDaily vitamines en mineralen thuis of op kantoor.',
+          'title' => 'Kosteloos bezorgd aan huis of op kantoor',
+          'text' => 'Jouw TakeDaily vitamines en mineralen ontvang je kosteloos  thuis of op kantoor via de brievenbus',
         ),
       ),
     ),
@@ -127,7 +127,7 @@ return array (
         'two' => 
         array (
           'title' => 'Ben je een vegetariër, maar geen grote fan van peulvruchten, sojabonen en tofu?',
-          'text' => 'Als vegetariër is het,   door het ontbreken van vlees en vis in jouw dieet, belangrijk dat je geen vitamine B12 en/of ijzer tekort ontwikkelt,',
+          'text' => 'Als vegetariër is het, door het ontbreken van vlees en vis in jouw dieet, belangrijk dat je geen vitamine B12 en/of ijzer tekort ontwikkelt,',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Doe de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>

@@ -25,7 +25,7 @@ return array (
       'percent' => '100',
     ),
   ),
-  'ingredients' => 'Calciumcarbonaat, K-Caps (hydroxypropylmethylcellulose, water, kleurstoffen (E172, E171)), antiklontermiddel (magnesiumstearaat), cyanocobalamine, riboflavine',
+  'ingredients' => 'Calciumcarbonaat, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E172, E171)), antiklontermiddel (magnesiumstearaat), cyanocobalamine, riboflavine',
   'name' => 'Supplement ter aanvulling van de dagelijkse zuivelinname',
   'praises' => 
   array (
