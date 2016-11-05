@@ -253,7 +253,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Mail::queue( 'emails.recommendation', [ 'locale' => App::getLocale(), 'token' => $request->get( 'token' ) ], function ( \Illuminate\Mail\Message $message ) use ( $to )
 			{
 				$message->to( $to );
-				$message->subject( 'Din TakeDaily anbefaling' ); // todo translate
+				$message->subject( trans('mails.recommendation.subject') );
 			} );
 
 			return Response::json( [ 'message' => 'mail added to queue' ] );

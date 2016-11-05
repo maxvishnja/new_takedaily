@@ -320,7 +320,7 @@ class Plan extends Model
 		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt() ], function ( Message $message ) use ( $customer )
 		{
 			$message->to( $customer->getEmail(), $customer->getName() )
-			        ->subject( 'Vi sender din næste pakke om 24 timer!' ); // todo translate
+			        ->subject( trans('mails.pending.subject') );
 		} );
 
 		$this->markHasNotified();

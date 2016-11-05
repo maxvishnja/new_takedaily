@@ -10,7 +10,8 @@ return [
 		'title'   => 'Din anbefaling',
 		'summary' => 'Her er din TakeDaily anbefaling',
 		'text'    => 'Hej, du har modtaget en TakeDaily anbefaling. Du kan fortsætte handlen på linket herunder.',
-		'button'  => 'Fortsæt handlen her'
+		'button'  => 'Fortsæt handlen her',
+		'subject' => 'Din TakeDaily anbefaling'
 	],
 	'subscription'   => [
 		'title'   => 'Vi har trukket penge',
@@ -18,6 +19,7 @@ return [
 		'content' => 'Hej, da du har et abonnent hos os, har vi nu oprettet en ny ordre og trukket pengene for den. Du kan se dine ordre under "Mit TakeDaily" på vores hjemmeside.'
 	],
 	'pending'        => [
+		'subject'      => 'Vi sender din næste pakke om 24 timer!',
 		'title'        => 'En ny pakke afsendes indenfor 24 timer',
 		'summary'      => 'Vi sender din næste pakke om 24 timer!',
 		'next-order'   => 'Din næste forsendelse oprettes d. :date',
