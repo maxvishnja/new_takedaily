@@ -9,63 +9,64 @@ use Illuminate\Mail\Message;
 
 class SubscriptionRebillCommand extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
-    protected $signature = 'subscriptions:rebill';
+	/**
+	 * The name and signature of the console command.
+	 *
+	 * @var string
+	 */
+	protected $signature = 'subscriptions:rebill';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    protected $description = 'Charges customers cards';
+	/**
+	 * The console command description.
+	 *
+	 * @var string
+	 */
+	protected $description = 'Charges customers cards';
 
-    /**
-     * Create a new command instance.
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
+	/**
+	 * Create a new command instance.
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+	}
 
-    /**
-     * Execute the console command.
-     *
-     * @return mixed
-     */
-    public function handle()
-    {
+	/**
+	 * Execute the console command.
+	 *
+	 * @return mixed
+	 */
+	public function handle()
+	{
 		$repo = new CustomerRepository();
 
 		$customers = $repo->rebillAble();
 
-		foreach($customers->get() as $customer)
+		foreach ( $customers->get() as $customer )
 		{
+			\App::setLocale($customer->getLocale());
 			$mailEmail = $customer->getEmail();
 			$mailName  = $customer->getName();
 
 			/* @var $customer Customer */
-			if( !$customer->rebill() )
+			if ( ! $customer->rebill() )
 			{
-				$customer->getPlan()->moveRebill(1); // consider a max attempts limit
+				$customer->getPlan()->moveRebill( 1 ); // consider a max attempts limit
 
-				\Mail::queue('emails.subscription-failed', [], function (Message $message) use ($mailEmail, $mailName)
+				\Mail::queue( 'emails.subscription-failed', [ 'locale' => $customer->getLocale() ], function ( Message $message ) use ( $mailEmail, $mailName )
 				{
-					$message->to($mailEmail, $mailName);
-					$message->subject(trans('checkout.mail.subject-subscription-failed'));
-				});
+					$message->to( $mailEmail, $mailName );
+					$message->subject( trans( 'checkout.mail.subject-subscription-failed' ) );
+				} );
 
 				return false;
 			}
 
-			\Mail::queue('emails.subscription', [], function (Message $message) use ($mailEmail, $mailName)
+			\Mail::queue( 'emails.subscription', [ 'locale' => $customer->getLocale() ], function ( Message $message ) use ( $mailEmail, $mailName )
 			{
-				$message->to($mailEmail, $mailName);
-				$message->subject(trans('checkout.mail.subject-subscription'));
-			});
+				$message->to( $mailEmail, $mailName );
+				$message->subject( trans( 'checkout.mail.subject-subscription' ) );
+			} );
 		}
-    }
+	}
 }

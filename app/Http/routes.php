@@ -250,7 +250,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			// todo validate has email and token
 			$to = $request->get( 'email' );
 
-			Mail::queue( 'emails.recommendation', [ 'token' => $request->get( 'token' ) ], function ( \Illuminate\Mail\Message $message ) use ( $to )
+			Mail::queue( 'emails.recommendation', [ 'locale' => App::getLocale(), 'token' => $request->get( 'token' ) ], function ( \Illuminate\Mail\Message $message ) use ( $to )
 			{
 				$message->to( $to );
 				$message->subject( 'Din TakeDaily anbefaling' ); // todo translate

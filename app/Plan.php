@@ -2,9 +2,9 @@
 
 use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Mail\Message;
 use Jenssegers\Date\Date;
 
@@ -316,11 +316,11 @@ class Plan extends Model
 	public function notifyUserPendingRebill()
 	{
 		$customer = $this->customer;
-
-		\Mail::send( 'emails.pending-rebill', [ 'rebillAt' => $this->getRebillAt() ], function ( Message $message ) use ( $customer )
+		\App::setLocale($customer->getLocale());
+		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt() ], function ( Message $message ) use ( $customer )
 		{
 			$message->to( $customer->getEmail(), $customer->getName() )
-			        ->subject( 'Vi sender din næste pakke om 24 timer!' );
+			        ->subject( 'Vi sender din næste pakke om 24 timer!' ); // todo translate
 		} );
 
 		$this->markHasNotified();
