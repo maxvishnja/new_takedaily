@@ -11,6 +11,14 @@ return [
 		'summary' => 'Du blev faktureret af TakeDaily',
 		'content' => 'Hej, da du har et abonnent hos os, har vi nu oprettet en ny ordre og trukket pengene for den. Du kan se dine ordre under "Mit TakeDaily" på vores hjemmeside.'
 	],
+	'pending'      => [
+		'title'        => 'En ny pakke afsendes indenfor 24 timer',
+		'summary'      => 'Vi sender din næste pakke om 24 timer!',
+		'next-order'   => 'Din næste forsendelse oprettes d. :date',
+		'snooze-title' => 'Ønsker du at udskyde din forsendelse?',
+		'snooze-text'  => 'Vi tillader at du som kunde, kan udskyde din forsendelse - f.eks. hvis du ikke har fået taget alle vitaminerne, eller bare ønsker at vente med at betale og modtage.',
+		'snooze-link'  => 'Ønsker du at udskyde? I så fald, så <a href=":link" target="_blank">Tryk her</a> og så hjælper vi dig.'
+	],
 	'order'        => [
 		'title'    => 'Tak for din ordre hos TakeDaily',
 		'summary'  => 'Din ordrebekræftelse fra TakeDaily',
