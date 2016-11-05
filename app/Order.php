@@ -163,12 +163,15 @@ class Order extends Model
 		{
 			$receiverName  = $this->customer->getName();
 			$receiverEmail = $this->customer->getEmail();
-
-			\Mail::queue( 'emails.order-sent', [], function ( Message $message ) use ( $receiverName, $receiverEmail )
+			$locale = \App::getLocale();
+			\App::setLocale( $this->customer->getLocale() );
+			\Mail::queue( 'emails.order-sent', [ 'locale' => $this->customer->getLocale() ], function ( Message $message ) use ( $receiverName, $receiverEmail )
 			{
 				$message->to( $receiverEmail, $receiverName );
-				$message->subject( trans('mails.order-sent.subject') );
+				$message->subject( trans( 'mails.order-sent.subject' ) );
 			} ); // todo fire event instead
+
+			\App::setLocale($locale);
 		}
 
 		return true;
