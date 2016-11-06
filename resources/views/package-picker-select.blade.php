@@ -31,7 +31,8 @@
 												<input type="radio" name="step[3][{{ $choice }}]" value="{{ $choice }}" v-model="user_data.custom.three" data-model="custom.three"
 													   v-on:click="submitTheForm();"/>
 												<span class="icon pill-3{{ $choice }}"></span>
-												<br/>{{ \App\Apricot\Libraries\PillLibrary::$codes["3.{$choice}"] }}</label>
+												<br/>{{ \App\Apricot\Libraries\PillLibrary::$codes["3{$choice}"] }}
+												<br/><span style="font-weight: normal; font-size: 12px;">{{ trans("pick-package.pills.3{$choice}") }}</span></label>
 										@endforeach
 									</div>
 
