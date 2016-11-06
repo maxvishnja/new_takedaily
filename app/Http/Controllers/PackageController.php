@@ -19,33 +19,40 @@ class PackageController extends Controller
 		/**
 		 * @var Package $package
 		 */
-		$package = Package::find($id);
+		$package = Package::find( $id );
 
-		if( ! $package)
+		if ( ! $package )
 		{
-			return redirect()->back()->withErrors('Package not found.'); // todo translate
+			return redirect()->back()->withErrors( 'Package not found.' ); // todo translate
 		}
 
-		if( $package->isDirect() )
+		if ( $package->isDirect() )
 		{
-			// todo redirect
+			\Session::forget( 'user_data' );
+			\Session::forget( 'flow-completion-token' );
+			\Session::put( 'package', $package->id );
+			\Session::put( 'product_name', 'package' );
+			\Session::put( 'vitamins', [ "1{$package->group_one}", "2{$package->group_two}", "3{$package->group_three}" ] );
+
+			return \Redirect::action( 'CheckoutController@getCheckout' );
 		}
 
-		return view('package-picker-select', compact('package'));
+		return view( 'package-picker-select', compact( 'package' ) );
 	}
 
 	public function post( Request $request )
 	{
 		$this->validate( $request, [
-			'vitamins' => 'min:3|max:5|exists:vitamins,id'
-		], [
-			'vitamins.min'    => 'Du har ikke valgt nok vitaminer, du skal mindst vælge :min forskellige.', // todo translate
-			'vitamins.max'    => 'Du har valgt for mange vitaminer, du kan maksimalt vælge :max forskellige.', // todo translate
-			'vitamins.exists' => 'Du har valgt et vitamin som ikke findes, hvordan ved vi ikke, prøv igen.', // todo translate
+			'package_id' => 'required|exists:packages,id',
+		    'user_data' => 'required'
 		] );
 
-		$vitamins = collect( $request->get( 'vitamins' ) );
+		/**
+		 * @var Package $package
+		 */
+		$package = Package::find( $request->get('package_id') );
 
+		// todo update customer package if already logged in
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
 			\Auth::user()
@@ -53,12 +60,12 @@ class PackageController extends Controller
 			     ->setVitamins( $vitamins );
 
 			return \Redirect::action( 'AccountController@getHome' )
-			                ->with( 'success', 'Dine vitaminer blev opdateret!' ); // todo translate
+			                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
 		}
 
-		\Session::forget( 'user_data' );
 		\Session::forget( 'flow-completion-token' );
-		\Session::put( 'package', '' );
+		\Session::put( 'user_data', $request->get('user_data') );
+		\Session::put( 'package', $package->id );
 		\Session::put( 'product_name', 'package' );
 
 		return \Redirect::action( 'CheckoutController@getCheckout' );

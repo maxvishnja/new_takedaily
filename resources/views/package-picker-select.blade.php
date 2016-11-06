@@ -78,7 +78,20 @@
 					birthdate: null,
 					age: null,
 					skin: null,
-					outside: null
+					outside: null,
+					custom: {
+						@if(!$package->hasChoice($package->group_one))
+							one: "{{ $package->group_one }}",
+						@endif
+
+						@if(!$package->hasChoice($package->group_two))
+							two: "{{ $package->group_two }}",
+						@endif
+
+						@if(!$package->hasChoice($package->group_three))
+							three: "{{ $package->group_three }}",
+						@endif
+					}
 				}
 			},
 			computed: {
