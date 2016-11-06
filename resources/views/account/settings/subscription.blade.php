@@ -18,6 +18,11 @@
 
 	<h1>{!! trans('account.settings_subscription.header', ['status' => trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) ]) !!}</h1>
 	<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true)))->toCurrency(trans('general.currency')) ])]) !!}</h2>
+
+	@foreach(Auth::user()->getCustomer()->getVitaminModels() as $vitamin)
+		<span class="icon pill-{{ $vitamin->code }}"></span>
+	@endforeach
+
 	@if( $plan->isActive() )
 		<p>{{ trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y H:i') ]) }}</p>
 

@@ -28,6 +28,16 @@ class PackageController extends Controller
 
 		if ( $package->isDirect() )
 		{
+			if ( \Auth::check() && \Auth::user()->isUser() )
+			{
+				\Auth::user()
+				     ->getCustomer()
+				     ->updateCustomUserData(json_decode(json_encode( ['custom' => [ 'one' => $package->group_one, 'two' => $package->group_two, 'three' => $package->group_three ]])));
+
+				return \Redirect::action( 'AccountController@getSettingsBasic' )
+				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
+			}
+
 			\Session::forget( 'user_data' );
 			\Session::forget( 'flow-completion-token' );
 			\Session::put( 'package', $package->id );
@@ -52,19 +62,18 @@ class PackageController extends Controller
 		 */
 		$package = Package::find( $request->get('package_id') );
 
-		// todo update customer package if already logged in
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
 			\Auth::user()
 			     ->getCustomer()
-			     ->setVitamins( $vitamins );
+			     ->updateCustomUserData(json_decode($request->get('user_data')));
 
-			return \Redirect::action( 'AccountController@getHome' )
+			return \Redirect::action( 'AccountController@getSettingsBasic' )
 			                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
 		}
 
 		\Session::forget( 'flow-completion-token' );
-		\Session::put( 'user_data', $request->get('user_data') );
+		\Session::put( 'user_data', json_decode($request->get('user_data')) );
 		\Session::put( 'package', $package->id );
 		\Session::put( 'product_name', 'package' );
 

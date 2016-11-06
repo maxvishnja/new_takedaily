@@ -22,4 +22,25 @@ class Package extends Model
     {
     	return !$this->hasChoice($this->group_one) && !$this->hasChoice($this->group_two) && !$this->hasChoice($this->group_three);
     }
+
+    public function getChoices($value)
+    {
+    	$choices = [];
+
+	    if( ! $this->hasChoice($value))
+	    {
+	    	return $choices;
+	    }
+
+	    if(str_contains($value, ','))
+	    {
+	    	$choices = explode(',', $value);
+	    }
+	    elseif(str_contains($value, '|'))
+	    {
+		    $choices = explode('|', $value);
+	    }
+
+	    return $choices;
+    }
 }

@@ -4,12 +4,12 @@ use App\Apricot\Libraries\CombinationLibrary;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
+use App\Apricot\Libraries\PillLibrary;
 use App\Apricot\Libraries\StripeLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Events\CustomerWasBilled;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Collection;
 use Jenssegers\Date\Date;
 
 /**
@@ -138,7 +138,6 @@ class Customer extends Model
 	}
 
 	/**
-	 * @return User
 	 */
 	public function getOrders()
 	{
@@ -674,6 +673,65 @@ class Customer extends Model
 			'user_data.foods.fish'       => $userData->foods->fish,
 			'user_data.foods.butter'     => $userData->foods->butter
 		] );
+	}
+
+	public function updateCustomUserData( $userData )
+	{
+		$data = [];
+
+		if(isset($userData->gender) && (!isset($userData->custom) && !isset($userData->custom->one)))
+		{
+			$data['user_data.gender'] = $userData->gender;
+			$data['user_data.birthdate'] = date( 'Y-m-d', strtotime( $userData->birthdate ) );
+			$data['user_data.age'] = $userData->age;
+			$data['user_data.skin'] = $userData->skin;
+			$data['user_data.outside'] = $userData->outside;
+		}
+
+		if(isset($userData->custom))
+		{
+			if(isset($userData->custom->one))
+			{
+				$data['user_data.custom.one'] = $userData->custom->one;
+			}
+
+			if(isset($userData->custom->two))
+			{
+				$data['user_data.custom.two'] = $userData->custom->two;
+			}
+
+			if(isset($userData->custom->three))
+			{
+				$data['user_data.custom.three'] = $userData->custom->three;
+			}
+
+			if(isset($userData->custom->four))
+			{
+				$data['user_data.custom.four'] = $userData->custom->four;
+			}
+		}
+
+		$this->getPlan()->setIsCustom(false);
+
+		$this->setCustomerAttributes( $data );
+
+		$newCombinations = $this->calculateCombinations();
+		$vitamins     = [ ];
+
+		foreach ( $newCombinations as $key => $combination )
+		{
+			$pill = PillLibrary::getPill($key, $combination);
+			$vitamin = Vitamin::select('id')->whereCode($pill)->first();
+
+			if ( $vitamin )
+			{
+				$vitamins[] = $vitamin->id;
+			}
+		}
+
+		$this->setVitamins($vitamins);
+
+		return $this;
 	}
 
 }

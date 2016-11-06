@@ -2,6 +2,16 @@
 return [
 	'title'      => 'Vælg din TakeDaily pakke',
 	'select-btn' => 'Vælg denne',
+	'custom-pill' => 'Vælg en pille',
+	'pills' => [
+		'3a' => 'Some description of this pill',
+		'3b' => 'Some description of this pill',
+		'3c' => 'Some description of this pill',
+		'3d' => 'Some description of this pill',
+		'3e' => 'Some description of this pill',
+		'3f' => 'Some description of this pill',
+		'3g' => 'Some description of this pill'
+	],
 	'packages'   => [
 		'busy_life'          => [
 			'name' => 'Busy life/Energy',
