@@ -204,17 +204,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				                         ->first();
 			}
 
-			if ( Auth::user() && Auth::user()
-			                         ->getCustomer()
-			)
-			{
-				return redirect( '/pick-n-mix' )->with( 'warning', 'Du har allerede en konto, du kan ændre dine vitaminer eller logge ud og oprette en ny konto.' ); // todo translate
-			}
-
 			$product = \App\Product::whereName( 'subscription' )
 			                       ->first();
 
-			// todo fixme giftcard is not taken into consideration
+			// todo - giftcard is not taken into consideration
 
 			// Coupon
 			$coupon = null;
@@ -253,7 +246,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			Mail::queue( 'emails.recommendation', [ 'locale' => App::getLocale(), 'token' => $request->get( 'token' ) ], function ( \Illuminate\Mail\Message $message ) use ( $to )
 			{
 				$message->to( $to );
-				$message->subject( trans('mails.recommendation.subject') );
+				$message->subject( trans( 'mails.recommendation.subject' ) );
 			} );
 
 			return Response::json( [ 'message' => 'mail added to queue' ] );
@@ -312,6 +305,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			if ( Auth::check() && Auth::user()->isUser() )
 			{
+				Auth::user()->getCustomer()->unsetCustomUserdata();
 				Auth::user()->getCustomer()->updateUserdata( $userData );
 				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
 
@@ -329,11 +323,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					}
 				}
 
-				$this->getUser()->getCustomer()->getPlan()->update( [
-					'vitamins' => json_encode( $vitamins )
-				] );
+				Auth::user()->getCustomer()->setVitamins($vitamins);
 
-				return Redirect::to( '' ); // todo fix redirect!
+				return \Redirect::action( 'AccountController@getSettingsSubscription' )
+				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
 			}
 			else
 			{

@@ -17,7 +17,8 @@ return array (
     'fishoil' => 'Fiskeolie er...',
   ),
   'button-order-text' => 'Bestil TakeDaily',
-  'questions' => 
+  'button-save-text' => 'Opdater din pakke',
+  'questions' =>
   array (
     '1-1' => 
     array (
