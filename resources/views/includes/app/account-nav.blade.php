@@ -3,7 +3,7 @@
 		<ul class="navigation" id="profile-nav">
 			<a class="visible-sm visible-xs icon icon-cross-large toggle-mobile-nav" href="#profile-nav"></a>
 			@if($customer && !$customer->plan->isCustom())
-				<li @if(Request::getPathInfo() == '/account') class="active" @endif><a href="/account">{{ trans('nav.account.profile') }}</a></li>
+				<li @if(Request::getPathInfo() == '/flow') class="active" @endif><a href="/flow">{{ trans('nav.account.profile') }}</a></li>
 			@else
 				<li><a href="/pick-n-mix">{{ trans('nav.account.pick') }}</a></li>
 			@endif

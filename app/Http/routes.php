@@ -448,7 +448,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				return redirect( 'account/settings/basic' );
 			} );
 
-			Route::get( '/', 'AccountController@getHome' );
+			Route::get( '/', function()
+			{
+				return redirect()->action('AccountController@getSettingsBasic');
+			});
 			Route::post( '/update-preferences', 'AccountController@updatePreferences' );
 
 			Route::get( 'transactions', 'AccountController@getTransactions' );
