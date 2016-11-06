@@ -30,7 +30,7 @@
 							   class="button button--rounded button--huge button--landing button--white m-t-30">
 								<strong>{!! trans('home.header.button-click-here') !!}</strong>
 							</a>
-							<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('home.header.pick') }}</a></div>
+							<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
 							<div class="headervideo-block">
 								<strong>{{ trans('home.header.what-is') }}</strong>
 								<span id="video-toggle" class="icon icon-play"></span>
@@ -47,7 +47,7 @@
 									   class="button button--rounded button--huge button--landing button--green m-t-30">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
-									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('home.header.pick') }}</a></div>
+									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
 									<div class="headervideo-block">
 										<strong>{{ trans('home.header.what-is') }}</strong>
 										<span id="video-toggle-two" class="icon icon-play"></span>
@@ -112,7 +112,7 @@
 				<div class="text-center m-t-50">
 					{!! trans('home.blocks.one.button') !!}
 
-					<div class="m-t-20"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('home.header.pick') }}</a></div>
+					<div class="m-t-20"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
 				</div>
 			</div>
 		</div>
@@ -201,7 +201,7 @@
 										<p class="text-center">{{ $slide['text'] }}</p>
 										<div class="text-center">
 											{!! $slide['button'] !!}
-											<div class="m-t-20"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('home.header.pick') }}</a></div>
+											<div class="m-t-20"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
 										</div>
 									</div>
 								</div>
