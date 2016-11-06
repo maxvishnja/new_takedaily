@@ -39,9 +39,8 @@ class AccountController extends Controller
 			return redirect()->action('AccountController@getSettingsBasic');
 		}
 
-		return view('account.home');
+		return redirect()->route('flow');
 	}
-
 
 	function updatePreferences(Request $request)
 	{
@@ -50,16 +49,7 @@ class AccountController extends Controller
 			return redirect()->back()->withErrors(trans('account.general.errors.custom-package-cant-change'));
 		}
 
-		$userData = json_decode($request->get('user_data', '{}'));
-
-		$this->user->getCustomer()->update([
-			'birthdate' => $userData->birthdate,
-			'gender'    => $userData->gender == 1 ? 'male' : 'female'
-		]);
-
-		$this->user->getCustomer()->updateUserdata($userData);
-
-		return \Redirect::action('AccountController@getHome')->with('success', trans('account.general.successes.preferences-saved'));
+		return redirect()->route('flow');
 	}
 
 	function updateVitamins()
