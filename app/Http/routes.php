@@ -334,6 +334,9 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				{
 					Auth::logout();
 				}
+
+				Session::forget( 'vitamins' );
+				Session::forget( 'package' );
 				Session::put( 'user_data', $userData );
 				Session::put( 'product_name', $request->get( 'product_name' ) );
 				Session::put( 'flow-completion-token', $request->get( 'flow-token' ) );
