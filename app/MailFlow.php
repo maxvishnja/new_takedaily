@@ -11,6 +11,7 @@ class MailFlow extends Model
 		'name',
 		'identifier',
 		'is_active',
+		'should_auto_match',
 		'only_once'
 	];
 
@@ -24,9 +25,14 @@ class MailFlow extends Model
 		return $this->hasMany(MailFlowCustomer::class);
 	}
 
-	public function sendTo(Customer $customer)
+	public function match(Customer $customer)
 	{
 		$this->customers()->create(['customer_id' => $customer->id]);
+	}
+
+	public function sendTo(Customer $customer)
+	{
+		$this->match($customer);
 
 		$email = $customer->getEmail();
 		$name = $customer->getName();

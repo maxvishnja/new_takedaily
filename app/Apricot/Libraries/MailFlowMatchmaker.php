@@ -10,10 +10,13 @@ use App\MailFlow;
 class MailFlowMatchmaker
 {
 	/**
-	 * @param MailFlow   $mailFlow
-	 * @param Customer[] $customers
+	 * @param MailFlow $mailFlow
+	 * @param          $customers
+	 * @param bool     $checkOnly
+	 *
+	 * @return bool
 	 */
-	public function make( MailFlow $mailFlow, $customers )
+	public function make( MailFlow $mailFlow, $customers, $checkOnly = false )
 	{
 		$alreadyDoneCustomers = array_flatten($mailFlow->customers()->select('customer_id')->get()->toArray());
 
@@ -37,7 +40,12 @@ class MailFlowMatchmaker
 				}
 			}
 
-			if ( $isAMatch )
+			if( $checkOnly )
+			{
+				return $isAMatch;
+			}
+
+			if ( $isAMatch && !$checkOnly )
 			{
 				$mailFlow->sendTo($customer);
 			}

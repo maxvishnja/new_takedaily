@@ -14,7 +14,8 @@ class MailFlowSeeder extends Seeder
 		// For women +50 years of age
 		$mailflow_woman_plus_50 = \App\MailFlow::create( [
 			'name'       => 'Woman +50 of age',
-			'identifier' => 'woman-above-50'
+			'identifier' => 'woman-above-50',
+		    'should_auto_match' => 1
 		] );
 
 		$mailflow_woman_plus_50->conditions()->create( [
@@ -32,7 +33,8 @@ class MailFlowSeeder extends Seeder
 		// For Everyone +70 years of age
 		$mailflow_plus_70 = \App\MailFlow::create( [
 			'name'       => 'Everyone +70 of age',
-			'identifier' => 'everyone-above-70'
+			'identifier' => 'everyone-above-70',
+			'should_auto_match' => 1
 		] );
 
 		$mailflow_plus_70->conditions()->create( [
@@ -44,7 +46,8 @@ class MailFlowSeeder extends Seeder
 		// For women leaving pregnancy
 		$mailflow_leaving_pregnancy = \App\MailFlow::create( [
 			'name'       => 'Women leaving pregnancy',
-			'identifier' => 'women-leaving-pregnancy'
+			'identifier' => 'women-leaving-pregnancy',
+			'should_auto_match' => 1
 		] );
 
 		$mailflow_leaving_pregnancy->conditions()->create( [
