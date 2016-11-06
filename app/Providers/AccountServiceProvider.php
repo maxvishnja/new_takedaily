@@ -37,7 +37,7 @@ class AccountServiceProvider extends ServiceProvider
 				/** @var MailFlow $mailflow */
 				foreach ( $mailflows as $mailflow )
 				{
-					if ( $matcher->make( $mailflow, $customer, true ) )
+					if ( $matcher->make( $mailflow, [$customer], true ) )
 					{
 						$mailflow->match( $customer );
 					}
