@@ -2,7 +2,7 @@
 
 <header class="header--with-bg">
 	<div class="header-nav">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="header_top_tb">
 				<div class="row">
 					<div class="col-md-3 col-xs-9">
