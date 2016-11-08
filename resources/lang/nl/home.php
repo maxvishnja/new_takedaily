@@ -3,15 +3,14 @@
 return array (
   'header' => 
   array (
-    'title-1' => 'Håndplukkede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
+    'title-1' => 'Vitamines & Mineralen<br/>op maat. Bezorgd<br/> op jouw deurmat',
     'title-2' => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
     'button-click-here' => 'Doe de test <small class="button-line2">Duurt slechts enkele  minuten</small>',
     'button-gift-text' => 'Geef TakeDaily cadeau',
     'splash' => 
     array (
-      'text' => '4 weken <br/>vitamines en mineralen voor',
+      'text' => 'Gepersonaliseerde<br/> Vitamines & Mineralen<br/> voor 4 weken voor slechts',
       'price' => '18,95<small> euro.</small>',
-      'info' => 'Ingen binding',
     ),
     'what-is' => 'Wat is TakeDaily?',
     'pick' => 'Of stel je eigen pakket samen',
@@ -47,7 +46,7 @@ return array (
     'promises' => 
     array (
       'title' => 'Wat TakeDaily belooft...',
-      'promise-1' => 'Gratis advies van onze eigen professionele TakeDaily diëtisten en voedingsdeskundigen',
+      'promise-1' => 'Gratis advies van onze professionele TakeDaily diëtisten en voedingsdeskundigen',
       'promise-2' => 'Gebruik te maken van de beste kwaliteit vitamines, mineralen en visolie op de markt en organische capsules voor een snellere opname in het lichaam.',
       'promise-3' => 'Geen gebruik te maken van de tussenhandel, waardoor we onze supplementen veel goedkoper kunnen aanbieden dan de meeste andere aanbieders op de markt.',
       'promise-4' => 'Dat onze test speciaal ontwikkeld is door professionele dietisten en voedingskundigen, hierdoor kunnen wij jou de vitaminen en mineralen adviseren in de hoeveelheden die precies aansluiten op jouw individuele behoeften.',
@@ -67,28 +66,28 @@ return array (
         'one' => 
         array (
           'title' => 'Doe de test',
-          'text' => 'Beantwoord de vragen over jouw leefstijl en eetpatroon. Het duurt maar enkele miniuten.',
+          'text' => 'Beantwoord de vragen over jouw leefstijl en voedingspatroon. Het duurt maar enkele miniuten.',
         ),
         'two' => 
         array (
-          'title' => 'We bepalen jouw behoeften',
-          'text' => 'Wij selecteren de vitaminen en mineralen in de hoeveelheden die precies aansluiten op jouw individuele behoeften',
+          'title' => 'Krijg gepersonaliseerd advies',
+          'text' => 'Wij selecteren de vitaminen en mineralen in de hoeveelheden die precies aansluiten op de individuele behoeften van jouw lichaam',
         ),
         'three' => 
         array (
-          'title' => 'Kosteloos bezorgd aan huis of op kantoor',
-          'text' => 'Jouw TakeDaily vitamines en mineralen ontvang je kosteloos  thuis of op kantoor via de brievenbus',
+          'title' => 'Ontvang TakeDaily op de deurmat',
+          'text' => 'Het TakeDaily pakket met jouw vitamines en mineralen voor 4 weken wordt kosteloos thuis of op kantoor bezorgd via de brievenbus. Je hoeft er dus niet voor thuis te blijven.',
         ),
       ),
     ),
     'two' => 
     array (
       'title' => 'Lev lidt sundere.<br/>Start vandaag nog met TakeDaily!',
-      'body' => '<p>
-							At finde de helt rigtige vitaminer og mineraler, som din krop har brug for, kan i sig selv være en udfordring. Hylderne bugner af multivitaminpiller og komplette kosttilskudspakker. Take Daily er diamentrale modsætninger.
-						</p>
-						<p>Vi udvælger og sammensætter omhyggeligt de vitaminer og mineraler, som lige præcis din krop har brug for. Koncentrationerne er individuelle og kommer i din helt egen æske.</p>
-						<p>Ved du præcist hvad du vil have, kan du naturligvis også selv håndplukke dine vitaminer og kosttilskud.</p>',
+      'body' => '<P>
+Het vinden van (een) voedingssupplement(en) dat goed aansluit op de specifieke behoeften van jouw lichaam, kan een hele uitdaging zijn! Vandaag de dag wordt je geconfronteerd met grote hoeveelheden verschillende supplementen. Erachter komen welk supplement het meest geschikt is voor jou, kan een tijdrovende en lastige klus zijn. Hier komt Take Daily om de hoek kijken om jou de helpende hand te bieden.
+</ P>
+<P> TakeDaily selecteert zorgvuldig de vitamines & mineralen in de hoeveelheden die precies aansluiten bij de persoonlijke behoefte van jouw lichaam. De gepersonaliseerde vitamines & mineralen worden verpakt voor 28 dagen en bezorgd op jouw deurmat. </ P>
+<P> Weet jij al precies naar welke vitamines & mineralen jij op zoek bent, dan kun je bij TakeDaily uiteraard ook zelf een pakket selecteren. </ P>',
       'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--white button--text-green m-t-30">
 								<strong>Doe de test<small class="button-line2">Duurt slects enkele minuten</small></strong>
@@ -104,11 +103,13 @@ return array (
     ),
     'five' => 
     array (
-      'body' => '<p>TakeDaily er høj kvalitet og rene, naturlige, aktive ingredienser. Vi har samlet de bedste
-					ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den
-					ultimative måde at genopbygge din krop indefra.  </p>
+      'body' => '<P> Neem Daily is van hoge kwaliteit en pure, natuurlijke actieve ingrediënten. We hebben de beste gecompileerd
+voedingsdeskundigen en maakt gebruik van de nieuwste farmaceutisch onderzoek naar de identiteit
+ultieme manier om je lichaam te vullen van de binnenkant.
 
-				<p>Videnskaben bag er kompleks, men for dig er det hele enkelt og ligetil.</p>',
+</ P>
+
+<P> De wetenschap is complex, maar voor jou is het allemaal eenvoudig en duidelijk. </ P>',
       'button' => '<a href="/page/test-og-kvalitet" class="anchor anchor--underline anchor--inline m-t-20">Få mere baggrundsviden</a>',
     ),
     'six' => 
@@ -121,7 +122,7 @@ return array (
           'text' => 'Als je rookt heb je meer vitamine C nodig. Door de sigarettenrook wordt er meer vitamine C in het lichaam afgebroken.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong> Doe de test<small class="button-line2">Duurt slechts enkele minuten</small></strong>
 							</a>',
         ),
         'two' => 
@@ -148,24 +149,24 @@ return array (
           'text' => 'Din krop, kost og livsstil kan give et billede af, hvad du i virkeligheden har brug for.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Doe de test<small class="button-line2">duurt slechts enkele minuten</small></strong>
 							</a>',
         ),
       ),
     ),
     'seven' => 
     array (
-      'title' => 'Online konsultation',
-      'subtitle' => 'Hvilke vitaminer og mineraler mangler du?',
-      'text' => 'Vores dygtige diætister står bag spørgsmålene, som giver svar på, hvilke vitaminer og mineraler, du skal tage for at få din krop i balance. Der er 39 spørgsmål, og efter 2 minutter har du dit resultat.',
-      'button' => '<a href="/flow" class="button button--green button--rounded button--large">Start på TakeDaily i dag</a>',
+      'title' => 'Online advies',
+      'subtitle' => 'Welke vitamines & mineralen heb jij nodig?',
+      'text' => 'Onze vragenlijst, welke de basis is voor ons advies, is ontwikkeld door ervaren diëtisten. De test bevat 39 vragen en duurt slechts enkele minuten. Na het invullen van de test ontvang je direct het advies.',
+      'button' => '<a href="/flow" class="button button--green button--rounded button--large">Start vandaag nog met TakeDaily</a>',
     ),
     'eight' => 
     array (
-      'title' => 'Modtag vitaminer hver måned,<br/>det koster kun 149 kr.',
+      'title' => 'Ontvang jouw vitamines & mineralen iedere maand, <br/> voor slechts 18,95 euro',
       'text' => 'Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag
 							typewriter banh mi, squid keffiyeh High.',
-      'button' => '<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start på TakeDaily i dag</a>',
+      'button' => '<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start vandaag nog met TakeDaily</a>',
     ),
   ),
 );

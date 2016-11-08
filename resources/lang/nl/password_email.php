@@ -1,5 +1,7 @@
-<?php return [
-	'title' => 'Nulstil dit kodeord',
-	'email_label' => 'Din e-mail adresse',
-	'button' => 'Nulstil kodeord'
-];
+<?php
+
+return array (
+  'title' => 'Nulstil dit kodeord',
+  'email_label' => 'Jouw e-mailadres',
+  'button' => 'Nulstil kodeord',
+);

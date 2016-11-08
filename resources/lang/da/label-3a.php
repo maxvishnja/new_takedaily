@@ -8,13 +8,13 @@ return array (
     'shield' => 'Den normale funktion af immunforsvaret',
     'lightning' => 'At mindske træthed og udmattelse',
   ),
-  'ingredients' => 'Dikaliumphosphat, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E141)), L-ascorbinsyre, fyldstof (microcrystalline cellulose), antiklumpningsmiddel (magnesium stearate), beta-caroten, pteroylmonoglutaminsyre',
+  'ingredients' => 'Dikaliumhydrogenphosphat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E141), L-ascorbinsyre, fyldstof (mikrokrystallinsk cellulose), antiklumpningsmiddel (magnesiumstearat), beta-caroten, pteroymonoglutaminezuur',
   'vitamins' => 
   array (
     0 => 
     array (
       'name' => 'Vitamin A',
-      'amount' => '200,4 µg',
+      'amount' => '200 µg',
       'percent' => '25',
     ),
     1 => 
@@ -36,7 +36,7 @@ return array (
     array (
       'name' => 'Kalium',
       'amount' => '317,1 mg',
-      'percent' => '16',
+      'percent' => '15',
     ),
     1 => 
     array (

@@ -7,7 +7,7 @@ return array (
     'energy' => 'Normalt energistofskifte',
     'lightning' => 'Nedsætte træthed og udmattelse',
   ),
-  'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand),  ferrobisglycinat, antiklumpningsmiddel (magnesium stearate), cyanocobalamin, pyridoxal-5’-phosphat, thiaminhydrochlorid',
+  'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), jern bisglycinate, antiklumpningsmiddel (magnesiumstearat), cyanocobalamin, pyridoxal-5-phosphat, thiamin-hydrochlorid',
   'vitamins' => 
   array (
     0 => 

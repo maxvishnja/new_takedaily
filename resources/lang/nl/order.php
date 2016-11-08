@@ -1,10 +1,12 @@
 <?php
-return [
-	'state' => [
-		'new'       => 'Ubetalt',
-		'paid'      => 'Betalt',
-		'sent'      => 'Afsendt',
-		'completed' => 'Fuldført',
-		'cancelled' => 'Annulleret'
-	]
-];
+
+return array (
+  'state' => 
+  array (
+    'new' => 'Niet betaald',
+    'paid' => 'Betaald',
+    'sent' => 'Verstuurd',
+    'completed' => 'Voltooid',
+    'cancelled' => 'Annuleren',
+  ),
+);

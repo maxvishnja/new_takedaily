@@ -4,10 +4,9 @@ return array (
   'name' => 'Basis multivitamin og mineraltablet',
   'praises' => 
   array (
-    'shield' => 'Den normale funktion af immunforsvaret',
+    'shield' => 'Multi Basic er et multivitamin og mineraltilskud til voksne over 18 år. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler til at støtte en optimal sundhed.',
   ),
-  'ingredients' => 'Fyldstof (dicalciumphosphatdihydrat), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E129), jern bisglycinate, L-ascorbinsyre, zinkgluconat, DL-alpha-tocopherylacetat, nicotinamid, L -selenomethionine, antiklumpningsmiddel (magnesiumstearat), calcium-D-pantothenat, retinylacetat, cyanocobalamin, cholecalciferol, phylloquinon (phytomenadion), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, chrompicolinat, pteroylmonoglutamic syre, kaliumiodid, D-biotin
-',
+  'ingredients' => 'Fyldstof (dicalciumphosphatdihydrat), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E129, E171), jern bisglycinate, L-ascorbinsyre, zinkgluconat, DL-alpha-tocopherylacetat, nicotinamid, L -selenomethionine, antiklumpningsmiddel (magnesiumstearat), calcium-D-pantothenat, retinylacetat, cyanocobalamin, cholecalciferol, phylloquinon (phytomenadion), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, chrompicolinat, pteroylmonoglutamic syre, kaliumiodid, D-biotin',
   'vitamins' => 
   array (
     0 => 

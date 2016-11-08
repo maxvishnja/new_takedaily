@@ -45,16 +45,19 @@ return array (
         'address' => 
         array (
           'street' => 'Straat/huisnummer/toevoeging',
-          'street-placeholder' => 'Søndre Skovvej 123A',
+          'street-placeholder' => 'Havenstraat 123A',
           'zipcode' => 'Postcode',
           'zipcode-placeholder' => '1234 AB',
           'city' => 'Woonplaats',
-          'city-placeholder' => 'Aalborg',
+          'city-placeholder' => 'Houtdam',
           'country' => 'Land',
         ),
         'optional' => 'Optioneel',
         'company' => 'Bedrijfsnaam (optioneel)',
         'company-placeholder' => 'Nl- 0612345678',
+        'cvr-placeholder' => 'Nl- 0612345678',
+        'phone-placeholder' => '0612345678',
+        'phone' => 'Telefoon (mobiel)',
       ),
       'billing' => 
       array (

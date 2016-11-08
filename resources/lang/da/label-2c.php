@@ -1,13 +1,13 @@
 <?php
 
 return array (
-  'name' => 'Supplement til aktiv livsstil',
+  'name' => 'Supplement til en aktiv livsstil',
   'praises' => 
   array (
     'energy' => 'Et normalt energistofskifte',
     'lightning' => 'At mindske træthed og udmattelse',
   ),
-  'ingredients' => 'Magnesiumhydroxid, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E140)), fyldstof (microcrystalline cellulose), ferrofumarat, nicotinamid, Vitamin B5 (Panthothensyre), antiklumpningsmiddel (magnesium stearate), cyanocobalamin, pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid',
+  'ingredients' => 'Magnesiumhydroxid DC 10% stivelse, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestof (E140), fyldstof (mikrokrystallinsk cellulose), jernfumarat, nicotinamid, pantothensyre, antiklumpningsmiddel (magnesiumstearat), cyanocobalamin, pyridoxal -5-phosphat, riboflavin, thiamin-hydrochlorid',
   'vitamins' => 
   array (
     0 => 

@@ -10,6 +10,6 @@ return array (
   'applies' => 
   array (
     'plan' => 'Abonnement',
-    'order' => 'Order',
+    'order' => 'Bestelling',
   ),
 );

@@ -1,6 +1,6 @@
 <?php
 
 return array (
-  'order' => 'Ordren',
+  'order' => 'Bestelling',
   'plan' => 'Abonnentet',
 );

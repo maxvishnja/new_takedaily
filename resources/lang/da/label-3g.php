@@ -4,9 +4,9 @@ return array (
   'name' => 'Chiafrøolie',
   'praises' => 
   array (
-    'blood' => 'Normale blodcholesterol niveauer.',
+    'blood' => 'Alfa-linolensyre (ALA) bidrager til at opretholdelse af normale blodkolesterolniveauer. *',
   ),
-  'ingredients' => 'Chiafrøolie, K-Caps (hydroxypropylmethylcellulose, vand), antiklumpningsmiddel (silica)',
+  'ingredients' => 'Chiafrøolie, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), antiklumpningsmiddel (siliciumdioxid)',
   'other-vitamins' => 
   array (
     0 => 
@@ -43,7 +43,7 @@ return array (
     array (
       'name' => 'Heraf',
       'amount' => '',
-      'percent' => 'Omega-3',
+      'percent' => 'Omega-3 fedtsyrer',
     ),
     6 => 
     array (
@@ -58,5 +58,5 @@ return array (
       'percent' => '*',
     ),
   ),
-  'disclaimer' => '*Referenceindtag (RI) ikke fastlagt<br/>ALA bidrager til vedligehold af normale blodcholesterol niveauer. Den gavnlige effekt opnåes ved et dagligt indtag på 2 g ALA.',
+  'disclaimer' => '* Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA. <br/> Rig på omega-3 fedtsyrer',
 );

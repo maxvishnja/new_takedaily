@@ -2,7 +2,7 @@
 
 return array (
   'name' => 'Supplement til led',
-  'ingredients' => 'Magnesiumhydroxid, dicalciumcitrate, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E110)), dikaliumphosphate, L-ascorbinsyre, calciumcarbonat, antiklumpningsmiddel (magnesium stearate), manganogluconat, cholecalciferol',
+  'ingredients' => 'Magnesiumhydroxid DC 10% stivelse, calciumcitrat 4-hydrat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E110), dikaliumphosphat, L-ascorbinsyre, calciumcarbonat, antiklumpningsmiddel (magnesiumstearat), mangan, cholecalciferol',
   'vitamins' => 
   array (
     0 => 

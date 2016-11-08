@@ -6,7 +6,7 @@ return array (
   array (
     'shield' => 'Immunsystemets normale funktion',
   ),
-  'ingredients' => 'Fyldstof (microcrystalline cellulose), L-ascorbinsyre, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E171, E110, E127)), zinkgluconat, L-selenmethionin, retinylacetat, antiklumpningsmiddel (magnesium stearate), cholecalciferol, cyanocobalamin, pyridoxal-5’-phosphat, pteroylmonoglutaminsyre',
+  'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), L-ascorbinsyre, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E110, E127), zinkgluconat, L-selenomethionin, retinylacetat, antiklumpningsmiddel (magnesiumstearat) , cholecalciferol, cyanocobalamin, pyridoxal-5-phosphat, pteroymonoglutaminezuur',
   'vitamins' => 
   array (
     0 => 
@@ -36,7 +36,7 @@ return array (
     4 => 
     array (
       'name' => 'Vitamin B9 (Folsyre)',
-      'amount' => '300 µg',
+      'amount' => '800 µg',
       'percent' => '150',
     ),
     5 => 

@@ -413,48 +413,45 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
   array (
     1 => 
     array (
-      'basic' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance</div>',
-      'basic-10-d' => '<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
-							<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
-							<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
-      'basic-10-d-alt' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
-								<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
-								<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
-      'basic-20-d' => '<span class="icon icon-musle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
-							<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
-							<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
+      'basic' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Multi Basic is een multivitaminen- & mineralensupplement. Als aanvulling op een gevarieerde voeding, voorziet de Multi Basic in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid. </div>',
+      'basic-10-d' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Multi Vitamin D+ is een multivitaminen- & mineralensupplement  met 10 microgram vitamine D. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid. </div>',
+      'basic-10-d-alt' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Vitamin D+ Extra is een multivitaminen- & mineralensupplement met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van essentiële vitamines en mineralen. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan vitaminen en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid. </div>
+		<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Vitamin D+ Extra bevat extra vitamine D voor sterke botten en spieren</div>',
+      'basic-20-d' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Vitamin D+ Extra is een multivitaminen- & mineralensupplement. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid. </div>
+		<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Vitamin D+ Extra bevat 20 microgram vitamine D voor sterke botten en spieren</div>',
     ),
     2 => 
     array (
-      'A' => '<span class="icon icon-tissue-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til moderens væv vækst under graviditeten</div>
-					<div class="clear"></div><span class="icon icon-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Spiller en rolle i celledeling proces</div>
-					<div class="clear"></div><span class="icon icon-baby-flow flow-promise-icon"></span> <div class="flow-promise-text">Støtter væksten af din baby</div>',
-      'B' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
-					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
-					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>',
-      'C' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
-					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
-					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">For en fit og energisk følelse</div>',
-      'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
-					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstandsdygtighed</div>',
-      'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
-					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
-					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
+      'A' => '<div class="clear"></div><span class="icon icon-baby-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot de groei van het ongeboren kind tijdens de zwangerschap</div>
+<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt het immuunsysteem</div>',
+      'B' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bevordert de energiestofwisseling</div>
+					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt om vermoeidheid en moeiheid te verminderen</div>
+					<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt het immuunsysteem</div>',
+      'C' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale energiestofwisseling</div>
+					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt om vermoeidheid en moeheid te verminderen</div>
+					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale weerstand tegen stress</div>',
+      'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het immuunsysteem</div>
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt lichaamscellen te beschermen tegen invloeden van buitenaf</div>',
+      'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot een normale werking van de spieren</div>
+					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan de instandhouding van sterke botten</div>
+					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het kraakbeen</div>',
     ),
     3 => 
     array (
       'a' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
 					<div class="clear"></div><span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
 					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
-					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>',
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>
+                <span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Heeft een gunstige invloed op het behoud van een normale bloeddruk</div>  ',
       'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal kognitiv funktion</div>
 					<div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal hud</div>
 					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">For hjerner og sund hud</div>',
-      'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Nødvendige for vedligeholdelse af normale knogler</div>
-					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler</div>',
-      'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
-					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
-					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">En fit og energisk følelse</div>',
+      'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan de instandhouding van sterke botten</div>
+					<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot een normale werking van de spieren</div>
+',
+      'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale energiestofwisseling</div>
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt  om vermoeidheid en moeheid te verminderen</div>
+					<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt het immuunsysteem</div>',
       'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal funktion af hjertet</div> <!-- // todo NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. -->
 					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For kardiovaskulære</div>',
       'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
@@ -467,7 +464,7 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
   ),
   'call-me' => 
   array (
-    'placeholder' => '12 34 56 78 90',
+    'placeholder' => '06 12 34 56 78',
     'title' => 'Heb je geen tijd om de test in te vullen?',
     'text' => 'Wil je graag dat wij je bellen voor het geven van een persoonlijk advies? Vermeld dan hieronder jouw telefoonnummer en de tijd dat je gebeld wilt worden.',
     'deny' => 'Ellers tak. Luk besked.',
@@ -480,7 +477,7 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
     ),
     'today' => 'Vandaag',
     'tomorrow' => 'Morgen',
-    'success' => 'Tak, vi ringer til dig snarest!',
+    'success' => 'Bedankt! Takedaily neemt spoedig contact met je op!',
   ),
   'datepicker' => 
   array (

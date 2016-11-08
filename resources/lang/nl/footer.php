@@ -21,7 +21,7 @@ return array (
     'three' => 
     array (
       'title' => 'Contact',
-      'text' => 'Stuur ons een e-mail en binnen 24 uur ontvang je van ons een antwoord. Op werkdagen zijn wij van 09:00-16:00 uur telefonisch bereikbaar.',
+      'text' => 'Stuur ons een e-mail en ontvang binnen 1 werkdag antwoord. Op werkdagen zijn wij van 09:00-16:00 uur telefonisch bereikbaar.',
       'info' => '+31 1234 5678<br/><a href="mailto:support@takedaily.com">support@takedaily.com</a>',
     ),
   ),

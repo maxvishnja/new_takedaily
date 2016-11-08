@@ -7,7 +7,7 @@ return array (
     'brain-cog' => 'Normal kognitiv funktion',
     'skin' => 'Vedligeholdelse af normal hud',
   ),
-  'ingredients' => 'Fyldstof (microcrystalline cellulose), K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E172)),  ferrobisglycinat, nicotinamid, antiklumpningsmiddel (magnesium stearate), pyridoxal-5’-phosphat, riboflavin, thiaminhydrochlorid, pteroylmonoglutaminsyre, kaliumjodid',
+  'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestof (E172), jern bisglycinate, nikotinamid, antiklumpningsmiddel (magnesiumstearat), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, pteroylmonoglutamic syre, kaliumiodid',
   'vitamins' => 
   array (
     0 => 

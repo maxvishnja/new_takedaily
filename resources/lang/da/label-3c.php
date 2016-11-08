@@ -6,7 +6,7 @@ return array (
   array (
     'bone' => 'Vedligeholdelse af normale knogler',
   ),
-  'ingredients' => 'Calciumcarbonat, K-Caps (hydroxypropylmethylcellulose, vand, farvestof (E172, E171)), antiklumpningsmiddel (magnesium stearate), cyanocobalamin, riboflavin',
+  'ingredients' => 'Calciumcarbonat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E172, E171), antiklumpningsmiddel (magnesiumstearat), cyanocobalamin, riboflavin',
   'vitamins' => 
   array (
     0 => 
