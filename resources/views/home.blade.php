@@ -44,7 +44,7 @@
 								<div class="col-md-8">
 									<h1>{!! trans('home.header.title-1') !!}</h1>
 									<a href="{{ url()->route('flow') }}"
-									   class="button button--rounded button--huge button--landing button--green m-t-30">
+									   class="button button--rounded button--huge button--landing button--white m-t-30">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
 									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
@@ -275,7 +275,6 @@
 		var header_slider = $(".header_slides");
 		var header_bg_slider = $(".header_bg_slides");
 		var header = $("header.header--landing");
-		var logo = $(".logo");
 
 		$(".header_slide_nav_item").click(function () {
 			var currentSlide = $(this).data('slide');
@@ -285,15 +284,6 @@
 			header.addClass('header--front-slide-' + currentSlide);
 			activeSlide.removeClass("header_slide_nav_item--active");
 			$(this).addClass("header_slide_nav_item--active");
-
-			if (currentSlide == 1) {
-				logo.addClass('logo-white');
-				logo.removeClass('logo-color');
-			}
-			else {
-				logo.addClass('logo-color');
-				logo.removeClass('logo-white');
-			}
 
 			header_slider.css("transform", "translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
 			header_slider.css("transform", "-webkit-translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
