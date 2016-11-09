@@ -48,8 +48,8 @@ return array (
       'title' => 'Wat TakeDaily belooft...',
       'promise-1' => 'Gratis advies van onze professionele TakeDaily diëtisten en voedingsdeskundigen',
       'promise-2' => 'Gebruik te maken van de beste kwaliteit vitamines, mineralen en visolie op de markt en organische capsules voor een snellere opname in het lichaam.',
-      'promise-3' => 'Geen gebruik te maken van de tussenhandel, waardoor we onze supplementen veel goedkoper kunnen aanbieden dan de meeste andere aanbieders op de markt.',
-      'promise-4' => 'Dat onze test speciaal ontwikkeld is door professionele dietisten en voedingskundigen, hierdoor kunnen wij jou de vitaminen en mineralen adviseren in de hoeveelheden die precies aansluiten op jouw individuele behoeften.',
+      'promise-3' => 'Geen gebruik te maken van de tussenhandel, maar direct te leveren aan de klant. Hiermee probeert TakeDaily de prijs van haar producten zo laag mogelijk te houden.  ',
+      'promise-4' => 'Dat onze test speciaal ontwikkeld is door professionele diëtisten  en voedingskundigen, hierdoor kunnen wij jou de vitaminen en mineralen adviseren in de hoeveelheden die precies aansluiten op jouw individuele behoeften.',
       'read-more' => 'Lees hier meer',
       'get-started' => 'Doe de test hier',
     ),
@@ -70,19 +70,19 @@ return array (
         ),
         'two' => 
         array (
-          'title' => 'Krijg gepersonaliseerd advies',
+          'title' => 'Krijg gepersoonlijk advies',
           'text' => 'Wij selecteren de vitaminen en mineralen in de hoeveelheden die precies aansluiten op de individuele behoeften van jouw lichaam',
         ),
         'three' => 
         array (
-          'title' => 'Ontvang TakeDaily op de deurmat',
+          'title' => 'Ontvang TakeDaily ',
           'text' => 'Het TakeDaily pakket met jouw vitamines en mineralen voor 4 weken wordt kosteloos thuis of op kantoor bezorgd via de brievenbus. Je hoeft er dus niet voor thuis te blijven.',
         ),
       ),
     ),
     'two' => 
     array (
-      'title' => 'Lev lidt sundere.<br/>Start vandaag nog met TakeDaily!',
+      'title' => 'Leef iets gezonder.<br/>Start vandaag nog met TakeDaily!',
       'body' => '<P>
 Het vinden van (een) voedingssupplement(en) dat goed aansluit op de specifieke behoeften van jouw lichaam, kan een hele uitdaging zijn! Vandaag de dag wordt je geconfronteerd met grote hoeveelheden verschillende supplementen. Erachter komen welk supplement het meest geschikt is voor jou, kan een tijdrovende en lastige klus zijn. Hier komt Take Daily om de hoek kijken om jou de helpende hand te bieden.
 </ P>

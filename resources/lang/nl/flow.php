@@ -2,7 +2,7 @@
 
 return array (
   'back' => '‹ Terug naar de vorige vraag',
-  'title' => 'Find din anbefaling - TakeDaily',
+  'title' => 'Vind jouw persoonlijke advies - TakeDaily',
   'scripts' => 'Venligst aktiver javascripts.',
   'steps' => 
   array (
@@ -51,7 +51,7 @@ return array (
     ),
     '1-4' => 
     array (
-      'title' => 'Ben je elke dag tussen 11:00-15:00 uur minimaal 15-30 minuten buiten met gezicht en handen onbedekt?',
+      'title' => 'Ben je elke dag (tussen 11:00-15:00 uur) minimaal 15-30 minuten buiten met jouw gezicht en handen onbedekt?',
       'text' => 'Vitamine D is een van de weinige vitamines die het lichaam zelf kan maken. Hiervoor dien je dagelijks tussen 11:00-15:00 uur minimaal 15-30 minuten buiten te komen met minimaal handen en gezicht onbedekt. Tussen 11:00-15.00 uur staat de zon op zijn hoogst en is jouw lichaam in staat om vitamine D aan te maken met behulp van het zonlicht. 
 								Personen die dagelijks weinig buitenkomen, de zon mijden of buiten
 								lichaamsbedekkende
@@ -101,7 +101,7 @@ return array (
       'options' => 
       array (
         1 => 'Ja',
-        2 => 'No',
+        2 => 'Nee',
       ),
     ),
     '2-5' => 
@@ -413,17 +413,15 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
   array (
     1 => 
     array (
-      'basic' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Multi Basic is een multivitaminen- & mineralensupplement. Als aanvulling op een gevarieerde voeding, voorziet de Multi Basic in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid. </div>',
-      'basic-10-d' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Multi Vitamin D+ is een multivitaminen- & mineralensupplement  met 10 microgram vitamine D. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid. </div>',
-      'basic-10-d-alt' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Vitamin D+ Extra is een multivitaminen- & mineralensupplement met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van essentiële vitamines en mineralen. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan vitaminen en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid. </div>
-		<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Vitamin D+ Extra bevat extra vitamine D voor sterke botten en spieren</div>',
-      'basic-20-d' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Vitamin D+ Extra is een multivitaminen- & mineralensupplement. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid. </div>
-		<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Vitamin D+ Extra bevat 20 microgram vitamine D voor sterke botten en spieren</div>',
+      'basic' => 'Multi Basic is een multivitaminen- & mineralensupplement. Als aanvulling op een gevarieerde voeding, voorziet de Multi Basic in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>',
+      'basic-10-d' => 'Multi Vitamin D+ is een multivitaminen- & mineralensupplement  met 10 microgram vitamine D. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>',
+      'basic-10-d-alt' => 'Vitamin D+ Extra is een multivitaminen- & mineralensupplement met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van essentiële vitamines en mineralen. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>',
+      'basic-20-d' => 'Vitamin D+ Extra is een multivitaminen- & mineralensupplement. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>Vitamin D+ Extra bevat 20 microgram vitamine D voor sterke botten en spieren</div>',
     ),
     2 => 
     array (
       'A' => '<div class="clear"></div><span class="icon icon-baby-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot de groei van het ongeboren kind tijdens de zwangerschap</div>
-<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt het immuunsysteem</div>',
+',
       'B' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bevordert de energiestofwisseling</div>
 					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt om vermoeidheid en moeiheid te verminderen</div>
 					<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt het immuunsysteem</div>',
@@ -438,20 +436,18 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
     ),
     3 => 
     array (
-      'a' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
-					<div class="clear"></div><span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
-					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
-					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>
-                <span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Heeft een gunstige invloed op het behoud van een normale bloeddruk</div>  ',
-      'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal kognitiv funktion</div>
-					<div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal hud</div>
-					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">For hjerner og sund hud</div>',
-      'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan de instandhouding van sterke botten</div>
-					<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot een normale werking van de spieren</div>
-',
-      'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale energiestofwisseling</div>
-					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt  om vermoeidheid en moeheid te verminderen</div>
-					<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt het immuunsysteem</div>',
+      'a' => '<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt de normale werking van het zenuwstelsel</div>
+			     <span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
+			     <span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Heeft een gunstige invloed op het behoud van een normale bloeddruk en belangrijk voor de bloedvaten</div>',
+      'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
+		        <div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt bij het gezond houden van de huid</div>
+					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>',
+      'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt de tanden sterk te houden</div>
+					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>
+                             </div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt de spijsvertering</div>',
+      'd' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
+		       <span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan de normale vorming van rode bloedcellen</div>
+					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>',
       'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal funktion af hjertet</div> <!-- // todo NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. -->
 					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For kardiovaskulære</div>',
       'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
@@ -466,7 +462,7 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
   array (
     'placeholder' => '06 12 34 56 78',
     'title' => 'Heb je geen tijd om de test in te vullen?',
-    'text' => 'Wil je graag dat wij je bellen voor het geven van een persoonlijk advies? Vermeld dan hieronder jouw telefoonnummer en de tijd dat je gebeld wilt worden.',
+    'text' => 'Wil je graag dat wij je bellen voor een persoonlijk advies? Vermeld dan hieronder jouw telefoonnummer en de tijd dat je gebeld wilt worden.',
     'deny' => 'Ellers tak. Luk besked.',
     'options' => 
     array (
@@ -478,6 +474,7 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
     'today' => 'Vandaag',
     'tomorrow' => 'Morgen',
     'success' => 'Bedankt! Takedaily neemt spoedig contact met je op!',
+    'button-text' => 'Bel mij',
   ),
   'datepicker' => 
   array (
@@ -540,6 +537,9 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
       'select-month' => 'Kies een maand',
       'select-year' => 'Kies een jaar',
     ),
+    'pick-day' => 'Kies dag',
+    'pick-year' => 'Kies jaar',
+    'pick-month' => 'Kies maand',
   ),
   'show' => 
   array (
@@ -570,4 +570,5 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
     'wait' => 'Wacht...',
     'apply' => 'Gebruik',
   ),
+  'button-save-text' => 'Update jouw pakket',
 );
