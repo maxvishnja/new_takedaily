@@ -296,19 +296,19 @@
 			$(".header_slide_nav_item[data-slide='2']").click();
 		}, 3000);
 
-		$(".faq").click(function()
-		{
+		$(".faq").click(function () {
 			var currentFaq = $(".faq.open");
 			var thisFaq = $(this);
 
-			if(currentFaq !== undefined)
-			{
-				currentFaq.find('.faq_answer').stop().slideUp(300); // Sadly, height is dynamic so CSS animations is no option.
+			if (currentFaq !== undefined) {
+				currentFaq.find('.faq_answer').stop().slideUp(250); // Sadly, height is dynamic so CSS animations is no option.
 				currentFaq.removeClass('open');
 			}
 
-			thisFaq.addClass('open');
-			thisFaq.find('.faq_answer').stop().slideDown(300); // Sadly, height is dynamic so CSS animations is no option.
+			if (currentFaq !== thisFaq) {
+				thisFaq.addClass('open');
+				thisFaq.find('.faq_answer').stop().slideDown(250); // Sadly, height is dynamic so CSS animations is no option.
+			}
 		});
 	</script>
 @endsection
