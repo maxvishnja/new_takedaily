@@ -420,7 +420,7 @@ class CombinationLibrary
 		elseif ( isset($data->gender) && $data->gender == '2' )
 		{
 			// Females
-			if ( $data->pregnant == 1 )
+			if ( isset($data->pregnant ) && $data->pregnant == 1 )
 			{
 				// Pregnant
 				$this->groupOne = '1';
@@ -431,7 +431,7 @@ class CombinationLibrary
 			else
 			{
 				// Not pregnant
-				if ( $data->age < '50' )
+				if ( isset($data->age) && $data->age < '50' )
 				{
 					// Below 50 of age
 					if ( $data->skin == '1' )
@@ -475,7 +475,7 @@ class CombinationLibrary
 						}
 					}
 				}
-				elseif ( $data->age >= '50' && $data->age < '70' )
+				elseif ( isset($data->age) && $data->age >= '50' && $data->age < '70' )
 				{
 					// Between 50-70 of age
 					if ( $data->skin == '1' )
@@ -519,7 +519,7 @@ class CombinationLibrary
 						}
 					}
 				}
-				elseif ( $data->age >= '70' )
+				elseif ( isset($data->age) && $data->age >= '70' )
 				{
 					// Above 70 of age
 					if ( $data->skin == '1' )
