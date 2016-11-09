@@ -416,7 +416,7 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
       'basic' => 'Multi Basic is een multivitaminen- & mineralensupplement. Als aanvulling op een gevarieerde voeding, voorziet de Multi Basic in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>',
       'basic-10-d' => 'Multi Vitamin D+ is een multivitaminen- & mineralensupplement  met 10 microgram vitamine D. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>',
       'basic-10-d-alt' => 'Vitamin D+ Extra is een multivitaminen- & mineralensupplement met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van essentiële vitamines en mineralen. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>',
-      'basic-20-d' => 'Vitamin D+ Extra is een multivitaminen- & mineralensupplement. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>Vitamin D+ Extra bevat 20 microgram vitamine D voor sterke botten en spieren</div>',
+      'basic-20-d' => 'Vitamin D+ Extra vormt de basis van jouw gepersonaliseerde multivitaminen- & mineralensupplement. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D.',
     ),
     2 => 
     array (
