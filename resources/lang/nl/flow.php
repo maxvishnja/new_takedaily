@@ -293,15 +293,17 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
   array (
     1 => 
     array (
-      'basic' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis',
-      'basic-10-d' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
-							Du skal fx have lidt ekstra D-vitamin pga. <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">din alder</span>
-								<span v-show="( user_data.age >= \'50\'&& user_data.age <= \'70\') && user_data.skin > \'1\'">og</span>
-								<span v-show="user_data.skin > \'1\'">mørke hudfarve</span>.
-								Det sørger vi for.',
-      'basic-10-d-alt' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis.
-							Du skal fx have lidt ekstra D-vitamin, fordi du ikke kommer så meget ud i solen. Det sørger vi for.',
-      'basic-20-d' => 'Med TakeDaily får du præcis de vitaminer og mineraler, du har brug for – i den helt rette dosis. I din alder, har du fx brug for lidt ekstra D-vitamin. Det sørger vi for.',
+      'basic' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering',
+      'basic-10-d' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering.
+							Je hebt extra vitamine D nodig <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">in verband met jouw leeftijd</span>
+								<span v-show="( user_data.age >= \'50\'&& user_data.age <= \'70\') && user_data.skin > \'1\'">en/of</span>
+								<span v-show="user_data.skin > \'1\'">jouw getinte of donkere huidskleur</span>.
+								Met de Multi Vitamine D+ (10 microgram vitamine D)  zorgt TakeDaily dat jij precies de hoeveelheid binnenkrijgt die je dagelijks nodig hebt.',
+      'basic-10-d-alt' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering.
+			  Je komt dagelijks onvoldoende buiten, waardoor jouw huid niet in staat is om voldoende vitamine D aan te maken. TakeDaily heeft de Multi Vitamine D+ toegevoegd om zorg te dragen dat jij dagelijks voldoende vitamine D binnenkrijgt.',
+      'basic-20-d' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die je nodig hebt - in de juiste dosering. 
+
+De Multi Vitamine D+ Extra bevat 20 microgram vitamine D. Voor mannen en vrouwen vanaf 70 jaar zijn er namelijk overtuigende aanwijzingen uit onderzoek dat extra vitamine D per dag het risico op botbreuken kan verlagen en de Gezondheidsraad geadviseerd jou dan ook om dagelijks een supplement met 20 microgram vitamine D te gebruiken.',
     ),
     2 => 
     array (
@@ -413,10 +415,11 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
   array (
     1 => 
     array (
-      'basic' => 'Multi Basic is een multivitaminen- & mineralensupplement. Als aanvulling op een gevarieerde voeding, voorziet de Multi Basic in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>',
-      'basic-10-d' => 'Multi Vitamin D+ is een multivitaminen- & mineralensupplement  met 10 microgram vitamine D. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ in jouw dagelijkse behoefte aan essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>',
-      'basic-10-d-alt' => 'Vitamin D+ Extra is een multivitaminen- & mineralensupplement met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van essentiële vitamines en mineralen. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan vitaminen en mineralen ter ondersteuning van een optimale gezondheid. </div>',
-      'basic-20-d' => 'Vitamin D+ Extra vormt de basis van jouw gepersonaliseerde multivitaminen- & mineralensupplement. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D.',
+      'basic' => 'Multi vitamine D+ vormt de basis van jouw gepersonaliseerde multivitaminen- & mineralensupplement. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen voor het ondersteunen van een optimale gezondheid</div>',
+      'basic-10-d' => 'Multi Basic vormt de basis van jouw pakket aan gepersonaliseerde multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D voor het ondersteunen van een optimale gezondheid<</div>',
+      'basic-10-d-alt' => 'Multi vitamine D+ vormt de basis van jouw pakket aan gepersonaliseerde multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D voor het ondersteunen van een optimale gezondheid<</div>',
+      'basic-20-d' => 'Multi vitamine D+ Extra vormt de basis van jouw pakket aan
+gepersonaliseerde aan multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar.',
     ),
     2 => 
     array (
@@ -448,13 +451,12 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
       'd' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
 		       <span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan de normale vorming van rode bloedcellen</div>
 					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>',
-      'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal funktion af hjertet</div> <!-- // todo NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. -->
-					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For kardiovaskulære</div>',
-      'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
-					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
-					<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal muskelfunktion</div>
-					<div class="clear"></div><span class="icon icon-eye-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal vision</div>
-					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
+      'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het hart</div> <!-- // todo NB! Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA -->    	   
+
+<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot de instandhouding van de normale hersenfunctie en een normaal gezichtsvermogen</div><!--// todo NB! Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg DHA -->   ',
+      'f' => '<div class="clear"></div><span class="icon icon-eye-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot het instandhouding van een normaal gezichtsvermgen</div>
+                           <div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt bij het gezond houden van de huid</div>
+                        <div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een sterk gebit</div>',
       'g' => '<span class="icon icon-chiaoil-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>',
     ),
   ),
