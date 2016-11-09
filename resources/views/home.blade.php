@@ -9,7 +9,7 @@
 				<div class="header_top">
 					<div class="row">
 						<div class="col-md-3 col-xs-9">
-							<a href="/" class="logo logo-white"></a>
+							<a href="/" class="logo logo-color"></a>
 						</div>
 
 						<div class="col-md-9 col-xs-3">
@@ -44,7 +44,7 @@
 								<div class="col-md-8">
 									<h1>{!! trans('home.header.title-1') !!}</h1>
 									<a href="{{ url()->route('flow') }}"
-									   class="button button--rounded button--huge button--landing button--white m-t-30">
+									   class="button button--rounded button--huge button--landing button--green m-t-30">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
 									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
