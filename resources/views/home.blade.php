@@ -305,7 +305,7 @@
 				currentFaq.removeClass('open');
 			}
 
-			if (currentFaq !== thisFaq) {
+			if (!thisFaq.is(currentFaq)) {
 				thisFaq.addClass('open');
 				thisFaq.find('.faq_answer').stop().slideDown(250); // Sadly, height is dynamic so CSS animations is no option.
 			}
