@@ -1,10 +1,27 @@
 <nav role="navigation">
 	<ul class="navigation" id="mobile-nav">
 		<a class="visible-sm visible-xs icon icon-cross-large toggle-mobile-nav" href="#mobile-nav"></a>
-		{!! trans('nav.links') !!}
-		@foreach(\App\Apricot\Helpers\NavGenerator::generate(App::getLocale()) as $link => $text)
+		{{--		{!! trans('nav.links') !!}--}}
+		@foreach(\App\Apricot\Helpers\NavGenerator::generate(App::getLocale()) as $item)
 			<li>
-				<a href="/{{ $link }}">{{ $text }}</a>
+				<a href="/{{ $item['link'] }}">{{ $item['text'] }}</a>
+
+				@if( count($item['subitems']) > 0 )
+					<div class="submenu" style="min-width: 55%;">
+						<div class="row">
+							@foreach($item['subitems'] as $subGroupTitle => $subGroupItems)
+								<div class="col-md-6">
+									<div><strong>{{ $subGroupTitle }}</strong></div>
+									<ul>
+										@foreach($subGroupItems as $sublink)
+											<li><a href="/{{ $sublink['link'] }}">{{ $sublink['text'] }}</a></li>
+										@endforeach
+									</ul>
+								</div>
+							@endforeach
+						</div>
+					</div>
+				@endif
 			</li>
 		@endforeach
 
