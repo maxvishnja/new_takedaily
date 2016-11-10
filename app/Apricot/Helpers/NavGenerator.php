@@ -73,7 +73,7 @@ class NavGenerator
 				];
 			}
 
-			return collect($navArray)->sortBy('text')->toArray();
+			return $navArray;
 		} );
 	}
 }
