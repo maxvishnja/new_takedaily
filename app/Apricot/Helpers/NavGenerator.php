@@ -34,7 +34,7 @@ class NavGenerator
 			}
 		}
 
-		return $subnav;
+		return collect($subnav)->sortBy('text')->toArray();;
 	}
 
 	public static function generate( $locale )
@@ -73,7 +73,7 @@ class NavGenerator
 				];
 			}
 
-			return $navArray;
+			return collect($navArray)->sortBy('text')->toArray();
 		} );
 	}
 }
