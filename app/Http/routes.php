@@ -295,6 +295,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				'selected_codes' => implode( ',', $codes ),
 				'totals'         => $totals,
 				'result'         => $lib->getResult(),
+				'vitamin_info' => 'Kommer snart...', // todo
 				'token'          => $flowCompletion->token
 			] );
 		} )->name( 'flow-recommendations' );

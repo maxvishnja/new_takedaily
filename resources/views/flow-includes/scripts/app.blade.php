@@ -232,6 +232,7 @@
 						combinationTimeout = setTimeout(function () {
 							$("#advises-content").html(response.advises);
 							$("#advises-label").html(response.label);
+							$("#advises-vitamins").html(response.vitamin_info);
 							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes));
 							app.result = response.result;
 							app.extra_totals = response.totals;

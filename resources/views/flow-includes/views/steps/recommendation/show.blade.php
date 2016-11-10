@@ -5,7 +5,7 @@
 				{{ trans('flow.show.supplements') }}
 			</div>
 			<div data-tab="#advises-content" class="tab tab-toggler">{{ trans('flow.show.description') }}</div>
-			<div data-tab="#advises-content" class="tab tab-toggler">{{ trans('flow.show.contents') }}</div>
+			<div data-tab="#advises-vitamins" class="tab tab-toggler">{{ trans('flow.show.contents') }}</div>
 
 			<div class="clear"></div>
 		</div>
@@ -15,6 +15,8 @@
 		</div>
 
 		<div id="advises-content" class="tab-block"></div>
+
+		<div id="advises-vitamins" class="tab-block"></div>
 	</div>
 
 	<p>{{ trans('flow.show.change-vitamins') }} <a href="{{ url()->route('pick-n-mix') }}" id="link-to-change">{{ trans('flow.show.click-me') }}</a></p>
