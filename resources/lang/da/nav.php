@@ -11,6 +11,9 @@ return array (
     'logout' => 'Log ud',
     'pick' => 'Vitaminer',
   ),
+  'items' => [
+  	'gifting' => 'Giv i gave'
+  ],
   'links' => '<li><a href="/gifting">Giv i gave</a></li>
 				  <li><a href="/page/sadan-virker-det">Sådan virker det</a></li>
 				  <li class="hidden-md"><a href="/page/test-kvalitet">Test &amp; kvalitet</a></li>

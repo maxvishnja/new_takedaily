@@ -11,6 +11,9 @@ return array (
     'logout' => 'Uitloggen',
     'pick' => 'Vitamines',
   ),
+  'items' => [
+	  'gifting' => 'Geef Takedaily cadeau'
+  ],
   'links' => '<li><a href="/gifting">Geef Takedaily cadeau</a></li>
 				  <li><a href="/page/sadan-virker-det">Hoe werkt het?</a></li>
 				  <li class="hidden-md"><a href="/page/test-kvalitet">Test & kwaliteit</a></li>

@@ -2,6 +2,12 @@
 	<ul class="navigation" id="mobile-nav">
 		<a class="visible-sm visible-xs icon icon-cross-large toggle-mobile-nav" href="#mobile-nav"></a>
 		{!! trans('nav.links') !!}
+		@foreach(\App\Apricot\Helpers\NavGenerator::generate(App::getLocale()) as $link => $text)
+			<li>
+				<a href="/{{ $link }}">{{ $text }}</a>
+			</li>
+		@endforeach
+
 		@if(Auth::guest() || Auth::user()->isUser())
 			<li><a href="/account"><strong>{{ trans('nav.account.profile') }}</strong></a></li>
 		@endif
