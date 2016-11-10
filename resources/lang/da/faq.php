@@ -1,3 +1,5 @@
-<?php return [
-	'title' => 'Ofte stillede spørgsmål'
-];
+<?php
+
+return array (
+  'title' => 'Ofte stillede spørgsmål',
+);

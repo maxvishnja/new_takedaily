@@ -104,7 +104,7 @@ Uw abonnement is <u>: Status </ u>',
   array (
     'errors' => 
     array (
-      'custom-package-cant-change' => 'Je hebt een zelf pakket samengesteld en is daarom  niet te veranderen.',
+      'custom-package-cant-change' => 'Je hebt een zelf pakket samengesteld en is daarom niet te veranderen.',
       'max-snooze' => 'Je kunt alleen uitstellen gedurende 28 dagen',
     ),
     'successes' => 

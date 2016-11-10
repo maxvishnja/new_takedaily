@@ -1,7 +1,9 @@
-<?php return [
-	'title'                  => 'Skift dit kodeord',
-	'email_label'            => 'Din e-mail adresse',
-	'password_label'         => 'Dit nye kodeord',
-	'password_confirm_label' => 'Gentag kodeord',
-	'button'                 => 'Skift kodeord'
-];
+<?php
+
+return array (
+  'title' => 'Verander jouw wachtwoord',
+  'email_label' => 'Jouw e-mailadres',
+  'password_label' => 'Jouw nieuwe wachtwoord',
+  'password_confirm_label' => 'Herhaal wachtwoord',
+  'button' => 'Verander wachtwoord',
+);

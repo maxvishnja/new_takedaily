@@ -1,4 +1,5 @@
 <?php
-	return [
-		'button-close' => 'Luk popup'
-	];
+
+return array (
+  'button-close' => 'Luk popup',
+);

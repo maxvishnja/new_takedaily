@@ -3,7 +3,7 @@
 return array (
   'back' => '‹ Terug naar de vorige vraag',
   'title' => 'Vind jouw persoonlijke advies - TakeDaily',
-  'scripts' => 'Venligst aktiver javascripts.',
+  'scripts' => 'Schakel JavaScript in',
   'steps' => 
   array (
     'one' => 'Personalia',
@@ -279,7 +279,7 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
     ),
     '3-9' => 
     array (
-      'title' => 'Ønsker du Chiaolie eller Fiskeoile?',
+      'title' => 'Wilt je Chiaolie of visolie?',
       'text' => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
       'options' => 
       array (
@@ -307,18 +307,16 @@ De Multi Vitamine D+ Extra bevat 20 microgram vitamine D. Voor mannen en vrouwen
     ),
     2 => 
     array (
-      'A' => 'Je bent zwanger (gefeliciteerd!) of hebt een zwangerschapswens. TakeDaily zorgt ervoor dat jij en jouw baby de extra vitamines krijgen die jullie nodig hebben.
+      'A' => 'Je bent zwanger of hebt een zwangerschapswens. TakeDaily zorgt ervoor dat jij en jouw baby de extra vitamines krijgen die jullie nodig hebben.
 <br/>
 Tijdens de zwangerschap, is het van belang om een supplement met 10 microgram te gebruiken voor een goede groei van jouw kindje. Visolie ...
 <br/>
 In de periode dat je zwanger probeert te raken heeft jouw lichaam bepaalde vitaminen extra nodig. TakeDaily zorgt hiervoor.
 <br/>
-Het advies van De Gezondheidsraad is om een supplement met 400 microgram foliumzuur (vitamine B11) te slikken vanaf het moment dat je zwanger wilt worden en hiermee de eerste 10 weken van de zwangerschap door te gaan. Foliumzuur slikken verkleint de kans op geboorteafwijkingen, zoals het neurale-buisdefect of open ruggetje, een hazenlip en open gehemelte. Foliumzuur kan gedurende de gehele zwangerschap gebruikt worden.
-',
-      'B' => 'Als je een dieet volgt om gewicht te verliezen heb je extra behoefte aan bepaalde vitamines. TakeDaily zorgt dat jij in deze periode precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering.
+Het advies van De Gezondheidsraad is om een supplement met 400 microgram foliumzuur (vitamine B11) te slikken vanaf het moment dat je zwanger wilt worden en hiermee de eerste 10 weken van de zwangerschap door te gaan. Foliumzuur slikken verkleint de kans op geboorteafwijkingen, zoals het neurale-buisdefect of open ruggetje, een hazenlip en open gehemelte. Foliumzuur kan gedurende de gehele zwangerschap gebruikt worden.',
+      'B' => 'Als je een dieet volgt om gewicht te verliezen, heb je extra behoefte aan bepaalde vitamines. TakeDaily zorgt dat jij in deze periode precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering. Daarnaast is het natuurlijk belangrijk dat je stress vermijdt, goed slaapt en beweegt.
 <br/> <br/>
-In de periode dat je op dieet bent, kan de behoefte aan bepaalde vitamines en mineralen toenemen. Je dieet kan mogelijk te eenzijdig zijn, waardoor je lichaam onvoldoende vitamines en mineralen binnenkrijgt. Het is belangrijk dat jouw lichaam eenzelfde hoeveelheid aan vitamines en mineralen binnenkrijgt als in het geval van een gevarieerde, gezonde voeding zonder calorieën-/energiebeperking. Je behoefte aan vitamine C is hoger als je meer gewicht hebt. Vitamine C zorgt samen met vitamine A mede voor een goede weerstand. Ook heb je meer behoefte aan vitamine K, welke de normale bloedstolling ondersteunt. De B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam. Het is belangrijk dat je tijdens het afvallen geen tekorten aan vitamines en mineralen ontwikkelt.
-',
+Tijdens het afvallen kan je voedingspatroon te eenzijdig zijn of te weinig energie bevatten, waardoor je het risico loopt onvoldoende vitamines en mineralen binnen te krijgen. Het is belangrijk dat jouw lichaam geen tekorten ontwikkelt. De B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam. Je meer behoefte aan vitamine C als je gewicht hoger is. Vitamine C zorgt samen met vitamine A mede voor een goede weerstand. Ook heb je meer behoefte aan vitamine K, welke de normale bloedstolling ondersteunt. ',
       'C' => '<Span = v-show "user_data.sports == 4">
 Bewegen is goed voor je gezondheid! Als je veel sport, heeft jouw lichaam extra behoefte aan bepaalde vitamines en mineralen. TakeDaily zorgt hiervoor.
 <br/> <br/>
@@ -330,10 +328,9 @@ De B-vitamines (B1, B2, B3, B5, B6, B12)  spelen een belangrijke rol in de energ
 De juiste vitamines en mineralen kunnen jouw immuunsysteem ondersteunen. Vitamine C is een anti-oxidant and is belangrijk voor het immuunsysteem omdat het jouw lichaam helpt witte bloedcellen te produceren. Maar ook vitamine A en D zijn ook belangrijk als je niet ziek wilt worden. </ Span>
 <Span v-show = "user_data.smokes == 1">
 Natuurlijk adviseren wij jou om te stoppen met roken, maar zolang jij rookt zorgt TakeDaily ervoor dat wij voorzien in jouw verhoogde behoefte aan vitamine C. Het is wetenschappelijk bewezen dat de behoefte van rokers aan vitamine C verhoogd is, omdat er in het lichaam van rokers meer vitamine C wordt afgebroken door de sigarettenrook.
-Als je stopt met roken, vergeet dit dan niet te aan te passen in jouw profiel<a href="/account" target="_blank"> Mijn TakeDaily</a>. </ Span>
+Als je stopt met roken, vergeet dit dan niet aan te passen in jouw profiel via<a href="/account" target="_blank"> Mijn TakeDaily</a>. </ Span>
 <Span v-show = "user_data.vegetarian == 1">
-Vlees(producten) bevatten veel ijzer, vitamine B1 en B12. Als vegetariër of veganist is het belangrijk geen tekorten te ontwikkelen aan deze vitamines en mineralen, daar zij onder andere een belangrijke rol spelen in de energiestofwisseling van ons lichaam. </ span>
-',
+Vlees(producten) bevatten veel ijzer, vitamine B1 en B12. Als vegetariër of veganist is het belangrijk geen tekorten te ontwikkelen aan deze vitamines en mineralen, daar zij onder andere een belangrijke rol spelen in de energiestofwisseling van ons lichaam. </ span>',
       'E' => 'Bepaalde voedingsstoffen ondersteunen jouw spieren en kraakbeen. Vitamine D en magnesium zijn belangrijk voor een normale spierwerking en een tekort kan leiden tot spierpijn en spierzwakte. Vitamine C is belangrijk voor het kraakbeen. ',
     ),
     3 => 
@@ -348,44 +345,37 @@ Groenten zijn een belangrijke bron van vitamine C, foliumzuur en kalium. Je eet 
 <br/> <br/>
 Als je dagelijkse groente inname verandert, vergeet dan niet om jouw profiel aan te passen  via <a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt. </ span>
 ',
-      'b' => '<span v-show="user_data.foods.bread == 1">
-						Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Du spiser ikke nok brød i hverdagen, så du har brug for lidt ekstra
-						B-vitamin og jern. Når du ikke får nok jern, vil du ofte føle dig sløv. TakeDaily giver dig præcis det, der skal til, for at du
-						føler dig frisk hver dag.
-						<br/><br/>
-						Begynder du at spise mere brød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så
-						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.</span>
-					<span v-show="user_data.foods.wheat == 1">
-						Du spiser ikke nok pasta, ris og kartofler, og derfor går din krop glip af gode kulhydrater, som er en vigtig kilde til
-						B-vitamin og mineraler. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
-						<br/><br/>
-						Begynder du at spise mere ris, pasta eller det, der ligner, skal du huske at ændre din profil på
-						<a href="/account" target="_blank">Mit TakeDaily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
-						indeholder lige præcis de doser, du har brug for.</span>',
+      'b' => '<Span v-show = "user_data.foods.bread == 1">
+Brood is een belangrijke bron van B-vitamines, ijzer en vezels. Brood is de belangrijkste bron van jodium in Nederland. De B-vitamines, ijzer en jodium zijn belangrijk voor jouw energiestofwisseling. Je eet onvoldoende brood(producten), waardoor er een tekort kan ontstaan aan deze belangrijke vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt. <br/> <br/>
+Als je dagelijkse inname van brood(producten) wijzigt, vergeet dan niet om jouw profiel aan te passen via
+<a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt. </ span>
+<Span v-show = "user_data.foods.wheat == 1">
+Je eet onvoldoende aardappelen, rijst, pasta, e.d. waardoor er een tekort kan ontstaan aan deze belangrijke vitamines en mineralen. Deze voedingsmiddelen zijn een belangrijke bron van B-vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt. 
+<br/> <br/>
+Als je dagelijkse inname van aardappelen, rijst, pasta, e.d. wijzigt, vergeet dan niet om jouw profiel aan te passen via
+<a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt.</ span',
       'c' => 'Je gebruikt dagelijks onvoldoende melk(producten), waardoor je een tekort kunt ontwikkelen aan calcium, vitamine B2 en B12. Calcium is onder andere goed voor jouw botten en spieren.
 <br/> <br/>
 Als je dagelijkse inname van melk(producten) wijzigt, vergeet dan niet om jouw profiel aan te passen via
-<a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt.
+<a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen ontvangt die je op dat moment nodig hebt.',
+      'd' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en ijzer. Je geeft aan geen vlees(producten) te eten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt.
+
+<br/> <br/>
+Als je inname van vlees(producten) wijzigt, vergeet dan niet om jouw profiel aan te passen via
+<a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen ontvangt die je op dat moment nodig hebt.
+
+
 ',
-      'd' => 'Kød er en vigtig kilde til B-vitaminer (fx B6 og B12) og mineralerne zink, selen og jern. TakeDaily sørger for, at du får det,
-							du behøver – og så kan du fortsætte med at spise, som du gør nu.
-							<br/><br/>
-							Begynder du at spise kød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så er du
-							sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-      'e' => '
-						Du spiser ikke nok fisk, og derfor bliver din krop snydt for sunde fiskeolier som fx omega-3 fedtsyre og vitaminer som
-						D-vitamin, jod og selen. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
-						<br/><br/>
-						Begynder du at spise mere fisk, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så
-						er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-      'f' => '
-					Din daglige kost indeholder ikke nok smør, margarine eller olie, som er vigtige kilder til A-vitamin og D-vitamin. Du har brug
-					for begge vitaminer. Blandt andet for at styrke dit immunforsvar. TakeDaily sørger for, at du får det, du behøver – og så kan
-					du fortsætte med at spise, som du gør nu.
-					<br/><br/>
-					Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>.
-					Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-      'g' => 'Du har valgt Chiaoile',
+      'e' => 'Je eet onvoldoende (vette) vis. Vis bevat gezonden visvetzuren. Deze vetzuren zijn goed voor hart en bloedvaten. TakeDaily zorgt ervoor dat je deze visvetzuren voldoende binnenkrijgt.
+<br/> <br/>
+Als je visinname wijzigt, vergeet dan niet om jouw profiel aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily </a>.
+TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen ontvangt die je op dat moment nodig hebt.',
+      'f' => 'Je gebruikt geen halvarine/margarine/boter op jouw brood of tijdens het koken. Deze producten zijn een belangrijke bron van vitamine A en D. Beide vitamines ondersteunen jouw immuunsysteem. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt.
+<br/> <br/>
+Als je dagelijkse inname van smeer- en bereidingsvetten wijzigt, vergeet dan niet om jouw profiel aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily </a>.
+TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen ontvangt die je op dat moment nodig hebt.
+',
+      'g' => 'Je hebt Chiaolie gekozen! Chiaolie is rijk aan de gezonde omega 3-vetzuren.',
     ),
     'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.',
@@ -444,7 +434,7 @@ gepersonaliseerde aan multivitaminen- & mineralen. Het bevat een uitgebalanceerd
     'placeholder' => '06 12 34 56 78',
     'title' => 'Heb je geen tijd om de test in te vullen?',
     'text' => 'Wil je graag dat wij je bellen voor een persoonlijk advies? Vermeld dan hieronder jouw telefoonnummer en de tijd dat je gebeld wilt worden.',
-    'deny' => 'Ellers tak. Luk besked.',
+    'deny' => 'Zo niet, dank je. Sluit u het bericht.',
     'options' => 
     array (
       0 => '09:00 - 11:00 uur',
@@ -541,8 +531,8 @@ gepersonaliseerde aan multivitaminen- & mineralen. Het bevat een uitgebalanceerd
       'email' => 'Jouw emailadres:',
       'send' => 'Versturen',
       'cancel' => 'Annuleren',
-      'placeholder' => 'navn@email.dk',
-      'error' => 'Zou je je emailadres in kunnen vullen?',
+      'placeholder' => 'navn@email.nl',
+      'error' => 'Zou je je emailadres kunnen invullen?',
       'success' => 'Mijn persoonlijk advies is verstuurd',
     ),
   ),

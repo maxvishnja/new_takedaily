@@ -2,5 +2,5 @@
 
 return array (
   'order' => 'Bestelling',
-  'plan' => 'Abonnentet',
+  'plan' => 'Abonnement',
 );

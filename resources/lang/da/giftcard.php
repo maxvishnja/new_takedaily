@@ -1,4 +1,5 @@
 <?php
-return [
-	'your-giftcard' => 'Dit gavekort'
-];
+
+return array (
+  'your-giftcard' => 'Dit gavekort',
+);

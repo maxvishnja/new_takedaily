@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'title' => 'Nulstil dit kodeord',
+  'title' => 'Jouw wachtwoord opnieuw instellen',
   'email_label' => 'Jouw e-mailadres',
-  'button' => 'Nulstil kodeord',
+  'button' => 'Wachtwoord opnieuw instellen',
 );
