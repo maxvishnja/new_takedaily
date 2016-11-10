@@ -31,10 +31,12 @@ class NavGenerator
 						];
 					}
 				}
+
+				$subnav[ $subGroupKey ] = collect($subnav[ $subGroupKey ])->sortBy('text')->toArray();
 			}
 		}
 
-		return collect($subnav)->sortBy('text')->toArray();
+		return $subnav;
 	}
 
 	public static function generate( $locale )
