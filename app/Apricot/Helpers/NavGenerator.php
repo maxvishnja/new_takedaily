@@ -34,7 +34,7 @@ class NavGenerator
 			}
 		}
 
-		return collect($subnav)->sortBy('text')->toArray();;
+		return collect($subnav)->sortBy('text')->toArray();
 	}
 
 	public static function generate( $locale )
