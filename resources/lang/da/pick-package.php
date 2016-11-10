@@ -12,6 +12,9 @@ return [
 		'3f' => 'Some description of this pill',
 		'3g' => 'Some description of this pill'
 	],
+	'select' => [
+		'title' => 'Udfyld dine oplysninger..'
+	],
 	'packages'   => [
 		'busy_life'          => [
 			'name' => 'Busy life/Energy',
