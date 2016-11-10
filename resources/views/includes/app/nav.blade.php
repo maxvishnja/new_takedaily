@@ -1,7 +1,6 @@
 <nav role="navigation">
 	<ul class="navigation" id="mobile-nav">
 		<a class="visible-sm visible-xs icon icon-cross-large toggle-mobile-nav" href="#mobile-nav"></a>
-		{{--		{!! trans('nav.links') !!}--}}
 		@foreach(\App\Apricot\Helpers\NavGenerator::generate(App::getLocale()) as $item)
 			<li>
 				<a href="/{{ $item['link'] }}">{{ $item['text'] }}</a>

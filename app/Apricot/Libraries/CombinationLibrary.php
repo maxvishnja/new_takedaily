@@ -220,7 +220,7 @@ class CombinationLibrary
 			$this->setAdvise( 'three', trans( 'flow.combinations.3.b' ) );
 			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.b' ) );
 		}
-		if ( isset( $data->age ) && isset( $data->foods ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'c' ) && $this->isEmpty( $this->groupThree ) && ( ( $data->foods->dairy == '1' ) || ( $data->age <= '50' && $data->foods->dairy != '3' ) || ( $data->age > '50' && $data->foods->dairy != '4' ) ) )
+		if ( isset( $data->age ) && isset( $data->foods ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'c' ) && $this->isEmpty( $this->groupThree ) && ( ( $data->foods->dairy == '1' ) || ( $data->age <= '50' && $data->foods->dairy < '3' ) || ( $data->age > '50' && $data->foods->dairy < '4' ) ) )
 		{
 			$this->groupThree = 'c';
 
