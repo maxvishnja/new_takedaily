@@ -560,6 +560,7 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
   array (
     'supplements' => 'Supplementer',
     'description' => 'Beskrivelse',
+    'contents' => 'Indhold',
     'change-vitamins' => 'Ønsker du at ændre dine vitaminer?',
     'click-me' => 'Tryk her',
   ),

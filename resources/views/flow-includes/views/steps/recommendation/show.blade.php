@@ -5,6 +5,7 @@
 				{{ trans('flow.show.supplements') }}
 			</div>
 			<div data-tab="#advises-content" class="tab tab-toggler">{{ trans('flow.show.description') }}</div>
+			<div data-tab="#advises-content" class="tab tab-toggler">{{ trans('flow.show.contents') }}</div>
 
 			<div class="clear"></div>
 		</div>
