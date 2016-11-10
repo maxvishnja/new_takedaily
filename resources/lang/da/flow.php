@@ -354,7 +354,7 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
 								Kød indeholder masser af jern, B1- og B12-vitamin. Som vegetar eller veganer kan det være svært at få nok af det hele gennem kosten. Begge
 								B-vitaminer er vigtige komponenter i dit energistofskifte. B12-vitamin, som udelukkende findes i animalske fødevarer, spiller blandt andet en essentiel rolle i kroppens omsætning af fedt og opbygningen af nye blodlegemer.</span>',
       'E' => 'Når du har ømme muskler og led har du brug for nogle gode næringsstoffer. Mangel på D-vitamin kan ligefrem give svage muskler og
-						muskelsmerter. Glukosamin/chonodroitin stimulerer bruskcellerne og er godt, hvis dine led er slidte.',
+						muskelsmerter. ',
     ),
     3 => 
     array (

@@ -43,7 +43,7 @@ return array (
   'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E132)), antiklontermiddel (magnesiumstearaat), retinylacetaat, cyanocobalamine, fytomenadion, pyridoxaal-5-fosfaat, thiaminehydrochloride',
   'praises' => 
   array (
-    'shield' => 'Vitamine A en C dragen bij aan het normale functioneren van het immuunsysteem',
+    'shield' => 'Vitamine A en C ondersteunen het immuunsysteem',
     'lightning' => 'De B-vitamines (B1, B6 en B12) bevorderen de energiestofwisseling',
   ),
 );
