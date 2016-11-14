@@ -52,6 +52,18 @@
 		flex-wrap: wrap;
 		height: 210mm;
 		width: 166mm;
+		position: relative;
+	}
+
+	.vitamins:after {
+		content: "";
+		display: block;
+		background: #CCE9E0;
+		left: 50%;
+		position: absolute;
+		top: 0;
+		height: 100%;
+		width: 1px;
 	}
 
 	.vitamins .vitamin {
@@ -59,16 +71,12 @@
 		padding: 2pt;
 	}
 
-	.vitamins .vitamin:nth-child(2n+1) {
-		/*border-right: 1px solid #CCE9E0;*/
+	.vitamins .vitamin {
+		border-bottom: 1px solid #CCE9E0;
 	}
 
-	.vitamins .vitamin:nth-child(1),
-	.vitamins .vitamin:nth-child(2) {
-		/*border-bottom: 1px solid #CCE9E0;*/
-	}
-
-	.vitamins .vitamin:nth-child(2n+2) {
+	.vitamins .vitamin:last-child {
+		border-bottom: none
 	}
 
 	.vitamin thead th,
