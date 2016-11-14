@@ -50,13 +50,13 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
-		height: 204mm;
+		height: 210mm;
 		width: 166mm;
 	}
 
 	.vitamins .vitamin {
 		width: 50%;
-		padding: 3pt;
+		padding: 2pt;
 	}
 
 	.vitamins .vitamin:nth-child(2n+1) {
@@ -73,7 +73,7 @@
 
 	.vitamin thead th,
 	.vitamin tbody td {
-		padding-bottom: 1.6pt;
+		/*padding-bottom: 1pt;*/
 	}
 
 	/*

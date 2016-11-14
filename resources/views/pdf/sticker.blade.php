@@ -12,27 +12,50 @@
 					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt;">
 					<h2 style="font-weight: bold; font-size: 10.5pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
 					<div style="margin: 4pt; font-size: 7pt; line-height: 1.2; color: #1A8562;">
+						<div>{!! trans('label-product.contains') !!}</div>
+						<div>{!! trans('label-product.recommended-daily-use') !!}</div>
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")) && count(trans("label-{$vitaminModel->code}.praises")) > 0)
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
 								<div style="margin-bottom: 1pt">
 									<img src="{{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}" style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; " />
-									{{ trans('label-product.good-for') }} {{ strtolower($praiseText) }}
+									{{ strtolower($praiseText) }}
 								</div>
 							@endforeach
 						@endif
 					</div>
 
+					@if(is_array(trans("label-{$vitaminModel->code}.first-vitamins")) && count(trans("label-{$vitaminModel->code}.first-vitamins")) > 0)
+						<table style="width: 100%;">
+							<thead>
+							<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
+								<th style="text-align: left;width: 50%;">{{ trans('label-product.titles.first-vitamins') }}</th>
+								<th style="text-align: center;width: 30%;">{{ trans('label-product.titles.amount') }}</th>
+								<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
+							</tr>
+							</thead>
+							<tbody style="font-size: 6pt; color:#1A8562;line-height: 1;">
+							@foreach(collect(trans("label-{$vitaminModel->code}.first-vitamins")) as $vitamin)
+								<tr>
+									<td style="text-align: left;">{{ $vitamin['name'] }}</td>
+									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
+									<td style="text-align: right;">{{ $vitamin['percent'] }}</td>
+								</tr>
+							@endforeach
+							</tbody>
+						</table>
+					@endif
+
 					@if(is_array(trans("label-{$vitaminModel->code}.vitamins")) && count(trans("label-{$vitaminModel->code}.vitamins")) > 0)
 						<table style="width: 100%;">
 							<thead>
 							<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
-								<th style="text-align: left;width: 40%;">{{ trans('label-product.titles.vitamins') }}</th>
-								<th style="text-align: center;width: 40%;">{{ trans('label-product.titles.amount') }}</th>
+								<th style="text-align: left;width: 50%;">{{ trans('label-product.titles.vitamins') }}</th>
+								<th style="text-align: center;width: 30%;">{{ trans('label-product.titles.amount') }}</th>
 								<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
 							</tr>
 							</thead>
-							<tbody style="font-size: 7pt; color:#1A8562;">
-							@foreach(collect(trans("label-{$vitaminModel->code}.vitamins"))->sortBy('name') as $vitamin)
+							<tbody style="font-size: 6pt; color:#1A8562;line-height: 1;">
+							@foreach(collect(trans("label-{$vitaminModel->code}.vitamins")) as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ $vitamin['name'] }}</td>
 									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
@@ -47,13 +70,13 @@
 						<table style="width: 100%;">
 							<thead>
 							<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
-								<th style="text-align: left;width: 40%;">{{ trans('label-product.titles.minerals') }}</th>
-								<th style="text-align: center;width: 40%;">{{ trans('label-product.titles.amount') }}</th>
+								<th style="text-align: left;width: 50%;">{{ trans('label-product.titles.minerals') }}</th>
+								<th style="text-align: center;width: 30%;">{{ trans('label-product.titles.amount') }}</th>
 								<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
 							</tr>
 							</thead>
-							<tbody style="font-size: 7pt; color:#1A8562;">
-							@foreach(collect(trans("label-{$vitaminModel->code}.minerals"))->sortBy('name') as $vitamin)
+							<tbody style="font-size: 6pt; color:#1A8562;line-height: 1;">
+							@foreach(collect(trans("label-{$vitaminModel->code}.minerals")) as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ $vitamin['name'] }}</td>
 									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
@@ -68,13 +91,13 @@
 						<table style="width: 100%;">
 							<thead>
 							<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
-								<th style="text-align: left;width: 40%;"></th>
+								<th style="text-align: left;width: 40%;">{{ trans('label-product.titles.other') }}</th>
 								<th style="text-align: center;width: 40%;">{{ trans('label-product.titles.amount') }}</th>
 								<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
 							</tr>
 							</thead>
-							<tbody style="font-size: 7pt; color:#1A8562;">
-							@foreach(collect(trans("label-{$vitaminModel->code}.other-vitamins"))->sortBy('name') as $vitamin)
+							<tbody style="line-height: 1;font-size: 6pt; color:#1A8562;">
+							@foreach(collect(trans("label-{$vitaminModel->code}.other-vitamins")) as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ $vitamin['name'] }}</td>
 									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
@@ -103,9 +126,9 @@
 		@if($customer->hasPlan() && $customer->getPlan()->hasFishoil())
 			<img src="{{ asset('/images/foa_logo.png') }}" style="float: left; height: 8mm; margin-right: 3pt;" alt="Friends of the Sea">
 		@endif
-			{!! trans('label-product.recommended-daily-use') !!} <strong>{!! trans('label-product.amount-daily') !!}</strong> {!! trans('label-product.when-to-take') !!} {!! trans('label-product.health-disclaimer') !!} <strong>{!! trans('label-product.not-replace') !!}</strong><br/>
+			<strong>{!! trans('label-product.amount-daily') !!}</strong> {!! trans('label-product.dose') !!} {!! trans('label-product.store') !!} {!! trans('label-product.health-disclaimer') !!} <br/>
 			{!! trans('label-product.batch') !!} · {!! trans('label-product.weight') !!} · {!! trans('label-product.expiration') !!}
 			<br/>
-		<div><strong>{{ trans('label-product.contains') }}</strong> · {{ trans('label-product.address') }}</div>
+		<div>{{ trans('label-product.address') }}</div>
 	</div>
 </div>
