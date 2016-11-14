@@ -15,7 +15,7 @@ class FaqRepository
 		$faqs = Faq::with( [
 			'translations' => function ( $query )
 			{
-				$query->where( 'locale', \App::getLocale() )->limit(1);
+				$query->where( 'locale', \App::getLocale() );
 			}
 		] )->get();
 
@@ -25,9 +25,9 @@ class FaqRepository
 		{
 			if ( $faq->translations->count() > 0 )
 			{
-				$faq->identifier = $faq->translations->first()->identifier;
-				$faq->question = $faq->translations->first()->question;
-				$faq->answer = $faq->translations->first()->answer;
+				$faq->identifier = $faq->translations[0]->identifier;
+				$faq->question = $faq->translations[0]->question;
+				$faq->answer = $faq->translations[0]->answer;
 			}
 
 			unset($faq->translations);
