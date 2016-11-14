@@ -41,8 +41,6 @@ class NavGenerator
 
 	public static function generate( $locale )
 	{
-		\Cache::flush();
-
 		return \Cache::remember( "nav.{$locale}", 60, function () use ( $locale )
 		{
 			$nav      = \App\Nav::all();
