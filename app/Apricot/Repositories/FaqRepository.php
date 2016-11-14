@@ -25,9 +25,9 @@ class FaqRepository
 		{
 			if ( $faq->translations->count() > 0 )
 			{
-				$faq->identifier = $faq->translations[0]->identifier;
-				$faq->question = $faq->translations[0]->question;
-				$faq->answer = $faq->translations[0]->answer;
+				$faq->identifier = $faq->translations->first()->identifier;
+				$faq->question = $faq->translations->first()->question;
+				$faq->answer = $faq->translations->first()->answer;
 			}
 
 			unset($faq->translations);
