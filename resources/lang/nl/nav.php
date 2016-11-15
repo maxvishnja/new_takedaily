@@ -11,12 +11,13 @@ return array (
     'logout' => 'Uitloggen',
     'pick' => 'Vitamines',
   ),
-  'items' => [
-	  'gifting' => 'Geef Takedaily cadeau'
-  ],
+  'items' => 
+  array (
+    'gifting' => 'Geef Takedaily cadeau',
+  ),
   'links' => '<li><a href="/gifting">Geef Takedaily cadeau</a></li>
 				  <li><a href="/page/sadan-virker-det">Hoe werkt het?</a></li>
-				  <li class="hidden-md"><a href="/page/test-kvalitet">Test & kwaliteit</a></li>
+				  <li class="hidden-md"><a href="/page/Kwaliteit">Kwaliteit</a></li>
 				  <li><a href="/page/about">Over TakeDaily</a></li>
 				  <li><a href="/page/Van A tot Zink">Van A tot  Zink</a><div class="submenu" style="min-width: 55%;">
 				  <div class="row">
@@ -29,7 +30,7 @@ return array (
 				  	<li><a href="/page/vitamin-chroom">chroom</a></li>
 				  	<li><a href="/page/vitamin-koper">Koper</a></li>
 				  	<li><a href="/page/vitamin-kalium">Kalium</a></li>
-				  	<li><a href="/page/vitamin-jodium">Jodium</a></li>
+				  	<li><a href="/page/Jodium">Jodium</a></li>
 				  	</ul>
 				  	</div>
 				  <div class="col-md-4">

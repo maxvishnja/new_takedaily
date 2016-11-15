@@ -6,7 +6,7 @@ return array (
   'scripts' => 'Schakel JavaScript in',
   'steps' => 
   array (
-    'one' => 'Personalia',
+    'one' => 'Algemeen',
     'two' => 'Leefstijl',
     'three' => 'Eetpatroon',
     'four' => 'Persoonlijk advies',
@@ -31,8 +31,8 @@ return array (
     ),
     '1-2' => 
     array (
-      'title' => 'Wat is jouw leeftijd?',
-      'title-alt' => 'Wat is jouw leeftijd?',
+      'title' => 'Wat is jouw geboortedatum?',
+      'title-alt' => 'Wat is jouw geboortedatum?',
       'age' => 'Geboortedaum',
       'text' => 'Als je ouder wordt, verandert jouw behoefte aan vitaminen en mineralen. De behoefte aan vitamine D bijvoorbeeld neemt toe naarmate je ouder wordt. Vitamine D is belangrijk voor sterke botten en soepele spieren.',
       'button-text' => 'Kies jouw geboortedatum',
@@ -40,8 +40,8 @@ return array (
     ),
     '1-3' => 
     array (
-      'title' => 'Met welk van onderstaande huidtypes komt jouw huidskleur het meest overeen?',
-      'text' => 'Als je een lichte huidskleur hebt kan jouw huid bij gelijke, alledaagse blootstelling aan zonlicht meer vitamine D aanmaken dan een natuurlijke getinte huid en donkere huid. Extra vitamine D is belangrijk voor mensen die geen lichte huid hebben.',
+      'title' => 'Wat is jouw huidskleur?',
+      'text' => 'Als je een lichte huidskleur hebt kan jouw huid bij gelijke, alledaagse blootstelling aan zonlicht meer vitamine D aanmaken dan een natuurlijk getinte huid en donkere huid. Extra vitamine D is belangrijk voor mensen die geen lichte huid hebben.',
       'options' => 
       array (
         1 => 'Licht',
@@ -51,7 +51,7 @@ return array (
     ),
     '1-4' => 
     array (
-      'title' => 'Ben je elke dag (tussen 11:00-15:00 uur) minimaal 15-30 minuten buiten met jouw gezicht en handen onbedekt?',
+      'title' => 'Kom je elke dag (tussen 11:00-15:00 uur) 30 minuten buiten met jouw gezicht en handen onbedekt?',
       'text' => 'Vitamine D is een van de weinige vitamines die het lichaam zelf kan maken. Hiervoor dien je dagelijks tussen 11:00-15:00 uur minimaal 15-30 minuten buiten te komen met minimaal handen en gezicht onbedekt. Tussen 11:00-15.00 uur staat de zon op zijn hoogst en is jouw lichaam in staat om vitamine D aan te maken met behulp van het zonlicht. 
 								Personen die dagelijks weinig buitenkomen, de zon mijden of buiten
 								lichaamsbedekkende
@@ -65,7 +65,7 @@ return array (
     '2-1' => 
     array (
       'title' => 'Ben je zwanger of probeer je zwanger te worden?',
-      'text' => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt tot week 11 van de zwangerschap. Foliumzuur speelt een belangrijke rol bij de vroege ontwikkeling van het ongeboren kind. Foliumzuursupplementen kunnen zonder risico gedurende de gehele zwangerschap gebruikt worden. Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel goed voor de baby en jou.',
+      'text' => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Foliumzuur speelt een belangrijke rol bij de vroege ontwikkeling van het ongeboren kind. Foliumzuursupplementen kunnen zonder risico gedurende de gehele zwangerschap gebruikt worden. Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel goed voor de baby en jou.',
       'options' => 
       array (
         1 => 'Ja',
@@ -139,13 +139,13 @@ return array (
     '2-8' => 
     array (
       'title' => 'Hoeveel weken bent u zwanger?',
-      'text' => 'Vlees bevat veel ijzer, vitamine B1 en B12. De B-vitamines en ijzer spelen een belangrijke rol in de energiestofwisseling van het lichaam. Zuivelproducten zijn daarnaast nog een belangrijke bron van vitamine B2 en calcium. Calcium is belangrijk voor de botten en spieren. Het is belangrijk geen tekorten te ontwikkelen aan vitaminen en mineralen.',
+      'text' => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Vitamine D is belangrijk voor een goede groei van jouw kindje.',
       'options' => 
       array (
-        1 => 'Hoelang bent u zwanger?',
+        1 => 'Hoelang ben je zwanger?',
         2 => 'Nee',
       ),
-      'button-text' => 'Hoeveel weken bent u reeds zwanger?',
+      'button-text' => 'Hoeveel weken ben je reeds zwanger?',
       'i-have-a-wish' => 'Ik ben nog niet zwanger, maar probeer zwanger te worden',
       'select' => 'week',
       'pick-one' => 'Kies hier de week',
@@ -231,7 +231,7 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
     ),
     '3-5' => 
     array (
-      'title' => 'Hoeveel porties aardappelen, rijst, pasta, couscous en quinoa, e.d. eet je gemiddeld per dag?',
+      'title' => 'Hoeveel porties aardappelen, rijst, pasta, couscous, quinoa, e.d. eet je gemiddeld per dag?',
       'text' => 'Pasta, rijst, aardappelen, couscous e.d. zijn een belangrijke bron van B-vitamines en mineralen. Kies bij voorkeur volkoren variantien.',
       'options' => 
       array (
@@ -260,7 +260,7 @@ Zuivelproducten zijn  een belangrijke bron van onder andere calcium. Calcium is 
 								Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weinig visvetzuren omdat het magere, witte vis is. ',
       'options' => 
       array (
-        1 => 'Ik eet niet elke week vette vis',
+        1 => 'Minder dan 1 portie vette vis (100 gram)',
         2 => '1 portie vette vis (100 gram)',
         3 => '2 keer porties vette vis of meer (200+ gram)',
       ),
@@ -313,10 +313,10 @@ Tijdens de zwangerschap, is het van belang om een supplement met 10 microgram te
 <br/>
 In de periode dat je zwanger probeert te raken heeft jouw lichaam bepaalde vitaminen extra nodig. TakeDaily zorgt hiervoor.
 <br/>
-Het advies van De Gezondheidsraad is om een supplement met 400 microgram foliumzuur (vitamine B11) te slikken vanaf het moment dat je zwanger wilt worden en hiermee de eerste 10 weken van de zwangerschap door te gaan. Foliumzuur slikken verkleint de kans op geboorteafwijkingen, zoals het neurale-buisdefect of open ruggetje, een hazenlip en open gehemelte. Foliumzuur kan gedurende de gehele zwangerschap gebruikt worden.',
+Het advies van De Gezondheidsraad is om een supplement met 400 microgram foliumzuur (vitamine B11) te slikken vanaf het moment dat je zwanger wilt worden. Foliumzuur slikken verkleint de kans op geboorteafwijkingen, zoals het neurale-buisdefect of open ruggetje, een hazenlip en open gehemelte. Foliumzuur kan gedurende de gehele zwangerschap gebruikt worden.',
       'B' => 'Als je een dieet volgt om gewicht te verliezen, heb je extra behoefte aan bepaalde vitamines. TakeDaily zorgt dat jij in deze periode precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering. Daarnaast is het natuurlijk belangrijk dat je stress vermijdt, goed slaapt en beweegt.
 <br/> <br/>
-Tijdens het afvallen kan je voedingspatroon te eenzijdig zijn of te weinig energie bevatten, waardoor je het risico loopt onvoldoende vitamines en mineralen binnen te krijgen. Het is belangrijk dat jouw lichaam geen tekorten ontwikkelt. De B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam. Je meer behoefte aan vitamine C als je gewicht hoger is. Vitamine C zorgt samen met vitamine A mede voor een goede weerstand. Ook heb je meer behoefte aan vitamine K, welke de normale bloedstolling ondersteunt. ',
+Tijdens het afvallen kan je voedingspatroon te eenzijdig zijn of te weinig energie bevatten, waardoor je minder vitamines en mineralen binnenkrijgt dan nodig. Het is belangrijk dat jouw lichaam geen tekorten ontwikkelt. De B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam. Je meer behoefte aan vitamine C als je gewicht hoger is. Vitamine C zorgt samen met vitamine A mede voor een goede weerstand. Ook heb je meer behoefte aan vitamine K, welke de normale bloedstolling ondersteunt.',
       'C' => '<Span = v-show "user_data.sports == 4">
 Bewegen is goed voor je gezondheid! Als je veel sport, heeft jouw lichaam extra behoefte aan bepaalde vitamines en mineralen. TakeDaily zorgt hiervoor.
 <br/> <br/>
@@ -327,7 +327,7 @@ De B-vitamines (B1, B2, B3, B5, B6, B12)  spelen een belangrijke rol in de energ
       'D' => '<Span v-show = "user_data.immune_system == 1">
 De juiste vitamines en mineralen kunnen jouw immuunsysteem ondersteunen. Vitamine C is een anti-oxidant and is belangrijk voor het immuunsysteem omdat het jouw lichaam helpt witte bloedcellen te produceren. Maar ook vitamine A en D zijn ook belangrijk als je niet ziek wilt worden. </ Span>
 <Span v-show = "user_data.smokes == 1">
-Natuurlijk adviseren wij jou om te stoppen met roken, maar zolang jij rookt zorgt TakeDaily ervoor dat wij voorzien in jouw verhoogde behoefte aan vitamine C. Het is wetenschappelijk bewezen dat de behoefte van rokers aan vitamine C verhoogd is, omdat er in het lichaam van rokers meer vitamine C wordt afgebroken door de sigarettenrook.
+Natuurlijk blijft ons beste advies om te stoppen met roken, maar zolang jij rookt zorgt TakeDaily ervoor dat wij voorzien in jouw verhoogde behoefte aan vitamine C. Het is wetenschappelijk bewezen dat de behoefte van rokers aan vitamine C verhoogd is, omdat er in het lichaam van rokers meer vitamine C wordt afgebroken door de sigarettenrook.
 Als je stopt met roken, vergeet dit dan niet aan te passen in jouw profiel via<a href="/account" target="_blank"> Mijn TakeDaily</a>. </ Span>
 <Span v-show = "user_data.vegetarian == 1">
 Vlees(producten) bevatten veel ijzer, vitamine B1 en B12. Als vegetariër of veganist is het belangrijk geen tekorten te ontwikkelen aan deze vitamines en mineralen, daar zij onder andere een belangrijke rol spelen in de energiestofwisseling van ons lichaam. </ span>',
@@ -353,19 +353,16 @@ Als je dagelijkse inname van brood(producten) wijzigt, vergeet dan niet om jouw 
 Je eet onvoldoende aardappelen, rijst, pasta, e.d. waardoor er een tekort kan ontstaan aan deze belangrijke vitamines en mineralen. Deze voedingsmiddelen zijn een belangrijke bron van B-vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt. 
 <br/> <br/>
 Als je dagelijkse inname van aardappelen, rijst, pasta, e.d. wijzigt, vergeet dan niet om jouw profiel aan te passen via
-<a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt.</ span',
+<a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt.</ span>',
       'c' => 'Je gebruikt dagelijks onvoldoende melk(producten), waardoor je een tekort kunt ontwikkelen aan calcium, vitamine B2 en B12. Calcium is onder andere goed voor jouw botten en spieren.
 <br/> <br/>
 Als je dagelijkse inname van melk(producten) wijzigt, vergeet dan niet om jouw profiel aan te passen via
-<a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen ontvangt die je op dat moment nodig hebt.',
+<a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen ontvangt die je op dat moment nodig hebt.',
       'd' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en ijzer. Je geeft aan geen vlees(producten) te eten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt.
 
 <br/> <br/>
 Als je inname van vlees(producten) wijzigt, vergeet dan niet om jouw profiel aan te passen via
-<a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen ontvangt die je op dat moment nodig hebt.
-
-
-',
+<a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen ontvangt die je op dat moment nodig hebt.',
       'e' => 'Je eet onvoldoende (vette) vis. Vis bevat gezonden visvetzuren. Deze vetzuren zijn goed voor hart en bloedvaten. TakeDaily zorgt ervoor dat je deze visvetzuren voldoende binnenkrijgt.
 <br/> <br/>
 Als je visinname wijzigt, vergeet dan niet om jouw profiel aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily </a>.
@@ -384,56 +381,64 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
   array (
     1 => 
     array (
-      'basic' => 'Multi vitamine D+ vormt de basis van jouw gepersonaliseerde multivitaminen- & mineralensupplement. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen voor het ondersteunen van een optimale gezondheid</div>',
-      'basic-10-d' => 'Multi Basic vormt de basis van jouw pakket aan gepersonaliseerde multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D voor het ondersteunen van een optimale gezondheid<</div>',
-      'basic-10-d-alt' => 'Multi vitamine D+ vormt de basis van jouw pakket aan gepersonaliseerde multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D voor het ondersteunen van een optimale gezondheid<</div>',
+      'basic' => 'Multi Basic vormt de basis van jouw pakket aan gepersonaliseerde multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen.
+
+<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
+      'basic-10-d' => 'Multi vitamine D+ vormt de basis van jouw gepersonaliseerde multivitaminen- & mineralensupplement. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D</div>
+
+<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
+      'basic-10-d-alt' => 'Multi vitamine D+ vormt de basis van jouw gepersonaliseerde multivitaminen- & mineralensupplement. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D</div>
+
+<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
       'basic-20-d' => 'Multi vitamine D+ Extra vormt de basis van jouw pakket aan
-gepersonaliseerde aan multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar.',
+gepersonaliseerde aan multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar.
+
+<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
     ),
     2 => 
     array (
       'A' => '<div class="clear"></div><span class="icon icon-baby-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot de groei van het ongeboren kind tijdens de zwangerschap</div>
 ',
-      'B' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bevordert de energiestofwisseling</div>
+      'B' => '<span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">Bevordert de energiestofwisseling</div>
 					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt om vermoeidheid en moeiheid te verminderen</div>
 					<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt het immuunsysteem</div>',
-      'C' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale energiestofwisseling</div>
+      'C' => '<span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale energiestofwisseling</div>
 					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt om vermoeidheid en moeheid te verminderen</div>
-					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale weerstand tegen stress</div>',
+					<div class="clear"></div><span class="icon icon-stress-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale weerstand tegen stress</div>',
       'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het immuunsysteem</div>
-					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt lichaamscellen te beschermen tegen invloeden van buitenaf</div>',
-      'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot een normale werking van de spieren</div>
+					<div class="clear"></div><span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt lichaamscellen te beschermen tegen invloeden van buitenaf</div>',
+      'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span><div class="flow-promise-text">Draagt bij tot een normale werking van de spieren</div>
 					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan de instandhouding van sterke botten</div>
-					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het kraakbeen</div>',
+					<div class="clear"></div><span class="icon icon-cartilage-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het kraakbeen</div>',
     ),
     3 => 
     array (
-      'a' => '<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt de normale werking van het zenuwstelsel</div>
+      'a' => '<div class="clear"></div><span class="icon icon-nerve-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt de normale werking van het zenuwstelsel</div>
 			     <span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
 			     <span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Heeft een gunstige invloed op het behoud van een normale bloeddruk en belangrijk voor de bloedvaten</div>',
       'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
 		        <div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt bij het gezond houden van de huid</div>
-					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>',
-      'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt de tanden sterk te houden</div>
-					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>
-                             </div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt de spijsvertering</div>',
+					<div class="clear"></div><span class="icon icon-nerve-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>',
+      'c' => '<span class="icon icon-teeth-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt de tanden sterk te houden</div>
+					<div class="clear"></div><span class="icon icon-nerve-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>
+                             </div><span class="icon icon-intestine-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt de spijsvertering</div>',
       'd' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
 		       <span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan de normale vorming van rode bloedcellen</div>
-					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>',
+					<div class="clear"></div><span class="icon icon-nerve-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>',
       'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het hart</div> <!-- // todo NB! Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA -->    	   
 
 <span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot de instandhouding van de normale hersenfunctie en een normaal gezichtsvermogen</div><!--// todo NB! Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg DHA -->   ',
       'f' => '<div class="clear"></div><span class="icon icon-eye-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot het instandhouding van een normaal gezichtsvermgen</div>
-                           <div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt bij het gezond houden van de huid</div>
-                        <div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een sterk gebit</div>',
-      'g' => '<span class="icon icon-chiaoil-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>',
+                           <div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt bij het gezond houden van de huid</div>
+                        <div class="clear"></div><span class="icon icon-teeth-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een sterk gebit</div>',
+      'g' => '<span class="icon icon-blood-flow flow-promise-icon"></span> <div class="flow-promise-text">Alfa-linoleenzuur (ALA) helpt het cholesterolniveau gezond te houden.*</div>',
     ),
   ),
   'call-me' => 
   array (
     'placeholder' => '06 12 34 56 78',
-    'title' => 'Heb je geen tijd om de test in te vullen?',
-    'text' => 'Wil je graag dat wij je bellen voor een persoonlijk advies? Vermeld dan hieronder jouw telefoonnummer en de tijd dat je gebeld wilt worden.',
+    'title' => 'Geen tijd om de test in te vullen?',
+    'text' => 'Wil je graag dat wij je bellen voor een persoonlijk advies? Vermeld dan hieronder jouw telefoonnummer en de tijd dat je gebeld wenst te worden.',
     'deny' => 'Zo niet, dank je. Sluit u het bericht.',
     'options' => 
     array (

@@ -38,11 +38,11 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse groente- en fruitinname',
+  'ingredients' => 'Dikaliumwaterstoffosfaat, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat), beta-caroteen, pteroymonoglutaminezuur',
   'praises' => 
   array (
-    'shield' => 'Vitamine A, C en foliumzuur helpen de normale werking van het immuunsysteem',
-    'shield-cell' => 'Vitamine C draagt bij tot de bescherming van cellen tegen oxidatieve schade',
-    'lightning' => 'Foliumzuur en vitamine C helpen om vermoeidheid en moeheid te verminderen',
+    'heart' => 'Kalium heeft een gunstige invloed op het behoud van een normale bloeddruk en vitamine C is belangrijk voor de bloedvaten',
+    'brain-cog' => 'Foliumzuur en vitamine C zijn goed voor het concentratievermogen, geheugen en leerprestatie',
+    'nerve' => 'Vitamine C en kalium ondersteunen de normale werking van het zenuwstelsel',
   ),
-  'ingredients' => 'Dikaliumwaterstoffosfaat, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat), beta-caroteen, pteroymonoglutaminezuur',
 );

@@ -29,7 +29,8 @@ return array (
   'name' => 'Supplement ter aanvulling van de dagelijkse zuivelinname',
   'praises' => 
   array (
-    'bone' => 'Calcium speelt een rol bij het behoud van sterke botten en soepele spieren',
-    'energy' => 'Vitaminen B2, B12 en calcium ondersteunen het energieniveau',
+    'intestine' => 'Calcium ondersteunt de spijsvertering',
+    'teeth' => 'Calcium helpt de tanden sterk te houden',
+    'nerve' => 'Vitamine B2 en B12 dragen bij aan een normale werking van het zenuwstelsel',
   ),
 );

@@ -11,6 +11,7 @@ return array (
     'amount' => 'Pr. kapsel',
     'percent' => '%RI*',
     'minerals' => 'Mineraler',
+    'other' => 'Andre',
   ),
   'produced-for' => 'Produceret og tilpasset til',
   'expiration' => 'Mindst holdbar til og med:',

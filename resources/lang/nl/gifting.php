@@ -4,7 +4,7 @@ return array (
   'title' => 'Geef TakeDaily cadeau',
   'title-element' => 'Geef TakeDaily cadeau',
   'subtitle' => 'Hoeveel maanden wil je TakeDaily cadeau geven?',
-  'select' => 'Kies cadeaubon',
+  'select' => 'Selecteer ',
   'giftcard_1' => '1 maand',
   'giftcard_3' => '3 maanden',
   'giftcard_6' => '6 maanden',

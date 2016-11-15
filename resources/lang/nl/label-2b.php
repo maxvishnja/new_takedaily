@@ -35,7 +35,7 @@ return array (
     ),
     5 => 
     array (
-      'amount' => '3,75` µg',
+      'amount' => '3,75 µg',
       'name' => 'Vitaminen B12',
       'percent' => '150',
     ),
@@ -44,6 +44,7 @@ return array (
   'praises' => 
   array (
     'shield' => 'Vitamine A en C ondersteunen het immuunsysteem',
-    'lightning' => 'De B-vitamines (B1, B6 en B12) bevorderen de energiestofwisseling',
+    'lightning' => 'Vitamine B6, B12 en C helpen om vermoeidheid en moeiheid te verminderen',
+    'energy' => 'De B-vitamines (B1, B6 en B12) bevorderen de energiestofwisseling',
   ),
 );

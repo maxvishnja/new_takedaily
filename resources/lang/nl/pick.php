@@ -5,9 +5,9 @@ return array (
   'groups' => 
   array (
     'oil' => 'Oliën',
-    'lifestyle' => 'Gezondheid',
+    'lifestyle' => 'Leefstijl',
     'multi' => 'Basic',
-    'diet' => 'Voeding & gewoontes',
+    'diet' => 'Eetpatroon',
   ),
   'select-btn' => 'Selecteer',
   'deselect-btn' => 'Vink aan',

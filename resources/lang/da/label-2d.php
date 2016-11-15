@@ -1,10 +1,11 @@
 <?php
 
 return array (
-  'name' => 'Supplement til immunforsvaret',
+  'name' => 'Tilskud til støtte af immunforsvarets normale funktion',
   'praises' => 
   array (
-    'shield' => 'Immunsystemets normale funktion',
+    'shield' => 'Vitamin A, -B6, -B12, -C, -D og folsyre samt mineralerne zink og selen bidrager til immunforsvarets normale funktion.',
+    'shield-cell' => 'C-vitamin samt mineralerne selen og zink hjælper og beskytter kroppens celler mod ydre påvirkninger.',
   ),
   'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), L-ascorbinsyre, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E110, E127), zinkgluconat, L-selenomethionin, retinylacetat, antiklumpningsmiddel (magnesiumstearat) , cholecalciferol, cyanocobalamin, pyridoxal-5-phosphat, pteroymonoglutaminezuur',
   'vitamins' => 

@@ -1,11 +1,12 @@
 <?php
 
 return array (
-  'name' => 'Supplement til lavt indtag af brød, ris og pasta',
+  'name' => 'Supplement til det daglige indtag af brød, ris og pasta.',
   'praises' => 
   array (
-    'brain-cog' => 'Normal kognitiv funktion',
-    'skin' => 'Vedligeholdelse af normal hud',
+    'brain-cog' => 'B-vitaminer (B1, B3, B6 og folinsyre) er gode for koncentrationen, hukommelseen og indlæringsevnen.',
+    'skin' => 'B-vitaminer (B2, B3) og jod hjælpe til at opretholde en sund hud.',
+    'nerve' => 'B-vitaminer (B1, B2, B3, B6) og jod støtter nervesystemets normale funktion.',
   ),
   'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestof (E172), jern bisglycinate, nikotinamid, antiklumpningsmiddel (magnesiumstearat), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, pteroylmonoglutamic syre, kaliumiodid',
   'vitamins' => 

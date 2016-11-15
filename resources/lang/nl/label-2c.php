@@ -21,6 +21,7 @@ return array (
   array (
     'energy' => 'De B-vitamines (B1, B2, B3, B5, B6 en B12) en ijzer bevorderen de energiestofwisseling',
     'lightning' => 'De B-vitamines (B2, B3, B5, B6 en B12) en ijzer helpen vermoeidheid en moeheid te verminderen',
+    'stress' => 'Vitamanie B5 draagt bij aan een normale weerstand tegen stress',
   ),
   'vitamins' => 
   array (

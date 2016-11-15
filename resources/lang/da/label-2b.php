@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'name' => 'Supplement til slankediæt',
   'praises' => 
   array (
-    'shield' => 'Immunsystemets normale funktion',
-    'lightning' => 'At mindske træthed og udmattelse',
+    'shield' => 'Vitamin A og -C understøtter immunforsvarets normale funktion',
+    'lightning' => 'Vitamin B6, -B12 og -C hjælper til at reducere træthed og udmattelse',
+    'energy' => 'B-vitaminer (B1, B6 og B12) fremmer kroppens energistofskifteprocesser.',
   ),
   'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), L-ascorbinsyre, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E132), antiklumpningsmiddel (magnesiumstearat), retinylacetat, cyanocobalamin, phytomenadion, pyridoxal-5 phosphat, thiamin-hydrochlorid
 ',

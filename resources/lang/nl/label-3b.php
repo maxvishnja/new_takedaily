@@ -51,4 +51,10 @@ return array (
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse brood, rijst en pasta inname',
   'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstof (E172)), ijzer bisglycinaat, nicotinamide, antiklontermiddel (magnesiumstearaat), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, pteroylmonoglutaminezuur, kaliumjodide',
+  'praises' => 
+  array (
+    'brain-cog' => 'De B-vitamines (B1, B3, B6 en foliumzuur) zijn goed voor het concentratievermogen, geheugen en leerprestatie',
+    'skin' => 'De B-vitamines (B2, B3) en jodium helpen bij het gezond houden van de huid',
+    'nerve' => 'De B-vitamines (B1, B2, B3, B6) en jodium ondersteunen de normale werking van het zenuwstelsel',
+  ),
 );

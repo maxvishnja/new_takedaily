@@ -131,6 +131,8 @@ return array (
   'ingredients' => 'vulstof (dicalciumfosfaat dihydraat),  plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E129, E171)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, cholecalciferol, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
   'praises' => 
   array (
-    'shield' => 'De Multi Basic is een multivitaminen- & mineralensupplement voor volwassenen vanaf 18 jaar. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen ter ondersteuning van een optimale gezondheid',
+    'shield' => 'Multi Basic vormt de basis van jouw pakket aan gepersonaliseerde multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen.
+
+<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div',
   ),
 );

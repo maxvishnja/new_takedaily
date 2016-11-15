@@ -20,7 +20,7 @@ return array (
         'description' => 'Beschrijving',
         'amount' => 'Bedrag',
         'taxes' => 'BTW',
-        'total' => 'Totaal',
+        'total' => 'Totaal per maand',
       ),
       'totals' => 
       array (

@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => 'Supplement ter aanvulling van een vegatarisch dieet',
+  'name' => 'Supplement ter aanvulling van een vegatarisch/veganistisch dieet',
   'minerals' => 
   array (
     0 => 
@@ -10,11 +10,6 @@ return array (
       'name' => 'IJzer',
       'percent' => '71',
     ),
-  ),
-  'praises' => 
-  array (
-    'energy' => 'Vitamine B1, B6, B12 en  ijzer dragen aan een normale energiestofwisseling',
-    'lightning' => 'Vitamine B1, B6, B12 en  ijzer helpen om vermoeidheid en moeheid te verminderen',
   ),
   'vitamins' => 
   array (
@@ -38,4 +33,10 @@ return array (
     ),
   ),
   'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), ijzer bisglycinaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, thiaminehydrochloride',
+  'praises' => 
+  array (
+    'brain-cog' => 'De B-vitamines (B1,B6 en B12) zijn goed voor het concentratievermogen, geheugen en leerprestatie',
+    'heart' => 'IJzer draagt bij aan de normale vorming van rode bloedcellen',
+    'nerve' => 'De B-vitamines (B1,B6 en B12) dragen bij aan een normale werking van het zenuwstelsel',
+  ),
 );

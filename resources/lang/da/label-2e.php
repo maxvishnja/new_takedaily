@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => 'Supplement til led',
+  'name' => 'Tilskud for muskler, knogler og brusk',
   'ingredients' => 'Magnesiumhydroxid DC 10% stivelse, calciumcitrat 4-hydrat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E110), dikaliumphosphat, L-ascorbinsyre, calciumcarbonat, antiklumpningsmiddel (magnesiumstearat), mangan, cholecalciferol',
   'vitamins' => 
   array (
@@ -34,4 +34,10 @@ return array (
     ),
   ),
   'disclaimer' => '',
+  'praises' => 
+  array (
+    'muscle' => 'D-vitamin og magnesium bidrager til musklernes normale funktion',
+    'bone' => 'D-vitamin samt mineralerne magnesium og mangan bidrager til opretholdelsen af stærke knogler.',
+    'cartilage' => 'C-vitamin er vigtig for kroppens brusk.',
+  ),
 );

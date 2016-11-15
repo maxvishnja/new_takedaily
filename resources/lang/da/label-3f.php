@@ -1,13 +1,12 @@
 <?php
 
 return array (
-  'name' => 'Supplement til lavt indtag af smør',
+  'name' => 'Supplement til den daglige indtagelse af smør og margarine.',
   'praises' => 
   array (
-    'shield-cell' => 'Vitamin E bidrager til beskyttelsen af celler mod oxidativt stress',
-    'bone' => 'D-vitamin bidrager til opretholdelse af stærke knogler',
-    'muscle' => 'Vitamin D bidrager til en normal muskelfunktion',
-    'eye' => 'Vitamin A bidrager til vedligeholdelse af et normalt syn',
+    'eye' => 'Vitamin A bidrager til vedligeholdelsen af et normalt syn.',
+    'teeth' => 'Vitamin D bidrager til vedligeholdelsen af stærke tænder og knogler.',
+    'skin' => 'Vitamin A bidrager til opretholdelsen af en sund hud.',
   ),
   'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestof (171), DL-alfa-tocopherylacetat, retinylacetat, antiklumpningsmiddel (magnesiumstearat), cholecalciferol',
   'vitamins' => 

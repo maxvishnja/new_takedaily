@@ -21,7 +21,7 @@ return array (
   array (
     'page-title' => 'Jouw bestelling is geslaagd! - TakeDaily',
     'title' => 'Din ordre blev oprettet',
-    'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Tak for dit køb!',
+    'text' => 'U ontvangt binnen 5 minuten ontvangt een orderbevestiging met informatie over de levering en de bestelling. Dank je voor jouw aankoop!',
     'button-text' => 'Ga naar Mjn TakeDaily',
     'giftcard' => 
     array (
@@ -37,11 +37,11 @@ return array (
       'title' => 'Bestelling',
       'info' => 
       array (
-        'title' => 'Jouw gegegens',
+        'title' => 'Bezorgadres',
         'name' => 'Voor- en achternaam',
-        'name-placeholder' => 'Lars Jensen',
-        'email' => 'Jouw e-mailadres',
-        'email-placeholder' => 'lars-jensen@gmail.com',
+        'name-placeholder' => 'Henk Boom',
+        'email' => 'E-mailadres',
+        'email-placeholder' => 'henk-boom@gmail.com',
         'address' => 
         array (
           'street' => 'Straat/huisnummer/toevoeging',
@@ -57,7 +57,7 @@ return array (
         'company-placeholder' => 'Nl- 0612345678',
         'cvr-placeholder' => 'Nl- 0612345678',
         'phone-placeholder' => '0612345678',
-        'phone' => 'Telefoon (mobiel)',
+        'phone' => 'Mobiel telefoonnummer',
       ),
       'billing' => 
       array (
@@ -92,6 +92,7 @@ return array (
     array (
       'link' => 'Heb je een kortingscode?',
       'input-placeholder' => 'Jouw kortingscode',
+      'button-text' => 'Toepassen',
     ),
     'disclaimer' => '<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">{{ total_subscription }}
 							DKK</span><strong v-show="price !== total_subscription">{{ total_subscription }} DKK</strong> på dit kort hver måned. Første
@@ -102,11 +103,12 @@ return array (
 					<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>',
     'method' => 
     array (
-      'title' => 'Betaalmethode',
+      'title' => 'Selecteer betaalmethode',
       'errors' => 
       array (
         'no-method' => 'Je hebt nog geen betalingsmethode gekozen! Probeer opnieuw.',
       ),
     ),
   ),
+  'back' => '‹ Ga terug naar jouw persoonlijke advies',
 );

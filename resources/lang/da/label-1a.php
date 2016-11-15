@@ -1,10 +1,10 @@
 <?php
 
 return array (
-  'name' => 'Basis multivitamin og mineraltablet',
+  'name' => 'Basis multivitamin- og mineraltablet',
   'praises' => 
   array (
-    'shield' => 'Multi Basic er et multivitamin og mineraltilskud til voksne over 18 år. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler til at støtte en optimal sundhed.',
+    'shield' => 'Multi Basic danner grundlag for din personlige pakke med multivitaminer- og mineraler. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler.',
   ),
   'ingredients' => 'Fyldstof (dicalciumphosphatdihydrat), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E129, E171), jern bisglycinate, L-ascorbinsyre, zinkgluconat, DL-alpha-tocopherylacetat, nicotinamid, L -selenomethionine, antiklumpningsmiddel (magnesiumstearat), calcium-D-pantothenat, retinylacetat, cyanocobalamin, cholecalciferol, phylloquinon (phytomenadion), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, chrompicolinat, pteroylmonoglutamic syre, kaliumiodid, D-biotin',
   'vitamins' => 

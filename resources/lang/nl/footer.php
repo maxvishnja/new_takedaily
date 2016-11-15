@@ -3,7 +3,7 @@
 return array (
   'social' => 
   array (
-    'instagram' => '',
+    'instagram' => 'http://instagram.com/takedaily_nl/',
     'facebook' => 'https://www.facebook.com/TakeDaily-NL-602761183216983',
   ),
   'columns' => 
@@ -21,14 +21,14 @@ return array (
     'three' => 
     array (
       'title' => 'Contact',
-      'text' => 'Stuur ons een e-mail en ontvang binnen 1 werkdag antwoord. Op werkdagen zijn wij van 09:00-16:00 uur telefonisch bereikbaar.',
-      'info' => '+31 1234 5678<br/><a href="mailto:support@takedaily.com">support@takedaily.com</a>',
+      'text' => 'Heeft u vragen of behoefte aan extra informatie? Ons team staat voor jou klaar om telefonisch of per e-mail jouw vragen te beantwoorden. Wij zijn geopend op werkdagen van 09:00-16:30 uur.',
+      'info' => 'Bel: 0800-.......<br/><a href="mailto:support@takedaily.com">Email: support@takedaily.com</a>',
     ),
   ),
   'language' => 'Nederlands',
   'copyright' => 'TakeDaily',
-  'links' => '<li class="hidden-sm hidden-md"><a href="/page/about">Om TakeDaily</a></li>
+  'links' => '<li class="hidden-sm hidden-md"><a href="/page/about">Over TakeDaily</a></li>
 					<li><a href="/faq">FAQ</a></li>
-					<li><a href="/page/privacy">Privacy & cookies</a></li>
+					<li><a href="/page/privacy">Privacy & Cookies</a></li>
 					<li><a href="/page/terms">Algemene voorwaarden</a></li>',
 );

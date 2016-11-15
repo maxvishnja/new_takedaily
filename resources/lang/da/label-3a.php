@@ -1,13 +1,7 @@
 <?php
 
 return array (
-  'name' => 'Supplement til lavt indtag af frugt og grønt',
-  'praises' => 
-  array (
-    'shield-cell' => 'Beskyttelse af celler mod oxidativt stress',
-    'shield' => 'Den normale funktion af immunforsvaret',
-    'lightning' => 'At mindske træthed og udmattelse',
-  ),
+  'name' => 'Supplement til det daglige indtag af frugt og grønt',
   'ingredients' => 'Dikaliumhydrogenphosphat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E141), L-ascorbinsyre, fyldstof (mikrokrystallinsk cellulose), antiklumpningsmiddel (magnesiumstearat), beta-caroten, pteroymonoglutaminezuur',
   'vitamins' => 
   array (
@@ -46,4 +40,10 @@ return array (
     ),
   ),
   'disclaimer' => '',
+  'praises' => 
+  array (
+    'heart' => 'Kalium har en gunstig effekt på opretholdelsen af et normalt blodtryk, og C-vitamin er vigtigt for blodkarrenes fleksibilitet.',
+    'brain-cog' => 'Folinsyre og C-vitamin er gode for koncentrationen, hukommelsen og indlæringsevnen.',
+    'nerve' => 'C-vitamin og kalium understøtter nervesystemets normale funktion.',
+  ),
 );

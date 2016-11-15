@@ -31,6 +31,12 @@ return array (
       'percent' => '100',
     ),
   ),
-  'name' => 'Supplement voor de spieren en gewrichten',
+  'name' => 'Supplement voor de spieren, botten & kraakbeen',
   'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, calciumcitraat 4-hydraat, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E110)), dikaliumfosfaat, L-ascorbinezuur, calciumcarbonaat, antiklontermiddel (magnesiumstearaat), mangaangluconaat, cholecalciferol',
+  'praises' => 
+  array (
+    'bone' => 'Vitamin D en de mineralen magnesium en mangaan dragen bij aan de instandhouding van sterke botten',
+    'muscle' => 'Vitaminen D en magensium dragen bij tot een normale werking van de spieren',
+    'cartilage' => 'Vitamine C is belangrijk voor het kraakbeen',
+  ),
 );

@@ -1,11 +1,7 @@
 <?php
 
 return array (
-  'name' => 'Supplement til lavt indtag af mejeriprodukter',
-  'praises' => 
-  array (
-    'bone' => 'Vedligeholdelse af normale knogler',
-  ),
+  'name' => 'Supplement til det daglige indtag af mejeriprodukter',
   'ingredients' => 'Calciumcarbonat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E172, E171), antiklumpningsmiddel (magnesiumstearat), cyanocobalamin, riboflavin',
   'vitamins' => 
   array (
@@ -32,4 +28,10 @@ return array (
     ),
   ),
   'disclaimer' => '',
+  'praises' => 
+  array (
+    'teeth' => 'Calcium hjælper med at holde tænder og knogler stærke.',
+    'nerve' => 'Vitamin B2 og -B12 bidrager til nervesystemets normale funktion.',
+    'intestine' => 'Calcium hjælper fordøjelsen.',
+  ),
 );

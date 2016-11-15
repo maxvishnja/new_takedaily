@@ -1,11 +1,12 @@
 <?php
 
 return array (
-  'name' => 'Supplement til en aktiv livsstil',
+  'name' => 'Tilskud for personer med et aktivt og/eller travlt liv',
   'praises' => 
   array (
-    'energy' => 'Et normalt energistofskifte',
-    'lightning' => 'At mindske træthed og udmattelse',
+    'energy' => 'B-vitaminer (B1, B2, B3, B5, B6 og B12) og jern fremmer kroppens energimetabolisme',
+    'lightning' => 'B-vitaminer (B2, B3, B5, B6 og B12) og jern hjælper til at mindske træthed og udmattelse',
+    'stress' => 'Vitamin B5 bidrager til en normal modstandsdygtighed over for stress',
   ),
   'ingredients' => 'Magnesiumhydroxid DC 10% stivelse, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestof (E140), fyldstof (mikrokrystallinsk cellulose), jernfumarat, nicotinamid, pantothensyre, antiklumpningsmiddel (magnesiumstearat), cyanocobalamin, pyridoxal -5-phosphat, riboflavin, thiamin-hydrochlorid',
   'vitamins' => 

@@ -39,11 +39,11 @@ return array (
     ),
   ),
   'Allergener' => 'Bevat visolie',
-  'ingredients' => 'visolie(vetzuren), capsulewand (gelatine), konsistensmiddel ((glycerol), water), antioxidant (d-alpha-tocoferol concentraat)',
+  'ingredients' => 'visolie(vetzuren), capsulewand (gelatine), geleermiddel (glycerol), water, antioxidant (d-alpha-tocoferol concentraat)',
   'praises' => 
   array (
-    'brain' => 'EPA en DHA dragen bij tot de normale werking van het hart. Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA.*',
-    'eye' => 'DHA draagt bij tot de instandhouding van de normale hersenfunctie en normaal gezichtvermgen. Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg DHA.**',
+    'brain' => 'DHA draagt bij tot de instandhouding van de normale hersenfunctie en normaal gezichtvermgen. Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg DHA.**',
+    'heart' => 'EPA en DHA dragen bij tot de normale werking van het hart. Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA.*',
   ),
   'disclaimer' => 'Duurzame visserij, dubbel gereinigd, 100% natuurlijk, Vrienden van de Zee (FOS) gecertificeerd
 <br/>*Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA.

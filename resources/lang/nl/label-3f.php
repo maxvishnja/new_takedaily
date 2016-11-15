@@ -26,9 +26,8 @@ return array (
   'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstof (171)), DL-alfa-tocoferylacetaat, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol',
   'praises' => 
   array (
-    'shield-cell' => 'Vitamine E draagt bij tot de bescherming van cellen tegen oxidatieve schade',
-    'muscle' => 'Vitamine D draagt bij aan een normale spierwerking',
-    'bone' => 'Vitamine D draagt bij aan de instandhouding van sterke botten',
     'eye' => 'Vitamine A draagt bij tot het instandhouding van een normaal gezichtsvermogen',
+    'teeth' => 'Vitamine D draagt bij aan een sterk gebit',
+    'skin' => 'Vitamine A helpt bij het gezond houden van de huid',
   ),
 );

@@ -5,7 +5,6 @@ return array (
   'address' => 'Take Daily ApS - Vimmelskaftet 43 - 1161 København K',
   'batch' => 'Batchnr.',
   'expiration' => 'Ten minste houdbaar tot einde:',
-  'dose' => '1 capsule, bij voorkeur bij een maaltijd met voldoende water innemen.',
   'ingredients' => 'Ingrediënten',
   'production' => 'Geproduceerd in Spanje',
   'titles' => 
@@ -14,12 +13,14 @@ return array (
     'minerals' => 'Mineralen',
     'vitamins' => 'Vitamines',
     'percent' => '%RI*',
+    'other' => 'Others',
   ),
-  'recommended-daily-use' => '<strong>De aanbevolen dagdosering (1 capsule) bevat:</strong> Voedingswaarde informatie per. aanbevolen dagelijkse hoeveelheid en percentage van de referentie-innames (RI) voor volwassenen van 18 jaar dosis.',
+  'recommended-daily-use' => '<strong>De aanbevolen dagdosering (1 capsule) bevat:</strong> ',
   'produced-for' => 'Ontwikkeld voor:',
-  'contains' => 'Voedingssupplement',
-  'health-disclaimer' => 'Voor volwassenen vanaf 18 jaar: Aanbevolen dosering niet overschrijden.',
-  'amount-daily' => 'Dagelijks 1 capsule.',
+  'contains' => 'Voedingssupplement   
+   Inhoud: 28 capsules',
   'not-replace' => 'Voedingssupplementen worden niet gebruikt ter vervanging van een gezonde en evenwichtige voeding.',
-  'when-to-take' => 'Genomen met een maaltijd.',
+  'Use' => 'GEBRUIK  Open slechts 1 doordrukstrip per dag. De capsules, bij voorkeur tijdens of direct na een maaltijd met voldoende water innemen, tenzij anders geadviseerd. Aanbevolen dosering niet overschrijden. Alle producten (m.u.v. visolie) zijn geschikt voor vegetariërs en veganisten. Een voedingssupplement is geen vervanging van een gevarieerde, gezonde en evenwichtige voeding. Bij gelijktijdig gebruik van andere supplementen, de gebruiksaanwijzing goed lezen, aangezien deze supplementen dezelde ingrediënten kunnen bevatten. In geval van overdosering raadpleeg uw arts. Raadpleeg een deskundige alvorens supplementen te gebruiken in het geval van zwangerschap, lactatie, ziekte of medicijngebruik. Dit voedingssupplement is niet geschikt voor personen jonger dan 18 jaar.',
+  'Store' => 'BEWAREN  Droog en op kamertemperatuur bewaren. Na gebruik hoes weer om verpakking plaatsen. Buiten het bereik van jonge kinderen bewaren. Als de doordrukstrip bij ontvangst beschadigd of open is, de supplementen niet gebruiken.',
+  'Questions' => 'Vragen of extra informatie nodig? Bel gratis 0800-... of mail naar info@takedaily.com',
 );

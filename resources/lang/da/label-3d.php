@@ -1,12 +1,7 @@
 <?php
 
 return array (
-  'name' => 'Supplement til vegetarkost',
-  'praises' => 
-  array (
-    'energy' => 'Normalt energistofskifte',
-    'lightning' => 'Nedsætte træthed og udmattelse',
-  ),
+  'name' => 'Supplement til en vegetarisk/vegansk kost',
   'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), jern bisglycinate, antiklumpningsmiddel (magnesiumstearat), cyanocobalamin, pyridoxal-5-phosphat, thiamin-hydrochlorid',
   'vitamins' => 
   array (
@@ -39,4 +34,10 @@ return array (
     ),
   ),
   'disclaimer' => '',
+  'praises' => 
+  array (
+    'brain-cog' => 'B-vitaminer (B1, B6 og B12) er gode for koncentrationen, hukommelsen og indlæringsevnen.',
+    'heart' => 'Jern bidrager til en normal dannelse af røde blodlegemer.',
+    'nerve' => 'B-vitaminer (B1, B6 og B12) bidrager nervesystemets normale funktion.',
+  ),
 );
