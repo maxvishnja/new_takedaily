@@ -65,7 +65,7 @@ return array (
     '2-1' => 
     array (
       'title' => 'Ben je zwanger of probeer je zwanger te worden?',
-      'text' => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Foliumzuur speelt een belangrijke rol bij de vroege ontwikkeling van het ongeboren kind. Foliumzuursupplementen kunnen zonder risico gedurende de gehele zwangerschap gebruikt worden. Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel goed voor de baby en jou.',
+      'text' => 'Als je zwanger bent of zwanger wilt worden, is de behoefte aan bepaalde vitamines en mineralen verhoogd. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Foliumzuur speelt een belangrijke rol bij de vroege ontwikkeling van het ongeboren kind. Foliumzuursupplementen kunnen zonder risico gedurende de gehele zwangerschap gebruikt worden. Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel goed voor de baby en jou.',
       'options' => 
       array (
         1 => 'Ja',

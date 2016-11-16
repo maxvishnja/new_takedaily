@@ -21,7 +21,7 @@ return array (
     'three' => 
     array (
       'title' => 'Contact',
-      'text' => 'Heeft u vragen of behoefte aan extra informatie? Ons team staat voor jou klaar om telefonisch of per e-mail jouw vragen te beantwoorden. Wij zijn geopend op werkdagen van 09:00-16:30 uur.',
+      'text' => 'Heb je vragen of behoefte aan extra informatie? Ons team staat voor jou klaar om telefonisch of per e-mail jouw vragen te beantwoorden. Wij zijn geopend op werkdagen van 09:00-16:30 uur.',
       'info' => 'Bel: 0800-.......<br/><a href="mailto:support@takedaily.com">Email: support@takedaily.com</a>',
     ),
   ),

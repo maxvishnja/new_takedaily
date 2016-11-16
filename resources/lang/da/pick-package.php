@@ -23,7 +23,11 @@ return array (
     'busy_life' => 
     array (
       'name' => 'Busy life/Energy',
-      'description' => 'activeert je natuurlijke energie in het lichaam. kan het gebrek aan energie helpen verminderen.',
+      'description' => 'B-vitaminer (B1, B2, B3, B5, B6 og B12) og jern er vigtige for en optimal energiomsætning i kroppen.
+
+B-vitaminer (B2, B3, B5, B6 og B12) og jern hjælp til at reducere træthed og udmattelse.
+
+Vitamin B5 bidrager til kroppens normale modstandsdygtighed overfor stress.',
     ),
     'relax' => 
     array (
@@ -37,13 +41,13 @@ return array (
     ),
     'balanced_body' => 
     array (
-      'name' => 'Body in Balance',
+      'name' => 'Body in Balance/Kroppen i Balance',
       'description' => '',
     ),
     'immunity_boost' => 
     array (
       'name' => 'Immune Booster',
-      'description' => 'zorgt mede voor een goede weerstand. helpt het immuunsysteem.',
+      'description' => 'Vitamin A, -B6, -B12, -C, -D og folinsyre samt mineralerne zink og selen hjælper til opretholdelsen af et normalt immunforsvar.',
     ),
     'vega_power' => 
     array (
@@ -57,13 +61,17 @@ return array (
     ),
     'heart_bloodvessels' => 
     array (
-      'name' => 'Hart & Bloedvaten',
-      'description' => 'DHA en EPA dragen bij tot de instandhouding van de normale bloeddruk. draagt bij tot de normale werking van het hart.',
+      'name' => 'Heart & Vessels',
+      'description' => 'DHA og EPA bidrager til opretholdelsen af et normalt blodtryk og den normale funktion af hjertet.',
     ),
     'beauty_boost' => 
     array (
       'name' => 'Beauty Boost',
-      'description' => 'Houdt je haar sterk voor het behoud van glanzend haar. goed voor nagels draagt bij aan het behoud van normale nagels. helpt bij de verzorging van de huid van binnenuit.',
+      'description' => 'Selen og zink holder dit hår stærkt og bidrager til et skinnende hår.
+
+Selen og zink er godt for neglene.
+
+Vitamin A, -C og zink hjælper til den indre pleje af huden.',
     ),
     'pregnant' => 
     array (
