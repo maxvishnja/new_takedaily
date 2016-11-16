@@ -32,7 +32,10 @@ class NavGenerator
 					}
 				}
 
-				$subnav[ $subGroupKey ] = collect($subnav[ $subGroupKey ])->sortBy('text')->toArray();
+				if ( isset( $subnav[ $subGroupKey ] ) )
+				{
+					$subnav[ $subGroupKey ] = collect( $subnav[ $subGroupKey ] )->sortBy( 'text' )->toArray();
+				}
 			}
 		}
 
