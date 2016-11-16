@@ -288,6 +288,34 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			$request->session()->set( 'flow-completion-token', $flowCompletion->token );
 
+			$ingredients = '';
+			$alphabet    = range( 'a', 'c' );
+
+			foreach ( $lib->getResult() as $index => $combination )
+			{
+				if ( $index == 'one' )
+				{
+					$combination = $alphabet[ $combination - 1 ];
+				}
+
+				switch ( $index )
+				{
+					case 'one':
+						$index = 1;
+						break;
+					case 'two':
+						$index = 2;
+						break;
+					case 'three':
+					default:
+						$index = 3;
+						break;
+				}
+
+				$ingredients .= '<p>' . trans( "label-{$index}{$combination}.ingredients" ) . '</p>';
+			}
+
+
 			return Response::json( [
 				'advises'        => $advises,
 				'num_advises'    => count( $lib->getAdvises() ),
@@ -295,7 +323,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				'selected_codes' => implode( ',', $codes ),
 				'totals'         => $totals,
 				'result'         => $lib->getResult(),
-				'vitamin_info' => 'Kommer snart...', // todo
+				'vitamin_info'   => $ingredients,
 				'token'          => $flowCompletion->token
 			] );
 		} )->name( 'flow-recommendations' );
@@ -324,7 +352,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					}
 				}
 
-				Auth::user()->getCustomer()->setVitamins($vitamins);
+				Auth::user()->getCustomer()->setVitamins( $vitamins );
 
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
 				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
@@ -452,10 +480,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				return redirect( 'account/settings/basic' );
 			} );
 
-			Route::get( '/', function()
+			Route::get( '/', function ()
 			{
-				return redirect()->action('AccountController@getSettingsBasic');
-			});
+				return redirect()->action( 'AccountController@getSettingsBasic' );
+			} );
 			Route::post( '/update-preferences', 'AccountController@updatePreferences' );
 
 			Route::get( 'transactions', 'AccountController@getTransactions' );
