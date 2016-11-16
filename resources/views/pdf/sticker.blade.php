@@ -115,7 +115,7 @@
 					@endif
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
 						@if($vitaminModel->code == '3e')
-							<img src="/images/foa_logo.png" style="float: left; height: 8mm; margin-right: 3pt;" alt="Friends of the Sea"/>
+							<img src="/images/foa_logo.png" style="float: left; height: 8mm; margin-right: 3pt;margin-bottom: 3pt" alt="Friends of the Sea"/>
 						@endif
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 4pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
