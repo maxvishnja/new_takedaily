@@ -110,7 +110,7 @@
 
 					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{{ trans('label-product.ingredients') }}: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
 
-					@if(!empty(trans("label-{$vitaminModel->code}.Allergener")) && trans("label-{$vitaminModel->code}.Allergener") != '')
+					@if(isset(trans("label-{$vitaminModel->code}.Allergener")) && trans("label-{$vitaminModel->code}.Allergener") != '')
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{{ trans('label-product.Allergener') }}: {{ trans("label-{$vitaminModel->code}.Allergener") }}</p>
 					@endif
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
