@@ -91,13 +91,13 @@
 						<table style="width: 100%;">
 							<thead>
 							<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
-								<th style="text-align: left;width: 40%;">{{ trans('label-product.titles.other') }}</th>
-								<th style="text-align: center;width: 40%;">{{ trans('label-product.titles.amount') }}</th>
+								<th style="text-align: left;width: 50%;">{{ trans('label-product.titles.other') }}</th>
+								<th style="text-align: center;width: 30%;">{{ trans('label-product.titles.amount') }}</th>
 								<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
 							</tr>
 							</thead>
 							<tbody style="line-height: 1;font-size: 6pt; color:#1A8562;">
-							@foreach(collect(trans("label-{$vitaminModel->code}.other-vitamins"))->sortBy('name', SORT_NATURAL) as $vitamin)
+							@foreach(collect(trans("label-{$vitaminModel->code}.other-vitamins")) as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ $vitamin['name'] }}</td>
 									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
