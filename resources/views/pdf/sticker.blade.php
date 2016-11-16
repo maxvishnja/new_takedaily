@@ -18,7 +18,7 @@
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
 								<div style="margin-bottom: 1pt">
 									<img src="{{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}" style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; " />
-									{{ strtolower($praiseText) }}
+									{{ strip_tags($praiseText) }}
 								</div>
 							@endforeach
 						@endif
