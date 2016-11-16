@@ -58,7 +58,7 @@
 	.vitamins:after {
 		content: "";
 		display: block;
-		background: #CCE9E0;
+		border-right: 1px solid #CCE9E0;
 		left: 50%;
 		margin-left: -1px;
 		position: absolute;
