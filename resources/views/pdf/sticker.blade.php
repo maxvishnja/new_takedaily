@@ -10,9 +10,6 @@
 			@foreach($customer->getVitaminModels() as $vitaminModel)
 				<div class="vitamin">
 					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt;">
-					@if($vitaminModel->code == '3e')
-						<img src="/images/foa_logo.png" style="float: right; height: 8mm; margin-right: 3pt;" alt="Friends of the Sea"/>
-					@endif
 					<h2 style="font-weight: bold; font-size: 10.5pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
 					<div style="margin: 4pt 0; font-size: 7pt; line-height: 1.2; color: #1A8562;">
 						<div style="margin-bottom: 2pt;">{!! trans('label-product.contains') !!}</div>
@@ -117,6 +114,9 @@
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{{ trans('label-product.Allergener') }}: {{ trans("label-{$vitaminModel->code}.Allergener") }}</p>
 					@endif
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
+						@if($vitaminModel->code == '3e')
+							<img src="/images/foa_logo.png" style="float: left; height: 8mm; margin-right: 3pt;" alt="Friends of the Sea"/>
+						@endif
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 4pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
 				</div>
