@@ -174,5 +174,25 @@ body.page-checkout
 			font-weight: $weight-semibold
 
 @media all and (max-width: 767px)
-	.payment-method-icon
-		width: 100%
+	body.page-checkout
+		.payment-method-icon
+			width: 100%
+
+		.input.input--medium,
+		.select.select--medium
+			padding: 8px 10px
+			height: 40px
+
+		.card.card--large
+			padding: 0 !important
+			border: none
+			box-shadow: none
+			background: transparent
+			border-radius: 0
+
+		.hr--dashed.hr--small-margin
+			display: none
+
+		.label.checkout--label
+			margin-bottom: 6px
+			font-size: 14px
