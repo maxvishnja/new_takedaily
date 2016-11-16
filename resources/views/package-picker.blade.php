@@ -30,7 +30,7 @@
 			data: {
 				packages: [@foreach($packages as $package) {
 					name: "{{ trans("pick-package.packages.{$package->identifier}.name") }}",
-					description: "{{ trans("pick-package.packages.{$package->identifier}.description") }}",
+					description: "{{ nl2br(trans("pick-package.packages.{$package->identifier}.description")) }}",
 					id: parseInt("{{ $package->id }}")
 				}, @endforeach]
 			}
