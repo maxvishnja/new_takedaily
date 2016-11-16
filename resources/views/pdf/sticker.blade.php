@@ -11,6 +11,7 @@
 				<div class="vitamin">
 					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt;">
 					<h2 style="font-weight: bold; font-size: 10.5pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
+					<div>{!! trans('label-product.contains') !!}</div>
 					<div style="margin: 4pt; font-size: 7pt; line-height: 1.2; color: #1A8562;">
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")) && count(trans("label-{$vitaminModel->code}.praises")) > 0)
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
@@ -20,7 +21,6 @@
 								</div>
 							@endforeach
 						@endif
-						<div style="margin: 2pt 0;">{!! trans('label-product.contains') !!}</div>
 						<div>{!! trans('label-product.recommended-daily-use') !!}</div>
 					</div>
 
