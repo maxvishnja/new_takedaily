@@ -126,10 +126,6 @@
 	</div>
 
 	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1;position: absolute; bottom: 0; text-align: center">
-
-		@if($customer->hasPlan() && $customer->getPlan()->hasFishoil())
-			<img src="{{ asset('/images/foa_logo.png') }}" style="float: left; height: 8mm; margin-right: 3pt;" alt="Friends of the Sea">
-		@endif
 			{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
 			{!! trans('label-product.batch') !!} · {!! trans('label-product.weight') !!} · {!! trans('label-product.expiration') !!}
 			<br/>
