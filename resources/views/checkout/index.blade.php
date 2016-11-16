@@ -7,13 +7,11 @@
 
 @section('content')
 	<script>
-		function statusChangeCallback(response)
-		{
-			if(response.status == 'connected')
-			{
+		function statusChangeCallback(response) {
+			if (response.status == 'connected') {
 				$("#facebookloginbox").hide();
 
-				FB.api('/me?fields=email,name', function(response) {
+				FB.api('/me?fields=email,name', function (response) {
 					$("#input_info_name").val(response.name);
 					$("#input_info_email").val(response.email);
 				});
@@ -105,7 +103,7 @@
 								scope="public_profile,email"
 								onlogin="checkLoginState();">Log ind med Facebook
 							</fb:login-button>
-						<hr>
+							<hr>
 						</div>
 
 						<fieldset>
@@ -119,6 +117,21 @@
 									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('name')) input--error @endif" id="input_info_name"
 										   data-validate="true" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" name="name" required="required"
 										   aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->name: '')) }}"/>
+								</div>
+							</div>
+
+							<div class="row m-b-50 m-sm-b-20">
+								<div class="col-xs-6">
+									<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}</label>
+									<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
+										   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
+										   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
+								</div>
+								<div class="col-xs-6">
+									<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}</label>
+									<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
+										   placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company"
+										   value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
 								</div>
 							</div>
 
@@ -182,29 +195,6 @@
 												@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
 										@endforeach
 									</select>
-								</div>
-
-								<div class="col-md-12 m-t-50 m-sm-t-20">
-									<label for="is_company">
-										<input id="is_company" type="checkbox" v-model="is_company"/> {{ trans('checkout.index.order.info.is-company') }}
-									</label>
-								</div>
-
-								<div v-show="is_company">
-									<div class="col-md-6">
-										<div class="m-t-10"></div>
-										<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}</label>
-										<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
-											   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
-											   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
-									</div>
-									<div class="col-md-6">
-										<div class="m-t-10"></div>
-										<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}</label>
-										<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
-											   placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company"
-											   value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
-									</div>
 								</div>
 							</div>
 						</fieldset>
