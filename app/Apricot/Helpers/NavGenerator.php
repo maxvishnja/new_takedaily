@@ -34,7 +34,7 @@ class NavGenerator
 
 				if ( isset( $subnav[ $subGroupKey ] ) )
 				{
-					$subnav[ $subGroupKey ] = collect( $subnav[ $subGroupKey ] )->sortBy( 'text' )->toArray();
+					$subnav[ $subGroupKey ] = collect( $subnav[ $subGroupKey ] )->sortBy( 'text', SORT_NATURAL )->toArray();
 				}
 			}
 		}
