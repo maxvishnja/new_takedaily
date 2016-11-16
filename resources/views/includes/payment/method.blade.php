@@ -37,7 +37,8 @@
 			<!-- NAME -->
 			<div class="col-md-12">
 				<label class="label label--full checkout--label" for="ccname">{{ trans('checkout.index.order.billing.card.name') }}</label>
-				<input type="text" data-validate="false" class="input input--medium input--spacing input--semibold input--full" id="ccname" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" autocomplete="cc-name" data-stripe="name" required="required"/>
+				<input type="text" data-validate="false" class="input input--medium input--spacing input--semibold input--full" id="ccname"
+					   placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" autocomplete="cc-name" data-stripe="name" required="required"/>
 			</div>
 		</div>
 
@@ -45,7 +46,8 @@
 			<div class="col-md-7">
 				<!-- Card Number -->
 				<label class="label label--full checkout--label" for="ccnumber">{{ trans('checkout.index.order.billing.card.number') }}</label>
-				<input type="tel" data-validate="false" class="input input--medium input--spacing input--semibold input--full" id="ccnumber" autocomplete="cc-number" size="20" maxlength="20" placeholder="{{ trans('checkout.index.order.billing.card.number-placeholder') }}" data-stripe="number" pattern="\d*" required="required"/>
+				<input type="tel" data-validate="false" class="input input--medium input--spacing input--semibold input--full" id="ccnumber" autocomplete="cc-number" size="20"
+					   maxlength="20" placeholder="{{ trans('checkout.index.order.billing.card.number-placeholder') }}" data-stripe="number" pattern="\d*" required="required"/>
 			</div>
 			<div class="col-md-5 hidden-xs hidden-sm">
 				<label class="label label--full checkout--label">&nbsp;</label>
@@ -57,10 +59,12 @@
 		</div>
 
 		<div class="row">
-			<div class="col-md-4">
+
+			<div class="col-md-4 col-xs-6">
 				<!-- Expiry Month -->
 				<label class="label label--full checkout--label" for="cc-exp-month">{{ trans('checkout.index.order.billing.card.month') }}</label>
-				<select data-validate="false" class="select select--full select--semibold select--spacing select--medium" id="cc-exp-month" data-stripe="exp-month" autocomplete="cc-exp-month">
+				<select data-validate="false" class="select select--full select--semibold select--spacing select--medium" id="cc-exp-month" data-stripe="exp-month"
+						autocomplete="cc-exp-month">
 					<option value="-1" selected="selected" disabled="disabled">{{ trans('checkout.index.order.billing.card.month') }}</option>
 					<option value="01">01</option>
 					<option value="02">02</option>
@@ -75,24 +79,32 @@
 					<option value="11">11</option>
 					<option value="12">12</option>
 				</select>
+
+				<div class="m-sm-b-20 visible-xs"></div>
 			</div>
-			<div class="col-md-4">
-				<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+			<div class="col-md-4 col-xs-6">
 				<!-- Expiry Year -->
 				<label class="label label--full checkout--label" for="cc-exp-year">{{ trans('checkout.index.order.billing.card.year') }}</label>
-				<select data-validate="false" class="select select--full select--semibold select--spacing select--medium" id="cc-exp-year" data-stripe="exp-year" autocomplete="cc-exp-year">
+				<select data-validate="false" class="select select--full select--semibold select--spacing select--medium" id="cc-exp-year" data-stripe="exp-year"
+						autocomplete="cc-exp-year">
 					<option value="-1" selected="selected" disabled="disabled">{{ trans('checkout.index.order.billing.card.year') }}</option>
 					@for($i = date('Y'); $i<=date('Y', strtotime('+20 years')); $i++)
 						<option value="{{ $i }}">{{ $i }}</option>
 					@endfor
 				</select>
+
+				<div style="margin-bottom: 50px" class="visible-sm"></div>
+				<div style="margin-bottom: 20px" class="visible-xs"></div>
 			</div>
+
 			<div class="col-md-4">
 				<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 				<!-- CVV/CVC -->
-				<label class="label label--full checkout--label" for="cc-csc" title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }}
+				<label class="label label--full checkout--label" for="cc-csc"
+					   title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }}
 					({{ trans('checkout.index.order.billing.card.cvc-title') }})</label>
-				<input data-validate="false" type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-csc" autocomplete="cc-csc" size="4" maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" data-stripe="cvc" required="required" pattern="\d*"/>
+				<input data-validate="false" type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-csc" autocomplete="cc-csc" size="4"
+					   maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" data-stripe="cvc" required="required" pattern="\d*"/>
 			</div>
 		</div>
 
@@ -103,19 +115,16 @@
 	@parent
 
 	<script>
-		$(".payment-method-icon").click(function ()
-		{
+		$(".payment-method-icon").click(function () {
 			$(this).parent().find('.payment-method-icon--selected').removeClass('payment-method-icon--selected');
 			$(this).addClass('payment-method-icon--selected');
 
 			$(".payment-type-card[id!='" + $(this).data('toggle') + "']").addClass('hidden');
 
-			if ($(this).data('toggle') != '-')
-			{
+			if ($(this).data('toggle') != '-') {
 				$newCard = $(".payment-type-card[id='" + $(this).data('toggle') + "']");
 
-				if ($newCard !== undefined && $newCard)
-				{
+				if ($newCard !== undefined && $newCard) {
 					$newCard.removeClass('hidden');
 
 					$("body, html").stop().animate({
@@ -130,10 +139,8 @@
 		});
 	</script>
 	<script>
-		$(".form-button-submit-holder").click(function ()
-		{
-			if ($("input[name='payment_method']:checked").length == 0)
-			{
+		$(".form-button-submit-holder").click(function () {
+			if ($("input[name='payment_method']:checked").length == 0) {
 				$methodCard = $("#method-card");
 
 				alert('{{ trans('checkout.index.method.errors.no-method') }}');
@@ -144,8 +151,7 @@
 
 				$methodCard.addClass('card-focus');
 
-				setTimeout(function ()
-				{
+				setTimeout(function () {
 					$methodCard.removeClass('card-focus');
 				}, 800);
 			}
@@ -156,19 +162,16 @@
 		Stripe.setPublishableKey('{{ env('STRIPE_API_PUBLISHABLE_KEY') }}');
 		var usesStripe = true;
 
-		function stripeResponseHandler(status, response)
-		{
+		function stripeResponseHandler(status, response) {
 			var $form = $("#checkout-form");
 			$form.removeClass('form--loading');
 
-			if (response.error)
-			{
+			if (response.error) {
 				// Show the errors on the form
 				$form.find('#payment-errors').text(response.error.message);
 				$form.find('button#button-submit').prop('disabled', false);
 			}
-			else
-			{
+			else {
 				// response contains id and card, which contains additional card details
 				var token = response.id;
 				// Insert the token into the form so it gets submitted to the server
@@ -178,16 +181,12 @@
 			}
 		}
 
-		jQuery(function ($)
-		{
-			$("#checkout-form").submit(function (event)
-			{
-				if (usesStripe)
-				{
+		jQuery(function ($) {
+			$("#checkout-form").submit(function (event) {
+				if (usesStripe) {
 					var $form = $(this);
 
-					if (!validateFormInput($form))
-					{
+					if (!validateFormInput($form)) {
 						return false;
 					}
 
@@ -204,32 +203,25 @@
 		});
 	</script>
 	<script>
-		function checkErrors()
-		{
+		function checkErrors() {
 			$error = false;
 
-			if (usesStripe)
-			{
-				$.each($("#checkout-form #payment-fieldset").find('input'), function (i, element)
-				{
-					if ($(element).val() == '')
-					{
+			if (usesStripe) {
+				$.each($("#checkout-form #payment-fieldset").find('input'), function (i, element) {
+					if ($(element).val() == '') {
 						$error = true;
 					}
 				});
 
-				if (!$.payment.validateCardNumber($("#ccnumber").val()))
-				{
+				if (!$.payment.validateCardNumber($("#ccnumber").val())) {
 					$error = true;
 				}
 
-				if (!$.payment.validateCardCVC($("#cc-csc").val()))
-				{
+				if (!$.payment.validateCardCVC($("#cc-csc").val())) {
 					$error = true;
 				}
 
-				if (!$.payment.validateCardExpiry($("#cc-exp-month").val() ? $("#cc-exp-month").val() : '', $("#cc-exp-year").val() ? $("#cc-exp-year").val() : ''))
-				{
+				if (!$.payment.validateCardExpiry($("#cc-exp-month").val() ? $("#cc-exp-month").val() : '', $("#cc-exp-year").val() ? $("#cc-exp-year").val() : '')) {
 					$error = true;
 				}
 			}
@@ -237,50 +229,40 @@
 			$("#checkout-form button#button-submit").prop('disabled', $error);
 		}
 
-		$("#ccnumber").on('change input', function ()
-		{
+		$("#ccnumber").on('change input', function () {
 			$validated = $.payment.validateCardNumber($(this).val());
 
-			if ($validated)
-			{
+			if ($validated) {
 				$(this).removeClass('input--error').addClass('input--success');
 			}
-			else
-			{
+			else {
 				$(this).addClass('input--error').removeClass('input--success');
 			}
 
 			checkErrors();
 		});
 
-		$("#cc-csc").on('change input', function ()
-		{
+		$("#cc-csc").on('change input', function () {
 			$validated = $.payment.validateCardCVC($(this).val());
 
-			if ($validated)
-			{
+			if ($validated) {
 				$(this).removeClass('input--error').addClass('input--success');
 			}
-			else
-			{
+			else {
 				$(this).addClass('input--error').removeClass('input--success');
 			}
 
 			checkErrors();
 		});
 
-		$("#cc-exp-month, #cc-exp-year").on('change', function ()
-		{
+		$("#cc-exp-month, #cc-exp-year").on('change', function () {
 			$validated = $.payment.validateCardExpiry($("#cc-exp-month").val(), $("#cc-exp-year").val());
 
-			if ($("#cc-exp-month").val() !== null && $("#cc-exp-year").val() !== null)
-			{
-				if ($validated)
-				{
+			if ($("#cc-exp-month").val() !== null && $("#cc-exp-year").val() !== null) {
+				if ($validated) {
 					$("#cc-exp-month, #cc-exp-year").removeClass('select--error').addClass('select--success');
 				}
-				else
-				{
+				else {
 					$("#cc-exp-month, #cc-exp-year").addClass('select--error').removeClass('select--success');
 				}
 			}

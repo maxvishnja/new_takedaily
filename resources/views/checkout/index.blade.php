@@ -122,16 +122,16 @@
 
 							<div class="row m-b-50 m-sm-b-20">
 								<div class="col-xs-6">
-									<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}</label>
-									<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
-										   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
-										   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
-								</div>
-								<div class="col-xs-6">
 									<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}</label>
 									<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
 										   placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company"
 										   value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
+								</div>
+								<div class="col-xs-6">
+									<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}</label>
+									<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
+										   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
+										   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
 								</div>
 							</div>
 
@@ -146,8 +146,7 @@
 
 								<div class="col-md-6">
 									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
-									<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone') }}
-										<span class="optional pull-right">{{ trans('checkout.index.order.info.optional') }}</span></label>
+									<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone') }}</label>
 									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif" id="input_info_phone"
 										   placeholder="{{ trans('checkout.index.order.info.phone-placeholder') }}" name="phone"
 										   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
