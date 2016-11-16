@@ -20,7 +20,7 @@
 								</div>
 							@endforeach
 						@endif
-						<div>{!! trans('label-product.contains') !!}</div>
+						<div style="margin: 2pt 0;">{!! trans('label-product.contains') !!}</div>
 						<div>{!! trans('label-product.recommended-daily-use') !!}</div>
 					</div>
 
