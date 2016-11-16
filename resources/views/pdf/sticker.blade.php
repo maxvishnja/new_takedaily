@@ -126,7 +126,7 @@
 		@if($customer->hasPlan() && $customer->getPlan()->hasFishoil())
 			<img src="{{ asset('/images/foa_logo.png') }}" style="float: left; height: 8mm; margin-right: 3pt;" alt="Friends of the Sea">
 		@endif
-			<strong>{!! trans('label-product.amount-daily') !!}</strong> {!! trans('label-product.dose') !!} {!! trans('label-product.Store') !!} {!! trans('label-product.health-disclaimer') !!} <br/>
+			{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
 			{!! trans('label-product.batch') !!} · {!! trans('label-product.weight') !!} · {!! trans('label-product.expiration') !!}
 			<br/>
 		<div>{{ trans('label-product.address') }}</div>
