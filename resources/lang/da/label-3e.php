@@ -47,5 +47,5 @@ return array (
   'disclaimer' => 'Bæredygtigt fiskeri, dobbeltrenset, 100% naturlig, certificeret af Friends of the Sea (FOS)
 <br/> * Den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA.
 <br/> ** Den gavnlige effekt opnås ved et dagligt indtag på 250 mg DHA.',
-  'Allergener' => 'Indeholder fiskeolie.',
+  'Allergener' => 'fiskeolie.',
 );

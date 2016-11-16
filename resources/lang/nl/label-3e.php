@@ -38,7 +38,7 @@ return array (
       'amount' => '10 mg',
     ),
   ),
-  'Allergener' => 'Bevat visolie',
+  'Allergener' => 'visolie',
   'ingredients' => 'visolie(vetzuren), capsulewand (gelatine), geleermiddel (glycerol), water, antioxidant (d-alpha-tocoferol concentraat)',
   'praises' => 
   array (
