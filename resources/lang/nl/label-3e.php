@@ -45,7 +45,8 @@ return array (
     'brain' => 'DHA draagt bij tot de instandhouding van de normale hersenfunctie en normaal gezichtvermgen. Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg DHA.**',
     'heart' => 'EPA en DHA dragen bij tot de normale werking van het hart. Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA.*',
   ),
-  'disclaimer' => 'Duurzame visserij, dubbel gereinigd, 100% natuurlijk, Vrienden van de Zee (FOS) gecertificeerd
+  'disclaimer' => 'Duurzame visserij, optimaal gereinigd, 100% natuurlijk, Vrienden van de Zee (FOS) gecertificeerd
+<span class="clear" style="clear:both;display:block"></span>
 <br/>*Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA.
 <br/>**Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg DHA.',
 );

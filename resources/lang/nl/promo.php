@@ -2,7 +2,7 @@
 
 return array (
   'free-shipping' => 'Gratis bezorgd',
-  'contact' => 'Bel TakeDaily: 06 1234 5678 of email ons via support@takedaily.com',
+  'contact' => 'Bel TakeDaily: 06 1234 5678 of email ons via info@takedaily.com',
   'customer_service' => 'Klantenservice',
   'custom-fit' => 'Op maat gemaakt voor jou',
   'advantages' => 'Voordelen',

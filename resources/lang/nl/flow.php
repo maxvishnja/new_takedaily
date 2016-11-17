@@ -383,17 +383,17 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
     array (
       'basic' => 'Multi Basic vormt de basis van jouw pakket aan gepersonaliseerde multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen.
 
-<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
+<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
       'basic-10-d' => 'Multi vitamine D+ vormt de basis van jouw gepersonaliseerde multivitaminen- & mineralensupplement. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D</div>
 
-<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
+<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
       'basic-10-d-alt' => 'Multi vitamine D+ vormt de basis van jouw gepersonaliseerde multivitaminen- & mineralensupplement. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D</div>
 
-<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
+<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
       'basic-20-d' => 'Multi vitamine D+ Extra vormt de basis van jouw pakket aan
 gepersonaliseerde aan multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar.
 
-<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
+<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
     ),
     2 => 
     array (

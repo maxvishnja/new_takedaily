@@ -51,7 +51,7 @@ return array (
   array (
     'bone' => 'Multi vitamine D+ vormt de basis van jouw gepersonaliseerde multivitaminen- & mineralensupplement. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D</div>
 ',
-    'muscle' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
+    'general-health' => 'Voor het ondersteunen van een optimale gezondheid',
   ),
   'vitamins' => 
   array (

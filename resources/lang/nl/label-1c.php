@@ -53,7 +53,7 @@ return array (
 gepersonaliseerde aan multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar.
 
 ',
-    'muscle' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
+    'general-health' => 'Voor het ondersteunen van een optimale gezondheid',
   ),
   'vitamins' => 
   array (

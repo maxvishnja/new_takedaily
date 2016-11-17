@@ -4,7 +4,6 @@ return array (
   'name' => 'Basis multivitamin og mineraltablet med 20 µg D-vitamin',
   'praises' => 
   array (
-    'muscle' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
     'bone' => 'Multivitamin D+ Ekstra danner grundlag for dine personlige multivitamin- og mineraltabletter. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 20 mikrogram D-vitamin til kvinder og mænd over 70 år.',
   ),
   'ingredients' => 'Fyldstof (dicalciumphosphatdihydrat), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E132), jern bisglycinate, L-ascorbinsyre, zinkgluconat, DL-alpha-tocopherylacetat, cholecalciferol, nicotinamid , L-selenomethionin, antiklumpningsmiddel (magnesiumstearat), calcium-D-pantothenat, retinylacetat, cyanocobalamin, phylloquinon (phytomenadion), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, chrompicolinat, pteroylmonoglutamic syre, kaliumiodid, D-biotin

@@ -21,7 +21,7 @@ return array (
     array (
       'Mineraler' => 
       array (
-        0 => 'vitamin-zink',
+        0 => 'Zink',
         7 => 'vitamin-jod',
         6 => 'vitamin-kalium',
         1 => 'vitamin-selen',

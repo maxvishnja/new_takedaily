@@ -42,19 +42,17 @@ return array (
     5 => 
     array (
       'name' => 'Heraf',
-      'amount' => '',
+      'amount' => '371,20 mg',
       'percent' => 'Omega-3 fedtsyrer',
     ),
     6 => 
     array (
       'name' => 'Alfalinolensyre (ALA)',
-      'amount' => '371,20 mg',
+      'amount' => '369,46 mg',
       'percent' => '*',
     ),
     7 => 
     array (
-      'amount' => '369,46 mg',
-      'name' => 'Alfalinolensyre (ALA)',
       'percent' => '*',
     ),
   ),

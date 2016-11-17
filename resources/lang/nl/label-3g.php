@@ -8,12 +8,13 @@ return array (
       'name' => 'Waarvan
 ',
       'percent' => 'Omega 3-vetzuren',
+      'amount' => '371,20 mg',
     ),
     6 => 
     array (
       'percent' => '*',
       'name' => 'Alfa-linoleenzuur (ALA)',
-      'amount' => '371,20 mg',
+      'amount' => '369,46 mg',
     ),
     1 => 
     array (
@@ -47,9 +48,7 @@ return array (
     ),
     7 => 
     array (
-      'name' => 'Alfa-linoleenzuur (ALA)',
       'percent' => '*',
-      'amount' => '369,46 mg',
     ),
   ),
   'name' => 'Chiazaadolie',

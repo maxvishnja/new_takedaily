@@ -4,7 +4,6 @@ return array (
   'name' => 'Basis multivitamin og mineraltablet med ekstra D-vitamin',
   'praises' => 
   array (
-    'muscle' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
     'bone' => 'Multivitamin D+ danner grundlag for dine personlige multivitamin- og mineraltilskud. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 10 mikrogram D-vitamin',
   ),
   'ingredients' => 'Fyldstof (dicalciumphosphatdihydrat), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E141), jern bisglycinate, L-ascorbinsyre, zinkgluconat, DL-alpha-tocopherylacetat, nicotinamid, L -selenomethionine, antiklumpningsmiddel (magnesiumstearat), cholecalciferol, calcium-D-pantothenat, retinylacetat, cyanocobalamin, phylloquinon (phytomenadion), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, chrompicolinat, pteroylmonoglutamic syre, kaliumiodid, D-biotin
