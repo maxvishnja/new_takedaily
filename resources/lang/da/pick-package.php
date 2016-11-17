@@ -17,7 +17,7 @@ return [
 		],
 	'select'      =>
 		[
-			'title' => 'Udfyld dine oplysninger..',
+			'title' => 'Vi har brug for lidt flere oplysninger, det tager kun 1 minut',
 		],
 	'packages'    =>
 		[
