@@ -105,7 +105,7 @@
 			el: '#app',
 			data: {
 				show_popup: false,
-				maxVitamins: 5,
+				maxVitamins: 3,
 				minVitamins: 3,
 				groupTranslations: {
 					@foreach(trans('pick.groups') as $key => $group)
@@ -159,13 +159,10 @@
 				cartItems: function () {
 					var items = [];
 
-					items.push({name: "{{ trans('products.subscription') }}", price: parseFloat("{{\App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Product::where('name', 'subscription')->first()->price)) }}") });
-
-					if (this.numSelectedVitamins > 4) {
-						for (var i = 0; i < this.numSelectedVitamins - 4; i++) {
-							items.push({name: "{{ trans('products.extra') }}", price: parseFloat("{{\App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Setting::getWithDefault('vitamin_price', 0)) }}") });
-						}
-					}
+					items.push({
+						name: "{{ trans('products.subscription') }}",
+						price: parseFloat("{{\App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Product::where('name', 'subscription')->first()->price)) }}")
+					});
 
 					return items;
 				},
