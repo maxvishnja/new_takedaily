@@ -11,6 +11,7 @@
 
 	<div class="container" id="app">
 		<h1 class="text-center">{{ trans('pick-package.title') }}</h1>
+		<h3 class="text-center">{{ trans('pick-package.sub-title') }}</h3>
 		<div v-cloak="" class="packages">
 			<div v-for="package in packages" class="package">
 				<strong v-html="package.name"></strong>

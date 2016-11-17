@@ -2,6 +2,7 @@
 
 return [
 	'title'       => 'Vælg din TakeDaily pakke',
+	'sub-title'       => 'Du vil, afhængig af din pakke, blive spurgt om yderligere oplysninger efterfølgende',
 	'select-btn'  => 'Vælg denne',
 	'custom-pill' => 'Vælg en pille',
 	'pills'       =>

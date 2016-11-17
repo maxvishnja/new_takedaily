@@ -5,8 +5,11 @@ body.page-package-pick
 		height: 400px
 		margin-bottom: 20px
 
-	h1.text-center
-		margin: 30px 0 40px
+	h1
+		margin: 50px 0 10px
+
+	h3
+		margin: 0 0 40px
 
 	.packages
 		display: flex
@@ -41,3 +44,53 @@ body.page-package-pick
 				bottom: 25px
 				left: 20px
 				right: 20px
+
+@media all and (max-width: 1199px)
+	body.page-package-pick
+		.packages
+			.package
+				width: calc(25% - 10px)
+				margin-right: 10px
+
+				&:nth-child(5n+5)
+					margin-right: 10px
+
+				&:nth-child(4n+4)
+					margin-right: 0
+
+@media all and (max-width: 991px)
+	body.page-package-pick
+		.packages
+			.package
+				width: calc(33.3333333333333% - 10px)
+				margin-right: 10px
+
+				&:nth-child(5n+5),
+				&:nth-child(4n+4)
+					margin-right: 10px
+
+				&:nth-child(3n+3)
+					margin-right: 0
+
+@media all and (max-width: 767px)
+	body.page-package-pick
+		.packages
+			.package
+				width: calc(50% - 10px)
+				margin-right: 10px
+
+				&:nth-child(5n+5),
+				&:nth-child(4n+4),
+				&:nth-child(3n+3)
+					margin-right: 10px
+
+				&:nth-child(2n+2)
+					margin-right: 0
+
+
+@media all and (max-width: 400px)
+	body.page-package-pick
+		.packages
+			.package
+				width: 100%
+				margin-right: 0 !important
