@@ -35,9 +35,7 @@
 												<br/><span style="font-weight: normal; font-size: 12px;">{{ trans("pick-package.pills.3{$choice}") }}</span></label>
 										@endforeach
 									</div>
-
 									<p class="substep-explanation">{{ trans('flow.questions.3-1.text') }}</p>
-
 								</div>
 							</div>
 						@endif
@@ -134,6 +132,13 @@
 					this.step++;
 					this.sub_step = 1;
 
+					if(this.step == 2)
+					{
+						@if(!$package->hasChoice($package->group_three))
+							this.submitTheForm();
+						@endif
+					}
+
 					currentStep.removeClass("step--active");
 					nextStep.addClass("step--active");
 
@@ -146,7 +151,6 @@
 
 					nextStep.css("min-height", newHeight * 1.2);
 
-					this.checkIfShouldGetCombinations();
 
 					var curSubStep = nextStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
 
@@ -212,7 +216,6 @@
 					currentStep.removeClass("step--active");
 					previousStep.addClass("step--active");
 
-					this.checkIfShouldGetCombinations();
 
 					var curSubStep = previousStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
 
