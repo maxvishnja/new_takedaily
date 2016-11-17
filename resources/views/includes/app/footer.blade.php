@@ -54,13 +54,13 @@
 				</div>
 				<div class="col-lg-9 col-sm-8 text-right">
 					<ul class="footer_bottom_links">
-						<li class="input input--semibold input--transparent lang-selector-footer selector selector--up">{{ trans('footer.language') }}
+						<li class="input input--semibold input--transparent lang-selector-footer selector selector--up"><span class="icon v-a-m flag-{{ App::getLocale() }}"></span>
 							<span class="icon icon-arrow-up-small v-a-m m-l-5"></span>
 							<ul>
 								@foreach(config('app.locales') as $locale)
 									<li>
 										<a rel="alternate" hreflang="{{ $locale['code'] }}" href="{{ \App\Apricot\Helpers\DomainHelper::convertTldTo($locale['tld']) }}">
-											{{ $locale['name'] }}
+											<span class="icon flag-{{ $locale['code'] }}"></span>
 										</a>
 									</li>
 								@endforeach
