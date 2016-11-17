@@ -1,18 +1,22 @@
 <?php
+
 return [
-	/*
-	|--------------------------------------------------------------------------
-	| Password Reminder Language Lines
-	|--------------------------------------------------------------------------
-	|
-	| The following language lines are the default lines which match reasons
-	| that are given by the password broker for a password update attempt
-	| has failed, such as for an invalid token or invalid new password.
-	|
-	*/
-	'password' => 'Adgangskoder skal minimum være 6 tegn og skal være tastet ens i begge felter.',
-	'reset'    => 'Adgangskoden er blevet nulstillet!',
-	'sent'     => 'Vi har sendt dig en e-mail til at nulstille din adgangskode!',
-	'token'    => 'Koden til nulstilling af adgangskoden er ugyldig.',
-	'user'     => 'Vi kan ikke finde en bruger med den e-mail adresse.',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Password Reminder Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | The following language lines are the default lines which match reasons
+    | that are given by the password broker for a password update attempt
+    | has failed, such as for an invalid token or invalid new password.
+    |
+    */
+
+    'password' => 'Wachtwoord moet minimaal zes tekens lang zijn en de wachtwoorden moeten overeenkomen.',
+    'reset'    => 'Het wachtwoord van uw account is gewijzigd.',
+    'sent'     => 'We hebben een e-mail verstuurd met instructies om een nieuw wachtwoord in te stellen.',
+    'token'    => 'Dit wachtwoordresettoken is niet geldig.',
+    'user'     => 'Geen gebruiker bekend met dat e-mailadres.',
+
 ];

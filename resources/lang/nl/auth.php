@@ -1,6 +1,19 @@
 <?php
 
-return array (
-  'failed' => 'De gegevens zijn ongeldig',
-  'throttle' => 'Teveel onjuiste inlogpogingen Probeer het zo nog eens :seconds sekunder.',
-);
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Authentication Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | The following language lines are used during authentication for various
+    | messages that we need to display to the user. You are free to modify
+    | these language lines according to your application's requirements.
+    |
+    */
+
+    'failed'   => 'Deze combinatie van e-mailadres en wachtwoord is niet geldig.',
+    'throttle' => 'Teveel mislukte login pogingen. Probeer het over :seconds seconden nogmaals.',
+
+];
