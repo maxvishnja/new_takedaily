@@ -38,7 +38,7 @@ return [
 			'balanced_body'      =>
 				[
 					'name'        => 'Body in Balance',
-					'description' => '',
+					'description' => 'Calcium en vitamine D helpen het verlies van botmineralen bij vrouwen in de meno-pauze te verminderen.',
 				],
 			'immunity_boost'     =>
 				[
@@ -48,7 +48,7 @@ return [
 			'vega_power'         =>
 				[
 					'name'        => 'Vega Power',
-					'description' => '',
+					'description' => 'Calcium en vitamine D helpen het verlies van botmineralen bij vrouwen in de meno-pauze te verminderen.',
 				],
 			'women_menopause'    =>
 				[
