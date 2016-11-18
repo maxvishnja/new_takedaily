@@ -23,7 +23,7 @@
 			@endif
 			@if($giftcard)
 				<tr>
-					<td>{{ trans('checkout.index.total.giftcard	') }}</td>
+					<td>{{ trans('checkout.index.total.giftcard') }}</td>
 					<td>{{ trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth, true, 2, '.')))->toCurrency(trans('general.currency'))]) }}</td>
 				</tr>
 			@endif
