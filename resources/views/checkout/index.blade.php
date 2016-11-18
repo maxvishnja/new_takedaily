@@ -223,7 +223,7 @@
 					@if($product->is_subscription == 1)
 						<div class="clear"></div>
 						<div class="visible-sm visible-xs">
-							{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addDays(28)->format('j. M Y')]) !!}
+							{!! trans('checkout.index.disclaimer') !!}
 						</div>
 					@endif
 
@@ -294,7 +294,7 @@
 					@endif
 
 					@if($product->is_subscription == 1)
-						{!! trans('checkout.index.disclaimer', ['date' => \Jenssegers\Date\Date::now()->addMonths($giftcard ? (round($giftcard->worth / $product->price) + 1) : 1)->format('j. M Y')]) !!}{{-- todo instead of $product->price, use also extra_prices/codes --}}
+						{!! trans('checkout.index.disclaimer') !!}
 					@endif
 
 					<div class="m-t-20">

@@ -94,10 +94,7 @@ return array (
       'input-placeholder' => 'Jouw kortingscode',
       'button-text' => 'Toepassen',
     ),
-    'disclaimer' => '<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">{{ total_subscription }}
-							DKK</span><strong v-show="price !== total_subscription">{{ total_subscription }} DKK</strong> på dit kort hver måned. Første
-						trækning er
-						d. :date
+    'disclaimer' => '<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">{{ total_subscription }} DKK</strong> på dit kort hver måned.
 					</p>
 
 					<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>',
