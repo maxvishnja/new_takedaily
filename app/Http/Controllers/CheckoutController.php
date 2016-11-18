@@ -22,9 +22,9 @@ class CheckoutController extends Controller
 	{
 		\Session::set( 'product_name', $request->get( 'product_name', \Session::get( 'product_name', 'subscription' ) ) );
 
-		$userData = \Session::get( 'user_data', \Request::old( 'user_data', Cart::getInfoItem('user_data', null) ) );
+		$userData = \Session::get( 'user_data', \Request::old( 'user_data', Cart::getInfoItem( 'user_data', null ) ) );
 
-		if ( \Session::get( 'product_name' ) == 'subscription' && ( (! $userData || count($userData) == 0) && ! \Session::has( 'vitamins' ) ) )
+		if ( \Session::get( 'product_name' ) == 'subscription' && ( ( ! $userData || count( $userData ) == 0 ) && ! \Session::has( 'vitamins' ) ) )
 		{
 			return \Redirect::route( 'flow' )->withErrors( [ trans( 'checkout.messages.vitamins-not-selected' ) ] );
 		}
@@ -46,9 +46,14 @@ class CheckoutController extends Controller
 			return \Redirect::route( 'home' );
 		}
 
-		if ( ! $userData)
+		if ( ! $userData )
 		{
-			$userData = json_decode('{}');
+			$userData = json_decode( '{}' );
+		}
+
+		while( is_string($userData) && json_decode( $userData) )
+		{
+			$userData = json_decode( $userData);
 		}
 
 		return view( 'checkout.index', [
@@ -141,6 +146,12 @@ class CheckoutController extends Controller
 	{
 		$productName = $request->session()->get( 'product_name', 'subscription' );
 		$couponCode  = $request->session()->get( 'coupon', '' );
+		$userData = $request->session()->get('user_data', $request->old( 'user_data', Cart::getInfoItem( 'user_data', null ) ) );
+
+		while( is_string($userData) && json_decode( $userData) )
+		{
+			$userData = json_decode( $userData);
+		}
 
 		$checkout = new Checkout();
 		$checkout->setPaymentMethod( $method )
@@ -170,11 +181,17 @@ class CheckoutController extends Controller
 
 		$checkoutCompletion = new CheckoutCompletion( $checkout );
 
-		$password = ( $request->session()->has( 'user_data' ) && isset( json_decode( $request->session()
-		                                                                                     ->get( 'user_data' ) )->birthdate ) ) ? date( 'Y-m-d', strtotime( json_decode( $request->session()
-		                                                                                                                                                                            ->get( 'user_data' ) )->birthdate ) ) : str_random( 8 );
-		$name     = $request->session()->get( 'name' );
-		$email    = $request->session()->get( 'email' );
+		if ( $userData && isset($userData->birthdate) )
+		{
+			$password = date( 'Y-m-d', strtotime( $userData->birthdate ) );
+		}
+		else
+		{
+			$password = str_random( 8 );
+		}
+
+		$name  = $request->session()->get( 'name' );
+		$email = $request->session()->get( 'email' );
 
 		$checkoutCompletion->createUser( $name, $email, $password );
 
@@ -190,7 +207,7 @@ class CheckoutController extends Controller
 				'phone'           => $request->session()->get( 'phone' ),
 			] )
 			                   ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
-			                   ->setUserData( $request->session()->get( 'user_data', '{}' ) )
+			                   ->setUserData( json_encode($userData) )
 			                   ->updateCustomerPlan()
 			                   ->handleProductActions()
 			                   ->deductCouponUsage()

@@ -120,7 +120,7 @@ class CheckoutCompletion {
 				'price'                     => $this->getCheckout()->getSubscriptionPrice(),
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
 				'subscription_started_at'   => \Date::now(),
-				'subscription_rebill_at'    => \Date::now()->addDays(28+5),
+				'subscription_rebill_at'    => \Date::now()->addDays(28+5), // todo remove +5 maybe
 				'subscription_cancelled_at' => null
 			] );
 
