@@ -65,9 +65,10 @@ class Stripe implements PaymentInterface
 	{
 		return $this->charge($amount, 'Initial', [
 			'customer' => $customer->id,
-			'currency' => 'EUR' // todo: un-hardcode this
+			'currency' => trans('general.currency')
 		]);
 	}
+
 
 	public function makeRebill($amount, $customer)
 	{
@@ -75,7 +76,7 @@ class Stripe implements PaymentInterface
 		{
 			return Charge::create([
 				'amount'               => $amount,
-				'currency'             => 'EUR',
+				'currency'             => trans('general.currency'), // todo debug this
 				'customer'             => $customer->id,
 				'description'          => 'rebill',
 				'statement_descriptor' => 'TakeDaily',
