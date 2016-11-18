@@ -134,4 +134,6 @@ return array (
     ),
   ),
   'disclaimer' => '',
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );

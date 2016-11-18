@@ -2,7 +2,6 @@
 
 return array (
   'recommended-daily-use' => '<strong>Anbefalet daglig dosis: (1 kapsel)</strong> ',
-  'not-replace' => 'Kosttilskud bør ikke erstatte en sund og varieret kost.',
   'ingredients' => 'Ingredienser',
   'titles' => 
   array (

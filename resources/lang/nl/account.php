@@ -33,7 +33,7 @@ return array (
   ),
   'transactions' => 
   array (
-    'title' => 'Leveringen - TakeDaily',
+    'title' => 'Bestellingen - TakeDaily',
     'header' => 'Jouw levering',
     'no-results' => 'Geen leveringen gevonden',
     'table' => 
@@ -47,7 +47,7 @@ return array (
   'settings_basic' => 
   array (
     'title' => 'Instellingen - TakeDaily',
-    'header' => 'Jouw bezorgadres',
+    'header' => 'Bezorgadres',
     'button-save-text' => 'Opslaan',
   ),
   'settings_billing' => 
@@ -58,7 +58,7 @@ return array (
     'button-add-method-text' => 'Voeg nieuwe toe',
     'button-update-text' => 'Verversen',
     'card-exp' => 'Vervaldatum:',
-    'button-remove-text' => 'Afgelegen',
+    'button-remove-text' => 'Verwijder',
     'add' => 
     array (
       'button-cancel-text' => 'Annuleren',
@@ -70,9 +70,8 @@ return array (
   'settings_subscription' => 
   array (
     'title' => 'Abonnement  - TakeDaily',
-    'header' => '
-Vertalen uit het: Nederlands
-Uw abonnement is <u>: Status </ u>',
+    'header' => 'Vertalen uit het: Nederlands
+Uw abonnement is <u>:Status</u>',
     'total' => '<span>:hoeveelheid</span><small> / maand</small>',
     'next-date' => 'Volgende tekening datum :: datum',
     'plan' => 

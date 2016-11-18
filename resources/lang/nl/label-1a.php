@@ -134,4 +134,6 @@ return array (
     'shield' => 'Multi Basic vormt de basis van jouw pakket aan gepersonaliseerde multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen.',
     'general-health' => 'Voor het ondersteunen van een optimale gezondheid',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );
