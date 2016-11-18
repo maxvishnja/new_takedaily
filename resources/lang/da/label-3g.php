@@ -43,18 +43,20 @@ return array (
     array (
       'name' => 'Heraf',
       'amount' => '371,20 mg',
-      'percent' => 'Omega-3 fedtsyrer',
     ),
     6 => 
     array (
-      'name' => 'Alfalinolensyre (ALA)',
-      'amount' => '369,46 mg',
+      'name' => 'Omega-3 fedtsyrer',
+      'amount' => '371,20 mg',
       'percent' => '*',
     ),
     7 => 
     array (
       'percent' => '*',
+      'name' => 'Alfa-linolensyre (ALA)',
+      'amount' => '369,46 mg',
     ),
   ),
   'disclaimer' => '* Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA. <br/> Rig på omega-3 fedtsyrer',
+  'end_date' => '09/2019',
 );

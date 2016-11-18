@@ -7,14 +7,12 @@ return array (
     array (
       'name' => 'Waarvan
 ',
-      'percent' => 'Omega 3-vetzuren',
-      'amount' => '371,20 mg',
     ),
     6 => 
     array (
       'percent' => '*',
-      'name' => 'Alfa-linoleenzuur (ALA)',
-      'amount' => '369,46 mg',
+      'name' => 'Omega-3 vetzuren',
+      'amount' => '371,20 mg',
     ),
     1 => 
     array (
@@ -49,6 +47,8 @@ return array (
     7 => 
     array (
       'percent' => '*',
+      'amount' => '369,46 mg',
+      'name' => 'Alfa-linoleenzuur (ALA)',
     ),
   ),
   'name' => 'Chiazaadolie',
@@ -58,4 +58,5 @@ return array (
   array (
     'blood' => 'Alfa-linoleenzuur (ALA) helpt het cholesterolniveau gezond te houden.*',
   ),
+  'end_date' => '09/2019',
 );

@@ -25,7 +25,7 @@ return array (
     1 => 
     array (
       'amount' => '550 mg',
-      'name' => 'omega 3-vetzuren (55%) waarvan',
+      'name' => 'Omega 3-vetzuren (55%) waarvan',
       'percent' => '*',
     ),
   ),
