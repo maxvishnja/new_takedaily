@@ -249,14 +249,14 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					break;
 			}
 
-			if ( \App\Apricot\Checkout\Cart::hasInfo( "vitamin.{$vitaminGroup}" ) )
+			if ( \App\Apricot\Checkout\Cart::hasInfo( "vitamins.{$vitaminGroup}" ) )
 			{
 				\App\Apricot\Checkout\Cart::deductProduct( 'vitamin' );
 				\App\Apricot\Checkout\Cart::removeProduct( "vitamin.{$vitaminGroup}" );
-				\App\Apricot\Checkout\Cart::removeInfo("vitamin.{$vitaminGroup}");
+				\App\Apricot\Checkout\Cart::removeInfo("vitamins.{$vitaminGroup}");
 			}
 
-			return Response::json( [ 'lines' => \App\Apricot\Checkout\Cart::get() ] );
+			return Response::json( [ 'lines' => \App\Apricot\Checkout\Cart::get(), 'info' => \App\Apricot\Checkout\Cart::getInfo() ] );
 		} );
 
 		Route::get( '/flow', function ( \Illuminate\Http\Request $request )
@@ -386,7 +386,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</strong></div><p>' . trans( strtolower( "label-{$index}{$combination}.ingredients" ) ) . '</p><small>' . trans( 'label-product.Store' ) . '</small></div>';
 
 				$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey );
-				\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '', ['key' => "vitamin.{$indexOld}"] );
+				\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '', ['key' => "vitamin.{$index}"] );
 				\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$index}", $vitamin_code );
 			}
 

@@ -81,12 +81,14 @@ class Cart
 
 		$cart = self::get();
 
-		$data = [ 'name' => $productName, 'amount' => (int) $price ] ;
+		$data = collect([ 'name' => $productName, 'amount' => (int) $price ]);
 
-		if(count($extraData) > 0)
+		foreach($extraData as $key => $item)
 		{
-
+			$data->put($key, $item);
 		}
+
+		$data = $data->toArray();
 
 		$cart->push( $data );
 
@@ -142,8 +144,13 @@ class Cart
 
 		$cart = self::get();
 
-		$cart->filter(function($item) use($key)
+		$cart = $cart->filter(function($item) use($key)
 		{
+			if( !isset($item->key))
+			{
+				return true;
+			}
+
 			return $item->key != $key;
 		});
 
