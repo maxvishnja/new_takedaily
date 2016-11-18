@@ -227,24 +227,4 @@
 
 		<p class="substep-explanation">{{ trans('flow.questions.2-10.text') }}</p>
 	</div>
-
-	<div data-sub-step="11" class="sub_step">
-		<h3 class="substep-title">{{ trans('flow.questions.2-11.title') }}</h3>
-		<div class="sub_step_answers">
-			<label>
-				<input type="radio" name="step[2][11]" value="1" v-on:click="nextStep();"
-					   v-model="user_data.supplements" data-model="supplements"/>
-				<span class="icon icon-supplement-yes"></span>
-				<br/>{{ trans('flow.questions.2-11.options.1') }}
-			</label>
-			<label>
-				<input type="radio" name="step[2][11]" value="2" v-on:click="nextStep();"
-					   v-model="user_data.supplements" data-model="supplements"/>
-				<span class="icon icon-supplement-no"></span>
-				<br/>{{ trans('flow.questions.2-11.options.2') }}
-			</label>
-		</div>
-
-		<p class="substep-explanation">{{ trans('flow.questions.2-11.text') }}</p>
-	</div>
 </div>

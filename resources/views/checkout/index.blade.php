@@ -6,6 +6,7 @@
 @section('title', trans('checkout.index.title'))
 
 @section('content')
+	{{ dd(\App\Apricot\Checkout\Cart::get()) }}
 	<script>
 		function statusChangeCallback(response) {
 			if (response.status == 'connected') {

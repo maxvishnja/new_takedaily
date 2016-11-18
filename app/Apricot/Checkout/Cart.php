@@ -67,7 +67,7 @@ class Cart
 		return $lines->sum( 'amount' );
 	}
 
-	public static function addProduct( $productName, $price = null )
+	public static function addProduct( $productName, $price = null, $extraData = [] )
 	{
 		if ( ! self::exists() )
 		{
@@ -81,7 +81,14 @@ class Cart
 
 		$cart = self::get();
 
-		$cart->push( [ 'name' => $productName, 'amount' => (int) $price ] );
+		$data = [ 'name' => $productName, 'amount' => (int) $price ] ;
+
+		if(count($extraData) > 0)
+		{
+
+		}
+
+		$cart->push( $data );
 
 		self::set( $cart );
 	}
@@ -98,6 +105,49 @@ class Cart
 		$info->put( $key, $value );
 
 		self::setInfo( $info );
+	}
+
+	public static function hasInfo( $key )
+	{
+		if ( ! self::exists() )
+		{
+			self::init();
+		}
+
+		$info = self::getInfo();
+
+		return $info->has( $key );
+	}
+
+	public static function removeInfo( $key )
+	{
+		if ( ! self::exists() )
+		{
+			self::init();
+		}
+
+		$info = self::getInfo();
+
+		$info->forget( $key );
+
+		self::setInfo($info);
+	}
+
+	public static function removeProduct( $key )
+	{
+		if ( ! self::exists() )
+		{
+			self::init();
+		}
+
+		$cart = self::get();
+
+		$cart->filter(function($item) use($key)
+		{
+			return $item->key != $key;
+		});
+
+		self::set($cart);
 	}
 
 	private static function set( Collection $cart )

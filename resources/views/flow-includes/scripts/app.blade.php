@@ -141,7 +141,10 @@
 			},
 
 			removeVitamin: function(group, subgroup) {
-				alert(group + subgroup);
+				$.post('/cart-deduct/' + group).done(function(response)
+				{
+					console.log(response);
+				});
 
 				this.getCart();
 			},
