@@ -119,11 +119,8 @@
 						@endif
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 4pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
-					<div style="font-size: 6pt;color: #1A8562; margin-top: 1pt;">
-						<strong>{{ trans('label-product.batch') }}</strong> {{ trans("label-{$vitaminModel->code}.batch_number") }}
-					</div>
-					<div style="font-size: 6pt;color: #1A8562; margin-top: 1pt;">
-						<strong>{{ trans('label-product.expiration') }}</strong> {{ trans("label-{$vitaminModel->code}.end_date") }}
+					<div style="font-size: 6pt;color: #1A8562; margin-top: 1pt; font-weight: 200; ">
+						<strong>{{ trans('label-product.batch') }}</strong> {{ trans("label-{$vitaminModel->code}.batch_number") }} · <strong>{{ trans('label-product.expiration') }}</strong> {{ trans("label-{$vitaminModel->code}.end_date") }}
 					</div>
 				</div>
 			@endforeach
