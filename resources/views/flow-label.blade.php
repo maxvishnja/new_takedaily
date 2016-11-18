@@ -1,5 +1,5 @@
 @foreach($combinations as $combinationKey => $combinationValue)
-	<div class="m-b-30">
+	<div class="m-b-30 vitamin-item-for-recommendation" data-group="{{ $combinationKey }}">
 		<div style="display: inline-block;" class="pull-right text-right">
 			<span class="icon pill-{{ \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) }}"></span>
 		</div>
