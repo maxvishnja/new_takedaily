@@ -136,12 +136,14 @@
 			}
 		},
 		methods: {
-			getTotal: function() {
+			getCart: function() {
 				// todo get from /cart
 			},
 
 			removeVitamin: function(group, subgroup) {
 				alert(group + subgroup);
+
+				this.getCart();
 			},
 
 			nextStep: function () {
