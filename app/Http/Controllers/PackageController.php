@@ -68,6 +68,10 @@ class PackageController extends Controller
 			     ->getCustomer()
 			     ->updateCustomUserData(json_decode($request->get('user_data')));
 
+			\Auth::user()
+			     ->getCustomer()
+			     ->updateCustomUserData(json_decode(json_encode( ['custom' => [ 'one' => $package->group_one, 'two' => $package->group_two, 'three' => $package->group_three ]]))); // todo fix this bullshit!!
+
 			return \Redirect::action( 'AccountController@getSettingsSubscription' )
 			                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
 		}
@@ -77,9 +81,8 @@ class PackageController extends Controller
 		\Session::put( 'package', $package->id );
 		\Session::put( 'product_name', 'package' );
 
-		\Auth::user()
-		     ->getCustomer()
-		     ->updateCustomUserData(json_decode(json_encode( ['custom' => [ 'one' => $package->group_one, 'two' => $package->group_two, 'three' => $package->group_three ]])));
+		\App\Apricot\Checkout\Cart::clear();
+		\App\Apricot\Checkout\Cart::addProduct('subscription');
 
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}

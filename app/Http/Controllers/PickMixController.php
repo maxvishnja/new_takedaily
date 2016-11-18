@@ -54,6 +54,9 @@ class PickMixController extends Controller
 		\Session::put( 'vitamins', $vitamins );
 		\Session::put( 'product_name', 'subscription' );
 
+		\App\Apricot\Checkout\Cart::clear();
+		\App\Apricot\Checkout\Cart::addProduct('subscription');
+
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app'){{-- get totals from Cart class --}}
 
 @section('pageClass', 'page-checkout')
 

@@ -364,6 +364,9 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					Auth::logout();
 				}
 
+				\App\Apricot\Checkout\Cart::clear();
+				\App\Apricot\Checkout\Cart::addProduct('subscription');
+
 				Session::forget( 'vitamins' );
 				Session::forget( 'package' );
 				Session::put( 'user_data', $userData );
