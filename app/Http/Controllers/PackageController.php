@@ -77,6 +77,10 @@ class PackageController extends Controller
 		\Session::put( 'package', $package->id );
 		\Session::put( 'product_name', 'package' );
 
+		\Auth::user()
+		     ->getCustomer()
+		     ->updateCustomUserData(json_decode(json_encode( ['custom' => [ 'one' => $package->group_one, 'two' => $package->group_two, 'three' => $package->group_three ]])));
+
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}
 }

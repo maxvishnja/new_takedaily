@@ -10,9 +10,9 @@
 
 		@if(session('upsell', false) && Session::has('upsell_token'))
 			<div class="text-center">
-				<h2>Skal din familie eller ansatte have TakeDaily?</h2>
+				<h2>{{ trans('success.upsell') }}</h2>
 				<form method="post" action="{{ URL::route('flow-upsell') }}">
-					<button type="submit" class="button button--green button--medium button--rounded">Bestil TakeDaily med 50% rabat</button>
+					<button type="submit" class="button button--green button--medium button--rounded">{{ trans('success.upsell-btn') }}</button>
 
 					<input type="hidden" name="upsell_token" value="{{ Session::get('upsell_token') }}"/>
 					{{ csrf_field() }}
