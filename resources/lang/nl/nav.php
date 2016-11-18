@@ -46,6 +46,8 @@ return array (
         7 => 'vitamin-b2-riboflavin',
         8 => 'vitamin-b1-tiamin',
         9 => 'vitamin-b8-biotin',
+        11 => 'vitamin-b9-folatfolsyre',
+        12 => 'vitamin-b12-kobalamin'
       ),
     ),
   ),
