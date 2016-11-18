@@ -128,6 +128,7 @@ class Checkout
 	public function setTotal( $newTotal )
 	{
 		$this->total = $newTotal;
+		$this->setSubscriptionPrice($newTotal);
 
 		return $this;
 	}
@@ -189,7 +190,7 @@ class Checkout
 
 	public function getSubscriptionPrice()
 	{
-		return $this->total;
+		return $this->subscriptionPrice;
 	}
 
 	public function setSubscriptionPrice( $newPrice )

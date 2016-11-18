@@ -117,8 +117,8 @@ class CheckoutCompletion {
 	public function updateCustomerPlan() {
 		if ( $this->getCheckout()->getProduct()->isSubscription() ) {
 			$this->getUser()->getCustomer()->getPlan()->update( [
-				'price'                     => MoneyLibrary::toCents( $this->getCheckout()->getSubscriptionPrice() ),
-				'price_shipping'            => MoneyLibrary::toCents( Setting::getWithDefault( 'shipping_price', 0 ) ),
+				'price'                     => $this->getCheckout()->getSubscriptionPrice(),
+				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
 				'subscription_started_at'   => \Date::now(),
 				'subscription_rebill_at'    => \Date::now()->addDays(28+5),
 				'subscription_cancelled_at' => null

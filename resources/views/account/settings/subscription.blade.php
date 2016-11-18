@@ -17,7 +17,7 @@
 	@endif
 
 	<h1>{!! trans('account.settings_subscription.header', ['status' => trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) ]) !!}</h1>
-	<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true)))->toCurrency(trans('general.currency')) ])]) !!}</h2>
+	<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true)])]) !!}</h2>
 
 	@foreach(Auth::user()->getCustomer()->getVitaminModels() as $vitamin)
 		<span class="icon pill-{{ $vitamin->code }}"></span>

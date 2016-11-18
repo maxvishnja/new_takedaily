@@ -200,6 +200,7 @@ class CheckoutController extends Controller
 			                   ->flush()
 			                   ->initUpsell()
 			                   ->loginUser();
+
 		} catch ( \Exception $exception )
 		{
 			$checkoutCompletion->user->delete();
