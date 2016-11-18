@@ -41,15 +41,18 @@ class PillLibrary
 	{
 		switch ( $group )
 		{
+			case 1:
 			case 'one':
 				$group = 1;
 				break;
 
+			case 2:
 			case 'two':
 				$group = 2;
 				break;
 
 			default:
+			case 3:
 			case 'three':
 			case 'four':
 			case 'five':

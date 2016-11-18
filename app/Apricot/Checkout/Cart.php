@@ -21,6 +21,16 @@ class Cart
 		return collect( self::getModel()->getLines() );
 	}
 
+	public static function getInfo()
+	{
+		if ( ! self::exists() )
+		{
+			return collect( [] );
+		}
+
+		return collect( self::getModel()->getInfo() );
+	}
+
 	public static function clear()
 	{
 		\Session::forget( self::COOKIE_NAME );
@@ -76,6 +86,20 @@ class Cart
 		self::set( $cart );
 	}
 
+	public static function addInfo( $key, $value )
+	{
+		if ( ! self::exists() )
+		{
+			self::init();
+		}
+
+		$info = self::getInfo();
+
+		$info->put( $key, $value );
+
+		self::setInfo( $info );
+	}
+
 	private static function set( Collection $cart )
 	{
 		if ( ! self::exists() )
@@ -84,6 +108,16 @@ class Cart
 		}
 
 		self::getModel()->update( [ 'lines' => json_encode( $cart->toArray() ) ] );
+	}
+
+	private static function setInfo( Collection $info )
+	{
+		if ( ! self::exists() )
+		{
+			self::init();
+		}
+
+		self::getModel()->update( [ 'extra_data' => json_encode( $info->toArray() ) ] );
 	}
 
 	/**

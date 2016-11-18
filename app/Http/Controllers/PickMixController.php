@@ -59,9 +59,12 @@ class PickMixController extends Controller
 		Cart::addProduct('subscription');
 
 		/** @var Vitamin $vitamin */
+		$i = 0;
 		foreach ( Vitamin::whereIn('id', $vitamins)->get() as $vitamin)
 		{
+			$i++;
 			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[$vitamin->code], '' );
+			Cart::addInfo("vitamins.{$i}", $vitamin->code);
 		}
 
 		return \Redirect::action( 'CheckoutController@getCheckout' );

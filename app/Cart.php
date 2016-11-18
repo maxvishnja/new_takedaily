@@ -21,4 +21,9 @@ class Cart extends Model
 	{
 		return json_decode($this->lines);
 	}
+
+	public function getInfo()
+	{
+		return json_decode($this->extra_data);
+	}
 }

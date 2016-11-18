@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Apricot\Checkout\Cart;
+use App\Apricot\Libraries\PillLibrary;
 use App\Package;
 use Illuminate\Http\Request;
 
@@ -45,11 +46,26 @@ class PackageController extends Controller
 				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
 			}
 
+			$vitamins = [
+				PillLibrary::getPill(1, $package->group_one),
+				PillLibrary::getPill(2, $package->group_two),
+				PillLibrary::getPill(3, $package->group_three)
+			];
+
 			\Session::forget( 'user_data' );
 			\Session::forget( 'flow-completion-token' );
 			\Session::put( 'package', $package->id );
 			\Session::put( 'product_name', 'package' );
-			\Session::put( 'vitamins', [ "1{$package->group_one}", "2{$package->group_two}", "3{$package->group_three}" ] );
+			\Session::put( 'vitamins', $vitamins );
+
+			Cart::clear();
+			Cart::addProduct( 'subscription' );
+
+			foreach ( $vitamins as $i => $vitamin )
+			{
+				Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ], '' );
+				Cart::addInfo( "vitamins.{$i}", $vitamin );
+			}
 
 			return \Redirect::action( 'CheckoutController@getCheckout' );
 		}
@@ -92,10 +108,16 @@ class PackageController extends Controller
 		$lib = new \App\Apricot\Libraries\CombinationLibrary();
 		$lib->generateResult( $combinedUserData );
 
+		$i = 0;
 		foreach ( $lib->getResult() as $combKey => $combVal )
 		{
-			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal ) ], '' );
+			$i ++;
+			$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
+			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '' );
+			Cart::addInfo( "vitamins.{$i}", $vitamin_code );
 		}
+
+		Cart::addInfo( "user_data", $combinedUserData );
 
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}

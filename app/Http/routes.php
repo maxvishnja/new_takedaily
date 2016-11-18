@@ -202,7 +202,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			// todo
 			\App\Apricot\Checkout\Cart::deductProduct('vitamin');
 
-
 			return Response::json( [ 'lines' => \App\Apricot\Checkout\Cart::get() ] );
 		} );
 
@@ -303,10 +302,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			$ingredients = '';
 			$alphabet    = range( 'a', 'c' );
 
-
 			\App\Apricot\Checkout\Cart::clear();
 			\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
-
 
 			foreach ( $lib->getResult() as $index => $combination )
 			{
@@ -334,11 +331,14 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</strong></div><p>' . trans( strtolower( "label-{$index}{$combination}.ingredients" ) ) . '</p><small>' . trans( 'label-product.Store' ) . '</small></div>';
 
-				\App\Apricot\Checkout\Cart::addProduct(  \App\Apricot\Libraries\PillLibrary::$codes[\App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey )], '' );
+				$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey );
+				\App\Apricot\Checkout\Cart::addProduct(  \App\Apricot\Libraries\PillLibrary::$codes[$vitamin_code], '' );
+				\App\Apricot\Checkout\Cart::addInfo("vitamins.{$index}", $vitamin_code);
 			}
 
 			$lib = new \App\Apricot\Libraries\CombinationLibrary();
 			$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
+			\App\Apricot\Checkout\Cart::addInfo("user_data", json_decode( $request->get( 'user_data' )));
 
 			return Response::json( [
 				'advises'        => $advises,
