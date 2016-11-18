@@ -22,7 +22,7 @@ return [
 			'page-title'  => 'Din ordre blev godkendt! - TakeDaily',
 			'title'       => 'Din ordre blev oprettet',
 			'text'        => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Tak for dit køb!',
-			'button-text' => 'Gå Util dit TakeDaily',
+			'button-text' => 'Gå til dit TakeDaily',
 			'giftcard'    =>
 				[
 					'title' => 'Gavekort koden er:',

@@ -3,19 +3,15 @@
 namespace App\Apricot\Checkout;
 
 
-use App\Apricot\Helpers\ExtraPills;
 use App\Apricot\Interfaces\PaymentInterface;
-use App\Apricot\Libraries\CombinationLibrary;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
-use App\Apricot\Libraries\PillLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\Coupon;
 use App\Giftcard;
 use App\Product;
-use Illuminate\Http\Request;
 
 class Checkout
 {
@@ -132,41 +128,6 @@ class Checkout
 	public function setTotal( $newTotal )
 	{
 		$this->total = $newTotal;
-
-		return $this;
-	}
-
-	public function setupTotals( Request $request )
-	{
-		$codes = [];
-
-		if ( $request->session()->has( 'user_data' ) )
-		{
-			$lib = new CombinationLibrary;
-
-			$userData = $request->session()->get( 'user_data' );
-
-			if ( is_string( $userData ) && json_decode( $userData ) )
-			{
-				$userData = json_decode( $userData );
-			}
-
-			$lib->generateResult( $userData );
-
-			foreach ( $lib->getResult() as $combKey => $combVal )
-			{
-				$codes[] = PillLibrary::getPill( $combKey, $combVal );
-			}
-		}
-		elseif ( $request->session()->has( 'vitamins' ) )
-		{
-			$codes = $request->session()->get( 'vitamins' );
-		}
-
-		foreach ( ExtraPills::getTotalsFor( $codes ) as $extraPill )
-		{
-			$this->addToTotal( $extraPill['price'] );
-		}
 
 		return $this;
 	}

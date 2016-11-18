@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Apricot\Checkout\Cart;
 use App\Apricot\Checkout\Checkout;
 use App\Apricot\Checkout\CheckoutCompletion;
 use App\Apricot\Helpers\PaymentMethods;
@@ -8,7 +9,6 @@ use App\Apricot\Repositories\CouponRepository;
 use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
 use App\Product;
-use App\Setting;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -44,41 +44,10 @@ class CheckoutController extends Controller
 			return \Redirect::route( 'home' );
 		}
 
-		$codes = [];
-
-		if ( $request->session()->has( 'user_data' ) )
-		{
-			$lib = new \App\Apricot\Libraries\CombinationLibrary();
-
-			$userData = $request->session()->get( 'user_data' );
-
-			if ( is_string( $userData ) && json_decode( $userData ) )
-			{
-				$userData = json_decode( $userData );
-			}
-
-			$lib->generateResult( $userData );
-
-			foreach ( $lib->getResult() as $combKey => $combVal )
-			{
-				$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
-			}
-		}
-		elseif ( $request->session()->has( 'vitamins' ) )
-		{
-			$codes = collect( $request->session()->get( 'vitamins' ) );
-			$codes = $codes->map( function ( $val )
-			{
-				return (int) $val;
-			} );
-		}
-
 		return view( 'checkout.index', [
 			'user_data'      => json_encode( \Session::get( 'user_data', \Request::old( 'user_data', json_decode( '{}' ) ) ) ),
 			'product'        => $product,
 			'giftcard'       => $giftcard,
-			'shippingPrice'  => Setting::getWithDefault( 'shipping_price', 0 ),
-			'codes'          => $codes,
 			'paymentMethods' => PaymentMethods::getAcceptedMethodsForCountry( \App::getLocale() )
 		] );
 	}
@@ -110,7 +79,7 @@ class CheckoutController extends Controller
 
 		$checkout->setProductByName( $productName )
 		         ->setPaymentMethod( $paymentMethod )
-		         ->setupTotals( $request )
+		         ->setTotal( Cart::getTotal() )
 		         ->appendCoupon( $couponCode )
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
 		         ->setTaxLibrary( $request->get( 'address_country' ) )
@@ -169,7 +138,7 @@ class CheckoutController extends Controller
 		$checkout = new Checkout();
 		$checkout->setPaymentMethod( $method )
 		         ->setProductByName( $productName )
-		         ->setupTotals( $request )
+		         ->setTotal( Cart::getTotal() )
 		         ->appendCoupon( $couponCode )
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
 		         ->setTaxLibrary( $request->session()->get( 'address_country' ) );
@@ -188,7 +157,7 @@ class CheckoutController extends Controller
 				                'address_country' => $request->session()->get( 'address_country' ),
 				                'company'         => $request->session()->get( 'company' ),
 				                'cvr'             => $request->session()->get( 'cvr' ),
-				                'phone'             => $request->session()->get( 'phone' ),
+				                'phone'           => $request->session()->get( 'phone' ),
 			                ] ); // todo translate
 		}
 
@@ -211,7 +180,7 @@ class CheckoutController extends Controller
 				'address_postal'  => $request->session()->get( 'address_zipcode' ),
 				'company'         => $request->session()->get( 'company' ),
 				'cvr'             => $request->session()->get( 'cvr' ),
-				'phone'             => $request->session()->get( 'phone' ),
+				'phone'           => $request->session()->get( 'phone' ),
 			] )
 			                   ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
 			                   ->setUserData( $request->session()->get( 'user_data', '{}' ) )

@@ -34,7 +34,6 @@
 			</div>
 
 			<div id="coupon-field" style="display: none;" class="m-t-20">
-				<!-- todo make the coupon part work -->
 				<div class="row">
 					<div class="col-md-8">
 						<input type="text" id="coupon-input" maxlength="20"
