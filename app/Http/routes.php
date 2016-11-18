@@ -197,6 +197,15 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			return Response::json( [ 'lines' => \App\Apricot\Checkout\Cart::get() ] );
 		} );
 
+		Route::post( '/cart-deduct/{vitamin}', function ($vitamin)
+		{
+			// todo
+			\App\Apricot\Checkout\Cart::deductProduct('vitamin');
+
+
+			return Response::json( [ 'lines' => \App\Apricot\Checkout\Cart::get() ] );
+		} );
+
 		Route::get( '/flow', function ( \Illuminate\Http\Request $request )
 		{
 			$giftcard = null;
@@ -320,18 +329,16 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					case 'three':
 					default:
 						$index = 3;
-						break;F
+						break;
 				}
 
 				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</strong></div><p>' . trans( strtolower( "label-{$index}{$combination}.ingredients" ) ) . '</p><small>' . trans( 'label-product.Store' ) . '</small></div>';
-
 
 				\App\Apricot\Checkout\Cart::addProduct(  \App\Apricot\Libraries\PillLibrary::$codes[\App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey )], '' );
 			}
 
 			$lib = new \App\Apricot\Libraries\CombinationLibrary();
 			$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
-
 
 			return Response::json( [
 				'advises'        => $advises,
@@ -350,10 +357,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			if ( Auth::check() && Auth::user()->isUser() )
 			{
-				Auth::user()->getCustomer()->unsetCustomUserdata();
-				Auth::user()->getCustomer()->updateUserdata( $userData );
-				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
-				Auth::user()->getCustomer()->setVitamins( $vitamins );
 
 				$combinations = Auth::user()->getCustomer()->calculateCombinations();
 				$vitamins     = [];
@@ -368,6 +371,11 @@ Route::group( [ 'middleware' => 'web' ], function ()
 						$vitamins[] = $vitamin->id;
 					}
 				}
+
+				Auth::user()->getCustomer()->unsetCustomUserdata();
+				Auth::user()->getCustomer()->updateUserdata( $userData );
+				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
+				Auth::user()->getCustomer()->setVitamins( $vitamins );
 
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
 				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
