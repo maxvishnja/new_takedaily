@@ -24,4 +24,6 @@ return array (
   array (
     'baby' => 'Folinsyre bidrager til væksten hos det ufødte barn under graviditeten.',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );

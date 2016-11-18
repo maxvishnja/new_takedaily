@@ -47,4 +47,6 @@ return array (
     'lightning' => 'Vitamine B6, B12 en C helpen om vermoeidheid en moeiheid te verminderen',
     'energy' => 'De B-vitamines (B1, B6 en B12) bevorderen de energiestofwisseling',
   ),
+  'end_date' => '09/2019',
+  'batch_number' => '1916',
 );

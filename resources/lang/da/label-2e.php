@@ -40,4 +40,6 @@ return array (
     'bone' => 'D-vitamin samt mineralerne magnesium og mangan bidrager til opretholdelsen af stærke knogler.',
     'cartilage' => 'C-vitamin er vigtig for kroppens brusk.',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );

@@ -23,4 +23,6 @@ return array (
   array (
     'baby' => 'Foliumzuur draagt bij tot de groei van het ongeboren kind tijdens de zwangerschap',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );

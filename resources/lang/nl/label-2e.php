@@ -39,4 +39,6 @@ return array (
     'muscle' => 'Vitaminen D en magensium dragen bij tot een normale werking van de spieren',
     'cartilage' => 'Vitamine C is belangrijk voor het kraakbeen',
   ),
+  'end_date' => '09/2019',
+  'batch_number' => '1916',
 );

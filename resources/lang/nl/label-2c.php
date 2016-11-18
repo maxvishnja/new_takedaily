@@ -63,4 +63,6 @@ return array (
     ),
   ),
   'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstof (E140)), vulstof (microkristallijne cellulose), ijzerfumaraat, nicotinamide, pantotheenzuur, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride',
+  'end_date' => '09/2019',
+  'batch_number' => '1916',
 );

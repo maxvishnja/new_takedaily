@@ -30,4 +30,6 @@ return array (
     'teeth' => 'Vitamine D draagt bij aan een sterk gebit',
     'skin' => 'Vitamine A helpt bij het gezond houden van de huid',
   ),
+  'end_date' => '09/2019',
+  'batch_number' => '1916',
 );
