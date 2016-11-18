@@ -37,8 +37,8 @@
 							@foreach(collect(trans("label-{$vitaminModel->code}.first-vitamins"))->sortBy('name', SORT_NATURAL) as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
-									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
-									<td style="text-align: right;">{{ $vitamin['percent'] }}</td>
+									<td style="text-align: center;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
+									<td style="text-align: right;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
 								</tr>
 							@endforeach
 							</tbody>
@@ -58,8 +58,8 @@
 							@foreach(collect(trans("label-{$vitaminModel->code}.vitamins"))->sortBy('name', SORT_NATURAL) as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
-									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
-									<td style="text-align: right;">{{ $vitamin['percent'] }}</td>
+									<td style="text-align: center;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
+									<td style="text-align: right;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
 								</tr>
 							@endforeach
 							</tbody>
@@ -79,8 +79,8 @@
 							@foreach(collect(trans("label-{$vitaminModel->code}.minerals"))->sortBy('name', SORT_NATURAL) as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
-									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
-									<td style="text-align: right;">{{ $vitamin['percent'] }}</td>
+									<td style="text-align: center;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
+									<td style="text-align: right;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
 								</tr>
 							@endforeach
 							</tbody>
@@ -100,8 +100,8 @@
 							@foreach(collect(trans("label-{$vitaminModel->code}.other-vitamins")) as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
-									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
-									<td style="text-align: right;">{{ $vitamin['percent'] }}</td>
+									<td style="text-align: center;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
+									<td style="text-align: right;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
 								</tr>
 							@endforeach
 							</tbody>
