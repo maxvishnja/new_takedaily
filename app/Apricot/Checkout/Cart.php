@@ -36,7 +36,7 @@ class Cart
 			self::init();
 		}
 
-		if ( ! $price )
+		if ( is_null($price) )
 		{
 			$price = ProductPriceGetter::getPrice( $productName );
 		}
@@ -64,7 +64,7 @@ class Cart
 			self::init();
 		}
 
-		if ( ! $price )
+		if ( is_null($price) )
 		{
 			$price = ProductPriceGetter::getPrice( $productName );
 		}

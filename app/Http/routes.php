@@ -192,6 +192,11 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		Route::get( 'pick-package/select/{id}', 'PackageController@select' )->name( 'pick-package-select' );
 		Route::post( 'pick-package', 'PackageController@post' )->name( 'pick-package-post' );
 
+		Route::get( '/cart', function ()
+		{
+			return Response::json( [ 'lines' => \App\Apricot\Checkout\Cart::get() ] );
+		} );
+
 		Route::get( '/flow', function ( \Illuminate\Http\Request $request )
 		{
 			$giftcard = null;
@@ -312,7 +317,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 						break;
 				}
 
-				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower("label-{$index}{$combination}.name") ) . '</strong></div><p>' . trans( strtolower("label-{$index}{$combination}.ingredients") ) . '</p><small>' . trans('label-product.Store') . '</small></div>';
+				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</strong></div><p>' . trans( strtolower( "label-{$index}{$combination}.ingredients" ) ) . '</p><small>' . trans( 'label-product.Store' ) . '</small></div>';
 			}
 
 
@@ -337,6 +342,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				Auth::user()->getCustomer()->unsetCustomUserdata();
 				Auth::user()->getCustomer()->updateUserdata( $userData );
 				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
+				Auth::user()->getCustomer()->setVitamins( $vitamins );
 
 				$combinations = Auth::user()->getCustomer()->calculateCombinations();
 				$vitamins     = [];
@@ -352,8 +358,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					}
 				}
 
-				Auth::user()->getCustomer()->setVitamins( $vitamins );
-
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
 				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
 			}
@@ -365,7 +369,16 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				}
 
 				\App\Apricot\Checkout\Cart::clear();
-				\App\Apricot\Checkout\Cart::addProduct('subscription');
+				\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
+
+				$lib = new \App\Apricot\Libraries\CombinationLibrary();
+				$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
+
+				foreach ( $lib->getResult() as $combKey => $combVal )
+				{
+					\App\Apricot\Checkout\Cart::addProduct(  \App\Apricot\Libraries\PillLibrary::$codes[\App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal )], '' );
+				}
+
 
 				Session::forget( 'vitamins' );
 				Session::forget( 'package' );
