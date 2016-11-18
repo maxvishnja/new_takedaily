@@ -143,7 +143,7 @@
 			removeVitamin: function(group, subgroup) {
 				$.post('/cart-deduct/' + group).done(function(response)
 				{
-					console.log(response);
+					// todo update cart and remove vitamin item
 				});
 
 				this.getCart();
