@@ -12,7 +12,6 @@
 			current_advise_three: null,
 			temp_age: null,
 			recommendation_token: '',
-			extra_totals: [],
 			result: {},
 			shipping: parseFloat("{{ (new \App\Apricot\Helpers\Money($shippingPrice))->toCurrency(trans('general.currency')) }}"),
 			price: parseFloat("{{ $giftcard ? 0 : (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)))->toCurrency(trans('general.currency')) }}"),
@@ -92,18 +91,10 @@
 			subtotal: function () {
 				var price_addition = 0;
 
-				for (var extra_price in this.extra_totals) {
-					price_addition += parseFloat(app.extra_totals[extra_price].price);
-				}
-
 				return this.price + price_addition;
 			},
 			total_sub: function () {
 				var price_addition = 0;
-
-				for (var extra_price in this.extra_totals) {
-					price_addition += parseFloat(app.extra_totals[extra_price].price);
-				}
 
 				return this.price + price_addition - this.total_discount;
 			},
@@ -233,7 +224,6 @@
 							$("#advises-vitamins").html(response.vitamin_info);
 							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes));
 							app.result = response.result;
-							app.extra_totals = response.totals;
 							app.recommendation_token = response.token;
 
 							$("#advises-loader").hide();

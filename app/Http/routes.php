@@ -277,8 +277,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
 			}
 
-			$totals = \App\Apricot\Helpers\ExtraPills::getTotalsFor( $codes );
-
 			$token = str_random( 16 );
 
 			while ( \App\FlowCompletion::whereToken( $token )->limit( 1 )->count() > 0 )
@@ -326,7 +324,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				'num_advises'    => count( $lib->getAdvises() ),
 				'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ] )->render(),
 				'selected_codes' => implode( ',', $codes ),
-				'totals'         => $totals,
 				'result'         => $lib->getResult(),
 				'vitamin_info'   => $ingredients,
 				'token'          => $flowCompletion->token
