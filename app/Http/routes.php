@@ -294,6 +294,11 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			$ingredients = '';
 			$alphabet    = range( 'a', 'c' );
 
+
+			\App\Apricot\Checkout\Cart::clear();
+			\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
+
+
 			foreach ( $lib->getResult() as $index => $combination )
 			{
 				if ( $index == 'one' )
@@ -316,7 +321,14 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				}
 
 				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</strong></div><p>' . trans( strtolower( "label-{$index}{$combination}.ingredients" ) ) . '</p><small>' . trans( 'label-product.Store' ) . '</small></div>';
+
+
+				\App\Apricot\Checkout\Cart::addProduct(  \App\Apricot\Libraries\PillLibrary::$codes[\App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal )], '' );
 			}
+
+			$lib = new \App\Apricot\Libraries\CombinationLibrary();
+			$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
+
 
 			return Response::json( [
 				'advises'        => $advises,
@@ -362,17 +374,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				if ( Auth::check() && ! Auth::user()->isUser() )
 				{
 					Auth::logout();
-				}
-
-				\App\Apricot\Checkout\Cart::clear();
-				\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
-
-				$lib = new \App\Apricot\Libraries\CombinationLibrary();
-				$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
-
-				foreach ( $lib->getResult() as $combKey => $combVal )
-				{
-					\App\Apricot\Checkout\Cart::addProduct(  \App\Apricot\Libraries\PillLibrary::$codes[\App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal )], '' );
 				}
 
 				Session::forget( 'vitamins' );
