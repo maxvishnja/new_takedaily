@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Apricot\Checkout\Cart;
 use App\Package;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,13 @@ class PackageController extends Controller
 			{
 				\Auth::user()
 				     ->getCustomer()
-				     ->updateCustomUserData(json_decode(json_encode( ['custom' => [ 'one' => $package->group_one, 'two' => $package->group_two, 'three' => $package->group_three ]])));
+				     ->updateCustomUserData( json_decode( json_encode( [
+					     'custom' => [
+						     'one'   => $package->group_one,
+						     'two'   => $package->group_two,
+						     'three' => $package->group_three
+					     ]
+				     ] ) ) );
 
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
 				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
@@ -54,35 +61,66 @@ class PackageController extends Controller
 	{
 		$this->validate( $request, [
 			'package_id' => 'required|exists:packages,id',
-		    'user_data' => 'required'
+			'user_data'  => 'required'
 		] );
 
 		/**
 		 * @var Package $package
 		 */
-		$package = Package::find( $request->get('package_id') );
+		$package = Package::find( $request->get( 'package_id' ) );
+
+		$combinedUserData = collect( json_decode( $request->get( 'user_data' ) ) );
+
+		$customs = [];
+
+		if ( ! $package->hasChoice( $package->group_one ) )
+		{
+			$customs['one'] = $package->group_one;
+		}
+
+		if ( ! $package->hasChoice( $package->group_two ) )
+		{
+			$customs['two'] = $package->group_two;
+		}
+
+		if ( ! $package->hasChoice( $package->group_three ) )
+		{
+			$customs['three'] = $package->group_three;
+		}
+
+		$combinedUserData->put( 'custom', $customs);
+
+		$combinedUserData = json_decode($combinedUserData->toJson());
 
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
 			\Auth::user()
 			     ->getCustomer()
-			     ->updateCustomUserData(json_decode($request->get('user_data')));
-
-			\Auth::user()
-			     ->getCustomer()
-			     ->updateCustomUserData(json_decode(json_encode( ['custom' => [ 'one' => $package->group_one, 'two' => $package->group_two, 'three' => $package->group_three ]]))); // todo fix this bullshit!!
+			     ->updateCustomUserData( $combinedUserData->toArray() );
 
 			return \Redirect::action( 'AccountController@getSettingsSubscription' )
 			                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
 		}
 
 		\Session::forget( 'flow-completion-token' );
-		\Session::put( 'user_data', json_decode($request->get('user_data')) );
+		\Session::put( 'user_data', json_decode( $request->get( 'user_data' ) ) );
 		\Session::put( 'package', $package->id );
 		\Session::put( 'product_name', 'package' );
 
-		\App\Apricot\Checkout\Cart::clear();
-		\App\Apricot\Checkout\Cart::addProduct('subscription');
+		Cart::clear();
+		Cart::addProduct( 'subscription' );
+
+		$lib = new \App\Apricot\Libraries\CombinationLibrary();
+		$lib->generateResult( $combinedUserData );
+
+		dd($lib->getResult());
+
+		foreach ( $lib->getResult() as $combKey => $combVal )
+		{
+			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal ) ], '' );
+		}
+
+		dd( Cart::get() );
 
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}
