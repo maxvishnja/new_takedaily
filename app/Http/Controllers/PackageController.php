@@ -69,28 +69,7 @@ class PackageController extends Controller
 		 */
 		$package = Package::find( $request->get( 'package_id' ) );
 
-		$combinedUserData = collect( json_decode( $request->get( 'user_data' ) ) );
-
-		$customs = [];
-
-		if ( ! $package->hasChoice( $package->group_one ) )
-		{
-			$customs['one'] = $package->group_one;
-		}
-
-		if ( ! $package->hasChoice( $package->group_two ) )
-		{
-			$customs['two'] = $package->group_two;
-		}
-
-		if ( ! $package->hasChoice( $package->group_three ) )
-		{
-			$customs['three'] = $package->group_three;
-		}
-
-		$combinedUserData->put( 'custom', $customs);
-
-		$combinedUserData = json_decode($combinedUserData->toJson());
+		$combinedUserData = json_decode( $request->get( 'user_data' ) );
 
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
@@ -112,8 +91,6 @@ class PackageController extends Controller
 
 		$lib = new \App\Apricot\Libraries\CombinationLibrary();
 		$lib->generateResult( $combinedUserData );
-
-		dd($lib->getResult());
 
 		foreach ( $lib->getResult() as $combKey => $combVal )
 		{
