@@ -21,17 +21,17 @@ return array (
     array (
       'Mineraler' => 
       array (
-        0 => 'vitamin-zink',
-        1 => 'vitamin-selen',
-        2 => 'vitamin-mangan',
-        3 => 'vitamin-magnesium',
-        4 => 'vitamin-krom',
-        5 => 'vitamin-kobber',
-        6 => 'vitamin-kalium',
-        7 => 'vitamin-jod',
-        8 => 'vitamin-jern',
-        9 => 'vitamin-fosfor',
-        10 => 'vitamin-calcium',
+        0 => 'zink',
+        1 => 'selen',
+        2 => 'mangan',
+        3 => 'magnesium',
+        4 => 'krom',
+        5 => 'kobber',
+        6 => 'kalium',
+        7 => 'jod',
+        8 => 'jern',
+        9 => 'fosfor',
+        10 => 'calcium',
       ),
       'Vitaminer' => 
       array (
