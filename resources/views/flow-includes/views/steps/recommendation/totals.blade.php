@@ -27,6 +27,7 @@
 			<button type="submit"
 					class="button button--green button--huge button--full-mobile m-t-30">{{ trans('flow.button-order-text') }}</button>
 
+		@if(!$giftcard)
 			<div class="m-t-20 m-b-20">
 				<a href="#coupon-field"
 				   id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
@@ -52,6 +53,7 @@
 				<div id="coupon-form-successes" class="m-t-10"></div>
 				<div id="coupon-form-errors" class="m-t-10"></div>
 			</div>
+			@endif
 		@else
 			<button type="submit"
 					class="button button--green button--huge button--full-mobile">{{ trans('flow.button-save-text') }}</button>
