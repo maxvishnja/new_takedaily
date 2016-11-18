@@ -119,6 +119,9 @@
 						@endif
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 4pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
+					<div style="font-size: 6pt;">
+						{{ trans('label-product.batch') }} {{ trans("label-{$vitaminModel->code}.batch_number") }}
+					</div>
 				</div>
 			@endforeach
 		@endif
