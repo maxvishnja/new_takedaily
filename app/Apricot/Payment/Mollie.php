@@ -14,8 +14,6 @@ class Mollie implements PaymentInterface
 	 */
 	public function charge($amount, $description, $data = [])
 	{
-		$amount = round(MoneyLibrary::convertCurrenciesByString(config('currency', config('app.base_currency')), 'EUR', $amount)); // todo test
-
 		$charge = [
 			"amount"      => MoneyLibrary::toMoneyFormat($amount, true, 2, '.', ''),
 			"description" => $description,
