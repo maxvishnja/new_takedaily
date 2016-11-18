@@ -12,7 +12,8 @@
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<link rel="icon" type="image/png" href="/favicon.png"/>
 
-	<!-- todo add meta image from page.blade.php -->
+	<script src="https://use.typekit.net/feb1teb.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 	<!--[if lt IE 9]>
 	<script src="/js/respond.min.js"></script>
@@ -20,6 +21,7 @@
 	<![endif]-->
 
     <script src="/js/modernizr-custom.min.js"></script>
+
 </head>
 
-<body class="@yield('pageClass', 'index')">
+<body class="@yield('pageClass', 'index')">P
