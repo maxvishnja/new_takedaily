@@ -24,4 +24,4 @@
 
 </head>
 
-<body class="@yield('pageClass', 'index')">P
+<body class="@yield('pageClass', 'index')">
