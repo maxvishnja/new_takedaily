@@ -20,7 +20,7 @@
 					<a href="javascript: void(0);" v-on:click="previousStep();">{{ trans('flow.back') }}</a>
 				</div>
 
-				<form method="post" action="">
+				<form method="post" action="" id="flow_form">
 					@include('flow-includes.views.steps.one')
 					@include('flow-includes.views.steps.two')
 					@include('flow-includes.views.steps.three')

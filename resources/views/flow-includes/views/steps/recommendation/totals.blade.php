@@ -1,7 +1,6 @@
 <div class="col-md-5">
 	<div class="card">
-		@if(!Auth::check())
-			<table class="order_table">
+		<table class="order_table">
 			<tbody>
 			<tr v-for="item in totals" v-show="item.showPrice">
 				<td>@{{ item.name }}</td>
@@ -24,8 +23,13 @@
 			</tr>
 			</tbody>
 		</table>
-			<button type="submit"
-					class="button button--green button--huge button--full-mobile m-t-30">{{ trans('flow.button-order-text') }}</button>
+		@if(Auth::check())
+			<button type="button"
+					class="button button--green button--huge button--full-mobile m-t-30" onclick="forceUpdateAndSubmit();">{{ trans('flow.button-save-text') }}</button>
+			<hr/>
+		@endif
+		<button type="submit"
+				class="button @if(!Auth::check()) button--green @else button--light @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
 
 		@if(!$giftcard)
 			<div class="m-t-20 m-b-20">
@@ -52,10 +56,6 @@
 				<div id="coupon-form-successes" class="m-t-10"></div>
 				<div id="coupon-form-errors" class="m-t-10"></div>
 			</div>
-			@endif
-		@else
-			<button type="submit"
-					class="button button--green button--huge button--full-mobile">{{ trans('flow.button-save-text') }}</button>
 		@endif
 	</div>
 

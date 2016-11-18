@@ -468,7 +468,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		{
 			$userData = json_decode( $request->get( 'user_data' ) );
 
-			if ( Auth::check() && Auth::user()->isUser() )
+			if ( Auth::check() && Auth::user()->isUser() && $request->get('update_only', 0) == 1 )
 			{
 
 				$combinations = Auth::user()->getCustomer()->calculateCombinations();
@@ -489,13 +489,14 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				Auth::user()->getCustomer()->updateUserdata( $userData );
 				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
 				Auth::user()->getCustomer()->setVitamins( $vitamins );
+				\App\Apricot\Checkout\Cart::clear();
 
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
 				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
 			}
 			else
 			{
-				if ( Auth::check() && ! Auth::user()->isUser() )
+				if ( Auth::check() && Auth::user()->isUser() )
 				{
 					Auth::logout();
 				}

@@ -52,7 +52,7 @@
 					dairy: null,
 					meat: null,
 					fish: null,
-					butter: null,
+					butter: null
 				}
 			}
 		},
@@ -419,4 +419,13 @@
 		$(this).toggleClass('opened');
 		$(this).find('.table_container').stop().slideToggle(300);
 	});
+
+	function forceUpdateAndSubmit()
+	{
+		var form = $("#flow_form");
+
+		form.append('<input type="hidden" name="update_only" value="1" />');
+
+		form.submit();
+	}
 </script>
