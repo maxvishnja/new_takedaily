@@ -36,7 +36,7 @@
 							<tbody style="font-size: 6pt; color:#1A8562;line-height: 1;">
 							@foreach(collect(trans("label-{$vitaminModel->code}.first-vitamins"))->sortBy('name', SORT_NATURAL) as $vitamin)
 								<tr>
-									<td style="text-align: left;">{{ $vitamin['name'] }}</td>
+									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
 									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
 									<td style="text-align: right;">{{ $vitamin['percent'] }}</td>
 								</tr>
@@ -57,7 +57,7 @@
 							<tbody style="font-size: 6pt; color:#1A8562;line-height: 1;">
 							@foreach(collect(trans("label-{$vitaminModel->code}.vitamins"))->sortBy('name', SORT_NATURAL) as $vitamin)
 								<tr>
-									<td style="text-align: left;">{{ $vitamin['name'] }}</td>
+									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
 									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
 									<td style="text-align: right;">{{ $vitamin['percent'] }}</td>
 								</tr>
@@ -78,7 +78,7 @@
 							<tbody style="font-size: 6pt; color:#1A8562;line-height: 1;">
 							@foreach(collect(trans("label-{$vitaminModel->code}.minerals"))->sortBy('name', SORT_NATURAL) as $vitamin)
 								<tr>
-									<td style="text-align: left;">{{ $vitamin['name'] }}</td>
+									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
 									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
 									<td style="text-align: right;">{{ $vitamin['percent'] }}</td>
 								</tr>
@@ -99,7 +99,7 @@
 							<tbody style="line-height: 1;font-size: 6pt; color:#1A8562;">
 							@foreach(collect(trans("label-{$vitaminModel->code}.other-vitamins")) as $vitamin)
 								<tr>
-									<td style="text-align: left;">{{ $vitamin['name'] }}</td>
+									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
 									<td style="text-align: center;">{{ $vitamin['amount'] }}</td>
 									<td style="text-align: right;">{{ $vitamin['percent'] }}</td>
 								</tr>

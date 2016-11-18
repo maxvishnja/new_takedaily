@@ -10,4 +10,9 @@ class Cart extends Model
 	{
 		return self::whereToken($token)->first();
 	}
+
+	public function getLines()
+	{
+		return json_decode($this->lines);
+	}
 }

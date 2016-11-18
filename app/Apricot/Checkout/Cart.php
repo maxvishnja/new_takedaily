@@ -14,6 +14,7 @@ class Cart
 			return collect([]);
 		}
 
+		dd()
 
 		return collect([]);
 		// todo get cart
@@ -36,6 +37,8 @@ class Cart
 		// todo add
 	}
 
+	private static function
+
 	private static function exists()
 	{
 		if( \Session::has('the_cart_exists'))
@@ -43,7 +46,7 @@ class Cart
 			return true;
 		}
 
-		$exists = \Cookie::has(self::COOKIE_NAME) && \App\Cart::findByToken(\Cookie::get(self::COOKIE_NAME));
+		$exists = \Cookie::has(self::COOKIE_NAME) && self::CART_MODEL::findByToken(\Cookie::get(self::COOKIE_NAME));
 
 		if( $exists )
 		{
