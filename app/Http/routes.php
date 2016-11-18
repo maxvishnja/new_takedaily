@@ -318,7 +318,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</strong></div><p>' . trans( strtolower( "label-{$index}{$combination}.ingredients" ) ) . '</p><small>' . trans( 'label-product.Store' ) . '</small></div>';
 			}
 
-
 			return Response::json( [
 				'advises'        => $advises,
 				'num_advises'    => count( $lib->getAdvises() ),

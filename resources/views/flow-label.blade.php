@@ -1,7 +1,13 @@
 @foreach($combinations as $combinationKey => $combinationValue)
 	<div class="m-b-30">
-		<div style="display: inline-block;" class="pull-right icon pill-{{ \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) }}"></div>
-		<strong>{{ \App\Apricot\Libraries\PillLibrary::getPillCode(\App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue)) }}</strong>
+		<div style="display: inline-block;" class="pull-right text-right">
+			<span class="icon pill-{{ \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue) }}"></span>
+		</div>
+
+		<strong>
+			{{ \App\Apricot\Libraries\PillLibrary::getPillCode(\App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue)) }}
+			<span data-group="{{ $combinationKey }}" data-subgroup="{{ $combinationValue }}" class="removePillButton pull-right icon icon-cross-16-dark m-r-10"></span>
+		</strong>
 		<p>
 			@if(isset($advises[$combinationKey]))
 				{!! $advises[$combinationKey] !!}

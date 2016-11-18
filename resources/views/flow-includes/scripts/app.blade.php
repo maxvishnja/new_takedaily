@@ -136,6 +136,14 @@
 			}
 		},
 		methods: {
+			getTotal: function() {
+				// todo get from /cart
+			},
+
+			removeVitamin: function(group, subgroup) {
+				alert(group + subgroup);
+			},
+
 			nextStep: function () {
 				setTimeout(function () {
 					var currentStep = $(".step[data-step='" + app.step + "']");
@@ -378,4 +386,9 @@
 	}, 50);
 	@endif
 
+
+	$("#advises-label").on('click', '.removePillButton', function()
+	{
+		app.removeVitamin($(this).data('group'), $(this).data('subgroup'));
+	});
 </script>
