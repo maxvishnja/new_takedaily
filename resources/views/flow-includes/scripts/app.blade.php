@@ -415,7 +415,8 @@
 	});
 
 
-	$("#advises-label").on('click', '.ingredient_item', function () {
-		$(this).find('table').stop().slideToggle();
+	$("#advises-vitamins").on('click', '.ingredient_item', function () {
+		$(this).toggleClass('opened');
+		$(this).find('.table_container').stop().slideToggle(300);
 	});
 </script>

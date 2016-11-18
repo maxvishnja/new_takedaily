@@ -439,6 +439,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				}
 
 				$ingredients .= '<div class="ingredient_item" data-item="' . $index . $combination . '">
+					<span class="icon icon-arrow-down"></span>
 					<h3>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</h3>
 					' . view('flow-includes.views.vitamin_table', ['label' => "{$index}{$combination}" ]) . '
 				</div>';
