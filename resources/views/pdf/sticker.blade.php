@@ -1,4 +1,4 @@
-<?php App::setLocale($customer->getLocale()); ?>
+<?php App::setLocale( $customer->getLocale() ); ?>
 <div style="width: 100%; height: 230mm; padding: 0;position: relative;">
 	<div style="height: 9mm">
 		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
@@ -16,7 +16,8 @@
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")) && count(trans("label-{$vitaminModel->code}.praises")) > 0)
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
 								<div style="margin-bottom: 1.6pt">
-									<img src="{{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}" style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; " />
+									<img src="{{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}"
+										 style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; "/>
 									{{ strip_tags($praiseText) }}
 								</div>
 							@endforeach
@@ -97,7 +98,7 @@
 							</tr>
 							</thead>
 							<tbody style="line-height: 1;font-size: 6pt; color:#1A8562;">
-							@foreach(collect(trans("label-{$vitaminModel->code}.other-vitamins")) as $vitamin)
+							@foreach(collect(trans("label-{$vitaminModel->code}.other-vitamins"))->sortByDesc('amount', SORT_NATURAL) as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
 									<td style="text-align: center;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
@@ -108,10 +109,12 @@
 						</table>
 					@endif
 
-					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
+					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}
+							:</strong> {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
 
 					@if(trans("label-{$vitaminModel->code}.Allergener") != '' && trans("label-{$vitaminModel->code}.Allergener") != "label-{$vitaminModel->code}.Allergener")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.Allergener') }}:</strong> {{ trans("label-{$vitaminModel->code}.Allergener") }}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.Allergener') }}
+								:</strong> {{ trans("label-{$vitaminModel->code}.Allergener") }}</p>
 					@endif
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
 						@if($vitaminModel->code == '3e')
@@ -120,7 +123,8 @@
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 4pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
 					<div style="font-size: 6pt;color: #1A8562; margin-top: 1pt; font-weight: 200; ">
-						<strong>{{ trans('label-product.batch') }}</strong> {{ trans("label-{$vitaminModel->code}.batch_number") }} · <strong>{{ trans('label-product.expiration') }}</strong> {{ trans("label-{$vitaminModel->code}.end_date") }}
+						<strong>{{ trans('label-product.batch') }}</strong> {{ trans("label-{$vitaminModel->code}.batch_number") }} ·
+						<strong>{{ trans('label-product.expiration') }}</strong> {{ trans("label-{$vitaminModel->code}.end_date") }}
 					</div>
 				</div>
 			@endforeach
@@ -132,9 +136,9 @@
 	</div>
 
 	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1;position: absolute; bottom: 0; text-align: center">
-			{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
-			{!! trans('label-product.weight') !!}
-			<br/>
+		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
+		{!! trans('label-product.production') !!} · {!! trans('label-product.weight') !!} · <br/>
 		<div>{{ trans('label-product.address') }}</div>
+		<strong>{{ trans('label-product.Questions') }}</strong>
 	</div>
 </div>
