@@ -4,7 +4,7 @@ return array (
   'name' => 'Koncentreret fiskeolie med 55% omega-3 fedtsyrer',
   'praises' => 
   array (
-    'brain' => 'DHA bidrager til opretholdelse af en normal hjernefunktion og et normalt syn. Den gavnlige effekt opnås ved et dagligt indtag på 250 mg DHA. **',
+    'brain' => 'DHA bidrager til opretholdelse af en normal hjernefunktion og et normalt syn. **',
     'heart' => 'EPA og DHA bidrager til den normale funktion af hjertet. Den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. *',
   ),
   'ingredients' => 'Fiskeolie (fedtsyrer), kapselvæg (gelatine), konsistensmiddel (glycerol), vand, antioxidant (d-alfa-tocopherol koncentrat)',
@@ -48,5 +48,6 @@ return array (
 <span class="clear" style="clear:both;display:block"></span>
 <br/> * Den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA.
 <br/> ** Den gavnlige effekt opnås ved et dagligt indtag på 250 mg DHA.',
-  'Allergener' => 'fiskeolie.',
+  'Allergener' => 'fiskeolie',
+  'batch_number' => ' L201016',
 );
