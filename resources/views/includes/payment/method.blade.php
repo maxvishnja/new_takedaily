@@ -97,7 +97,7 @@
 				<div style="margin-bottom: 20px" class="visible-xs"></div>
 			</div>
 
-			<div class="col-md-4">
+			<div class="col-md-4 col-xs-12">
 				<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 				<!-- CVV/CVC -->
 				<label class="label label--full checkout--label" for="cc-csc"

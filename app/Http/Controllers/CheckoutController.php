@@ -22,7 +22,9 @@ class CheckoutController extends Controller
 	{
 		\Session::set( 'product_name', $request->get( 'product_name', \Session::get( 'product_name', 'subscription' ) ) );
 
-		if ( \Session::get( 'product_name' ) == 'subscription' && ( ! \Session::has( 'user_data' ) && ! \Session::has( 'vitamins' ) ) )
+		$userData = \Session::get( 'user_data', \Request::old( 'user_data', Cart::getInfoItem('user_data', null) ) );
+
+		if ( \Session::get( 'product_name' ) == 'subscription' && ( (! $userData || count($userData) == 0) && ! \Session::has( 'vitamins' ) ) )
 		{
 			return \Redirect::route( 'flow' )->withErrors( [ trans( 'checkout.messages.vitamins-not-selected' ) ] );
 		}
@@ -44,8 +46,13 @@ class CheckoutController extends Controller
 			return \Redirect::route( 'home' );
 		}
 
+		if ( ! $userData)
+		{
+			$userData = json_decode('{}');
+		}
+
 		return view( 'checkout.index', [
-			'user_data'      => json_encode( \Session::get( 'user_data', \Request::old( 'user_data', json_decode( '{}' ) ) ) ),
+			'user_data'      => json_encode( $userData ),
 			'product'        => $product,
 			'giftcard'       => $giftcard,
 			'paymentMethods' => PaymentMethods::getAcceptedMethodsForCountry( \App::getLocale() )
