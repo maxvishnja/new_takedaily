@@ -38,7 +38,19 @@ class Cart
 
 	private static function exists()
 	{
-		return \Cookie::has(self::COOKIE_NAME); // todo check DB too
+		if( \Session::has('the_cart_exists'))
+		{
+			return true;
+		}
+
+		$exists = \Cookie::has(self::COOKIE_NAME) && \App\Cart::findByToken(\Cookie::get(self::COOKIE_NAME));
+
+		if( $exists )
+		{
+			\Session::flash('the_cart_exists', true);
+		}
+
+		return $exists;
 	}
 
 	private static function init()
