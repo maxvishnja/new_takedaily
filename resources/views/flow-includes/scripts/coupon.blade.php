@@ -41,6 +41,7 @@
 
 				app.discount.applied = false;
 				app.discount.code = '';
+				app.getCart();
 			}
 		});
 	});
