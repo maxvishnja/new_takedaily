@@ -88,8 +88,6 @@ class PackageController extends Controller
 
 		$combinedUserData = json_decode( $request->get( 'user_data' ) );
 
-		dd($combinedUserData);
-
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
 			\Auth::user()
