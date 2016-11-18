@@ -170,6 +170,35 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			return view( 'faq.home', compact( 'faqs' ) );
 		} )->name( 'faq' );
 
+		Route::get( '/use-giftcard', function ()
+		{
+			return view( 'use-giftcard' );
+		} );
+
+		Route::post( '/use-giftcard', function (\Illuminate\Http\Request $request)
+		{
+			$validator = Validator::make($request->all(), [
+				'giftcard_code' => 'required|exists:giftcards,token'
+			]);
+
+			if ( $validator->fails() )
+			{
+				return redirect()->back()->withErrors($validator->messages());
+			}
+
+			$giftcard = \App\Giftcard::whereToken($request->get('giftcard_code'))->whereIsUsed(0)->first();
+
+			if( ! $giftcard )
+			{
+				return redirect()->back()->withErrors([trans('use-gifting.failed')]);
+			}
+
+			Session::put('giftcard_id', $giftcard->id);
+			Session::put('giftcard_token', $giftcard->token);
+
+			return Redirect::route('flow')->with('success', trans('use-gifting.success'));
+		} )->name('use-giftcard-post');
+
 		Route::get( '/faq/{identifier}', function ( $identifier )
 		{
 			$repo = new \App\Apricot\Repositories\FaqRepository;
