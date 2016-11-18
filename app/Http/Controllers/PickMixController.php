@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Apricot\Checkout\Cart;
 use App\Vitamin;
 use Illuminate\Http\Request;
 
@@ -54,8 +55,14 @@ class PickMixController extends Controller
 		\Session::put( 'vitamins', $vitamins );
 		\Session::put( 'product_name', 'subscription' );
 
-		\App\Apricot\Checkout\Cart::clear();
-		\App\Apricot\Checkout\Cart::addProduct('subscription');
+		Cart::clear();
+		Cart::addProduct('subscription');
+
+		/** @var Vitamin $vitamin */
+		foreach ( Vitamin::whereIn('id', $vitamins)->get() as $vitamin)
+		{
+			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[$vitamin->code], '' );
+		}
 
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}

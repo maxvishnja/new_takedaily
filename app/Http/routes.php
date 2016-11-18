@@ -379,7 +379,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					\App\Apricot\Checkout\Cart::addProduct(  \App\Apricot\Libraries\PillLibrary::$codes[\App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal )], '' );
 				}
 
-
 				Session::forget( 'vitamins' );
 				Session::forget( 'package' );
 				Session::put( 'user_data', $userData );
