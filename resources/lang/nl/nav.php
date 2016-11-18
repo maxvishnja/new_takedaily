@@ -19,7 +19,7 @@ return array (
   array (
     'a-zink' => 
     array (
-      'Mineraler' => 
+      'Mineralen' =>
       array (
         0 => 'zink',
         7 => 'jod',
@@ -33,7 +33,7 @@ return array (
         4 => 'krom',
         8 => 'jern',
       ),
-      'Vitaminer' => 
+      'Vitamines' =>
       array (
         3 => 'vitamin-c',
         4 => 'vitamin-a',
