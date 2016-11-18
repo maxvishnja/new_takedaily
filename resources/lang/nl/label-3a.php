@@ -45,4 +45,6 @@ return array (
     'brain-cog' => 'Foliumzuur en vitamine C zijn goed voor het concentratievermogen, geheugen en leerprestatie',
     'nerve' => 'Vitamine C en kalium ondersteunen de normale werking van het zenuwstelsel',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );

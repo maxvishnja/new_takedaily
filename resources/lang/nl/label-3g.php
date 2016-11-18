@@ -51,6 +51,5 @@ return array (
   array (
     'blood' => 'Alfa-linoleenzuur (ALA) helpt het cholesterolniveau gezond te houden.*',
   ),
-  'end_date' => '09/2019',
   'batch_number' => '1203201683N',
 );

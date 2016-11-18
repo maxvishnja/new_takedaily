@@ -34,4 +34,6 @@ return array (
     'nerve' => 'Vitamin B2 og -B12 bidrager til nervesystemets normale funktion.',
     'intestine' => 'Calcium hjælper fordøjelsen.',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );

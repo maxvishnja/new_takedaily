@@ -5,7 +5,7 @@ return array (
   'praises' => 
   array (
     'brain' => 'DHA bidrager til opretholdelse af en normal hjernefunktion og et normalt syn. **',
-    'heart' => 'EPA og DHA bidrager til den normale funktion af hjertet. Den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. *',
+    'heart' => 'EPA og DHA bidrager til den normale funktion af hjertet.*',
   ),
   'ingredients' => 'Fiskeolie (fedtsyrer), kapselvæg (gelatine), konsistensmiddel (glycerol), vand, antioxidant (d-alfa-tocopherol koncentrat)',
   'other-vitamins' => 
@@ -44,7 +44,7 @@ return array (
       'percent' => '83',
     ),
   ),
-  'disclaimer' => 'Bæredygtigt fiskeri, dobbeltrenset, 100% naturlig, certificeret af Friends of the Sea (FOS)
+  'disclaimer' => 'Bæredygtigt fiskeri, optimalt renset, certificeret af Friends of the Sea (FOS)
 <span class="clear" style="clear:both;display:block"></span>
 <br/> * Den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA.
 <br/> ** Den gavnlige effekt opnås ved et dagligt indtag på 250 mg DHA.',

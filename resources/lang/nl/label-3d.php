@@ -39,4 +39,6 @@ return array (
     'heart' => 'IJzer draagt bij aan de normale vorming van rode bloedcellen',
     'nerve' => 'De B-vitamines (B1,B6 en B12) dragen bij aan een normale werking van het zenuwstelsel',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );
