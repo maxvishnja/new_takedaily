@@ -273,7 +273,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				if ( $giftcard )
 				{
 					$giftcardData = [
-						'worth' => $giftcard->worth
+						'worth' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth)
 					];
 				}
 			}
