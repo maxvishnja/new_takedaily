@@ -158,6 +158,16 @@
 					$.each(additional_totals, function (i, total) {
 						app.totals.push(total);
 					});
+
+					if(response.coupon !== undefined && response.coupon.applied !== undefined)
+					{
+						app.discount.applied = response.coupon.applied;
+						app.discount.type = response.coupon.type;
+						app.discount.amount = response.coupon.amount;
+						app.discount.applies_to = response.coupon.applies_to;
+						app.discount.description = response.coupon.description;
+						app.discount.code = response.coupon.code;
+					}
 				});
 			},
 

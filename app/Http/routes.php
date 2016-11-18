@@ -222,9 +222,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 		Route::get( '/cart', function ()
 		{
-			$lines = \App\Apricot\Checkout\Cart::get();
-
-			$lines->map( function ( $item )
+			// Generate lines
+			$lines = \App\Apricot\Checkout\Cart::get()->map( function ( $item )
 			{
 				if ( Lang::has( "products.{$item->name}" ) )
 				{
@@ -240,7 +239,46 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				return $item;
 			} );
 
-			return Response::json( [ 'lines' => $lines, 'info' => \App\Apricot\Checkout\Cart::getInfo() ] );
+			// Get coupon
+			$couponData = [];
+			if ( \Session::has( 'applied_coupon' ) )
+			{
+				$couponRepository = new \App\Apricot\Repositories\CouponRepository();
+				/** @var \App\Coupon|null $coupon */
+				$coupon = $couponRepository->findByCoupon( \Session::get( 'applied_coupon' ) );
+
+				if ( $coupon )
+				{
+					$couponData = [
+						'applied'     => true,
+						'type'        => $coupon->discount_type,
+						'amount'      => $coupon->discount,
+						'applies_to'  => $coupon->applies_to,
+						'description' => $coupon->description,
+						'code'        => $coupon->code
+					];
+				}
+			}
+
+
+			// Get giftcard
+			$giftcardData = [];
+			if ( \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name', 'subscription' ) == 'subscription' )
+			{
+				$giftcard = \App\Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
+				                         ->where( 'token', \Session::get( 'giftcard_token' ) )
+				                         ->where( 'is_used', 0 )
+				                         ->first();
+
+				if ( $giftcard )
+				{
+					$giftcardData = [
+						'worth' => $giftcard->worth
+					];
+				}
+			}
+
+			return Response::json( [ 'lines' => $lines, 'info' => \App\Apricot\Checkout\Cart::getInfo(), 'coupon' => $couponData, 'giftcard' => $giftcardData ] );
 		} );
 
 		Route::post( '/cart-deduct/{vitaminGroup}', function ( $vitaminGroup )

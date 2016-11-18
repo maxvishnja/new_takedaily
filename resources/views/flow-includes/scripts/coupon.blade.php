@@ -26,12 +26,14 @@
 				$("#coupon-form-successes").text(response.message);
 				$("#coupon-form-errors").text('');
 
-				app.discount.applied = true;
-				app.discount.type = response.coupon.discount_type;
-				app.discount.amount = response.coupon.discount;
-				app.discount.applies_to = response.coupon.applies_to;
-				app.discount.description = response.coupon.description;
-				app.discount.code = response.coupon.code;
+//				app.discount.applied = true;
+//				app.discount.type = response.coupon.discount_type;
+//				app.discount.amount = response.coupon.discount;
+//				app.discount.applies_to = response.coupon.applies_to;
+//				app.discount.description = response.coupon.description;
+//				app.discount.code = response.coupon.code;
+
+				app.getCart();
 			},
 			error: function (response) {
 				$("#coupon-form-errors").text(response.responseJSON.message);
