@@ -175,29 +175,29 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			return view( 'use-giftcard' );
 		} );
 
-		Route::post( '/use-giftcard', function (\Illuminate\Http\Request $request)
+		Route::post( '/use-giftcard', function ( \Illuminate\Http\Request $request )
 		{
-			$validator = Validator::make($request->all(), [
+			$validator = Validator::make( $request->all(), [
 				'giftcard_code' => 'required|exists:giftcards,token'
-			]);
+			] );
 
 			if ( $validator->fails() )
 			{
-				return redirect()->back()->withErrors($validator->messages());
+				return redirect()->back()->withErrors( $validator->messages() );
 			}
 
-			$giftcard = \App\Giftcard::whereToken($request->get('giftcard_code'))->whereIsUsed(0)->first();
+			$giftcard = \App\Giftcard::whereToken( $request->get( 'giftcard_code' ) )->whereIsUsed( 0 )->first();
 
-			if( ! $giftcard )
+			if ( ! $giftcard )
 			{
-				return redirect()->back()->withErrors([trans('use-gifting.failed')]);
+				return redirect()->back()->withErrors( [ trans( 'use-gifting.failed' ) ] );
 			}
 
-			Session::put('giftcard_id', $giftcard->id);
-			Session::put('giftcard_token', $giftcard->token);
+			Session::put( 'giftcard_id', $giftcard->id );
+			Session::put( 'giftcard_token', $giftcard->token );
 
-			return Redirect::route('flow')->with('success', trans('use-gifting.success'));
-		} )->name('use-giftcard-post');
+			return Redirect::route( 'flow' )->with( 'success', trans( 'use-gifting.success' ) );
+		} )->name( 'use-giftcard-post' );
 
 		Route::get( '/faq/{identifier}', function ( $identifier )
 		{
@@ -223,7 +223,19 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 		Route::get( '/cart', function ()
 		{
-			return Response::json( [ 'lines' => \App\Apricot\Checkout\Cart::get() ] );
+			$lines = \App\Apricot\Checkout\Cart::get();
+
+			$lines->map( function ( $item )
+			{
+				if ( Lang::has( "products.{$item->name}" ) )
+				{
+					$item->name = trans( "products.{$item->name}" );
+				}
+
+				return $item;
+			} );
+
+			return Response::json( [ 'lines' => $lines, 'info' => \App\Apricot\Checkout\Cart::getInfo() ] );
 		} );
 
 		Route::post( '/cart-deduct/{vitaminGroup}', function ( $vitaminGroup )
@@ -249,14 +261,15 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					break;
 			}
 
+
 			if ( \App\Apricot\Checkout\Cart::hasInfo( "vitamins.{$vitaminGroup}" ) )
 			{
 				\App\Apricot\Checkout\Cart::deductProduct( 'vitamin' );
 				\App\Apricot\Checkout\Cart::removeProduct( "vitamin.{$vitaminGroup}" );
-				\App\Apricot\Checkout\Cart::removeInfo("vitamins.{$vitaminGroup}");
+				\App\Apricot\Checkout\Cart::removeInfo( "vitamins.{$vitaminGroup}" );
 			}
 
-			return Response::json( [ 'lines' => \App\Apricot\Checkout\Cart::get(), 'info' => \App\Apricot\Checkout\Cart::getInfo() ] );
+			return Response::json( [ 'message' => 'Ok' ] );
 		} );
 
 		Route::get( '/flow', function ( \Illuminate\Http\Request $request )
@@ -386,7 +399,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</strong></div><p>' . trans( strtolower( "label-{$index}{$combination}.ingredients" ) ) . '</p><small>' . trans( 'label-product.Store' ) . '</small></div>';
 
 				$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey );
-				\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '', ['key' => "vitamin.{$index}"] );
+				\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '', [ 'key' => "vitamin.{$index}" ] );
 				\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$index}", $vitamin_code );
 			}
 

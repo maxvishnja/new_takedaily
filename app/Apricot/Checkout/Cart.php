@@ -11,14 +11,23 @@ class Cart
 	const TOKEN_LENGTH = 27; // TOKEN_PREFIX is not counted here. This is for the random token part
 	const CART_MODEL   = \App\Cart::class;
 
-	public static function get()
+	public static function get( $showAll = true )
 	{
 		if ( ! self::exists() )
 		{
 			return collect( [] );
 		}
+		$lines = collect( self::getModel()->getLines() );
 
-		return collect( self::getModel()->getLines() );
+		if ( ! $showAll )
+		{
+			$lines = $lines->filter( function ( $item )
+			{
+				return $item->amount <> 0;
+			} );
+		}
+
+		return $lines;
 	}
 
 	public static function getInfo()
@@ -46,7 +55,7 @@ class Cart
 			self::init();
 		}
 
-		if ( is_null($price) )
+		if ( is_null( $price ) )
 		{
 			$price = ProductPriceGetter::getPrice( $productName );
 		}
@@ -55,7 +64,7 @@ class Cart
 
 		$cart = self::get();
 
-		$cart->push( [ 'name' => $productName, 'amount' => (int) $price ] );
+		$cart->push( [ 'name' => $productName, 'amount' => (int) $price, 'key' => 'discount' ] );
 
 		self::set( $cart );
 	}
@@ -74,18 +83,18 @@ class Cart
 			self::init();
 		}
 
-		if ( is_null($price) )
+		if ( is_null( $price ) )
 		{
 			$price = ProductPriceGetter::getPrice( $productName );
 		}
 
 		$cart = self::get();
 
-		$data = collect([ 'name' => $productName, 'amount' => (int) $price ]);
+		$data = collect( [ 'name' => $productName, 'amount' => (int) $price ] );
 
-		foreach($extraData as $key => $item)
+		foreach ( $extraData as $key => $item )
 		{
-			$data->put($key, $item);
+			$data->put( $key, $item );
 		}
 
 		$data = $data->toArray();
@@ -132,7 +141,7 @@ class Cart
 
 		$info->forget( $key );
 
-		self::setInfo($info);
+		self::setInfo( $info );
 	}
 
 	public static function removeProduct( $key )
@@ -144,17 +153,17 @@ class Cart
 
 		$cart = self::get();
 
-		$cart = $cart->filter(function($item) use($key)
+		$cart = $cart->reject( function ( $item ) use ( $key )
 		{
-			if( !isset($item->key))
+			if ( ! isset( $item->key ) )
 			{
-				return true;
+				return false;
 			}
 
-			return $item->key != $key;
-		});
+			return $item->key == $key;
+		} )->flatten();
 
-		self::set($cart);
+		self::set( $cart );
 	}
 
 	private static function set( Collection $cart )
@@ -164,7 +173,7 @@ class Cart
 			self::init();
 		}
 
-		self::getModel()->update( [ 'lines' => json_encode( $cart->toArray() ) ] );
+		self::getModel()->update( [ 'lines' => $cart->toJson() ] );
 	}
 
 	private static function setInfo( Collection $info )
@@ -174,7 +183,7 @@ class Cart
 			self::init();
 		}
 
-		self::getModel()->update( [ 'extra_data' => json_encode( $info->toArray() ) ] );
+		self::getModel()->update( [ 'extra_data' => $info->toJson() ] );
 	}
 
 	/**
@@ -209,7 +218,7 @@ class Cart
 		\Session::set( self::COOKIE_NAME, $token );
 
 		( self::CART_MODEL )::create( [
-			'token'      => $token
+			'token' => $token
 		] );
 
 		return true;

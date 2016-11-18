@@ -13,6 +13,7 @@
 			temp_age: null,
 			recommendation_token: '',
 			result: {},
+			totals: [],
 			shipping: parseFloat("{{ (new \App\Apricot\Helpers\Money($shippingPrice))->toCurrency(trans('general.currency')) }}"),
 			price: parseFloat("{{ $giftcard ? 0 : (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)))->toCurrency(trans('general.currency')) }}"),
 			sub_price: parseFloat("{{ (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)))->toCurrency(trans('general.currency')) }}"),
@@ -136,20 +137,28 @@
 			}
 		},
 		methods: {
-			getCart: function() {
-				// todo get from /cart
-			},
+			getCart: function () {
+				$.get('/cart').done(function (response) {
+					app.totals = [];
 
-			removeVitamin: function(group, subgroup) {
-				$.post('/cart-deduct/' + group).done(function(response)
-				{
-					$(".vitamin-item-for-recommendation[data-group='" + group + "']").fadeOut(350, function()
+					$.each(response.lines, function(i, line)
 					{
-						$(this).remove();
+						app.totals.push({
+							name: line.name,
+							price: line.amount
+						});
 					});
 				});
+			},
 
-				this.getCart();
+			removeVitamin: function (group, subgroup) {
+				$.post('/cart-deduct/' + group).done(function (response) {
+					$(".vitamin-item-for-recommendation[data-group='" + group + "']").fadeOut(350, function () {
+						$(this).remove();
+					});
+
+					app.getCart();
+				});
 			},
 
 			nextStep: function () {
@@ -244,6 +253,7 @@
 
 							$("#advises-loader").hide();
 							$("#advises-block").fadeIn();
+							app.getCart();
 						}, delay - timeout);
 					}
 				});
@@ -395,8 +405,7 @@
 	@endif
 
 
-	$("#advises-label").on('click', '.removePillButton', function()
-	{
+	$("#advises-label").on('click', '.removePillButton', function () {
 		app.removeVitamin($(this).data('group'), $(this).data('subgroup'));
 	});
 </script>

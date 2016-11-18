@@ -35,8 +35,8 @@ class CombinationLibrary
 			'one'   => $this->groupOne,
 			'two'   => $this->groupTwo,
 			'three' => $this->groupThree,
-			'four'  => $this->groupFour,
-			'five'  => $this->groupFive
+//			'four'  => $this->groupFour,
+//			'five'  => $this->groupFive
 		];
 
 		foreach ( $result as $item => $value )
@@ -125,8 +125,8 @@ class CombinationLibrary
 		$this->generateGroupOne( $data );
 		$this->generateGroupTwo( $data );
 		$this->generateGroupThree( $data );
-		$this->generateGroupFour( $data );
-		$this->generateGroupFive( $data );
+//		$this->generateGroupFour( $data );
+//		$this->generateGroupFive( $data );
 
 		if ( is_null( $this->groupOne ) && is_null( $this->groupTwo ) && is_null( $this->groupThree ) && is_null( $this->groupFour ) && is_null( $this->groupFive ) )
 		{
