@@ -98,7 +98,9 @@
 							</tr>
 							</thead>
 							<tbody style="line-height: 1;font-size: 6pt; color:#1A8562;">
-							@foreach(collect(trans("label-{$vitaminModel->code}.other-vitamins"))->sortByDesc('amount', SORT_NATURAL) as $vitamin)
+							<?php $otherVitamins = (trans("label-{$vitaminModel->code}.other-vitamins")); ?>
+							<?php ksort($otherVitamins); ?>
+							@foreach($otherVitamins as $vitamin)
 								<tr>
 									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
 									<td style="text-align: center;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
