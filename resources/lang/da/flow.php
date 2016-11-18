@@ -4,6 +4,8 @@ return array (
   'back' => '&lsaquo; Tilbage til tidligere spørgsmål',
   'title' => 'Find din anbefaling - TakeDaily',
   'scripts' => 'Venligst aktiver javascripts.',
+  'info_about_supplement' => 'Resultatet af denne test er baseret på din kost og livsstil. TakeDaily sørger for, at du får alle de vitaminer
+							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre kosttilskud.',
   'steps' => 
   array (
     'one' => 'PERSONLIGT',

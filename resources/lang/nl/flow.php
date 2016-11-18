@@ -4,6 +4,7 @@ return array (
   'back' => '‹ Terug naar de vorige vraag',
   'title' => 'Vind jouw persoonlijke advies - TakeDaily',
   'scripts' => 'Schakel JavaScript in',
+  'info_about_supplement' => 'De resultaten van deze test zijn gebaseerd op uw specifieke leeftstijl en eetpatroon. TakeDaily draagt zorg dat jij alle vitaminen en mineralen binnenkrijgt die je nodig hebt. Als de TakeDaily supplementen worden gebruikt, zijn andere vitaminen-/mineralensupplementen niet meer nodig. Wil je extra supplementen gebruiken naast de TakeDaily supplementen, raadpleeg dan altijd eerst jouw huisarts.',
   'steps' => 
   array (
     'one' => 'Algemeen',

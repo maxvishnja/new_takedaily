@@ -20,6 +20,5 @@
 	</div>
 
 	<p>{{ trans('flow.show.change-vitamins') }} <a href="{{ url()->route('pick-n-mix') }}" id="link-to-change">{{ trans('flow.show.click-me') }}</a></p>
-
-	@include('includes.disclaimer')
+	<p>{{ trans('flow.info_about_supplement')  }}</p>
 </div>
