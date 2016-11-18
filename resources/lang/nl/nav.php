@@ -4,10 +4,10 @@ return array (
   'account' => 
   array (
     'profile' => 'Mijn TakeDaily',
-    'deliveries' => 'Leveringen',
+    'deliveries' => 'Bestellingen',
     'settings' => 'Instellingen',
     'subscription' => 'Abonnement',
-    'billing' => 'Betaling',
+    'billing' => 'Betaalmethode',
     'logout' => 'Uitloggen',
     'pick' => 'Vitamines',
   ),
@@ -19,7 +19,7 @@ return array (
   array (
     'a-zink' => 
     array (
-      'Mineralen' =>
+      'Mineralen' => 
       array (
         0 => 'zink',
         7 => 'jod',
@@ -33,7 +33,7 @@ return array (
         4 => 'krom',
         8 => 'jern',
       ),
-      'Vitamines' =>
+      'Vitamines' => 
       array (
         3 => 'vitamin-c',
         4 => 'vitamin-a',
@@ -47,7 +47,7 @@ return array (
         8 => 'vitamin-b1-tiamin',
         9 => 'vitamin-b8-biotin',
         11 => 'vitamin-b9-folatfolsyre',
-        12 => 'vitamin-b12-kobalamin'
+        12 => 'vitamin-b12-kobalamin',
       ),
     ),
   ),

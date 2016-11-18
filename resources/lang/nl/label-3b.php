@@ -57,4 +57,6 @@ return array (
     'skin' => 'De B-vitamines (B2, B3) en jodium helpen bij het gezond houden van de huid',
     'nerve' => 'De B-vitamines (B1, B2, B3, B6) en jodium ondersteunen de normale werking van het zenuwstelsel',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );

@@ -10,17 +10,18 @@ return array (
   ),
   'transaction' => 
   array (
-    'title' => 'Levering #:id - TakeDaily',
-    'header' => 'Levering #:id',
-    'title-shipping' => 'Bezorgadres',
+    'title' => 'Bestelling #:id - TakeDaily',
+    'header' => 'Bestelling #:id',
+    'title-shipping' => 'Bezorgadres
+',
     'table' => 
     array (
       'headers' => 
       array (
-        'description' => 'Beschrijving',
+        'description' => 'Omschrijving',
         'amount' => 'Bedrag',
         'taxes' => 'BTW',
-        'total' => 'Totaal per maand',
+        'total' => 'Maandelijkse kosten',
       ),
       'totals' => 
       array (
@@ -34,8 +35,8 @@ return array (
   'transactions' => 
   array (
     'title' => 'Bestellingen - TakeDaily',
-    'header' => 'Jouw levering',
-    'no-results' => 'Geen leveringen gevonden',
+    'header' => 'Jouw TakeDaily bestellingen',
+    'no-results' => 'Geen bestellingen gevonden',
     'table' => 
     array (
       'date' => 'Datum',
@@ -61,7 +62,7 @@ return array (
     'button-remove-text' => 'Verwijder',
     'add' => 
     array (
-      'button-cancel-text' => 'Annuleren',
+      'button-cancel-text' => 'Opzeggen',
       'button-add-text' => 'Voortzetten',
       'title' => 'Voeg betaalmethode toe - Take Daily',
       'header' => 'Nieuwe betaalmethode',
@@ -70,17 +71,16 @@ return array (
   'settings_subscription' => 
   array (
     'title' => 'Abonnement  - TakeDaily',
-    'header' => 'Vertalen uit het: Nederlands
-Uw abonnement is <u>:Status</u>',
-    'total' => '<span>:hoeveelheid</span><small> / maand</small>',
-    'next-date' => 'Volgende tekening datum :: datum',
+    'header' => 'Uw abonnement is <u>:status</u>',
+    'total' => '<span>:amount</span><small> / maand</small>',
+    'next-date' => 'Volgende levering :date',
     'plan' => 
     array (
       'active' => 'Actief ',
       'cancelled' => 'Voltooid',
     ),
-    'button-snooze-text' => 'Volgende zendig uitstellen',
-    'button-cancel-text' => 'Annuleren',
+    'button-snooze-text' => 'Volgende levering uitstellen',
+    'button-cancel-text' => 'Opzeggen',
     'button-start-text' => 'Start abonnement vanaf nu',
     'snooze_popup' => 
     array (
@@ -90,7 +90,7 @@ Uw abonnement is <u>:Status</u>',
       'button-snooze-text' => 'Uitstellen',
       'button-close-text' => 'Annuleren',
     ),
-    'cant-cancel' => 'Jouw volgende levering is binnen  uur. Je kunt de bestelling helaas niet meer uitstellen.',
+    'cant-cancel' => 'Jouw volgende levering is binnen 48 uur. Je kunt de bestelling helaas niet meer uitstellen.',
     'cant-snooze' => 'Jouw volgende levering is binnen 24 uur. Je kunt de bestelling helaas niet meer uitstellen.',
     'new-recommendation' => 
     array (

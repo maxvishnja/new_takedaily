@@ -40,4 +40,6 @@ return array (
     'heart' => 'Jern bidrager til en normal dannelse af røde blodlegemer.',
     'nerve' => 'B-vitaminer (B1, B6 og B12) bidrager nervesystemets normale funktion.',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );

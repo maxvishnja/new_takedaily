@@ -46,4 +46,6 @@ return array (
     'brain-cog' => 'Folinsyre og C-vitamin er gode for koncentrationen, hukommelsen og indlæringsevnen.',
     'nerve' => 'C-vitamin og kalium understøtter nervesystemets normale funktion.',
   ),
+  'batch_number' => '1916',
+  'end_date' => '09/2019',
 );
