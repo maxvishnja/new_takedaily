@@ -333,7 +333,7 @@
 					return this.total_sum;
 				},
 				total_subscription: function () {
-					var amount = parseFloat("{{  \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\ProductPriceGetter::getPrice('subscription')) }}");
+					var amount = parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\Cart::getTotal()) }}");
 
 					if (this.discount.applied) {
 						if (this.discount.applies_to == 'plan') {
