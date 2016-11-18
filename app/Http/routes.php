@@ -312,7 +312,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 						break;
 				}
 
-				$ingredients .= '<div class="ingredient_item"><strong>' . trans( strtolower("label-{$index}{$combination}.name") ) . '</strong></div><p>' . trans( strtolower("label-{$index}{$combination}.ingredients") ) . '</p><small>' . trans('label-product.Store') . '</small>';
+				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower("label-{$index}{$combination}.name") ) . '</strong></div><p>' . trans( strtolower("label-{$index}{$combination}.ingredients") ) . '</p><small>' . trans('label-product.Store') . '</small></div>';
 			}
 
 
