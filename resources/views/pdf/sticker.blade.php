@@ -133,7 +133,7 @@
 
 	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1;position: absolute; bottom: 0; text-align: center">
 			{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
-			{!! trans('label-product.batch') !!} · {!! trans('label-product.weight') !!} · {!! trans('label-product.expiration') !!}
+			{!! trans('label-product.weight') !!}
 			<br/>
 		<div>{{ trans('label-product.address') }}</div>
 	</div>
