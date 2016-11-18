@@ -301,6 +301,9 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			foreach ( $lib->getResult() as $index => $combination )
 			{
+				$combinationKey = $combination;
+				$indexOld = $index;
+
 				if ( $index == 'one' )
 				{
 					$combination = $alphabet[ $combination - 1 ];
@@ -317,13 +320,13 @@ Route::group( [ 'middleware' => 'web' ], function ()
 					case 'three':
 					default:
 						$index = 3;
-						break;
+						break;F
 				}
 
 				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</strong></div><p>' . trans( strtolower( "label-{$index}{$combination}.ingredients" ) ) . '</p><small>' . trans( 'label-product.Store' ) . '</small></div>';
 
 
-				\App\Apricot\Checkout\Cart::addProduct(  \App\Apricot\Libraries\PillLibrary::$codes[\App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal )], '' );
+				\App\Apricot\Checkout\Cart::addProduct(  \App\Apricot\Libraries\PillLibrary::$codes[\App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey )], '' );
 			}
 
 			$lib = new \App\Apricot\Libraries\CombinationLibrary();
