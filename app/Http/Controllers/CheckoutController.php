@@ -205,6 +205,8 @@ class CheckoutController extends Controller
 		$request->session()->flash( 'order_price', $checkout->getTotal() );
 		$request->session()->flash( 'order_currency', trans( 'general.currency' ) );
 
+		Cart::clear();
+
 		if ( $checkout->getProduct()->isSubscription() )
 		{
 			return \Redirect::action( 'CheckoutController@getSuccess' )

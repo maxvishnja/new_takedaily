@@ -42,7 +42,7 @@ class Checkout
 			}
 			elseif ( $coupon->discount_type == 'amount' )
 			{
-				$this->deductTotal( \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString( config( 'app.base_currency' ), trans( 'general.currency' ), MoneyLibrary::toMoneyFormat( $coupon->discount ) ) );
+				$this->deductTotal( MoneyLibrary::toMoneyFormat( $coupon->discount ) );
 			}
 
 			if ( $coupon->applies_to == 'plan' )
@@ -209,7 +209,7 @@ class Checkout
 	public function makeInitialPayment()
 	{
 		return $this->getPaymentHandler()
-		            ->makeInitialPayment( MoneyLibrary::toCents( $this->getTotal() ), $this->getCustomer() );
+		            ->makeInitialPayment( $this->getTotal(), $this->getCustomer() );
 	}
 
 	public function getCoupon()
