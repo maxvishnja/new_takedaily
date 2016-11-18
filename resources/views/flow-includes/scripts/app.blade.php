@@ -60,17 +60,13 @@
 			}
 		},
 		watch: {
-			'user_data.pregnancy.week': function(val, oldVal)
-			{
-				if(val != '0' && val != 0)
-				{
+			'user_data.pregnancy.week': function (val, oldVal) {
+				if (val != '0' && val != 0) {
 					this.user_data.pregnancy.wish = 0;
 				}
 			},
-			'user_data.pregnancy.wish': function(val, oldVal)
-			{
-				if(val != '0' && val != 0)
-				{
+			'user_data.pregnancy.wish': function (val, oldVal) {
+				if (val != '0' && val != 0) {
 					this.user_data.pregnancy.week = 0;
 				}
 			},
@@ -150,48 +146,50 @@
 		},
 		methods: {
 			nextStep: function () {
-				var currentStep = $(".step[data-step='" + this.step + "']");
-				var nextStep = $(".step[data-step='" + (this.step + 1) + "']");
-				var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
-				var nextSubStep = currentStep.find(".sub_step[data-sub-step='" + (this.sub_step + 1) + "']");
+				setTimeout(function () {
+					var currentStep = $(".step[data-step='" + app.step + "']");
+					var nextStep = $(".step[data-step='" + (app.step + 1) + "']");
+					var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + app.sub_step + "']");
+					var nextSubStep = currentStep.find(".sub_step[data-sub-step='" + (app.sub_step + 1) + "']");
 
-				if (nextSubStep[0]) {
-					this.sub_step = nextSubStep.attr("data-sub-step") * 1;
+					if (nextSubStep[0]) {
+						app.sub_step = nextSubStep.attr("data-sub-step") * 1;
 
-					currentSubStep.removeClass("sub_step--active").removeClass('sub_step--active-animated').removeClass("sub_step--slideout-prev").removeClass("sub_step--prev").addClass("sub_step--out-animated");
-					nextSubStep.addClass('sub_step--active').removeClass("sub_step--slideout-prev").removeClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
+						currentSubStep.removeClass("sub_step--active").removeClass('sub_step--active-animated').removeClass("sub_step--slideout-prev").removeClass("sub_step--prev").addClass("sub_step--out-animated");
+						nextSubStep.addClass('sub_step--active').removeClass("sub_step--slideout-prev").removeClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
 
-					if (nextSubStep.hasClass('sub_step--skip')) {
-						this.nextStep();
+						if (nextSubStep.hasClass('sub_step--skip')) {
+							app.nextStep();
+						}
+
+						return true;
+					}
+
+					app.step++;
+					app.sub_step = 1;
+
+					currentStep.removeClass("step--active");
+					nextStep.addClass("step--active");
+
+					var newHeight = 1;
+					nextStep.find(".sub_step").each(function () {
+						if ($(this).height() > newHeight) {
+							newHeight = $(this).height();
+						}
+					});
+
+					nextStep.css("min-height", newHeight * 1.2);
+
+					app.checkIfShouldGetCombinations();
+
+					var curSubStep = nextStep.find(".sub_step[data-sub-step='" + app.sub_step + "']");
+
+					if (curSubStep.hasClass('sub_step--skip')) {
+						app.nextStep();
 					}
 
 					return true;
-				}
-
-				this.step++;
-				this.sub_step = 1;
-
-				currentStep.removeClass("step--active");
-				nextStep.addClass("step--active");
-
-				var newHeight = 1;
-				nextStep.find(".sub_step").each(function () {
-					if ($(this).height() > newHeight) {
-						newHeight = $(this).height();
-					}
-				});
-
-				nextStep.css("min-height", newHeight * 1.2);
-
-				this.checkIfShouldGetCombinations();
-
-				var curSubStep = nextStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
-
-				if (curSubStep.hasClass('sub_step--skip')) {
-					this.nextStep();
-				}
-
-				return true;
+				}, 5);
 			},
 
 			getSubStepsForStep: function (step) {
@@ -266,65 +264,67 @@
 			},
 
 			previousStep: function () {
-				if (this.sub_step == 1 && this.step == 1) {
+				if (app.sub_step == 1 && app.step == 1) {
 					return false;
 				}
 
-				// resets some data
-				if (this.step < 4) {
-					$.each($("[name='step[" + this.step + "][" + this.sub_step + "]']"), function(i, input)
-					{
-						var model = $(input).data('model');
+				setTimeout(function () {
 
-						var modelParts = model.split('.');
+					// resets some data
+					if (app.step < 4) {
+						$.each($("[name='step[" + app.step + "][" + app.sub_step + "]']"), function (i, input) {
+							var model = $(input).data('model');
 
-						if (modelParts.length == 1) {
-							app.user_data[modelParts[0]] = $(input).data('default') !== undefined ? $(input).data('default') : null;
-						}
-						else {
-							app.user_data[modelParts[0]][modelParts[1]] = $(input).data('default') !== undefined ? $(input).data('default') : null;
-						}
-					});
-				}
+							var modelParts = model.split('.');
 
-				var currentStep = $(".step[data-step='" + this.step + "']");
-				var previousStep = $(".step[data-step='" + (this.step - 1) + "']");
-
-				if (this.sub_step > 1) {
-					var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
-					var previousSubStep = currentStep.find(".sub_step[data-sub-step='" + (this.sub_step - 1) + "']");
-
-					if (previousSubStep[0]) {
-						this.sub_step = previousSubStep.attr("data-sub-step") * 1;
-
-						currentSubStep.removeClass("sub_step--active").removeClass('sub_step--active-animated').addClass("sub_step--slideout-prev").addClass("sub_step--out-animated").removeClass("sub_step--prev");
-						previousSubStep.addClass('sub_step--active').addClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
-
-						if (previousSubStep.hasClass('sub_step--skip')) {
-							this.previousStep();
-						}
-
-						return true;
+							if (modelParts.length == 1) {
+								app.user_data[modelParts[0]] = $(input).data('default') !== undefined ? $(input).data('default') : null;
+							}
+							else {
+								app.user_data[modelParts[0]][modelParts[1]] = $(input).data('default') !== undefined ? $(input).data('default') : null;
+							}
+						});
 					}
-				}
 
-				var numberOfSubStepsInPreviousStep = previousStep.find(".sub_step").length;
+					var currentStep = $(".step[data-step='" + app.step + "']");
+					var previousStep = $(".step[data-step='" + (app.step - 1) + "']");
 
-				this.step--;
-				this.sub_step = numberOfSubStepsInPreviousStep;
+					if (app.sub_step > 1) {
+						var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + app.sub_step + "']");
+						var previousSubStep = currentStep.find(".sub_step[data-sub-step='" + (app.sub_step - 1) + "']");
 
-				currentStep.removeClass("step--active");
-				previousStep.addClass("step--active");
+						if (previousSubStep[0]) {
+							app.sub_step = previousSubStep.attr("data-sub-step") * 1;
 
-				this.checkIfShouldGetCombinations();
+							currentSubStep.removeClass("sub_step--active").removeClass('sub_step--active-animated').addClass("sub_step--slideout-prev").addClass("sub_step--out-animated").removeClass("sub_step--prev");
+							previousSubStep.addClass('sub_step--active').addClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
 
-				var curSubStep = previousStep.find(".sub_step[data-sub-step='" + this.sub_step + "']");
+							if (previousSubStep.hasClass('sub_step--skip')) {
+								app.previousStep();
+							}
 
-				if (curSubStep.hasClass('sub_step--skip')) {
-					this.previousStep();
-				}
+							return true;
+						}
+					}
 
-				return true;
+					var numberOfSubStepsInPreviousStep = previousStep.find(".sub_step").length;
+
+					app.step--;
+					app.sub_step = numberOfSubStepsInPreviousStep;
+
+					currentStep.removeClass("step--active");
+					previousStep.addClass("step--active");
+
+					app.checkIfShouldGetCombinations();
+
+					var curSubStep = previousStep.find(".sub_step[data-sub-step='" + app.sub_step + "']");
+
+					if (curSubStep.hasClass('sub_step--skip')) {
+						app.previousStep();
+					}
+
+					return true;
+				}, 5);
 			},
 
 			moreInfo: function (element, event) {
@@ -381,11 +381,11 @@
 	@if(count($userData) > 0)
 		app.user_data = JSON.parse('{!! json_encode($userData) !!}');
 
-		// This part is only for securing that Vue has updated elements..
-		// I've not found it necessary but rather safe than sorry.
-		setTimeout(function () {
-			app.goToRecommendations();
-		}, 50);
+	// This part is only for securing that Vue has updated elements..
+	// I've not found it necessary but rather safe than sorry.
+	setTimeout(function () {
+		app.goToRecommendations();
+	}, 50);
 	@endif
 
 </script>
