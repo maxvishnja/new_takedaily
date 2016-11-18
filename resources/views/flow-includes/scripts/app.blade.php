@@ -120,26 +120,6 @@
 			},
 			total: function () {
 				return this.total_sum;
-			},
-			total_subscription: function () {
-				// todo calculate this somehow
-				var amount = this.sub_price + this.shipping;
-
-				if (this.discount.applied) {
-					if (this.discount.applies_to == 'plan') {
-						var discount = 0;
-						if (this.discount.type == 'percentage') {
-							discount = this.total_sub * (this.discount.amount / 100);
-						}
-						else if (this.discount.type == 'amount') {
-							discount = (this.discount.amount / 100);
-						}
-
-						amount -= discount;
-					}
-				}
-
-				return amount;
 			}
 		},
 		methods: {

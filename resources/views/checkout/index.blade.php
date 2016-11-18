@@ -6,7 +6,6 @@
 @section('title', trans('checkout.index.title'))
 
 @section('content')
-	{{ dd(\App\Apricot\Checkout\Cart::get()) }}
 	<script>
 		function statusChangeCallback(response) {
 			if (response.status == 'connected') {
@@ -245,44 +244,16 @@
 
 				<table v-cloak>
 					<tbody>
-					<tr>
-						<td>{{ trans("products.{$product->name}") }}</td>
-						<td>{{ trans('general.money-vue', ['amount' => 'sub_price']) }}</td>
-					</tr>
-					@if(count($codes) > 0)
-						@foreach($codes as $code)
-							<tr>
-								<td>{{ !is_int($code) ? \App\Apricot\Libraries\PillLibrary::$codes[$code] : \App\Vitamin::find($code)->name }}</td>
-								<td></td>
-							</tr>
-						@endforeach
-					@endif
-					<tr v-for="item in extra_totals">
+					<tr v-for="item in totals">
 						<td>@{{ item.name }}</td>
-						<td>{{ trans('general.money-vue', ['amount' => 'item.price']) }}</td>
+						<td><span v-show="item.showPrice">{{ trans('general.money-vue', ['amount' => 'item.price']) }}</span></td>
 					</tr>
-					@if($product->is_subscription == 1)
-						<tr>
-							<td>{{ trans('checkout.index.total.shipping') }}</td>
-							<td>
-								<span v-show="shipping == 0">{{ trans('checkout.index.total.free') }}</span>
-								<span v-show="shipping > 0">{{ trans('general.money-vue', ['amount' => 'shipping']) }}</span>
-							</td>
-						</tr>
-					@endif
-					@if($giftcard)
-						<tr>
-							<td>{{ trans('checkout.index.total.giftcard') }}</td>
-							<td>{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth, true, 2, '.')]) }}</td>
-						</tr>
-					@endif
 					<tr v-show="discount.applied">
 						<td>@{{ discount.code }}: @{{ discount.description }}</td>
-						<td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
-					</tr>
-					<tr v-show="giftcard">
-						<td>@{{ discount.code }}: @{{ discount.description }}</td>
-						<td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
+						<td>
+							<div v-show="discount.type == 'amount'">-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</div>
+							<div v-show="discount.type == 'percentage'">-@{{ total_discount }}</div>
+						</td>
 					</tr>
 					<tr>
 						<td>{{ trans('checkout.index.total.taxes') }}</td>
@@ -343,11 +314,8 @@
 			el: '#app',
 			data: {
 				company: '',
-				shipping: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), $shippingPrice) }}"),
-				price: parseFloat("{{ $giftcard ? 0 : \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)) }}"),
-				sub_price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)) }}"),
 				tax_rate: parseFloat("0.2"),
-				extra_totals: [],
+				totals: [],
 				discount: {
 					applied: false,
 					type: null,
@@ -359,58 +327,22 @@
 			},
 			computed: {
 				total_taxes: function () {
-					return this.total_sub * this.tax_rate;
-				},
-				subtotal: function () {
-					var price_addition = 0;
-
-					for (var extra_price in this.extra_totals) {
-						price_addition += parseFloat(app.extra_totals[extra_price].price);
-					}
-
-					return this.price + price_addition;
-				},
-				total_sub: function () {
-					var price_addition = 0;
-
-					for (var extra_price in this.extra_totals) {
-						price_addition += parseFloat(app.extra_totals[extra_price].price);
-					}
-
-					return this.price + price_addition - this.total_discount;
-				},
-				total_discount: function () {
-					if (!this.discount.applied) {
-						return 0;
-					}
-
-					if (this.discount.type == 'percentage') {
-						var discount = this.subtotal * (this.discount.amount / 100);
-					}
-					else if (this.discount.type == 'amount') {
-						var discount = (this.discount.amount / 100);
-					}
-
-					return discount;
+					return this.total * this.tax_rate;
 				},
 				total: function () {
-					return this.subtotal - this.total_discount + this.shipping;
+					return this.total_sum;
 				},
 				total_subscription: function () {
-					var amount = this.sub_price + this.shipping;
-
-					for (var extra_price in this.extra_totals) {
-						amount += parseFloat(app.extra_totals[extra_price].price);
-					}
+					var amount = parseFloat("{{  \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\ProductPriceGetter::getPrice('subscription')) }}");
 
 					if (this.discount.applied) {
 						if (this.discount.applies_to == 'plan') {
 							var discount = 0;
 							if (this.discount.type == 'percentage') {
-								discount = this.total_sub * (this.discount.amount / 100);
+								discount = amount * (this.discount.amount / 100);
 							}
 							else if (this.discount.type == 'amount') {
-								discount = (this.discount.amount / 100);
+								discount = this.discount.amount;
 							}
 
 							amount -= discount;
@@ -418,16 +350,77 @@
 					}
 
 					return amount;
+				},
+				total_sum: function () {
+					var sum = 0;
+
+					$.each(this.totals, function (i, line) {
+						sum += line.price;
+					});
+
+					if (app.discount.applied) {
+						if (app.discount.type == 'amount') {
+							sum -= app.discount.amount;
+						}
+						else if (app.discount.type == 'percentage') {
+							sum *= (app.discount.amount / 100);
+						}
+					}
+
+					sum = sum > 0 ? sum : 0;
+
+					return sum;
+				},
+				total_discount: function () {
+					var total = 0;
+
+					if (this.discount.type == 'amount') {
+						total = this.discount.amount;
+					}
+					else if (this.discount.type == 'percentage') {
+						total = this.discount.amount + '%';
+					}
+
+					return total;
+				}
+			},
+			methods: {
+				getCart: function () {
+					$.get('/cart').done(function (response) {
+						app.totals = [];
+
+						$.each(response.lines, function (i, line) {
+							app.totals.push({
+								name: line.name,
+								price: line.amount,
+								showPrice: line.hidePrice === undefined
+							});
+						});
+
+						if(response.coupon !== undefined && response.coupon.applied !== undefined)
+						{
+							app.discount.applied = response.coupon.applied;
+							app.discount.type = response.coupon.type;
+							app.discount.amount = response.coupon.amount;
+							app.discount.applies_to = response.coupon.applies_to;
+							app.discount.description = response.coupon.description;
+							app.discount.code = response.coupon.code;
+						}
+
+						if(response.giftcard !== undefined && response.giftcard.worth !== undefined)
+						{
+							app.totals.push({
+								name: "{!! trans('checkout.index.total.giftcard') !!}",
+								price: parseFloat(response.giftcard.worth) * -1,
+								showPrice: true
+							})
+						}
+					});
 				}
 			}
 		});
 
-		@foreach (App\Apricot\Helpers\ExtraPills::getTotalsFor($codes) as $total )
-			app.extra_totals.push({
-			name: "{{ $total['name'] }}",
-			price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), $total['price']) }}")
-		});
-		@endforeach
+		app.getCart();
 	</script>
 
 	@if ( ! $giftcard )
