@@ -97,8 +97,6 @@ class PackageController extends Controller
 			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal ) ], '' );
 		}
 
-		dd( Cart::get() );
-
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}
 }
