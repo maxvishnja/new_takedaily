@@ -3,7 +3,7 @@
 return array (
   'money' => '€ :amount',
   'money-vue' => '€ {{ :amount | currency \'\' }}',
-  'tawk_id' => 'default',
+  'tawk_id' => '1b1rde9bt',
   'tax_zone' => 'netherlands',
   'currency' => 'EUR',
   'locale' => 'nl_NL',
