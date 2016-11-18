@@ -60,6 +60,7 @@ class PackageController extends Controller
 
 			Cart::clear();
 			Cart::addProduct( 'subscription' );
+			Cart::addProduct( 'shipping', 0 );
 
 			foreach ( $vitamins as $i => $vitamin )
 			{

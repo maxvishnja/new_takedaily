@@ -3,24 +3,10 @@
 		@if(!Auth::check())
 			<table class="order_table">
 			<tbody>
-			<tr>
-				<td>{{ trans("products." . (Session::get('force_product_name', false) ? ( Session::get('product_name', 'subscription')) : 'subscription')) }}</td>
-				<td>{{ trans('general.money-vue', ['amount' => 'sub_price']) }}</td>
-			</tr>
-			<tr v-for="item in totals">
+			<tr v-for="item in totals" v-show="item.showPrice">
 				<td>@{{ item.name }}</td>
 				<td>{{ trans('general.money-vue', ['amount' => 'item.price']) }}</td>
 			</tr>
-			@if($product->is_subscription == 1)
-				<tr>
-					<td>{{ trans('checkout.index.total.shipping') }}</td>
-					<td>
-						<span v-show="shipping == 0">{{ trans('checkout.index.total.free') }}</span>
-						<span
-							v-show="shipping > 0">{{ trans('general.money-vue', ['amount' => 'shipping']) }}</span>
-					</td>
-				</tr>
-			@endif
 			@if($giftcard)
 				<tr>
 					<td>{{ trans('checkout.index.total.giftcard') }}</td>
@@ -47,7 +33,6 @@
 		</table>
 			<button type="submit"
 					class="button button--green button--huge button--full-mobile m-t-30">{{ trans('flow.button-order-text') }}</button>
-
 
 			<div class="m-t-20 m-b-20">
 				<a href="#coupon-field"

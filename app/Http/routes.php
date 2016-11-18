@@ -210,7 +210,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				abort( 404 );
 			}
 
-
 			return view( 'faq.view', compact( $faq ) );
 		} );
 
@@ -231,6 +230,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				{
 					$item->name = trans( "products.{$item->name}" );
 				}
+				else
+				{
+					$item->hidePrice = true;
+				}
+
+				$item->amount = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat( $item->amount );
 
 				return $item;
 			} );
@@ -371,6 +376,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			\App\Apricot\Checkout\Cart::clear();
 			\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
+			\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );
 
 			foreach ( $lib->getResult() as $index => $combination )
 			{

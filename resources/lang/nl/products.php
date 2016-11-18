@@ -13,4 +13,5 @@ return array (
   'oil' => 'Extra olie',
   'extra' => 'Extra vitamines',
   'package' => 'Keuzepakket',
+  'vitamin' => 'Removed vitamine'
 );

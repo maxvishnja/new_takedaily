@@ -69,11 +69,23 @@
 				if (val != '0' && val != 0) {
 					this.user_data.pregnancy.week = 0;
 				}
-			},
+			}
 		},
 		computed: {
 			temp_age: function () {
 				return this.getAge();
+			},
+			total_sum: function() {
+				var sum = 0;
+
+				$.each(this.totals, function(i, line)
+				{
+					sum += line.price;
+				});
+
+				sum = sum > 0 ? sum : 0;
+
+				return sum;
 			},
 			birthday: function () {
 				var newDate = new Date(this.user_data.birthdate);
@@ -87,34 +99,10 @@
 				return newDate.getDate() + " " + months[newDate.getMonth()] + " " + newDate.getFullYear();
 			},
 			total_taxes: function () {
-				return this.total_sub * this.tax_rate;
-			},
-			subtotal: function () {
-				var price_addition = 0;
-
-				return this.price + price_addition;
-			},
-			total_sub: function () {
-				var price_addition = 0;
-
-				return this.price + price_addition - this.total_discount;
-			},
-			total_discount: function () {
-				if (!this.discount.applied) {
-					return 0;
-				}
-
-				if (this.discount.type == 'percentage') {
-					var discount = this.subtotal * (this.discount.amount / 100);
-				}
-				else if (this.discount.type == 'amount') {
-					var discount = (this.discount.amount / 100);
-				}
-
-				return discount;
+				return this.total * this.tax_rate;
 			},
 			total: function () {
-				return this.subtotal - this.total_discount + this.shipping;
+				return this.total_sum;
 			},
 			total_subscription: function () {
 				var amount = this.sub_price + this.shipping;
@@ -145,7 +133,8 @@
 					{
 						app.totals.push({
 							name: line.name,
-							price: line.amount
+							price: line.amount,
+							showPrice: line.hidePrice === undefined
 						});
 					});
 				});

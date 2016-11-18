@@ -57,6 +57,7 @@ class PickMixController extends Controller
 
 		Cart::clear();
 		Cart::addProduct('subscription');
+		Cart::addProduct( 'shipping', 0 );
 
 		/** @var Vitamin $vitamin */
 		$i = 0;
