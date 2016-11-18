@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'mollie' => [
+	    'client_id'     => env('MOLLIE_KEY'),
+	    'client_secret' => env('MOLLIE_SECRET'),
+//	    'redirect'      => env('MOLLIE_REDIRECT_URI'),
+    ],
+
 ];

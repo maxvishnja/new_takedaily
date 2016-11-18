@@ -386,11 +386,11 @@ class Customer extends Model
 			] );
 		}
 
-		if(!$product->isSubscription())
+		if ( ! $product->isSubscription() )
 		{
-			$order->update([
+			$order->update( [
 				'is_shippable' => 0
-			]);
+			] );
 		}
 
 		return $order;
@@ -550,9 +550,9 @@ class Customer extends Model
 		return $combinationLibrary->getResult();
 	}
 
-	public function scopeMailFlowable($query)
+	public function scopeMailFlowable( $query )
 	{
-		return $query->where('is_mailflowable', 1)->where('accept_newletters', 1);
+		return $query->where( 'is_mailflowable', 1 )->where( 'accept_newletters', 1 );
 	}
 
 	public function getVitamins()
@@ -576,7 +576,7 @@ class Customer extends Model
 	{
 		$vitamins = json_decode( $this->getVitamins() );
 
-		if(is_null($vitamins))
+		if ( is_null( $vitamins ) )
 		{
 			return [];
 		}
@@ -647,31 +647,31 @@ class Customer extends Model
 	public function updateUserdata( $userData )
 	{
 		return $this->setCustomerAttributes( [
-			'user_data.gender'           => $userData->gender,
-			'user_data.birthdate'        => date( 'Y-m-d', strtotime( $userData->birthdate ) ),
-			'user_data.age'              => $userData->age,
-			'user_data.skin'             => $userData->skin,
-			'user_data.outside'          => $userData->outside,
-			'user_data.pregnant'         => $userData->pregnant,
-			'user_data.pregnancy.date'   => $userData->pregnancy->date,
-			'user_data.pregnancy.week'   => $userData->pregnancy->week,
-			'user_data.pregnancy.wish'   => $userData->pregnancy->wish,
-			'user_data.diet'             => $userData->diet,
-			'user_data.sports'           => $userData->sports,
-			'user_data.lacks_energy'     => $userData->lacks_energy,
-			'user_data.smokes'           => $userData->smokes,
-			'user_data.immune_system'    => $userData->immune_system,
-			'user_data.vegetarian'       => $userData->vegetarian,
-			'user_data.joints'           => $userData->joints,
-			'user_data.stressed'         => $userData->stressed,
-			'user_data.foods.fruits'     => $userData->foods->fruits,
-			'user_data.foods.vegetables' => $userData->foods->vegetables,
-			'user_data.foods.bread'      => $userData->foods->bread,
-			'user_data.foods.wheat'      => $userData->foods->wheat,
-			'user_data.foods.dairy'      => $userData->foods->dairy,
-			'user_data.foods.meat'       => $userData->foods->meat,
-			'user_data.foods.fish'       => $userData->foods->fish,
-			'user_data.foods.butter'     => $userData->foods->butter
+			'user_data.gender'           => $userData->gender ?: '',
+			'user_data.birthdate'        => $userData->birthdate ? date( 'Y-m-d', strtotime( $userData->birthdate ) ) : '',
+			'user_data.age'              => $userData->age ?: '',
+			'user_data.skin'             => $userData->skin ?: '',
+			'user_data.outside'          => $userData->outside ?: '',
+			'user_data.pregnant'         => $userData->pregnant ?: '',
+			'user_data.pregnancy.date'   => $userData->pregnancy->date ?: '',
+			'user_data.pregnancy.week'   => $userData->pregnancy->week ?: '',
+			'user_data.pregnancy.wish'   => $userData->pregnancy->wish ?: '',
+			'user_data.diet'             => $userData->diet ?: '',
+			'user_data.sports'           => $userData->sports ?: '',
+			'user_data.lacks_energy'     => $userData->lacks_energy ?: '',
+			'user_data.smokes'           => $userData->smokes ?: '',
+			'user_data.immune_system'    => $userData->immune_system ?: '',
+			'user_data.vegetarian'       => $userData->vegetarian ?: '',
+			'user_data.joints'           => $userData->joints ?: '',
+			'user_data.stressed'         => $userData->stressed ?: '',
+			'user_data.foods.fruits'     => $userData->foods->fruits ?: '',
+			'user_data.foods.vegetables' => $userData->foods->vegetables ?: '',
+			'user_data.foods.bread'      => $userData->foods->bread ?: '',
+			'user_data.foods.wheat'      => $userData->foods->wheat ?: '',
+			'user_data.foods.dairy'      => $userData->foods->dairy ?: '',
+			'user_data.foods.meat'       => $userData->foods->meat ?: '',
+			'user_data.foods.fish'       => $userData->foods->fish ?: '',
+			'user_data.foods.butter'     => $userData->foods->butter ?: ''
 		] );
 	}
 
@@ -679,49 +679,49 @@ class Customer extends Model
 	{
 		$data = [];
 
-		if(isset($userData->gender) && (!isset($userData->custom) && !isset($userData->custom->one)))
+		if ( isset( $userData->gender ) && ( ! isset( $userData->custom ) && ! isset( $userData->custom->one ) ) )
 		{
-			$data['user_data.gender'] = $userData->gender;
+			$data['user_data.gender']    = $userData->gender;
 			$data['user_data.birthdate'] = date( 'Y-m-d', strtotime( $userData->birthdate ) );
-			$data['user_data.age'] = $userData->age;
-			$data['user_data.skin'] = $userData->skin;
-			$data['user_data.outside'] = $userData->outside;
+			$data['user_data.age']       = $userData->age;
+			$data['user_data.skin']      = $userData->skin;
+			$data['user_data.outside']   = $userData->outside;
 		}
 
-		if(isset($userData->custom))
+		if ( isset( $userData->custom ) )
 		{
-			if(isset($userData->custom->one))
+			if ( isset( $userData->custom->one ) )
 			{
 				$data['user_data.custom.one'] = $userData->custom->one;
 			}
 
-			if(isset($userData->custom->two))
+			if ( isset( $userData->custom->two ) )
 			{
 				$data['user_data.custom.two'] = $userData->custom->two;
 			}
 
-			if(isset($userData->custom->three))
+			if ( isset( $userData->custom->three ) )
 			{
 				$data['user_data.custom.three'] = $userData->custom->three;
 			}
 
-			if(isset($userData->custom->four))
+			if ( isset( $userData->custom->four ) )
 			{
 				$data['user_data.custom.four'] = $userData->custom->four;
 			}
 		}
 
-		$this->getPlan()->setIsCustom(false);
+		$this->getPlan()->setIsCustom( false );
 
 		$this->setCustomerAttributes( $data );
 
 		$newCombinations = $this->calculateCombinations();
-		$vitamins     = [ ];
+		$vitamins        = [];
 
 		foreach ( $newCombinations as $key => $combination )
 		{
-			$pill = PillLibrary::getPill($key, $combination);
-			$vitamin = Vitamin::select('id')->whereCode($pill)->first();
+			$pill    = PillLibrary::getPill( $key, $combination );
+			$vitamin = Vitamin::select( 'id' )->whereCode( $pill )->first();
 
 			if ( $vitamin )
 			{
@@ -729,7 +729,7 @@ class Customer extends Model
 			}
 		}
 
-		$this->setVitamins($vitamins);
+		$this->setVitamins( $vitamins );
 
 		return $this;
 	}
