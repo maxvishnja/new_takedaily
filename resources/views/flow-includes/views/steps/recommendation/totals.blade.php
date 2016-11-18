@@ -7,19 +7,12 @@
 				<td>@{{ item.name }}</td>
 				<td>{{ trans('general.money-vue', ['amount' => 'item.price']) }}</td>
 			</tr>
-			@if($giftcard)
-				<tr>
-					<td>{{ trans('checkout.index.total.giftcard') }}</td>
-					<td>{{ trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth, true, 2, '.')))->toCurrency(trans('general.currency'))]) }}</td>
-				</tr>
-			@endif
 			<tr v-show="discount.applied">
 				<td>@{{ discount.code }}: @{{ discount.description }}</td>
-				<td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
-			</tr>
-			<tr v-show="giftcard">
-				<td>@{{ discount.code }}: @{{ discount.description }}</td>
-				<td>-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</td>
+				<td>
+					<div v-show="discount.type == 'amount'">-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</div>
+					<div v-show="discount.type == 'percentage'">-@{{ total_discount }}</div>
+				</td>
 			</tr>
 			<tr>
 				<td>{{ trans('checkout.index.total.taxes') }}</td>

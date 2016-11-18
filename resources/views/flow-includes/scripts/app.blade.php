@@ -14,9 +14,6 @@
 			recommendation_token: '',
 			result: {},
 			totals: [],
-			shipping: parseFloat("{{ (new \App\Apricot\Helpers\Money($shippingPrice))->toCurrency(trans('general.currency')) }}"),
-			price: parseFloat("{{ $giftcard ? 0 : (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)))->toCurrency(trans('general.currency')) }}"),
-			sub_price: parseFloat("{{ (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($product->price)))->toCurrency(trans('general.currency')) }}"),
 			tax_rate: parseFloat("{{ $taxRate }}"),
 			discount: {
 				applied: false,
@@ -75,17 +72,37 @@
 			temp_age: function () {
 				return this.getAge();
 			},
-			total_sum: function() {
+			total_sum: function () {
 				var sum = 0;
 
-				$.each(this.totals, function(i, line)
-				{
+				$.each(this.totals, function (i, line) {
 					sum += line.price;
 				});
+
+				if (app.discount.applied) {
+					if (app.discount.type == 'amount') {
+						sum -= app.discount.amount;
+					}
+					else if (app.discount.type == 'percentage') {
+						sum *= (app.discount.amount / 100);
+					}
+				}
 
 				sum = sum > 0 ? sum : 0;
 
 				return sum;
+			},
+			total_discount: function () {
+				var total = 0;
+
+				if (this.discount.type == 'amount') {
+					total = this.discount.amount;
+				}
+				else if (this.discount.type == 'percentage') {
+					total = this.discount.amount + '%';
+				}
+
+				return total;
 			},
 			birthday: function () {
 				var newDate = new Date(this.user_data.birthdate);
@@ -105,6 +122,7 @@
 				return this.total_sum;
 			},
 			total_subscription: function () {
+				// todo calculate this somehow
 				var amount = this.sub_price + this.shipping;
 
 				if (this.discount.applied) {
@@ -129,13 +147,16 @@
 				$.get('/cart').done(function (response) {
 					app.totals = [];
 
-					$.each(response.lines, function(i, line)
-					{
+					$.each(response.lines, function (i, line) {
 						app.totals.push({
 							name: line.name,
 							price: line.amount,
 							showPrice: line.hidePrice === undefined
 						});
+					});
+
+					$.each(additional_totals, function (i, total) {
+						app.totals.push(total);
 					});
 				});
 			},
@@ -382,6 +403,16 @@
 			}
 		}
 	});
+
+	var additional_totals = [
+			@if($giftcard)
+		{
+			name: "{!! trans('checkout.index.total.giftcard') !!}",
+			price: parseFloat("-{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth) }}"),
+			showPrice: true
+		},
+		@endif
+	];
 
 	@if(count($userData) > 0)
 		app.user_data = JSON.parse('{!! json_encode($userData) !!}');
