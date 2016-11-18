@@ -413,4 +413,9 @@
 	$("#advises-label").on('click', '.removePillButton', function () {
 		app.removeVitamin($(this).data('group'), $(this).data('subgroup'));
 	});
+
+
+	$("#advises-label").on('click', '.ingredient_item', function () {
+		$(this).find('table').stop().slideToggle();
+	});
 </script>

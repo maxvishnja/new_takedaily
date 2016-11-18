@@ -1,3 +1,4 @@
+@if(!$giftcard)
 <script>
 	$("#toggle-coupon-form").click(function (e) {
 		e.preventDefault();
@@ -50,3 +51,4 @@
 		$("#coupon-button").click();
 	}
 </script>
+@endif

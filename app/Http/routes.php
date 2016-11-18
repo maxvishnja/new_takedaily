@@ -330,8 +330,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			$product = \App\Product::whereName( 'subscription' )
 			                       ->first();
 
-			// todo - giftcard is not taken into consideration
-
 			// Coupon
 			$coupon = null;
 			if ( \Session::has( 'applied_coupon' ) )
@@ -440,7 +438,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 						break;
 				}
 
-				$ingredients .= '<div class="ingredient_item"><div><strong>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</strong></div><p>' . trans( strtolower( "label-{$index}{$combination}.ingredients" ) ) . '</p><small>' . trans( 'label-product.Store' ) . '</small></div>';
+				$ingredients .= '<div class="ingredient_item" data-item="' . $index . $combination . '">
+					<h3>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</h3>
+					' . view('flow-includes.views.vitamin_table', ['label' => "{$index}{$combination}" ]) . '
+				</div>';
 
 				$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey );
 				\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '', [ 'key' => "vitamin.{$index}" ] );
