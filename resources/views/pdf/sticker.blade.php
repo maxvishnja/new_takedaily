@@ -108,10 +108,10 @@
 						</table>
 					@endif
 
-					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{{ trans('label-product.ingredients') }}: {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
+					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {{ trans("label-{$vitaminModel->code}.ingredients") }}</p>
 
 					@if(trans("label-{$vitaminModel->code}.Allergener") != '' && trans("label-{$vitaminModel->code}.Allergener") != "label-{$vitaminModel->code}.Allergener")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{{ trans('label-product.Allergener') }}: {{ trans("label-{$vitaminModel->code}.Allergener") }}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.Allergener') }}:</strong> {{ trans("label-{$vitaminModel->code}.Allergener") }}</p>
 					@endif
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
 						@if($vitaminModel->code == '3e')
@@ -120,10 +120,10 @@
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 4pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
 					<div style="font-size: 6pt;color: #1A8562; margin-top: 1pt;">
-						{{ trans('label-product.batch') }} {{ trans("label-{$vitaminModel->code}.batch_number") }}
+						<strong>{{ trans('label-product.batch') }}</strong> {{ trans("label-{$vitaminModel->code}.batch_number") }}
 					</div>
 					<div style="font-size: 6pt;color: #1A8562; margin-top: 1pt;">
-						{{ trans('label-product.expiration') }} {{ trans("label-{$vitaminModel->code}.end_date") }}
+						<strong>{{ trans('label-product.expiration') }}</strong> {{ trans("label-{$vitaminModel->code}.end_date") }}
 					</div>
 				</div>
 			@endforeach
