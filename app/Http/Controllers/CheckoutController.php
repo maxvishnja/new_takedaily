@@ -94,10 +94,10 @@ class CheckoutController extends Controller
 
 		$checkout = new Checkout();
 
-		$taxZone = trans('general.tax_zone');
+		$taxZone = $request->get( 'address_country', trans('general.tax_zone') );
 		if( \Auth::check() && \Auth::user()->isUser() )
 		{
-			$taxZone = \Auth::user()->customer->getCustomerAttribute('address_country', trans('general.tax_zone'));
+			$taxZone = \Auth::user()->customer->getCustomerAttribute('address_country', $request->get( 'address_country', trans('general.tax_zone') ));
 		}
 
 		$checkout->setProductByName( $productName )
@@ -106,7 +106,7 @@ class CheckoutController extends Controller
 		         ->setSubscriptionPrice( Cart::getTotal() )
 		         ->appendCoupon( $couponCode )
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
-		         ->setTaxLibrary( $request->get( 'address_country', $taxZone ) )
+		         ->setTaxLibrary( $taxZone )
 		         ->createCustomer( $request->get( 'name' ), $request->get( 'email' ) );
 
 		if ( ! $checkout->getCustomer() )
@@ -130,7 +130,7 @@ class CheckoutController extends Controller
 		$request->session()->put( 'address_street', $request->get( 'address_street' ) );
 		$request->session()->put( 'address_city', $request->get( 'address_city' ) );
 		$request->session()->put( 'address_zipcode', $request->get( 'address_zipcode' ) );
-		$request->session()->put( 'address_country', $request->get( 'address_country' ) );
+		$request->session()->put( 'address_country', $taxZone );
 		$request->session()->put( 'company', $request->get( 'company' ) );
 		$request->session()->put( 'cvr', $request->get( 'cvr' ) );
 		$request->session()->put( 'phone', $request->get( 'phone' ) );
