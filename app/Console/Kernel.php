@@ -53,6 +53,9 @@ class Kernel extends ConsoleKernel
 		$schedule->call('customers:age-update')
 		         ->daily();
 
+		$schedule->call('customers:pregnancy-update')
+		         ->daily();
+
 		$schedule->call('mailflow:send')
 		         ->daily();
 	}
