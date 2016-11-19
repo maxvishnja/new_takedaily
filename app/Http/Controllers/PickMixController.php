@@ -40,11 +40,17 @@ class PickMixController extends Controller
 
 		$vitamins = collect( $request->get( 'vitamins' ) );
 
+		Cart::clear();
+		Cart::addProduct('subscription');
+		Cart::addProduct( 'shipping', 0 );
+
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
 			\Auth::user()
 			     ->getCustomer()
 			     ->setVitamins( $vitamins );
+
+			\Auth::user()->getCustomer()->getPlan()->update(['price' => Cart::getTotal()]);
 
 			return \Redirect::action( 'AccountController@getSettingsSubscription' )
 			                ->with( 'success', 'Dine vitaminer blev opdateret!' ); // todo translate
@@ -54,10 +60,6 @@ class PickMixController extends Controller
 		\Session::forget('flow-completion-token');
 		\Session::put( 'vitamins', $vitamins );
 		\Session::put( 'product_name', 'subscription' );
-
-		Cart::clear();
-		Cart::addProduct('subscription');
-		Cart::addProduct( 'shipping', 0 );
 
 		/** @var Vitamin $vitamin */
 		$i = 0;

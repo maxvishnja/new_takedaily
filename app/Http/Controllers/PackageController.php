@@ -30,6 +30,10 @@ class PackageController extends Controller
 
 		if ( $package->isDirect() )
 		{
+			Cart::clear();
+			Cart::addProduct( 'subscription' );
+			Cart::addProduct( 'shipping', 0 );
+
 			if ( \Auth::check() && \Auth::user()->isUser() )
 			{
 				\Auth::user()
@@ -41,6 +45,8 @@ class PackageController extends Controller
 						     'three' => $package->group_three
 					     ]
 				     ] ) ) );
+
+				\Auth::user()->getCustomer()->getPlan()->update(['price' => Cart::getTotal()]);
 
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
 				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
@@ -57,10 +63,6 @@ class PackageController extends Controller
 			\Session::put( 'package', $package->id );
 			\Session::put( 'product_name', 'package' );
 			\Session::put( 'vitamins', $vitamins );
-
-			Cart::clear();
-			Cart::addProduct( 'subscription' );
-			Cart::addProduct( 'shipping', 0 );
 
 			foreach ( $vitamins as $i => $vitamin )
 			{
@@ -88,11 +90,17 @@ class PackageController extends Controller
 
 		$combinedUserData = json_decode( $request->get( 'user_data' ) );
 
+		Cart::clear();
+		Cart::addProduct( 'subscription' );
+		Cart::addProduct( 'shipping', 0 );
+
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
 			\Auth::user()
 			     ->getCustomer()
 			     ->updateCustomUserData( $combinedUserData );
+
+			\Auth::user()->getCustomer()->getPlan()->update(['price' => Cart::getTotal()]);
 
 			return \Redirect::action( 'AccountController@getSettingsSubscription' )
 			                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
@@ -102,9 +110,6 @@ class PackageController extends Controller
 		\Session::put( 'user_data', json_decode( $request->get( 'user_data' ) ) );
 		\Session::put( 'package', $package->id );
 		\Session::put( 'product_name', 'package' );
-
-		Cart::clear();
-		Cart::addProduct( 'subscription' );
 
 		$lib = new \App\Apricot\Libraries\CombinationLibrary();
 		$lib->generateResult( $combinedUserData );
