@@ -57,7 +57,7 @@ class MailFlowSeeder extends Seeder
 		] );
 
 		$mailflow_leaving_pregnancy->conditions()->create( [
-			'key'   => 'user_data.pregnancy.weeks',
+			'key'   => 'user_data.pregnancy.week',
 			'type'  => '>=',
 			'value' => '36' // todo set this
 		] );
