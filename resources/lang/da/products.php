@@ -13,5 +13,6 @@ return array (
   'oil' => 'Ekstra olie',
   'extra' => 'Ekstra vitamin',
   'package' => 'Selvvalgt pakke',
-  'vitamin' => 'Fjernet vitamin'
+  'vitamin' => 'Fjernet vitamin',
+  'minimum' => 'Minimumsordre'
 );

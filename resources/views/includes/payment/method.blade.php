@@ -135,6 +135,37 @@
 
 			usesStripe = ($(".payment_method_input:checked").val() == 'stripe');
 
+			@if($giftcard)
+			if($(".payment_method_input:checked").val() == 'mollie')
+			{
+				var hasMinimumOrderLine = false;
+				for(var i = 0; i < app.totals.length; i++) {
+					if (app.totals[i].name == '{{ trans('products.minimum') }}') {
+						hasMinimumOrderLine = true;
+						break;
+					}
+				}
+
+				if(!hasMinimumOrderLine)
+				{
+					app.totals.push({
+						name: '{{ trans('products.minimum') }}',
+						price: parseFloat("{{ config('app.minimum_orders.mollie') }}"),
+						showPrice: true
+					});
+				}
+			}
+			else
+			{
+				for(var i = 0; i < app.totals.length; i++) {
+					if (app.totals[i].name == '{{ trans('products.minimum') }}') {
+						app.totals.splice(i, 1);
+						break;
+					}
+				}
+			}
+			@endif
+
 			checkErrors();
 		});
 	</script>

@@ -15,6 +15,7 @@ class Mollie implements PaymentInterface
 	public function charge($amount, $description, $data = [])
 	{
 		$charge = [
+			"method" => 'ideal',
 			"amount"      => MoneyLibrary::toMoneyFormat($amount, true, 2, '.', ''),
 			"description" => $description,
 			"redirectUrl" => \URL::route('checkout-verify-method', ['method' => 'mollie'])
