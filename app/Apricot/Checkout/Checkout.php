@@ -127,7 +127,7 @@ class Checkout
 
 	public function setTotal( $newTotal )
 	{
-		$this->total = $newTotal;
+		$this->total = $newTotal >= 0 ? $newTotal : 0;
 
 		return $this;
 	}
@@ -182,6 +182,7 @@ class Checkout
 		if ( $giftcard )
 		{
 			$this->giftcard = $giftcard;
+			$this->deductTotal($this->giftcard->worth);
 		}
 
 		return $this;
