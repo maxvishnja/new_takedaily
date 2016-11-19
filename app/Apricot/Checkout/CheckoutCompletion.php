@@ -283,7 +283,7 @@ class CheckoutCompletion
 
 	public function loginUser()
 	{
-		if ( $this->getCheckout()->getProduct()->isSubscription() )
+		if ( $this->getCheckout()->getProduct()->isSubscription() && \Auth::guest() )
 		{
 			\Auth::login( $this->getUser(), true );
 		}

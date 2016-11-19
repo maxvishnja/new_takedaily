@@ -94,13 +94,19 @@ class CheckoutController extends Controller
 
 		$checkout = new Checkout();
 
+		$taxZone = trans('general.tax_zone');
+		if( \Auth::check() && \Auth::user()->isUser() )
+		{
+			$taxZone = \Auth::user()->customer->getCustomerAttribute('address_country', trans('general.tax_zone'));
+		}
+
 		$checkout->setProductByName( $productName )
 		         ->setPaymentMethod( $paymentMethod )
 		         ->setTotal( Cart::getTotal() )
 		         ->setSubscriptionPrice( Cart::getTotal() )
 		         ->appendCoupon( $couponCode )
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
-		         ->setTaxLibrary( $request->get( 'address_country' ) )
+		         ->setTaxLibrary( $request->get( 'address_country', $taxZone ) )
 		         ->createCustomer( $request->get( 'name' ), $request->get( 'email' ) );
 
 		if ( ! $checkout->getCustomer() )

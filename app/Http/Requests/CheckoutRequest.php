@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Http\Requests\Request;
-
 class CheckoutRequest extends Request
 {
     /**
@@ -23,16 +21,24 @@ class CheckoutRequest extends Request
      */
     public function rules()
     {
-        return [
-	        'email'           => 'email|required|unique:users,email',
-	        'name'            => 'required',
-	        'address_street'  => 'required',
-	        'address_zipcode' => 'required',
-	        'address_city'    => 'required',
-	        'address_country' => 'required',
-	        'payment_method'  => 'required',
-	        'stripeToken'     => 'required_if:payment_method,stripe',
-	        'user_data'       => 'required'
-        ];
+    	if( \Auth::check())
+	    {
+	    	return [
+			    'payment_method'  => 'required',
+			    'stripeToken'     => 'required_if:payment_method,stripe'
+		    ];
+	    }
+
+	    return [
+		    'email'           => 'email|required|unique:users,email',
+		    'name'            => 'required',
+		    'address_street'  => 'required',
+		    'address_zipcode' => 'required',
+		    'address_city'    => 'required',
+		    'address_country' => 'required',
+		    'payment_method'  => 'required',
+		    'stripeToken'     => 'required_if:payment_method,stripe',
+		    'user_data'       => 'required'
+	    ];
     }
 }

@@ -6,7 +6,8 @@
 @section('title', trans('checkout.index.title'))
 
 @section('content')
-	<script>
+	@if(Auth::guest())
+		<script>
 		function statusChangeCallback(response) {
 			if (response.status == 'connected') {
 				$("#facebookloginbox").hide();
@@ -47,6 +48,7 @@
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
 	</script>
+	@endif
 
 	<div class="container m-t-20">
 		@if(Request::session()->has('flow-completion-token'))
@@ -96,108 +98,110 @@
 						<div class="rect5"></div>
 					</div>
 
-					<div class="card card--large m-b-30 card-padding-fixer">
-						<div class="text-center" id="facebookloginbox">
-							<fb:login-button
-								size="large"
-								scope="public_profile,email"
-								onlogin="checkLoginState();">Log ind med Facebook
-							</fb:login-button>
-							<hr>
+					@if(Auth::guest())
+						<div class="card card--large m-b-30 card-padding-fixer">
+								<div class="text-center" id="facebookloginbox">
+									<fb:login-button
+										size="large"
+										scope="public_profile,email"
+										onlogin="checkLoginState();">Log ind med Facebook
+									</fb:login-button>
+									<hr>
+								</div>
+
+							<fieldset>
+								<legend class="card_title">{{ trans('checkout.index.order.info.title') }}</legend>
+								<hr class="hr--dashed hr--small-margin"/>
+
+								<div class="row m-b-50 m-sm-b-20">
+									<div class="col-md-12">
+										<label class="label label--full checkout--label" for="input_info_name">{{ trans('checkout.index.order.info.name') }}
+											<span class="required">*</span></label>
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('name')) input--error @endif" id="input_info_name"
+											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" name="name" required="required"
+											   aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->name: '')) }}"/>
+									</div>
+								</div>
+
+								<div class="row m-b-50 m-sm-b-20">
+									<div class="col-xs-6">
+										<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}</label>
+										<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
+											   placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company"
+											   value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
+									</div>
+									<div class="col-xs-6">
+										<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}</label>
+										<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
+											   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
+											   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
+									</div>
+								</div>
+
+								<div class="row m-b-50 m-sm-b-20">
+									<div class="col-md-6">
+										<label class="label label--full checkout--label" for="input_info_email">{{ trans('checkout.index.order.info.email') }}
+											<span class="required">*</span></label>
+										<input type="email" class="input input--medium input--semibold input--full @if($errors->has('email')) input--error @endif" id="input_info_email"
+											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.email-placeholder') }}" name="email" required="required"
+											   aria-required="true" value="{{ Request::old('email', (Auth::user() && Auth::user()->isUser() ? Auth::user()->email : '')) }}"/>
+									</div>
+
+									<div class="col-md-6">
+										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+										<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone') }}</label>
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif" id="input_info_phone"
+											   placeholder="{{ trans('checkout.index.order.info.phone-placeholder') }}" name="phone"
+											   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
+									</div>
+								</div>
+
+								<div class="row m-b-50 m-sm-b-20">
+									<div class="col-md-5">
+										<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}
+											<span class="required">*</span></label>
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_street')) input--error @endif"
+											   id="input_info_address_street" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.street-placeholder') }}"
+											   name="address_street" required="required" aria-required="true"
+											   value="{{ Request::old('address_street', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_line1') : '')) }}"/>
+									</div>
+									<div class="col-md-4 col-xs-6">
+										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+										<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }}
+											<span class="required">*</span></label>
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zipcode')) input--error @endif"
+											   id="input_info_address_zipcode" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
+											   name="address_zipcode" required="required" aria-required="true"
+											   value="{{ Request::old('address_zipcode', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
+									</div>
+									<div class="col-md-3 col-xs-6">
+										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+										<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
+											<span class="required">*</span></label>
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_city')) input--error @endif"
+											   id="input_info_address_city" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.city-placeholder') }}"
+											   name="address_city" required="required" aria-required="true"
+											   value="{{ Request::old('address_city', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-12">
+										<label class="label label--full checkout--label" for="input_info_address_country">{{ trans('checkout.index.order.info.address.country') }}
+											<span class="required">*</span></label>
+										<select name="address_country" id="country-selector" class="select select--medium select--semibold select--full" required="required"
+												aria-required="true" data-validate="true">
+											@foreach(\App\TaxZone::all() as $zone)
+												<option
+													@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', trans('general.tax_zone')) : trans('general.tax_zone'))) == $zone->name ) selected="selected"
+													@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+							</fieldset>
 						</div>
-
-						<fieldset>
-							<legend class="card_title">{{ trans('checkout.index.order.info.title') }}</legend>
-							<hr class="hr--dashed hr--small-margin"/>
-
-							<div class="row m-b-50 m-sm-b-20">
-								<div class="col-md-12">
-									<label class="label label--full checkout--label" for="input_info_name">{{ trans('checkout.index.order.info.name') }}
-										<span class="required">*</span></label>
-									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('name')) input--error @endif" id="input_info_name"
-										   data-validate="true" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" name="name" required="required"
-										   aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->name: '')) }}"/>
-								</div>
-							</div>
-
-							<div class="row m-b-50 m-sm-b-20">
-								<div class="col-xs-6">
-									<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}</label>
-									<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
-										   placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company"
-										   value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
-								</div>
-								<div class="col-xs-6">
-									<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}</label>
-									<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
-										   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
-										   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
-								</div>
-							</div>
-
-							<div class="row m-b-50 m-sm-b-20">
-								<div class="col-md-6">
-									<label class="label label--full checkout--label" for="input_info_email">{{ trans('checkout.index.order.info.email') }}
-										<span class="required">*</span></label>
-									<input type="email" class="input input--medium input--semibold input--full @if($errors->has('email')) input--error @endif" id="input_info_email"
-										   data-validate="true" placeholder="{{ trans('checkout.index.order.info.email-placeholder') }}" name="email" required="required"
-										   aria-required="true" value="{{ Request::old('email', (Auth::user() && Auth::user()->isUser() ? Auth::user()->email : '')) }}"/>
-								</div>
-
-								<div class="col-md-6">
-									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
-									<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone') }}</label>
-									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif" id="input_info_phone"
-										   placeholder="{{ trans('checkout.index.order.info.phone-placeholder') }}" name="phone"
-										   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
-								</div>
-							</div>
-
-							<div class="row m-b-50 m-sm-b-20">
-								<div class="col-md-5">
-									<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}
-										<span class="required">*</span></label>
-									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_street')) input--error @endif"
-										   id="input_info_address_street" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.street-placeholder') }}"
-										   name="address_street" required="required" aria-required="true"
-										   value="{{ Request::old('address_street', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_line1') : '')) }}"/>
-								</div>
-								<div class="col-md-4 col-xs-6">
-									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
-									<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }}
-										<span class="required">*</span></label>
-									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zipcode')) input--error @endif"
-										   id="input_info_address_zipcode" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
-										   name="address_zipcode" required="required" aria-required="true"
-										   value="{{ Request::old('address_zipcode', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
-								</div>
-								<div class="col-md-3 col-xs-6">
-									<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
-									<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
-										<span class="required">*</span></label>
-									<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_city')) input--error @endif"
-										   id="input_info_address_city" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.city-placeholder') }}"
-										   name="address_city" required="required" aria-required="true"
-										   value="{{ Request::old('address_city', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-md-12">
-									<label class="label label--full checkout--label" for="input_info_address_country">{{ trans('checkout.index.order.info.address.country') }}
-										<span class="required">*</span></label>
-									<select name="address_country" id="country-selector" class="select select--medium select--semibold select--full" required="required"
-											aria-required="true" data-validate="true">
-										@foreach(\App\TaxZone::all() as $zone)
-											<option
-												@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', trans('general.tax_zone')) : trans('general.tax_zone'))) == $zone->name ) selected="selected"
-												@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
-										@endforeach
-									</select>
-								</div>
-							</div>
-						</fieldset>
-					</div>
+					@endif
 
 					@include('includes.payment.method')
 
