@@ -194,7 +194,7 @@ class CheckoutCompletion {
 
 	public function fireCustomerWasBilled( $chargeId ) {
 		\Event::fire( new CustomerWasBilled( $this->getUser()->getCustomer(),
-			MoneyLibrary::toCents( $this->getCheckout()->getTotal() ),
+			$this->getCheckout()->getTotal(),
 			$chargeId,
 			$this->getCheckout()->getProduct()->name,
 			false,
