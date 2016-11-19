@@ -8,6 +8,7 @@ use App\Console\Commands\NotifyPendingRebills;
 use App\Console\Commands\SubscriptionRebillCommand;
 use App\Console\Commands\UpdateAges;
 use App\Console\Commands\UpdateCurrencies;
+use App\Console\Commands\UpdatePregnancyWeeks;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -23,7 +24,8 @@ class Kernel extends ConsoleKernel
 		UpdateCurrencies::class,
 		NotifyPendingRebills::class,
 	    UpdateAges::class,
-	    MailFlowSender::class
+	    MailFlowSender::class,
+		UpdatePregnancyWeeks::class
 	];
 
 	/**

@@ -653,7 +653,7 @@ class Customer extends Model
 			'user_data.skin'             => $userData->skin ?: '',
 			'user_data.outside'          => $userData->outside ?: '',
 			'user_data.pregnant'         => $userData->pregnant ?: '',
-			'user_data.pregnancy.date'   => $userData->pregnancy->date ?: '',
+			'user_data.pregnancy.date'   => $userData->pregnancy->date ?: ($userData->pregnancy->week ? Date::now()->subWeeks($userData->pregnancy->week)->format('Y-m-d'): ''),
 			'user_data.pregnancy.week'   => $userData->pregnancy->week ?: '',
 			'user_data.pregnancy.wish'   => $userData->pregnancy->wish ?: '',
 			'user_data.diet'             => $userData->diet ?: '',
