@@ -15,118 +15,126 @@ class Stripe implements PaymentInterface
 {
 	function __construct()
 	{
-		\Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
+		\Stripe\Stripe::setApiKey( env( 'STRIPE_API_SECRET_KEY', '' ) );
 	}
 
-	public function findOrder($orderId)
+	public function findOrder( $orderId )
 	{
-		return Charge::retrieve($orderId);
+		return Charge::retrieve( $orderId );
 	}
 
-	public function findCustomer($customerId)
+	public function findCustomer( $customerId )
 	{
-		return Customer::retrieve($customerId);
+		return Customer::retrieve( $customerId );
 	}
 
-	public function charge($amount, $description, $data)
+	public function charge( $amount, $description, $data )
 	{
 		$charge = [
 			"amount"      => $amount,
 			"description" => $description,
 		];
 
-		$charge = array_merge($charge, $data);
+		$charge = array_merge( $charge, $data );
 
-		return Charge::create($charge); // todo catch errors
+		return Charge::create( $charge ); // todo catch errors
 	}
 
-	public function createCustomer($name, $email)
+	public function createCustomer( $name, $email )
 	{
 		try
 		{
-			return Customer::create([
+			return Customer::create( [
 				'description' => "Customer for {$email}",
 				'email'       => $email,
-				'source'      => \Request::get('stripeToken')
-			]);
-		} catch( \Stripe\Error\Card $ex )
+				'source'      => \Request::get( 'stripeToken', \Session::get( 'stripeToken' ) )
+			] );
+		} catch ( \Stripe\Error\Card $ex )
 		{
 			return false;
-		} catch( \Exception $ex )
+		} catch ( \Exception $ex )
 		{
 			return false;
-		} catch( \Error $ex )
+		} catch ( \Error $ex )
 		{
 			return false;
 		}
 	}
 
-	public function makeFirstPayment($amount, $customer)
+	public function makeFirstPayment( $amount, $customer )
 	{
-		return $this->charge($amount, 'Initial', [
+		if ( $amount == 0 )
+		{
+			$charge     = new \stdClass();
+			$charge->id = 'giftcard-balance';
+
+			return $charge;
+		}
+
+		return $this->charge( $amount, 'Initial', [
 			'customer' => $customer->id,
-			'currency' => trans('general.currency')
-		]);
+			'currency' => trans( 'general.currency' )
+		] );
 	}
 
 
-	public function makeRebill($amount, $customer)
+	public function makeRebill( $amount, $customer )
 	{
 		try
 		{
-			return Charge::create([
+			return Charge::create( [
 				'amount'               => $amount,
-				'currency'             => trans('general.currency'), // todo debug this
+				'currency'             => trans( 'general.currency' ), // todo debug this
 				'customer'             => $customer->id,
 				'description'          => 'rebill',
 				'statement_descriptor' => 'TakeDaily',
-			]);
-		} catch( \Stripe\Error\Card $e )
+			] );
+		} catch ( \Stripe\Error\Card $e )
 		{
-			\Session::flash('error_message', $e->getMessage());
+			\Session::flash( 'error_message', $e->getMessage() );
 
 			return false;
-		} catch( RateLimit $e )
+		} catch ( RateLimit $e )
 		{
-			\Session::flash('error_message', $e->getMessage());
+			\Session::flash( 'error_message', $e->getMessage() );
 
 			return false;
 			// Too many requests made to the API too quickly
-		} catch( InvalidRequest $e )
+		} catch ( InvalidRequest $e )
 		{
-			\Session::flash('error_message', $e->getMessage());
+			\Session::flash( 'error_message', $e->getMessage() );
 
 			return false;
 			// Invalid parameters were supplied to Stripe's API
-		} catch( Authentication $e )
+		} catch ( Authentication $e )
 		{
-			\Session::flash('error_message', $e->getMessage());
+			\Session::flash( 'error_message', $e->getMessage() );
 
 			return false;
 			// Authentication with Stripe's API failed
 			// (maybe you changed API keys recently)
-		} catch( ApiConnection $e )
+		} catch ( ApiConnection $e )
 		{
-			\Session::flash('error_message', $e->getMessage());
+			\Session::flash( 'error_message', $e->getMessage() );
 
 			return false;
 			// Network communication with Stripe failed
-		} catch( Base $e )
+		} catch ( Base $e )
 		{
-			\Session::flash('error_message', $e->getMessage());
+			\Session::flash( 'error_message', $e->getMessage() );
 
 			return false;
 			// Display a very generic error to the user, and maybe send
 			// yourself an email
-		} catch( \Exception $e )
+		} catch ( \Exception $e )
 		{
-			\Session::flash('error_message', $e->getMessage());
+			\Session::flash( 'error_message', $e->getMessage() );
 
 			return false;
 			// Something else happened, completely unrelated to Stripe
-		} catch( \Error $e )
+		} catch ( \Error $e )
 		{
-			\Session::flash('error_message', $e->getMessage());
+			\Session::flash( 'error_message', $e->getMessage() );
 
 			return false;
 		}
@@ -137,52 +145,63 @@ class Stripe implements PaymentInterface
 	 *
 	 * @return bool
 	 */
-	public function validateCharge($chargeId)
+	public function validateCharge( $chargeId )
 	{
-		/** @var Charge $payment */
-		$payment = $this->findOrder($chargeId);
+		if ( $chargeId == 'giftcard-balance' )
+		{
+			return true;
+		}
 
-		return $payment->status == 'succeeded';
+		try
+		{
+			/** @var Charge $payment */
+			$payment = $this->findOrder( $chargeId );
+
+			return $payment->status == 'succeeded';
+		} catch ( \Exception $exception )
+		{
+			return false;
+		}
 	}
 
 	/**
-	 * @param $source
+	 * @param          $source
 	 * @param Customer $customer
 	 *
 	 * @return Card
 	 */
-	public function addMethod($source, $customer)
+	public function addMethod( $source, $customer )
 	{
 		try
 		{
-			return $customer->sources->create([
+			return $customer->sources->create( [
 				'source' => $source
-			]);
-		} catch( \Stripe\Error\Card $ex )
+			] );
+		} catch ( \Stripe\Error\Card $ex )
 		{
-			\Session::flash('error_message', $ex->getMessage());
+			\Session::flash( 'error_message', $ex->getMessage() );
 
 			return false;
-		} catch( \Exception $ex )
+		} catch ( \Exception $ex )
 		{
-			\Session::flash('error_message', $ex->getMessage());
+			\Session::flash( 'error_message', $ex->getMessage() );
 
 			return false;
-		} catch( \Error $ex )
+		} catch ( \Error $ex )
 		{
-			\Session::flash('error_message', $ex->getMessage());
+			\Session::flash( 'error_message', $ex->getMessage() );
 
 			return false;
 		}
 	}
 
-	public function getCustomerMethods($customerId)
+	public function getCustomerMethods( $customerId )
 	{
-		$customer = Customer::retrieve($customerId);
+		$customer = Customer::retrieve( $customerId );
 
 		$array = [];
 
-		foreach($customer->sources->all()->data as $source)
+		foreach ( $customer->sources->all()->data as $source )
 		{
 			$array[] = $source;
 		}
@@ -195,15 +214,15 @@ class Stripe implements PaymentInterface
 	 *
 	 * @return array
 	 */
-	public function deleteMethodFor($customerId)
+	public function deleteMethodFor( $customerId )
 	{
-		$customer = $this->findCustomer($customerId);
+		$customer = $this->findCustomer( $customerId );
 
-		foreach($customer->sources as $source)
+		foreach ( $customer->sources as $source )
 		{
 			$source->delete();
 		}
 
-		return ['purge_plan' => false];
+		return [ 'purge_plan' => false ];
 	}
 }

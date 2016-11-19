@@ -20,11 +20,11 @@ class CheckoutController extends Controller
 
 	function getCheckout( Request $request )
 	{
-		if( ! Cart::exists() )
+		if ( ! Cart::exists() )
 		{
-			return \Redirect::back()->withErrors(['Der kunne ikke findes en kurv-session!']); // todo translate
+			return \Redirect::back()->withErrors( [ 'Der kunne ikke findes en kurv-session!' ] ); // todo translate
 		}
-		$request->session()->set( 'product_name', $request->get( 'product_name',$request->session()->get( 'product_name', 'subscription' ) ) );
+		$request->session()->set( 'product_name', $request->get( 'product_name', $request->session()->get( 'product_name', 'subscription' ) ) );
 
 		$userData = \Session::get( 'user_data', \Request::old( 'user_data', Cart::getInfoItem( 'user_data', null ) ) );
 
