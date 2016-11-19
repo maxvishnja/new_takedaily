@@ -49,4 +49,5 @@ return array (
   ),
   'end_date' => '09/2019',
   'batch_number' => '1916',
+  'name' => 'Shape Me up'
 );

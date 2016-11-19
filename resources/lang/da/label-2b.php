@@ -7,8 +7,7 @@ return array (
     'lightning' => 'Vitamin B6, -B12 og -C hjælper til at reducere træthed og udmattelse',
     'energy' => 'B-vitaminer (B1, B6 og B12) fremmer kroppens energistofskifteprocesser.',
   ),
-  'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), L-ascorbinsyre, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E132), antiklumpningsmiddel (magnesiumstearat), retinylacetat, cyanocobalamin, phytomenadion, pyridoxal-5 phosphat, thiamin-hydrochlorid
-',
+  'ingredients' => 'Fyldstof (mikrokrystallinsk cellulose), L-ascorbinsyre, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E132), antiklumpningsmiddel (magnesiumstearat), retinylacetat, cyanocobalamin, phytomenadion, pyridoxal-5 phosphat, thiamin-hydrochlorid',
   'vitamins' => 
   array (
     0 => 
@@ -51,4 +50,5 @@ return array (
   'disclaimer' => '',
   'batch_number' => '1916',
   'end_date' => '09/2019',
+  'name' => 'Shape Me up'
 );
