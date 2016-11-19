@@ -166,6 +166,8 @@
 					$(this).remove();
 				});
 
+				$("#advises-vitamins").find(".ingredient_item[data-grouptext='" + group + "']").remove();
+
 				$.post('/cart-deduct/' + group).done(function (response) {
 					app.getCart();
 				});
