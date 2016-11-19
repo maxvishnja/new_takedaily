@@ -2,6 +2,10 @@
 
 Route::group( [ 'middleware' => 'web' ], function ()
 {
+	Route::get('lala', function()
+	{
+		return \App\Giftcard::find(1)->renderPdf(\App\Customer::find(1));
+	});
 	/*
 	 * Dashboard routes
 	 */

@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Giftcard
  *
- * @property integer $id
- * @property string $token
- * @property integer $worth
- * @property boolean $is_used
+ * @property integer        $id
+ * @property string         $token
+ * @property integer        $worth
+ * @property boolean        $is_used
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereToken($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereWorth($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereIsUsed($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereId( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereToken( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereWorth( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereIsUsed( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereCreatedAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Giftcard whereUpdatedAt( $value )
  * @mixin \Eloquent
  */
 class Giftcard extends Model
@@ -48,7 +48,7 @@ class Giftcard extends Model
 	 *
 	 * @var array
 	 */
-	protected $hidden = [ ];
+	protected $hidden = [];
 
 	public function markUsed()
 	{
@@ -56,11 +56,22 @@ class Giftcard extends Model
 		$this->save();
 	}
 
-	public function stream()
+	public function outputPdf( Customer $customer )
+	{
+		return $this->getPdf( $customer )->output();
+	}
+
+	public function renderPdf( Customer $customer )
+	{
+		return $this->getPdf( $customer )->stream();
+	}
+
+	public function getPdf( Customer $customer )
 	{
 		/** @var PDF $pdf */
-		$pdf = \PDF::loadView('pdf.giftcard');
+		$pdf = \PDF::loadView( 'pdf.giftcard', [ 'token' => $this->token, 'locale' => $customer->getLocale() ] )
+		           ->setPaper( [ 0, 0, 530, 360 ] );
 
-		return $pdf->stream("giftcard_{$this->token}.pdf");
+		return $pdf;
 	}
 }

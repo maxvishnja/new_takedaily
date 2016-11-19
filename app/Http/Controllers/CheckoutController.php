@@ -8,6 +8,7 @@ use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
+use App\Jobs\GiftcardWasOrdered;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -244,6 +245,10 @@ class CheckoutController extends Controller
 			return \Redirect::action( 'CheckoutController@getSuccess' )
 			                ->with( [ 'order_created' => true, 'upsell' => true ] );
 		}
+
+		// Considering that theres only two products: subscription and giftcard, we can conclude that this is a giftcard.
+
+		$this->dispatch(new GiftcardWasOrdered($checkoutCompletion->getGiftcard(), $checkoutCompletion->getUser()->getCustomer()));
 
 		return \Redirect::action( 'CheckoutController@getSuccessNonSubscription', [ 'token' => $checkoutCompletion->getGiftcard()->token ] )
 		                ->with( [ 'order_created' => true ] );

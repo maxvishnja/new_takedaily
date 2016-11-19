@@ -1,4 +1,4 @@
-@extends('layouts.mail')1
+@extends('layouts.mail')
 
 @section('title', trans('mails.order.title'))
 @section('summary', trans('mails.order.summary'))

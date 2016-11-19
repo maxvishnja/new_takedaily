@@ -6,6 +6,12 @@ return [
 		'reason'      => 'Du får denne mail fordi du er kunde hos os.',
 		'unsubscribe' => 'Det er ikke muligt at opsige denne type mail.'
 	],
+	'giftcard' => [
+		'title' => 'Dit gavekort er vedhæftet',
+	    'summary' => 'Dit TakeDaily gavekort',
+	    'text' => 'Vi vedhæfter hermed dit gavekort, som du bestilte hos TakeDaily fornyligt.',
+	    'subject' => 'Dit Takedaily gavekort'
+	],
 	'order-sent' => [
 		'title'   => 'Din ordre blev afsendt',
 		'summary' => 'Din ordre hos TakeDaily blev afsendt!',
