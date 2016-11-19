@@ -210,9 +210,9 @@ class CheckoutCompletion {
 			'password'      => $password,
 			'giftcard'      => $this->getCheckout()->getGiftcard() ? $this->getCheckout()->getGiftcard()->token : null,
 			'description'   => trans( "products.{$this->getCheckout()->getProduct()->name}" ),
-			'priceTotal'    => MoneyLibrary::toCents( $this->getCheckout()->getTotal() ),
-			'priceSubtotal' => MoneyLibrary::toCents( $this->getCheckout()->getSubTotal() ),
-			'priceTaxes'    => MoneyLibrary::toCents( $this->getCheckout()->getTaxTotal() )
+			'priceTotal'    => $this->getCheckout()->getTotal(),
+			'priceSubtotal' => $this->getCheckout()->getSubTotal(),
+			'priceTaxes'    => $this->getCheckout()->getTaxTotal()
 		];
 
 		$mailEmail = $this->getUser()->getEmail();

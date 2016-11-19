@@ -51,9 +51,9 @@ class CheckoutController extends Controller
 			$userData = json_decode( '{}' );
 		}
 
-		while( is_string($userData) && json_decode( $userData) )
+		while ( is_string( $userData ) && json_decode( $userData ) )
 		{
-			$userData = json_decode( $userData);
+			$userData = json_decode( $userData );
 		}
 
 		return view( 'checkout.index', [
@@ -92,6 +92,7 @@ class CheckoutController extends Controller
 		$checkout->setProductByName( $productName )
 		         ->setPaymentMethod( $paymentMethod )
 		         ->setTotal( Cart::getTotal() )
+		         ->setSubscriptionPrice( Cart::getTotal() )
 		         ->appendCoupon( $couponCode )
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
 		         ->setTaxLibrary( $request->get( 'address_country' ) )
@@ -126,6 +127,7 @@ class CheckoutController extends Controller
 		$request->session()->put( 'user_data', $request->get( 'user_data' ) );
 		$request->session()->put( 'price', $checkout->getSubscriptionPrice() );
 		$request->session()->put( 'order_price', $checkout->getTotal() );
+		$request->session()->put( 'coupon', $couponCode );
 
 		// Redirect
 		if ( isset( $charge->links ) && isset( $charge->links->paymentUrl ) )
@@ -146,17 +148,18 @@ class CheckoutController extends Controller
 	{
 		$productName = $request->session()->get( 'product_name', 'subscription' );
 		$couponCode  = $request->session()->get( 'coupon', '' );
-		$userData = $request->session()->get('user_data', $request->old( 'user_data', Cart::getInfoItem( 'user_data', null ) ) );
+		$userData    = $request->session()->get( 'user_data', $request->old( 'user_data', Cart::getInfoItem( 'user_data', null ) ) );
 
-		while( is_string($userData) && json_decode( $userData) )
+		while ( is_string( $userData ) && json_decode( $userData ) )
 		{
-			$userData = json_decode( $userData);
+			$userData = json_decode( $userData );
 		}
 
 		$checkout = new Checkout();
 		$checkout->setPaymentMethod( $method )
 		         ->setProductByName( $productName )
 		         ->setTotal( Cart::getTotal() )
+		         ->setSubscriptionPrice( Cart::getTotal() )
 		         ->appendCoupon( $couponCode )
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
 		         ->setTaxLibrary( $request->session()->get( 'address_country' ) );
@@ -181,7 +184,7 @@ class CheckoutController extends Controller
 
 		$checkoutCompletion = new CheckoutCompletion( $checkout );
 
-		if ( $userData && isset($userData->birthdate) )
+		if ( $userData && isset( $userData->birthdate ) )
 		{
 			$password = date( 'Y-m-d', strtotime( $userData->birthdate ) );
 		}
@@ -207,7 +210,7 @@ class CheckoutController extends Controller
 				'phone'           => $request->session()->get( 'phone' ),
 			] )
 			                   ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
-			                   ->setUserData( json_encode($userData) )
+			                   ->setUserData( json_encode( $userData ) )
 			                   ->updateCustomerPlan()
 			                   ->handleProductActions()
 			                   ->deductCouponUsage()

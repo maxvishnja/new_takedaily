@@ -128,7 +128,6 @@ class Checkout
 	public function setTotal( $newTotal )
 	{
 		$this->total = $newTotal;
-		$this->setSubscriptionPrice($newTotal);
 
 		return $this;
 	}
