@@ -558,6 +558,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			\Session::forget( 'user_data' );
 			\Session::forget( 'flow-completion-token' );
 			\Session::forget( 'vitamins' );
+			\Session::set( 'product_name', "giftcard_{$request->get('giftcard')}");
 
 			\App\Apricot\Checkout\Cart::clear();
 			\App\Apricot\Checkout\Cart::addProduct("giftcard_{$request->get('giftcard')}");

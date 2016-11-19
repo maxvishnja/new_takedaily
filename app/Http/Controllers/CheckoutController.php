@@ -20,18 +20,22 @@ class CheckoutController extends Controller
 
 	function getCheckout( Request $request )
 	{
-		\Session::set( 'product_name', $request->get( 'product_name', \Session::get( 'product_name', 'subscription' ) ) );
+		if( ! Cart::exists() )
+		{
+			return \Redirect::back()->withErrors(['Der kunne ikke findes en kurv-session!']); // todo translate
+		}
+		$request->session()->set( 'product_name', $request->get( 'product_name',$request->session()->get( 'product_name', 'subscription' ) ) );
 
 		$userData = \Session::get( 'user_data', \Request::old( 'user_data', Cart::getInfoItem( 'user_data', null ) ) );
 
-		if ( \Session::get( 'product_name' ) == 'subscription' && ( ( ! $userData || count( $userData ) == 0 ) && ! \Session::has( 'vitamins' ) ) )
+		if ( $request->session()->get( 'product_name' ) == 'subscription' && ( ( ! $userData || count( $userData ) == 0 ) && ! \Session::has( 'vitamins' ) ) )
 		{
 			return \Redirect::route( 'flow' )->withErrors( [ trans( 'checkout.messages.vitamins-not-selected' ) ] );
 		}
 
 		$giftcard = null;
 
-		if ( \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name' ) == 'subscription' )
+		if ( \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && $request->session()->get( 'product_name' ) == 'subscription' )
 		{
 			$giftcard = Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
 			                    ->where( 'token', \Session::get( 'giftcard_token' ) )
@@ -39,7 +43,7 @@ class CheckoutController extends Controller
 			                    ->first();
 		}
 
-		$product = Product::where( 'name', \Session::get( 'product_name', 'subscription' ) )->first();
+		$product = Product::where( 'name', $request->session()->get( 'product_name', 'subscription' ) )->first();
 
 		if ( ! $product )
 		{
@@ -123,7 +127,7 @@ class CheckoutController extends Controller
 		$request->session()->put( 'company', $request->get( 'company' ) );
 		$request->session()->put( 'cvr', $request->get( 'cvr' ) );
 		$request->session()->put( 'phone', $request->get( 'phone' ) );
-		$request->session()->put( 'product_name', $request->get( 'product_name' ) );
+		$request->session()->put( 'product_name', $productName );
 		$request->session()->put( 'user_data', $request->get( 'user_data' ) );
 		$request->session()->put( 'price', $checkout->getSubscriptionPrice() );
 		$request->session()->put( 'order_price', $checkout->getTotal() );
@@ -223,7 +227,7 @@ class CheckoutController extends Controller
 
 		} catch ( \Exception $exception )
 		{
-			$checkoutCompletion->user->delete();
+			$checkoutCompletion->user->delete(); // todo dont delete!?! what if is a returning user
 
 			return \Redirect::back()->withErrors( $exception->getMessage() ); // todo refund charge + withInput
 		}

@@ -204,7 +204,7 @@ class Cart
 		return ( self::CART_MODEL )::findByToken( \Session::get( self::COOKIE_NAME ) );
 	}
 
-	private static function exists()
+	public static function exists()
 	{
 		if ( \Session::has( self::SESSION_NAME ) )
 		{

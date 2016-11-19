@@ -157,11 +157,16 @@
 			},
 
 			removeVitamin: function (group, subgroup) {
-				$.post('/cart-deduct/' + group).done(function (response) {
-					$(".vitamin-item-for-recommendation[data-group='" + group + "']").fadeOut(350, function () {
-						$(this).remove();
-					});
+				if( $("#advises-label").find('.removePillButton').length == 2)
+				{
+					$("#advises-label").find('.removePillButton').remove();
+				}
 
+				$(".vitamin-item-for-recommendation[data-group='" + group + "']").fadeOut(350, function () {
+					$(this).remove();
+				});
+
+				$.post('/cart-deduct/' + group).done(function (response) {
 					app.getCart();
 				});
 			},
