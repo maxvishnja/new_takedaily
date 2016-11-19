@@ -48,7 +48,7 @@ return array (
     array (
       'title' => 'Wat TakeDaily belooft!',
       'promise-1' => 'Gratis advies van onze professionele diëtisten en voedingsdeskundigen. Zij staan op werkdagen van 09:00-16:30 uur voor jou klaar',
-      'promise-2' => 'De hoge kwaliteit vitamines, mineralen en oliën worden in veilige en verantwoorde hoeveelheden gedoseerd. De capsules zijn vervaardigd van plantaardig materiaal en zijn geschikt voor vegetariërs/veganisten/halal /kosher',
+      'promise-2' => 'De hoge kwaliteit vitamines, mineralen en oliën worden in veilige en verantwoorde hoeveelheden gedoseerd. De capsules zijn vervaardigd van plantaardig materiaal en zijn geschikt voor vegetariërs/veganisten/halal/kosher',
       'promise-3' => 'Geen dure tussenhandel, zoals importeurs, grossiers en winkeliers, voor ons. Wij leveren vitamines en mineralen direct bij jou thuis om de prijs zo laag mogelijk te houden',
       'promise-4' => 'Onze test is speciaal ontwikkeld door professionele diëtisten en voedingskundigen, hierdoor kunnen wij jou de vitamines en mineralen adviseren in hoeveelheden die precies aansluiten op jouw individuele behoeften. Onze test  is samengesteld op basis van de laatste wetenschappelijke inzichten',
       'read-more' => 'Lees hier meer',

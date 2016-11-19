@@ -5,7 +5,8 @@ return array (
   array (
     'profile' => 'Mijn TakeDaily',
     'deliveries' => 'Bestellingen',
-    'settings' => 'Instellingen',
+    'settings' => 'Klantgegevens
+',
     'subscription' => 'Abonnement',
     'billing' => 'Betaalmethode',
     'logout' => 'Uitloggen',

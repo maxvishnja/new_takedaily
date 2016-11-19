@@ -59,4 +59,5 @@ return array (
   ),
   'disclaimer' => '* Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA. <br/> Rig på omega-3 fedtsyrer',
   'batch_number' => '1203201683N',
+  'end_date' => '03/2018',
 );

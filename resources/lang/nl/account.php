@@ -35,7 +35,7 @@ return array (
   'transactions' => 
   array (
     'title' => 'Bestellingen - TakeDaily',
-    'header' => 'Jouw TakeDaily bestellingen',
+    'header' => 'Overzicht bestellingen',
     'no-results' => 'Geen bestellingen gevonden',
     'table' => 
     array (
@@ -47,8 +47,8 @@ return array (
   ),
   'settings_basic' => 
   array (
-    'title' => 'Instellingen - TakeDaily',
-    'header' => 'Bezorgadres',
+    'title' => 'Klantgegevens - TakeDaily',
+    'header' => 'Jouw gegevens',
     'button-save-text' => 'Opslaan',
   ),
   'settings_billing' => 
@@ -71,7 +71,7 @@ return array (
   'settings_subscription' => 
   array (
     'title' => 'Abonnement  - TakeDaily',
-    'header' => 'Uw abonnement is <u>:status</u>',
+    'header' => 'Jouw abonnement is <u>:status</u>',
     'total' => '<span>:amount</span><small> / maand</small>',
     'next-date' => 'Volgende levering :date',
     'plan' => 
@@ -94,7 +94,7 @@ return array (
     'cant-snooze' => 'Jouw volgende levering is binnen 24 uur. Je kunt de bestelling helaas niet meer uitstellen.',
     'new-recommendation' => 
     array (
-      'btn' => 'Ververs mijn vitamines',
+      'btn' => 'Pas mijn vitamines aan',
       'text' => 'Vanuit uw profiel, kunnen we zien dat sommige andere vitaminen beter voor u zou kunnen zijn.',
       'title' => 'We hebben een nieuw advies voor je.',
     ),

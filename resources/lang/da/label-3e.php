@@ -19,7 +19,7 @@ return array (
     1 => 
     array (
       'name' => 'Omega-3 fedtsyrer (55%) heraf',
-      'amount' => '550 mg',
+      'amount' => '650 mg',
       'percent' => '*',
     ),
     2 => 
