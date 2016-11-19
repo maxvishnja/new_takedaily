@@ -214,7 +214,7 @@ class CheckoutCompletion
 	{
 		if ( $this->getCheckout()->getGiftcard() )
 		{
-			$this->getUser()->getCustomer()->setBalance( $this->getCheckout()->getGiftcard()->worth - $this->getCheckout()->getTotal() );
+			$this->getUser()->getCustomer()->setBalance( $this->getCheckout()->getGiftcard()->worth - $this->getCheckout()->getTotalBeforeGiftcard() );
 			$this->getCheckout()->getGiftcard()->markUsed();
 		}
 

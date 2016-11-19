@@ -16,6 +16,7 @@ use App\Product;
 class Checkout
 {
 	private $total;
+	private $totalBeforeGiftcard;
 	private $subscriptionPrice;
 	private $paymentMethod;
 	private $paymentHandler;
@@ -52,6 +53,11 @@ class Checkout
 		}
 
 		return $this;
+	}
+
+	public function getTotalBeforeGiftcard()
+	{
+		return $this->totalBeforeGiftcard;
 	}
 
 	public function setProduct( Product $product, $updatePrices = true )
@@ -182,6 +188,7 @@ class Checkout
 		if ( $giftcard )
 		{
 			$this->giftcard = $giftcard;
+			$this->totalBeforeGiftcard = $this->getTotal();
 			$this->deductTotal($this->giftcard->worth);
 		}
 
