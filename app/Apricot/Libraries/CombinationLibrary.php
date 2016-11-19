@@ -241,6 +241,52 @@ class CombinationLibrary
 			$this->setAdvise( 'three', trans( 'flow.combinations.3.d' ) );
 			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.d' ) );
 		}
+
+
+
+
+
+		if ( isset( $data->custom ) && isset( $data->custom->three ) )
+		{
+			$this->groupThree = $data->custom->three;
+
+			return;
+		}
+
+		if ( isset( $data->foods->oil ) )
+		{
+			if ( $this->isEmpty( $this->groupThree ) && ( $data->foods->oil == 'fishoil' ) )
+			{
+				$this->groupThree = 'e';
+
+				$this->setAdvise( 'three', trans( 'flow.combinations.3.e' ) );
+				$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.e' ) );
+			}
+
+			if ( $this->isEmpty( $this->groupThree ) && ( $data->foods->oil == 'chiaoil' ) )
+			{
+				$this->groupThree = 'g';
+
+				$this->setAdvise( 'three', trans( 'flow.combinations.3.g' ) );
+				$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.g' ) );
+			}
+		}
+
+		if ( $this->isEmpty( $this->groupThree ) && ( ( isset( $data->vegetarian ) && $data->vegetarian == '2' ) || ( isset( $data->foods ) && ( isset( $data->foods->fish ) && $data->foods->fish == '1' || $data->foods->fish == '2' ) ) ) )
+		{
+			$this->groupThree = 'e';
+
+			$this->setAdvise( 'three', trans( 'flow.combinations.3.e' ) );
+			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.e' ) );
+		}
+
+		if ( $this->isEmpty( $this->groupThree ) && ( ( isset( $data->vegetarian ) && $data->vegetarian == '1' ) ) )
+		{
+			$this->groupThree = 'g';
+
+			$this->setAdvise( 'three', trans( 'flow.combinations.3.g' ) );
+			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.g' ) );
+		}
 	}
 
 	private function generateGroupTwo( $data )
