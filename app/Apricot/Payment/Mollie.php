@@ -12,18 +12,23 @@ class Mollie implements PaymentInterface
 	 *
 	 * @return \Mollie_API_Object_Payment
 	 */
-	public function charge($amount, $description, $data = [])
+	public function charge( $amount, $description, $data = [] )
 	{
+		if ( $amount <= 0 )
+		{
+			$amount = config( 'app.minimum_orders.mollie' ) * 100;
+		}
+
 		$charge = [
-			"method" => 'ideal',
-			"amount"      => MoneyLibrary::toMoneyFormat($amount, true, 2, '.', ''),
+			"method"      => 'ideal',
+			"amount"      => MoneyLibrary::toMoneyFormat( $amount, true, 3, '.', '' ),
 			"description" => $description,
-			"redirectUrl" => \URL::route('checkout-verify-method', ['method' => 'mollie'])
+			"redirectUrl" => \URL::route( 'checkout-verify-method', [ 'method' => 'mollie' ] )
 		];
 
-		$charge = array_merge($charge, $data);
+		$charge = array_merge( $charge, $data );
 
-		return \Mollie::api()->payments()->create($charge);
+		return \Mollie::api()->payments()->create( $charge );
 	}
 
 	/**
@@ -32,12 +37,12 @@ class Mollie implements PaymentInterface
 	 *
 	 * @return \Mollie_API_Object_Customer
 	 */
-	public function createCustomer($name, $email)
+	public function createCustomer( $name, $email )
 	{
-		return \Mollie::api()->customers()->create([
+		return \Mollie::api()->customers()->create( [
 			"name"  => $name,
 			"email" => $email,
-		]);
+		] );
 	}
 
 	/**
@@ -46,12 +51,12 @@ class Mollie implements PaymentInterface
 	 *
 	 * @return \Mollie_API_Object_Payment
 	 */
-	public function makeFirstPayment($amount, $customer)
+	public function makeFirstPayment( $amount, $customer )
 	{
-		return $this->charge($amount, 'Initial', [
+		return $this->charge( $amount, 'Initial', [
 			'customerId'    => $customer->id,
 			'recurringType' => 'first'
-		]);
+		] );
 	}
 
 	/**
@@ -60,27 +65,30 @@ class Mollie implements PaymentInterface
 	 *
 	 * @return bool|\Mollie_API_Object_Payment
 	 */
-	public function makeRebill($amount, $customer)
+	public function makeRebill( $amount, $customer )
 	{
-		$mandates = \Mollie::api()->customersMandates()->withParentId($customer->id)->all();
+		$mandates = \Mollie::api()->customersMandates()->withParentId( $customer->id )->all();
 
 		$hasValidMandate = false;
 
 		/** @var \Mollie_API_Object_Customer_Mandate $mandate */
-		foreach ($mandates as $mandate) {
-			if ($mandate->isValid()) {
+		foreach ( $mandates as $mandate )
+		{
+			if ( $mandate->isValid() )
+			{
 				$hasValidMandate = true;
 			}
 		}
 
-		if (!$hasValidMandate) {
+		if ( ! $hasValidMandate )
+		{
 			return false;
 		}
 
-		return $this->charge($amount, 'Rebill', [
+		return $this->charge( $amount, 'Rebill', [
 			'customerId'    => $customer->id,
 			'recurringType' => 'recurring'
-		]);
+		] );
 	}
 
 	/**
@@ -88,10 +96,10 @@ class Mollie implements PaymentInterface
 	 *
 	 * @return bool
 	 */
-	public function validateCharge($chargeId)
+	public function validateCharge( $chargeId )
 	{
 		/** @var \Mollie_API_Object_Payment $payment */
-		$payment = $this->findOrder($chargeId);
+		$payment = $this->findOrder( $chargeId );
 
 		return $payment->isPaid();
 	}
@@ -101,9 +109,9 @@ class Mollie implements PaymentInterface
 	 *
 	 * @return \Mollie_API_Object_Payment
 	 */
-	public function findOrder($orderId)
+	public function findOrder( $orderId )
 	{
-		return \Mollie::api()->payments()->get($orderId);
+		return \Mollie::api()->payments()->get( $orderId );
 	}
 
 	/**
@@ -111,29 +119,31 @@ class Mollie implements PaymentInterface
 	 *
 	 * @return \Mollie_API_Object_Customer
 	 */
-	public function findCustomer($customerId)
+	public function findCustomer( $customerId )
 	{
-		return \Mollie::api()->customers()->get($customerId);
+		return \Mollie::api()->customers()->get( $customerId );
 	}
 
-	public function addMethod($source, $customer)
+	public function addMethod( $source, $customer )
 	{ // todo.. find a way to disable this for Mollie and instead require a new first transaction..
-		return \Mollie::api()->customersMandates()->withParentId($customer->id)->create([
+		return \Mollie::api()->customersMandates()->withParentId( $customer->id )->create( [
 
-		]);
+		] );
 	}
 
-	public function getCustomerMethods($customerId)
+	public function getCustomerMethods( $customerId )
 	{
 		// TODO: Implement getCustomerMethods() method.
 
-		$mandates = \Mollie::api()->customersMandates()->withParentId($customerId)->all();
+		$mandates = \Mollie::api()->customersMandates()->withParentId( $customerId )->all();
 
 		$validMandates = [];
 
 		/** @var \Mollie_API_Object_Customer_Mandate $mandate */
-		foreach ($mandates as $mandate) {
-			if ($mandate->isValid()) {
+		foreach ( $mandates as $mandate )
+		{
+			if ( $mandate->isValid() )
+			{
 				$validMandates[] = $mandate;
 			}
 		}
@@ -146,9 +156,9 @@ class Mollie implements PaymentInterface
 	 *
 	 * @return array
 	 */
-	public function deleteMethodFor($customerId)
+	public function deleteMethodFor( $customerId )
 	{
 		// no implementation to do this.
-		return ['purge_plan' => true];
+		return [ 'purge_plan' => true ];
 	}
 }
