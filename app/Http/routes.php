@@ -540,12 +540,29 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 		Route::get( 'gifting', function ()
 		{
+			return view( 'gifting' );
+		} )->name( 'gifting' );
+
+		Route::post('buy-giftcard', function(\Illuminate\Http\Request $request)
+		{
+			$validator = Validator::make( $request->all(), [
+				'giftcard' => 'required|in:1,3,6'
+			] );
+
+			if ( $validator->fails() )
+			{
+				return redirect()->back()->withErrors($validator->errors());
+			}
+
 			\Session::forget( 'user_data' );
 			\Session::forget( 'flow-completion-token' );
 			\Session::forget( 'vitamins' );
 
-			return view( 'gifting' );
-		} )->name( 'gifting' );
+			\App\Apricot\Checkout\Cart::clear();
+			\App\Apricot\Checkout\Cart::addProduct("giftcard_{$request->get('giftcard')}");
+
+			return Redirect::action('CheckoutController@getCheckout');
+		})->name('buy-giftcard');
 
 		/*
 		 * Signup
