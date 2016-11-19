@@ -383,7 +383,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			foreach ( $lib->getAdvises() as $adviseKey => $advise )
 			{
-				$advises .= '<p>' . $advise . '</p>';
+				$advises .= '<p class="advise-paragraph" data-key="' . $adviseKey . '">' . $advise . '</p>';
 			}
 
 			$codes = [];
