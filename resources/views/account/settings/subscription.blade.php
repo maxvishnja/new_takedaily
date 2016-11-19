@@ -46,8 +46,10 @@
 			@endif
 		</div>
 	@else
+		<div class="m-t-10">
 		<a href="{{ URL::action('AccountController@getSettingsSubscriptionRestart') }}"
 		   class="button button--large button--green button--rounded">{{ trans('account.settings_subscription.button-start-text') }}</a>
+		</div>
 	@endif
 @endsection
 

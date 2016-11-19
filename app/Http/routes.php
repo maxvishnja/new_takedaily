@@ -488,6 +488,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				Auth::user()->getCustomer()->unsetCustomUserdata();
 				Auth::user()->getCustomer()->updateUserdata( $userData );
 				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
+				Auth::user()->getCustomer()->getPlan()->update(['price' => \App\Apricot\Checkout\Cart::getTotal()]);
 				Auth::user()->getCustomer()->setVitamins( $vitamins );
 				\App\Apricot\Checkout\Cart::clear();
 
