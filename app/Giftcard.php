@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -53,5 +54,13 @@ class Giftcard extends Model
 	{
 		$this->is_used = 1;
 		$this->save();
+	}
+
+	public function stream()
+	{
+		/** @var PDF $pdf */
+		$pdf = \PDF::loadView('pdf.giftcard');
+
+		return $pdf->stream("giftcard_{$this->token}.pdf");
 	}
 }
