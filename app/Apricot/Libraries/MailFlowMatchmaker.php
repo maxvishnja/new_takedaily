@@ -110,22 +110,22 @@ class MailFlowMatchmaker
 				break;
 
 			case 'customer':
-				$subKey = explode('.', $key)[1];
+				$subKey = str_replace("{$keyIdentifier}.", '', $key);
 				return $customer->{$subKey};
 				break;
 
 			case 'plan':
-				$subKey = explode('.', $key)[1];
+				$subKey = str_replace("{$keyIdentifier}.", '', $key);
 				return $customer->getPlan()->{$subKey};
 				break;
 
 			case 'customer_attribute':
-				$subKey = explode('.', $key)[1];
+				$subKey = str_replace("{$keyIdentifier}.", '', $key);
 				return $customer->getCustomerAttribute($subKey, null);
 				break;
 
 			case 'user_data':
-				$subKey = explode('.', $key)[1];
+				$subKey = str_replace("{$keyIdentifier}.", '', $key);
 				return $customer->getCustomerAttribute("user_data.$subKey", null);
 				break;
 

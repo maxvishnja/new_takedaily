@@ -27,7 +27,7 @@ class MailFlowSeeder extends Seeder
 		$mailflow_woman_plus_50->conditions()->create( [
 			'key'   => 'user_data.gender',
 			'type'  => '=',
-			'value' => 'female'
+			'value' => '2'
 		] );
 
 		// For Everyone +70 years of age
@@ -53,7 +53,7 @@ class MailFlowSeeder extends Seeder
 		$mailflow_leaving_pregnancy->conditions()->create( [
 			'key'   => 'user_data.gender',
 			'type'  => '=',
-			'value' => 'female'
+			'value' => '2'
 		] );
 
 		$mailflow_leaving_pregnancy->conditions()->create( [
