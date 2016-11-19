@@ -462,10 +462,10 @@
 					},
 					dataType: 'JSON',
 					beforeSend: function () {
-						button.text('Vent...').prop('disabled', true); // todo translate
+						button.text('{{ trans('checkout.wait') }}').prop('disabled', true);
 					},
 					complete: function () {
-						button.text('Anvend').prop('disabled', false); // todo translate
+						button.text('{{ trans('checkout.wait') }}').prop('disabled', false);
 					},
 					success: function (response) {
 						$("#coupon-form-successes-mobile").text(response.message);
@@ -513,10 +513,10 @@
 					},
 					dataType: 'JSON',
 					beforeSend: function () {
-						button.text('Vent...').prop('disabled', true); // todo translate
+						button.text('{{ trans('checkout.wait') }}').prop('disabled', true);
 					},
 					complete: function () {
-						button.text('Anvend').prop('disabled', false); // todo translate
+						button.text('{{ trans('checkout.apply') }}').prop('disabled', false);
 					},
 					success: function (response) {
 						$("#coupon-form-successes-mobile").text(response.message);

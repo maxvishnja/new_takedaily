@@ -1,6 +1,8 @@
 <?php
 
 return [
+	'wait' => 'Vent...',
+	'apply' => 'Anvend',
 	'back'     => '‹ Gå tilbage til anbefalingen',
 	'messages' =>
 		[

@@ -493,7 +493,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				\App\Apricot\Checkout\Cart::clear();
 
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
-				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
+				                ->with( 'success', trans('flow.package-updated') );
 			}
 			else
 			{

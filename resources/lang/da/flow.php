@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'package-updated' => 'Din pakke blev opdateret!',
 	'back'                  => '&lsaquo; Tilbage til tidligere spørgsmål',
 	'title'                 => 'Find din anbefaling - TakeDaily',
 	'scripts'               => 'Venligst aktiver javascripts.',

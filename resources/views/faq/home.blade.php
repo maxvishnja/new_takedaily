@@ -1,5 +1,5 @@
 @extends('layouts.app')
-{{-- todo translate --}}
+
 @section('pageClass', 'page page-faq')
 
 @section('title', trans('faq.title'))

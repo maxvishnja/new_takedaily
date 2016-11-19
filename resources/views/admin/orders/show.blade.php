@@ -126,6 +126,6 @@
 				</tr>
 				</tfoot>
 			</table>
-		</div>{{-- todo format currency to DKK --}}
+		</div>{{-- todo format currency using trans general --}}
 	</div><!--/.module-->
 @stop

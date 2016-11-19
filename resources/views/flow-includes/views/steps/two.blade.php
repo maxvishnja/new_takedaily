@@ -166,7 +166,6 @@
 	<div data-sub-step="8" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--skip': user_data.pregnant != 1 }">
 		<h3 class="substep-title">{{ trans('flow.questions.2-8.title') }}</h3>
 		<div class="sub_step_answers">
-			{{-- todo add weeks field AND "I wish to be" field" --}}
 			<label class="text-center flow_label_noclick">
 				<span>{{ trans('flow.questions.2-8.button-text') }}</span><br/>
 				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-on:change="nextStep();" v-model="user_data.pregnancy.week" class="select select--full m-t-10">
