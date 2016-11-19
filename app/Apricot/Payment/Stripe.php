@@ -84,7 +84,7 @@ class Stripe implements PaymentInterface
 		{
 			return Charge::create( [
 				'amount'               => $amount,
-				'currency'             => trans( 'general.currency' ), // todo debug this
+				'currency'             => trans( 'general.currency' ),
 				'customer'             => $customer->id,
 				'description'          => 'rebill',
 				'statement_descriptor' => 'TakeDaily',

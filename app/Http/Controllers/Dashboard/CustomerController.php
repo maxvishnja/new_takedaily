@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use App\Http\Controllers\Controller;
-use App\Http\Requests;
 use Illuminate\Mail\Message;
 
 class CustomerController extends Controller
@@ -59,10 +58,10 @@ class CustomerController extends Controller
 		$customer->user->password = \Hash::make($password);
 		$customer->user->save();
 
-		\Mail::queue('emails.new-password', [ 'password' => $password ], function (Message $message) use ($customer)
+		\Mail::queue('emails.new-password', [ 'locale' => \App::getLocale(), 'password' => $password ], function (Message $message) use ($customer)
 		{
 			$message->to($customer->user->getEmailForPasswordReset(), $customer->getName());
-			$message->subject('Din nye adgangskode til TakeDaily'); // todo translate
+			$message->subject(trans('mails.new-password.subject'));
 			$message->from('noreply@takedaily.com', 'TakeDaily');
 		});
 

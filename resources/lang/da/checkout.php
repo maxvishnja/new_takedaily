@@ -29,6 +29,10 @@ return [
 					'text'  => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring gavekortet, indløsning og din ordre generelt. Tak for dit køb!',
 				],
 		],
+	'errors' => [
+		'no-cart-session' => 'Der kunne ikke findes en kurv-session!',
+	    'payment-error' => 'Der skete en fejl under betalingen, prøv igen.',
+	],
 	'index'    =>
 		[
 			'title'      => 'Betaling - TakeDaily',

@@ -4,7 +4,6 @@ use Illuminate\Support\Collection;
 
 class Cart
 {
-	// todo handle coupons, maybe - and giftcards
 	const COOKIE_NAME  = 'takedaily_cart_token';
 	const SESSION_NAME = 'the_cart_exists';
 	const TOKEN_PREFIX = 'cart_';

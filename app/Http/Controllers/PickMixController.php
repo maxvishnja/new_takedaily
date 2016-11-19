@@ -33,9 +33,9 @@ class PickMixController extends Controller
 		$this->validate( $request, [
 			'vitamins'       => 'min:3|max:5|exists:vitamins,id'
 		], [
-			'vitamins.min'          => 'Du har ikke valgt nok vitaminer, du skal mindst vælge :min forskellige.', // todo translate
-			'vitamins.max'          => 'Du har valgt for mange vitaminer, du kan maksimalt vælge :max forskellige.', // todo translate
-			'vitamins.exists'       => 'Du har valgt et vitamin som ikke findes, hvordan ved vi ikke, prøv igen.', // todo translate
+			'vitamins.min'          => trans('pick.errors.not-enough'),
+			'vitamins.max'          => trans('pick.errors.too-many-validation'),
+			'vitamins.exists'       => trans('pick.errors.not-found'),
 		] );
 
 		$vitamins = collect( $request->get( 'vitamins' ) );
@@ -53,7 +53,7 @@ class PickMixController extends Controller
 			\Auth::user()->getCustomer()->getPlan()->update(['price' => Cart::getTotal()]);
 
 			return \Redirect::action( 'AccountController@getSettingsSubscription' )
-			                ->with( 'success', 'Dine vitaminer blev opdateret!' ); // todo translate
+			                ->with( 'success', trans('pick.updated') );
 		}
 
 		\Session::forget( 'user_data' );

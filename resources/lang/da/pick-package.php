@@ -82,4 +82,8 @@ return [
 					'icons'       => ['blood']
 				],
 		],
+    'errors' => [
+    	'not-found' => 'Package not found.'
+    ],
+    'updated' => 'Din pakke blev opdateret!'
 ];

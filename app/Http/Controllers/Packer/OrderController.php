@@ -103,10 +103,9 @@ class OrderController extends Controller
 		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The action was handled!' );
 	}
 
-	private function downloadMultiple( $ids )// todo speed this function up
+	private function downloadMultiple( $ids )
 	{
 		$printables = [];
-
 
 		foreach ( Order::whereIn( 'id', $ids )->get() as $order )
 		{

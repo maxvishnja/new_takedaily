@@ -23,7 +23,7 @@ class CheckoutController extends Controller
 	{
 		if ( ! Cart::exists() )
 		{
-			return \Redirect::back()->withErrors( [ 'Der kunne ikke findes en kurv-session!' ] ); // todo translate
+			return \Redirect::back()->withErrors( [ trans('checkout.errors.no-cart-session') ] );
 		}
 		$request->session()->set( 'product_name', $request->get( 'product_name', $request->session()->get( 'product_name', 'subscription' ) ) );
 
@@ -112,15 +112,15 @@ class CheckoutController extends Controller
 		if ( ! $checkout->getCustomer() )
 		{
 			return \Redirect::back()
-			                ->withErrors( 'Der skete en fejl under betalingen, prøv igen.' )
-			                ->withInput();// todo translate
+			                ->withErrors( trans('checkout.errors.payment-error') )
+			                ->withInput();
 		}
 
 		if ( ! $charge = $checkout->makeInitialPayment() )
 		{
 			return \Redirect::back()
-			                ->withErrors( 'Der skete en fejl under betalingen, prøv igen.' )
-			                ->withInput();// todo translate
+			                ->withErrors( trans('checkout.errors.payment-error') )
+			                ->withInput();
 		}
 
 		$request->session()->put( 'charge_id', $charge->id );
@@ -180,7 +180,7 @@ class CheckoutController extends Controller
 		if ( ! $isSuccessful )
 		{
 			return \Redirect::action( 'CheckoutController@getCheckout' )
-			                ->withErrors( 'Der skete en fejl under betalingen, prøv igen!' )
+			                ->withErrors( trans('checkout.errors.payment-error') )
 			                ->withInput( [
 				                'name'            => $request->session()->get( 'name' ),
 				                'email'           => $request->session()->get( 'email' ),
@@ -190,7 +190,7 @@ class CheckoutController extends Controller
 				                'company'         => $request->session()->get( 'company' ),
 				                'cvr'             => $request->session()->get( 'cvr' ),
 				                'phone'           => $request->session()->get( 'phone' ),
-			                ] ); // todo translate
+			                ] );
 		}
 
 		$checkoutCompletion = new CheckoutCompletion( $checkout );
@@ -238,8 +238,6 @@ class CheckoutController extends Controller
 
 			return \Redirect::back()->withErrors( $exception->getMessage() ); // todo refund charge + withInput
 		}
-
-		// fixme userData being null/false if failed somewhere.
 
 		$request->session()->flash( 'order_price', $checkout->getTotal() );
 		$request->session()->flash( 'order_currency', trans( 'general.currency' ) );

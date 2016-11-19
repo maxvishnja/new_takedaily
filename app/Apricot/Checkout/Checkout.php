@@ -1,4 +1,4 @@
-<?php // todo make more flexible and useable for the entire CheckoutController
+<?php
 
 namespace App\Apricot\Checkout;
 

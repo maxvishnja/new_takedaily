@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 
 class PackerAuthController extends Controller
 {
@@ -43,7 +43,7 @@ class PackerAuthController extends Controller
 	 */
 	public function showLoginForm()
 	{
-		\App::setLocale('en'); // consider this
+		\App::setLocale('en');
 		if (view()->exists('packer.auth.authenticate')) {
 			return view('packer.auth.authenticate');
 		}

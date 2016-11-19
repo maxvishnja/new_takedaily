@@ -25,7 +25,7 @@ class PackageController extends Controller
 
 		if ( ! $package )
 		{
-			return redirect()->back()->withErrors( 'Package not found.' ); // todo translate
+			return redirect()->back()->withErrors( trans('pick-package.errors.not-found') );
 		}
 
 		if ( $package->isDirect() )
@@ -49,7 +49,7 @@ class PackageController extends Controller
 				\Auth::user()->getCustomer()->getPlan()->update(['price' => Cart::getTotal()]);
 
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
-				                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
+				                ->with( 'success', trans('pick-package.updated') );
 			}
 
 			$vitamins = [
@@ -103,7 +103,7 @@ class PackageController extends Controller
 			\Auth::user()->getCustomer()->getPlan()->update(['price' => Cart::getTotal()]);
 
 			return \Redirect::action( 'AccountController@getSettingsSubscription' )
-			                ->with( 'success', 'Din pakke blev opdateret!' ); // todo translate
+			                ->with( 'success', trans('pick-package.updated') );
 		}
 
 		\Session::forget( 'flow-completion-token' );
