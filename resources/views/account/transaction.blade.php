@@ -35,8 +35,8 @@
 			<tr>
 				<td data-th="{{ trans('account.transaction.table.headers.description') }}">{{ trans("products.{$line->description}") }}</td>
 				<td data-th="{{ trans('account.transaction.table.headers.amount') }}">{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true), 'currency' => $order->currency]) }}</td>
-				<td data-th="{{ trans('account.transaction.table.headers.taxes') }}">{{ trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true)))->toCurrency(trans('general.currency')) ]) }}</td>
-				<td data-th="{{ trans('account.transaction.table.headers.total') }}"><strong>{{ trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true)))->toCurrency(trans('general.currency')) ]) }}</strong></td>
+				<td data-th="{{ trans('account.transaction.table.headers.taxes') }}">{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true), 'currency' => $order->currency]) }}</td>
+				<td data-th="{{ trans('account.transaction.table.headers.total') }}"><strong>{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true), 'currency' => $order->currency]) }}</strong></td>
 			</tr>
 		@endforeach
 		</tbody>
@@ -45,25 +45,25 @@
 		<tr>
 			<td colspan="2" style="border: none;" class="hidden-xs"></td>
 			<td style="border: none; text-align: right;" class="hidden-xs">{{ trans('account.transaction.table.totals.subtotal') }}</td>
-			<td data-th="{{ trans('account.transaction.table.totals.subtotal') }}" style="border: none;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->sub_total, true))]) }}</td>
+			<td data-th="{{ trans('account.transaction.table.totals.subtotal') }}" style="border: none;">{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->sub_total, true), 'currency' => $order->currency]) }}</td>
 		</tr>
 
 		<tr>
 			<td colspan="2" style="border: none;" class="hidden-xs"></td>
 			<td style="border: none; text-align: right;" class="hidden-xs">{{ trans('account.transaction.table.totals.shipping') }}</td>
-			<td data-th="{{ trans('account.transaction.table.totals.shipping') }}" style="border: none;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_shipping, true))]) }}</td>
+			<td data-th="{{ trans('account.transaction.table.totals.shipping') }}" style="border: none;">{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_shipping, true), 'currency' => $order->currency]) }}</td>
 		</tr>
 
 		<tr>
 			<td colspan="2" style="border: none;" class="hidden-xs"></td>
 			<td style="border: none; text-align: right;" class="hidden-xs">{{ trans('account.transaction.table.totals.taxes') }}</td>
-			<td data-th="{{ trans('account.transaction.table.totals.taxes') }}" style="border: none;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_taxes, true))]) }}</td>
+			<td data-th="{{ trans('account.transaction.table.totals.taxes') }}" style="border: none;">{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_taxes, true), 'currency' => $order->currency]) }}</td>
 		</tr>
 
 		<tr>
 			<td colspan="2" style="border: none;" class="hidden-xs"></td>
 			<td style="border: none; text-align: right; font-weight: bold;" class="hidden-xs">{{ trans('account.transaction.table.totals.total') }}</td>
-			<td data-th="{{ trans('account.transaction.table.totals.total') }}" style="border: none; font-weight: bold;">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total, true))]) }}</td>
+			<td data-th="{{ trans('account.transaction.table.totals.total') }}" style="border: none; font-weight: bold;">{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total, true), 'currency' => $order->currency]) }}</td>
 		</tr>
 		</tfoot>
 	</table>
