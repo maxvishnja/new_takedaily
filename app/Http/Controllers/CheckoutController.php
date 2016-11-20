@@ -23,7 +23,7 @@ class CheckoutController extends Controller
 	{
 		if ( ! Cart::exists() )
 		{
-			return \Redirect::back()->withErrors( [ trans('checkout.errors.no-cart-session') ] );
+			return \Redirect::back()->withErrors( [ trans( 'checkout.errors.no-cart-session' ) ] );
 		}
 		$request->session()->set( 'product_name', $request->get( 'product_name', $request->session()->get( 'product_name', 'subscription' ) ) );
 
@@ -41,7 +41,7 @@ class CheckoutController extends Controller
 			$giftcard = Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
 			                    ->where( 'token', \Session::get( 'giftcard_token' ) )
 			                    ->where( 'is_used', 0 )
-			                    ->where('currency', trans( 'general.currency' ) )
+			                    ->where( 'currency', trans( 'general.currency' ) )
 			                    ->first();
 		}
 
@@ -95,10 +95,18 @@ class CheckoutController extends Controller
 
 		$checkout = new Checkout();
 
-		$taxZone = $request->get( 'address_country', trans('general.tax_zone') );
-		if( \Auth::check() && \Auth::user()->isUser() )
+		$taxZone = $request->get( 'address_country', trans( 'general.tax_zone' ) );
+		$street   = $request->get( 'address_street' );
+		$city     = $request->get( 'address_city' );
+		$zipcode  = $request->get( 'address_zipcode' );
+		$userData = $request->get( 'user_data' );
+
+		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
-			$taxZone = \Auth::user()->customer->getCustomerAttribute('address_country', $request->get( 'address_country', trans('general.tax_zone') ));
+			$taxZone = \Auth::user()->customer->getCustomerAttribute( 'address_country', $request->get( 'address_country', trans( 'general.tax_zone' ) ) );
+			$street =  \Auth::user()->customer->getCustomerAttribute( 'address_street', $request->get( 'address_street' ) );
+			$city =  \Auth::user()->customer->getCustomerAttribute( 'address_city', $request->get( 'address_city' ) );
+			$zipcode =  \Auth::user()->customer->getCustomerAttribute( 'address_zipcode', $request->get( 'address_zipcode' ) );
 		}
 
 		$checkout->setProductByName( $productName )
@@ -113,14 +121,14 @@ class CheckoutController extends Controller
 		if ( ! $checkout->getCustomer() )
 		{
 			return \Redirect::back()
-			                ->withErrors( trans('checkout.errors.payment-error') )
+			                ->withErrors( trans( 'checkout.errors.payment-error' ) )
 			                ->withInput();
 		}
 
 		if ( ! $charge = $checkout->makeInitialPayment() )
 		{
 			return \Redirect::back()
-			                ->withErrors( trans('checkout.errors.payment-error') )
+			                ->withErrors( trans( 'checkout.errors.payment-error' ) )
 			                ->withInput();
 		}
 
@@ -128,15 +136,15 @@ class CheckoutController extends Controller
 		$request->session()->put( 'payment_customer_id', $checkout->getCustomer()->id );
 		$request->session()->put( 'name', $request->get( 'name' ) );
 		$request->session()->put( 'email', $request->get( 'email' ) );
-		$request->session()->put( 'address_street', $request->get( 'address_street' ) );
-		$request->session()->put( 'address_city', $request->get( 'address_city' ) );
-		$request->session()->put( 'address_zipcode', $request->get( 'address_zipcode' ) );
+		$request->session()->put( 'address_street', $street );
+		$request->session()->put( 'address_city', $city );
+		$request->session()->put( 'address_zipcode', $zipcode );
 		$request->session()->put( 'address_country', $taxZone );
 		$request->session()->put( 'company', $request->get( 'company' ) );
 		$request->session()->put( 'cvr', $request->get( 'cvr' ) );
 		$request->session()->put( 'phone', $request->get( 'phone' ) );
 		$request->session()->put( 'product_name', $productName );
-		$request->session()->put( 'user_data', $request->get( 'user_data' ) );
+		$request->session()->put( 'user_data', $userData );
 		$request->session()->put( 'price', $checkout->getSubscriptionPrice() );
 		$request->session()->put( 'order_price', $checkout->getTotal() );
 		$request->session()->put( 'coupon', $couponCode );
@@ -181,7 +189,7 @@ class CheckoutController extends Controller
 		if ( ! $isSuccessful )
 		{
 			return \Redirect::action( 'CheckoutController@getCheckout' )
-			                ->withErrors( trans('checkout.errors.payment-error') )
+			                ->withErrors( trans( 'checkout.errors.payment-error' ) )
 			                ->withInput( [
 				                'name'            => $request->session()->get( 'name' ),
 				                'email'           => $request->session()->get( 'email' ),
@@ -253,7 +261,7 @@ class CheckoutController extends Controller
 
 		// Considering that theres only two products: subscription and giftcard, we can conclude that this is a giftcard.
 
-		$this->dispatch(new GiftcardWasOrdered($checkoutCompletion->getGiftcard(), $checkoutCompletion->getUser()->getCustomer()));
+		$this->dispatch( new GiftcardWasOrdered( $checkoutCompletion->getGiftcard(), $checkoutCompletion->getUser()->getCustomer() ) );
 
 		return \Redirect::action( 'CheckoutController@getSuccessNonSubscription', [ 'token' => $checkoutCompletion->getGiftcard()->token ] )
 		                ->with( [ 'order_created' => true ] );
