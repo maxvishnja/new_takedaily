@@ -313,6 +313,8 @@ class Customer extends Model
 
 	public function makeOrder( $amount = 100, $chargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null )
 	{
+		\App::setLocale($this->getLocale());
+
 		$taxing = new TaxLibrary( $this->getCustomerAttribute( 'address_country' ) );
 
 		$shipping = $shipping ?: $this->getPlan()->getShippingPrice();
