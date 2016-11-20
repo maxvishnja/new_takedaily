@@ -186,7 +186,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				return redirect()->back()->withErrors( $validator->messages() );
 			}
 
-			$giftcard = \App\Giftcard::whereToken( $request->get( 'giftcard_code' ) )->whereIsUsed( 0 )->first();
+			$giftcard = \App\Giftcard::whereToken( $request->get( 'giftcard_code' ) )->whereIsUsed( 0 )->whereCurrency(trans('general.currency'))->first();
 
 			if ( ! $giftcard )
 			{
