@@ -736,7 +736,14 @@ class Customer extends Model
 
 	public function unsetCustomUserdata()
 	{
-		$attributes = $this->customerAttributes()->where( 'identifier', 'LIKE', 'user_data.custom.%' )->delete();
+		$this->customerAttributes()->where( 'identifier', 'LIKE', 'user_data.custom.%' )->delete();
+
+		return $this;
+	}
+
+	public function unsetAllUserdata()
+	{
+		$this->customerAttributes()->where( 'identifier', 'LIKE', 'user_data.%' )->delete();
 
 		return $this;
 	}

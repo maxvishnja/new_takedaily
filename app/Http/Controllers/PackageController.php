@@ -36,6 +36,7 @@ class PackageController extends Controller
 
 			if ( \Auth::check() && \Auth::user()->isUser() )
 			{
+				\Auth::user()->getCustomer()->unsetAllUserdata();
 				\Auth::user()
 				     ->getCustomer()
 				     ->updateCustomUserData( json_decode( json_encode( [
@@ -96,6 +97,7 @@ class PackageController extends Controller
 
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
+			\Auth::user()->getCustomer()->unsetAllUserdata();
 			\Auth::user()
 			     ->getCustomer()
 			     ->updateCustomUserData( $combinedUserData );
