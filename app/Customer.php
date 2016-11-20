@@ -324,6 +324,7 @@ class Customer extends Model
 			'payment_token'    => $chargeToken ?: '',
 			'payment_method'   => $this->getPlan()->getPaymentMethod(),
 			'state'            => ( $chargeToken ? 'paid' : 'new' ),
+			'currency' => trans('general.currency'),
 			'total'            => $amount,
 			'total_shipping'   => $shipping,
 			'sub_total'        => $amount - $shipping - $taxes,

@@ -74,6 +74,7 @@ class Order extends Model
 		'customer_id',
 		'reference',
 		'state',
+		'currency',
 		'payment_method',
 		'payment_token',
 		'total',
