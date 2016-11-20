@@ -646,7 +646,7 @@ class Customer extends Model
 
 	public function updateUserdata( $userData )
 	{
-		return $this->setCustomerAttributes( [
+		$data = [
 			'user_data.gender'           => $userData->gender ?: '',
 			'user_data.birthdate'        => $userData->birthdate ? date( 'Y-m-d', strtotime( $userData->birthdate ) ) : '',
 			'user_data.age'              => $userData->age ?: '',
@@ -672,7 +672,14 @@ class Customer extends Model
 			'user_data.foods.meat'       => $userData->foods->meat ?: '',
 			'user_data.foods.fish'       => $userData->foods->fish ?: '',
 			'user_data.foods.butter'     => $userData->foods->butter ?: ''
-		] );
+		];
+
+		if( isset($userData->custom) && isset($userData->custom->three) && $userData->custom->three != '' && !empty($userData->custom->three))
+		{
+			$data['user_data.custom.three'] = $userData->custom->three;
+		}
+
+		return $this->setCustomerAttributes( $data );
 	}
 
 	public function updateCustomUserData( $userData )
