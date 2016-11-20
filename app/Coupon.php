@@ -5,28 +5,28 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Coupon
  *
- * @property integer $id
- * @property string $description
- * @property string $code
- * @property string $discount_type
- * @property integer $discount
- * @property string $applies_to
- * @property integer $uses_left
+ * @property integer        $id
+ * @property string         $description
+ * @property string         $code
+ * @property string         $discount_type
+ * @property integer        $discount
+ * @property string         $applies_to
+ * @property integer        $uses_left
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property string $valid_from
- * @property string $valid_to
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereCode($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereDiscountType($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereDiscount($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereAppliesTo($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereUsesLeft($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereValidFrom($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereValidTo($value)
+ * @property string         $valid_from
+ * @property string         $valid_to
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereId( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereDescription( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereCode( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereDiscountType( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereDiscount( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereAppliesTo( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereUsesLeft( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereCreatedAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereUpdatedAt( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereValidFrom( $value )
+ * @method static \Illuminate\Database\Query\Builder|\App\Coupon whereValidTo( $value )
  * @mixin \Eloquent
  */
 class Coupon extends Model
@@ -38,7 +38,7 @@ class Coupon extends Model
 	 * @var string
 	 */
 	protected $table = 'coupons';
-	
+
 	/**
 	 * The attributes that are mass assignable.
 	 *
@@ -50,21 +50,22 @@ class Coupon extends Model
 		'discount',
 		'applies_to',
 		'discount_type',
+		'currency',
 		'uses_left',
 		'valid_from',
 		'valid_to'
 	];
-	
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = [ ];
+	protected $hidden = [];
 
 	function usage()
 	{
-		return strtolower(trans("usage.{$this->applies_to}"));
+		return strtolower( trans( "usage.{$this->applies_to}" ) );
 	}
 
 	function isAmount()

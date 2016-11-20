@@ -4,9 +4,9 @@
 	<div class="module">
 		<div class="module-head">
 			@if( ! isset( $coupon ) )
-				<h3>Opret ny kupon</h3>
+				<h3>Add new coupon</h3>
 			@else
-				<h3>Rediger kupon: {{ $coupon->code }} ({{ $coupon->id }})</h3>
+				<h3>Edit coupon: {{ $coupon->code }} ({{ $coupon->id }})</h3>
 			@endif
 		</div>
 
@@ -26,6 +26,17 @@
 					<label for="description" class="control-label">Beskrivelse</label>
 					<div class="controls">
 						<textarea name="description" id="description" class="form-control span8" rows="5" placeholder="Vises på siden">{!! Request::old('description', isset($coupon) ? $coupon->description : '' ) !!}</textarea>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label for="currency" class="control-label">Currency</label>
+					<div class="controls">
+						<select name="currency" id="currency">
+							@foreach(['DKK','EUR','USD','SEK','NOK','GBP'] as $option)
+								<option value="{{ $option }}" @if(isset($coupon) && $coupon->currency == $option) selected="selected" @endif>{{ $option }}</option>
+							@endforeach
+						</select>
 					</div>
 				</div>
 

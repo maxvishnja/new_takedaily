@@ -524,6 +524,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			$coupon = \App\Coupon::create( [
 				'description'   => 'Upsell discount',
 				'code'          => str_random( 8 ),
+				'currency' => trans('general.currency'),
 				'discount'      => 50,
 				'applies_to'    => 'order',
 				'discount_type' => 'percentage',

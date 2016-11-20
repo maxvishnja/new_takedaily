@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\Coupon;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class CouponController extends Controller
 {
@@ -36,6 +34,7 @@ class CouponController extends Controller
 		$coupon->code = strtoupper($request->get('code'));
 		$coupon->description = $request->get('description');
 		$coupon->discount_type = $request->get('type');
+		$coupon->currency = $request->get('currency');
 		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
 		$coupon->uses_left = $request->get('uses_left');
 		$coupon->applies_to = $request->get('applies_to');
@@ -73,6 +72,7 @@ class CouponController extends Controller
 		$coupon->code = strtoupper($request->get('code'));
 		$coupon->description = $request->get('description');
 		$coupon->discount_type = $request->get('type');
+		$coupon->currency = $request->get('currency');
 		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
 		$coupon->uses_left = $request->get('uses_left');
 		$coupon->applies_to = $request->get('applies_to');
