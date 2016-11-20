@@ -338,8 +338,8 @@ class Customer extends Model
 			'shipping_company' => $this->getCustomerAttribute( 'company' )
 		] );
 
-		$product = Product::where( 'name', $product_name )->first();
-		$productPrice = ProductPriceGetter::getPrice($product_name);
+		$product      = Product::where( 'name', $product_name )->first();
+		$productPrice = ProductPriceGetter::getPrice( $product_name );
 
 		$order->lines()->create( [
 			'description'  => $product_name,
@@ -435,7 +435,15 @@ class Customer extends Model
 
 		if ( $amount > 0 )
 		{
-			$charge = $paymentHandler->makeRebill( $amount, $this->getPlan()->getPaymentCustomer() );
+			try
+			{
+				$charge = $paymentHandler->makeRebill( $amount, $this->getPlan()->getPaymentCustomer() );
+			} catch ( \Exception $exception )
+			{
+				\Log::critical($exception->getMessage());
+				\Bugsnag::notifyException($exception);
+				return false;
+			}
 
 			if ( ! $charge )
 			{
