@@ -273,7 +273,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				if ( $giftcard )
 				{
 					$giftcardData = [
-						'worth' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($giftcard->worth)
+						'worth' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat( $giftcard->worth )
 					];
 				}
 			}
@@ -324,6 +324,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$giftcard = \App\Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
 				                         ->where( 'token', \Session::get( 'giftcard_token' ) )
 				                         ->where( 'is_used', 0 )
+				                         ->where('currency', trans( 'general.currency' ) )
 				                         ->first();
 			}
 
@@ -441,7 +442,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$ingredients .= '<div class="ingredient_item" data-grouptext="' . $indexOld . '" data-groupnum="' . $index . '" data-item="' . $index . $combination . '">
 					<span class="icon icon-arrow-down"></span>
 					<h3>' . trans( strtolower( "label-{$index}{$combination}.name" ) ) . '</h3>
-					' . view('flow-includes.views.vitamin_table', ['label' => "{$index}{$combination}" ]) . '
+					' . view( 'flow-includes.views.vitamin_table', [ 'label' => "{$index}{$combination}" ] ) . '
 				</div>';
 
 				$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey );
@@ -468,12 +469,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		{
 			$userData = json_decode( $request->get( 'user_data' ) );
 
-			if ( Auth::check() && Auth::user()->isUser() && $request->get('update_only', 0) == 1 )
+			if ( Auth::check() && Auth::user()->isUser() && $request->get( 'update_only', 0 ) == 1 )
 			{
 				Auth::user()->getCustomer()->unsetAllUserdata();
 				Auth::user()->getCustomer()->updateUserdata( $userData );
 				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
-				Auth::user()->getCustomer()->getPlan()->update(['price' => \App\Apricot\Checkout\Cart::getTotal()]);
+				Auth::user()->getCustomer()->getPlan()->update( [ 'price' => \App\Apricot\Checkout\Cart::getTotal() ] );
 
 				$combinations = Auth::user()->getCustomer()->calculateCombinations();
 				$vitamins     = [];
@@ -493,7 +494,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				\App\Apricot\Checkout\Cart::clear();
 
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
-				                ->with( 'success', trans('flow.package-updated') );
+				                ->with( 'success', trans( 'flow.package-updated' ) );
 			}
 			else
 			{
@@ -524,7 +525,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			$coupon = \App\Coupon::create( [
 				'description'   => 'Upsell discount',
 				'code'          => str_random( 8 ),
-				'currency' => trans('general.currency'),
+				'currency'      => trans( 'general.currency' ),
 				'discount'      => 50,
 				'applies_to'    => 'order',
 				'discount_type' => 'percentage',
@@ -545,7 +546,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			return view( 'gifting' );
 		} )->name( 'gifting' );
 
-		Route::post('buy-giftcard', function(\Illuminate\Http\Request $request)
+		Route::post( 'buy-giftcard', function ( \Illuminate\Http\Request $request )
 		{
 			$validator = Validator::make( $request->all(), [
 				'giftcard' => 'required|in:1,3,6'
@@ -553,19 +554,19 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			if ( $validator->fails() )
 			{
-				return redirect()->back()->withErrors($validator->errors());
+				return redirect()->back()->withErrors( $validator->errors() );
 			}
 
 			\Session::forget( 'user_data' );
 			\Session::forget( 'flow-completion-token' );
 			\Session::forget( 'vitamins' );
-			\Session::set( 'product_name', "giftcard_{$request->get('giftcard')}");
+			\Session::set( 'product_name', "giftcard_{$request->get('giftcard')}" );
 
 			\App\Apricot\Checkout\Cart::clear();
-			\App\Apricot\Checkout\Cart::addProduct("giftcard_{$request->get('giftcard')}");
+			\App\Apricot\Checkout\Cart::addProduct( "giftcard_{$request->get('giftcard')}" );
 
-			return Redirect::action('CheckoutController@getCheckout');
-		})->name('buy-giftcard');
+			return Redirect::action( 'CheckoutController@getCheckout' );
+		} )->name( 'buy-giftcard' );
 
 		/*
 		 * Signup
@@ -579,6 +580,11 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			if ( ! $giftcard )
 			{
 				abort( 404 );
+			}
+
+			if( $giftcard->currency != trans('general.currency'))
+			{
+				abort(404, 'The giftcard is not available in this currency/language. Please switch to the correct store.');
 			}
 
 			$request->session()

@@ -41,6 +41,7 @@ class CheckoutController extends Controller
 			$giftcard = Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
 			                    ->where( 'token', \Session::get( 'giftcard_token' ) )
 			                    ->where( 'is_used', 0 )
+			                    ->where('currency', trans( 'general.currency' ) )
 			                    ->first();
 		}
 
