@@ -69,6 +69,7 @@ class Plan extends Model
 		'subscription_cancelled_at',
 		'subscription_snoozed_until',
 		'subscription_rebill_at',
+		'currency',
 		'vitamins',
 		'is_custom'
 	];

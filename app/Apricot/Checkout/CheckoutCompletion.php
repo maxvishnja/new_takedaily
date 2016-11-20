@@ -138,6 +138,7 @@ class CheckoutCompletion
 				'price'                     => $this->getCheckout()->getSubscriptionPrice(),
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
 				'subscription_started_at'   => \Date::now(),
+				'currency'                  => trans( 'general.currency' ),
 				'subscription_rebill_at'    => \Date::now()->addDays( 28 + 5 ), // todo remove +5 maybe
 				'subscription_cancelled_at' => null
 			] );
@@ -170,7 +171,7 @@ class CheckoutCompletion
 				'vitamins' => json_encode( $vitamins )
 			] );
 		}
-		elseif(\Auth::guest())
+		elseif ( \Auth::guest() )
 		{
 			$this->getUser()->getCustomer()->update( [
 				'is_mailflowable' => 0
@@ -178,6 +179,7 @@ class CheckoutCompletion
 
 			$this->getUser()->getCustomer()->getPlan()->update( [
 				'price'                     => 0,
+				'currency'                  => trans( 'general.currency' ),
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
 				'subscription_cancelled_at' => date( 'Y-m-d H:i:s' )
 			] );
@@ -192,9 +194,9 @@ class CheckoutCompletion
 		if ( str_contains( $this->getCheckout()->getProduct()->name, 'giftcard' ) )
 		{
 			$this->giftcardModel = Giftcard::create( [
-				'token' => strtoupper( str_random() ),
-				'worth' => $this->getCheckout()->getProduct()->price,
-			    'currency' => trans('general.currency')
+				'token'    => strtoupper( str_random() ),
+				'worth'    => $this->getCheckout()->getProduct()->price,
+				'currency' => trans( 'general.currency' )
 			] );
 		}
 
