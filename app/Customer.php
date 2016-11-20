@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use App\Apricot\Checkout\ProductPriceGetter;
 use App\Apricot\Libraries\CombinationLibrary;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\PaymentDelegator;
@@ -338,12 +339,13 @@ class Customer extends Model
 		] );
 
 		$product = Product::where( 'name', $product_name )->first();
+		$productPrice = ProductPriceGetter::getPrice($product_name);
 
 		$order->lines()->create( [
 			'description'  => $product_name,
-			'amount'       => $product->price * $taxing->reversedRate(),
-			'tax_amount'   => $product->price * $taxing->rate(),
-			'total_amount' => $product->price
+			'amount'       => $productPrice * $taxing->reversedRate(),
+			'tax_amount'   => $productPrice * $taxing->rate(),
+			'total_amount' => $productPrice
 		] );
 
 		if ( $usedBalance )

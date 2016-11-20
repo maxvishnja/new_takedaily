@@ -34,7 +34,7 @@
 		@foreach($order->lines as $line)
 			<tr>
 				<td data-th="{{ trans('account.transaction.table.headers.description') }}">{{ trans("products.{$line->description}") }}</td>
-				<td data-th="{{ trans('account.transaction.table.headers.amount') }}">{{ trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true)))->toCurrency(trans('general.currency')) ]) }}</td>
+				<td data-th="{{ trans('account.transaction.table.headers.amount') }}">{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true), 'currency' => $order->currency]) }}</td>
 				<td data-th="{{ trans('account.transaction.table.headers.taxes') }}">{{ trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true)))->toCurrency(trans('general.currency')) ]) }}</td>
 				<td data-th="{{ trans('account.transaction.table.headers.total') }}"><strong>{{ trans('general.money', ['amount' => (new \App\Apricot\Helpers\Money(\App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true)))->toCurrency(trans('general.currency')) ]) }}</strong></td>
 			</tr>

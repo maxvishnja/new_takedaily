@@ -2,6 +2,7 @@
 
 return array (
   'money' => '€ :amount',
+  'money-fixed-currency' => ':currency :amount',
   'money-vue' => '€ {{ :amount | currency \'\' }}',
   'tawk_id' => '1b1rde9bt',
   'tax_zone' => 'netherlands',
