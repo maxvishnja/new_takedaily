@@ -545,8 +545,6 @@ class Customer extends Model
 			}
 		}
 
-		dd($data);
-
 		$combinationLibrary->generateResult( $data );
 
 		return $combinationLibrary->getResult();

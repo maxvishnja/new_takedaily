@@ -470,6 +470,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			if ( Auth::check() && Auth::user()->isUser() && $request->get('update_only', 0) == 1 )
 			{
+				Auth::user()->getCustomer()->unsetAllUserdata();
+				Auth::user()->getCustomer()->updateUserdata( $userData );
+				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
+				Auth::user()->getCustomer()->getPlan()->update(['price' => \App\Apricot\Checkout\Cart::getTotal()]);
 
 				$combinations = Auth::user()->getCustomer()->calculateCombinations();
 				$vitamins     = [];
@@ -484,12 +488,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 						$vitamins[] = $vitamin->id;
 					}
 				}
-
-				Auth::user()->getCustomer()->unsetAllUserdata();
-				Auth::user()->getCustomer()->updateUserdata( $userData );
-				Auth::user()->getCustomer()->getPlan()->setIsCustom( false );
-				Auth::user()->getCustomer()->getPlan()->update(['price' => \App\Apricot\Checkout\Cart::getTotal()]);
 				Auth::user()->getCustomer()->setVitamins( $vitamins );
+
 				\App\Apricot\Checkout\Cart::clear();
 
 				return \Redirect::action( 'AccountController@getSettingsSubscription' )
