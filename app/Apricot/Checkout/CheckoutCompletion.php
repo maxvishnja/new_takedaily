@@ -195,7 +195,7 @@ class CheckoutCompletion
 		{
 			$this->giftcardModel = Giftcard::create( [
 				'token'    => strtoupper( str_random() ),
-				'worth'    => $this->getCheckout()->getProduct()->price,
+				'worth'    => $this->getCheckout()->getTotal(),
 				'currency' => trans( 'general.currency' )
 			] );
 		}

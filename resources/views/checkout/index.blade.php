@@ -62,7 +62,7 @@
 				<div class="mobile-total-text">{{ trans('checkout.index.total.total') }}</div>
 				<div class="mobile-total">{{ trans('general.money-vue', ['amount' => 'total']) }}</div>
 
-				@if ( ! $giftcard )
+				@if ( ! $giftcard && $product->isSubscription() )
 					<div class="m-t-20 m-b-20">
 						<a href="#coupon-form-mobile" id="toggle-coupon-form-mobile">{{ trans('checkout.index.coupon.link') }}</a>
 					</div>
@@ -271,7 +271,7 @@
 				</table>
 
 				<div class="hidden-sm hidden-xs">
-					@if ( ! $giftcard )
+					@if ( ! $giftcard && $product->isSubscription()  )
 						<div class="m-t-20 m-b-20">
 							<a href="#coupon-form" id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
 						</div>
