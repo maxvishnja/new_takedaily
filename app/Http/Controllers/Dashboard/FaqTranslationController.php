@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use App\Faq;
 use App\FaqTranslation;
+use App\Http\Controllers\Controller;
 use App\UrlRewrite;
 use Illuminate\Http\Request;
 
 class FaqTranslationController extends Controller
 {
+
+	function index()
+	{
+		return \Redirect::action('Dashboard\FaqController@index');
+	}
 
 	function edit( $id )
 	{
