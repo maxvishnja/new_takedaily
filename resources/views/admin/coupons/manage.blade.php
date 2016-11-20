@@ -16,16 +16,16 @@
 				<div class="clear"></div>
 
 				<div class="control-group">
-					<label for="code" class="control-label">Kode</label>
+					<label for="code" class="control-label">Code</label>
 					<div class="controls">
-						<input type="text" class="form-control span8" name="code" id="code" value="{{ Request::old('code', isset($coupon) ? $coupon->code : '' ) }}" placeholder="Kuponkode (eks.: FREE-MONTH)" style="text-transform: uppercase"/>
+						<input type="text" class="form-control span8" name="code" id="code" value="{{ Request::old('code', isset($coupon) ? $coupon->code : '' ) }}" placeholder="Couponcode (example.: HALF-OFF-2016)" style="text-transform: uppercase"/>
 					</div>
 				</div>
 
 				<div class="control-group">
-					<label for="description" class="control-label">Beskrivelse</label>
+					<label for="description" class="control-label">Description</label>
 					<div class="controls">
-						<textarea name="description" id="description" class="form-control span8" rows="5" placeholder="Vises på siden">{!! Request::old('description', isset($coupon) ? $coupon->description : '' ) !!}</textarea>
+						<textarea name="description" id="description" class="form-control span8" rows="5" placeholder="This will be shown to the user! - Example: Spring promo 2016">{!! Request::old('description', isset($coupon) ? $coupon->description : '' ) !!}</textarea>
 					</div>
 				</div>
 
@@ -52,41 +52,41 @@
 				</div>
 
 				<div class="control-group" id="discount_element">
-					<label for="discount" class="control-label">Værdi</label>
+					<label for="discount" class="control-label">Worth</label>
 					<div class="controls">
-						<input type="text" class="form-control span8" name="discount" id="discount" value="{{ Request::old('discount', isset($coupon) ? $coupon->discount : '' ) }}" placeholder="Eks.: 80 for 80 kr./procent rabat"/>
+						<input type="text" class="form-control span8" name="discount" id="discount" value="{{ Request::old('discount', isset($coupon) ? $coupon->discount : '' ) }}" placeholder="Eks.: 80 for 80 DKK or percentage discount"/>
 						<span id="discount_text">kr. / procent</span>
 					</div>
 				</div>
 
 				<div class="control-group" id="uses_left_element">
-					<label for="uses_left" class="control-label">Antal brug tilbage</label>
+					<label for="uses_left" class="control-label">Uses left</label>
 					<div class="controls">
-						<input type="text" class="form-control span8" name="uses_left" id="uses_left" value="{{ Request::old('uses_left', isset($coupon) ? $coupon->uses_left : '' ) }}" placeholder="Eks.: 100"/>
-						<p class="help-block">For uendeligt antal brug, <a href="#uses_left_element" title="Uendeligt antal brug = -1" onclick="$('#uses_left').val(-1);">tryk her</a>.</p>
+						<input type="text" class="form-control span8" name="uses_left" id="uses_left" value="{{ Request::old('uses_left', isset($coupon) ? $coupon->uses_left : '' ) }}" placeholder="Example.: 100"/>
+						<p class="help-block">For unlimited uses, <a href="#uses_left_element" title="Unlimited = -1" onclick="$('#uses_left').val(-1);">click here</a>.</p>
 					</div>
 				</div>
 
 				<div class="control-group">
-					<label for="applies_to" class="control-label">Gyldig på</label>
+					<label for="applies_to" class="control-label">Can be used on</label>
 					<div class="controls">
 						<select name="applies_to" id="applies_to">
 							@foreach(['order', 'plan'] as $option)
 								<option value="{{ $option }}" @if(isset($coupon) && $coupon->applies_to == $option) selected="selected" @endif>{{ trans("coupons.applies.$option") }}</option>
 							@endforeach
 						</select>
-						<p class="help-block"><strong>Abonnent:</strong> hele abonnentet og alle fremtidige betalinger<br/>
-							<strong>Ordre:</strong> kun denne ordre.</p>
+						<p class="help-block"><strong>Subscription:</strong> the initial order and any future rebills on this subscription.<br/>
+							<strong>Order:</strong> only the order its applied to.</p>
 					</div>
 				</div>
 
 				<div class="control-group" id="uses_left_element">
-					<label for="valid_from" class="control-label">Gyldig fra</label>
+					<label for="valid_from" class="control-label">Enabled from</label>
 					<div class="controls">
 						<input type="text" class="form-control span8 datepicker" name="valid_from" id="valid_from" value="{{ Request::old('valid_from', isset($coupon) ? $coupon->valid_from : '' ) }}"/>
 					</div>
 					<br/>
-					<label for="valid_to" class="control-label">Gyldig til</label>
+					<label for="valid_to" class="control-label">Enabled to</label>
 					<div class="controls">
 						<input type="text" class="form-control span8 datepicker" name="valid_to" id="valid_to" value="{{ Request::old('valid_to', isset($coupon) ? $coupon->valid_to : '' ) }}"/>
 					</div>
@@ -95,8 +95,8 @@
 				<div class="control-group">
 					<div class="controls clearfix">
 						<a href="{{ URL::action('Dashboard\CouponController@index') }}" class="btn btn-default pull-right">Annuller</a>
-						<button type="submit" class="btn btn-primary btn-large pull-left">@if(isset($coupon)) Gem @else
-								Opret @endif</button>
+						<button type="submit" class="btn btn-primary btn-large pull-left">@if(isset($coupon)) Save @else
+								Create @endif</button>
 					</div>
 				</div>
 				{{ csrf_field() }}
@@ -109,8 +109,8 @@
 	</div><!--/.module-->
 	@if( isset($coupon) )
 		<div>
-			<form method="POST" action="{{ URL::action('Dashboard\CouponController@destroy', [ $coupon->id ]) }}" onsubmit="return confirm('Er du sikker på at du slette denne kupon?');">
-				<button type="submit" class="btn btn-link">Slet kuponnen</button>
+			<form method="POST" action="{{ URL::action('Dashboard\CouponController@destroy', [ $coupon->id ]) }}" onsubmit="return confirm('Are you sure?');">
+				<button type="submit" class="btn btn-link">Delete coupon</button>
 				{{ csrf_field() }}
 				{{ method_field('DELETE') }}
 			</form>

@@ -54,6 +54,8 @@ class Admin
 			return response( 'Page not found.', 404 );
 		}
 
+		\App::setLocale('en');
+
 		return $next( $request );
 	}
 }
