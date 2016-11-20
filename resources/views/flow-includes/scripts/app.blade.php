@@ -44,6 +44,9 @@
 				vegetarian: null,
 				joints: null,
 				stressed: null,
+				custom: {
+					three: ''
+				},
 				foods: {
 					fruits: null,
 					vegetables: null,
@@ -422,6 +425,13 @@
 		app.removeVitamin($(this).data('group'), $(this).data('subgroup'));
 	});
 
+	$("#advises-label").on('click', '.customVitaminButton', function () {
+		var pill = $(this).data('pill');
+		var group = $(this).data('group');
+
+		app.user_data.custom[group] = pill;
+		app.getCombinations(false);
+	});
 
 	$("#advises-vitamins").on('click', '.ingredient_item', function () {
 		$(this).toggleClass('opened');

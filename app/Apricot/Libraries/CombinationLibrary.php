@@ -192,9 +192,11 @@ class CombinationLibrary
 
 	private function generateGroupThree( $data )
 	{
-		if ( isset( $data->custom ) && isset( $data->custom->three ) )
+		if ( isset( $data->custom ) && isset( $data->custom->three ) && $data->custom->three != '' && !empty($data->custom->three) )
 		{
 			$this->groupThree = $data->custom->three;
+			$this->setAdvise( 'three', trans( "flow.combinations.3.{$data->custom->three}" ) );
+			$this->setAdviseInfo( 'three', trans( "flow.combination_info.3.{$data->custom->three}" ) );
 
 			return;
 		}
@@ -240,17 +242,6 @@ class CombinationLibrary
 
 			$this->setAdvise( 'three', trans( 'flow.combinations.3.d' ) );
 			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.d' ) );
-		}
-
-
-
-
-
-		if ( isset( $data->custom ) && isset( $data->custom->three ) )
-		{
-			$this->groupThree = $data->custom->three;
-
-			return;
 		}
 
 		if ( isset( $data->foods->oil ) )
