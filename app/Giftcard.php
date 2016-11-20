@@ -40,6 +40,7 @@ class Giftcard extends Model
 	protected $fillable = [
 		'token',
 		'worth',
+		'currency',
 		'is_used'
 	];
 
