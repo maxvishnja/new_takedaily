@@ -186,7 +186,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				return redirect()->back()->withErrors( $validator->messages() );
 			}
 
-			$giftcard = \App\Giftcard::whereToken( $request->get( 'giftcard_code' ) )->whereIsUsed( 0 )->whereCurrency(trans('general.currency'))->first();
+			$giftcard = \App\Giftcard::whereToken( $request->get( 'giftcard_code' ) )->whereIsUsed( 0 )->whereCurrency( trans( 'general.currency' ) )->first();
 
 			if ( ! $giftcard )
 			{
@@ -260,7 +260,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				}
 			}
 
-
 			// Get giftcard
 			$giftcardData = [];
 			if ( \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name', 'subscription' ) == 'subscription' )
@@ -268,6 +267,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$giftcard = \App\Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
 				                         ->where( 'token', \Session::get( 'giftcard_token' ) )
 				                         ->where( 'is_used', 0 )
+				                         ->whereCurrency( trans( 'general.currency' ) )
 				                         ->first();
 
 				if ( $giftcard )
@@ -324,7 +324,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$giftcard = \App\Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
 				                         ->where( 'token', \Session::get( 'giftcard_token' ) )
 				                         ->where( 'is_used', 0 )
-				                         ->where('currency', trans( 'general.currency' ) )
+				                         ->where( 'currency', trans( 'general.currency' ) )
 				                         ->first();
 			}
 
@@ -582,9 +582,9 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				abort( 404 );
 			}
 
-			if( $giftcard->currency != trans('general.currency'))
+			if ( $giftcard->currency != trans( 'general.currency' ) )
 			{
-				abort(404, 'The giftcard is not available in this currency/language. Please switch to the correct store.');
+				abort( 404, 'The giftcard is not available in this currency/language. Please switch to the correct store.' );
 			}
 
 			$request->session()

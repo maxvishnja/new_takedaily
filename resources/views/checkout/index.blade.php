@@ -8,46 +8,46 @@
 @section('content')
 	@if(Auth::guest())
 		<script>
-		function statusChangeCallback(response) {
-			if (response.status == 'connected') {
-				$("#facebookloginbox").hide();
+			function statusChangeCallback(response) {
+				if (response.status == 'connected') {
+					$("#facebookloginbox").hide();
 
-				FB.api('/me?fields=email,name', function (response) {
-					$("#input_info_name").val(response.name);
-					$("#input_info_email").val(response.email);
+					FB.api('/me?fields=email,name', function (response) {
+						$("#input_info_name").val(response.name);
+						$("#input_info_email").val(response.email);
+					});
+				}
+			}
+
+			function checkLoginState() {
+				FB.getLoginStatus(function (response) {
+					statusChangeCallback(response);
 				});
 			}
-		}
 
-		function checkLoginState() {
-			FB.getLoginStatus(function (response) {
-				statusChangeCallback(response);
-			});
-		}
+			window.fbAsyncInit = function () {
+				FB.init({
+					appId: '{{ env('FACEBOOK_APP_ID') }}',
+					xfbml: true,
+					version: 'v2.6'
+				});
 
-		window.fbAsyncInit = function () {
-			FB.init({
-				appId: '{{ env('FACEBOOK_APP_ID') }}',
-				xfbml: true,
-				version: 'v2.6'
-			});
+				FB.getLoginStatus(function (response) {
+					statusChangeCallback(response);
+				});
+			};
 
-			FB.getLoginStatus(function (response) {
-				statusChangeCallback(response);
-			});
-		};
-
-		(function (d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) {
-				return;
-			}
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "//connect.facebook.net/{{ trans('general.locale') }}/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
+			(function (d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {
+					return;
+				}
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "//connect.facebook.net/{{ trans('general.locale') }}/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
 	@endif
 
 	<div class="container m-t-20">
@@ -100,14 +100,14 @@
 
 					@if(Auth::guest())
 						<div class="card card--large m-b-30 card-padding-fixer">
-								<div class="text-center" id="facebookloginbox">
-									<fb:login-button
-										size="large"
-										scope="public_profile,email"
-										onlogin="checkLoginState();">Log ind med Facebook
-									</fb:login-button>
-									<hr>
-								</div>
+							<div class="text-center" id="facebookloginbox">
+								<fb:login-button
+									size="large"
+									scope="public_profile,email"
+									onlogin="checkLoginState();">Log ind med Facebook
+								</fb:login-button>
+								<hr>
+							</div>
 
 							<fieldset>
 								<legend class="card_title">{{ trans('checkout.index.order.info.title') }}</legend>
@@ -117,7 +117,8 @@
 									<div class="col-md-12">
 										<label class="label label--full checkout--label" for="input_info_name">{{ trans('checkout.index.order.info.name') }}
 											<span class="required">*</span></label>
-										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('name')) input--error @endif" id="input_info_name"
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('name')) input--error @endif"
+											   id="input_info_name"
 											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" name="name" required="required"
 											   aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->name: '')) }}"/>
 									</div>
@@ -142,7 +143,8 @@
 									<div class="col-md-6">
 										<label class="label label--full checkout--label" for="input_info_email">{{ trans('checkout.index.order.info.email') }}
 											<span class="required">*</span></label>
-										<input type="email" class="input input--medium input--semibold input--full @if($errors->has('email')) input--error @endif" id="input_info_email"
+										<input type="email" class="input input--medium input--semibold input--full @if($errors->has('email')) input--error @endif"
+											   id="input_info_email"
 											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.email-placeholder') }}" name="email" required="required"
 											   aria-required="true" value="{{ Request::old('email', (Auth::user() && Auth::user()->isUser() ? Auth::user()->email : '')) }}"/>
 									</div>
@@ -150,7 +152,8 @@
 									<div class="col-md-6">
 										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 										<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone') }}</label>
-										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif" id="input_info_phone"
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif"
+											   id="input_info_phone"
 											   placeholder="{{ trans('checkout.index.order.info.phone-placeholder') }}" name="phone"
 											   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
 									</div>
@@ -170,7 +173,8 @@
 										<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }}
 											<span class="required">*</span></label>
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zipcode')) input--error @endif"
-											   id="input_info_address_zipcode" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
+											   id="input_info_address_zipcode" data-validate="true"
+											   placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
 											   name="address_zipcode" required="required" aria-required="true"
 											   value="{{ Request::old('address_zipcode', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 									</div>
@@ -333,8 +337,19 @@
 				total_taxes: function () {
 					return this.total * this.tax_rate;
 				},
+				required_totals: function () {
+					var total = 0;
+
+					$.each(this.totals, function (i, line) {
+						if (line.name == '{{ trans('products.minimum') }}') {
+							total += line.price;
+						}
+					});
+
+					return total;
+				},
 				total: function () {
-					return this.total_sum;
+					return this.total_sum + this.required_totals;
 				},
 				total_subscription: function () {
 					var amount = parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\Cart::getTotal()) }}");
@@ -359,7 +374,9 @@
 					var sum = 0;
 
 					$.each(this.totals, function (i, line) {
-						sum += line.price;
+						if (line.name !== '{{ trans('products.minimum') }}') {
+							sum += line.price;
+						}
 					});
 
 					if (app.discount.applied) {
@@ -401,8 +418,7 @@
 							});
 						});
 
-						if(response.coupon !== undefined && response.coupon.applied !== undefined)
-						{
+						if (response.coupon !== undefined && response.coupon.applied !== undefined) {
 							app.discount.applied = response.coupon.applied;
 							app.discount.type = response.coupon.type;
 							app.discount.amount = response.coupon.amount;
@@ -411,8 +427,7 @@
 							app.discount.code = response.coupon.code;
 						}
 
-						if(response.giftcard !== undefined && response.giftcard.worth !== undefined)
-						{
+						if (response.giftcard !== undefined && response.giftcard.worth !== undefined) {
 							app.totals.push({
 								name: "{!! trans('checkout.index.total.giftcard') !!}",
 								price: parseFloat(response.giftcard.worth) * -1,
