@@ -100,6 +100,8 @@ class CheckoutController extends Controller
 		$city     = $request->get( 'address_city' );
 		$zipcode  = $request->get( 'address_zipcode' );
 		$userData = $request->get( 'user_data' );
+		$name = $request->get( 'name' );
+		$email = $request->get( 'email' );
 
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
@@ -107,6 +109,8 @@ class CheckoutController extends Controller
 			$street =  \Auth::user()->customer->getCustomerAttribute( 'address_street', $request->get( 'address_street' ) );
 			$city =  \Auth::user()->customer->getCustomerAttribute( 'address_city', $request->get( 'address_city' ) );
 			$zipcode =  \Auth::user()->customer->getCustomerAttribute( 'address_zipcode', $request->get( 'address_zipcode' ) );
+			$name = \Auth::user()->getCustomer();
+			$email = \Auth::user()->getEmail();
 		}
 
 		$checkout->setProductByName( $productName )
@@ -134,8 +138,8 @@ class CheckoutController extends Controller
 
 		$request->session()->put( 'charge_id', $charge->id );
 		$request->session()->put( 'payment_customer_id', $checkout->getCustomer()->id );
-		$request->session()->put( 'name', $request->get( 'name' ) );
-		$request->session()->put( 'email', $request->get( 'email' ) );
+		$request->session()->put( 'name', $name );
+		$request->session()->put( 'email', $email );
 		$request->session()->put( 'address_street', $street );
 		$request->session()->put( 'address_city', $city );
 		$request->session()->put( 'address_zipcode', $zipcode );
