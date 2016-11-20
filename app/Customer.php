@@ -537,13 +537,15 @@ class Customer extends Model
 					$data->{$attributePoints[1]} = new \stdClass();
 				}
 
-				$data->{$attributePoints[1]}->{$attributePoints[2]} = $attribute->value;
+				$data->{$attributePoints[1]}->{$attributePoints[2]} = $attribute->value ?: null;
 			}
 			else
 			{
-				$data->{$attributePoints[1]} = $attribute->value;
+				$data->{$attributePoints[1]} = $attribute->value ?: null;
 			}
 		}
+
+		dd($data);
 
 		$combinationLibrary->generateResult( $data );
 
