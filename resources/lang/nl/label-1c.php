@@ -46,13 +46,38 @@ return array (
       'percent' => '50',
     ),
   ),
-  'name' => 'Multivitaminen- & mineralensupplement met 20 microgram vitamine D ',
+  'name' => 'Multi Vitamin D+ Extra is een multivitaminen- & mineralensupplement met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen, mineralen en spoorelementen. Als aanvulling op een gevarieerde voeding, voorziet de Multi Vitamin D+ Extra in jouw dagelijkse behoefte aan vitaminen en mineralen; welke een belangrijke rol spelen in het ondersteunen van een optimale gezondheid.  
+
+Voor mannen en vrouwen vanaf 70 jaar zijn er overtuigende aanwijzingen uit onderzoek dat extra vitamine D per dag het risico op botbreuken kan verlagen. De aanbeveling voor 70-plussers is om dagelijks een supplement te gebruiken met 20 microgram vitamine D.
+
+Energie
+Vitamine B1 , B2, B3 B5, B6, B8, B12, C, ijzer en jodium bevorderen de energiestofwisseling.
+Vitamine B2 , B3, B5 B6, B12, C, D, foliumzuur, ijzer, seleen en zink hebben een gunstige invloed op de vermindering van vermoeidheid
+
+Immuunsysteem
+Vitamine A, B6, B12, C, foliumzuur zorgen mede voor een goede weerstand.
+
+Hart en bloedvaten
+Vitamine B1 ondersteunt het hart en vitamine C is van belang voor een goede conditie van de bloedvaten.
+
+Botten 
+Vitamine C, D en K en de mineralen calcium en fosfor voor het behoud van sterkte botten.
+
+Spieren 
+Calcium en vitamine D spelen een rol bij het behouden van sterke en soepele spieren.
+
+Psychologische functie 
+Vitamine B1, B3, B6, B8 (biotine), B12  en C zijn goed voor het concentratievermogen, het geheugen en goede geestelijke balans. 
+
+Stress
+Vitamine B5 en foliumzuur dragen bij aan de weerstand tegen stress. 
+
+Huid, haar en nagels
+Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en houdt de haren sterk. Seleen en zink zijn goed voor de nagels. Vitamine A, B2, B3, B8 (biotine),en de mineralen jodium en zink helpen bij het gezond houden van de huid.
+',
   'praises' => 
   array (
-    'bone' => 'Multi vitamine D+ Extra vormt de basis van jouw pakket aan
-gepersonaliseerde aan multivitaminen- & mineralen. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar.
-
-',
+    'bone' => 'Multi vitamine D+ Extra vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar.',
     'general-health' => 'Voor het ondersteunen van een optimale gezondheid',
   ),
   'vitamins' => 
@@ -139,4 +164,5 @@ gepersonaliseerde aan multivitaminen- & mineralen. Het bevat een uitgebalanceerd
   'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E132)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, cholecalciferol, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
   'batch_number' => '1916',
   'end_date' => '09/2019',
+  'Vit and Min' => 'Vitamines en Mineralen',
 );

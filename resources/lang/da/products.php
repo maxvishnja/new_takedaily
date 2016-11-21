@@ -14,5 +14,5 @@ return array (
   'extra' => 'Ekstra vitamin',
   'package' => 'Selvvalgt pakke',
   'vitamin' => 'Fjernet vitamin',
-  'minimum' => 'Minimumsordre'
+  'minimum' => 'Minimumsordre',
 );

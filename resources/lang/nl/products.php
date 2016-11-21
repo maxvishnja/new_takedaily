@@ -7,12 +7,13 @@ return array (
   'giftcard_3' => '3 maanden cadeaubon',
   'giftcard_6' => '6 maanden cadeaubon',
   'shipping' => 'Bezorgkosten',
-  'balance' => 'Betalt med gavekort el. lign.',
-  'refund' => 'Tilbagebetaling',
-  'coupon' => 'Kortingskode toegevoegd',
+  'balance' => 'Betaald met een cadeaubon',
+  'refund' => 'Terugbetaling',
+  'coupon' => 'Kortingscode toegevoegd',
   'oil' => 'Extra olie',
   'extra' => 'Extra vitamines',
   'package' => 'Keuzepakket',
-  'vitamin' => 'Removed vitamine',
-  'minimum' => 'Minimumsordre'
+  'vitamin' => 'Verwijder product
+',
+  'minimum' => 'Minimumsordre',
 );

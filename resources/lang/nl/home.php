@@ -11,7 +11,7 @@ return array (
     array (
       'text' => 'Krijg iedere 4 weken<br/>jouw gepersonaliseerde<br/>Vitamines & Mineralen<br/> thuisbezorgd voor slechts',
       'price' => '€ 18,95<small> ',
-      'info' => 'Incl. BTW',
+      'info' => 'incl. BTW',
     ),
     'what-is' => 'Wat is TakeDaily?',
     'pick' => 'Of stel je liever je eigen pakket samen?',
@@ -89,7 +89,7 @@ Het vinden van
 voedingssupplement die goed aansluiten op jouw specifieke behoeften, kan een hele uitdaging zijn! In winkels en het internet wordt je geconfronteerd met een groot aanbod aan supplementen. Erachter komen welk supplement het meest geschikt is voor jou, kan een tijdrovende en lastige klus zijn. Hier komt Take Daily om de hoek kijken om jou de helpende hand te bieden.
 </ P>
 <P> TakeDaily selecteert zorgvuldig de vitamines & mineralen in de hoeveelheden die precies aansluiten bij de persoonlijke behoefte van jouw lichaam. De gepersonaliseerde vitamines & mineralen worden iedere 4 weken bij jou thuisbezorgd. </ P>
-<P> Weet jij al precies naar welke vitamines & mineralen jij op zoek bent, dan kan je bij TakeDaily uiteraard ook zelf eeb pakket selecteren. </ P>',
+<P> Weet jij al precies naar welke vitamines & mineralen jij op zoek bent, dan kan je bij TakeDaily uiteraard ook zelf een pakket selecteren. </ P>',
       'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--white button--text-green m-t-30">
 								<strong>Doe de test<small class="button-line2">Duurt slects enkele minuten</small></strong>
@@ -123,7 +123,7 @@ voedingssupplement die goed aansluiten op jouw specifieke behoeften, kan een hel
         'two' => 
         array (
           'title' => 'Ben je vegetariër?',
-          'text' => 'Als vegetariër is het door het ontbreken van vlees en vis in jouw dieet, belangrijk dat je geen vitamine B12 en/of ijzer tekort ontwikkelt,',
+          'text' => 'Als vegetariër is het door het ontbreken van vlees en vis in jouw dieet, belangrijk dat je geen vitamine B12 en/of ijzer tekort ontwikkelt.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Doe de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>
@@ -132,7 +132,7 @@ voedingssupplement die goed aansluiten op jouw specifieke behoeften, kan een hel
         'three' => 
         array (
           'title' => 'Heb je veel stress?',
-          'text' => 'In een stressvolle periode kunnen bepaalde B-vitamines de  stress verminderen',
+          'text' => 'In een stressvolle periode kunnen bepaalde extra B-vitamines bijdragen aan de weerstand tegen stress en een heldere geest.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Doe de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>
@@ -158,7 +158,7 @@ voedingssupplement die goed aansluiten op jouw specifieke behoeften, kan een hel
     ),
     'eight' => 
     array (
-      'title' => 'Ontvang jouw vitamines & mineralen iedere 4 weken, <br/> voor slechts 18,95 euro',
+      'title' => 'Ontvang jouw vitamines & mineralen iedere 4 weken, <br/> voor slechts 19,95 euro',
       'text' => 'Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag
 							typewriter banh mi, squid keffiyeh High.',
       'button' => '<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start vandaag nog met TakeDaily</a>',
