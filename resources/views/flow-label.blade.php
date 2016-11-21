@@ -16,7 +16,7 @@
 		</p>
 		@if($pill == '3e')
 			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="g">{{ trans('flow.switch-to-chia') }}</a>
-			{!! trans('label-3e.disclaimer_web') !!}
+			<div style="font-size: 13px; margin-top: 20px;">{!! trans('label-3e.disclaimer_web') !!}</div>
 		@elseif($pill == '3g')
 			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="e">{{ trans('flow.switch-to-fish') }}</a>
 		@endif
