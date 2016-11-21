@@ -103,7 +103,7 @@
 			{!! trans( 'label-product.Store' ) !!}
 		</div>
 
-		<div>
+		<div class="m-t-10">
 			{!! trans( 'label-product.Use' ) !!}
 		</div>
 	</div>
