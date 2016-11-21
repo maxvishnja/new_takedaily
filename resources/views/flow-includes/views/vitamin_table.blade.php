@@ -100,11 +100,11 @@
 		@endif
 
 		<div>
-			{{ trans( 'label-product.Store' ) }}
+			{!! trans( 'label-product.Store' ) !!}
 		</div>
 
 		<div>
-			{{ trans( 'label-product.Use' ) }}
+			{!! trans( 'label-product.Use' ) !!}
 		</div>
 	</div>
 
