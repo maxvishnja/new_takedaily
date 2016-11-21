@@ -99,9 +99,12 @@
 			<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;font-style:italic">{!! trans("label-{$label}.disclaimer") !!}</p>
 		@endif
 
+		<div>
+			{{ trans( 'label-product.Store' ) }}
+		</div>
 
 		<div>
-			<small>{{ trans( 'label-product.Store' ) }}</small>
+			{{ trans( 'label-product.Use' ) }}
 		</div>
 	</div>
 
