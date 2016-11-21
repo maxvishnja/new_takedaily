@@ -3,7 +3,7 @@
 return array (
   'messages' => 
   array (
-    'vitamins-not-selected' => 'Vi skal finde dine vitaminer før du kan handle.',
+    'vitamins-not-selected' => 'Voordat je een bestelling kunt plaatsen, dien je eerst de vragenlijst af te zodat wij jouw vitamines en mineralen kunnen selecteren.',
     'payment-invalid' => 'De betaling is niet geslaagd; probeer het opnieuw. :error',
     'no-such-coupon' => 'Couponcode onjuist. Probeer het nog eens.',
     'coupon-missing' => 'Voer uw couponcode in.',
@@ -14,19 +14,19 @@ return array (
   'mail' => 
   array (
     'subject' => 'Orderbevestiging TakeDaily',
-    'subject-subscription' => 'Vi har trukket penge for dit abonnement',
-    'subject-subscription-failed' => 'Vi kunne ikke trække penge for dit abonnement!',
+    'subject-subscription' => 'De betaling is geslaagd',
+    'subject-subscription-failed' => 'De betaling is niet geslaagd',
   ),
   'success' => 
   array (
     'page-title' => 'Jouw bestelling is geslaagd! - TakeDaily',
-    'title' => 'Din ordre blev oprettet',
-    'text' => 'U ontvangt binnen 5 minuten ontvangt een orderbevestiging met informatie over de levering en de bestelling. Dank je voor jouw aankoop!',
+    'title' => 'Jouw order is succesvol geplaatst',
+    'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over de levering en de bestelling. Bedankt je voor jouw aankoop!',
     'button-text' => 'Ga naar Mjn TakeDaily',
     'giftcard' => 
     array (
       'title' => 'Code cadeaubon:',
-      'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring gavekortet, indløsning og din ordre generelt. Tak for dit køb!',
+      'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over jouw cadeaubon. Bedankt voor jouw aankoop!',
     ),
   ),
   'index' => 
@@ -54,7 +54,7 @@ return array (
         ),
         'optional' => 'Optioneel',
         'company' => 'Bedrijfsnaam (optioneel)',
-        'company-placeholder' => 'Nl- 0612345678',
+        'company-placeholder' => 'Naam bedrijf',
         'cvr-placeholder' => 'Nl- 0612345678',
         'phone-placeholder' => '0612345678',
         'phone' => 'Mobiel telefoonnummer',
@@ -94,10 +94,10 @@ return array (
       'input-placeholder' => 'Jouw kortingscode',
       'button-text' => 'Toepassen',
     ),
-    'disclaimer' => '<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> på dit kort hver måned.
+    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van<span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt bij voorkeur iedere maand per automatische afschrijving.
 					</p>
 
-					<p class="checkout_description">Du kan til enhver tid stoppe abonnementet, eller sætte det midlertidligt på pause.</p>',
+					<p class="checkout_description">Je kan jouw abonnement ieder moment opzeggen of pauzeren.</p>',
     'method' => 
     array (
       'title' => 'Selecteer betaalmethode',
@@ -108,4 +108,10 @@ return array (
     ),
   ),
   'back' => '‹ Ga terug naar jouw persoonlijke advies',
+  'apply' => 'Toepassen',
+  'wait' => 'Wacht..',
+  'errors' => 
+  array (
+    'payment-error' => 'Er is een fout opgetreden bij de verwerking van de betaling, probeer het opnieuw.',
+  ),
 );

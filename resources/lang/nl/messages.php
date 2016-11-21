@@ -12,20 +12,20 @@ return array (
   array (
     'profile' => 
     array (
-      'updated' => 'Din profil blev opdateret!',
+      'updated' => 'Jouw profiel is bijgewerkt!',
     ),
     'subscription' => 
     array (
-      'snoozed' => 'Abonnementet blev udskudt i :days dage!',
-      'not-snoozed' => 'Abonnementet kunne ikke udskydes!',
-      'started' => 'Abonnementet blev aktiveret igen!',
-      'cancelled' => 'Abonnementet blev opsagt!',
+      'snoozed' => 'Abonnement is gepauzeerd voor :days dage!',
+      'not-snoozed' => 'Abonnement kan niet worden gepauzeerd!',
+      'started' => 'Abonnement is weer actief!',
+      'cancelled' => 'Abonnement is opgezegd!',
     ),
     'billing' => 
     array (
-      'removed' => 'Metoden blev fjernet.',
-      'removing-failed' => 'Metoden kunne ikke fjernes, prøv igen senere.',
-      'refreshed' => 'Betalingsmetoder blev opdateret!',
+      'removed' => 'Betaalmethode is verwijderd.',
+      'removing-failed' => 'Betaalmethode kan niet aangepast worden, probeer het a.u.b. later nog een keer.',
+      'refreshed' => 'Betaalmethode is aangepast!',
     ),
   ),
 );

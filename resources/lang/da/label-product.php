@@ -18,8 +18,8 @@ return array (
   'address' => 'Take Daily ApS - Vimmelskaftet 43 - 1161 København K',
   'production' => 'Produceret i Spanien',
   'contains' => 'Kosttilskud &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Indhold: 28 kapsler',
-  'Use' => 'BRUG: Åbn og indtag kun én blister per dag. Kapslerne bør indtages med vand og i forbindelse med et måltid, medmindre andet er opgivet. Den anbefalede daglige dosis bør ikke overskrides. Alle kapsler og tabletter (ekskl. fiskeolie) er egnede til vegetarer og veganere. Kosttilskud bør ikke erstatte en varieret kost. Bør ikke anvendes sammen med andre kosttilskud uden kyndig vejledning. I tilfælde af overdosering skal du kontakte din læge. Konsultér din læge eller sundhedsplejerske, før du anvender kosttilskud i tilfælde af graviditet, amning, sygdom eller brug af anden medicin. Dette kosttilskud er ikke egnet til personer under 18 år.',
-  'Store' => 'Opbevares tørt og ved stuetemperatur. Luk emballagen efter brug. Opbevares utilgængeligt for børn. Hvis en blister er åbnet eller beskadiget ved modtagelsen, bør denne kasseres. ',
+  'Use' => '<strong>BRUG:</strong> Åbn og indtag kun én blister per dag. Kapslerne bør indtages med vand og i forbindelse med et måltid, medmindre andet er opgivet. Den anbefalede daglige dosis bør ikke overskrides. Alle kapsler og tabletter (ekskl. fiskeolie) er egnede til vegetarer og veganere. Kosttilskud bør ikke erstatte en varieret kost. Bør ikke anvendes sammen med andre kosttilskud uden kyndig vejledning. I tilfælde af overdosering skal du kontakte din læge. Konsultér din læge eller sundhedsplejerske, før du anvender kosttilskud i tilfælde af graviditet, amning, sygdom eller brug af anden medicin. Dette kosttilskud er ikke egnet til personer under 18 år.',
+  'Store' => '<strong>Opbevares</strong> tørt og ved stuetemperatur. Luk emballagen efter brug. Opbevares utilgængeligt for børn. Hvis en blister er åbnet eller beskadiget ved modtagelsen, bør denne kasseres.',
   'Questions' => 'Har du spørgsmål eller behov for yderligere information? Ring gratis til os på 0800 -... eller send en mail til info@takedaily.com.',
   'Allergener' => 'Allergener',
 );

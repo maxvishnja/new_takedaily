@@ -50,5 +50,5 @@ return array (
   'disclaimer' => '',
   'batch_number' => '1916',
   'end_date' => '09/2019',
-  'name' => 'Shape Me up'
+  'name' => 'Shape Me up',
 );
