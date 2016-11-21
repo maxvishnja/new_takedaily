@@ -41,4 +41,5 @@ return array (
   ),
   'end_date' => '09/2019',
   'batch_number' => '1916',
+  'Vit and Min' => 'Vitamines en Mineralen',
 );
