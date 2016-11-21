@@ -439,13 +439,14 @@ Route::group( [ 'middleware' => 'web' ], function ()
 						break;
 				}
 
+				$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey );
+
 				$ingredients .= '<div class="ingredient_item" data-grouptext="' . $indexOld . '" data-groupnum="' . $index . '" data-item="' . $index . $combination . '">
 					<span class="icon icon-arrow-down"></span>
-					<h3>' . (isset(\App\Apricot\Libraries\PillLibrary::$codes[$index . $combination]) ? \App\Apricot\Libraries\PillLibrary::$codes[$index . $combination] : $index . $combination) . '</h3>
+					<h3>' . (isset(\App\Apricot\Libraries\PillLibrary::$codes[$vitamin_code]) ? \App\Apricot\Libraries\PillLibrary::$codes[$vitamin_code] : $vitamin_code) . '</h3>
 					' . view( 'flow-includes.views.vitamin_table', [ 'label' => "{$index}{$combination}" ] ) . '
 				</div>';
 
-				$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey );
 				\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '', [ 'key' => "vitamin.{$index}" ] );
 				\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$index}", $vitamin_code );
 			}
