@@ -15,9 +15,9 @@
 			@endif
 		</p>
 		@if($pill == '3e')
-			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="g">Udskift fiskeolien med chiaolie</a>
+			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="g">{{ trans('flow.switch-to-chia') }}</a>
 		@elseif($pill == '3g')
-			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="e">Udskift chiaolien med fiskeolie</a>
+			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="e">{{ trans('flow.switch-to-fish') }}</a>
 		@endif
 	</div>
 @endforeach
