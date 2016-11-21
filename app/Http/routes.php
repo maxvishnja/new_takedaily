@@ -444,7 +444,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$ingredients .= '<div class="ingredient_item" data-grouptext="' . $indexOld . '" data-groupnum="' . $index . '" data-item="' . $index . $combination . '">
 					<span class="icon icon-arrow-down"></span>
 					<h3>' . (isset(\App\Apricot\Libraries\PillLibrary::$codes[$vitamin_code]) ? \App\Apricot\Libraries\PillLibrary::$codes[$vitamin_code] : $vitamin_code) . '</h3>
-					' . view( 'flow-includes.views.vitamin_table', [ 'label' => "{$index}{$combination}" ] ) . '
+					' . view( 'flow-includes.views.vitamin_table', [ 'label' => strtolower("{$index}{$combination}") ] ) . '
 				</div>';
 
 				\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '', [ 'key' => "vitamin.{$index}" ] );
