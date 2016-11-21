@@ -1,5 +1,6 @@
 <div class="m-t-20">
 	<div class="table_container">
+		<p>{!! trans("label-{$vitamin_code}.web_description") !!}</p>
 		<div><strong>{!! trans("label-{$label}.Vit and Min") !!}</strong></div>
 		<div>{!! strip_tags(trans('label-product.recommended-daily-use')) !!}</div>
 
