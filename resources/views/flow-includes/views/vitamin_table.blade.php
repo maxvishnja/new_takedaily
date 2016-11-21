@@ -1,7 +1,7 @@
 <div class="m-t-20">
 	<div class="table_container">
 		<div><strong>{!! trans("label-{$label}.Vit and Min") !!}</strong></div>
-		<div>{!! trans('label-product.recommended-daily-use') !!}</div>
+		<div>{!! strip_tags(trans('label-product.recommended-daily-use')) !!}</div>
 
 		@if(is_array(trans("label-{$label}.first-vitamins")) && count(trans("label-{$label}.first-vitamins")) > 0)
 			<table style="width: 100%;">
