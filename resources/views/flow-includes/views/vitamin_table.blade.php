@@ -90,8 +90,7 @@
 			</table>
 		@endif
 
-		<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.ingredients') }}
-				:</strong> {{ trans("label-{$label}.ingredients") }}</p>
+		<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {{ trans("label-{$label}.ingredients") }}</p>
 
 		@if(trans("label-{$label}.Allergener") != '' && trans("label-{$label}.Allergener") != "label-{$label}.Allergener")
 			<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.Allergener') }}
