@@ -87,22 +87,22 @@
 				</tbody>
 			</table>
 		@endif
-	</div>
 
-	<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.ingredients') }}
-			:</strong> {{ trans("label-{$label}.ingredients") }}</p>
+		<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.ingredients') }}
+				:</strong> {{ trans("label-{$label}.ingredients") }}</p>
 
-	@if(trans("label-{$label}.Allergener") != '' && trans("label-{$label}.Allergener") != "label-{$label}.Allergener")
-		<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.Allergener') }}
-				:</strong> {{ trans("label-{$label}.Allergener") }}</p>
-	@endif
-	@if(trans("label-{$label}.disclaimer") != '')
-		<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;font-style:italic">{!! trans("label-{$label}.disclaimer") !!}</p>
-	@endif
+		@if(trans("label-{$label}.Allergener") != '' && trans("label-{$label}.Allergener") != "label-{$label}.Allergener")
+			<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.Allergener') }}
+					:</strong> {{ trans("label-{$label}.Allergener") }}</p>
+		@endif
+		@if(trans("label-{$label}.disclaimer") != '')
+			<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;font-style:italic">{!! trans("label-{$label}.disclaimer") !!}</p>
+		@endif
 
 
-	<div>
-		<small>{{ trans( 'label-product.Store' ) }}</small>
+		<div>
+			<small>{{ trans( 'label-product.Store' ) }}</small>
+		</div>
 	</div>
 
 </div>
