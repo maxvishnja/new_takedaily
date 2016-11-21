@@ -101,11 +101,11 @@
 		@endif
 
 		<div>
-			{!! trans( 'label-product.Store' ) !!}
+			{!! trans( 'label-product.Store_website' ) !!}
 		</div>
 
 		<div class="m-t-10">
-			{!! trans( 'label-product.Use' ) !!}
+			{!! trans( 'label-product.Use_website' ) !!}
 		</div>
 	</div>
 
