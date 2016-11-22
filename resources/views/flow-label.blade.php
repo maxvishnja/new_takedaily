@@ -18,6 +18,7 @@
 			<div style="font-size: 13px; margin: 15px 0">{!! trans('label-3e.disclaimer_web') !!}</div>
 			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="g">{{ trans('flow.switch-to-chia') }}</a>
 		@elseif($pill == '3g')
+			<div style="font-size: 13px; margin: 15px 0">{!! trans('label-3g.disclaimer_web') !!}</div>
 			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="e">{{ trans('flow.switch-to-fish') }}</a>
 		@endif
 	</div>
