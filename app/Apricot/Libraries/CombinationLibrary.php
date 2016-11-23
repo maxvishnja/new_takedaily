@@ -201,6 +201,14 @@ class CombinationLibrary
 			return;
 		}
 
+		if ( $this->isEmpty( $this->groupThree ) && ( ( isset( $data->vegetarian ) && $data->vegetarian == '2' ) || ( isset( $data->foods ) && ( isset( $data->foods->fish ) && $data->foods->fish == '1' ) ) ) )
+		{
+			$this->groupThree = 'e';
+
+			$this->setAdvise( 'three', trans( 'flow.combinations.3.e' ) );
+			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.e' ) );
+		}
+
 		if ( isset( $data->vegetarian ) && $data->vegetarian == '1' )
 		{
 			$this->groupThree = 'd';
@@ -208,7 +216,7 @@ class CombinationLibrary
 			$this->setAdvise( 'three', trans( 'flow.combinations.3.d' ) );
 			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.d' ) );
 		}
-		if ( isset( $data->foods ) && ($this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'a' ) && $this->isEmpty( $this->groupThree ) && ( $data->foods->fruits == '1' || $data->foods->vegetables == '1' )) )
+		if ( isset( $data->foods ) && ($this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'a' ) && $this->isEmpty( $this->groupThree ) && ( $data->foods->fruits == '1' || $data->foods->fruits == '2' || $data->foods->vegetables == '1' || $data->foods->vegetables == '2' )) )
 		{
 			$this->groupThree = 'a';
 
@@ -261,14 +269,6 @@ class CombinationLibrary
 				$this->setAdvise( 'three', trans( 'flow.combinations.3.g' ) );
 				$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.g' ) );
 			}
-		}
-
-		if ( $this->isEmpty( $this->groupThree ) && ( ( isset( $data->vegetarian ) && $data->vegetarian == '2' ) || ( isset( $data->foods ) && ( isset( $data->foods->fish ) && $data->foods->fish == '1' || $data->foods->fish == '2' ) ) ) )
-		{
-			$this->groupThree = 'e';
-
-			$this->setAdvise( 'three', trans( 'flow.combinations.3.e' ) );
-			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.e' ) );
 		}
 
 		if ( $this->isEmpty( $this->groupThree ) && ( ( isset( $data->vegetarian ) && $data->vegetarian == '1' ) ) )
