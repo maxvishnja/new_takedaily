@@ -343,9 +343,9 @@ class Customer extends Model
 
 		$order->lines()->create( [
 			'description'  => $product_name,
-			'amount'       => $productPrice * $taxing->reversedRate(),
-			'tax_amount'   => $productPrice * $taxing->rate(),
-			'total_amount' => $productPrice
+			'amount'       => $productPrice * $taxing->reversedRate() ?: 0,
+			'tax_amount'   => $productPrice * $taxing->rate() ?: 0,
+			'total_amount' => $productPrice ?: 0
 		] );
 
 		if ( $usedBalance )
@@ -354,7 +354,7 @@ class Customer extends Model
 				'description'  => 'balance',
 				'amount'       => 0,
 				'tax_amount'   => 0,
-				'total_amount' => $balanceAmount
+				'total_amount' => $balanceAmount ?: 0
 			] );
 		}
 
@@ -362,9 +362,9 @@ class Customer extends Model
 		{
 			$order->lines()->create( [
 				'description'  => 'shipping',
-				'amount'       => $shipping,
+				'amount'       => $shipping ?: 0,
 				'tax_amount'   => 0,
-				'total_amount' => $shipping
+				'total_amount' => $shipping ?: 0
 			] );
 		}
 

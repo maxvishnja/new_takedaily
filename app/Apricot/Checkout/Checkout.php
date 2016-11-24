@@ -120,7 +120,7 @@ class Checkout
 		}
 		else
 		{
-			$this->setTotal( $this->getTotal() * (1- $byAmount) );
+			$this->setTotal( $this->getTotal() * ( 1 - $byAmount ) );
 		}
 
 		return $this;
@@ -187,9 +187,9 @@ class Checkout
 
 		if ( $giftcard )
 		{
-			$this->giftcard = $giftcard;
+			$this->giftcard            = $giftcard;
 			$this->totalBeforeGiftcard = $this->getTotal();
-			$this->deductTotal($this->giftcard->worth);
+			$this->deductTotal( $this->giftcard->worth );
 		}
 
 		return $this;
