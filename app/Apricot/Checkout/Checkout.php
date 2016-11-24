@@ -120,7 +120,7 @@ class Checkout
 		}
 		else
 		{
-			$this->setTotal( $this->getTotal() * $byAmount );
+			$this->setTotal( $this->getTotal() * (1- $byAmount) );
 		}
 
 		return $this;

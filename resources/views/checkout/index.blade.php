@@ -490,7 +490,7 @@
 						button.text('{{ trans('checkout.wait') }}').prop('disabled', true);
 					},
 					complete: function () {
-						button.text('{{ trans('checkout.wait') }}').prop('disabled', false);
+						button.text('{{ trans('checkout.apply') }}').prop('disabled', false);
 					},
 					success: function (response) {
 						$("#coupon-form-successes-mobile").text(response.message);

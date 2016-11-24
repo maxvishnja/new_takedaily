@@ -37,7 +37,13 @@ class Stripe implements PaymentInterface
 
 		$charge = array_merge( $charge, $data );
 
-		return Charge::create( $charge ); // todo catch errors
+		try
+		{
+			return Charge::create( $charge );
+		} catch ( \Exception $exception )
+		{
+			return false;
+		}
 	}
 
 	public function createCustomer( $name, $email )
