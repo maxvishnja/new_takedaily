@@ -241,6 +241,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			// Get coupon
 			$couponData = [];
+			$coupon = null;
 			if ( \Session::has( 'applied_coupon' ) )
 			{
 				$couponRepository = new \App\Apricot\Repositories\CouponRepository();
@@ -262,7 +263,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			// Get giftcard
 			$giftcardData = [];
-			if ( \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name', 'subscription' ) == 'subscription' )
+			if ( !$coupon && \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name', 'subscription' ) == 'subscription' )
 			{
 				$giftcard = \App\Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
 				                         ->where( 'token', \Session::get( 'giftcard_token' ) )
@@ -558,6 +559,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				return redirect()->back()->withErrors( $validator->errors() );
 			}
 
+			\Session::forget( 'applied_coupon' );
 			\Session::forget( 'user_data' );
 			\Session::forget( 'flow-completion-token' );
 			\Session::forget( 'vitamins' );

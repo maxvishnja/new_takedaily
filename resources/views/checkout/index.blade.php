@@ -394,7 +394,7 @@
 							sum -= app.discount.amount;
 						}
 						else if (app.discount.type == 'percentage') {
-							sum *= (app.discount.amount / 100);
+							sum *= (1-(app.discount.amount / 100));
 						}
 					}
 
