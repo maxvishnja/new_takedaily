@@ -87,7 +87,7 @@
 						sum -= app.discount.amount;
 					}
 					else if (app.discount.type == 'percentage') {
-						sum *= (app.discount.amount / 100);
+						sum *= (1 - (app.discount.amount / 100));
 					}
 				}
 
@@ -138,8 +138,7 @@
 						});
 					});
 
-					if(response.coupon !== undefined && response.coupon.applied !== undefined)
-					{
+					if (response.coupon !== undefined && response.coupon.applied !== undefined) {
 						app.discount.applied = response.coupon.applied;
 						app.discount.type = response.coupon.type;
 						app.discount.amount = response.coupon.amount;
@@ -148,8 +147,7 @@
 						app.discount.code = response.coupon.code;
 					}
 
-					if(response.giftcard !== undefined && response.giftcard.worth !== undefined)
-					{
+					if (response.giftcard !== undefined && response.giftcard.worth !== undefined) {
 						app.totals.push({
 							name: "{!! trans('checkout.index.total.giftcard') !!}",
 							price: parseFloat(response.giftcard.worth) * -1,
@@ -160,8 +158,7 @@
 			},
 
 			removeVitamin: function (group, subgroup) {
-				if( $("#advises-label").find('.removePillButton').length == 2)
-				{
+				if ($("#advises-label").find('.removePillButton').length == 2) {
 					$("#advises-label").find('.removePillButton').remove();
 				}
 
@@ -438,8 +435,7 @@
 		$(this).find('.table_container').stop().slideToggle(300);
 	});
 
-	function forceUpdateAndSubmit()
-	{
+	function forceUpdateAndSubmit() {
 		var form = $("#flow_form");
 
 		form.append('<input type="hidden" name="update_only" value="1" />');
