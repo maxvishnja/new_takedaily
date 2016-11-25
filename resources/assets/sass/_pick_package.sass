@@ -18,7 +18,7 @@ body.page-package-pick
 		justify-content: center
 
 		.package
-			width: calc(20% - 10px)
+			width: calc(50% - 10px)
 			background: #fff
 			border-radius: 3px
 			box-shadow: 0 0 10px rgba(0,0,0,.2)
@@ -29,7 +29,7 @@ body.page-package-pick
 			position: relative
 			display: inline-block
 
-			&:nth-child(5n+5)
+			&:nth-child(2n+2)
 				margin-right: 0
 
 			.promise_icons
@@ -38,57 +38,13 @@ body.page-package-pick
 				span
 					margin: 0 4px
 
-
 			.package_bottom
 				position: absolute
 				bottom: 25px
 				left: 20px
 				right: 20px
 
-@media all and (max-width: 1199px)
-	body.page-package-pick
-		.packages
-			.package
-				width: calc(25% - 10px)
-				margin-right: 10px
-
-				&:nth-child(5n+5)
-					margin-right: 10px
-
-				&:nth-child(4n+4)
-					margin-right: 0
-
-@media all and (max-width: 991px)
-	body.page-package-pick
-		.packages
-			.package
-				width: calc(33.3333333333333% - 10px)
-				margin-right: 10px
-
-				&:nth-child(5n+5),
-				&:nth-child(4n+4)
-					margin-right: 10px
-
-				&:nth-child(3n+3)
-					margin-right: 0
-
 @media all and (max-width: 767px)
-	body.page-package-pick
-		.packages
-			.package
-				width: calc(50% - 10px)
-				margin-right: 10px
-
-				&:nth-child(5n+5),
-				&:nth-child(4n+4),
-				&:nth-child(3n+3)
-					margin-right: 10px
-
-				&:nth-child(2n+2)
-					margin-right: 0
-
-
-@media all and (max-width: 400px)
 	body.page-package-pick
 		.packages
 			.package
