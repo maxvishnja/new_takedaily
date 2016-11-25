@@ -22,7 +22,7 @@ return array (
     array (
       'title' => 'Contact',
       'text' => 'Heb je vragen of behoefte aan extra informatie? Ons team staat voor jou klaar om telefonisch of per e-mail jouw vragen te beantwoorden. Wij zijn geopend op werkdagen van 09:00-16:30 uur.',
-      'info' => 'Bel: 0800-.......<br/><a href="mailto:info@takedaily.com">Email: info@takedaily.com</a>',
+      'info' => 'Bel: 0800-.......<br/><a href="mailto:info@takedaily.nl">Email: info@takedaily.nl</a>',
     ),
   ),
   'language' => 'Nederlands',

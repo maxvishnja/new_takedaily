@@ -8,7 +8,7 @@ return array (
   'advantages' => 'Fordele',
   'customer_service' => 'Kundeservice',
   'need-help' => 'Har du brug for hjælp?',
-  'contact' => 'Ring på tlf.: 48 16 54 09',
-  'opening-hours' => '(mandag-fredag kl. 9-15)',
+  'contact' => 'Ring på tlf.: 70 60 50 15',
+  'opening-hours' => '(hverdage kl. 9-17)',
   'custom-fit' => 'Skræddersyet til dig',
 );

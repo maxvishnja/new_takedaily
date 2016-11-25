@@ -10,19 +10,19 @@ return array (
   array (
     'one' => 
     array (
-      'title' => 'Tilmeld nyheder fra TakeDaily',
+      'title' => 'Tilmeld dig nyheder fra TakeDaily',
       'input-placeholder' => 'min@mailadresse.dk',
       'button-text' => 'Send',
     ),
     'two' => 
     array (
-      'title' => 'Følg TakeDaily',
+      'title' => 'Følg os på:',
     ),
     'three' => 
     array (
       'title' => 'Kontakt os',
       'text' => 'Send en mail og få svar inden 24 timer. Du kan ringe til os alle hverdage ml. 09-17',
-      'info' => '+45 70 60 50 15<br/><a href="mailto:support@takedaily.com">support@takedaily.com</a>',
+      'info' => '+45 70 60 50 15<br/><a href="mailto:info@takedaily.dk">info@takedaily.dk</a>',
     ),
   ),
   'language' => 'Dansk',

@@ -8,9 +8,9 @@ return array (
   array (
     'vitamins-not-selected' => 'Vi skal finde dine vitaminer før du kan handle.',
     'payment-invalid' => 'Betalingen blev ikke godkendt, prøv igen. :error',
-    'no-such-coupon' => 'Kuponkoden findes ikke.',
+    'no-such-coupon' => 'Rabatkoden findes ikke, eller brugt i forvejen.',
     'coupon-missing' => 'Du skal indtaste en kuponkode.',
-    'coupon-added' => 'Kuponkoden blev tilføjet!',
+    'coupon-added' => 'Rabatkoden blev tilføjet!',
     'card-added' => 'Kortet blev tilføjet!',
   ),
   'mail' => 
@@ -99,7 +99,7 @@ return array (
     'coupon' => 
     array (
       'link' => 'Har du en rabatkode?',
-      'input-placeholder' => 'Din rabatkode',
+      'input-placeholder' => 'Indtast rabatkode',
       'button-text' => 'Anvend',
     ),
     'disclaimer' => '<p class="checkout_description">Dette er et abonnement, vi trækker derfor <span v-show="price === total_subscription">{{ total_subscription }}

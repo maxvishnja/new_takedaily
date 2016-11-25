@@ -531,7 +531,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
     'wait' => 'Even geduld a.u.b.',
     'wait-text' => 'Even geduld a.u.b. TakeDaily stelt nu jouw persoonlijke pakket samen',
     'your-recommendations' => 'Jouw persoonlijk advies',
-    'send-them' => 'Stuur een link met mijn persoonlijke advies',
+    'send-them' => 'Stuur mijn persoonlijke advies naar mijn email.',
     'send' => 
     array (
       'title' => 'Mijn persoonlijk advies versturen naar',
@@ -552,4 +552,5 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
   'package-updated' => 'Jouw TakeDaily pakket is aangepast!',
   'switch-to-chia' => 'Verander visolie in chiazaad olie',
   'switch-to-fish' => 'Verander chiazaad olie in visolie',
+  'ingredients' => 'Ingrediënten',
 );

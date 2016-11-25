@@ -5,7 +5,7 @@ return array (
   array (
     'vitamins-not-selected' => 'Voordat je een bestelling kunt plaatsen, dien je eerst de vragenlijst af te ronden zodat wij jouw vitamines en mineralen kunnen selecteren.',
     'payment-invalid' => 'De betaling is niet geslaagd, probeer het opnieuw. :error',
-    'no-such-coupon' => 'Kortingscode onjuist. Probeer het nog eens.',
+    'no-such-coupon' => 'Kortingscode onjuist of al gebruikt. Probeer het nog eens.',
     'coupon-missing' => 'Voer jouw kortingscode in.',
     'coupon-added' => 'Kortingscode toegevoegd!',
     'card-added' => 'Kaart toegevoegd!',

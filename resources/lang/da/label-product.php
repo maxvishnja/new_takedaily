@@ -24,6 +24,6 @@ return array (
   'Allergener' => 'Allergener',
   'Store_website' => '<Strong> Gem: </ strong> tørt, mørkt sted ved stuetemperatur. Opbevares utilgængeligt for små børn.',
   'Use_website' => '<strong>BRUG:</strong> Åbn og indtag kun én blister per dag. Kapslerne bør indtages med vand og i forbindelse med et måltid, medmindre andet er opgivet. Den anbefalede daglige dosis bør ikke overskrides. Alle kapsler og tabletter (ekskl. fiskeolie) er egnede til vegetarer og veganere. Kosttilskud bør ikke erstatte en varieret kost. Bør ikke anvendes sammen med andre kosttilskud uden kyndig vejledning. I tilfælde af overdosering skal du kontakte din læge. Konsultér din læge eller sundhedsplejerske, før du anvender kosttilskud i tilfælde af graviditet, amning, sygdom eller brug af anden medicin. Dette kosttilskud er ikke egnet til personer under 18 år.',
-  'RI' => 'RI = Reference indtag. RI ADT = Anbefalet daglig tilførsel',
+  'RI' => 'RI = Reference indtag. ADT = Anbefalet daglig tilførsel',
   'pill_color_reason' => 'Vores kapsler har forskellige farver så du kan kende forskel på dem, og 100 % plantebaseret',
 );
