@@ -433,9 +433,9 @@ Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholde
 <span class="icon-general_health-flow flow-promise-icon"></ span> <div class="flow-promise-tekst">Bidrager til en optimal sundhed</div>',
       'basic-20-d' => 'Multivitamin D+ Ekstra  udgør grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år.
 
-<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en optimal sundhed </div>
+<div class="clear"></div>
 
-',
+<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en optimal sundhed </div>',
     ),
     2 => 
     array (
@@ -452,7 +452,7 @@ Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholde
 <div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstandsdygtighed</div>',
       'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
 					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
-					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
+					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
     ),
     3 => 
     array (
