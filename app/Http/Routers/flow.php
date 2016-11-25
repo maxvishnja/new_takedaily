@@ -89,7 +89,7 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 	{
 		$ingredients .= '<div class="ingredient_item" data-vitamin="' . $vitamin . '">
 					<span class="icon icon-arrow-down"></span>
-					<h3>' . ( isset( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ] ) ? \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ] : $vitamin ) . '</h3>
+					<h3>' . ( isset( \App\Apricot\Libraries\PillLibrary::$codes[ strtolower($vitamin) ] ) ? \App\Apricot\Libraries\PillLibrary::$codes[ strtolower($vitamin) ] : $vitamin ) . '</h3>
 					' . view( 'flow-includes.views.vitamin_table', [ 'label' => strtolower( $vitamin ) ] ) . '
 				</div>';
 
