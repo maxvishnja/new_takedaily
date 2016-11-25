@@ -12,7 +12,7 @@
 					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt;">
 					<h2 style="font-weight: bold; font-size: 10.5pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Libraries\PillLibrary::$codes[$vitaminModel->code] }}</h2>
 					<div style="margin: 4pt 0; font-size: 7pt; line-height: 1.2; color: #1A8562;">
-						<div style="margin-bottom: 2pt;">{!! trans('label-product.contains') !!}</div>
+						<div style="margin-bottom: 2pt;">{!! trans('label-product.contains') !!} ({{ trans("label-{$vitaminModel->code}.weight") }})</div>
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")) && count(trans("label-{$vitaminModel->code}.praises")) > 0)
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
 								<div style="margin-bottom: 1.6pt">
@@ -142,7 +142,7 @@
 
 	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1;position: absolute; bottom: 0; text-align: center">
 		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
-		{!! trans('label-product.production') !!} · {!! trans('label-product.weight') !!} · <br/>
+		{!! trans('label-product.production') !!}<br/>
 		<div>{{ trans('label-product.address') }}</div>
 		<strong>{{ trans('label-product.Questions') }}</strong>
 	</div>
