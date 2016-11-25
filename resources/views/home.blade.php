@@ -59,6 +59,30 @@
 		</div>
 	</header>
 
+	<div class="landing_advantages" style="text-align: center; padding: 18px 0; background: #fff; border-bottom: 1px solid #ddd; font-size: 16px; font-weight: 600">
+		<div class="container">
+			<div class="col-md-3 col-xs-6">
+				<span class="icon icon-check-circle-large" style="vertical-align: -8px; margin-right: 4px"></span>
+				Leveres i postkassen
+			</div>
+
+			<div class="col-md-3 col-xs-6">
+				<span class="icon icon-check-circle-large" style="vertical-align: -8px; margin-right: 4px"></span>
+				Skræddersyet til dig
+			</div>
+
+			<div class="col-md-3 col-xs-6">
+				<span class="icon icon-check-circle-large" style="vertical-align: -8px; margin-right: 4px"></span>
+				Fragt: 0 kr.
+			</div>
+
+			<div class="col-md-3 col-xs-6">
+				<span class="icon icon-check-circle-large" style="vertical-align: -8px; margin-right: 4px"></span>
+				Ingen binding
+			</div>
+		</div>
+	</div>
+
 	<main>
 		<div class="container">
 			<div class="block block--one text-center">
@@ -136,20 +160,20 @@
 		</div>
 
 		{{--<div class="block block--reviews">--}}
-			{{--<div class="container">--}}
-				{{--<h2 class="text-center">{{ trans('home.blocks.reviews.title') }}</h2>--}}
+		{{--<div class="container">--}}
+		{{--<h2 class="text-center">{{ trans('home.blocks.reviews.title') }}</h2>--}}
 
-				{{--<div class="row">--}}
-					{{--@if(is_array(trans('home.blocks.reviews.items')))--}}
-						{{--@foreach(trans('home.blocks.reviews.items') as $review)--}}
-							{{--<div class="col-sm-4 review-item text-center">--}}
-								{{--<img src="{{ $review['image'] }}" alt="{{ $review['name'] }}">--}}
-								{{--<blockquote>”{{ $review['text'] }}”</blockquote>--}}
-							{{--</div>--}}
-						{{--@endforeach--}}
-					{{--@endif--}}
-				{{--</div>--}}
-			{{--</div>--}}
+		{{--<div class="row">--}}
+		{{--@if(is_array(trans('home.blocks.reviews.items')))--}}
+		{{--@foreach(trans('home.blocks.reviews.items') as $review)--}}
+		{{--<div class="col-sm-4 review-item text-center">--}}
+		{{--<img src="{{ $review['image'] }}" alt="{{ $review['name'] }}">--}}
+		{{--<blockquote>”{{ $review['text'] }}”</blockquote>--}}
+		{{--</div>--}}
+		{{--@endforeach--}}
+		{{--@endif--}}
+		{{--</div>--}}
+		{{--</div>--}}
 		{{--</div>--}}
 
 		<div class="block block--two">
@@ -265,4 +289,24 @@
 			}
 		});
 	</script>
+
+
+
+
+	<style>
+		@media all and (max-width: 767px) {
+			.landing_advantages {
+				text-align: left !important;
+				font-size: 12px !important;
+			}
+
+			.landing_advantages .col-xs-6 {
+				margin-bottom: 10px;
+			}
+
+			.landing_advantages .icon {
+				vertical-align: -10px !important;
+			}
+		}
+	</style>
 @endsection
