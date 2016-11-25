@@ -45,7 +45,7 @@
 							produkter
 							pga. livsstil eller religion.</p>
 
-						<strong>I øvrigt er vores vitaminer, mineraler og omega-kapsler:</strong>
+						<p><strong>I øvrigt er vores vitaminer, mineraler og omega-kapsler:</strong></p>
 
 						<ul>
 							<li>Certificeret i henhold til ISO 9001:2008 og GMP (Good Manufactoring Practice)</li>
@@ -95,8 +95,8 @@
 			background-repeat: no-repeat;
 			background-size: cover;
 			background-position: center center;
-			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(http://takedaily.dk.dev/uploads/cms/top/PmilHRBsD2b9tj6OJB2jhYbGqxFLfOqNDG8kaCjy.jpg);
-			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(http://takedaily.dk.dev/uploads/cms/top/PmilHRBsD2b9tj6OJB2jhYbGqxFLfOqNDG8kaCjy.jpg);
+			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/quality/bg.jpg);
+			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/quality/bg.jpg);
 		}
 
 		section {
@@ -119,6 +119,12 @@
 		section .aligner {
 			display: flex;
 			align-items: center;
+		}
+
+		section ul {
+			line-height: 2;
+			list-style: disc;
+			padding-left: 15px;
 		}
 
 		@media all and (max-width: 991px)
