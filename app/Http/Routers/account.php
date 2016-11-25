@@ -7,10 +7,7 @@ Route::group( [ 'middleware' => [ 'auth', 'user' ], 'prefix' => 'account' ], fun
 		return redirect( 'account/settings/basic' );
 	} );
 
-	Route::get( '/', function ()
-	{
-		return redirect()->action( 'AccountController@getSettingsBasic' );
-	} );
+	Route::get( '/', 'AccountController@getHome' );
 
 	Route::post( '/update-preferences', 'AccountController@updatePreferences' );
 

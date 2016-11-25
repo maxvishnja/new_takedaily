@@ -34,12 +34,7 @@ class AccountController extends Controller
 
 	function getHome()
 	{
-		if( !$this->customer || $this->customer->plan->isCustom() )
-		{
-			return redirect()->action('AccountController@getSettingsBasic');
-		}
-
-		return redirect()->route('flow');
+		return view('account.my-takedaily');
 	}
 
 	function updatePreferences(Request $request)
