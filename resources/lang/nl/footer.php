@@ -16,7 +16,7 @@ return array (
     ),
     'two' => 
     array (
-      'title' => 'Volg TakeDaily',
+      'title' => 'Volg TakeDaily op',
     ),
     'three' => 
     array (

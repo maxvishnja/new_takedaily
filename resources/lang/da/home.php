@@ -3,18 +3,18 @@
 return array (
   'header' => 
   array (
-    'title-1' => 'Håndplukkede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
+    'title-1' => 'Skræddersyede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
     'title-2' => 'TakeDaily udvælger vitaminer og mineraler i præcis de koncentrationer, som du har brug for.',
-    'button-click-here' => 'Tag vores test <small class="button-line2">Det tager under 2 minutter</small>',
+    'button-click-here' => 'Tag vitamintesten <small class="button-line2">Det tager under 2 minutter</small>',
     'button-gift-text' => 'Giv TakeDaily i gave',
     'splash' => 
     array (
-      'text' => '4 ugers forbrug af<br/>vitaminer, mineraler og omega.',
-      'price' => '149<small> kr.</small>',
-      'info' => 'Ingen binding',
+      'text' => '4 ugers forbrug af<br>vitaminer og mineraler.',
+      'price' => '149<small> kr./mdr.</small>',
+      'info' => 'Ingen binding - fragt 0 kr.',
     ),
     'what-is' => 'Hvad er TakeDaily?',
-    'pick' => 'eller vælg selv dine vitaminer',
+    'pick' => 'eller vælg blandt vores færdige pakker',
     'cta' => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>',
   ),
   'blocks' => 
@@ -48,7 +48,7 @@ return array (
     array (
       'title' => 'Hvad vi lover dig',
       'promise-1' => 'Gratis rådgivning af TakeDailys egne professionelle diætister og ernæringseksperter',
-      'promise-2' => 'Vi bruger de bedste vitaminer, mineraler og omega-3 fedtsyrer på markedet samt organiske kapsler, der sikrer en hurtigere optagelse i kroppen.',
+      'promise-2' => 'Vi bruger de bedste vitaminer, mineraler og omega-3 fedtsyrer på markedet. Foruden vores højkoncentrerede fiskeolie, er alle kapsler 100% plantebaserede. Dermed egnet til vegetarer/veganister/halal/kosher.',
       'promise-3' => 'Vi springer alle de dyre mellemled over og leverer direkte fra fabrikken til din dør. På den måde er vi langt billigere end de fleste andre på markedet.',
       'promise-4' => 'Med vores specialudviklede algoritme skræddersyer vi den optimale kombination af lige netop de vitaminer og mineraler, som du har brug for.',
       'read-more' => 'Læs mere her',
@@ -60,7 +60,7 @@ return array (
       'description' => '',
       'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Tag vitamintesten <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>',
       'steps' => 
       array (
@@ -72,13 +72,13 @@ return array (
         ),
         'two' => 
         array (
-          'title' => 'Vi skræddersyr dit TakeDaily',
+          'title' => 'Vi skræddersyr din TakeDaily',
           'text' => 'På baggrund af din test udvælger vi de vitaminer og mineraler, som du har brug for, i de rette koncentrationer. ',
         ),
         'three' => 
         array (
           'title' => 'Du modtager din TakeDaily',
-          'text' => 'Du får leveret din personlige TakeDaily-æske gratis derhjemme eller på kontoret, hvis det passer dig bedre.',
+          'text' => 'Du får leveret din personlige TakeDaily direkte i din postkasse - helt gratis.',
         ),
       ),
     ),
@@ -88,11 +88,11 @@ return array (
       'body' => '<p>
 							Det kan være svært at finde ud af, hvilke vitaminer og kosttilskud man har brug for. Hylderne bugner af forskellige kosttilskud ofte med høje vitaminkoncentrationener. Hos TakeDaily sætter vi en ære i at tilpasse vores produkter, så du hverken får for mange eller for få vitaminer. 
 						</p>
-Vitaminerne pakker vi til dig i dagsrationer, så de lige til at tage. Nemt og enkelt.					<p></p>
+Vitaminerne pakker vi til dig i dagsrationer, så de er lige til at tage. Nemt og enkelt.					<p></p>
 						<p>Ved du præcist, hvad du vil have, kan du naturligvis også selv vælge dine vitaminer og kosttilskud.</p>',
       'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--white button--text-green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Tag vitamintesten <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>',
     ),
     'three' => 
@@ -122,7 +122,7 @@ Vitaminerne pakker vi til dig i dagsrationer, så de lige til at tage. Nemt og e
           'text' => 'Ryger du engang imellem, nedbryder røgen meget af det C-vitamin, som du indtager.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Tag vitamintesten <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>',
         ),
         'two' => 
@@ -131,7 +131,7 @@ Vitaminerne pakker vi til dig i dagsrationer, så de lige til at tage. Nemt og e
           'text' => 'Som vegetar eller veganer er det svært at få nok jern og B-vitaminer.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Tag vitamintesten <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>',
         ),
         'three' => 
@@ -140,7 +140,7 @@ Vitaminerne pakker vi til dig i dagsrationer, så de lige til at tage. Nemt og e
           'text' => 'I en stresset periode har du brug for lidt ekstra B-vitaminer.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Tag vitamintesten <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>',
         ),
         'four' => 
@@ -149,7 +149,7 @@ Vitaminerne pakker vi til dig i dagsrationer, så de lige til at tage. Nemt og e
           'text' => 'Din krop, kost og livsstil kan give et billede af, hvad du i virkeligheden har brug for.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Tag vores test <small class="button-line2">Det tager under 2 minutter</small></strong>
+								<strong>Tag vitamintesten <small class="button-line2">Det tager under 2 minutter</small></strong>
 							</a>',
         ),
       ),

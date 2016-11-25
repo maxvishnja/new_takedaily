@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => 'Tilskud til støtte af immunforsvarets normale funktion',
+  'name' => 'Tilskud til støtte at immunforsvarets normale funktion',
   'praises' => 
   array (
     'shield' => 'Vitamin A, -B6, -B12, -C, -D og folsyre samt mineralerne zink og selen bidrager til immunforsvarets normale funktion.',
@@ -30,7 +30,7 @@ return array (
     ),
     3 => 
     array (
-      'name' => 'Vitamin B6 (Pyridoxin)',
+      'name' => 'Vitamin B6',
       'amount' => '2,1 mg',
       'percent' => '150',
     ),
@@ -42,7 +42,7 @@ return array (
     ),
     5 => 
     array (
-      'name' => 'Vitamin B12 (Kobalamin)',
+      'name' => 'Vitamin B12 ',
       'amount' => '3,75 µg',
       'percent' => '150',
     ),
@@ -65,4 +65,7 @@ return array (
   'disclaimer' => '',
   'batch_number' => '1916',
   'end_date' => '09/2019',
+  'Vit and Min' => 'Vitaminer og Mineraler',
+  'web_description' => 'Immun Booster er et supplement til at supplere vores multivitaminer, og er rig på vitaminer og mineraler (vitamin A, B6, B11 (folinsyre), B12, C, D og mineraler selen og zink). Et supplement til alle, der ønsker at forbedre immunforsvarets normale funktion! <P> Vitamin A, B6, folinsyre, B12, C, D og mineraler selen og zink bidrager til den normale funktion af immunsystemet og C-vitamin, selen og zink hjælp lichaamscellen at beskytte mod ydre påvirkninger. </ P>',
+  'weight' => '15,4 gram',
 );

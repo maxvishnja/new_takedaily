@@ -165,4 +165,8 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
+  'web_description' => 'Multi Vitamin D+ Extra is een multivitaminen- & mineralensupplement met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer,jodium, seleen en zink. De vitamines en mineralen in de Multi Vitamin D+ Extra zijn een aanvulling op de dagelijkse voeding en spelen een belangrijke rol in het ondersteunen en behoud van een optimale gezondheid.
+
+Voor mannen en vrouwen vanaf 70 jaar zijn er overtuigende aanwijzingen uit onderzoek dat extra vitamine D per dag het risico op botbreuken kan verlagen. De aanbeveling voor 70-plussers is om dagelijks een supplement te gebruiken met 20 microgram vitamine D.',
+  'weight' => '27,44 gram',
 );

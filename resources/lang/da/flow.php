@@ -167,8 +167,7 @@ return array (
     '2-10' => 
     array (
       'title' => 'Har du ømme muskler eller ondt i dine led?',
-      'text' => 'Nogle næringsstoffer er gode for dine led og muskler. Mangel på D-vitamin kan ligefrem give svage muskler
-							og muskelsmerter.',
+      'text' => 'Visse vitaminer og mineraler er godt for dine knogler, brusk og muskler. Vitamin D spiller en rolle i opretholdelsen af ​​stærke og glatte muskler. Mangel på D-vitamin kan forårsage muskelsmerter og svaghed.',
       'options' => 
       array (
         1 => 'Ja',
@@ -185,7 +184,6 @@ return array (
         2 => '100 gram',
         3 => '200 gram',
         4 => '+300 gram',
-        5 => '+4 portioner (+300 gram)',
       ),
     ),
     '3-2' => 
@@ -211,9 +209,9 @@ return array (
       array (
         1 => 'Intet',
         2 => '1-2 skiver.',
-        3 => '+3 skiver.',
-        4 => '',
-        5 => '',
+        3 => '2-3 skiver.',
+        4 => '4-5 skiver.',
+        5 => '6 skiver, eller derover. ',
       ),
     ),
     '3-4' => 
@@ -254,8 +252,7 @@ return array (
     '3-7' => 
     array (
       'title' => 'Hvor ofte spiser du fed fisk om ugen?',
-      'text' => 'Fede fisk er: Hellefisk, laks, makrel, pighaj, sild, stenbider, ørred, ål og ålekvabbe.
-Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, jod, zink og selen.',
+      'text' => 'Fede fisk er f.eks. laks, makrel, pighaj, sild, stenbider, ørred, ål og hellefisk. Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, jod, zink og selen.',
       'options' => 
       array (
         1 => '0 gange',
@@ -278,11 +275,11 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
     ),
     '3-9' => 
     array (
-      'title' => 'Ønsker du Chiaolie eller Fiskeoile?',
-      'text' => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
+      'title' => 'Ønsker du Chiafrøolie eller Fiskeoile?',
+      'text' => 'Ud fra dine valg, kan vi se at du enten kan få chiafrøolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
       'options' => 
       array (
-        1 => 'Chiaolie',
+        1 => 'Chiafrøolie ',
         2 => 'Fiskeolie',
         3 => 'Ingen olie',
       ),
@@ -313,7 +310,10 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
 							<br/><br/>
 							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin), allerede når du begynder at drømme om en baby. Du skal tage folsyre
 							helt fra graviditetens begyndelse, da det har betydning for celledelingen og arvematerialet i kroppens celler. Folsyre nedsætter
-							risikoen for alvorlige medfødte misdannelser af hjerne og rygmarv (neuralrørsdefekter).',
+							risikoen for alvorlige medfødte misdannelser af hjerne og rygmarv (neuralrørsdefekter).
+
+Folinsyre i en yderligere indtagelse af 400 mikrogram per dag i mindst en kurv og i op til 3 måneder efter undfangelsen.
+',
       'B' => 'Når du er på slankekur, har du brug for lidt ekstra vitaminer og mineraler. TakeDaily giver dig det helt rigtige miks. Husk også
 								at slappe af, sove og dyrke motion.
 								<br/><br/>
@@ -387,11 +387,16 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
 						Begynder du at få flere mejeriprodukter i din daglige kost, skal du huske at ændre din profil på
 						<a href="/account" target="_blank">Mit TakeDaily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
 						indeholder lige præcis de doser, du har brug for.',
-      'd' => 'Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. TakeDaily sørger for, at du får det,
+      'd' => '<span v-show="(user_data.vegetarian == 2 && user_data.foods.meat == 1)">
+Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. TakeDaily sørger for, at du får det,
 							du behøver – og så kan du fortsætte med at spise, som du gør nu.
 							<br/><br/>
 							Begynder du at spise kød, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>. Så er du
-							sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
+							sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.
+</span>
+<span v-show="user_data.vegetarian == 1">
+								Kød indeholder masser af jern, B1- og B12-vitamin. Som vegetar eller veganer kan det være svært at få nok af det hele gennem kosten. Begge
+								B-vitaminer er vigtige komponenter i dit energistofskifte. B12-vitamin, som udelukkende findes i animalske fødevarer, spiller blandt andet en essentiel rolle i kroppens omsætning af fedt og opbygningen af nye blodlegemer.</span>',
       'e' => 'Du spiser ikke nok fed fisk, og derfor bliver din krop snydt for de sunde fiskeolier med Omega-3 fedtsyrer og vitaminer som
 						D-vitamin, jod, zink og selen. TakeDaily sørger for, at du får det, du behøver – og så kan du fortsætte med at spise, som du gør nu.
 						<br/><br/>
@@ -412,16 +417,28 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
   array (
     1 => 
     array (
-      'basic' => '<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance</div>',
-      'basic-10-d' => '<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
-							<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
-							<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
-      'basic-10-d-alt' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
-								<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
-								<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
-      'basic-20-d' => '<span class="icon icon-musle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
-							<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
-							<div class="clear"></div><span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Som supplement til din daglige kost med ekstra D-vitamin for stærke knogler og muskler</div>',
+      'basic' => 'Multi Basic danner grundlag for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler.
+
+<div class="clear"></div>
+
+<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance</div>',
+      'basic-10-d' => '
+Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D </ div>
+
+<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+
+							',
+      'basic-10-d-alt' => '
+Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D </ div>
+
+<Span class = "ikon-generelle sundhed-flow flow-løfte-ikonet"> </ span> <div class = "flow-løfte-tekst"> Bidrager til en optimal sundhed </ div>
+
+							',
+      'basic-20-d' => 'Multivitamin D+ Ekstra  udgør grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år.
+
+<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en optimal sundhed </div>
+
+',
     ),
     2 => 
     array (
@@ -435,7 +452,7 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
 					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
 					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">For en fit og energisk følelse</div>',
       'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
-					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstandsdygtighed</div>',
+<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstandsdygtighed</div>',
       'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
 					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
 					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
@@ -454,8 +471,8 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
       'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
 					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
 					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">En fit og energisk følelse</div>',
-      'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal funktion af hjertet</div> <!-- // todo NB! For at bære kravet oplysninger Be\'ve gives til forbrugeren, at den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA. -->
-					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For kardiovaskulære</div>',
+      'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal funktion af hjertet*</div>
+					<div class="clear"></div><span class="icon icon-blood-flow flow-promise-icon"></span> <div class="flow-promise-text">For kardiovaskulære**</div>',
       'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
 					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
 					<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal muskelfunktion</div>
@@ -561,7 +578,7 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
     'wait' => 'Vent venligst..',
     'wait-text' => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
     'your-recommendations' => 'Dine anbefalinger',
-    'send-them' => 'Send et link til mine anbefalinger',
+    'send-them' => 'Send et link med min anbefaling',
     'send' => 
     array (
       'title' => 'Send anbefaling',
@@ -578,6 +595,6 @@ Fede fisk indeholder sunde fiskeolier kaldet omega-3 fedtsyrer samt D-vitamin, j
     'wait' => 'Vent...',
     'apply' => 'Anvend',
   ),
-  'switch-to-chia' => 'Udskift fiskeolien med chiaolie',
-  'switch-to-fish' => 'Udskift chiaolien med fiskeolie',
+  'switch-to-chia' => 'Udskift fiskeolien med chiafrøolie',
+  'switch-to-fish' => 'Udskift chiafrøolien med fiskeolie',
 );

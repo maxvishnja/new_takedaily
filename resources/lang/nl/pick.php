@@ -10,7 +10,7 @@ return array (
     'diet' => 'Eetpatroon',
   ),
   'select-btn' => 'Selecteer',
-  'deselect-btn' => 'Vink aan',
+  'deselect-btn' => 'Selecteer',
   'btn-save' => 'Wijzigingen opslaan',
   'btn-order' => 'Ga naar de kassa',
   'min-vitamins' => 'Je dient minimaal te selecteren {{ minVitamins - numSelectedVitamins }} vitamin<span v-show="(minVitamins - numSelectedVitamins) > 1">er</span>.',

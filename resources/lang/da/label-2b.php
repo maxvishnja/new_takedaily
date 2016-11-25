@@ -30,19 +30,19 @@ return array (
     ),
     3 => 
     array (
-      'name' => 'Vitamin B1 (Tiamin)',
+      'name' => 'Vitamin B1 ',
       'amount' => '1,65 mg',
       'percent' => '150',
     ),
     4 => 
     array (
-      'name' => 'Vitamin B6 (Pyridoxin)',
+      'name' => 'Vitamin B6 ',
       'amount' => '2,1 mg',
       'percent' => '150',
     ),
     5 => 
     array (
-      'name' => 'Vitamin B12 (Kobalamin)',
+      'name' => 'Vitamin B12 ',
       'amount' => '3,75 µg',
       'percent' => '150',
     ),
@@ -50,5 +50,8 @@ return array (
   'disclaimer' => '',
   'batch_number' => '1916',
   'end_date' => '09/2019',
-  'name' => 'Shape Me up',
+  'name' => 'Shape Me Up',
+  'web_description' => '
+Shape Me Up er et kosttilskud specielt til personer, der følger en diæt. Hvis du på diæt, er det muligt, at du får færre vitaminer og mineraler end hvad din krop har behov for. Shape Me Up indeholder ekstra vitamin A, B1, B6, B12, C og K. Shape Me Up er derfor et til supplement til dit daglige kostindtag,  for at få de næringsstoffer, du har brug for.',
+  'weight' => '12,6 gram',
 );

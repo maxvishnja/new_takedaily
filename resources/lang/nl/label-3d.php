@@ -41,4 +41,7 @@ return array (
   ),
   'batch_number' => '1916',
   'end_date' => '09/2019',
+  'Vit and Min' => 'Vitamines en Mineralen',
+  'web_description' => '\'I\'m Vegetarian/Vegan\' is een aanvulling op onze multivitamine speciaal voor vegetariers, veganisten en mensen die geen vlees eten. Het supplement bevat onder ander vitamine B12 en ijzer; voedingsstoffen die in een vegetarische voeding vaak niet voldoende aanwezig zijn,',
+  'weight' => '14 gram',
 );

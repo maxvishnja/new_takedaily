@@ -21,8 +21,8 @@ return array (
     'three' => 
     array (
       'title' => 'Kontakt os',
-      'text' => 'Send en mail og få svar inden 24 timer. Du kan ringe til os alle hverdage 09-16',
-      'info' => '+45 1234 5678<br/><a href="mailto:support@takedaily.com">support@takedaily.com</a>',
+      'text' => 'Send en mail og få svar inden 24 timer. Du kan ringe til os alle hverdage ml. 09-17',
+      'info' => '+45 70 60 50 15<br/><a href="mailto:support@takedaily.com">support@takedaily.com</a>',
     ),
   ),
   'language' => 'Dansk',

@@ -7,13 +7,13 @@ return array (
   array (
     0 => 
     array (
-      'name' => 'Vitamin B2 (Riboflavin)',
+      'name' => 'Vitamin B2 ',
       'amount' => '2,1 mg',
       'percent' => '150',
     ),
     1 => 
     array (
-      'name' => 'B12',
+      'name' => 'Vitamin B12',
       'amount' => '2,5 µg',
       'percent' => '100',
     ),
@@ -36,4 +36,7 @@ return array (
   ),
   'batch_number' => '1916',
   'end_date' => '09/2019',
+  'Vit and Min' => 'Vitaminer og Mineraler',
+  'web_description' => '"The Dairy portion indeholder vitamin B2, B12 og calcium. Tillægget har til formål at supplere multivitamin.',
+  'weight' => '23,8 gram',
 );

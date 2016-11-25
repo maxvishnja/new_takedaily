@@ -50,4 +50,12 @@ return array (
 <br/> ** Den gavnlige effekt opnås ved et dagligt indtag på 250 mg DHA.',
   'Allergener' => 'fiskeolie',
   'batch_number' => ' L201016',
+  'disclaimer_web' => '* Den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA.
+<br/> ** Den gavnlige effekt opnås ved et dagligt indtag på 250 mg DHA.',
+  'end_date' => '10/2019',
+  'Vit and Min' => 'Ingredienser',
+  'web_description' => 'Det få som spiser den anbefalet mængde fisk. Især fede fisk (såsom sardiner, ansjoser, makrel, laks) som er rig på sunde omega-3 fedtsyrer EPA og DHA. Sundhedsstyrelsen anbefaler, at voksne spiser mindst en-to gange om ugen, helst fede fisk. Premium Omega-3 Fiskeolie indeholder 550 mg fiskefedtsyrer (EPA og DHA). EPA og DHA er gode for hjertet * og DHA for hjerne og øjne. **
+<br/> * Den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA.
+<br/> ** Den gavnlige effekt opnås ved et dagligt indtag på 250 mg DHA.',
+  'weight' => '42 gram',
 );

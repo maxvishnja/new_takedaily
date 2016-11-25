@@ -158,7 +158,7 @@ voedingssupplement die goed aansluiten op jouw specifieke behoeften, kan een hel
     ),
     'eight' => 
     array (
-      'title' => 'Ontvang jouw vitamines & mineralen iedere 4 weken, <br/> voor slechts 19,95 euro',
+      'title' => 'Ontvang jouw vitamines & mineralen iedere 4 weken, <br/> voor slechts 18,95 euro',
       'text' => 'Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag
 							typewriter banh mi, squid keffiyeh High.',
       'button' => '<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start vandaag nog met TakeDaily</a>',

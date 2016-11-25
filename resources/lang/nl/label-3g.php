@@ -53,4 +53,8 @@ return array (
   ),
   'batch_number' => '1203201683N',
   'end_date' => '03/2018',
+  'Vit and Min' => 'Ingrediënten',
+  'disclaimer_web' => '* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.',
+  'web_description' => 'Chia zaden zijn afkomstig van de Salvia Hispanica, een plant die behoort tot de muntfamilie. Chiazaad olie wordt verkregen door een koude persing van de zaden. Chiazaad olie is een plantaardige olie die in vergelijking tot andere plantaardige oliën het hoogste gehalte aan omega 3-vetzuren bevat. Het omega 3-vetzuur alfa-linoleenzuur (ALA) in chiazaad olie helpt het cholesterolniveau gezond te houden.*
+<br/>* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.',
 );

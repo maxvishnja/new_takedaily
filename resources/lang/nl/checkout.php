@@ -3,25 +3,24 @@
 return array (
   'messages' => 
   array (
-    'vitamins-not-selected' => 'Voordat je een bestelling kunt plaatsen, dien je eerst de vragenlijst af te zodat wij jouw vitamines en mineralen kunnen selecteren.',
-    'payment-invalid' => 'De betaling is niet geslaagd; probeer het opnieuw. :error',
-    'no-such-coupon' => 'Couponcode onjuist. Probeer het nog eens.',
-    'coupon-missing' => 'Voer uw couponcode in.',
-    'coupon-added' => 'Couponcode toegevoegd!
-',
+    'vitamins-not-selected' => 'Voordat je een bestelling kunt plaatsen, dien je eerst de vragenlijst af te ronden zodat wij jouw vitamines en mineralen kunnen selecteren.',
+    'payment-invalid' => 'De betaling is niet geslaagd, probeer het opnieuw. :error',
+    'no-such-coupon' => 'Kortingscode onjuist. Probeer het nog eens.',
+    'coupon-missing' => 'Voer jouw kortingscode in.',
+    'coupon-added' => 'Kortingscode toegevoegd!',
     'card-added' => 'Kaart toegevoegd!',
   ),
   'mail' => 
   array (
     'subject' => 'Orderbevestiging TakeDaily',
-    'subject-subscription' => 'De betaling is geslaagd',
-    'subject-subscription-failed' => 'De betaling is niet geslaagd',
+    'subject-subscription' => 'De automatische afschrijving/betaling is geslaagd',
+    'subject-subscription-failed' => 'De automatische afschrijving/betaling is niet geslaagd',
   ),
   'success' => 
   array (
     'page-title' => 'Jouw bestelling is geslaagd! - TakeDaily',
-    'title' => 'Jouw order is succesvol geplaatst',
-    'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over de levering en de bestelling. Bedankt je voor jouw aankoop!',
+    'title' => 'Jouw bestelling is vewerkt',
+    'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over de bestelling en levering. Bedankt je voor jouw aankoop!',
     'button-text' => 'Ga naar Mjn TakeDaily',
     'giftcard' => 
     array (
@@ -94,10 +93,10 @@ return array (
       'input-placeholder' => 'Jouw kortingscode',
       'button-text' => 'Toepassen',
     ),
-    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van<span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt bij voorkeur iedere maand per automatische afschrijving.
+    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt bij voorkeur iedere maand per automatische afschrijving.
 					</p>
 
-					<p class="checkout_description">Je kan jouw abonnement ieder moment opzeggen of pauzeren.</p>',
+					<p class="checkout_description">Je kan je abonnement ieder moment opzeggen of pauzeren.</p>',
     'method' => 
     array (
       'title' => 'Selecteer betaalmethode',

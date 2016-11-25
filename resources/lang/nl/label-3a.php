@@ -48,4 +48,6 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
+  'web_description' => '\'I\'m not a veggie fan\' bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement dient ter aanvulling op de multivitaminen.',
+  'weight' => '29,4 gram',
 );

@@ -35,4 +35,7 @@ return array (
   ),
   'batch_number' => '1916',
   'end_date' => '09/2019',
+  'Vit and Min' => 'Vitamines en Mineralen',
+  'web_description' => '\'The Dairy Portion\' bevat vitamine B2, B12 en calcium. Het supplement dient ter aanvulling op de multivitaminen.',
+  'weight' => '23,8 gram',
 );

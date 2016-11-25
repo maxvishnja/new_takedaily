@@ -57,7 +57,7 @@ return array (
     'header' => 'Betaalmethode',
     'no-method' => 'Geen betaalmethode gevonden!',
     'button-add-method-text' => 'Voeg nieuwe toe',
-    'button-update-text' => 'Verversen',
+    'button-update-text' => 'Aanpassen',
     'card-exp' => 'Vervaldatum:',
     'button-remove-text' => 'Verwijder',
     'add' => 
@@ -95,7 +95,7 @@ return array (
     'new-recommendation' => 
     array (
       'btn' => 'Pas mijn vitamines aan',
-      'text' => 'Vanuit uw profiel, kunnen we zien dat sommige andere vitaminen beter voor u zou kunnen zijn.',
+      'text' => 'Vanuit jouw profiel, kunnen we zien dat andere vitamines beter aansluiten bij jou behoeften.',
       'title' => 'We hebben een nieuw advies voor je.',
     ),
   ),
@@ -103,8 +103,8 @@ return array (
   array (
     'errors' => 
     array (
-      'custom-package-cant-change' => 'Je hebt een zelf pakket samengesteld en is daarom niet te veranderen.',
-      'max-snooze' => 'Je kunt alleen uitstellen gedurende 28 dagen',
+      'custom-package-cant-change' => 'Het samenstelling van het pakket is helaas niet te veranderen,',
+      'max-snooze' => 'Je kunt de levering voor maximaal 28 dagen uitstellen.',
     ),
     'successes' => 
     array (

@@ -13,12 +13,12 @@ return array (
     'one' => 
     array (
       'title' => '1. Kies de gewenste cadeaubon',
-      'text' => 'Kies het aantal maanden (1,3 of 6) dat je TakeDaily als cadeau wilt geven.',
+      'text' => 'Kies het aantal maanden (1,3 of 6) dat je TakeDaily cadeau wilt geven.',
     ),
     'two' => 
     array (
       'title' => '2. Ontvang de cadeaubon van TakeDaily ',
-      'text' => 'De cadeaubon ontvang je direct na de betaling per e-mail.',
+      'text' => 'De cadeaubon ontvang je direct na de betaling, per e-mail.',
     ),
     'three' => 
     array (

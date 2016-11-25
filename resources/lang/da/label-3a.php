@@ -34,7 +34,7 @@ return array (
     ),
     1 => 
     array (
-      'name' => 'Phosphor',
+      'name' => 'Fosfor',
       'amount' => '126,3 mg',
       'percent' => '18',
     ),
@@ -48,4 +48,7 @@ return array (
   ),
   'batch_number' => '1916',
   'end_date' => '09/2019',
+  'Vit and Min' => 'Vitaminer og Mineraler',
+  'web_description' => '"Jeg er ikke en veggie fan \'indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tillægget har til formål at supplere multivitamin.',
+  'weight' => '29,4 gram',
 );

@@ -65,4 +65,6 @@ return array (
   'end_date' => '09/2019',
   'batch_number' => '1916',
   'Vit and Min' => 'Vitamines en Mineralen',
+  'web_description' => 'De Immune Booster is een supplement ter aanvulling van onze multivitaminen en is rijk aan vitamines en mineralen die de weerstand ondersteunen (vitamine A, B6, B11 (foliumzuur), B12, C, D en de mineralen seleen en zink). Een supplement dus voor iedereen die zijn weerstand wil verbeteren!<P>Vitamine A, B6, foliumzuur, B12, C, D en de mineralen seleen en zink dragen bij aan een normale werking van het immuunsysteem en vitamine C, seleen en zink helpen lichaamscellen te beschermen tegen invloeden van buitenaf.</P>',
+  'weight' => '15,4 gram',
 );

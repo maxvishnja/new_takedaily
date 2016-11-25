@@ -19,9 +19,10 @@ return array (
   'name' => 'Supplement voor personen met actief en/of druk leven',
   'praises' => 
   array (
-    'energy' => 'De B-vitamines (B1, B2, B3, B5, B6 en B12) en ijzer bevorderen de energiestofwisseling',
-    'lightning' => 'De B-vitamines (B2, B3, B5, B6 en B12) en ijzer helpen vermoeidheid en moeheid te verminderen',
+    'energy' => 'De B-vitamines (B1, B2, B3, B5, B6 en B12), ijzer en magnesium bevorderen de energiestofwisseling',
+    'lightning' => 'De B-vitamines (B2, B3, B5, B6 en B12), ijzer en magnesium helpen vermoeidheid en moeheid te verminderen',
     'stress' => 'Vitamanie B5 draagt bij aan een normale weerstand tegen stress',
+    'muscle' => 'Magnesium draagt bij tot een normale eiwitsynthese en helpt het normale werken van de spieren',
   ),
   'vitamins' => 
   array (
@@ -62,8 +63,17 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstof (E140)), vulstof (microkristallijne cellulose), ijzerfumaraat, nicotinamide, pantotheenzuur, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride',
+  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstof (E140)), vulstof (microkristallijne cellulose), ijzerfumaraat, nicotinamide, calcium-D-pantothenaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride',
   'end_date' => '09/2019',
   'batch_number' => '1916',
   'Vit and Min' => 'Vitamines en Mineralen',
+  'web_description' => '<P>De Energy Booster is supplement ter aanvulling van onze multivitaminen en bevat B-vitamines (B1, B2, B3, B5, B6, B12) en de mineralen ijzer en magnesium.</ P>
+
+<P><em>Voel jij je futloos en ervaar je een gebrek aan energie? Sport je meedere keren per week?</em> 
+De Energy Booster bevat B-vitamines (B1, B2, B3, B5, B6 en B12) en ijzer ter ondersteuning van het energieniveau. IJzer is ook betrokken bij het transport van zuurstof in ons lichaam. Zuurstof is belangrijk voor het vrijmaken van energie om onder andere te bewegen.
+De vitamines B2, B3, B5, B6 en B12 en ijzer helpen daarnaast vermoeidheid en moeheid te verminderen.</ P>
+
+<P><em>Heb je stress?</em>
+In stressvolle tijden draagt vitamanie B5 bij aan een normale weerstand tegen stress en een heldere geest.</ P>',
+  'weight' => '22,1 gram',
 );

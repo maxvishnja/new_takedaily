@@ -4,46 +4,46 @@ return array (
   'name' => 'Tilskud for personer med et aktivt og/eller travlt liv',
   'praises' => 
   array (
-    'energy' => 'B-vitaminer (B1, B2, B3, B5, B6 og B12) og jern fremmer kroppens energimetabolisme',
-    'lightning' => 'B-vitaminer (B2, B3, B5, B6 og B12) og jern hjælper til at mindske træthed og udmattelse',
+    'energy' => 'B-vitaminer (B1, B2, B3, B5, B6 og B12), jern og magnesium fremmer kroppens energimetabolisme',
+    'lightning' => 'B-vitaminer (B2, B3, B5, B6 og B12), jern og magnesium hjælper til at mindske træthed og udmattelse',
     'stress' => 'Vitamin B5 bidrager til en normal modstandsdygtighed over for stress',
   ),
-  'ingredients' => 'Magnesiumhydroxid DC 10% stivelse, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestof (E140), fyldstof (mikrokrystallinsk cellulose), jernfumarat, nicotinamid, pantothensyre, antiklumpningsmiddel (magnesiumstearat), cyanocobalamin, pyridoxal -5-phosphat, riboflavin, thiamin-hydrochlorid',
+  'ingredients' => 'Magnesiumhydroxid DC 10% stivelse, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestof (E140), fyldstof (mikrokrystallinsk cellulose), jernfumarat, nicotinamid, calcium-D-pantothenat, antiklumpningsmiddel (magnesiumstearat), cyanocobalamin, pyridoxal -5-phosphat, riboflavin, thiamin-hydrochlorid',
   'vitamins' => 
   array (
     0 => 
     array (
-      'name' => 'Vitamin B1 (Thiamin)',
+      'name' => 'Vitamin B1',
       'amount' => '1,65 mg',
       'percent' => '150',
     ),
     1 => 
     array (
-      'name' => 'Vitamin B2 (Riboflavin)',
+      'name' => 'Vitamin B2 ',
       'amount' => '2,1 mg',
       'percent' => '150',
     ),
     2 => 
     array (
-      'name' => 'Vitamin B3 (Niacin)',
+      'name' => 'Vitamin B3',
       'amount' => '24 mg',
       'percent' => '150',
     ),
     3 => 
     array (
-      'name' => 'Vitamin B6 (Pyridoxin)',
+      'name' => 'Vitamin B6',
       'amount' => '2,1 mg',
       'percent' => '150',
     ),
     4 => 
     array (
-      'name' => 'Vitamin B12 (Kobalamin)',
+      'name' => 'Vitamin B12 ',
       'amount' => '3,75 µg',
       'percent' => '150',
     ),
     5 => 
     array (
-      'name' => 'Vitamin B5 (Panthothensyre)',
+      'name' => 'Vitamin B5 ',
       'amount' => '9 mg',
       'percent' => '150',
     ),
@@ -66,4 +66,15 @@ return array (
   'disclaimer' => '',
   'batch_number' => '1916',
   'end_date' => '09/2019',
+  'Vit and Min' => 'Vitaminer og Mineraler',
+  'web_description' => '
+<P> Energy Booster supplement til at supplere vores multivitaminer og indeholder B-vitaminer (B1, B2, B3, B5, B6, B12) og mineraler jern og magnesium. </ P>
+
+Energy Booster indeholder B-vitaminer (B1, B2, B3, B5, B6 og B12) og jern der bidrager til dit energiniveau. Jern bidrager til transporten af ​​ilt i kroppen. Oxygen er vigtigt for frigivelse af energi for at flytte, blandt andre ting.
+
+Vitaminerne B2, B3, B5, B6 og B12 og jern bidrager til at mindske træthed. </ P>
+
+<P> <em> Har du stress? </ Em>
+I stressende situationer kan vitamin B5 bidrage til en modstand mod stress og et klart sind. </ P>',
+  'weight' => '22,1 gram',
 );

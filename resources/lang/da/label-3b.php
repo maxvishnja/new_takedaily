@@ -13,25 +13,25 @@ return array (
   array (
     0 => 
     array (
-      'name' => 'Vitamin B1 (Thiamin)',
+      'name' => 'Vitamin B1 ',
       'amount' => '1,65 mg',
       'percent' => '150',
     ),
     1 => 
     array (
-      'name' => 'Vitamin B2 (Riboflavin)',
+      'name' => 'Vitamin B2 ',
       'amount' => '2,1 mg',
       'percent' => '150',
     ),
     2 => 
     array (
-      'name' => 'Vitamin B3 (Niacin)',
+      'name' => 'Vitamin B3',
       'amount' => '24 mg',
       'percent' => '150',
     ),
     3 => 
     array (
-      'name' => 'Vitamin B6 (Pyridoxin)',
+      'name' => 'Vitamin B6',
       'amount' => '2,1 mg',
       'percent' => '150',
     ),
@@ -60,4 +60,8 @@ return array (
   'disclaimer' => '',
   'batch_number' => '1916',
   'end_date' => '09/2019',
+  'Vit and Min' => 'Vitaminer og Mineraler',
+  'web_description' => '
+Jeg spiser ikke kulhydrater «er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre)) og indeholder mineralerne jod og jern. Tillægget har til formål at supplere multivitamin.',
+  'weight' => '14 gram',
 );

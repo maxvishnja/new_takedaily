@@ -49,6 +49,8 @@ return array (
   ),
   'end_date' => '09/2019',
   'batch_number' => '1916',
-  'name' => 'Shape Me up',
+  'name' => 'Shape Me Up',
   'Vit and Min' => 'Vitamines en Mineralen',
+  'web_description' => 'Shape Me Up is een voedingssupplement speciaal voor mensen die een afvaldieet volgen. Als je aan het lijnen bent is het mogelijk dat je minder vitamines en mineralen binnenkrijgt dan jouw lichaam nodig heeft. Shape me up bevat extra vitamine A, B1, B6, B12, C en K. Het helpt je om als aanvulling op de dagelijkse voeding de voedingsstoffen binnen te krijgen die je nodig hebt.',
+  'weight' => '12,6 gram',
 );
