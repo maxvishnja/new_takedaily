@@ -83,10 +83,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		 */
 		require_once 'Routers/account.php';
 
-		Route::group( [ 'middleware' => 'ajax' ], function ()
-		{
-			Route::post( 'call-me', 'CallMeController@post')->name( 'ajax-call-me' );
-		} );
+		/*
+		 * Extra ajax
+		 */
+		require_once 'Routers/ajax.php';
 
 		/*
 		 * CMS dynamic routing
