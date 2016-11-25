@@ -106,7 +106,7 @@
 			data: {
 				show_popup: false,
 				maxVitamins: 3,
-				minVitamins: 3,
+				minVitamins: 2,
 				groupTranslations: {
 					@foreach(trans('pick.groups') as $key => $group)
 					"{{ $key }}": "{{ $group }}",

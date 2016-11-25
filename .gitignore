@@ -43,3 +43,4 @@ _ide_helper_models.php
 /public/packer/downloads/*
 public/build/
 public/js/validator.js
+resources/assets/sass/_sprites.sass
