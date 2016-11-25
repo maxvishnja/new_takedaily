@@ -152,8 +152,8 @@ return [
          * Here you can specify how emails should be sent.
          */
         'mail' => [
-            'from' => 'your@email.com',
-            'to'   => 'your@email.com',
+            'from' => 'takedaily-backup@lasserafn.dk',
+            'to'   => 'takedaily-backup@lasserafn.dk',
         ],
 
         /*
