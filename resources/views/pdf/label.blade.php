@@ -12,5 +12,5 @@
 			{{ ucfirst($customer->getCustomerAttribute('address_country')) }}<br/>
 		</address>
 
-		<div style="font-size: 11pt; position: absolute; bottom: 4mm; font-weight: 200;"><small>{{ trans('label-product.return') }}</small></div>
+		<div style="font-size: 10pt; position: absolute; bottom: 4mm; font-weight: 200;"><small>{{ trans('label-product.return') }}</small></div>
 </div>
