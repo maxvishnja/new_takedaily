@@ -83,7 +83,6 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 
 	\App\Apricot\Checkout\Cart::clear();
 	\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
-	\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );
 
 	foreach($lib->getResult() as $vitamin)
 	{
@@ -96,6 +95,8 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ strtolower($vitamin) ], '', [ 'key' => "vitamin.{$vitamin}" ] );
 		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$vitamin}", $vitamin );
 	}
+
+	\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );
 
 	\App\Apricot\Checkout\Cart::addInfo( "user_data", json_decode( $request->get( 'user_data' ) ) );
 

@@ -32,7 +32,6 @@ class PackageController extends Controller
 		{
 			Cart::clear();
 			Cart::addProduct( 'subscription' );
-			Cart::addProduct( 'shipping', 0 );
 
 			if ( \Auth::check() && \Auth::user()->isUser() )
 			{
@@ -70,6 +69,7 @@ class PackageController extends Controller
 				Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ], '' );
 				Cart::addInfo( "vitamins.{$i}", $vitamin );
 			}
+			Cart::addProduct( 'shipping', 0 );
 
 			return \Redirect::action( 'CheckoutController@getCheckout' );
 		}

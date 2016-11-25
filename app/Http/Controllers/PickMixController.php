@@ -42,7 +42,6 @@ class PickMixController extends Controller
 
 		Cart::clear();
 		Cart::addProduct('subscription');
-		Cart::addProduct( 'shipping', 0 );
 
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
@@ -69,6 +68,7 @@ class PickMixController extends Controller
 			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[$vitamin->code], '' );
 			Cart::addInfo("vitamins.{$i}", $vitamin->code);
 		}
+		Cart::addProduct( 'shipping', 0 );
 
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}

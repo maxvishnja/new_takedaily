@@ -265,7 +265,10 @@
 				<table v-cloak>
 					<tbody>
 					<tr v-for="item in totals">
-						<td>@{{ item.name }}</td>
+						<td>
+							<span v-show="!item.showPrice" style="margin-right: 30px"></span>
+							@{{ item.name }}
+						</td>
 						<td><span v-show="item.showPrice">{{ trans('general.money-vue', ['amount' => 'item.price']) }}</span></td>
 					</tr>
 					<tr v-show="discount.applied">
