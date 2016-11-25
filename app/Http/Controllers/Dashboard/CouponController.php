@@ -7,6 +7,7 @@ use App\Apricot\Repositories\CouponRepository;
 use App\Coupon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Jenssegers\Date\Date;
 
 class CouponController extends Controller
 {
@@ -38,8 +39,8 @@ class CouponController extends Controller
 		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
 		$coupon->uses_left = $request->get('uses_left');
 		$coupon->applies_to = $request->get('applies_to');
-		$coupon->valid_from = $request->get('valid_from');
-		$coupon->valid_to = $request->get('valid_to');
+		$coupon->valid_from = $request->get('valid_from', Date::now()->format('Y-m-d'));
+		$coupon->valid_to = $request->get('valid_to', Date::now()->addYears(99)->format('Y-m-d'));
 
 		$coupon->save();
 
