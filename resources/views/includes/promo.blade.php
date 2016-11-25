@@ -1,12 +1,12 @@
 <div class="promo-section">
-	<div>
-		<h4>{{ trans('promo.customer_service') }}</h4>
-		<p>{{ trans('promo.need-help') }}</p>
-		<p>{{ trans('promo.contact') }}<br/>
-			{{ trans('promo.opening-hours') }}</p>
-	</div>
+	{{--<div>--}}
+		{{--<h4>{{ trans('promo.customer_service') }}</h4>--}}
+		{{--<p>{{ trans('promo.need-help') }}</p>--}}
+		{{--<p>{{ trans('promo.contact') }}<br/>--}}
+			{{--{{ trans('promo.opening-hours') }}</p>--}}
+	{{--</div>--}}
 
-	<div class="m-t-30">
+	<div class="m-b-30">
 		<h4>{{ trans('promo.advantages') }}</h4>
 		<ul>
 			@if(trans('promo.custom-fit') != '')
@@ -27,8 +27,10 @@
 		</ul>
 	</div>
 
-	<div class="m-t-20">
+	<div class="m-b-20">
 		<h4>{{ trans('promo.trustpilot') }}</h4>
 		<a target="_blank" rel="nofollow" href="https://trustpilot.com/review/{{ Request::getHost() }}"><img src="{{ asset('/images/tp/4.png') }}" height="24" alt="Trustpilot"></a>
 	</div>
+
+	@include('flow-includes.views.help')
 </div>

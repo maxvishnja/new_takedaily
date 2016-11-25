@@ -1,4 +1,4 @@
-<div class="flow-helper">
+<div class="flow-helper m-t-10" @if(isset($center)) style="text-align: center !important;" @endif>
 	<div class="m-b-10"><strong>{{ trans('help.title') }}</strong></div>
 
 		<div>

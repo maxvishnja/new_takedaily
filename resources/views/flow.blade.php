@@ -23,7 +23,10 @@
 					@include('flow-includes.views.steps.two')
 					@include('flow-includes.views.steps.three')
 					@include('flow-includes.views.steps.four')
-					@include('flow-includes.views.help')
+
+					<div v-show="step < 4">
+						@include('flow-includes.views.help', ['center' => true])
+					</div>
 
 					{{ csrf_field() }}
 					<input type="hidden" name="product_name"
