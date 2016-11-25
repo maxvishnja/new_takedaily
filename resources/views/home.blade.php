@@ -113,7 +113,7 @@
 
 					<div class="promise-item">
 						<p>{{ trans('home.blocks.promises.promise-2') }}
-							<a href="/page/how-it-works">{{ trans('home.blocks.promises.read-more') }}</a></p>
+							<a href="{{ url()->route('our-products') }}">{{ trans('home.blocks.promises.read-more') }}</a></p>
 					</div>
 
 					<div class="promise-item">
