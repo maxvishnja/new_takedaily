@@ -302,10 +302,14 @@
 
 			.landing_advantages .col-xs-6 {
 				margin-bottom: 10px;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
 			}
 
 			.landing_advantages .icon {
-				vertical-align: -10px !important;
+				transform: scale(0.66666666666667);
+				margin-right: -1px !important;
+				vertical-align: -11px !important;
 			}
 		}
 	</style>
