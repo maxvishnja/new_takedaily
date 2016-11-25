@@ -57,7 +57,7 @@ return [
 	|--------------------------------------------------------------------------
 	*/
 
-	'locales' => [
+	'locales'        => [
 		[ 'code' => 'da', 'tld' => 'dk', 'name' => 'Dansk' ],
 		[ 'code' => 'en', 'tld' => 'com', 'name' => 'English' ],
 		[ 'code' => 'se', 'tld' => 'se', 'name' => 'Svenska' ],
@@ -194,6 +194,7 @@ return [
 		Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
 		Barryvdh\TranslationManager\ManagerServiceProvider::class,
 		Skovmand\Mailchimp\MailchimpServiceProvider::class,
+		Spatie\Backup\BackupServiceProvider::class,
 
 		/*
 		 * App providers

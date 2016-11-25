@@ -23,7 +23,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="aligner">
-					<div class="col-md-6 col-md-push-6">
+					<div class="col-md-6 text-center">
+						<img src="/images/quality/one.jpg" style="max-height: 400px;" alt="TakeDaily">
+					</div>
+					<div class="col-md-6">
 						<h2>{{ trans('quality.section_vitamins.title') }}</h2>
 						{!! trans('quality.section_vitamins.body') !!}
 					</div>
@@ -80,12 +83,6 @@
 
 		section h2 {
 			font-size: 28px;
-		}
-
-		section.quality_section_one {
-			background-image: url(/images/quality/one.jpg);
-			background-size: contain;
-			background-position: left center;
 		}
 
 		section.quality_section_two {

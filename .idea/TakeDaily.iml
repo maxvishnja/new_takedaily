@@ -129,6 +129,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/version" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/skovmand/mailchimp-laravel" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/db-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/spatie/laravel-backup" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/stripe/stripe-php" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
@@ -238,6 +240,8 @@
           <root url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/version" />
           <root url="file://$MODULE_DIR$/vendor/skovmand/mailchimp-laravel" />
+          <root url="file://$MODULE_DIR$/vendor/spatie/db-dumper" />
+          <root url="file://$MODULE_DIR$/vendor/spatie/laravel-backup" />
           <root url="file://$MODULE_DIR$/vendor/stripe/stripe-php" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/class-loader" />
@@ -333,6 +337,8 @@
           <root url="file://$MODULE_DIR$/vendor/sebastian/recursion-context" />
           <root url="file://$MODULE_DIR$/vendor/sebastian/version" />
           <root url="file://$MODULE_DIR$/vendor/skovmand/mailchimp-laravel" />
+          <root url="file://$MODULE_DIR$/vendor/spatie/db-dumper" />
+          <root url="file://$MODULE_DIR$/vendor/spatie/laravel-backup" />
           <root url="file://$MODULE_DIR$/vendor/stripe/stripe-php" />
           <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/vendor/symfony/class-loader" />

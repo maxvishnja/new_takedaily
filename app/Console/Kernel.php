@@ -58,5 +58,8 @@ class Kernel extends ConsoleKernel
 
 		$schedule->call('mailflow:send')
 		         ->everyTenMinutes();
+
+		$schedule->call('backup:run')
+		         ->daily();
 	}
 }
