@@ -575,7 +575,7 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
   array (
     'wait' => 'Vent venligst..',
     'wait-text' => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
-    'your-recommendations' => 'Din anbefaling',
+    'your-recommendations' => 'Her er din anbefaling!',
     'send-them' => 'Send min anbefaling til min email.',
     'send' => 
     array (

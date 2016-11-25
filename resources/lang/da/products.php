@@ -9,7 +9,7 @@ return array (
   'shipping' => 'Fragt',
   'balance' => 'Betalt med gavekort el. lign.',
   'refund' => 'Tilbagebetaling',
-  'coupon' => 'Kuponkode tilføjet',
+  'coupon' => 'Rabatkode tilføjet',
   'oil' => 'Ekstra olie',
   'extra' => 'Ekstra vitamin',
   'package' => 'Selvvalgt pakke',
