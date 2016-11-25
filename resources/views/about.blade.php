@@ -35,12 +35,19 @@
 				</div>
 			@endforeach
 		</div>
+
+		<div class="text-center m-t-50">
+			<a href="{{ url()->route('flow') }}"
+			   class="button button--rounded button--huge button--landing button--green">
+				<strong>{!! trans('home.header.button-click-here') !!}</strong>
+			</a>
+			<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
+		</div>
 	</div>
 
 
 	<style>
 		.header_image {
-			padding: 40px 0 60px;
 			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/about/bg.jpg);
 			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/about/bg.jpg);
 		}
