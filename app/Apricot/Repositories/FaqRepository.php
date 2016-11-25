@@ -10,6 +10,11 @@ class FaqRepository
 		return Faq::orderBy('created_at', 'DESC')->get();
 	}
 
+	public function findByIdentifier($identifier)
+	{
+		return Faq::where('identifier', $identifier)->first();
+	}
+
 	public function get()
 	{
 		$faqs = Faq::with( [
