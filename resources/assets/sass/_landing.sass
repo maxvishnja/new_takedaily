@@ -65,43 +65,11 @@ body.index
 		position: relative
 		background: transparent
 
-		//&.header--front-slide-1,
-		//&.header--front-slide-2
-		//	.header-nav
-		//		border-bottom: 1px solid rgba(255, 255, 255, .3)
-		//		background: transparent
-		//
-		//		ul li a
-		//			color: #fff
-		//
-		//	.hamburger .meat
-		//		background: #fff !important
-
 		&.header--front-slide-1,
 		&.header--front-slide-2
 			.headervideo-block
 				strong
 					color: #fff !important
-
-		/*&.header--front-slide-2
-			.header_content
-				color: $main-green
-
-			.gifting-button
-				color: $main-green-dark
-
-			.header-nav
-				border-bottom: 1px solid rgba(255, 255, 255, .3)
-				background: transparent
-
-				ul li a
-					color: $main-green-dark
-
-			.hamburger .meat
-				background: $main-green-dark !important
-
-			.or-pick-mix-link-container a
-				color: $main-green-dark*/
 
 		.gifting-button
 			margin-left: 10px
@@ -224,9 +192,6 @@ body.index
 					width: 50%
 					float: left
 					height: 100%
-
-					&.header_bg_item--1
-						background: $main-green url(/images/header_pattern.png) no-repeat 80% 40px
 
 					&.header_bg_item--2
 						background: #fff url(/images/header_bg.jpg) no-repeat 80% bottom
@@ -465,23 +430,9 @@ body.index
 				.block_content
 					padding: 3vw
 
-@media all and (max-width: 1450px)
-	body.index
-		header.header--landing
-			.header_bg_slides_container
-				.header_bg_slides
-					.header_bg_item
-						&.header_bg_item--1
-							background-position: 145% 134px
 
 @media all and (max-width: 1299px)
 	body.index
-		header.header--landing
-			.header_bg_slides_container
-				.header_bg_slides
-					.header_bg_item
-						&.header_bg_item--1
-							background-position: 170% 20px
 		.block
 			&.block--one
 				.block_item
@@ -504,22 +455,6 @@ body.index
 
 @media all and (max-width: 1199px)
 	body.index
-		header.header--landing
-			.header_bg_slides_container
-				.header_bg_slides
-					.header_bg_item
-						&.header_bg_item--1
-							position: relative
-							&:before
-								content: ""
-								display: block
-								position: absolute
-								left: 0
-								top: 0
-								right: 0
-								bottom: 0
-								background: rgba($main-green-dark, .3)
-
 		.block
 			&.block--promises
 				.promise-item
@@ -588,21 +523,8 @@ body.index
 						line-height: 1.6
 						font-size: 14px
 
-@media all and (max-width: 870px)
-	body.index
-		header.header--landing
-			.header_bg_slides_container
-				.header_bg_slides
-					.header_bg_item
-						&.header_bg_item--1
-							background-position: 40vw 30px
-
 @media all and (max-width: 767px)
 	body.index
-		.header_bg_slides_container
-			top: 69px
-			height: calc(100% - 69px)
-
 		.slider_container
 			.slider-arrow-right
 				right: 5px
