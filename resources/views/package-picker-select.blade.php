@@ -17,12 +17,8 @@
 							<a href="javascript: void(0);" v-on:click="previousStep();">{{ trans('flow.back') }}</a>
 						</div>
 
-						@if($package->hasChoice($package->group_one))
-							@include('flow-includes.views.steps.one')
-						@endif
-
 						@if($package->hasChoice($package->group_three))
-							<div class="step" data-step="2">
+							<div class="step" data-step="1">
 								<div class="sub_step sub_step--active" data-sub-step="1">
 									<h3 class="substep-title">{{ trans('pick-package.custom-pill') }}</h3>
 									<div class="sub_step_answers">
