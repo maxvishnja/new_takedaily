@@ -86,40 +86,16 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 	\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
 	\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );
 
-	foreach ( $lib->getResult() as $index => $combination )
+	foreach($lib->getResult() as $vitmain)
 	{
-		$combinationKey = $combination;
-		$indexOld       = $index;
-
-		if ( $index == 'one' )
-		{
-			$combination = $alphabet[ $combination - 1 ];
-		}
-
-		switch ( $index )
-		{
-			case 'one':
-				$index = 1;
-				break;
-			case 'two':
-				$index = 2;
-				break;
-			case 'three':
-			default:
-				$index = 3;
-				break;
-		}
-
-		$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $indexOld, $combinationKey );
-
 		$ingredients .= '<div class="ingredient_item" data-grouptext="' . $indexOld . '" data-groupnum="' . $index . '" data-item="' . $index . $combination . '">
 					<span class="icon icon-arrow-down"></span>
-					<h3>' . ( isset( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ] ) ? \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ] : $vitamin_code ) . '</h3>
+					<h3>' . ( isset( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ] ) ? \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ] : $vitamin ) . '</h3>
 					' . view( 'flow-includes.views.vitamin_table', [ 'label' => strtolower( "{$index}{$combination}" ) ] ) . '
 				</div>';
 
-		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '', [ 'key' => "vitamin.{$index}" ] );
-		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$index}", $vitamin_code );
+		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ], '', [ 'key' => "vitamin.{$index}" ] );
+		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$index}", $vitamin );
 	}
 
 	\App\Apricot\Checkout\Cart::addInfo( "user_data", json_decode( $request->get( 'user_data' ) ) );
