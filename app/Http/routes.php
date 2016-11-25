@@ -32,6 +32,11 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			return view( 'home', compact( 'faqs' ) );
 		} )->name( 'home' );
 
+		Route::get( '/our-products', function ()
+		{
+			return view( 'quality');
+		} )->name( 'home' );
+
 		Route::get( '/faq', function ()
 		{
 			$faqs = ( new \App\Apricot\Repositories\FaqRepository() )->get();
