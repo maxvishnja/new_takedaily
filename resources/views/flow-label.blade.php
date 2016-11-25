@@ -28,15 +28,14 @@
 				   data-oldvitamin="3g">{{ trans('flow.switch-to-fish') }}</a>
 			@endif
 
-			<div class="m-t-30 m-b-10"><a href="#" class="readMoreBtn">{{ trans('flow-actions.read-more') }}</a></div>
-
 			<div class="extra_content">
+				<div class="m-t-30 m-b-10"><a href="#" class="readMoreBtn">{{ trans('flow-actions.read-more') }}</a></div>
 				<div class="description">
 					@if(isset($descriptions[$vitamin])) <p>{!! $descriptions[$vitamin] !!}</p> @endif
 
 					<div class="m-t-20 m-b-10"><a href="#" class="seeIngredientsBtn">{{ trans('flow-actions.see-ingredients') }}</a></div>
+					<div class="ingredients">@include('flow-includes.views.vitamin_table', ['label' => strtolower($vitamin)])</div>
 				</div>
-				<div class="ingredients">@include('flow-includes.views.vitamin_table', ['label' => strtolower($vitamin)])</div>
 			</div>
 		</div>
 	</div>

@@ -283,7 +283,6 @@
 				else {
 					$("#advises-block").hide();
 					$("#advises-loader").show();
-					$("#advises-content").html('');
 					$("#advises-label").html('');
 				}
 			},
@@ -426,9 +425,18 @@
 		app.getCombinations(false);
 	});
 
-	$("#advises-vitamins").on('click', '.ingredient_item', function () {
-		$(this).toggleClass('opened');
-		$(this).find('.table_container').stop().slideToggle(300);
+	$("#advises-label").on('click', '.readMoreBtn', function(e)
+	{
+		e.preventDefault();
+
+		$(this).parent().parent().find('.description').stop().slideToggle(200);
+	});
+
+	$("#advises-label").on('click', '.seeIngredientsBtn', function(e)
+	{
+		e.preventDefault();
+
+		$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
 	});
 
 	function forceUpdateAndSubmit() {
