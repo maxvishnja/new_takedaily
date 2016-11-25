@@ -72,7 +72,7 @@ class NavGenerator
 				$navArray[] = [
 					'text'     => $text,
 					'link'     => $link,
-					'subitems' => self::getSubnav( strtolower( $navItem->title ), $locale )
+//					'subitems' => self::getSubnav( strtolower( $navItem->title ), $locale )
 				];
 			}
 
