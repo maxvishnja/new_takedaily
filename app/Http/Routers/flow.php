@@ -65,13 +65,6 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 
 	$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
 
-	$advises = '';
-
-	foreach ( $lib->getAdvises() as $adviseKey => $advise )
-	{
-		$advises .= '<p class="advise-paragraph" data-key="' . $adviseKey . '">' . $advise . '</p>';
-	}
-
 	$codes = $lib->getResult();
 
 	/** @var \App\FlowCompletion $flowCompletion */
@@ -86,27 +79,18 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 
 	foreach($lib->getResult() as $vitamin)
 	{
-		$ingredients .= '<div class="ingredient_item" data-vitamin="' . $vitamin . '">
-					<span class="icon icon-arrow-down"></span>
-					<h3>' . ( isset( \App\Apricot\Libraries\PillLibrary::$codes[ strtolower($vitamin) ] ) ? \App\Apricot\Libraries\PillLibrary::$codes[ strtolower($vitamin) ] : $vitamin ) . '</h3>
-					' . view( 'flow-includes.views.vitamin_table', [ 'label' => strtolower( $vitamin ) ] ) . '
-				</div>';
-
 		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ strtolower($vitamin) ], '', [ 'key' => "vitamin.{$vitamin}" ] );
 		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$vitamin}", $vitamin );
 	}
 
 	\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );
-
 	\App\Apricot\Checkout\Cart::addInfo( "user_data", json_decode( $request->get( 'user_data' ) ) );
 
 	return Response::json( [
-		'advises'        => $advises,
 		'num_advises'    => count( $lib->getAdvises() ),
-		'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos() ] )->render(),
+		'label'          => view( 'flow-label', [ 'combinations' => $lib->getResult(), 'advises' => $lib->getAdviseInfos(), 'descriptions' => $lib->getAdvises() ] )->render(),
 		'selected_codes' => implode( ',', $codes ),
 		'result'         => $lib->getResult(),
-		'vitamin_info'   => $ingredients,
 		'token'          => $flowCompletion->token
 	] );
 } )->name( 'flow-recommendations' );
