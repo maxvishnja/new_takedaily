@@ -13,8 +13,6 @@
 		@include('flow-includes.views.progress')
 
 		<div style="position: relative">
-			@include('flow-includes.views.help')
-
 			<div class="container">
 				<div class="flow-step-back" v-bind:class="{ 'clickable': step > 1 || sub_step > 1}">
 					<a href="javascript: void(0);" v-on:click="previousStep();">{{ trans('flow.back') }}</a>
@@ -25,6 +23,7 @@
 					@include('flow-includes.views.steps.two')
 					@include('flow-includes.views.steps.three')
 					@include('flow-includes.views.steps.four')
+					@include('flow-includes.views.help')
 
 					{{ csrf_field() }}
 					<input type="hidden" name="product_name"
