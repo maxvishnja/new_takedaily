@@ -200,7 +200,7 @@
 		{
 			swal({
 				title: "{{ trans('message.success-title') }}",
-				text: "",
+				text: "{{ trans('mailchimp.thanks') }}",
 				type: "success",
 				html: true,
 				allowOutsideClick: true,

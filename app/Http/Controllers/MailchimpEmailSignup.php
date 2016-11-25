@@ -36,10 +36,10 @@ class MailchimpEmailSignup extends Controller
 				);
 		} catch ( \Mailchimp_List_AlreadySubscribed $e )
 		{
-			return \Response::json( [ 'errors' => 'Already subscribed' ], 422 ); // todo translate
+			return \Response::json( [ 'errors' => trans('mailchimp.already-subscribed') ], 422 );
 		} catch ( \Mailchimp_Error $e )
 		{
-			return \Response::json( [ 'errors' => 'Unknown error' ], 422 ); // todo translate
+			return \Response::json( [ 'errors' => trans('mailchimp.unknown') ], 422 );
 		}
 
 		return \Response::json( [ 'Ok' ] );
