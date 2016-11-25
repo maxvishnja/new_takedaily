@@ -513,18 +513,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			\Auth::logout();
 
-			$coupon = \App\Coupon::create( [
-				'description'   => 'Upsell discount',
-				'code'          => str_random( 8 ),
-				'currency'      => trans( 'general.currency' ),
-				'discount'      => 50,
-				'applies_to'    => 'order',
-				'discount_type' => 'percentage',
-				'uses_left'     => 1,
-				'valid_from'    => \Jenssegers\Date\Date::now(),
-				'valid_to'      => \Jenssegers\Date\Date::now()
-				                                        ->addDay()
-			] );
+			$coupon = \App\Coupon::newUpsellCoupon();
 
 			Session::put( 'applied_coupon', $coupon->code );
 			Session::forget( 'flow-completion-token' );
