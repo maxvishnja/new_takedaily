@@ -72,7 +72,7 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 		$advises .= '<p class="advise-paragraph" data-key="' . $adviseKey . '">' . $advise . '</p>';
 	}
 
-	$codes = $lib->getPillNames();
+	$codes = $lib->getResult();
 
 	/** @var \App\FlowCompletion $flowCompletion */
 	$flowCompletion = \App\FlowCompletion::generateNew( $request->get( 'user_data', '{}' ) );

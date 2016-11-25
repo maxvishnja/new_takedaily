@@ -158,21 +158,19 @@
 				});
 			},
 
-			removeVitamin: function (group, subgroup) {
+			removeVitamin: function (vitamin) {
 				if ($("#advises-label").find('.removePillButton').length == 2) {
 					$("#advises-label").find('.removePillButton').remove();
 				}
 
-				$(".vitamin-item-for-recommendation[data-group='" + group + "']").fadeOut(350, function () {
+				$(".vitamin-item-for-recommendation[data-vitamin='" + vitamin + "']").fadeOut(350, function () {
 					$(this).remove();
 				});
 
-				$("#advises-vitamins").find(".ingredient_item[data-grouptext='" + group + "']").remove();
-				$("#advises-content").find(".advise-paragraph[data-key='" + group + "']").remove();
+				$("#advises-vitamins").find(".ingredient_item[data-vitamin='" + vitamin + "']").remove();
+				$("#advises-content").find(".advise-paragraph[data-vitamin='" + vitamin + "']").remove();
 
-				$.post('/cart-deduct/' + group).done(function (response) {
-					app.getCart();
-				});
+				window.location.href = $("#link-to-change").attr('href').replace(vitamin, '');
 			},
 
 			nextStep: function () {
@@ -420,7 +418,7 @@
 
 
 	$("#advises-label").on('click', '.removePillButton', function () {
-		app.removeVitamin($(this).data('group'), $(this).data('subgroup'));
+		app.removeVitamin($(this).data('vitamin'));
 	});
 
 	$("#advises-label").on('click', '.customVitaminButton', function () {

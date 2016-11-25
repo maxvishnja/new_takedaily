@@ -6,9 +6,9 @@
 
 		<strong>
 			{{ \App\Apricot\Libraries\PillLibrary::getPillCode(strtolower($vitamin)) }}
-			<span class="removePillButton pull-right">
+			<span class="removePillButton pull-right" data-vitamin="{{ $vitamin }}">
 				{{ trans('flow-actions.remove') }}
-				<span data-vitamin="{{ $vitamin }}" class="icon icon-cross-16-dark m-r-10" style="vertical-align: middle"></span>
+				<span class="icon icon-cross-16-dark m-r-10" style="vertical-align: middle"></span>
 			</span>
 		</strong>
 
