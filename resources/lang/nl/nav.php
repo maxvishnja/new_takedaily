@@ -5,8 +5,7 @@ return array (
   array (
     'profile' => 'Mijn TakeDaily',
     'deliveries' => 'Bestellingen',
-    'settings' => 'Klantgegevens
-',
+    'settings' => 'Klantgegevens',
     'subscription' => 'Abonnement',
     'billing' => 'Betaalmethode',
     'logout' => 'Uitloggen',
@@ -15,6 +14,7 @@ return array (
   'items' => 
   array (
     'gifting' => 'Geef Takedaily cadeau',
+    'our-products' => 'Products'
   ),
   'subitems' => 
   array (
