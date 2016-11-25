@@ -19,11 +19,9 @@
 				@endif
 			</p>
 			@if($vitamin == '3e')
-				<div style="font-size: 13px; margin: 15px 0">{!! trans('label-3e.disclaimer_web') !!}</div>
 				<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-vitamin="3g"
 				   data-oldvitamin="3e">{{ trans('flow.switch-to-chia') }}</a>
 			@elseif($vitamin == '3g')
-				<div style="font-size: 13px; margin: 15px 0">{!! trans('label-3g.disclaimer_web') !!}</div>
 				<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-vitamin="3e"
 				   data-oldvitamin="3g">{{ trans('flow.switch-to-fish') }}</a>
 			@endif
