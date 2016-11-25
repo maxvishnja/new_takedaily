@@ -382,7 +382,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
       'basic-10-d' => 'De Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D
 
 <span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
-      'basic-10-d-alt' => 'De Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D</div>
+      'basic-10-d-alt' => 'De Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D
 
 <div class="clear"></div>
 

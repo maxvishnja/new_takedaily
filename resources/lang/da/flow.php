@@ -427,7 +427,7 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
 <div class="clear"></div>
 
 <div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>',
-      'basic-10-d-alt' => 'Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D </ div>
+      'basic-10-d-alt' => 'Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D
 
 <div class="clear"></div>
 
