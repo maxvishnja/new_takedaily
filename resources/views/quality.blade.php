@@ -10,7 +10,12 @@
 	<div class="header_image">
 		<div class="container">
 			<h1>{{ trans('quality.page_title') }}</h1>
-			<p>{{ trans('quality.subtitle') }}</p>
+
+			<div class="row">
+				<div class="col-md-6 col-md-push-3">
+					<h2>{{ trans('quality.subtitle') }}</h2>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -60,17 +65,6 @@
 
 	<style>
 		.header_image {
-			max-height: 800px;
-			margin: 0;
-			position: relative;
-			text-align: center;
-			padding: 100px 0;
-			color: #fff;
-
-			background-color: #fff;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center center;
 			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/quality/bg.jpg);
 			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/quality/bg.jpg);
 		}
@@ -108,8 +102,7 @@
 			padding-left: 15px;
 		}
 
-		@media all and (max-width: 991px)
-		{
+		@media all and (max-width: 991px) {
 			section {
 				background-size: cover;
 			}
