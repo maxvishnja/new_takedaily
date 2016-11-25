@@ -13,7 +13,7 @@
 
 			<div class="row">
 				<div class="col-md-6 col-md-push-3">
-					<h2>{{ trans('quality.subtitle') }}</h2>
+					<h2>{!! trans('quality.subtitle') !!}</h2>
 				</div>
 			</div>
 		</div>
