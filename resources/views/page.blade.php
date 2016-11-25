@@ -14,12 +14,6 @@
 				@if( $page->sub_title != '')
 					<h2>{{ $page->sub_title }}</h2>
 				@endif
-
-				@if( !Auth::user() || !Auth::user()->isUser() || ! Auth::user()->getCustomer() )
-					<div class="cta hidden-xs">
-						{!! trans('cms.sticky-cta') !!}
-					</div>
-				@endif
 			</div>
 		</div>
 	@endif
@@ -58,23 +52,5 @@
 				background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url({{ asset($page->top_image) }});
 			}
 		</style>
-	@endif
-@endsection
-
-@section('footer_scripts')
-	@if( !Auth::user() || !Auth::user()->isUser() || ! Auth::user()->getCustomer() )
-		<script>
-			var ctaBlock = $(".cta");
-			var headerBlock = $(".header_image");
-
-			$(window).scroll(function () {
-				if ($(this).scrollTop() > headerBlock.outerHeight()) {
-					ctaBlock.addClass('cta--sticky');
-				}
-				else {
-					ctaBlock.removeClass('cta--sticky');
-				}
-			});
-		</script>
 	@endif
 @endsection
