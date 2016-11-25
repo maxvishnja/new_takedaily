@@ -4,8 +4,8 @@ return array (
   'title' => 'Indløs gavekort',
   'title-element' => 'Indløs gavekort',
   'subtitle' => 'Hvis du har modtaget et gavekort, kan du indløse det her.',
-  'button' => 'Indløs gavekort',
   'placeholder' => 'Dit gavekort',
-  'success' => 'Perfekt, gavekortet er nu anvendt og du skal nu igennem spørgeskemaet!',
+  'button' => 'Indløs gavekort',
+  'success' => 'Perfekt, gavekortet er nu anvendt. Du skal nu igennem testen, så vi kan sammensætte en TakeDaily til dig!',
   'failed' => 'Gavekortet findes ikke, desværre.. Prøv igen.',
 );

@@ -5,19 +5,19 @@ return array (
   'page_title' => 'Vores produkter',
   'subtitle' => 'TakeDaily er høj kvalitet og rene, naturlige, aktive ingredienser, alle videnskabeligt bevist.
 
-Vi har samlet de bedste ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den ultimative måde at genopbygge din krop indefra.  
-				Videnskaben bag er kompleks, men for dig er det hele enkelt og ligetil.',
+<p> Vi har samlet de bedste ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den ultimative måde at genopbygge din krop indefra.   </p>
+				<p> Videnskaben bag er kompleks, men for dig er det hele enkelt og ligetil.</p>',
   'section_vitamins' => 
   array (
     'title' => 'Vores vitaminer og kosttilskud',
-    'body' => '<p>Alle vores vitaminer og kosttilskud er af bedste kvalitet. Alle anvendte grundstoffer og underleverandører er godkendt ned til mindste detalje i EU, og vores egne formulaer er i overensstemmelse med reglerne for kosttilskud udstukket af EFSA (European Food Safety Authority).</p>
+    'body' => '<p>Alle vores vitaminer og kosttilskud er af bedste kvalitet. Alle anvendte grundstoffer og underleverandører er godkendt ned til mindste detalje i EU, og vores egne formulaer er i overensstemmelse med reglerne for kosttilskud udstukket af EFSA (European Food Safety Authority) samt de nordiske kostråd. Vores produktions- og pakkefacilitet er ISO 22000 certificeret og specialiseret i at arbejde med fødevarer.</p>
 
-<p>Uagtet hvilken sammensætning vi anbefaler dig, holder vi os altid under de daglige anbefalede værdier.</p>',
+<p>Uagtet hvilken sammensætning vi anbefaler dig, sørger vi for at du får det du har brug for og indenfor de tilladte værdier.</p>',
   ),
   'section_plants' => 
   array (
     'title' => 'Vores kapsler er 100% plantebaseret',
-    'body' => '<p>Blandt få i Danmark, tilbyder vi 100% plantebaserede kapsler til at indeholde vores vitaminer og kosttilskud. Foruden fiskolien, er vores kapsler lavet af det organiske stof cellulose (hydroxypropyl methylcellulose), som kommer fra træer. Det er en omstændig proces at producere, men har flere gode egenskaber, foruden bæredygtighed. Desuden er kapslerne egnet til folk, som ikke ønsker gelatinebaserede produkter på grund af livsstil eller religion.</p>
+    'body' => '<p>Blandt de få i Danmark, er de kapsler vi bruger til vitaminer og mineraler 100% plantebaseret. Foruden fiskolien, er vores kapsler lavet af det organiske stof cellulose (hydroxypropyl methylcellulose), som kommer fra træer. Det er en omstændig proces at producere, men har flere gode egenskaber, foruden bæredygtighed. Desuden er kapslerne egnet til folk, som ikke ønsker gelatinebaserede produkter på grund af livsstil eller religion.</p>
 
 <p><strong>I øvrigt er vores vitaminer, mineraler og omega-kapsler:</strong></p>
 

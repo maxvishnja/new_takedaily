@@ -4,7 +4,7 @@ return array (
   'general' => 
   array (
     'regards' => 'Mvh.',
-    'company' => 'Takedaily ApS',
+    'company' => 'TakeDaily ApS',
     'reason' => 'Du får denne mail fordi du er kunde hos os.',
     'unsubscribe' => 'Det er ikke muligt at opsige denne type mail.',
   ),
@@ -64,8 +64,8 @@ return array (
     'summary' => 'Vi sender din næste pakke om 24 timer!',
     'next-order' => 'Din næste forsendelse oprettes d. :date',
     'snooze-title' => 'Ønsker du at udskyde din forsendelse?',
-    'snooze-text' => 'Vi tillader at du som kunde, kan udskyde din forsendelse - f.eks. hvis du ikke har fået taget alle vitaminerne, eller bare ønsker at vente med at betale og modtage.',
-    'snooze-link' => 'Ønsker du at udskyde? I så fald, så <a href=":link" target="_blank">Tryk her</a> og så hjælper vi dig.',
+    'snooze-text' => 'Har du stadig et par dages forbrug tilbage af din TakeDaily? Du kan udskyde leveringen af din næste forsendelse, så det passer med, at du ikke har mere tilbage, når den næste TakeDaily lander i din postkasse.',
+    'snooze-link' => 'Ønsker du at udskyde din næste TakeDaily? I så fald, så <a href=":link" target="_blank">Tryk her</a> så hjælper vi dig.',
   ),
   'order' => 
   array (

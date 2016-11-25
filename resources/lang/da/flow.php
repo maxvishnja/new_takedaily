@@ -428,12 +428,9 @@ Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholde
 <div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
 
 							',
-      'basic-10-d-alt' => '
-Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D </ div>
+      'basic-10-d-alt' => 'Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D </ div>
 
-<Span class = "ikon-generelle sundhed-flow flow-løfte-ikonet"> </ span> <div class = "flow-løfte-tekst"> Bidrager til en optimal sundhed </ div>
-
-							',
+<span class="icon-general_health-flow flow-promise-icon"></ span> <div class="flow-promise-tekst">Bidrager til en optimal sundhed</div>',
       'basic-20-d' => 'Multivitamin D+ Ekstra  udgør grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år.
 
 <span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en optimal sundhed </div>
