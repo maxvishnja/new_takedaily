@@ -34,8 +34,8 @@
 									</a>
 									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
 									<div class="headervideo-block">
-										<strong>{{ trans('home.header.what-is') }}</strong>
 										<span id="video-toggle-two" class="icon icon-play"></span>
+										<strong>{{ trans('home.header.what-is') }}</strong>
 									</div>
 								</div>
 								<div class="col-md-4 hidden-sm hidden-xs">
