@@ -395,17 +395,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
 			}
 
-			$token = str_random( 16 );
-
-			while ( \App\FlowCompletion::whereToken( $token )->limit( 1 )->count() > 0 )
-			{
-				$token = str_random( 16 );
-			}
-
-			$flowCompletion = \App\FlowCompletion::create( [
-				'token'     => $token,
-				'user_data' => $request->get( 'user_data', '{}' )
-			] );
+			$flowCompletion = \App\FlowCompletion::generateNew($request->get( 'user_data', '{}' ));
 
 			$request->session()->set( 'flow-completion-token', $flowCompletion->token );
 

@@ -4,6 +4,7 @@ namespace App\Apricot\Libraries;
 // todo start checking if combination is possible again
 
 use App\Combination;
+use App\Vitamin;
 use Illuminate\Database\Query\Builder;
 
 class CombinationLibraryNew
@@ -18,6 +19,23 @@ class CombinationLibraryNew
 
 	function __construct()
 	{
+	}
+
+	public function getPillNames()
+	{ // todo debug @ office
+		$names = [];
+
+		foreach($this->vitamins as $vitamin)
+		{
+			$names[] = PillLibrary::$codes[$vitamin];
+		}
+
+		return $names;
+	}
+
+	public function getPillIds()
+	{
+		return array_flatten(Vitamin::whereIn('code', $this->vitamins)->select('id')->get()->toArray()); // todo debug @ office
 	}
 
 	public function hasOil()
