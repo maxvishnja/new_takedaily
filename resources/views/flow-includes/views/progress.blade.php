@@ -34,7 +34,12 @@
 			<div class="flow-step-title">{{ trans('flow.steps.three') }}</div>
 		</div>
 		<div class="flow-step flow-step--inactive" step="4"
-			 v-bind:class="{ 'flow-step--inactive': step !== 4 }">
+			 v-bind:class="{ 'flow-step--inactive': step !== 4, 'flow-step--completed': step >= 4 }">
+			<div class="flow-step-progress">
+						<span class="flow-step-progress-bar" style="width: 100%"></span></div>
+			<div class="flow-step-check">
+				<div class="icon icon-check"></div>
+			</div>
 			<div class="flow-step-title">{{ trans('flow.steps.four') }}</div>
 		</div>
 	</div>

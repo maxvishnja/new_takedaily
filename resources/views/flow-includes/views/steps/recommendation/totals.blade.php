@@ -28,35 +28,37 @@
 					class="button button--green button--huge button--full-mobile m-t-30" onclick="forceUpdateAndSubmit();">{{ trans('flow.button-save-text') }}</button>
 			<hr/>
 		@endif
-		<button type="submit"
-				class="button @if(!Auth::check()) button--green @else button--light @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
+		<div class="text-center">
+			<button type="submit"
+					class="button @if(!Auth::check()) button--green @else button--light @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
 
-		@if(!$giftcard)
-			<div class="m-t-20 m-b-20">
-				<a href="#coupon-field"
-				   id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
-			</div>
-
-			<div id="coupon-field" style="display: none;" class="m-t-20">
-				<div class="row">
-					<div class="col-md-8">
-						<input type="text" id="coupon-input" maxlength="20"
-							   placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}"
-							   class="input input--regular input--uppercase input--spacing input--full input--semibold"
-							   value="{{ Request::old('coupon', Session::get('applied_coupon')) }}"/>
-					</div>
-
-					<div class="col-md-4">
-						<button type="button"
-								class="button button--regular button--green button--full"
-								id="coupon-button">{{ trans('checkout.index.coupon.button-text') }}</button>
-					</div>
+			@if(!$giftcard)
+				<div class="m-t-20 m-b-20">
+					<a href="#coupon-field"
+					   id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
 				</div>
 
-				<div id="coupon-form-successes" class="m-t-10"></div>
-				<div id="coupon-form-errors" class="m-t-10"></div>
-			</div>
-		@endif
+				<div id="coupon-field" style="display: none;" class="m-t-20">
+					<div class="row">
+						<div class="col-md-8">
+							<input type="text" id="coupon-input" maxlength="20"
+								   placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}"
+								   class="input input--regular input--uppercase input--spacing input--full input--semibold"
+								   value="{{ Request::old('coupon', Session::get('applied_coupon')) }}"/>
+						</div>
+
+						<div class="col-md-4">
+							<button type="button"
+									class="button button--regular button--green button--full"
+									id="coupon-button">{{ trans('checkout.index.coupon.button-text') }}</button>
+						</div>
+					</div>
+
+					<div id="coupon-form-successes" class="m-t-10"></div>
+					<div id="coupon-form-errors" class="m-t-10"></div>
+				</div>
+			@endif
+		</div>
 	</div>
 
 	<div class="card card--no-style m-t-20">
