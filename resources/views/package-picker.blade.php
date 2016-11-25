@@ -14,7 +14,7 @@
 		</div>
 	</div>
 
-	<div class="container m-t-50" id="app">
+	<div class="container m-t-30" id="app">
 		<div v-cloak="" class="packages">
 			<div v-for="package in packages" class="package">
 				<strong v-html="package.name"></strong>
