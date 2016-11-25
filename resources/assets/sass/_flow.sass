@@ -289,7 +289,13 @@ body.page-flow
 				border-left: 1px solid $pale-grey-border
 
 			.flow-step-check
-				display: none
+				display: inline-block
+				opacity: 0
+				top: 50%
+				margin-top: -5px
+				position: absolute
+				transform: translateX(-18px)
+				transition: opacity 150ms, transform 150ms
 
 			.flow-step-progress
 				margin-right: 12px
@@ -317,6 +323,8 @@ body.page-flow
 				font-size: 14px
 				letter-spacing: 1px
 				color: $warm-grey
+				transform: translateX(0)
+				transition: transform 150ms
 
 			&.flow-step--inactive
 				background: transparent
@@ -340,14 +348,14 @@ body.page-flow
 
 				.flow-step-title
 					color: $warm-grey
+					transform: translateX(18px)
 
 				.flow-step-progress
 					display: none
 
 				.flow-step-check
-					margin-right: 12px
-					display: inline-block
-					position: relative
+					opacity: 1
+					transform: translateX(0)
 	.link-button
 		display: inline-block
 		-webkit-appearance: none
