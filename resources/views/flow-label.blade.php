@@ -1,5 +1,6 @@
 @foreach($combinations as $vitamin)
-	<div class="m-b-30 vitamin-item-for-recommendation" data-vitamin="{{ $vitamin }}">
+	<div class="clear"></div>
+	<div class="m-b-50 vitamin-item-for-recommendation" data-vitamin="{{ $vitamin }}">
 		<div style="display: inline-block;margin-right: 8px;" class="pull-left text-right">
 			<span class="icon pill-{{ strtolower($vitamin) }}"></span>
 		</div>
