@@ -23,21 +23,6 @@
 		<div class="header_content">
 			<div class="header_slides_container">
 				<div class="header_slides">
-					<div class="header_slide header_slide--active" data-slide="1">
-						<div class="container">
-							<h1>{!! trans('home.header.title-1') !!}</h1>
-							<a href="{{ url()->route('flow') }}"
-							   class="button button--rounded button--huge button--landing button--white m-t-30">
-								<strong>{!! trans('home.header.button-click-here') !!}</strong>
-							</a>
-							<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
-							<div class="headervideo-block">
-								<strong>{{ trans('home.header.what-is') }}</strong>
-								<span id="video-toggle" class="icon icon-play"></span>
-							</div>
-						</div>
-					</div>
-
 					<div class="header_slide" data-slide="2">
 						<div class="container">
 							<div class="row">
@@ -65,17 +50,10 @@
 					</div>
 				</div>
 			</div>
-
-
-			<div class="header_slide_nav hidden-xs">
-				<div class="header_slide_nav_item header_slide_nav_item--active" data-slide="1"></div>
-				<div class="header_slide_nav_item" data-slide="2"></div>
-			</div>
 		</div>
 
 		<div class="header_bg_slides_container">
 			<div class="header_bg_slides">
-				<div class="header_bg_item header_bg_item--1" data-slide="1"></div>
 				<div class="header_bg_item header_bg_item--2" data-slide="2"></div>
 			</div>
 		</div>
@@ -248,7 +226,6 @@
 
 @section('footer_scripts')
 	<script>
-		$("#slider_one").slider();
 		$("#slider_two").slider();
 
 		var videoPopup = $("#video_popup");
@@ -271,30 +248,6 @@
 		$(".video-popup_container").click(function (e) {
 			e.stopPropagation();
 		});
-
-		var header_slider = $(".header_slides");
-		var header_bg_slider = $(".header_bg_slides");
-		var header = $("header.header--landing");
-
-		$(".header_slide_nav_item").click(function () {
-			var currentSlide = $(this).data('slide');
-			var activeSlide = $(".header_slide_nav_item--active");
-
-			header.removeClass('header--front-slide-' + activeSlide.data('slide'));
-			header.addClass('header--front-slide-' + currentSlide);
-			activeSlide.removeClass("header_slide_nav_item--active");
-			$(this).addClass("header_slide_nav_item--active");
-
-			header_slider.css("transform", "translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
-			header_slider.css("transform", "-webkit-translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
-
-			header_bg_slider.css("transform", "translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
-			header_bg_slider.css("transform", "-webkit-translateX(-" + (currentSlide - 1) / 2 * 100 + "%)");
-		});
-
-		setTimeout(function () {
-			$(".header_slide_nav_item[data-slide='2']").click();
-		}, 3000);
 
 		$(".faq").click(function () {
 			var currentFaq = $(".faq.open");
