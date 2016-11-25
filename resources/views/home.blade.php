@@ -194,6 +194,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-push-2">
+						<h3 style="font-size: 32px" class="text-center">{{ trans('faq.title') }}</h3>
 						<div class="faqs">
 							@foreach($faqs as $faq)
 								<div class="faq">
