@@ -195,7 +195,7 @@ body.index
 					height: 100%
 
 					&.header_bg_item--2
-						background: #fff url(/images/header_bg.jpg) no-repeat 80% bottom
+						background: #fff url(/images/header_bg.jpg) no-repeat 70% bottom
 						background-size: cover
 
 		.header_footer
@@ -415,15 +415,6 @@ body.index
 			.header_content
 				margin-top: 24vh
 
-@media all and (max-width: 1750px)
-	body.index
-		header.header--landing
-			.header_bg_slides_container
-				.header_bg_slides
-					.header_bg_item
-						&.header_bg_item--1
-							background-position: 120% 134px
-
 @media all and (max-width: 1599px)
 	body.index
 		.block
@@ -526,6 +517,10 @@ body.index
 
 @media all and (max-width: 767px)
 	body.index
+		.header_bg_slides_container
+			top: 69px !important
+			height: calc(100% - 69px) !important
+
 		.slider_container
 			.slider-arrow-right
 				right: 5px
