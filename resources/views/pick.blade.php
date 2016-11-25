@@ -115,7 +115,7 @@
 				vitamins: [
 						@foreach($vitamins as $vitamin)
 					{
-						name: "{!! $vitamin->name !!}",
+						name: "{{ \App\Apricot\Helpers\PillName::get($vitamin->codeG) }}",
 						code: "{!! $vitamin->code !!}",
 						id: "{{ $vitamin->id }}",
 						description: "{!! $vitamin->description !!}",
