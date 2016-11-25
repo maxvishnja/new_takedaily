@@ -65,12 +65,13 @@
 
 	<style>
 		.header_image {
+			padding: 60px 0;
 			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/quality/bg.jpg);
 			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/quality/bg.jpg);
 		}
 
 		section {
-			padding: 100px 0;
+			padding: 60px 0;
 			background-color: #fff;
 			background-repeat: no-repeat;
 			background-size: 50% 100%;
@@ -89,6 +90,10 @@
 		section.quality_section_two {
 			background-image: linear-gradient(-270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(-270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), url(/images/quality/two.jpg);
 			background-position: right center;
+		}
+
+		section.quality_section_three img {
+			width: 202px;
 		}
 
 		section .aligner {
