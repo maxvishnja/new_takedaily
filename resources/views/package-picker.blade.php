@@ -27,6 +27,7 @@
 
 				<div class="package_bottom">
 					<a v-bind:href="'{{ url()->route('pick-package-select', ['id' => '']) }}/' + package.id" class="button button--green">{{ trans('pick-package.select-btn') }}</a>
+					<a href="#" class="button button--light">{{ trans('pick-package.read-btn') }}</a>
 				</div>
 			</div>
 		</div>
