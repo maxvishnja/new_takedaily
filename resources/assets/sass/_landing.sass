@@ -456,6 +456,19 @@ body.index
 
 @media all and (max-width: 991px)
 	body.index
+		.header_bg_slides_container
+			.header_bg_slides
+				.header_bg_item
+					&.header_bg_item--2:after
+							display: block
+							content: ""
+							background: rgba($main-green-dark,.35)
+							position: absolute
+							left: 0
+							top: 0
+							width: 100%
+							height: 100%
+
 		.block
 			&.block--promises
 				.promise-item
@@ -587,7 +600,8 @@ body.index
 					padding-right: 100px
 
 				.headervideo-block
-					padding-left: 30px
+					padding: 0
+					text-align: center
 
 @media all and (max-width: 480px)
 	body.index
