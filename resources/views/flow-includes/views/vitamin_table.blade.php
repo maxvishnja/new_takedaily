@@ -98,14 +98,6 @@
 			<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.Allergener') }}
 					:</strong> {{ trans("label-{$label}.Allergener") }}</p>
 		@endif
-
-		<div>
-			{!! trans( 'label-product.Store_website' ) !!}
-		</div>
-
-		<div class="m-t-10">
-			{!! trans( 'label-product.Use_website' ) !!}
-		</div>
 	</div>
 
 </div>
