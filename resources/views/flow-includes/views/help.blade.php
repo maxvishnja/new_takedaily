@@ -1,5 +1,5 @@
 <div class="flow-helper">
-	<div class="m-b-10 hidden-xs hidden-sm"><strong>{{ trans('help.title') }}</strong></div>
+	<div class="m-b-10"><strong>{{ trans('help.title') }}</strong></div>
 
 		<div>
 			<a href="javascript:void(0);" onclick="Tawk_API.toggle();" class="flow-helper_button hidden-xs hidden-sm">{{ trans('help.chat') }}</a>
@@ -9,5 +9,5 @@
 			</a>
 		</div>
 
-		<div class="m-t-10 hidden-xs hidden-sm">{{ trans('help.openings') }}</div>
+		<div class="m-t-10">{{ trans('help.openings') }}</div>
 </div>

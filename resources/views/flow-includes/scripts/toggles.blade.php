@@ -44,6 +44,7 @@
 		startView: 2,
 		weekStart: 1,
 		autoclose: true,
+		defaultViewDate: {year: 1970, month: 1, day: 1},
 		language: "{{ App::getLocale() }}"
 	}).on("changeDate", function () {
 		app.user_data.birthdate = $('#openPicker').datepicker('getDate');
