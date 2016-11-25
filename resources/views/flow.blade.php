@@ -34,7 +34,7 @@
 		</div>
 	</div>
 
-	@include('flow-includes.views.call-me')
+	{{--@include('flow-includes.views.call-me')--}}
 @endsection
 
 @section('footer_scripts')
