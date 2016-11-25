@@ -1,6 +1,6 @@
 @foreach($combinations as $vitamin)
 	<div class="m-b-30 vitamin-item-for-recommendation" data-vitamin="{{ $vitamin }}">
-		<div style="display: inline-block;" class="pull-right text-right">
+		<div style="display: inline-block;margin-right: 8px;" class="pull-left text-right">
 			<span class="icon pill-{{ strtolower($vitamin) }}"></span>
 		</div>
 
@@ -11,6 +11,9 @@
 				<span data-vitamin="{{ $vitamin }}" class="icon icon-cross-16-dark m-r-10" style="vertical-align: middle"></span>
 			</span>
 		</strong>
+
+		<div class="clear"></div>
+
 		<p>
 			@if(isset($advises[$vitamin]))
 				{!! $advises[$vitamin] !!}
