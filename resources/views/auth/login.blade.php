@@ -2,6 +2,15 @@
 
 @section('content')
 	<div class="container">
+
+		<div class="text-center m-b-50">
+			<a href="{{ url()->route('flow') }}"
+			   class="button button--rounded button--huge button--landing button--green">
+				<strong>{!! trans('home.header.button-click-here') !!}</strong>
+			</a>
+			<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
+		</div>
+
 		<div class="row">
 			<div class="col-md-6 col-md-push-3">
 				<div class="card">
