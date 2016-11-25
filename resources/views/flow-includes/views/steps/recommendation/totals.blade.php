@@ -24,9 +24,10 @@
 			</tbody>
 		</table>
 		@if(Auth::check())
-			<button type="button"
-					class="button button--green button--huge button--full-mobile m-t-30" onclick="forceUpdateAndSubmit();">{{ trans('flow.button-save-text') }}</button>
-			<hr/>
+			<div class="text-center">
+				<button type="button"
+						class="button button--green button--huge button--full-mobile m-t-30" onclick="forceUpdateAndSubmit();">{{ trans('flow.button-save-text') }}</button>
+			</div>
 		@endif
 		<div class="text-center">
 			<button type="submit"
