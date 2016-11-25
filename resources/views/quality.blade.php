@@ -80,6 +80,11 @@
 			background-color: #fff;
 			background-repeat: no-repeat;
 			background-size: 50% 100%;
+			font-size: 16px;
+		}
+
+		section h2 {
+			font-size: 28px;
 		}
 
 		section.quality_section_one {
@@ -111,6 +116,14 @@
 
 			section .aligner {
 				display: block;
+			}
+
+			section.quality_section_one {
+				background-image: linear-gradient(-270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 55%), linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), url(/images/quality/one.jpg);
+			}
+
+			section.quality_section_two {
+				background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 55%), linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(-270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), url(/images/quality/two.jpg);
 			}
 		}
 	</style>
