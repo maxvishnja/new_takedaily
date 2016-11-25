@@ -4,12 +4,18 @@
 
 @section('title', trans('use-gifting.title'))
 
+@section('mainClasses', 'm-b-50')
+
 @section('content')
-	<div class="container text-center">
-		<div class="gifting-block">
+	<div class="header_image">
+		<div class="container text-center">
 			<h1>{{ trans('use-gifting.title-element') }}</h1>
 			<h2>{{ trans('use-gifting.subtitle') }}</h2>
+		</div>
+	</div>
 
+	<div class="container text-center m-t-30">
+		<div class="gifting-block">
 			<div class="row">
 				<div class="col-md-6 col-md-push-3">
 					<form action="{{ url()->route('use-giftcard-post') }}" method="post">

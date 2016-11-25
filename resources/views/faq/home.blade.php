@@ -4,12 +4,17 @@
 
 @section('title', trans('faq.title'))
 
-@section('mainClasses', 'm-b-50 m-t-50')
+@section('mainClasses', 'm-b-50')
 
 @section('content')
+	<div class="header_image">
+		<div class="container text-center">
+			<h1>{{ trans('faq.title') }}</h1>
+		</div>
+	</div>
+
 	<div class="container">
 		<article>
-			<h1 class="text-center">{{ trans('faq.title') }}</h1>
 			<div class="row">
 				<div class="col-md-8 col-md-push-2">
 					<div class="faqs">
