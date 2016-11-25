@@ -17,7 +17,7 @@ return array (
   'section_plants' => 
   array (
     'title' => 'Vores kapsler er 100% plantebaseret',
-    'body' => '<p>Blandt de få i Danmark, er de kapsler vi bruger til vitaminer og mineraler 100% plantebaseret. Foruden fiskolien, er vores kapsler lavet af det organiske stof cellulose (hydroxypropyl methylcellulose), som kommer fra træer. Det er en omstændig proces at producere, men har flere gode egenskaber, foruden bæredygtighed. Desuden er kapslerne egnet til folk, som ikke ønsker gelatinebaserede produkter på grund af livsstil eller religion.</p>
+    'body' => '<p>Blandt de få i Danmark, er de kapsler vi bruger til vores vitaminer og mineraler 100% plantebaseret. Med undtagelse af vores fiskolie*, er vores kapsler lavet af det organiske stof cellulose (hydroxypropyl methylcellulose), som kommer fra træer. Det er en omstændig proces at producere, men har flere gode egenskaber, foruden bæredygtighed. Desuden er kapslerne egnet til folk, som ikke ønsker gelatinebaserede produkter på grund af livsstil eller religion.</p>
 
 <p><strong>I øvrigt er vores vitaminer, mineraler og omega-kapsler:</strong></p>
 
@@ -27,7 +27,9 @@ return array (
     <li>Godkendt til Kosher/Halal samt vegetarer/veganere</li>
     <li>Ikke-allergifremmende</li>
     <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
-</ul>',
+</ul>
+<p><em><br/><small>* Premium Omega-3 fiskeolie kommer i gelatinekapsel.
+<small><em></p>',
   ),
   'section_foa' => 
   array (

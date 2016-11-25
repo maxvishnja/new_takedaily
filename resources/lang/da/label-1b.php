@@ -180,4 +180,9 @@ Sundhedsstyrelsen anbefaler bestemte grupper til at indtage 10 mikrogram D-vitam
 <li> Kvinder 50-69 </li>
 </ul>',
   'weight' => '27,44 gram',
+  'web_advantage_list' => '<ul>
+<li>En fordel</li>
+<li>endnu en fordel</li>
+<li>En tredje fordel</li>
+</ul>',
 );
