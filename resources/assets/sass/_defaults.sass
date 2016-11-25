@@ -95,7 +95,6 @@ header
 		position: relative
 
 		nav[role="navigation"] ul li a
-			//color: $dark-grey
 			color: $main-green-dark
 
 			&:hover
@@ -151,12 +150,14 @@ header
 					display: block
 
 			a
+				border-radius: 4px
+				background: transparent
+				text-transform: none
+				border: 1px solid transparent
 				color: $main-green-dark
-				//color: $dark-grey
 
 				&:hover
-					color: $white !important
-					background: $main-green-dark
+					border-color: $main-green-dark
 
 .call-cta
 	position: fixed
@@ -220,8 +221,7 @@ nav[role="navigation"]
 				text-transform: uppercase
 				color: $white
 				font-size: 16px
-				//line-height: 20px
-				padding: 10px 6px
+				padding: 10px
 				text-decoration: none
 				display: inline-block
 
