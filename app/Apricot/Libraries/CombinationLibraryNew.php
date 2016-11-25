@@ -25,9 +25,9 @@ class CombinationLibraryNew
 	{ // todo debug @ office
 		$names = [];
 
-		foreach($this->vitamins as $vitamin)
+		foreach ( $this->vitamins as $vitamin )
 		{
-			$names[] = PillLibrary::$codes[$vitamin];
+			$names[] = PillLibrary::$codes[ $vitamin ];
 		}
 
 		return $names;
@@ -35,7 +35,7 @@ class CombinationLibraryNew
 
 	public function getPillIds()
 	{
-		return array_flatten(Vitamin::whereIn('code', $this->vitamins)->select('id')->get()->toArray()); // todo debug @ office
+		return array_flatten( Vitamin::whereIn( 'code', $this->vitamins )->select( 'id' )->get()->toArray() ); // todo debug @ office
 	}
 
 	public function hasOil()
@@ -123,9 +123,30 @@ class CombinationLibraryNew
 			return [];
 		}
 
-		$this->generateGroupOne( $data );
-		$this->generateGroupTwo( $data );
-		$this->generateGroupThree( $data );
+		if ( $data->locale == 'nl' && $data->pregnant == 1 )
+		{
+			$this->groupOne   = 'A';
+			$this->groupTwo   = 'd';
+			$this->groupThree = 'e';
+			$this->vitamins[] = '2A';
+			$this->vitamins[] = '3d';
+			$this->vitamins[] = '3e';
+		}
+
+		if ( ! is_null( $this->groupOne ) )
+		{
+			$this->generateGroupOne( $data );
+		}
+
+		if ( ! is_null( $this->groupTwo ) )
+		{
+			$this->generateGroupTwo( $data );
+		}
+
+		if ( ! is_null( $this->groupThree ) )
+		{
+			$this->generateGroupThree( $data );
+		}
 
 		if ( count( $this->vitamins ) == 0 )
 		{
@@ -278,7 +299,7 @@ class CombinationLibraryNew
 	{
 		if ( isset( $data->custom ) && isset( $data->custom->two ) )
 		{
-			$this->groupTwo = $data->custom->two;
+			$this->groupTwo   = $data->custom->two;
 			$this->vitamins[] = "2{$data->custom->two}";
 
 			return;
@@ -287,7 +308,7 @@ class CombinationLibraryNew
 		// A
 		if ( $this->combinationIsPossible( $this->groupOne, 'A' ) && ( isset( $data->pregnant ) && $data->pregnant == '1' ) )
 		{
-			$this->groupTwo = 'A';
+			$this->groupTwo   = 'A';
 			$this->vitamins[] = '2A';
 
 			$this->setAdvise( 'two', trans( 'flow.combinations.2.A' ) );
@@ -299,7 +320,7 @@ class CombinationLibraryNew
 		// B
 		if ( $this->combinationIsPossible( $this->groupOne, 'B' ) && ( isset( $data->diet ) && $data->diet == '1' ) )
 		{
-			$this->groupTwo = 'B';
+			$this->groupTwo   = 'B';
 			$this->vitamins[] = 'B';
 
 			$this->setAdvise( 'two', trans( 'flow.combinations.2.B' ) );
@@ -311,7 +332,7 @@ class CombinationLibraryNew
 		// E
 		if ( $this->combinationIsPossible( $this->groupOne, 'E' ) && ( isset( $data->joints ) && $data->joints == '1' ) )
 		{
-			$this->groupTwo = 'E';
+			$this->groupTwo   = 'E';
 			$this->vitamins[] = 'E';
 
 			$this->setAdvise( 'two', trans( 'flow.combinations.2.E' ) );
@@ -323,7 +344,7 @@ class CombinationLibraryNew
 		// D
 		if ( $this->combinationIsPossible( $this->groupOne, 'D' ) && ( isset( $data->smokes ) && $data->smokes == '1' ) )
 		{
-			$this->groupTwo = 'D';
+			$this->groupTwo   = 'D';
 			$this->vitamins[] = '2D';
 
 			$this->setAdvise( 'two', trans( 'flow.combinations.2.D' ) );
@@ -335,7 +356,7 @@ class CombinationLibraryNew
 		// C
 		if ( $this->combinationIsPossible( $this->groupOne, 'C' ) && ( isset( $data->sports ) && $data->sports == '4' ) )
 		{
-			$this->groupTwo = 'C';
+			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';
 
 			$this->setAdvise( 'two', trans( 'flow.combinations.2.C' ) );
@@ -347,7 +368,7 @@ class CombinationLibraryNew
 		// D
 		if ( $this->combinationIsPossible( $this->groupOne, 'D' ) && ( isset( $data->immune_system ) && $data->immune_system != '1' ) )
 		{
-			$this->groupTwo = 'D';
+			$this->groupTwo   = 'D';
 			$this->vitamins[] = 'D';
 
 			$this->setAdvise( 'two', trans( 'flow.combinations.2.D' ) );
@@ -359,7 +380,7 @@ class CombinationLibraryNew
 		// C
 		if ( $this->combinationIsPossible( $this->groupOne, 'C' ) && ( ( isset( $data->stressed ) && $data->stressed == '1' ) || ( isset( $data->lacks_energy ) && $data->lacks_energy < '3' ) ) )
 		{
-			$this->groupTwo = 'C';
+			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';
 
 			$this->setAdvise( 'two', trans( 'flow.combinations.2.C' ) );
@@ -373,7 +394,7 @@ class CombinationLibraryNew
 	{
 		if ( isset( $data->custom ) && isset( $data->custom->one ) )
 		{
-			$this->groupOne = $data->custom->one;
+			$this->groupOne   = $data->custom->one;
 			$this->vitamins[] = "1{$data->custom->one}";
 
 			return;
@@ -391,7 +412,7 @@ class CombinationLibraryNew
 					if ( $data->outside == '1' )
 					{
 						// Outside
-						$this->groupOne = '1';
+						$this->groupOne   = '1';
 						$this->vitamins[] = "1a";
 
 						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
@@ -402,7 +423,7 @@ class CombinationLibraryNew
 					elseif ( $data->outside == '2' )
 					{
 						// Not outside
-						$this->groupOne = '2';
+						$this->groupOne   = '2';
 						$this->vitamins[] = "1b";
 
 						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
@@ -417,7 +438,7 @@ class CombinationLibraryNew
 					if ( $data->outside == '1' )
 					{
 						// Outside
-						$this->groupOne = '2';
+						$this->groupOne   = '2';
 						$this->vitamins[] = "1b";
 
 						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
@@ -428,7 +449,7 @@ class CombinationLibraryNew
 					elseif ( $data->outside == '2' )
 					{
 						// Not outside
-						$this->groupOne = '2';
+						$this->groupOne   = '2';
 						$this->vitamins[] = "1b";
 
 						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
@@ -447,7 +468,7 @@ class CombinationLibraryNew
 					if ( $data->outside == '1' )
 					{
 						// Outside
-						$this->groupOne = '3';
+						$this->groupOne   = '3';
 						$this->vitamins[] = "1c";
 
 						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
@@ -458,7 +479,7 @@ class CombinationLibraryNew
 					elseif ( $data->outside == '2' )
 					{
 						// Not outside
-						$this->groupOne = '3';
+						$this->groupOne   = '3';
 						$this->vitamins[] = "1c";
 
 						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
@@ -473,7 +494,7 @@ class CombinationLibraryNew
 					if ( $data->outside == '1' )
 					{
 						// Outside
-						$this->groupOne = '3';
+						$this->groupOne   = '3';
 						$this->vitamins[] = "1c";
 
 						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
@@ -484,7 +505,7 @@ class CombinationLibraryNew
 					elseif ( $data->outside == '2' )
 					{
 						// Not outside
-						$this->groupOne = '3';
+						$this->groupOne   = '3';
 						$this->vitamins[] = "1c";
 
 						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
@@ -501,7 +522,7 @@ class CombinationLibraryNew
 			if ( isset( $data->pregnant ) && $data->pregnant == 1 )
 			{
 				// Pregnant
-				$this->groupOne = '1';
+				$this->groupOne   = '1';
 				$this->vitamins[] = "1a";
 
 				$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
@@ -521,7 +542,7 @@ class CombinationLibraryNew
 						if ( $data->outside == '1' )
 						{
 							// Outside
-							$this->groupOne = '1';
+							$this->groupOne   = '1';
 							$this->vitamins[] = "1a";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
@@ -532,7 +553,7 @@ class CombinationLibraryNew
 						elseif ( $data->outside == '2' )
 						{
 							// Not outside
-							$this->groupOne = '2';
+							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
@@ -547,7 +568,7 @@ class CombinationLibraryNew
 						if ( $data->outside == '1' )
 						{
 							// Outside
-							$this->groupOne = '2';
+							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
@@ -558,7 +579,7 @@ class CombinationLibraryNew
 						elseif ( $data->outside == '2' )
 						{
 							// Not outside
-							$this->groupOne = '2';
+							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
@@ -577,7 +598,7 @@ class CombinationLibraryNew
 						if ( $data->outside == '1' )
 						{
 							// Outside
-							$this->groupOne = '2';
+							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
@@ -588,7 +609,7 @@ class CombinationLibraryNew
 						elseif ( $data->outside == '2' )
 						{
 							// Not outside
-							$this->groupOne = '2';
+							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
@@ -603,7 +624,7 @@ class CombinationLibraryNew
 						if ( $data->outside == '1' )
 						{
 							// Outside
-							$this->groupOne = '2';
+							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
@@ -614,7 +635,7 @@ class CombinationLibraryNew
 						elseif ( $data->outside == '2' )
 						{
 							// Not outside
-							$this->groupOne = '2';
+							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
@@ -633,7 +654,7 @@ class CombinationLibraryNew
 						if ( $data->outside == '1' )
 						{
 							// Outside
-							$this->groupOne = '3';
+							$this->groupOne   = '3';
 							$this->vitamins[] = "1c";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
@@ -644,7 +665,7 @@ class CombinationLibraryNew
 						elseif ( $data->outside == '2' )
 						{
 							// Not outside
-							$this->groupOne = '3';
+							$this->groupOne   = '3';
 							$this->vitamins[] = "1c";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
@@ -659,7 +680,7 @@ class CombinationLibraryNew
 						if ( $data->outside == '1' )
 						{
 							// Outside
-							$this->groupOne = '3';
+							$this->groupOne   = '3';
 							$this->vitamins[] = "1c";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
@@ -670,7 +691,7 @@ class CombinationLibraryNew
 						elseif ( $data->outside == '2' )
 						{
 							// Not outside
-							$this->groupOne = '3';
+							$this->groupOne   = '3';
 							$this->vitamins[] = "1c";
 
 							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );

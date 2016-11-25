@@ -1,5 +1,5 @@
 @foreach($combinations as $combinationKey => $combinationValue)
-	<?php $pill = \App\Apricot\Libraries\PillLibrary::getPill($combinationKey, $combinationValue); ?>
+	<?php $pill = \App\Apricot\Libraries\PillLibrary::getPill( $combinationKey, $combinationValue ); ?>
 	<div class="m-b-30 vitamin-item-for-recommendation" data-group="{{ $combinationKey }}">
 		<div style="display: inline-block;" class="pull-right text-right">
 			<span class="icon pill-{{ $pill }}"></span>
@@ -7,7 +7,10 @@
 
 		<strong>
 			{{ \App\Apricot\Libraries\PillLibrary::getPillCode($pill) }}
-			<span data-group="{{ $combinationKey }}" data-subgroup="{{ $combinationValue }}" class="removePillButton pull-right icon icon-cross-16-dark m-r-10"></span>
+			<span class="removePillButton pull-right">
+				Fjern
+				<span data-group="{{ $combinationKey }}" data-subgroup="{{ $combinationValue }}" class="icon icon-cross-16-dark m-r-10"></span>
+			</span>
 		</strong>
 		<p>
 			@if(isset($advises[$combinationKey]))

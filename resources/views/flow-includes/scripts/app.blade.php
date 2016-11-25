@@ -24,6 +24,7 @@
 				code: '{{ Request::old('coupon', !is_null($coupon) ? $coupon->code : '') }}'
 			},
 			user_data: {
+				locale: '{{ App::getLocale() }}',
 				gender: null,
 				birthdate: null,
 				age: null,
