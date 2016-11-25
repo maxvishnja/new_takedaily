@@ -162,6 +162,24 @@ class CombinationLibraryNew
 			$this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
 		}
 
+		if ( isset( $data->replacements ) )
+		{
+			$newVitamins = $this->vitamins;
+
+			foreach ( $data->replacements as $replacement )
+			{
+				foreach ( $this->vitamins as $index => $vitamin )
+				{
+					if ( $newVitamins[ $index ] == $replacement->old_vitamin )
+					{
+						$newVitamins[ $index ] = $replacement->new_vitamin;
+					}
+				}
+			}
+
+			$this->vitamins = $newVitamins;
+		}
+
 		return [];
 	}
 

@@ -45,9 +45,8 @@
 				vegetarian: null,
 				joints: null,
 				stressed: null,
-				custom: {
-					three: ''
-				},
+				custom: {},
+				replacements: [],
 				foods: {
 					fruits: null,
 					vegetables: null,
@@ -422,10 +421,10 @@
 	});
 
 	$("#advises-label").on('click', '.customVitaminButton', function () {
-		var pill = $(this).data('pill');
-		var group = $(this).data('group');
+		var vitamin = $(this).data('vitamin');
+		var old_vitamin = $(this).data('oldvitamin');
 
-		app.user_data.custom[group] = pill;
+		app.user_data.replacements.push({old_vitamin: old_vitamin, new_vitamin: vitamin});
 		app.getCombinations(false);
 	});
 
