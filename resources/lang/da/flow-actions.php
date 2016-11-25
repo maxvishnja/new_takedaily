@@ -1,0 +1,4 @@
+<?php
+return [
+	'remove' => 'Fjern'
+];
