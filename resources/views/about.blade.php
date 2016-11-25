@@ -57,6 +57,8 @@
 		.person img {
 			width: 100%;
 			border-radius: 100%;
+			max-width: 180px;
+			max-height: 180px;
 		}
 
 		.person h3 {
