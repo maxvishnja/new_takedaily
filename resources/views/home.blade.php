@@ -135,22 +135,22 @@
 			</div>
 		</div>
 
-		<div class="block block--reviews">
-			<div class="container">
-				<h2 class="text-center">{{ trans('home.blocks.reviews.title') }}</h2>
+		{{--<div class="block block--reviews">--}}
+			{{--<div class="container">--}}
+				{{--<h2 class="text-center">{{ trans('home.blocks.reviews.title') }}</h2>--}}
 
-				<div class="row">
-					@if(is_array(trans('home.blocks.reviews.items')))
-						@foreach(trans('home.blocks.reviews.items') as $review)
-							<div class="col-sm-4 review-item text-center">
-								<img src="{{ $review['image'] }}" alt="{{ $review['name'] }}">
-								<blockquote>”{{ $review['text'] }}”</blockquote>
-							</div>
-						@endforeach
-					@endif
-				</div>
-			</div>
-		</div>
+				{{--<div class="row">--}}
+					{{--@if(is_array(trans('home.blocks.reviews.items')))--}}
+						{{--@foreach(trans('home.blocks.reviews.items') as $review)--}}
+							{{--<div class="col-sm-4 review-item text-center">--}}
+								{{--<img src="{{ $review['image'] }}" alt="{{ $review['name'] }}">--}}
+								{{--<blockquote>”{{ $review['text'] }}”</blockquote>--}}
+							{{--</div>--}}
+						{{--@endforeach--}}
+					{{--@endif--}}
+				{{--</div>--}}
+			{{--</div>--}}
+		{{--</div>--}}
 
 		<div class="block block--two">
 			<div class="container">
