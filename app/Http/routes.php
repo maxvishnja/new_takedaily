@@ -628,6 +628,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			{
 				return redirect()->action( 'AccountController@getSettingsBasic' );
 			} );
+
 			Route::post( '/update-preferences', 'AccountController@updatePreferences' );
 
 			Route::get( 'transactions', 'AccountController@getTransactions' );
@@ -653,29 +654,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 		Route::group( [ 'middleware' => 'ajax' ], function ()
 		{
-			Route::post( 'call-me', function ( \Illuminate\Http\Request $request )
-			{
-				$validator = Validator::make( $request->all(), [
-					'phone'  => 'required',
-					'period' => 'required',
-					'date'   => 'required'
-				] );
-
-				if ( $validator->fails() )
-				{
-					return Response::json( [ 'messages' => $validator->messages() ], 403 );
-				}
-
-
-				\App\Call::create( [
-					'phone'   => $request->get( 'phone' ),
-					'period'  => $request->get( 'period' ),
-					'call_at' => $request->get( 'date' ),
-					'status'  => 'requested'
-				] );
-
-				return Response::json( [ 'message' => trans( 'flow.call-me.success' ) ] );
-			} )->name( 'ajax-call-me' );
+			Route::post( 'call-me', 'CallMeController@post')->name( 'ajax-call-me' );
 		} );
 
 		/*
