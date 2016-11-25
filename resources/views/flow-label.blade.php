@@ -1,28 +1,27 @@
-@foreach($combinations as $combinationKey => $combinationValue)
-	<?php $pill = \App\Apricot\Libraries\PillLibrary::getPill( $combinationKey, $combinationValue ); ?>
-	<div class="m-b-30 vitamin-item-for-recommendation" data-group="{{ $combinationKey }}">
+@foreach($combinations as $vitamin)
+	<div class="m-b-30 vitamin-item-for-recommendation" data-vitamin="{{ $vitamin }}">
 		<div style="display: inline-block;" class="pull-right text-right">
-			<span class="icon pill-{{ $pill }}"></span>
+			<span class="icon pill-{{ strtolower($vitamin) }}"></span>
 		</div>
 
 		<strong>
-			{{ \App\Apricot\Libraries\PillLibrary::getPillCode($pill) }}
+			{{ \App\Apricot\Libraries\PillLibrary::getPillCode(strtolower($vitamin)) }}
 			<span class="removePillButton pull-right">
 				Fjern
-				<span data-group="{{ $combinationKey }}" data-subgroup="{{ $combinationValue }}" class="icon icon-cross-16-dark m-r-10"></span>
+				<span data-vitamin="{{ $vitamin }}" class="icon icon-cross-16-dark m-r-10" style="vertical-align: middle"></span>
 			</span>
 		</strong>
 		<p>
-			@if(isset($advises[$combinationKey]))
-				{!! $advises[$combinationKey] !!}
+			@if(isset($advises[$vitamin]))
+				{!! $advises[$vitamin] !!}
 			@endif
 		</p>
-		@if($pill == '3e')
+		@if($vitamin == '3e')
 			<div style="font-size: 13px; margin: 15px 0">{!! trans('label-3e.disclaimer_web') !!}</div>
-			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="g">{{ trans('flow.switch-to-chia') }}</a>
-		@elseif($pill == '3g')
+			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-vitamin="3g" data-oldvitamin="3e">{{ trans('flow.switch-to-chia') }}</a>
+		@elseif($vitamin == '3g')
 			<div style="font-size: 13px; margin: 15px 0">{!! trans('label-3g.disclaimer_web') !!}</div>
-			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-group="three" data-pill="e">{{ trans('flow.switch-to-fish') }}</a>
+			<a href="javascript:void(0);" class="button button--small button--light customVitaminButton" data-vitamin="3e" data-oldvitamin="3g">{{ trans('flow.switch-to-fish') }}</a>
 		@endif
 	</div>
 @endforeach

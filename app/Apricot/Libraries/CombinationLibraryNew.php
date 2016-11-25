@@ -5,7 +5,7 @@ namespace App\Apricot\Libraries;
 
 use App\Combination;
 use App\Vitamin;
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 class CombinationLibraryNew
 {
@@ -27,7 +27,7 @@ class CombinationLibraryNew
 
 		foreach ( $this->vitamins as $vitamin )
 		{
-			$names[] = PillLibrary::$codes[ $vitamin ];
+			$names[] = PillLibrary::$codes[ strtolower( $vitamin ) ];
 		}
 
 		return $names;
@@ -123,7 +123,7 @@ class CombinationLibraryNew
 			return [];
 		}
 
-		if ( $data->locale == 'nl' && $data->pregnant == 1 )
+		if ( isset( $data->locale ) && isset( $data->pregnant ) && $data->locale == 'nl' && $data->pregnant == 1 )
 		{
 			$this->groupOne   = 'A';
 			$this->groupTwo   = 'd';
@@ -131,19 +131,28 @@ class CombinationLibraryNew
 			$this->vitamins[] = '2A';
 			$this->vitamins[] = '3d';
 			$this->vitamins[] = '3e';
+
+			$this->setAdvise( '2A', trans( 'flow.combinations.2.A' ) );
+			$this->setAdviseInfo( '2A', trans( 'flow.combination_info.2.A' ) );
+
+			$this->setAdvise( '3d', trans( 'flow.combinations.3.d' ) );
+			$this->setAdviseInfo( '3d', trans( 'flow.combination_info.3.d' ) );
+
+			$this->setAdvise( '3e', trans( 'flow.combinations.3.e' ) );
+			$this->setAdviseInfo( '3e', trans( 'flow.combination_info.3.e' ) );
 		}
 
-		if ( ! is_null( $this->groupOne ) )
+		if ( is_null( $this->groupOne ) )
 		{
 			$this->generateGroupOne( $data );
 		}
 
-		if ( ! is_null( $this->groupTwo ) )
+		if ( is_null( $this->groupTwo ) )
 		{
 			$this->generateGroupTwo( $data );
 		}
 
-		if ( ! is_null( $this->groupThree ) )
+		if ( is_null( $this->groupThree ) )
 		{
 			$this->generateGroupThree( $data );
 		}
@@ -162,8 +171,8 @@ class CombinationLibraryNew
 		{
 			$this->vitamins[] = "3{$data->custom->three}";
 			$this->groupThree = $data->custom->three;
-			$this->setAdvise( 'three', trans( "flow.combinations.3.{$data->custom->three}" ) );
-			$this->setAdviseInfo( 'three', trans( "flow.combination_info.3.{$data->custom->three}" ) );
+			$this->setAdvise( "3{$data->custom->three}", trans( "flow.combinations.3.{$data->custom->three}" ) );
+			$this->setAdviseInfo( "3{$data->custom->three}", trans( "flow.combination_info.3.{$data->custom->three}" ) );
 
 			return;
 		}
@@ -173,8 +182,8 @@ class CombinationLibraryNew
 			$this->vitamins[] = '3e';
 			$this->groupThree = '3';
 
-			$this->setAdvise( 'three', trans( 'flow.combinations.3.e' ) );
-			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.e' ) );
+			$this->setAdvise( '3e', trans( 'flow.combinations.3.e' ) );
+			$this->setAdviseInfo( '3e', trans( 'flow.combination_info.3.e' ) );
 
 			return;
 		}
@@ -184,8 +193,8 @@ class CombinationLibraryNew
 			$this->vitamins[] = '3d';
 			$this->groupThree = 'd';
 
-			$this->setAdvise( 'three', trans( 'flow.combinations.3.d' ) );
-			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.d' ) );
+			$this->setAdvise( '3d', trans( 'flow.combinations.3.d' ) );
+			$this->setAdviseInfo( '3d', trans( 'flow.combination_info.3.d' ) );
 
 			return;
 		}
@@ -195,8 +204,8 @@ class CombinationLibraryNew
 			$this->vitamins[] = '3a';
 			$this->groupThree = 'a';
 
-			$this->setAdvise( 'three', trans( 'flow.combinations.3.a' ) );
-			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.a' ) );
+			$this->setAdvise( '3a', trans( 'flow.combinations.3.a' ) );
+			$this->setAdviseInfo( '3a', trans( 'flow.combination_info.3.a' ) );
 
 			return;
 		}
@@ -215,8 +224,8 @@ class CombinationLibraryNew
 			$this->vitamins[] = '3b';
 			$this->groupThree = 'b';
 
-			$this->setAdvise( 'three', trans( 'flow.combinations.3.b' ) );
-			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.b' ) );
+			$this->setAdvise( '3b', trans( 'flow.combinations.3.b' ) );
+			$this->setAdviseInfo( '3b', trans( 'flow.combination_info.3.b' ) );
 
 			return;
 		}
@@ -232,8 +241,8 @@ class CombinationLibraryNew
 			$this->vitamins[] = '3c';
 			$this->groupThree = 'c';
 
-			$this->setAdvise( 'three', trans( 'flow.combinations.3.c' ) );
-			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.c' ) );
+			$this->setAdvise( '3c', trans( 'flow.combinations.3.c' ) );
+			$this->setAdviseInfo( '3c', trans( 'flow.combination_info.3.c' ) );
 
 			return;
 		}
@@ -242,8 +251,8 @@ class CombinationLibraryNew
 			$this->vitamins[] = '3f';
 			$this->groupThree = 'f';
 
-			$this->setAdvise( 'three', trans( 'flow.combinations.3.f' ) );
-			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.f' ) );
+			$this->setAdvise( '3f', trans( 'flow.combinations.3.f' ) );
+			$this->setAdviseInfo( '3f', trans( 'flow.combination_info.3.f' ) );
 
 			return;
 		}
@@ -252,8 +261,8 @@ class CombinationLibraryNew
 			$this->vitamins[] = '3d';
 			$this->groupThree = 'd';
 
-			$this->setAdvise( 'three', trans( 'flow.combinations.3.d' ) );
-			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.d' ) );
+			$this->setAdvise( '3d', trans( 'flow.combinations.3.d' ) );
+			$this->setAdviseInfo( '3d', trans( 'flow.combination_info.3.d' ) );
 
 			return;
 		}
@@ -265,8 +274,8 @@ class CombinationLibraryNew
 				$this->vitamins[] = '3e';
 				$this->groupThree = 'e';
 
-				$this->setAdvise( 'three', trans( 'flow.combinations.3.e' ) );
-				$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.e' ) );
+				$this->setAdvise( '3e', trans( 'flow.combinations.3.e' ) );
+				$this->setAdviseInfo( '3e', trans( 'flow.combination_info.3.e' ) );
 
 				return;
 			}
@@ -276,8 +285,8 @@ class CombinationLibraryNew
 				$this->vitamins[] = '3g';
 				$this->groupThree = 'g';
 
-				$this->setAdvise( 'three', trans( 'flow.combinations.3.g' ) );
-				$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.g' ) );
+				$this->setAdvise( '3g', trans( 'flow.combinations.3.g' ) );
+				$this->setAdviseInfo( '3g', trans( 'flow.combination_info.3.g' ) );
 
 				return;
 			}
@@ -288,8 +297,8 @@ class CombinationLibraryNew
 			$this->vitamins[] = '3g';
 			$this->groupThree = 'g';
 
-			$this->setAdvise( 'three', trans( 'flow.combinations.3.g' ) );
-			$this->setAdviseInfo( 'three', trans( 'flow.combination_info.3.g' ) );
+			$this->setAdvise( '3g', trans( 'flow.combinations.3.g' ) );
+			$this->setAdviseInfo( '3g', trans( 'flow.combination_info.3.g' ) );
 
 			return;
 		}
@@ -302,6 +311,9 @@ class CombinationLibraryNew
 			$this->groupTwo   = $data->custom->two;
 			$this->vitamins[] = "2{$data->custom->two}";
 
+			$this->setAdvise( "2{$data->custom->two}", trans( 'flow.combinations.2.A' ) );
+			$this->setAdviseInfo( "2{$data->custom->two}", trans( 'flow.combination_info.2.A' ) );
+
 			return;
 		}
 
@@ -311,8 +323,8 @@ class CombinationLibraryNew
 			$this->groupTwo   = 'A';
 			$this->vitamins[] = '2A';
 
-			$this->setAdvise( 'two', trans( 'flow.combinations.2.A' ) );
-			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.A' ) );
+			$this->setAdvise( '2A', trans( 'flow.combinations.2.A' ) );
+			$this->setAdviseInfo( '2A', trans( 'flow.combination_info.2.A' ) );
 
 			return;
 		}
@@ -321,10 +333,10 @@ class CombinationLibraryNew
 		if ( $this->combinationIsPossible( $this->groupOne, 'B' ) && ( isset( $data->diet ) && $data->diet == '1' ) )
 		{
 			$this->groupTwo   = 'B';
-			$this->vitamins[] = 'B';
+			$this->vitamins[] = '2B';
 
-			$this->setAdvise( 'two', trans( 'flow.combinations.2.B' ) );
-			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.B' ) );
+			$this->setAdvise( '2B', trans( 'flow.combinations.2.B' ) );
+			$this->setAdviseInfo( '2B', trans( 'flow.combination_info.2.B' ) );
 
 			return;
 		}
@@ -333,10 +345,10 @@ class CombinationLibraryNew
 		if ( $this->combinationIsPossible( $this->groupOne, 'E' ) && ( isset( $data->joints ) && $data->joints == '1' ) )
 		{
 			$this->groupTwo   = 'E';
-			$this->vitamins[] = 'E';
+			$this->vitamins[] = '2E';
 
-			$this->setAdvise( 'two', trans( 'flow.combinations.2.E' ) );
-			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.E' ) );
+			$this->setAdvise( '2E', trans( 'flow.combinations.2.E' ) );
+			$this->setAdviseInfo( '2E', trans( 'flow.combination_info.2.E' ) );
 
 			return;
 		}
@@ -347,8 +359,8 @@ class CombinationLibraryNew
 			$this->groupTwo   = 'D';
 			$this->vitamins[] = '2D';
 
-			$this->setAdvise( 'two', trans( 'flow.combinations.2.D' ) );
-			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.D' ) );
+			$this->setAdvise( '2D', trans( 'flow.combinations.2.D' ) );
+			$this->setAdviseInfo( '2D', trans( 'flow.combination_info.2.D' ) );
 
 			return;
 		}
@@ -359,8 +371,8 @@ class CombinationLibraryNew
 			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';
 
-			$this->setAdvise( 'two', trans( 'flow.combinations.2.C' ) );
-			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.C' ) );
+			$this->setAdvise( '2C', trans( 'flow.combinations.2.C' ) );
+			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
 
 			return;
 		}
@@ -369,10 +381,10 @@ class CombinationLibraryNew
 		if ( $this->combinationIsPossible( $this->groupOne, 'D' ) && ( isset( $data->immune_system ) && $data->immune_system != '1' ) )
 		{
 			$this->groupTwo   = 'D';
-			$this->vitamins[] = 'D';
+			$this->vitamins[] = '2D';
 
-			$this->setAdvise( 'two', trans( 'flow.combinations.2.D' ) );
-			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.D' ) );
+			$this->setAdvise( '2D', trans( 'flow.combinations.2.D' ) );
+			$this->setAdviseInfo( '2D', trans( 'flow.combination_info.2.D' ) );
 
 			return;
 		}
@@ -383,8 +395,8 @@ class CombinationLibraryNew
 			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';
 
-			$this->setAdvise( 'two', trans( 'flow.combinations.2.C' ) );
-			$this->setAdviseInfo( 'two', trans( 'flow.combination_info.2.C' ) );
+			$this->setAdvise( '2C', trans( 'flow.combinations.2.C' ) );
+			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
 
 			return;
 		}
@@ -396,6 +408,9 @@ class CombinationLibraryNew
 		{
 			$this->groupOne   = $data->custom->one;
 			$this->vitamins[] = "1{$data->custom->one}";
+
+			$this->setAdvise( "1{$data->custom->one}", trans( 'flow.combinations.1.basic' ) );
+			$this->setAdviseInfo( "1{$data->custom->one}", trans( 'flow.combination_info.1.basic' ) );
 
 			return;
 		}
@@ -415,8 +430,8 @@ class CombinationLibraryNew
 						$this->groupOne   = '1';
 						$this->vitamins[] = "1a";
 
-						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
-						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic' ) );
+						$this->setAdvise( '1a', trans( 'flow.combinations.1.basic' ) );
+						$this->setAdviseInfo( '1a', trans( 'flow.combination_info.1.basic' ) );
 
 						return;
 					}
@@ -426,8 +441,8 @@ class CombinationLibraryNew
 						$this->groupOne   = '2';
 						$this->vitamins[] = "1b";
 
-						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
-						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+						$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+						$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 						return;
 					}
@@ -441,8 +456,8 @@ class CombinationLibraryNew
 						$this->groupOne   = '2';
 						$this->vitamins[] = "1b";
 
-						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
-						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d' ) );
+						$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d' ) );
+						$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d' ) );
 
 						return;
 					}
@@ -452,8 +467,8 @@ class CombinationLibraryNew
 						$this->groupOne   = '2';
 						$this->vitamins[] = "1b";
 
-						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
-						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+						$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+						$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 						return;
 					}
@@ -471,8 +486,8 @@ class CombinationLibraryNew
 						$this->groupOne   = '3';
 						$this->vitamins[] = "1c";
 
-						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
-						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+						$this->setAdvise( '1c', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( '1c', trans( 'flow.combination_info.1.basic-20-d' ) );
 
 						return;
 					}
@@ -482,8 +497,8 @@ class CombinationLibraryNew
 						$this->groupOne   = '3';
 						$this->vitamins[] = "1c";
 
-						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
-						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+						$this->setAdvise( '1c', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( '1c', trans( 'flow.combination_info.1.basic-20-d' ) );
 
 						return;
 					}
@@ -497,8 +512,8 @@ class CombinationLibraryNew
 						$this->groupOne   = '3';
 						$this->vitamins[] = "1c";
 
-						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
-						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+						$this->setAdvise( '1c', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( '1c', trans( 'flow.combination_info.1.basic-20-d' ) );
 
 						return;
 					}
@@ -508,8 +523,8 @@ class CombinationLibraryNew
 						$this->groupOne   = '3';
 						$this->vitamins[] = "1c";
 
-						$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
-						$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+						$this->setAdvise( '1c', trans( 'flow.combinations.1.basic-20-d' ) );
+						$this->setAdviseInfo( '1c', trans( 'flow.combination_info.1.basic-20-d' ) );
 
 						return;
 					}
@@ -525,8 +540,8 @@ class CombinationLibraryNew
 				$this->groupOne   = '1';
 				$this->vitamins[] = "1a";
 
-				$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
-				$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic' ) );
+				$this->setAdvise( '1a', trans( 'flow.combinations.1.basic' ) );
+				$this->setAdviseInfo( '1a', trans( 'flow.combination_info.1.basic' ) );
 
 				return;
 			}
@@ -545,8 +560,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '1';
 							$this->vitamins[] = "1a";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic' ) );
+							$this->setAdvise( '1a', trans( 'flow.combinations.1.basic' ) );
+							$this->setAdviseInfo( '1a', trans( 'flow.combination_info.1.basic' ) );
 
 							return;
 						}
@@ -556,8 +571,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+							$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 							return;
 						}
@@ -571,8 +586,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d' ) );
+							$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d' ) );
+							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d' ) );
 
 							return;
 						}
@@ -582,8 +597,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+							$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 							return;
 						}
@@ -601,8 +616,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d' ) );
+							$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d' ) );
+							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d' ) );
 
 							return;
 						}
@@ -612,8 +627,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+							$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 							return;
 						}
@@ -627,8 +642,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d' ) );
+							$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d' ) );
+							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d' ) );
 
 							return;
 						}
@@ -638,8 +653,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = "1b";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-10-d-alt' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+							$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 							return;
 						}
@@ -657,8 +672,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '3';
 							$this->vitamins[] = "1c";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+							$this->setAdvise( '1c', trans( 'flow.combinations.1.basic-20-d' ) );
+							$this->setAdviseInfo( '1c', trans( 'flow.combination_info.1.basic-20-d' ) );
 
 							return;
 						}
@@ -668,8 +683,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '3';
 							$this->vitamins[] = "1c";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+							$this->setAdvise( '1c', trans( 'flow.combinations.1.basic-20-d' ) );
+							$this->setAdviseInfo( '1c', trans( 'flow.combination_info.1.basic-20-d' ) );
 
 							return;
 						}
@@ -683,8 +698,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '3';
 							$this->vitamins[] = "1c";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+							$this->setAdvise( '1c', trans( 'flow.combinations.1.basic-20-d' ) );
+							$this->setAdviseInfo( '1c', trans( 'flow.combination_info.1.basic-20-d' ) );
 
 							return;
 						}
@@ -694,8 +709,8 @@ class CombinationLibraryNew
 							$this->groupOne   = '3';
 							$this->vitamins[] = "1c";
 
-							$this->setAdvise( 'one', trans( 'flow.combinations.1.basic-20-d' ) );
-							$this->setAdviseInfo( 'one', trans( 'flow.combination_info.1.basic-20-d' ) );
+							$this->setAdvise( '1c', trans( 'flow.combinations.1.basic-20-d' ) );
+							$this->setAdviseInfo( '1c', trans( 'flow.combination_info.1.basic-20-d' ) );
 
 							return;
 						}

@@ -80,22 +80,21 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 	$request->session()->set( 'flow-completion-token', $flowCompletion->token );
 
 	$ingredients = '';
-	$alphabet    = range( 'a', 'c' );
 
 	\App\Apricot\Checkout\Cart::clear();
 	\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
 	\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );
 
-	foreach($lib->getResult() as $vitmain)
+	foreach($lib->getResult() as $vitamin)
 	{
-		$ingredients .= '<div class="ingredient_item" data-grouptext="' . $indexOld . '" data-groupnum="' . $index . '" data-item="' . $index . $combination . '">
+		$ingredients .= '<div class="ingredient_item" data-vitamin="' . $vitamin . '">
 					<span class="icon icon-arrow-down"></span>
 					<h3>' . ( isset( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ] ) ? \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ] : $vitamin ) . '</h3>
-					' . view( 'flow-includes.views.vitamin_table', [ 'label' => strtolower( "{$index}{$combination}" ) ] ) . '
+					' . view( 'flow-includes.views.vitamin_table', [ 'label' => strtolower( $vitamin ) ] ) . '
 				</div>';
 
-		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin ], '', [ 'key' => "vitamin.{$index}" ] );
-		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$index}", $vitamin );
+		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ strtolower($vitamin) ], '', [ 'key' => "vitamin.{$vitamin}" ] );
+		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$vitamin}", $vitamin );
 	}
 
 	\App\Apricot\Checkout\Cart::addInfo( "user_data", json_decode( $request->get( 'user_data' ) ) );
