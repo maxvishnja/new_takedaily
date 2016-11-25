@@ -395,6 +395,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
 			}
 
+			/** @var \App\FlowCompletion $flowCompletion */
 			$flowCompletion = \App\FlowCompletion::generateNew($request->get( 'user_data', '{}' ));
 
 			$request->session()->set( 'flow-completion-token', $flowCompletion->token );
@@ -442,8 +443,6 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$index}", $vitamin_code );
 			}
 
-			$lib = new \App\Apricot\Libraries\CombinationLibrary();
-			$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
 			\App\Apricot\Checkout\Cart::addInfo( "user_data", json_decode( $request->get( 'user_data' ) ) );
 
 			return Response::json( [
