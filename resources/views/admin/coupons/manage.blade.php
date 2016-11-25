@@ -32,7 +32,7 @@
 				<div class="control-group">
 					<label for="currency" class="control-label">Currency</label>
 					<div class="controls">
-						<select name="currency" id="currency">
+						<select name="currency" id="currency" onchange="if( $('#type').val() != 'percentage' ) { $('#discount_text').text($(this).val()) }">
 							@foreach(['DKK','EUR','USD','SEK','NOK','GBP'] as $option)
 								<option value="{{ $option }}" @if(isset($coupon) && $coupon->currency == $option) selected="selected" @endif>{{ $option }}</option>
 							@endforeach
@@ -43,7 +43,7 @@
 				<div class="control-group">
 					<label for="type" class="control-label">Type</label>
 					<div class="controls">
-						<select name="type" id="type" onchange="if($(this).val() == 'free_shipping') { $('#discount_element').hide(); } else { $('#discount_element').show(); if( $(this).val() == 'percentage' ) { $('#discount_text').text('%') } else { $('#discount_text').text('kr.') } }">
+						<select name="type" id="type" onchange="if($(this).val() == 'free_shipping') { $('#discount_element').hide(); } else { $('#discount_element').show(); if( $(this).val() == 'percentage' ) { $('#discount_text').text('%') } else { $('#discount_text').text($('#currency').val()) } }">
 							@foreach(['percentage', 'amount'] as $option)
 								<option value="{{ $option }}" @if(isset($coupon) && $coupon->discount_type == $option) selected="selected" @endif>{{ trans("coupons.type.$option") }}</option>
 							@endforeach
