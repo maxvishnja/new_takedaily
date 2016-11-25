@@ -7,7 +7,7 @@
 
 		<div class="content_section">
 			<strong>
-				{{ \App\Apricot\Libraries\PillLibrary::getPillCode(strtolower($vitamin)) }}
+				{{ \App\Apricot\Helpers\PillName::get($vitamin) }}
 				<div class="removePillButton pull-right" data-vitamin="{{ $vitamin }}">
 					{{ trans('flow-actions.remove') }}
 				</div>

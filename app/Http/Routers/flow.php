@@ -72,14 +72,12 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 
 	$request->session()->set( 'flow-completion-token', $flowCompletion->token );
 
-	$ingredients = '';
-
 	\App\Apricot\Checkout\Cart::clear();
 	\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
 
 	foreach($lib->getResult() as $vitamin)
 	{
-		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ strtolower($vitamin) ], '', [ 'key' => "vitamin.{$vitamin}" ] );
+		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Helpers\PillName::get($vitamin), '', [ 'key' => "vitamin.{$vitamin}" ] );
 		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$vitamin}", $vitamin );
 	}
 
