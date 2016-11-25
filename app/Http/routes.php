@@ -35,7 +35,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		Route::get( '/our-products', function ()
 		{
 			return view( 'quality');
-		} )->name( 'home' );
+		} )->name( 'our-products' );
+
+		Route::get( '/about-us', function ()
+		{
+			return view( 'about');
+		} )->name( 'about-us' );
 
 		Route::get( '/faq', function ()
 		{

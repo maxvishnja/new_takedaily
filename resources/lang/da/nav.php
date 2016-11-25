@@ -14,7 +14,8 @@ return [
 	'items'    =>
 		[
 			'gifting'      => 'Giv i gave',
-			'our-products' => 'Produkter'
+			'our-products' => 'Produkter',
+			'about-us'     => 'Om os',
 		],
 	'subitems' =>
 		[
