@@ -7,11 +7,14 @@
 @section('title', trans('pick-package.title'))
 
 @section('content')
-	<div class="bg_header_item"></div>
+	<div class="header_image">
+		<div class="container text-center">
+			<h1>{{ trans('pick-package.title') }}</h1>
+			<h2>{{ trans('pick-package.sub-title') }}</h2>
+		</div>
+	</div>
 
-	<div class="container" id="app">
-		<h1 class="text-center">{{ trans('pick-package.title') }}</h1>
-		<h3 class="text-center">{{ trans('pick-package.sub-title') }}</h3>
+	<div class="container m-t-50" id="app">
 		<div v-cloak="" class="packages">
 			<div v-for="package in packages" class="package">
 				<strong v-html="package.name"></strong>
