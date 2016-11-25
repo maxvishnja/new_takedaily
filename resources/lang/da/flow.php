@@ -431,7 +431,7 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
 
 <div class="clear"></div>
 
-<span class="icon-general_health-flow flow-promise-icon"></span> <div class="flow-promise-tekst">Bidrager til en optimal sundhed</div>',
+<span class="icon-general_health-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en optimal sundhed</div>',
       'basic-20-d' => 'Multivitamin D+ Ekstra  udgør grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år.
 
 <div class="clear"></div>
