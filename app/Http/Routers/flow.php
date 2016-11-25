@@ -61,7 +61,7 @@ Route::post( 'flow/send-recommendation', function ( \Illuminate\Http\Request $re
 
 Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $request )
 {
-	$lib = new \App\Apricot\Libraries\CombinationLibrary();
+	$lib = new \App\Apricot\Libraries\CombinationLibraryNew();
 
 	$lib->generateResult( json_decode( $request->get( 'user_data' ) ) );
 
@@ -72,12 +72,7 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 		$advises .= '<p class="advise-paragraph" data-key="' . $adviseKey . '">' . $advise . '</p>';
 	}
 
-	$codes = [];
-
-	foreach ( $lib->getResult() as $combKey => $combVal )
-	{
-		$codes[] = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
-	}
+	$codes = $lib->getPillNames();
 
 	/** @var \App\FlowCompletion $flowCompletion */
 	$flowCompletion = \App\FlowCompletion::generateNew( $request->get( 'user_data', '{}' ) );

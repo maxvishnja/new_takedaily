@@ -16,7 +16,7 @@
 						<strong class="gifting-price">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\ProductPriceGetter::getPrice('giftcard_1'))]) }}</strong>
 						<span class="gifting-months">{{ trans('gifting.giftcard_1') }}</span>
 
-						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
+						<span class="button button--green button--full">{{ trans('gifting.select') }}</span>
 					</label>
 
 					<label class="gifting-selector" for="months_input_3">
@@ -24,7 +24,7 @@
 						<strong class="gifting-price">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\ProductPriceGetter::getPrice('giftcard_3'))]) }}</strong>
 						<span class="gifting-months">{{ trans('gifting.giftcard_3') }}</span>
 
-						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
+						<span class="button button--green button--full">{{ trans('gifting.select') }}</span>
 					</label>
 
 					<label class="gifting-selector" for="months_input_6">
@@ -32,7 +32,7 @@
 						<strong class="gifting-price">{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\ProductPriceGetter::getPrice('giftcard_6'))]) }}</strong>
 						<span class="gifting-months">{{ trans('gifting.giftcard_6') }}</span>
 
-						<button class="button button--green button--full" type="button">{{ trans('gifting.select') }}</button>
+						<span class="button button--green button--full">{{ trans('gifting.select') }}</span>
 					</label>
 				</div>
 
