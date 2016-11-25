@@ -6,10 +6,10 @@
 			<div class="row">
 				<div class="col-md-4 footer_column footer_column--newsletters text-center">
 					<h3 class="footer_title">{{ trans('footer.columns.one.title') }}</h3>
-					<form method="post" action="{{ trans('general.newsletter_url') }}" class="m-t-20 m-b-10" target="_blank">
+					<form method="post" action="{{ url()->action('MailchimpEmailSignup@post') }}" class="m-t-20 m-b-10" id="mailchimp_signup">
 						<div class="row">
 							<div class="col-sm-8">
-								<input type="email" name="EMAIL" id="input_newsletters_email" placeholder="{{ trans('footer.columns.one.input-placeholder') }}"
+								<input type="email" name="email" id="input_newsletters_email" placeholder="{{ trans('footer.columns.one.input-placeholder') }}"
 									   class="input input--regular input--full input--plain"/>
 							</div>
 							<div class="col-sm-4">
@@ -188,6 +188,41 @@
 	})();
 </script>
 <!--End of Tawk.to Script-->
+
+<script>
+	$("#mailchimp_signup").submit(function(e)
+	{
+		e.preventDefault();
+
+		var $form = $(this);
+
+		$.post($form.attr('action'), $form.serialize()).success(function(response)
+		{
+			swal({
+				title: "{{ trans('message.success-title') }}",
+				text: "",
+				type: "success",
+				html: true,
+				allowOutsideClick: true,
+				confirmButtonText: "{{ trans('popup.button-close') }}",
+				confirmButtonColor: "#3AAC87",
+				timer: 6000
+			});
+		}).error(function(response)
+		{
+			swal({
+				title: "{{ trans('message.error-title') }}",
+				text: response.responseJSON.errors,
+				type: "error",
+				html: true,
+				allowOutsideClick: true,
+				confirmButtonText: "{{ trans('popup.button-close') }}",
+				confirmButtonColor: "#3AAC87",
+				timer: 6000
+			});
+		});
+	});
+</script>
 
 @if(App::environment() != 'local')
 	<!-- Facebook Pixel Code -->

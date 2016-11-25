@@ -193,6 +193,7 @@ return [
 		Mollie\Laravel\MollieServiceProvider::class,
 		Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
 		Barryvdh\TranslationManager\ManagerServiceProvider::class,
+		Skovmand\Mailchimp\MailchimpServiceProvider::class,
 
 		/*
 		 * App providers
