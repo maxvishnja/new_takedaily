@@ -1,4 +1,4 @@
 <?php
 return [
-	'remove' => 'Fjern'
+	'remove' => 'Fravælg'
 ];
