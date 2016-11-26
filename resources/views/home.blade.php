@@ -59,7 +59,7 @@
 		</div>
 	</header>
 
-	<div class="landing_advantages" >
+	<div class="landing_advantages">
 		<div class="container">
 			<div class="col-md-3 col-xs-6">
 				<span class="icon icon-check-circle-large"></span>
@@ -71,12 +71,12 @@
 				{{ trans('home.promos.two') }}
 			</div>
 
-			<div class="col-md-3 col-xs-6">
+			<div class="col-md-4 col-xs-6">
 				<span class="icon icon-check-circle-large"></span>
 				{{ trans('home.promos.three') }}
 			</div>
 
-			<div class="col-md-3 col-xs-6">
+			<div class="col-md-2 col-xs-6">
 				<span class="icon icon-check-circle-large"></span>
 				{{ trans('home.promos.four') }}
 			</div>
