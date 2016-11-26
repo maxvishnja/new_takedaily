@@ -194,6 +194,7 @@
 								</div>
 								<select style="display: none !important" name="address_country" id="country-selector" class="select select--medium select--semibold select--full"
 										required="required"
+										readonly="readonly"
 										aria-required="true" data-validate="true">
 									@foreach(\App\TaxZone::all() as $zone)
 										<option
