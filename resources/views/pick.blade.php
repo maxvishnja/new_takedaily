@@ -70,7 +70,7 @@
 						</div>
 
 						<form action="" method="post">
-							<div class="pick-n-mix-total" v-show="numSelectedVitamins > 0">{{ trans('general.money-vue', ['amount' => 'cartTotal']) }}</div>
+							<div class="pick-n-mix-total" v-show="numSelectedVitamins > 0">{{ trans('general.money-vue', ['amount' => 'total_sum']) }}</div>
 							<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
 								@if( !$isCustomer )
@@ -107,6 +107,7 @@
 				show_popup: false,
 				maxVitamins: 3,
 				minVitamins: 2,
+				totals: [],
 				groupTranslations: {
 					@foreach(trans('pick.groups') as $key => $group)
 					"{{ $key }}": "{{ $group }}",
@@ -145,6 +146,17 @@
 						return vitamin.type == "oil";
 					}).length;
 				},
+				total_sum: function () {
+					var sum = 0;
+
+					$.each(this.totals, function (i, line) {
+						sum += line.price;
+					});
+
+					sum = sum > 0 ? sum : 0;
+
+					return sum;
+				},
 				groups: function () {
 					var groups = [];
 
@@ -156,16 +168,7 @@
 
 					return groups;
 				},
-				cartItems: function () {
-					var items = [];
 
-					items.push({
-						name: "{{ trans('products.subscription') }}",
-						price: parseFloat("{{\App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), trans('general.currency'), \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Product::where('name', 'subscription')->first()->price)) }}")
-					});
-
-					return items;
-				},
 				cartTotal: function () {
 					var total = 0;
 
@@ -177,10 +180,56 @@
 				}
 			},
 			methods: {
+				setCart: function() {
+					var vitamins = [];
+
+					this.selectedVitamins.forEach(function(vitamin)
+					{
+						vitamins.push(vitamin.code);
+					});
+
+					$.post('/cart-pick-n-mix', {
+						vitamins: vitamins
+					}).done(function(response) {
+						this.getCart();
+					});
+				},
+				getCart: function () {
+					$.get('/cart').done(function (response) {
+						app.totals = [];
+
+						$.each(response.lines, function (i, line) {
+							app.totals.push({
+								name: line.name,
+								price: line.amount,
+								showPrice: line.hidePrice === undefined
+							});
+						});
+
+						if (response.coupon !== undefined && response.coupon.applied !== undefined) {
+							app.discount.applied = response.coupon.applied;
+							app.discount.type = response.coupon.type;
+							app.discount.amount = response.coupon.amount;
+							app.discount.applies_to = response.coupon.applies_to;
+							app.discount.description = response.coupon.description;
+							app.discount.code = response.coupon.code;
+						}
+
+						if (response.giftcard !== undefined && response.giftcard.worth !== undefined) {
+							app.totals.push({
+								name: "{!! trans('checkout.index.total.giftcard') !!}",
+								price: parseFloat(response.giftcard.worth) * -1,
+								showPrice: true
+							})
+						}
+					});
+				},
 				removeVitamin: function (vitamin, event) {
 					event.preventDefault();
 
 					vitamin.isSelected = false;
+
+					this.setCart();
 				},
 				addVitamin: function (vitamin, event) {
 					event.preventDefault();
@@ -192,6 +241,8 @@
 					}
 
 					vitamin.isSelected = true;
+
+					this.setCart();
 				},
 				toggleVitamin: function (vitamin, event) {
 
@@ -212,6 +263,8 @@
 				}
 			}
 		});
+
+		app.getCart();
 	</script>
 	<script>
 		var isSticked = false;

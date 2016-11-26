@@ -20,7 +20,7 @@ Route::get( '/cart', function ()
 
 	// Get coupon
 	$couponData = [];
-	$coupon = null;
+	$coupon     = null;
 	if ( \Session::has( 'applied_coupon' ) )
 	{
 		$couponRepository = new \App\Apricot\Repositories\CouponRepository();
@@ -32,7 +32,7 @@ Route::get( '/cart', function ()
 			$couponData = [
 				'applied'     => true,
 				'type'        => $coupon->discount_type,
-				'amount'      => $coupon->discount_type == 'amount' ? \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($coupon->discount) : $coupon->discount,
+				'amount'      => $coupon->discount_type == 'amount' ? \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat( $coupon->discount ) : $coupon->discount,
 				'applies_to'  => $coupon->applies_to,
 				'description' => $coupon->description,
 				'code'        => $coupon->code
@@ -42,7 +42,7 @@ Route::get( '/cart', function ()
 
 	// Get giftcard
 	$giftcardData = [];
-	if ( !$coupon && \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name', 'subscription' ) == 'subscription' )
+	if ( ! $coupon && \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name', 'subscription' ) == 'subscription' )
 	{
 		$giftcard = \App\Giftcard::where( 'id', \Session::get( 'giftcard_id' ) )
 		                         ->where( 'token', \Session::get( 'giftcard_token' ) )
@@ -61,36 +61,25 @@ Route::get( '/cart', function ()
 	return Response::json( [ 'lines' => $lines, 'info' => \App\Apricot\Checkout\Cart::getInfo(), 'coupon' => $couponData, 'giftcard' => $giftcardData ] );
 } );
 
-Route::post( '/cart-deduct/{vitaminGroup}', function ( $vitaminGroup )
+Route::post( '/cart-pick-n-mix', function ( \Illuminate\Http\Request $request )
 {
-	switch ( $vitaminGroup )
+	\App\Apricot\Checkout\Cart::empty();
+	\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
+
+	$vitamins = $request->get( 'vitamins', [] );
+
+	foreach ( $vitamins as $vitamin )
 	{
-		case 1:
-		case 'one':
-			$vitaminGroup = 1;
-			break;
-
-		case 2:
-		case 'two':
-			$vitaminGroup = 2;
-			break;
-
-		default:
-		case 3:
-		case 'three':
-		case 'four':
-		case 'five':
-			$vitaminGroup = 3;
-			break;
+		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Helpers\PillName::get( $vitamin ), '', [ 'key' => "vitamin.{$vitamin}" ] );
+		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$vitamin}", $vitamin );
 	}
 
-
-	if ( \App\Apricot\Checkout\Cart::hasInfo( "vitamins.{$vitaminGroup}" ) )
+	for($i = count($vitamins); $i < 3; $i++)
 	{
 		\App\Apricot\Checkout\Cart::deductProduct( 'vitamin' );
-		\App\Apricot\Checkout\Cart::removeProduct( "vitamin.{$vitaminGroup}" );
-		\App\Apricot\Checkout\Cart::removeInfo( "vitamins.{$vitaminGroup}" );
 	}
 
-	return Response::json( [ 'message' => 'Ok' ] );
+	\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );
+
+	return Response::json( [ 'Ok' ] );
 } );

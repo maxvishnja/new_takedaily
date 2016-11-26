@@ -13,7 +13,6 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
 	<script>
 		function publishAll() {
-			alert('Publishing... please stand by');
 			$.each($(".allGroupsForm"), function (i, form) {
 				$(form).find('.btn-info').click();
 			});

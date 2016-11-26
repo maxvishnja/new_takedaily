@@ -49,6 +49,14 @@ class Cart
 		return collect( self::getModel()->getInfo() )->get($key, $fallback);
 	}
 
+	public static function empty()
+	{
+		self::setInfo(collect([]));
+		self::set(collect([]));
+
+		return true;
+	}
+
 	public static function clear()
 	{
 		\Session::forget( self::COOKIE_NAME );
