@@ -3,7 +3,7 @@
 return array (
   'select' => 
   array (
-    'title' => 'We hebben iets meer informatie nodig, het duurt slechts een minuut',
+    'title' => 'Vul jouw gegevens in..',
   ),
   'title' => 'Kies jouw TakeDaily pakket',
   'select-btn' => 'Selecteer',
@@ -17,7 +17,7 @@ return array (
     'immunity_boost' => 
     array (
       'name' => 'Immune Booster',
-      'description' => 'Wil jij je weerstand ondersteunen in deze donkere dagen? Selecteer het Immune Booster pakket.  Het is rijk aan vitamines & mineralen die de weerstand ondersteunen.',
+      'description' => 'zorgt mede voor een goede weerstand. helpt het immuunsysteem.',
     ),
     'pregnant' => 
     array (
@@ -27,7 +27,7 @@ return array (
     'beauty_boost' => 
     array (
       'name' => 'Beauty Boost',
-      'description' => 'Beauty Boost pakket is rijk aan vitamines en mineralen die goed zijn voor huid, haar en nagels. Het voedt de huid (van binnenuit) (vitamine A, C en zink), houdt je haar sterk (seleen en zink) en is goed voor de nagels (seleen en zink).',
+      'description' => 'Houdt je haar sterk voor het behoud van glanzend haar. goed voor nagels draagt bij aan het behoud van normale nagels. helpt bij de verzorging van de huid van binnenuit.',
     ),
     'balanced_body' => 
     array (
@@ -61,8 +61,4 @@ return array (
     ),
   ),
   'custom-pill' => 'Kies een supplement',
-  'sub-title' => 'TakeDaily biedt pakketen speciaal samengesteld voor jou. Om jou pakket samen te stellen hebben wij een paar vragen voor je.
-
-Het pakket kost € 18,95 per maand.',
-  'read-btn' => 'Lees meer',
 );

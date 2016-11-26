@@ -4,7 +4,7 @@ return array (
   'general' => 
   array (
     'regards' => 'Met vriendelijke groet,',
-    'company' => 'TakeDaliy Benelux B.V.',
+    'company' => 'Takedaily ApS',
     'reason' => 'Je ontvangt deze e-mail omdat u een klant van ons.',
     'unsubscribe' => 'Det er ikke muligt at opsige denne type mail.',
   ),

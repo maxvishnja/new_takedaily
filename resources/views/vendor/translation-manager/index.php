@@ -11,6 +11,14 @@
 			crossorigin="anonymous"></script>
 	<link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+	<script>
+		function publishAll() {
+			alert('Publishing... please stand by');
+			$.each($(".allGroupsForm"), function (i, form) {
+				$(form).find('.btn-info').click();
+			});
+		};
+	</script>
 	<script>//https://github.com/rails/jquery-ujs/blob/master/src/rails.js
 		(function (e, t) {
 			if (e.rails !== t) {
@@ -464,60 +472,71 @@
 			</tbody>
 		</table>
 	<?php else: ?>
-		<?php
+		<?php unset( $groups[''] ); ?>
+		<button type="button" id="publish-all" onclick="publishAll();" class="btn btn-info" data-disable-with="Publishing..">Publish all translations</button>
+		<?php foreach ( $groups as $group ): ?>
+			<?php
 
-		$allTranslations = \Barryvdh\TranslationManager\Models\Translation::orderBy( 'key', 'asc' )->get();
-		$numTranslations = count( $allTranslations );
-		$translations    = [];
-		foreach ( $allTranslations as $translation )
-		{
-			$translations[ $translation->key ][ $translation->locale ] = $translation;
-		}
+			$allTranslations = \Barryvdh\TranslationManager\Models\Translation::whereGroup( $group )->orderBy( 'key', 'asc' )->get();
+			$numTranslations = count( $allTranslations );
+			$translations    = [];
+			foreach ( $allTranslations as $translation )
+			{
+				$translations[ $translation->key ][ $translation->locale ] = $translation;
+			}
+			?>
 
+			<form class="form-inline form-publish allGroupsForm" method="POST" action="<?= action( '\Barryvdh\TranslationManager\Controller@postPublish', $group ) ?>"
+				  data-remote="true"
+				  role="form"
+				  data-confirm="Are you sure you want to publish the translations group '<?= $group ?>? This will overwrite existing language files.">
 
-		?>
-		<h1>All</h1>
-		<hr>
-		<h4>Total: <?= $numTranslations ?>, changed: <?= $numChanged ?></h4>
-		<table class="table">
-			<thead>
-			<tr>
-				<th width="8%">Key</th>
-				<?php foreach ( $locales as $locale ): ?>
-					<th><?= $locale ?></th>
-				<?php endforeach; ?>
-				<?php if ( $deleteEnabled ): ?>
-					<th>&nbsp;</th>
-				<?php endif; ?>
-			</tr>
-			</thead>
-			<tbody>
+				<button style="display: none" type="submit" class="btn btn-info" data-disable-with="Publishing..">Publish all translations</button>
+				<h3><?= $group; ?></h3>
+				<h4>Total: <?= $numTranslations ?>, changed: <?= $numChanged ?></h4>
+				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-			<?php foreach ( $translations as $key => $translation ): ?>
-				<?php ( $first = reset( $translation ) ); ?>
-				<tr id="<?= $key ?>">
-					<td><?= $first->group; ?>.<?= $key ?></td>
-					<?php foreach ( $locales as $locale ): ?>
-						<?php $t = isset( $translation[ $locale ] ) ? $translation[ $locale ] : null ?>
-						<?php $editUrl = action( '\Barryvdh\TranslationManager\Controller@postEdit', [ $first->group ] ); ?>
+				<table class="table">
+					<thead>
+					<tr>
+						<th width="8%">Key</th>
+						<?php foreach ( $locales as $locale ): ?>
+							<th><?= $locale ?></th>
+						<?php endforeach; ?>
+						<?php if ( $deleteEnabled ): ?>
+							<th>&nbsp;</th>
+						<?php endif; ?>
+					</tr>
+					</thead>
+					<tbody>
 
-						<td>
-							<a href="#edit" class="editable status-<?= $t ? $t->status : 0 ?> locale-<?= $locale ?>" data-locale="<?= $locale ?>"
-							   data-name="<?= $locale . "|" . $key ?>" id="username" data-type="textarea" data-pk="<?= $t ? $t->id : 0 ?>" data-url="<?= $editUrl ?>"
-							   data-title="Enter translation"><?= $t ? htmlentities( $t->value, ENT_QUOTES, 'UTF-8', false ) : '' ?></a>
-						</td>
+					<?php foreach ( $translations as $key => $translation ): ?>
+						<tr id="<?= $key ?>">
+							<td><?= $key ?></td>
+							<?php foreach ( $locales as $locale ): ?>
+								<?php $t = isset( $translation[ $locale ] ) ? $translation[ $locale ] : null ?>
+								<?php $editUrl = action( '\Barryvdh\TranslationManager\Controller@postEdit', [ $group ] ); ?>
+
+								<td>
+									<a href="#edit" class="editable status-<?= $t ? $t->status : 0 ?> locale-<?= $locale ?>" data-locale="<?= $locale ?>"
+									   data-name="<?= $locale . "|" . $key ?>" id="username" data-type="textarea" data-pk="<?= $t ? $t->id : 0 ?>" data-url="<?= $editUrl ?>"
+									   data-title="Enter translation"><?= $t ? htmlentities( $t->value, ENT_QUOTES, 'UTF-8', false ) : '' ?></a>
+								</td>
+							<?php endforeach; ?>
+							<?php if ( $deleteEnabled ): ?>
+								<td>
+									<a href="<?= action( '\Barryvdh\TranslationManager\Controller@postDelete', [ $group, $key ] ) ?>" class="delete-key"
+									   data-confirm="Are you sure you want to delete the translations for '<?= $key ?>?"><span class="glyphicon glyphicon-trash"></span></a>
+								</td>
+							<?php endif; ?>
+						</tr>
 					<?php endforeach; ?>
-					<?php if ( $deleteEnabled ): ?>
-						<td>
-							<a href="<?= action( '\Barryvdh\TranslationManager\Controller@postDelete', [ $group, $key ] ) ?>" class="delete-key"
-							   data-confirm="Are you sure you want to delete the translations for '<?= $key ?>?"><span class="glyphicon glyphicon-trash"></span></a>
-						</td>
-					<?php endif; ?>
-				</tr>
-			<?php endforeach; ?>
 
-			</tbody>
-		</table>
+					</tbody>
+				</table>
+			</form>
+
+		<?php endforeach; ?>
 	<?php endif; ?>
 </div>
 
