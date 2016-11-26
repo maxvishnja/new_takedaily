@@ -24,6 +24,7 @@ body.page-pick
 		padding: 20px
 		margin-bottom: 30px
 		position: relative
+		transition: background 250ms, opacity: 250ms
 		//height: 110px
 
 		&.vitamin-item--selected
@@ -39,6 +40,9 @@ body.page-pick
 				height: 10px
 				background: $main-green
 				border-radius: 100%
+
+		&.vitamin-item--faded
+			opacity: 0.55
 
 		.vitamin-item-left,
 		.vitamin-item-right

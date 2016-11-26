@@ -14,7 +14,7 @@
 					<h2 class="text-center">@{{ groupTranslations[group] }}</h2>
 
 					<div class="col-md-6" v-for="vitamin in vitaminsInGroup(group)">
-						<div class="vitamin-item" v-on:click="toggleVitamin(vitamin, $event)" v-bind:class="{ 'vitamin-item--selected': vitamin.isSelected }">
+						<div class="vitamin-item" v-on:click="toggleVitamin(vitamin, $event)" v-bind:class="{ 'vitamin-item--selected': vitamin.isSelected, 'vitamin-item--faded': (vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) }">
 							<div class="vitamin-item-action">
 								<a href="#" v-show="!vitamin.isSelected && !(vitamin.type == 'multi' && hasMultivitamin)" class="button button--green button--circular">
 									<span class="icon icon-plus"></span> {{ trans('pick.select-btn') }}
