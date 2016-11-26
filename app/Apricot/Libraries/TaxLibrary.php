@@ -7,11 +7,11 @@ class TaxLibrary
 {
 	private $zone;
 
-	function __construct($zone)
+	function __construct( $zone )
 	{
 		$repository = new TaxZoneRepository();
 
-		$this->zone = $repository->getZone($zone);
+		$this->zone = $repository->getZone( $zone );
 	}
 
 	public function zone()
@@ -21,26 +21,27 @@ class TaxLibrary
 
 	public function rate()
 	{
-		return $this->zone->rate / 100 * 0.8;
+		return ( $this->zone->rate / ( 100 + $this->zone->rate ) );
+//		return $this->zone->rate / 100 * 0.8;
 	}
 
 	public function reversedRate()
 	{
-		return 1 - (($this->zone->rate / 100) * 0.8);
+		return 1 - ( ( $this->zone->rate / 100 ) * 0.8 );
 	}
 
-	public function getSubtotal($amount)
+	public function getSubtotal( $amount )
 	{
-		return $amount / (1 + ($this->zone()->rate / 100));
+		return $amount / ( 1 + ( $this->zone()->rate / 100 ) );
 	}
 
-	public function getTaxes($amount)
+	public function getTaxes( $amount )
 	{
-		return $amount - ($amount / (1 + ($this->zone()->rate / 100)));
+		return $amount - ( $amount / ( 1 + ( $this->zone()->rate / 100 ) ) );
 	}
 
-	public function convertSubtotalToTotal($subtotal)
+	public function convertSubtotalToTotal( $subtotal )
 	{
-		return $subtotal * (1 + ($this->zone()->rate / 100));
+		return $subtotal * ( 1 + ( $this->zone()->rate / 100 ) );
 	}
 }
