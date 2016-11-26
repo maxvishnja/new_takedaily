@@ -54,7 +54,7 @@
 				<div class="control-group" id="discount_element">
 					<label for="discount" class="control-label">Worth</label>
 					<div class="controls">
-						<input type="text" class="form-control span8" name="discount" id="discount" value="{{ Request::old('discount', isset($coupon) ? $coupon->discount : '' ) }}" placeholder="Eks.: 80 for 80 DKK or percentage discount"/>
+						<input type="text" class="form-control span8" name="discount" id="discount" value="{{ Request::old('discount', isset($coupon) ? ($coupon->discount_type == 'amount' ? \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($coupon->discount) : $coupon->discount_type) : '' ) }}" placeholder="Eks.: 80 for 80 DKK or percentage discount"/>
 						<span id="discount_text">kr. / procent</span>
 					</div>
 				</div>
