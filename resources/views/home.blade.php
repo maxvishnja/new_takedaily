@@ -59,6 +59,8 @@
 		</div>
 	</header>
 
+	<div class="landing_advantages_placeholder"></div>
+
 	<div class="landing_advantages">
 		<div class="container-fluid">
 			<div class="col-md-3 col-sm-6">
@@ -289,9 +291,21 @@
 			}
 		});
 
+		var header = $(".header--landing");
+		var promoBlock = $(".landing_advantages");
+		var promoBlockPlaceholder = $(".landing_advantages_placeholder");
 		$(window).scroll(function()
 		{
-
+			if($(this).scrollTop() >= (header.offset().top + header.height()))
+			{
+				promoBlock.addClass('sticky');
+				promoBlockPlaceholder.show();
+			}
+			else
+			{
+				promoBlock.removeClass('sticky');
+				promoBlockPlaceholder.hide();
+			}
 		});
 	</script>
 @endsection
