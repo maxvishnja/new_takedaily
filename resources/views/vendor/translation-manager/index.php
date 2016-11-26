@@ -466,11 +466,12 @@
 	<?php else: ?>
 		<?php
 
-		$allTranslations = \Barryvdh\TranslationManager\Models\Translation::orderBy('key', 'asc')->get();
-		$numTranslations = count($allTranslations);
-		$translations = [];
-		foreach($allTranslations as $translation){
-			$translations[$translation->key][$translation->locale] = $translation;
+		$allTranslations = \Barryvdh\TranslationManager\Models\Translation::orderBy( 'key', 'asc' )->get();
+		$numTranslations = count( $allTranslations );
+		$translations    = [];
+		foreach ( $allTranslations as $translation )
+		{
+			$translations[ $translation->key ][ $translation->locale ] = $translation;
 		}
 
 
@@ -481,7 +482,7 @@
 		<table class="table">
 			<thead>
 			<tr>
-				<th width="15%">Key</th>
+				<th width="8%">Key</th>
 				<?php foreach ( $locales as $locale ): ?>
 					<th><?= $locale ?></th>
 				<?php endforeach; ?>
@@ -493,12 +494,12 @@
 			<tbody>
 
 			<?php foreach ( $translations as $key => $translation ): ?>
+				<?php ( $first = reset( $translation ) ); ?>
 				<tr id="<?= $key ?>">
-					<td><?= $key ?></td>
+					<td><?= $first->group; ?>.<?= $key ?></td>
 					<?php foreach ( $locales as $locale ): ?>
 						<?php $t = isset( $translation[ $locale ] ) ? $translation[ $locale ] : null ?>
-						<?php ($first = reset($translation)); ?>
-						<?php $editUrl = action('\Barryvdh\TranslationManager\Controller@postEdit', [$first->group]); ?>
+						<?php $editUrl = action( '\Barryvdh\TranslationManager\Controller@postEdit', [ $first->group ] ); ?>
 
 						<td>
 							<a href="#edit" class="editable status-<?= $t ? $t->status : 0 ?> locale-<?= $locale ?>" data-locale="<?= $locale ?>"
