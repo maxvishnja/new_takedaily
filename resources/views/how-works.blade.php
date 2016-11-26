@@ -20,6 +20,10 @@
 	</div>
 
 	<div class="container m-t-30">
+		<div class="col-md-6 col-md-push-3">
+			{!! trans('how-works.body') !!}
+		</div>
+
 		<div class="row text-center">
 			<div class="col-sm-4 block_item">
 				<span class="icon icon-heart"></span>
