@@ -1,3 +1,4 @@
+@if(in_array('mollie', $paymentMethods))
 <div class="card card--large m-b-30 card-padding-fixer" id="method-card">
 	<legend class="card_title">{{ trans('checkout.index.method.title') }}</legend>
 	<div class="clear"></div>
@@ -20,8 +21,13 @@
 		@endif
 	</div>
 </div>
+@else
+	<label class="payment-method-icon payment-method-icon--selected" data-toggle="payment-method-cc">
+		<input type="hidden" name="payment_method" value="stripe" class="payment_method_input"/>
+	</label>
+@endif
 
-<div class="card card--large hidden payment-type-card m-b-30" id="payment-method-cc">
+<div class="card card--large @if(in_array('mollie', $paymentMethods)) hidden @endif payment-type-card m-b-30" id="payment-method-cc">
 	<fieldset id="payment-fieldset">
 		<legend class="card_title pull-left">{{ trans('checkout.index.order.billing.title') }}</legend>
 		<div class="pull-right secured_server">
@@ -167,6 +173,10 @@
 
 			checkErrors();
 		});
+
+		@if(!in_array('mollie', $paymentMethods))
+			usesStripe = true;
+		@endif
 	</script>
 	<script>
 		$(".form-button-submit-holder").click(function () {
