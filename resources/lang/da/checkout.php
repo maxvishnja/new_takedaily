@@ -118,4 +118,5 @@ return array (
     ),
   ),
   'fb-login' => 'Log ind med Facebook',
+  'cvv-information' => 'Kontrolnummeret står typisk bag på kortet',
 );
