@@ -32,7 +32,7 @@ Route::get( '/cart', function ()
 			$couponData = [
 				'applied'     => true,
 				'type'        => $coupon->discount_type,
-				'amount'      => $coupon->discount,
+				'amount'      => $coupon->discount_type == 'amount' ? \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($coupon->discount) : $coupon->discount,
 				'applies_to'  => $coupon->applies_to,
 				'description' => $coupon->description,
 				'code'        => $coupon->code
