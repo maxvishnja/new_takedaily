@@ -122,16 +122,7 @@
 
 								<div class="row">
 									<div v-show="is_company">
-										@if(App::getLocale() != 'nl')
-											<div class="col-md-6">
-												<div class="m-t-10"></div>
-												<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}</label>
-												<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
-													   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
-													   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
-											</div>
-										@endif
-										<div class="col-md-6">
+										<div class="col-md-12">
 											<div class="m-t-10"></div>
 											<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}</label>
 											<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
