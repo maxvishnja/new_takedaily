@@ -1,13 +1,17 @@
 @extends('layouts.app')
 
-<!-- Main Content -->
+@section('mainClasses', 'm-b-50')
+
 @section('content')
+	<div class="header_image">
+		<h1>{{ trans('password_email.title') }}</h1>
+	</div>
+
+	<div class="container m-t-30">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-md-push-3">
                 <div class="card">
-                    <h1 class="card_title">{{ trans('password_email.title') }}</h1>
-                    <hr class="hr--dashed hr--small-margin"/>
 
                     <form role="form" method="POST" action="{{ URL::action('Auth\PasswordController@sendResetLinkEmail') }}">
                         {!! csrf_field() !!}
