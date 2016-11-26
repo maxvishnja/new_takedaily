@@ -39,6 +39,8 @@
 										<a href="javascript:void(0);" v-on:click="readMore(vitamin);">{{ trans('flow-actions.read-more') }}</a>
 									</div>
 
+									<div class="clear"></div>
+
 									<div v-html="vitamin.extra_content"></div>
 								</div>
 							</div>
@@ -95,6 +97,7 @@
 						<div v-show="!hasSelectedEnoughVitamins" v-bind:class="{ 'm-t-10': numSelectedVitamins > 0 }" class="text-center notice">
 							{!! trans('pick.min-vitamins') !!}
 						</div>
+
 					</div>
 				</div>
 				<div class="hidden-xs hidden-sm">@include('includes.disclaimer')</div>
