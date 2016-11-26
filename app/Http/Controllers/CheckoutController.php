@@ -90,7 +90,7 @@ class CheckoutController extends Controller
 	function postCheckout( CheckoutRequest $request )
 	{
 		$this->validate( $request, [
-			'password' => 'required|confirmed|min:6'
+			'password' => 'required|min:6'
 		] );
 
 		$productName   = $request->get( 'product_name', 'subscription' );

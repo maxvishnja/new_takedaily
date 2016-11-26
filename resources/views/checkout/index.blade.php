@@ -107,11 +107,12 @@
 					@if(Auth::guest())
 						<div class="card card--large m-b-30 card-padding-fixer">
 							<fieldset>
-								<a id="facebookloginbox" href="javascript:void(0);" onclick="loginFacebook()" class="pull-right button button--blue m-b-10 button--medium">Log ind med Facebook</a>
-
+								<a id="facebookloginbox" href="javascript:void(0);" onclick="loginFacebook()" class="pull-right button button--blue m-b-10 button--medium">Log ind
+									med Facebook</a>
+								<div class="visible-xs clear"></div>
 								<legend class="card_title pull-left">{{ trans('checkout.index.order.info.title') }}</legend>
+								<div class="clear"></div>
 								<hr class="hr--dashed hr--small-margin"/>
-
 								<label for="is_company">
 									<input id="is_company" type="checkbox" v-model="is_company"/> {{ trans('checkout.index.order.info.is-company') }}
 								</label>
@@ -160,22 +161,13 @@
 								</div>
 
 								<div class="row m-b-50 m-sm-b-20">
-									<div class="col-md-6">
+									<div class="col-md-12">
 										<label class="label label--full checkout--label" for="input_info_password">{{ trans('checkout.index.order.info.password') }}
 											<span class="required">*</span></label>
 										<input type="password" class="input input--medium input--semibold input--full @if($errors->has('password')) input--error @endif"
 											   id="input_info_password"
 											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.password-placeholder') }}" name="password" required="required"
-											   aria-required="true" />
-									</div>
-									<div class="col-md-6">
-										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
-										<label class="label label--full checkout--label" for="input_info_password_confirmation">{{ trans('checkout.index.order.info.password_confirmation') }}
-											<span class="required">*</span></label>
-										<input type="password" class="input input--medium input--semibold input--full @if($errors->has('password_confirmation')) input--error @endif"
-											   id="input_info_password_confirmation"
-											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.password_confirmation-placeholder') }}" name="password_confirmation" required="required"
-											   aria-required="true" />
+											   aria-required="true"/>
 									</div>
 								</div>
 
