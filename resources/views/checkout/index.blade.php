@@ -163,7 +163,7 @@
 									</div>
 								</div>
 
-								<div class="row m-b-50 m-sm-b-20">
+								<div class="row">
 									<div class="col-md-5">
 										<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}
 											<span class="required">*</span></label>
@@ -192,21 +192,15 @@
 											   value="{{ Request::old('address_city', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
 									</div>
 								</div>
-
-								<div class="row">
-									<div class="col-md-12">
-										<label class="label label--full checkout--label" for="input_info_address_country">{{ trans('checkout.index.order.info.address.country') }}
-											<span class="required">*</span></label>
-										<select name="address_country" id="country-selector" class="select select--medium select--semibold select--full" required="required"
-												aria-required="true" data-validate="true">
-											@foreach(\App\TaxZone::all() as $zone)
-												<option
-													@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', trans('general.tax_zone')) : trans('general.tax_zone'))) == $zone->name ) selected="selected"
-													@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
-											@endforeach
-										</select>
-									</div>
-								</div>
+								<select style="display: none !important" name="address_country" id="country-selector" class="select select--medium select--semibold select--full"
+										required="required"
+										aria-required="true" data-validate="true">
+									@foreach(\App\TaxZone::all() as $zone)
+										<option
+											@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', trans('general.tax_zone')) : trans('general.tax_zone'))) == $zone->name ) selected="selected"
+											@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
+									@endforeach
+								</select>
 							</fieldset>
 						</div>
 					@endif
