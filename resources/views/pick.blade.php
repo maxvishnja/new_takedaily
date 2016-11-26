@@ -41,7 +41,7 @@
 
 									<div class="clear"></div>
 
-									<div v-html="vitamin.extra_content"></div>
+									<div v-html="vitamin.extra_content" class="m-t-10"></div>
 								</div>
 							</div>
 						</div>
