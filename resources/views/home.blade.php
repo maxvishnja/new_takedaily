@@ -60,7 +60,7 @@
 	</header>
 
 	<div class="landing_advantages">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="col-md-3 col-xs-6">
 				<span class="icon icon-check-circle-large"></span>
 				{{ trans('home.promos.one') }}
