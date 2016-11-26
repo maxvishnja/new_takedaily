@@ -4,28 +4,29 @@
 class PaymentMethods
 {
 	const GLOBAL_METHODS = [
-	    'stripe'
+		'stripe'
 	];
 
 	const LOCALE_METHODS = [
-		'da' => [],
-	    'nl' => [ 'mollie' ],
-	    'en' => []
+		'da' => [ 'stripe_dk' ],
+		'nl' => [ 'mollie' ],
+		'en' => []
 	];
 
 	const ICONS = [
-		'stripe' => ['mastercard','visa'],
-	    'mollie' => ['ideal']
+		'stripe'    => [ 'mastercard', 'visa' ],
+		'mollie'    => [ 'ideal' ],
+		'stripe_dk' => [ 'dk' ]
 	];
 
-	public static function getAcceptedMethodsForCountry($locale)
+	public static function getAcceptedMethodsForCountry( $locale )
 	{
-		$methods = self::GLOBAL_METHODS;
+		$methods       = self::GLOBAL_METHODS;
 		$localeMethods = self::LOCALE_METHODS;
 
-		if(isset($localeMethods[$locale]))
+		if ( isset( $localeMethods[ $locale ] ) )
 		{
-			foreach($localeMethods[$locale] as $method)
+			foreach ( $localeMethods[ $locale ] as $method )
 			{
 				$methods[] = $method;
 			}
@@ -34,16 +35,16 @@ class PaymentMethods
 		return $methods;
 	}
 
-	public static function getIconsForMethods($methods)
+	public static function getIconsForMethods( $methods )
 	{
 		$icons = [];
 
-		foreach($methods as $method)
+		foreach ( $methods as $method )
 		{
 			$constIcons = self::ICONS;
-			if(isset($constIcons[$method]))
+			if ( isset( $constIcons[ $method ] ) )
 			{
-				foreach($constIcons[$method] as $constIcon)
+				foreach ( $constIcons[ $method ] as $constIcon )
 				{
 					$icons[] = $constIcon;
 				}

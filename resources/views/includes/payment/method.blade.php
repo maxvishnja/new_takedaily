@@ -61,6 +61,9 @@
 				<div style="padding: 15px 0">
 					<span class="icon icon-card-mastercard m-r-5 v-a-m" title="Mastercard"></span>
 					<span class="icon icon-card-visa m-l-5 v-a-m" title="Visa"></span>
+					@if(App::getLocale() == 'da')
+						<span class="icon icon-card-dk m-l-5 v-a-m" title="Dankort"></span>
+					@endif
 				</div>
 			</div>
 		</div>
