@@ -22,7 +22,19 @@ class PickMixController extends Controller
 		}
 		elseif ( $request->has( 'selected' ) )
 		{
-			$selectedVitamins = array_flatten( Vitamin::select( 'id' )->whereIn( 'code', explode( ',', $request->get( 'selected' ) ) )->get()->toArray() );
+			$selectedIds = $request->get( 'selected' );
+			$selectedIds = explode( ',', $selectedIds );
+
+			$selectedVitamins = array_flatten(
+				Vitamin::select( 'id' )
+				       ->whereIn( 'code', $selectedIds )
+				       ->orWhere( function ( $query ) use ( $selectedIds )
+				       {
+					       $query->whereIn( 'id', $selectedIds );
+				       } )
+				       ->get()
+				       ->toArray()
+			);
 		}
 
 		return view( 'pick', compact( 'vitamins', 'isCustomer', 'selectedVitamins' ) );
@@ -31,11 +43,11 @@ class PickMixController extends Controller
 	public function post( Request $request )
 	{
 		$this->validate( $request, [
-			'vitamins'       => 'min:2|max:4|exists:vitamins,id'
+			'vitamins' => 'min:2|max:4|exists:vitamins,id'
 		], [
-			'vitamins.min'          => trans('pick.errors.not-enough'),
-			'vitamins.max'          => trans('pick.errors.too-many-validation'),
-			'vitamins.exists'       => trans('pick.errors.not-found'),
+			'vitamins.min'    => trans( 'pick.errors.not-enough' ),
+			'vitamins.max'    => trans( 'pick.errors.too-many-validation' ),
+			'vitamins.exists' => trans( 'pick.errors.not-found' ),
 		] );
 
 		$vitamins = collect( $request->get( 'vitamins' ) );
@@ -46,14 +58,14 @@ class PickMixController extends Controller
 			     ->getCustomer()
 			     ->setVitamins( $vitamins );
 
-			\Auth::user()->getCustomer()->getPlan()->update(['price' => Cart::getTotal()]);
+			\Auth::user()->getCustomer()->getPlan()->update( [ 'price' => Cart::getTotal() ] );
 
 			return \Redirect::action( 'AccountController@getSettingsSubscription' )
-			                ->with( 'success', trans('pick.updated') );
+			                ->with( 'success', trans( 'pick.updated' ) );
 		}
 
 		\Session::forget( 'user_data' );
-		\Session::forget('flow-completion-token');
+		\Session::forget( 'flow-completion-token' );
 		\Session::put( 'vitamins', $vitamins );
 		\Session::put( 'product_name', 'subscription' );
 

@@ -60,6 +60,10 @@
 		@if(Request::session()->has('flow-completion-token'))
 			<a href="{{ url()->route('flow',['token' => Request::session()->get('flow-completion-token') ]) }}">{{ trans('checkout.back') }}</a>
 		@endif
+
+		@if(Request::session()->has('vitamins'))
+			<a href="{{ url()->action('PickMixController@get') }}?selected={{ implode(',', session('vitamins')->toArray()) }}">{{ trans('checkout.back') }}</a>
+		@endif
 	</div>
 
 	<div class="container m-t-50" id="app">
