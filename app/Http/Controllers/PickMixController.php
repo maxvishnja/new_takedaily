@@ -31,7 +31,7 @@ class PickMixController extends Controller
 	public function post( Request $request )
 	{
 		$this->validate( $request, [
-			'vitamins'       => 'min:3|max:5|exists:vitamins,id'
+			'vitamins'       => 'min:2|max:3|exists:vitamins,id'
 		], [
 			'vitamins.min'          => trans('pick.errors.not-enough'),
 			'vitamins.max'          => trans('pick.errors.too-many-validation'),

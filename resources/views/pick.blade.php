@@ -154,6 +154,7 @@
 					});
 
 					sum = sum > 0 ? sum : 0;
+					sum = sum <= parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\ProductPriceGetter::getPrice('subscription') - \App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin')) }}") ? parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\ProductPriceGetter::getPrice('subscription') - \App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin')) }}") : sum;
 
 					return sum;
 				},
@@ -168,16 +169,6 @@
 
 					return groups;
 				},
-
-				cartTotal: function () {
-					var total = 0;
-
-					this.cartItems.filter(function (item) {
-						total += item.price;
-					});
-
-					return total;
-				}
 			},
 			methods: {
 				setCart: function() {
