@@ -19,9 +19,8 @@
 				}
 			}
 
-			function loginFacebook()
-			{
-				FB.login(function(response) {
+			function loginFacebook() {
+				FB.login(function (response) {
 					statusChangeCallback(response);
 				}, {scope: 'public_profile,email'});
 			}
@@ -319,7 +318,9 @@
 					@endif
 
 					@if($product->is_subscription == 1)
-						{!! trans('checkout.index.disclaimer') !!}
+						<div class="m-b-10">
+							{!! trans('checkout.index.disclaimer') !!}
+						</div>
 					@endif
 
 					<div class="m-t-20">
