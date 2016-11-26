@@ -107,7 +107,7 @@
 					@if(Auth::guest())
 						<div class="card card--large m-b-30 card-padding-fixer">
 							<fieldset>
-								<a id="facebookloginbox" href="javascript:void(0);" onclick="loginFacebook()" class="pull-right button button--blue m-b-10 button--medium">Log ind
+								<a id="facebookloginbox" href="javascript:void(0);" onclick="loginFacebook()" class="pull-right button button--blue button--medium">Log ind
 									med Facebook</a>
 								<div class="visible-xs clear"></div>
 								<legend class="card_title pull-left">{{ trans('checkout.index.order.info.title') }}</legend>
