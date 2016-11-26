@@ -294,12 +294,14 @@
 		var header = $(".header--landing");
 		var promoBlock = $(".landing_advantages");
 		var promoBlockPlaceholder = $(".landing_advantages_placeholder");
+
 		$(window).scroll(function()
 		{
 			if($(this).scrollTop() >= (header.offset().top + header.height()))
 			{
 				promoBlock.addClass('sticky');
 				promoBlockPlaceholder.show();
+				promoBlockPlaceholder.height(promoBlock.outerHeight());
 			}
 			else
 			{
