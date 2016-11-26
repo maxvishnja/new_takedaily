@@ -1,30 +1,32 @@
 @if(in_array('mollie', $paymentMethods))
-<div class="card card--large m-b-30 card-padding-fixer" id="method-card">
-	<legend class="card_title">{{ trans('checkout.index.method.title') }}</legend>
-	<div class="clear"></div>
+	<div class="card card--large m-b-30 card-padding-fixer" id="method-card">
+		<legend class="card_title">{{ trans('checkout.index.method.title') }}</legend>
+		<div class="clear"></div>
 
-	<div class="payment-methods">
-		@if(in_array('stripe', $paymentMethods))
-			<label class="payment-method-icon payment-method-icon-mastercard" data-toggle="payment-method-cc">
-				<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
-			</label>
+		<div class="payment-methods">
+			@if(in_array('stripe', $paymentMethods))
+				<label class="payment-method-icon payment-method-icon-mastercard" data-toggle="payment-method-cc">
+					<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
+				</label>
 
-			<label class="payment-method-icon payment-method-icon-visa" data-toggle="payment-method-cc">
-				<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
-			</label>
-		@endif
+				<label class="payment-method-icon payment-method-icon-visa" data-toggle="payment-method-cc">
+					<input type="radio" name="payment_method" value="stripe" class="payment_method_input"/>
+				</label>
+			@endif
 
-		@if(in_array('mollie', $paymentMethods))
-			<label class="payment-method-icon payment-method-icon-ideal" data-toggle="-">
-				<input type="radio" name="payment_method" value="mollie" class="payment_method_input"/>
-			</label>
-		@endif
+			@if(in_array('mollie', $paymentMethods))
+				<label class="payment-method-icon payment-method-icon-ideal" data-toggle="-">
+					<input type="radio" name="payment_method" value="mollie" class="payment_method_input"/>
+				</label>
+			@endif
+		</div>
 	</div>
-</div>
 @else
-	<label class="payment-method-icon payment-method-icon--selected" data-toggle="payment-method-cc">
-		<input type="hidden" name="payment_method" value="stripe" class="payment_method_input"/>
-	</label>
+	<div class="hidden">
+		<label class="payment-method-icon payment-method-icon--selected" data-toggle="payment-method-cc">
+			<input type="radio" checked="checked" name="payment_method" value="stripe" class="payment_method_input"/>
+		</label>
+	</div>
 @endif
 
 <div class="card card--large @if(in_array('mollie', $paymentMethods)) hidden @endif payment-type-card m-b-30" id="payment-method-cc">
@@ -141,18 +143,16 @@
 			usesStripe = ($(".payment_method_input:checked").val() == 'stripe');
 
 			@if($giftcard)
-			if($(".payment_method_input:checked").val() == 'mollie')
-			{
+			if ($(".payment_method_input:checked").val() == 'mollie') {
 				var hasMinimumOrderLine = false;
-				for(var i = 0; i < app.totals.length; i++) {
+				for (var i = 0; i < app.totals.length; i++) {
 					if (app.totals[i].name == '{{ trans('products.minimum') }}') {
 						hasMinimumOrderLine = true;
 						break;
 					}
 				}
 
-				if(!hasMinimumOrderLine)
-				{
+				if (!hasMinimumOrderLine) {
 					app.totals.push({
 						name: '{{ trans('products.minimum') }}',
 						price: parseFloat("{{ config('app.minimum_orders.mollie') }}"),
@@ -160,9 +160,8 @@
 					});
 				}
 			}
-			else
-			{
-				for(var i = 0; i < app.totals.length; i++) {
+			else {
+				for (var i = 0; i < app.totals.length; i++) {
 					if (app.totals[i].name == '{{ trans('products.minimum') }}') {
 						app.totals.splice(i, 1);
 						break;
@@ -183,7 +182,7 @@
 			if ($("input[name='payment_method']:checked").length == 0) {
 				$methodCard = $("#method-card");
 
-				alert('{{ trans('checkout.index.method.errors.no-method') }}');
+				alert('{!! trans('checkout.index.method.errors.no-method') !!}');
 
 				$("body, html").stop().animate({
 					scrollTop: $methodCard.offset().top
