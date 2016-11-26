@@ -24,6 +24,8 @@
 			{!! trans('how-works.body') !!}
 		</div>
 
+		<div class="clear"></div>
+
 		<div class="row text-center">
 			<div class="col-sm-4 block_item">
 				<span class="icon icon-heart"></span>
