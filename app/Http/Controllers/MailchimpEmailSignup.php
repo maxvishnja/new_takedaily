@@ -32,7 +32,10 @@ class MailchimpEmailSignup extends Controller
 				->lists
 				->subscribe(
 					$listId,
-					[ 'email' => $request->get( 'email' ) ]
+					[ 'email' => $request->get( 'email' ) ],
+					null,
+					'html',
+					false
 				);
 		} catch ( \Mailchimp_List_AlreadySubscribed $e )
 		{

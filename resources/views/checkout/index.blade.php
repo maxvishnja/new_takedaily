@@ -339,7 +339,7 @@
 			el: '#app',
 			data: {
 				company: '',
-				tax_rate: parseFloat("0.2"),
+				tax_rate: parseFloat("0.2"), // todo get from locale/country on load.
 				totals: [],
 				discount: {
 					applied: false,
