@@ -73,18 +73,9 @@
 				<select data-validate="false" class="select select--full select--semibold select--spacing select--medium" id="cc-exp-month" data-stripe="exp-month"
 						autocomplete="cc-exp-month">
 					<option value="-1" selected="selected" disabled="disabled">{{ trans('checkout.index.order.billing.card.month') }}</option>
-					<option value="01">01</option>
-					<option value="02">02</option>
-					<option value="03">03</option>
-					<option value="04">04</option>
-					<option value="05">05</option>
-					<option value="06">06</option>
-					<option value="07">07</option>
-					<option value="08">08</option>
-					<option value="09">09</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
+					@foreach(range(1,12) as $month)
+						<option value="{{ str_pad($month, 2, 0, STR_PAD_LEFT) }}">{{ str_pad($month, 2, 0, STR_PAD_LEFT) }} - {{ \Jenssegers\Date\Date::create(2016,$month, 1)->format('M') }}</option>
+					@endforeach
 				</select>
 
 				<div class="m-sm-b-20 visible-xs"></div>
