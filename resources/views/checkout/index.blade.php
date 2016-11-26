@@ -264,7 +264,7 @@
 				<h3 style="margin-top: 0;" class="m-b-35">{{ trans('checkout.index.total.title') }}</h3>
 				<hr class="hr--double"/>
 
-				<table v-cloak>
+				<table v-cloak class="m-b-40">
 					<tbody>
 					<tr v-for="item in totals">
 						<td>
