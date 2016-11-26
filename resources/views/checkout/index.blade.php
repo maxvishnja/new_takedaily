@@ -112,7 +112,6 @@
 								<div class="visible-xs clear"></div>
 								<legend class="card_title pull-left">{{ trans('checkout.index.order.info.title') }}</legend>
 								<div class="clear"></div>
-								<hr class="hr--dashed hr--small-margin"/>
 								<label for="is_company">
 									<input id="is_company" type="checkbox" v-model="is_company"/> {{ trans('checkout.index.order.info.is-company') }}
 								</label>
