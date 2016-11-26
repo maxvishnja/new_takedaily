@@ -1,21 +1,16 @@
 @extends('layouts.app')
 
+@section('mainClasses', 'm-b-50')
+
 @section('content')
-	<div class="container">
+	<div class="header_image">
+		<h1>{{ trans('login.title') }}</h1>
+	</div>
 
-		<div class="text-center m-b-50">
-			<a href="{{ url()->route('flow') }}"
-			   class="button button--rounded button--huge button--landing button--green">
-				<strong>{!! trans('home.header.button-click-here') !!}</strong>
-			</a>
-			<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
-		</div>
-
+	<div class="container m-t-30">
 		<div class="row">
-			<div class="col-md-6 col-md-push-3">
+			<div class="col-md-6">
 				<div class="card">
-					<h1 class="card_title">{{ trans('login.title') }}</h1>
-					<hr class="hr--dashed hr--small-margin"/>
 					<form role="form" method="POST" action="{{ URL::action('Auth\AuthController@login') }}">
 						{!! csrf_field() !!}
 
@@ -47,6 +42,16 @@
 
 						<div><a href="{{ url('/password/reset') }}">{{ trans('login.forgot') }}</a></div>
 					</form>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="text-center m-b-50">
+					<a href="{{ url()->route('flow') }}"
+					   class="button button--rounded button--huge button--landing button--green">
+						<strong>{!! trans('home.header.button-click-here') !!}</strong>
+					</a>
+					<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
 				</div>
 			</div>
 		</div>
