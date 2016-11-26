@@ -60,7 +60,7 @@
 				<label class="label label--full checkout--label">&nbsp;</label>
 				<div style="padding: 15px 0">
 					<span class="icon icon-card-mastercard m-r-5 v-a-m" title="Mastercard"></span>
-					<span class="icon icon-card-visa m-l-5 v-a-m" title="Visa"></span>
+					<span class="icon icon-card-visa m-l-5 m-r-5 v-a-m" title="Visa"></span>
 					@if(App::getLocale() == 'da')
 						<span class="icon icon-card-dk m-l-5 v-a-m" title="Dankort"></span>
 					@endif
@@ -77,7 +77,8 @@
 						autocomplete="cc-exp-month">
 					<option value="-1" selected="selected" disabled="disabled">{{ trans('checkout.index.order.billing.card.month') }}</option>
 					@foreach(range(1,12) as $month)
-						<option value="{{ str_pad($month, 2, 0, STR_PAD_LEFT) }}">{{ str_pad($month, 2, 0, STR_PAD_LEFT) }} - {{ \Jenssegers\Date\Date::create(2016,$month, 1)->format('M') }}</option>
+						<option value="{{ str_pad($month, 2, 0, STR_PAD_LEFT) }}">{{ str_pad($month, 2, 0, STR_PAD_LEFT) }}
+							- {{ \Jenssegers\Date\Date::create(2016,$month, 1)->format('M') }}</option>
 					@endforeach
 				</select>
 
@@ -104,8 +105,11 @@
 				<label class="label label--full checkout--label" for="cc-csc"
 					   title="{{ trans('checkout.index.order.billing.card.cvc-title') }}">{{ trans('checkout.index.order.billing.card.cvc') }}
 					({{ trans('checkout.index.order.billing.card.cvc-title') }})</label>
-				<input data-validate="false" type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-csc" autocomplete="cc-csc" size="4"
-					   maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" data-stripe="cvc" required="required" pattern="\d*"/>
+				<div class="input-with-positioned-icon">
+					<div class="positioned-icon cvr-info-icon hidden-xs">?</div>
+					<input data-validate="false" type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-csc" autocomplete="cc-csc" size="4"
+						   maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" data-stripe="cvc" required="required" pattern="\d*"/>
+				</div>
 			</div>
 		</div>
 
@@ -309,5 +313,22 @@
 	<script>
 		$("input#ccnumber").payment("formatCardNumber");
 		$("input#cc-cvc").payment("formatCardCVC");
+	</script>
+
+	<script>
+		(function () {
+			var tip = new Tooltip('{{ trans('checkout.cvv-information') }}', { auto: true });
+			tip.position(document.querySelector('.cvr-info-icon'));
+
+			$(".cvr-info-icon").on('mouseover', function()
+			{
+				tip.show();
+			});
+
+			$(".cvr-info-icon").on('mouseout', function()
+			{
+				tip.hide();
+			});
+		})();
 	</script>
 @endsection

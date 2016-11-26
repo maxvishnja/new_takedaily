@@ -5,6 +5,7 @@
     "laravel-elixir-spritesmith": "^0.3.2"
   },
   "dependencies": {
-    "laravel-elixir": "^4.0.0"
+    "laravel-elixir": "^4.0.0",
+    "tooltip": "darsain/tooltip"
   }
 }
