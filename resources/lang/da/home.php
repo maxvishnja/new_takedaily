@@ -173,7 +173,7 @@ Vitaminerne pakker vi til dig i dagsrationer, så de er lige til at tage. Nemt o
   array (
     'one' => 'Leveres i postkassen',
     'two' => 'Skræddersyet til dig',
-    'three' => 'Fragt: 0 kr.',
-    'four' => 'Ingen binding',
+    'three' => 'Rådgivning af kostvejledere',
+    'four' => 'Fragt 0 kr.',
   ),
 );

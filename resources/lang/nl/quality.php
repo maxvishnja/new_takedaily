@@ -36,7 +36,7 @@ return array (
   'section_foa' => 
   array (
     'title' => 'Onze Premium Omega-3 visolie',
-    'body' => '<p>Onze omega-3 visolie wordt gewonnen uit anjovis en sardines en bestaat voor 55% uit de gezonde omega-3 vetzuren EPA en DHA. De sardines en ansjovis worden gevangen in de schone zeeën rondom Peru en Chili. Om de visolie te beschermen tegen oxidatie is vitamine E als antioxidant toegevoegd.</p>
+    'body' => '<p>Onze omega-3 visolie wordt gewonnen uit anjovis en sardines en bestaat voor 65% uit gezonde omega-3 vetzuren. De sardines en ansjovis worden gevangen in de schone zeeën rondom Peru en Chili. Om de visolie te beschermen tegen oxidatie is vitamine E als antioxidant toegevoegd.</p>
 					<p>Onze visolie is onderworpen aan de strengste kwaliteitsnormen en is optimaal gezuiverd en gecontroleerd op de aanwezigheid van verontreinigingen als zware metalen, dioxines en PCB\'s. De productie van onze visolie is van productie tot het transport gecertificeerd door "Friends of the Sea". De productie van visolie is traceerbaar vanaf het moment dat de vis gevangen wordt, Milieu en duurzaamheid staat bij de productie van onze visolie hoog in het vaandel.</p>',
   ),
 );

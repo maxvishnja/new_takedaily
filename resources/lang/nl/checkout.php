@@ -57,7 +57,9 @@ return array (
         'cvr-placeholder' => 'Nl- 0612345678',
         'phone-placeholder' => '0612345678',
         'phone' => 'Mobiel telefoonnummer',
-        'is-company' => 'Ik koop als bedrijf',
+        'is-company' => 'Bedrijfsnaam (Optioneel)',
+        'password' => 'Gewenste wachtwoord',
+        'password-placeholder' => 'Wachtwoord',
       ),
       'billing' => 
       array (
@@ -115,4 +117,5 @@ return array (
     'payment-error' => 'Er is een fout opgetreden bij de verwerking van de betaling, probeer het opnieuw.',
     'no-cart-session' => 'Der kunne ikke findes en kurv-session!',
   ),
+  'fb-login' => 'Log ind med Facebook',
 );

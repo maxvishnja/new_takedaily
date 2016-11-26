@@ -2,7 +2,7 @@
 
 return array (
   'weight' => 'Nettogewicht',
-  'address' => 'Take Daily ApS - Vimmelskaftet 43 - 1161 Kopenhagen',
+  'address' => 'TakeDaily Benelux B.V. - Overschiestraat 65 - 1062XD Amsterdam',
   'batch' => 'Batchnr.',
   'expiration' => 'Ten minste houdbaar tot einde:',
   'ingredients' => 'INGREDIENTEN',
