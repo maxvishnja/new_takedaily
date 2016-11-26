@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class PickMixController extends Controller
 {
+	public function getVitaminInfo( $code )
+	{
+		return \Response::make(e(view( 'includes.pick-n-mix-info', [ 'vitamin' => $code, 'descriptions' => [] ] )));
+	}
+
 	public function get( Request $request )
 	{
 		$vitamins         = Vitamin::all();

@@ -11,28 +11,36 @@
 		<div class="col-md-8">
 			<div class="row" v-cloak="">
 				<div v-for="group in groups">
+					<div class="clear"></div>
 					<h2 class="text-center">@{{ groupTranslations[group] }}</h2>
+					<div class="clear"></div>
 
 					<div class="col-md-6" v-for="vitamin in vitaminsInGroup(group)">
-						<div class="vitamin-item" v-on:click="toggleVitamin(vitamin, $event)" v-bind:class="{ 'vitamin-item--selected': vitamin.isSelected, 'vitamin-item--faded': (vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) }">
-							<div class="vitamin-item-action">
-								<a href="#" v-show="!vitamin.isSelected && !(vitamin.type == 'multi' && hasMultivitamin)" class="button button--green button--circular">
-									<span class="icon icon-plus"></span> {{ trans('pick.select-btn') }}
-								</a>
 
-								<a href="#" v-show="vitamin.isSelected"
-								   class="button button--green button--circular button--grey">
-									<span class="icon icon-cross-16"></span> {{ trans('pick.deselect-btn') }}
-								</a>
-							</div>
+						<div class="new_vitamin_item" v-bind:class="{ 'faded': (vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) }">
 
-							<div class="vitamin-item-left">
+							<div class="pill_section">
 								<span class="icon pill-@{{ vitamin.code }}"></span>
 							</div>
 
-							<div class="vitamin-item-right">
+							<div class="content_section">
 								<strong>@{{ vitamin.name }}</strong>
+
 								<p v-html="vitamin.description"></p>
+
+								<div class="extra_content">
+
+									<div class="m-t-30 m-b-10">
+										<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--light pull-right"
+										   v-show="vitamin.isSelected">{{ trans('flow-actions.remove') }}</a>
+										<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--green pull-right"
+										   v-show="!vitamin.isSelected">{{ trans('flow-actions.select') }}</a>
+
+										<a href="javascript:void(0);" v-on:click="readMore(vitamin);">{{ trans('flow-actions.read-more') }}</a>
+									</div>
+
+									<div v-html="vitamin.extra_content"></div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -120,6 +128,7 @@
 						id: "{{ $vitamin->id }}",
 						description: "{!! $vitamin->description !!}",
 						type: "{{ $vitamin->type }}",
+						extra_content: "",
 						isSelected: @if( in_array($vitamin->id, $selectedVitamins) ) true @else false @endif
 					},
 					@endforeach
@@ -147,8 +156,8 @@
 				},
 				hasMultivitamin: function () {
 					return this.selectedVitamins.filter(function (vitamin) {
-						return vitamin.type == "multi";
-					}).length >= 1;
+							return vitamin.type == "multi";
+						}).length >= 1;
 				},
 				total_sum: function () {
 					var sum = 0;
@@ -172,20 +181,30 @@
 					});
 
 					return groups;
-				},
+				}
 			},
 			methods: {
-				setCart: function() {
+				decodeHtml: function (html) {
+					var txt = document.createElement("textarea");
+					txt.innerHTML = html;
+
+					return txt.value;
+				},
+				readMore: function (vitamin) {
+					$.get('{{ url()->route('pick-n-mix-info', ['']) }}/' + vitamin.code).done(function (response) {
+						vitamin.extra_content = app.decodeHtml(response);
+					});
+				},
+				setCart: function () {
 					var vitamins = [];
 
-					this.selectedVitamins.forEach(function(vitamin)
-					{
+					this.selectedVitamins.forEach(function (vitamin) {
 						vitamins.push(vitamin.code);
 					});
 
 					$.post('/cart-pick-n-mix', {
 						vitamins: vitamins
-					}).done(function(response) {
+					}).done(function (response) {
 						app.getCart();
 					});
 				},
@@ -235,8 +254,7 @@
 						return false;
 					}
 
-					if(this.hasMultivitamin && vitamin.type == 'multi')
-					{
+					if (this.hasMultivitamin && vitamin.type == 'multi') {
 						alert('{!! trans('pick.errors.already-has-multi') !!}');
 
 						return false;
@@ -284,6 +302,13 @@
 					isSticked = false;
 				}
 			}
+		});
+
+		$("body").on('click', '.seeIngredientsBtn', function(e)
+		{
+			e.preventDefault();
+
+			$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
 		});
 	</script>
 @endsection

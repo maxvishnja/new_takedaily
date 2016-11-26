@@ -1,6 +1,7 @@
 <?php
 
 Route::get( 'pick-n-mix', 'PickMixController@get' )->name( 'pick-n-mix' );
+Route::get( 'pick-n-mix/info/{code}', 'PickMixController@getVitaminInfo' )->name( 'pick-n-mix-info' );
 Route::post( 'pick-n-mix', 'PickMixController@post' )->name( 'pick-n-mix-post' );
 
 Route::get( 'pick-package', 'PackageController@get' )->name( 'pick-package' );
