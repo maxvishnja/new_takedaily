@@ -191,7 +191,7 @@
 		</div>
 
 		@if( is_array( trans('home.blocks.six.slides') ) )
-			<div class="block block--six">
+			<div class="block block--six" style="position: relative">
 				<div class="slider_container" id="slider_two">
 					<div class="icon slider-arrow-left icon-arrow-left"></div>
 					<div class="icon slider-arrow-right icon-arrow-right"></div>
@@ -212,6 +212,10 @@
 							@endforeach
 						</div>
 					</div>
+				</div>
+
+				<div class="slider_two_progress" style="position: absolute; left: 50%; margin-left: -50px; bottom: 20px; height: 4px; background: rgba(0,0,0,.25); width: 100px">
+					<div class="bar" style="height: 4px; background: rgba(0,0,0,.25); width: 0"></div>
 				</div>
 			</div>
 		@endif
@@ -255,10 +259,24 @@
 	<script>
 		$("#slider_two").slider();
 
+		var auto_slide_progress = $(".slider_two_progress");
+		var auto_slide_progress_bar = auto_slide_progress.find('.bar');
+		var auto_slide_state = 0;
+		var auto_slide_interval = 800;
+
 		setInterval(function()
 		{
-			$("#slider_two .slider-arrow-right").click();
-		}, 6500);
+			auto_slide_state++;
+			auto_slide_progress_bar.width((auto_slide_state / 800 * 100) + '%');
+
+			if(auto_slide_state >= auto_slide_interval)
+			{
+				auto_slide_state = 0;
+				$("#slider_two .slider-arrow-right").click();
+			}
+
+		}, 10);
+
 
 		var videoPopup = $("#video_popup");
 		var videoPopupContent = $("#video_popup-content");
