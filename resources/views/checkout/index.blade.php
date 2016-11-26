@@ -163,6 +163,26 @@
 									</div>
 								</div>
 
+								<div class="row m-b-50 m-sm-b-20">
+									<div class="col-md-6">
+										<label class="label label--full checkout--label" for="input_info_password">{{ trans('checkout.index.order.info.password') }}
+											<span class="required">*</span></label>
+										<input type="password" class="input input--medium input--semibold input--full @if($errors->has('password')) input--error @endif"
+											   id="input_info_password"
+											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.password-placeholder') }}" name="password" required="required"
+											   aria-required="true" />
+									</div>
+									<div class="col-md-6">
+										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+										<label class="label label--full checkout--label" for="input_info_password_confirmation">{{ trans('checkout.index.order.info.password_confirmation') }}
+											<span class="required">*</span></label>
+										<input type="password" class="input input--medium input--semibold input--full @if($errors->has('password_confirmation')) input--error @endif"
+											   id="input_info_password_confirmation"
+											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.password_confirmation-placeholder') }}" name="password_confirmation" required="required"
+											   aria-required="true" />
+									</div>
+								</div>
+
 								<div class="row">
 									<div class="col-md-5">
 										<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}

@@ -89,28 +89,32 @@ class CheckoutController extends Controller
 	 */
 	function postCheckout( CheckoutRequest $request )
 	{
+		$this->validate( $request, [
+			'password' => 'required|confirmed|min:6'
+		] );
+
 		$productName   = $request->get( 'product_name', 'subscription' );
 		$paymentMethod = $request->get( 'payment_method' );
 		$couponCode    = $request->get( 'coupon', '' );
 
 		$checkout = new Checkout();
 
-		$taxZone = $request->get( 'address_country', trans( 'general.tax_zone' ) );
+		$taxZone  = $request->get( 'address_country', trans( 'general.tax_zone' ) );
 		$street   = $request->get( 'address_street' );
 		$city     = $request->get( 'address_city' );
 		$zipcode  = $request->get( 'address_zipcode' );
 		$userData = $request->get( 'user_data' );
-		$name = $request->get( 'name' );
-		$email = $request->get( 'email' );
+		$name     = $request->get( 'name' );
+		$email    = $request->get( 'email' );
 
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
 			$taxZone = \Auth::user()->customer->getCustomerAttribute( 'address_country', $request->get( 'address_country', trans( 'general.tax_zone' ) ) );
-			$street =  \Auth::user()->customer->getCustomerAttribute( 'address_street', $request->get( 'address_street' ) );
-			$city =  \Auth::user()->customer->getCustomerAttribute( 'address_city', $request->get( 'address_city' ) );
-			$zipcode =  \Auth::user()->customer->getCustomerAttribute( 'address_zipcode', $request->get( 'address_zipcode' ) );
-			$name = \Auth::user()->getCustomer();
-			$email = \Auth::user()->getEmail();
+			$street  = \Auth::user()->customer->getCustomerAttribute( 'address_street', $request->get( 'address_street' ) );
+			$city    = \Auth::user()->customer->getCustomerAttribute( 'address_city', $request->get( 'address_city' ) );
+			$zipcode = \Auth::user()->customer->getCustomerAttribute( 'address_zipcode', $request->get( 'address_zipcode' ) );
+			$name    = \Auth::user()->getCustomer();
+			$email   = \Auth::user()->getEmail();
 		}
 
 		$checkout->setProductByName( $productName )
@@ -149,6 +153,7 @@ class CheckoutController extends Controller
 		$request->session()->put( 'phone', $request->get( 'phone' ) );
 		$request->session()->put( 'product_name', $productName );
 		$request->session()->put( 'user_data', $userData );
+		$request->session()->put( 'password', bcrypt( $request->get( 'password' ) ) );
 		$request->session()->put( 'price', $checkout->getSubscriptionPrice() );
 		$request->session()->put( 'order_price', $checkout->getTotal() );
 		$request->session()->put( 'coupon', $couponCode );
@@ -208,13 +213,20 @@ class CheckoutController extends Controller
 
 		$checkoutCompletion = new CheckoutCompletion( $checkout );
 
-		if ( $userData && isset( $userData->birthdate ) )
+		$password = $request->session()->get( 'password', null );
+
+		if ( ! $password )
 		{
-			$password = date( 'Y-m-d', strtotime( $userData->birthdate ) );
-		}
-		else
-		{
-			$password = str_random( 8 );
+			if ( $userData && isset( $userData->birthdate ) )
+			{
+				$password = date( 'Y-m-d', strtotime( $userData->birthdate ) );
+			}
+			else
+			{
+				$password = str_random( 8 );
+			}
+
+			$password = bcrypt($password);
 		}
 
 		$name  = $request->session()->get( 'name' );
