@@ -40,6 +40,7 @@ elixir(function (mix) {
 		'/vendor/jquery.sticky.js',
 		'/vendor/payment.jquery.js',
 		'/vendor/js.cookie.js',
+		'/vendor/tooltip.min.js',
 		'/app.js'
 	], 'public/js/app.js');
 
