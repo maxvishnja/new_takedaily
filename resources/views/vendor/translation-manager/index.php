@@ -418,6 +418,7 @@
 	<form role="form">
 		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		<div class="form-group">
+			<?php array_unshift($groups, 'All'); ?>
 			<select name="group" id="group" class="form-control group-select">
 				<?php foreach ( $groups as $key => $value ): ?>
 					<option value="<?= $key ?>"<?= $key == $group ? ' selected' : '' ?>><?= $value ?></option>
@@ -473,6 +474,7 @@
 		</table>
 	<?php else: ?>
 		<?php unset( $groups[''] ); ?>
+		<?php unset( $groups[0] ); ?>
 		<button type="button" id="publish-all" onclick="publishAll();" class="btn btn-info" data-disable-with="Publishing..">Publish all translations</button>
 		<?php foreach ( $groups as $group ): ?>
 			<?php
