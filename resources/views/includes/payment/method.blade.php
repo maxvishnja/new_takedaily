@@ -317,7 +317,7 @@
 
 	<script>
 		(function () {
-			var tip = new Tooltip('CVR information', { auto: true });
+			var tip = new Tooltip('{{ trans('checkout.cvv-information') }}', { auto: true });
 			tip.position(document.querySelector('.cvr-info-icon'));
 
 			$(".cvr-info-icon").on('mouseover', function()
