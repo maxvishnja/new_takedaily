@@ -59,26 +59,26 @@
 		</div>
 	</header>
 
-	<div class="landing_advantages" style="text-align: center; padding: 18px 0; background: #fff; border-bottom: 1px solid #ddd; font-size: 16px; font-weight: 600">
+	<div class="landing_advantages" >
 		<div class="container">
 			<div class="col-md-3 col-xs-6">
-				<span class="icon icon-check-circle-large" style="vertical-align: -8px; margin-right: 4px"></span>
-				Leveres i postkassen
+				<span class="icon icon-check-circle-large"></span>
+				{{ trans('home.promos.one') }}
 			</div>
 
 			<div class="col-md-3 col-xs-6">
-				<span class="icon icon-check-circle-large" style="vertical-align: -8px; margin-right: 4px"></span>
-				Skræddersyet til dig
+				<span class="icon icon-check-circle-large"></span>
+				{{ trans('home.promos.two') }}
 			</div>
 
 			<div class="col-md-3 col-xs-6">
-				<span class="icon icon-check-circle-large" style="vertical-align: -8px; margin-right: 4px"></span>
-				Fragt: 0 kr.
+				<span class="icon icon-check-circle-large"></span>
+				{{ trans('home.promos.three') }}
 			</div>
 
 			<div class="col-md-3 col-xs-6">
-				<span class="icon icon-check-circle-large" style="vertical-align: -8px; margin-right: 4px"></span>
-				Ingen binding
+				<span class="icon icon-check-circle-large"></span>
+				{{ trans('home.promos.four') }}
 			</div>
 		</div>
 	</div>
@@ -289,29 +289,4 @@
 			}
 		});
 	</script>
-
-
-
-
-	<style>
-		@media all and (max-width: 767px) {
-			.landing_advantages {
-				text-align: left !important;
-				font-size: 12px !important;
-				padding-bottom: 8px !important;
-			}
-
-			.landing_advantages .col-xs-6 {
-				margin-bottom: 10px;
-				padding-left: 0 !important;
-				padding-right: 0 !important;
-			}
-
-			.landing_advantages .icon {
-				transform: scale(0.66666666666667);
-				margin-right: -1px !important;
-				vertical-align: -11px !important;
-			}
-		}
-	</style>
 @endsection
