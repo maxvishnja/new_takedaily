@@ -284,7 +284,7 @@ class Plan extends Model
 	 */
 	public function scopeRebillPending( $query )
 	{
-		return $query->where( 'subscription_rebill_at', '<=', Date::now()->addDays( 4 ) )
+		return $query->where( 'subscription_rebill_at', '<=', Date::now()->addDays( 5 ) )
 		             ->where( function ( Builder $where )
 		             {
 			             $where->whereNull( 'subscription_snoozed_until' )
