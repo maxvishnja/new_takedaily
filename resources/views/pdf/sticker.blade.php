@@ -136,8 +136,8 @@
 		@endif
 	</div>
 
-	<div style="text-align: center">
-		{{--<img src="{{ asset('/images/kcaps.jpeg') }}" style="height: 8mm" alt="K-Caps">--}}
+	<div style="text-align: center; font-size: 7pt; margin: 2pt 0;">
+		{{ trans('label-product.pill_color_reason') }}
 	</div>
 
 	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1;position: absolute; bottom: 0; text-align: center">
