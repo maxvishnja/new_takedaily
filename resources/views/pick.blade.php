@@ -235,7 +235,7 @@
 					event.preventDefault();
 
 					if (this.hasSelectedMaxVitamins) {
-						alert('{{ trans('pick.errors.too-many') }}');
+						alert('{!! trans('pick.errors.too-many') !!}');
 
 						return false;
 					}
