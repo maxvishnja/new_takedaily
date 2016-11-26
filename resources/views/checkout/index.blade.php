@@ -107,7 +107,8 @@
 					@if(Auth::guest())
 						<div class="card card--large m-b-30 card-padding-fixer">
 							<fieldset>
-								<a id="facebookloginbox" href="javascript:void(0);" onclick="loginFacebook()" class="pull-right button button--blue button--medium">{{ trans('checkout.fb-login') }}</a>
+								<a id="facebookloginbox" href="javascript:void(0);" onclick="loginFacebook()"
+								   class="pull-right button button--blue button--medium">{{ trans('checkout.fb-login') }}</a>
 								<div class="visible-xs clear"></div>
 								<legend class="card_title pull-left">{{ trans('checkout.index.order.info.title') }}</legend>
 								<div class="clear"></div>
@@ -150,22 +151,22 @@
 
 									<div class="col-md-6">
 										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
-										<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone') }}</label>
-										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif"
-											   id="input_info_phone"
-											   placeholder="{{ trans('checkout.index.order.info.phone-placeholder') }}" name="phone"
-											   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
-									</div>
-								</div>
-
-								<div class="row m-b-50 m-sm-b-20">
-									<div class="col-md-6">
 										<label class="label label--full checkout--label" for="input_info_password">{{ trans('checkout.index.order.info.password') }}
 											<span class="required">*</span></label>
 										<input type="password" class="input input--medium input--semibold input--full @if($errors->has('password')) input--error @endif"
 											   id="input_info_password"
 											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.password-placeholder') }}" name="password" required="required"
 											   aria-required="true"/>
+									</div>
+								</div>
+
+								<div class="row m-b-50 m-sm-b-20">
+									<div class="col-md-6">
+										<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone') }}</label>
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif"
+											   id="input_info_phone"
+											   placeholder="{{ trans('checkout.index.order.info.phone-placeholder') }}" name="phone"
+											   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
 									</div>
 								</div>
 
