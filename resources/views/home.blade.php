@@ -298,6 +298,7 @@
 			.landing_advantages {
 				text-align: left !important;
 				font-size: 12px !important;
+				padding-bottom: 8px !important;
 			}
 
 			.landing_advantages .col-xs-6 {
