@@ -160,7 +160,7 @@
 								</div>
 
 								<div class="row m-b-50 m-sm-b-20">
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<label class="label label--full checkout--label" for="input_info_password">{{ trans('checkout.index.order.info.password') }}
 											<span class="required">*</span></label>
 										<input type="password" class="input input--medium input--semibold input--full @if($errors->has('password')) input--error @endif"
