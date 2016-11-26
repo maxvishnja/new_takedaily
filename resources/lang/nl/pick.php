@@ -4,9 +4,9 @@ return array (
   'title' => 'Kies jouw vitamines & mineralen',
   'groups' => 
   array (
-    'oil' => 'Oliën',
+    'oil' => 'Omega-3',
     'lifestyle' => 'Leefstijl',
-    'multi' => 'Basic',
+    'multi' => 'Algemeen',
     'diet' => 'Eetpatroon',
   ),
   'select-btn' => 'Selecteer',

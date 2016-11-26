@@ -7,6 +7,8 @@ return array (
     'years' => 'jaar',
     'pick' => '--- kiezen ---',
     'button-save-text' => 'Gegevens opslaan',
+    'header' => 'Mijn TakeDaily',
+    'button-change' => 'Profiel aanpassen',
   ),
   'transaction' => 
   array (
@@ -84,8 +86,8 @@ return array (
     'button-start-text' => 'Start abonnement vanaf nu',
     'snooze_popup' => 
     array (
-      'title' => 'Uitstellen abonnement ',
-      'text' => 'Hoelang?',
+      'title' => 'Selecteer aantal dagen',
+      'text' => 'Hoeveel dagen wil je je TakeDaily uitstellen?',
       'option' => ':days dagen',
       'button-snooze-text' => 'Uitstellen',
       'button-close-text' => 'Annuleren',

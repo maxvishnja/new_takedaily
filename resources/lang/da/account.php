@@ -85,8 +85,8 @@ return array (
     'button-start-text' => 'Start abonnement fra i dag',
     'snooze_popup' => 
     array (
-      'title' => 'Snooze abonnent',
-      'text' => 'Hvor langt tid?',
+      'title' => 'Vælg antal dage',
+      'text' => 'Hvor mange dage ønsker du at udskyde din næste TakeDaily?',
       'option' => ':days dage',
       'button-snooze-text' => 'Udskyd',
       'button-close-text' => 'Annuller',

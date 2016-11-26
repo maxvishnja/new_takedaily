@@ -16,6 +16,7 @@ return array (
     'gifting' => 'Giv i gave',
     'our-products' => 'Produkter',
     'about-us' => 'Om os',
+    'how-it-works' => 'Sådan virker det',
   ),
   'subitems' => 
   array (

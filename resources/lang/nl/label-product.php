@@ -2,7 +2,7 @@
 
 return array (
   'weight' => 'Nettogewicht',
-  'address' => 'TakeDaily Benelux B.V. - Overschiestraat 65 - 1062XD Amsterdam',
+  'address' => 'TakeDaily Benelux B.V. - Overschiestraat 65 - 1062 XD Amsterdam',
   'batch' => 'Batchnr.',
   'expiration' => 'Ten minste houdbaar tot einde:',
   'ingredients' => 'INGREDIENTEN',

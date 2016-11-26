@@ -517,6 +517,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
     'pick-day' => 'Kies dag',
     'pick-year' => 'Kies jaar',
     'pick-month' => 'Kies maand',
+    'pick-decade' => 'Kies decennium',
   ),
   'show' => 
   array (

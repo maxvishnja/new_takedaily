@@ -4,10 +4,10 @@ return array (
   'title' => 'Vælg selv dine vitaminer',
   'groups' => 
   array (
-    'oil' => 'Olier',
-    'lifestyle' => 'Helbred',
-    'multi' => 'Basic',
-    'diet' => 'Kost og vaner',
+    'oil' => 'Omega-3',
+    'lifestyle' => 'Livsstil',
+    'multi' => 'Generelt',
+    'diet' => 'Kostvaner',
   ),
   'select-btn' => 'Vælg denne',
   'deselect-btn' => 'Fravælg denne',
