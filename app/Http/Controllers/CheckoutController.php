@@ -335,6 +335,7 @@ class CheckoutController extends Controller
 
 		if ( ! $coupon )
 		{
+			\Session::forget( 'applied_coupon' );
 			return \Response::json( [ 'message' => trans( 'checkout.messages.no-such-coupon' ) ], 400 );
 		}
 
