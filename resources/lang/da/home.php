@@ -66,7 +66,7 @@ return array (
       array (
         'one' => 
         array (
-          'title' => 'Tag sundhedstesten',
+          'title' => 'Tag vitamintesten',
           'text' => 'Fortæl os lidt om din krop, kost og livsstil. Det tager ikke mere end 2 minutter at svare på
 							spørgsmålene.',
         ),
@@ -168,5 +168,12 @@ Vitaminerne pakker vi til dig i dagsrationer, så de er lige til at tage. Nemt o
 							typewriter banh mi, squid keffiyeh High.',
       'button' => '<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start på TakeDaily i dag</a>',
     ),
+  ),
+  'promos' => 
+  array (
+    'one' => 'Leveres i postkassen',
+    'two' => 'Skræddersyet til dig',
+    'three' => 'Fragt: 0 kr.',
+    'four' => 'Ingen binding',
   ),
 );

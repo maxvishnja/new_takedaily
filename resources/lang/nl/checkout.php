@@ -57,6 +57,7 @@ return array (
         'cvr-placeholder' => 'Nl- 0612345678',
         'phone-placeholder' => '0612345678',
         'phone' => 'Mobiel telefoonnummer',
+        'is-company' => 'Ik koop als bedrijf',
       ),
       'billing' => 
       array (
@@ -96,7 +97,7 @@ return array (
     'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt bij voorkeur iedere maand per automatische afschrijving.
 					</p>
 
-					<p class="checkout_description">Je kan je abonnement ieder moment opzeggen of pauzeren.</p>',
+					<p class="checkout_description">Je kan je abonnement ieder moment opzeggen, uitstellen of pauzeren tot 5 dagen voor volgende verzendingsdatum.</p>',
     'method' => 
     array (
       'title' => 'Selecteer betaalmethode',
@@ -112,5 +113,6 @@ return array (
   'errors' => 
   array (
     'payment-error' => 'Er is een fout opgetreden bij de verwerking van de betaling, probeer het opnieuw.',
+    'no-cart-session' => 'Der kunne ikke findes en kurv-session!',
   ),
 );

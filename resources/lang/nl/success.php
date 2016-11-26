@@ -1,6 +1,6 @@
 <?php
 
 return array (
-  'upsell-btn' => 'Bestel TakeDaily met 50% korting!',
-  'upsell' => 'Wil je TakeDaily ook bestellen voor je partner, familie of werknemers?',
+  'upsell-btn' => 'Geef kortingscode met 50% korting!',
+  'upsell' => 'Moet jouw betere helft, vrienden of familie ook een TakeDaily hebben?',
 );

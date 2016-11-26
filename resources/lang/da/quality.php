@@ -28,8 +28,9 @@ return array (
     <li>Ikke-allergifremmende</li>
     <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>
-<p><em><br/><small>* Premium Omega-3 fiskeolie kommer i gelatinekapsel.
-<small><em></p>',
+<br/>
+<p><em><small>* Premium Omega-3 fiskeolie kommer i normal fiskegelatinekapsel.
+</small></em></p>',
   ),
   'section_foa' => 
   array (

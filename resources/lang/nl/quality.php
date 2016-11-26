@@ -2,8 +2,11 @@
 
 return array (
   'title' => 'Kwaliteit',
-  'page_title' => 'Kwaliteit',
-  'subtitle' => 'Hos TakeDaily arbejder vi med både de bedste råvarer og leverandører på markedet, og vi er registreret hos Fødevarestyrelsen.',
+  'page_title' => 'Onze producten',
+  'subtitle' => 'TakeDaily er høj kvalitet og rene, naturlige, aktive ingredienser, alle videnskabeligt bevist.
+
+<p> Vi har samlet de bedste ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den ultimative måde at genopbygge din krop indefra.   </p>
+				<p> Videnskaben bag er kompleks, men for dig er det hele enkelt og ligetil.</p>',
   'section_vitamins' => 
   array (
     'title' => 'Onze voedingssupplementen',

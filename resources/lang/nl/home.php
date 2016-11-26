@@ -164,4 +164,11 @@ voedingssupplement die goed aansluiten op jouw specifieke behoeften, kan een hel
       'button' => '<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start vandaag nog met TakeDaily</a>',
     ),
   ),
+  'promos' => 
+  array (
+    'two' => 'Op maat gemaakt voor jou',
+    'one' => 'Past door de brievenbus',
+    'three' => 'Gratis bezorgd',
+    'four' => 'Leder moment opzegbaar',
+  ),
 );

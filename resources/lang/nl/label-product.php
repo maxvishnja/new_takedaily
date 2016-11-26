@@ -26,4 +26,5 @@ return array (
   'Use_website' => '<strong>GEBRUIK:</strong> Gebruik 1 capsule per dag. De capsules, bij voorkeur tijdens of direct na een maaltijd met voldoende water innemen, tenzij anders geadviseerd. Aanbevolen dosering niet overschrijden. Een voedingssupplement is geen vervanging van een gevarieerde, gezonde en evenwichtige voeding. Bij gelijktijdig gebruik van andere supplementen, de gebruiksaanwijzing goed lezen, aangezien deze supplementen dezelde ingrediënten kunnen bevatten. In geval van overdosering raadpleeg jouw arts. Raadpleeg een deskundige alvorens supplementen te gebruiken in het geval van zwangerschap, lactatie, ziekte of medicijngebruik. Dit voedingssupplement is niet geschikt voor personen jonger dan 18 jaar.',
   'RI' => 'RI=refentie inname. RI komt overeen met ADH (= aanbevolen dagelijkse hoeveelheid)',
   'pill_color_reason' => 'De capsules zijn gekleurd om ze goed van elkaar te kunnen onderscheiden.',
+  'return' => 'Return to: TakeDaily, c/o Alescon · 1230 Assemblage · Wiltonstraat 1, 9403 AV, Assen, The Netherlands',
 );
