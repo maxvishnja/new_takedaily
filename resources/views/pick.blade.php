@@ -16,8 +16,7 @@
 					<div class="col-md-6" v-for="vitamin in vitaminsInGroup(group)">
 						<div class="vitamin-item" v-on:click="toggleVitamin(vitamin, $event)" v-bind:class="{ 'vitamin-item--selected': vitamin.isSelected }">
 							<div class="vitamin-item-action">
-								<a href="#" v-show="!vitamin.isSelected"
-								   class="button button--green button--circular">
+								<a href="#" v-show="!vitamin.isSelected && !(vitamin.type == 'multi' && hasMultivitamin)" class="button button--green button--circular">
 									<span class="icon icon-plus"></span> {{ trans('pick.select-btn') }}
 								</a>
 
@@ -146,6 +145,11 @@
 						return vitamin.type == "oil";
 					}).length;
 				},
+				hasMultivitamin: function () {
+					return this.selectedVitamins.filter(function (vitamin) {
+						return vitamin.type == "multi";
+					}).length >= 1;
+				},
 				total_sum: function () {
 					var sum = 0;
 
@@ -227,6 +231,13 @@
 
 					if (this.hasSelectedMaxVitamins) {
 						alert('{!! trans('pick.errors.too-many') !!}');
+
+						return false;
+					}
+
+					if(this.hasMultivitamin && vitamin.type == 'multi')
+					{
+						alert('{!! trans('pick.errors.already-has-multi') !!}');
 
 						return false;
 					}
