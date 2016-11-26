@@ -255,6 +255,11 @@
 	<script>
 		$("#slider_two").slider();
 
+		setInterval(function()
+		{
+			$("#slider_two .slider-arrow-right").click();
+		}, 6500);
+
 		var videoPopup = $("#video_popup");
 		var videoPopupContent = $("#video_popup-content");
 		$("#video-toggle, #video-toggle-two").click(function (e) {
