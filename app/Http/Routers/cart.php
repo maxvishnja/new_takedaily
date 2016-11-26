@@ -68,15 +68,25 @@ Route::post( '/cart-pick-n-mix', function ( \Illuminate\Http\Request $request )
 
 	$vitamins = $request->get( 'vitamins', [] );
 
+	$i = 0;
 	foreach ( $vitamins as $vitamin )
 	{
-		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Helpers\PillName::get( $vitamin ), '', [ 'key' => "vitamin.{$vitamin}" ] );
+		$i ++;
+		$price = null;
+		if ($i > 3)
+		{
+			$price = \App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin');
+		}
+		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Helpers\PillName::get( $vitamin ), $price, [ 'key' => "vitamin.{$vitamin}" ] );
 		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$vitamin}", $vitamin );
 	}
 
-	for($i = count($vitamins); $i < 3; $i++)
+	if ( count( $vitamins ) < 3 )
 	{
-		\App\Apricot\Checkout\Cart::deductProduct( 'vitamin' );
+		for ( $i = count( $vitamins ); $i < 3; $i ++ )
+		{
+			\App\Apricot\Checkout\Cart::deductProduct( 'vitamin' );
+		}
 	}
 
 	\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );

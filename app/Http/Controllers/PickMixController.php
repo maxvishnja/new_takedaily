@@ -31,7 +31,7 @@ class PickMixController extends Controller
 	public function post( Request $request )
 	{
 		$this->validate( $request, [
-			'vitamins'       => 'min:2|max:3|exists:vitamins,id'
+			'vitamins'       => 'min:2|max:4|exists:vitamins,id'
 		], [
 			'vitamins.min'          => trans('pick.errors.not-enough'),
 			'vitamins.max'          => trans('pick.errors.too-many-validation'),
@@ -39,9 +39,6 @@ class PickMixController extends Controller
 		] );
 
 		$vitamins = collect( $request->get( 'vitamins' ) );
-
-		Cart::clear();
-		Cart::addProduct('subscription');
 
 		if ( \Auth::check() && \Auth::user()->isUser() )
 		{
@@ -59,16 +56,6 @@ class PickMixController extends Controller
 		\Session::forget('flow-completion-token');
 		\Session::put( 'vitamins', $vitamins );
 		\Session::put( 'product_name', 'subscription' );
-
-		/** @var Vitamin $vitamin */
-		$i = 0;
-		foreach ( Vitamin::whereIn('id', $vitamins)->get() as $vitamin)
-		{
-			$i++;
-			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[$vitamin->code], '' );
-			Cart::addInfo("vitamins.{$i}", $vitamin->code);
-		}
-		Cart::addProduct( 'shipping', 0 );
 
 		return \Redirect::action( 'CheckoutController@getCheckout' );
 	}
