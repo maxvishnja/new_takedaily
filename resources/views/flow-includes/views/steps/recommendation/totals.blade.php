@@ -7,7 +7,7 @@
 				<td>{{ trans('general.money-vue', ['amount' => 'item.price']) }}</td>
 			</tr>
 			<tr v-show="discount.applied">
-				<td>@{{ discount.code }}: @{{ discount.description }}</td>
+				<td>@{{ discount.code }}</td>
 				<td>
 					<div v-show="discount.type == 'amount'">-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</div>
 					<div v-show="discount.type == 'percentage'">-@{{ total_discount }}</div>
