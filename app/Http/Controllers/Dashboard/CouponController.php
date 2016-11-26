@@ -36,7 +36,7 @@ class CouponController extends Controller
 		$coupon->description = $request->get('description');
 		$coupon->discount_type = $request->get('type');
 		$coupon->currency = $request->get('currency');
-		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
+		$coupon->discount = $request->get('type') == 'amount' ? $request->get('discount') : $request->get('discount');
 		$coupon->uses_left = $request->get('uses_left');
 		$coupon->applies_to = $request->get('applies_to');
 		$coupon->valid_from = $request->get('valid_from', Date::now()->format('Y-m-d'));
