@@ -10,7 +10,7 @@ class PickMixController extends Controller
 {
 	public function getVitaminInfo( $code )
 	{
-		return \Response::make(e(view( 'includes.pick-n-mix-info', [ 'vitamin' => $code, 'descriptions' => [] ] )));
+		return \Response::make( e( view( 'includes.pick-n-mix-info', [ 'vitamin' => $code, 'descriptions' => [] ] ) ) );
 	}
 
 	public function get( Request $request )
@@ -37,6 +37,7 @@ class PickMixController extends Controller
 				       {
 					       $query->whereIn( 'id', $selectedIds );
 				       } )
+				       ->limit( 4 )
 				       ->get()
 				       ->toArray()
 			);
