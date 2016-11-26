@@ -191,7 +191,7 @@
 					$.post('/cart-pick-n-mix', {
 						vitamins: vitamins
 					}).done(function(response) {
-						this.getCart();
+						app.getCart();
 					});
 				},
 				getCart: function () {
