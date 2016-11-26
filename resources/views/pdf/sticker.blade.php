@@ -136,7 +136,7 @@
 		@endif
 	</div>
 
-	<div style="text-align: center; font-size: 7pt; margin: 4pt 0 2px; color: #3AAC87">
+	<div style="text-align: center; font-size: 7pt; margin: 4pt 0 2px; color: #1A8562">
 		{{ trans('label-product.pill_color_reason') }}
 	</div>
 
