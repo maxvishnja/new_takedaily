@@ -13,7 +13,7 @@
 	<link rel="icon" type="image/png" href="/favicon.png"/>
 
 	<script src="https://use.typekit.net/feb1teb.js"></script>
-	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+	<script>try{Typekit.load({ async: false });}catch(e){}</script>
 
 	<!--[if lt IE 9]>
 	<script src="/js/respond.min.js"></script>
