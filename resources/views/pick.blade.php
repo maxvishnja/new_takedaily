@@ -194,6 +194,9 @@
 					$.get('{{ url()->route('pick-n-mix-info', ['']) }}/' + vitamin.code).done(function (response) {
 						vitamin.extra_content = app.decodeHtml(response);
 					});
+
+					// todo allow hiding again
+					// todo slideToggle
 				},
 				setCart: function () {
 					var vitamins = [];

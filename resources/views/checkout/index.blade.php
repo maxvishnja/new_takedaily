@@ -62,7 +62,7 @@
 		@endif
 
 		@if(Request::session()->has('vitamins'))
-			<a href="{{ url()->action('PickMixController@get') }}?selected={{ implode(',', session('vitamins')->toArray()) }}">{{ trans('checkout.back') }}</a>
+			<a href="{{ url()->action('PickMixController@get') }}?selected={{ implode(',', session('vitamins')->toArray()) }}">{{ trans('checkout.back-pick') }}</a>
 		@endif
 	</div>
 
