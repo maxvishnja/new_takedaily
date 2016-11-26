@@ -19,6 +19,13 @@
 				}
 			}
 
+			function loginFacebook()
+			{
+				FB.login(function(response) {
+					statusChangeCallback(response);
+				}, {scope: 'public_profile,email'});
+			}
+
 			function checkLoginState() {
 				FB.getLoginStatus(function (response) {
 					statusChangeCallback(response);
@@ -100,12 +107,9 @@
 
 					@if(Auth::guest())
 						<div class="card card--large m-b-30 card-padding-fixer">
-							<div class="text-center" id="facebookloginbox">
-								<fb:login-button
-									size="large"
-									scope="public_profile,email"
-									onlogin="checkLoginState();">Log ind med Facebook
-								</fb:login-button>
+							<div id="facebookloginbox">
+
+								<a href="javascript:void(0);" onclick="loginFacebook()" class="button button--blue button--large">Log ind med Facebook</a>
 								<hr>
 							</div>
 
