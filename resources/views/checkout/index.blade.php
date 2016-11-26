@@ -113,7 +113,32 @@
 								<legend class="card_title">{{ trans('checkout.index.order.info.title') }}</legend>
 								<hr class="hr--dashed hr--small-margin"/>
 
-								<div class="row m-b-50 m-sm-b-20">
+								<label for="is_company">
+									<input id="is_company" type="checkbox" v-model="is_company"/> {{ trans('checkout.index.order.info.is-company') }}
+								</label>
+
+								<div class="row">
+									<div v-show="is_company">
+										@if(App::getLocale() != 'nl')
+											<div class="col-md-6">
+												<div class="m-t-10"></div>
+												<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}</label>
+												<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
+													   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
+													   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
+											</div>
+										@endif
+										<div class="col-md-6">
+											<div class="m-t-10"></div>
+											<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}</label>
+											<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
+												   placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company"
+												   value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
+										</div>
+									</div>
+								</div>
+
+								<div class="row m-t-50 m-sm-t-20 m-b-50 m-sm-b-20">
 									<div class="col-md-12">
 										<label class="label label--full checkout--label" for="input_info_name">{{ trans('checkout.index.order.info.name') }}
 											<span class="required">*</span></label>
@@ -186,33 +211,6 @@
 													@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
 											@endforeach
 										</select>
-									</div>
-								</div>
-
-								<div class="col-md-12 m-t-50 m-sm-t-20">
-									<label for="is_company">
-										<input id="is_company" type="checkbox" v-model="is_company"/> {{ trans('checkout.index.order.info.is-company') }}
-									</label>
-								</div>
-
-								<div class="row">
-									<div v-show="is_company">
-										@if(App::getLocale() != 'nl')
-											<div class="col-md-6">
-												<div class="m-t-10"></div>
-												<label class="label label--full checkout--label" for="input_info_cvr">{{ trans('checkout.index.order.info.cvr') }}</label>
-												<input type="text" class="input input--medium input--semibold input--full" id="input_info_cvr"
-													   placeholder="{{ trans('checkout.index.order.info.cvr-placeholder') }}" name="cvr"
-													   value="{{ Request::old('cvr', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('cvr') : '')) }}"/>
-											</div>
-										@endif
-										<div class="col-md-6">
-											<div class="m-t-10"></div>
-											<label class="label label--full checkout--label" for="input_info_company">{{ trans('checkout.index.order.info.company') }}</label>
-											<input type="text" class="input input--medium input--semibold input--full" id="input_info_company"
-												   placeholder="{{ trans('checkout.index.order.info.company-placeholder') }}" name="company"
-												   value="{{ Request::old('company', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('company') : '')) }}"/>
-										</div>
 									</div>
 								</div>
 							</fieldset>
@@ -399,7 +397,7 @@
 							sum -= app.discount.amount;
 						}
 						else if (app.discount.type == 'percentage') {
-							sum *= (1-(app.discount.amount / 100));
+							sum *= (1 - (app.discount.amount / 100));
 						}
 					}
 
