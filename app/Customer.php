@@ -1,12 +1,10 @@
 <?php namespace App;
 
 use App\Apricot\Checkout\ProductPriceGetter;
-use App\Apricot\Libraries\CombinationLibrary;
 use App\Apricot\Libraries\CombinationLibraryNew;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
-use App\Apricot\Libraries\PillLibrary;
 use App\Apricot\Libraries\StripeLibrary;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Events\CustomerWasBilled;
