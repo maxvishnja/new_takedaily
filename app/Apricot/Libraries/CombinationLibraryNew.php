@@ -195,7 +195,7 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( ( ( isset( $data->foods ) && ( isset( $data->foods->fish ) && $data->foods->fish == '1' ) ) ) )
+		if ( (isset( $data->foods ) &&  isset( $data->foods->fish )) && $data->foods->fish == '1' )
 		{
 			$this->vitamins[] = '3e';
 			$this->groupThree = '3';
