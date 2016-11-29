@@ -107,10 +107,9 @@ Route::post( 'flow', function ( \Illuminate\Http\Request $request )
 		$combinations = Auth::user()->getCustomer()->calculateCombinations();
 		$vitamins     = [];
 
-		foreach ( $combinations as $key => $combination )
+		foreach ( $combinations as $vitaminCode )
 		{
-			$pill    = \App\Apricot\Libraries\PillLibrary::getPill( $key, $combination );
-			$vitamin = \App\Vitamin::select( 'id' )->whereCode( $pill )->first();
+			$vitamin = \App\Vitamin::select( 'id' )->whereCode( $vitaminCode )->first();
 
 			if ( $vitamin )
 			{
