@@ -440,8 +440,9 @@ class Customer extends Model
 				$charge = $paymentHandler->makeRebill( $amount, $this->getPlan()->getPaymentCustomer() );
 			} catch ( \Exception $exception )
 			{
-				\Log::critical($exception->getMessage());
-				\Bugsnag::notifyException($exception);
+				\Log::critical( $exception->getMessage() );
+				\Bugsnag::notifyException( $exception );
+
 				return false;
 			}
 
@@ -658,6 +659,7 @@ class Customer extends Model
 	public function updateUserdata( $userData )
 	{
 		$data = [
+			'user_data.locale'           => $userData->locale ?: \App::getLocale(),
 			'user_data.gender'           => $userData->gender ?: '',
 			'user_data.birthdate'        => $userData->birthdate ? date( 'Y-m-d', strtotime( $userData->birthdate ) ) : '',
 			'user_data.age'              => $userData->age ?: '',
