@@ -356,11 +356,13 @@
 				event.stopPropagation();
 
 				switch (element) {
-					@foreach(trans('flow.info') as $infoKey => $info)
-					case "{{ $infoKey }}":
-						swal("{!! $info !!}");
-						break;
-					@endforeach
+					@if(is_array(trans('flow.info')))
+						@foreach(trans('flow.info') as $infoKey => $info)
+						case "{{ $infoKey }}":
+							swal("{!! $info !!}");
+							break;
+						@endforeach
+					@endif
 				}
 			},
 
