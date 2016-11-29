@@ -195,7 +195,7 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( (isset( $data->foods ) &&  isset( $data->foods->fish )) && $data->foods->fish == '1' )
+		if ( (isset( $data->foods ) &&  isset( $data->foods->fish )) && ($data->foods->fish == '1' && (isset( $data->locale ) && $data->locale == 'da' && $data->foods->fish != '3')) )
 		{
 			$this->vitamins[] = '3e';
 			$this->groupThree = '3';
@@ -217,7 +217,19 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( isset( $data->foods ) && ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'a' ) && ( $data->foods->fruits == '1' || $data->foods->fruits == '2' || $data->foods->vegetables == '1' || $data->foods->vegetables == '2' ) ) )
+		if ( isset( $data->foods ) && isset($data->locale) && ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'a' ) &&
+		                                                        (($data->locale == 'nl'
+		                                                         && ( $data->foods->fruits == '1'
+									                                  || $data->foods->fruits == '2'
+									                                  || $data->foods->vegetables == '1'
+									                                  || $data->foods->vegetables == '2' )
+		                                                        ) ||
+		                                                        ($data->locale == 'da'
+		                                                         && ( $data->foods->fruits == '1'
+									                                  || $data->foods->fruits == '2'
+									                                  || $data->foods->vegetables != '4' )
+		                                                        ))
+			) )
 		{
 			$this->vitamins[] = '3a';
 			$this->groupThree = 'a';
