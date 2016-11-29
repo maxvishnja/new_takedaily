@@ -212,12 +212,14 @@
 				<span class="icon icon-portion-milk-3"></span>
 				<br/>{{ trans('flow.questions.3-8.options.3') }}
 			</label>
-			<label>
-				<input type="radio" name="step[3][8]" value="4" v-model="user_data.foods.dairy" data-model="foods.dairy"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-portion-milk-4"></span>
-				<br/>{{ trans('flow.questions.3-8.options.4') }}
-			</label>
+			@if(trans('flow.questions.3-8.options.4') != '')
+				<label>
+					<input type="radio" name="step[3][8]" value="4" v-model="user_data.foods.dairy" data-model="foods.dairy"
+						   v-on:click="nextStep();"/>
+					<span class="icon icon-portion-milk-4"></span>
+					<br/>{{ trans('flow.questions.3-8.options.4') }}
+				</label>
+			@endif
 		</div>
 
 		<p class="substep-explanation">{{ trans('flow.questions.3-8.text') }}</p>
