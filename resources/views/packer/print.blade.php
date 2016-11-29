@@ -16,8 +16,8 @@
 
 	@page {
 		margin: 0;
-		size: portrait;
-		/*size: 297mm 210mm;*/
+		/*size: portrait;*/
+		size: 297mm 210mm;
 	}
 
 	th, td, p, div, b {

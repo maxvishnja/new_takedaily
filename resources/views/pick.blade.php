@@ -8,7 +8,7 @@
 
 @section('content')
 	<div class="container" id="app">
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<div class="row" v-cloak="">
 				<div v-for="group in groups">
 					<div class="clear"></div>
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="cart-bubble" v-on:click="show_popup = !show_popup">
 				<div class="icon icon-cart">
 					<span class="cart-bubble_count">@{{ selectedVitamins.length }}</span>
