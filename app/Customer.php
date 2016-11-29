@@ -2,6 +2,7 @@
 
 use App\Apricot\Checkout\ProductPriceGetter;
 use App\Apricot\Libraries\CombinationLibrary;
+use App\Apricot\Libraries\CombinationLibraryNew;
 use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
@@ -492,17 +493,12 @@ class Customer extends Model
 
 		foreach ( $this->getVitaminModels() as $vitaminModel )
 		{
-			$currentVitamins[] = substr( $vitaminModel->code, 1, 1 );
+			$currentVitamins[] = strtolower($vitaminModel->code);
 		}
 
-		foreach ( $combinations as $index => $combination )
+		foreach ( $combinations as $vitamin )
 		{
-			if ( $index == 'one' )
-			{
-				$combination = $alphabet[ $combination - 1 ];
-			}
-
-			$newVitamins[] = strtolower( $combination );
+			$newVitamins[] = strtolower( $vitamin );
 		}
 
 		if ( count( $newVitamins ) != count( $currentVitamins ) )
@@ -532,7 +528,7 @@ class Customer extends Model
 			return [];
 		}
 
-		$combinationLibrary = new CombinationLibrary();
+		$combinationLibrary = new CombinationLibraryNew();
 
 		$attributes = $this->customerAttributes()->where( 'identifier', 'LIKE', 'user_data.%' )->get();
 
@@ -740,10 +736,9 @@ class Customer extends Model
 		$newCombinations = $this->calculateCombinations();
 		$vitamins        = [];
 
-		foreach ( $newCombinations as $key => $combination )
+		foreach ( $newCombinations as $vitaminCode )
 		{
-			$pill    = PillLibrary::getPill( $key, $combination );
-			$vitamin = Vitamin::select( 'id' )->whereCode( $pill )->first();
+			$vitamin = Vitamin::select( 'id' )->whereCode( $vitaminCode )->first();
 
 			if ( $vitamin )
 			{
