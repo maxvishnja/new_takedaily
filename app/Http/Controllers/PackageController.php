@@ -113,16 +113,15 @@ class PackageController extends Controller
 		\Session::put( 'package', $package->id );
 		\Session::put( 'product_name', 'package' );
 
-		$lib = new \App\Apricot\Libraries\CombinationLibrary();
+		$lib = new \App\Apricot\Libraries\CombinationLibraryNew();
 		$lib->generateResult( $combinedUserData );
 
 		$i = 0;
-		foreach ( $lib->getResult() as $combKey => $combVal )
+		foreach ( $lib->getResult() as $vitaminCode )
 		{
 			$i ++;
-			$vitamin_code = \App\Apricot\Libraries\PillLibrary::getPill( $combKey, $combVal );
-			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitamin_code ], '' );
-			Cart::addInfo( "vitamins.{$i}", $vitamin_code );
+			Cart::addProduct( \App\Apricot\Libraries\PillLibrary::$codes[ $vitaminCode ], '' );
+			Cart::addInfo( "vitamins.{$i}", $vitaminCode );
 		}
 
 		Cart::addInfo( "user_data", $combinedUserData );
