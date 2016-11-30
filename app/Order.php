@@ -258,12 +258,12 @@ class Order extends Model
 
 	public function loadLabel()
 	{
-		return $this->getCustomer()->loadLabel();
+		return $this->getCustomer()->loadLabel($this);
 	}
 
 	public function loadSticker()
 	{
-		return $this->getCustomer()->loadSticker();
+		return $this->getCustomer()->loadSticker($this);
 	}
 
 	public function download()

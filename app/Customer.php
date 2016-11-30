@@ -590,14 +590,24 @@ class Customer extends Model
 		return Vitamin::whereIn( 'id', $vitamins )->get();
 	}
 
-	public function loadLabel()
+	public function loadLabel($order = null)
 	{
-		return view( 'pdf.label', [ 'customer' => $this ] );
+		if( is_null($order))
+		{
+			$order = new Order();
+		}
+
+		return view( 'pdf.label', [ 'customer' => $this, 'order' => $order ] );
 	}
 
-	public function loadSticker()
+	public function loadSticker($order = null)
 	{
-		return view( 'pdf.sticker', [ 'customer' => $this ] );
+		if( is_null($order))
+		{
+			$order = new Order();
+		}
+
+		return view( 'pdf.sticker', [ 'customer' => $this, 'order' => $order ] );
 	}
 
 	/**
