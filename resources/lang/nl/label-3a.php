@@ -20,9 +20,9 @@ return array (
   array (
     0 => 
     array (
-      'amount' => '200 µg',
-      'name' => 'Vitamine A',
-      'percent' => '25',
+      'amount' => '1,2 mg',
+      'name' => 'Bèta-caroteen',
+      'percent' => '-',
     ),
     1 => 
     array (
@@ -38,7 +38,7 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse groente- en fruitinname',
-  'ingredients' => 'Dikaliumwaterstoffosfaat, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat), beta-caroteen, pteroymonoglutaminezuur',
+  'ingredients' => 'Kaliumwaterstoffosfaat, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat),  bèta-caroteen, pteroymonoglutaminezuur',
   'praises' => 
   array (
     'heart' => 'Kalium heeft een gunstige invloed op het behoud van een normale bloeddruk en vitamine C is belangrijk voor de bloedvaten',
@@ -50,4 +50,5 @@ return array (
   'Vit and Min' => 'Vitamines en Mineralen',
   'web_description' => '\'I\'m not a veggie fan\' bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement dient ter aanvulling op de multivitaminen.',
   'weight' => '29,4 gram',
+  'above_claims' => '\'I\'m not a veggie fan\' bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement dient ter aanvulling op de multivitamine',
 );

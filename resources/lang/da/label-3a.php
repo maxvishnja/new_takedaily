@@ -2,13 +2,13 @@
 
 return array (
   'name' => 'Supplement til det daglige indtag af frugt og grønt',
-  'ingredients' => 'Dikaliumhydrogenphosphat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E141), L-ascorbinsyre, fyldstof (mikrokrystallinsk cellulose), antiklumpningsmiddel (magnesiumstearat), beta-caroten, pteroymonoglutaminezuur',
+  'ingredients' => 'Kaliumhydrogenphosphat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E141), L-ascorbinsyre, fyldstof (mikrokrystallinsk cellulose), antiklumpningsmiddel (magnesiumstearat), beta-caroten, pteroymonoglutaminezuur',
   'vitamins' => 
   array (
     0 => 
     array (
-      'name' => 'Vitamin A',
-      'amount' => '200 µg',
+      'name' => 'Betacaroten',
+      'amount' => '1,2 mg',
       'percent' => '25',
     ),
     1 => 
@@ -51,4 +51,5 @@ return array (
   'Vit and Min' => 'Vitaminer og Mineraler',
   'web_description' => '"Jeg er ikke en veggie fan \'indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tillægget har til formål at supplere multivitamin.',
   'weight' => '29,4 gram',
+  'above_claims' => '"Jeg er ikke en veggie fan \'indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tillægget har til formål at supplere multivitamin.',
 );

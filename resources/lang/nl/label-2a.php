@@ -16,7 +16,7 @@ return array (
       'percent' => '200*',
     ),
   ),
-  'ingredients' => 'vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E104, E129)), antiklontermiddel (magnesiumstearaat), cholecalciferol, pteroylmonoglutaminezuur',
+  'ingredients' => 'vulstof (microkristallijne cellulose), plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstoffen (E171, E104, E129)), antiklontermiddel (magnesiumstearaat), cholecalciferol, pteroylmonoglutaminezuur',
   'name' => 'Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn.
 ',
   'disclaimer' => '** Specifiek aangepaste dosering foliumzuur en vitamine D voor zwangere vrouwen en vrouwen die zwanger willen worden conform het advies van de Gezondheidsraad',
@@ -33,4 +33,5 @@ Mom & Baby bevat 400 mcg foliumzuur en 10 mcg vitamine D. Het advies van de Gezo
 
 Tijdens de zwangerschap is de behoefte aan vitamine D verhoogd en de Gezondheidsraad adviseert zwangeren dagelijks 10 mcg extra vitamine D te gebruiken. Vitamine D speelt een belangrijke rol in de ontwikkeling van jouw kindje.',
   'weight' => '12,6 gram',
+  'above_claims' => 'Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn.',
 );

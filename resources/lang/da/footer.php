@@ -10,7 +10,7 @@ return array (
   array (
     'one' => 
     array (
-      'title' => 'Tilmeld dig nyheder fra TakeDaily',
+      'title' => 'Vil du gerne være med, men har ikke tid lige nu? Tilmeld dig vores nyhedsbrev.',
       'input-placeholder' => 'min@mailadresse.dk',
       'button-text' => 'Send',
     ),

@@ -37,7 +37,7 @@ return array (
   'praises' => 
   array (
     'muscle' => 'D-vitamin og magnesium bidrager til musklernes normale funktion',
-    'bone' => 'D-vitamin samt mineralerne magnesium og mangan bidrager til opretholdelsen af stærke knogler.',
+    'bone' => 'D-vitamin, magnesium og mangan bidrager til opretholdelsen af stærke knogler.',
     'cartilage' => 'C-vitamin er vigtig for kroppens brusk.',
   ),
   'batch_number' => '1916',
@@ -45,4 +45,5 @@ return array (
   'Vit and Min' => 'Vitaminer og Mineraler ',
   'web_description' => 'Bone & Muscle er et supplement til at supplere vores multivitaminer og indeholder vitaminer og mineraler, der spiller en rolle i opretholdelsen af ​​stærke knogler og glatte muskler (vitamin C, D og magnesium og mangan). <P> D-vitamin og magnesium bidrager til normal muskelfunktion. Vitamin D, magnesium og mangan bidrager til opretholdelse af stærke knogler og C-vitamin er vigtigt for brusken. </ P>',
   'weight' => '28 gram',
+  'above_claims' => 'Joint, Bone & Muscle er et supplement til at supplere vores multivitaminer og indeholder vitaminer og mineraler, der spiller en rolle i opretholdelsen af ​​stærke knogler og glatte muskler (vitamin C, D og magnesium og mangan).',
 );

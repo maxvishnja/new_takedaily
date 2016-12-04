@@ -6,7 +6,7 @@ return array (
   array (
     'blood' => 'Alfa-linolensyre (ALA) bidrager til at opretholdelse af normale blodkolesterolniveauer. *',
   ),
-  'ingredients' => 'Chiafrøolie, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), antiklumpningsmiddel (siliciumdioxid)',
+  'ingredients' => 'Chiafrøolie, vegetabilsk kapselvæg (hydroxypropylmethylcellulose), fortykningsmiddel (siliciumdioxid)',
   'other-vitamins' => 
   array (
     0 => 
@@ -42,7 +42,6 @@ return array (
     5 => 
     array (
       'name' => 'Heraf',
-      'amount' => '371,20 mg',
     ),
     6 => 
     array (
@@ -65,4 +64,6 @@ return array (
   'web_description' => '
 Chiafrø er afledt af Salvia hispanica, en plante, der tilhører mint familien. Chiafrøolie opnås ved koldpresning af frøene. Chiafrøolie er en vegetabilsk olie, der indeholder det højeste indhold af omega-3 fedtsyrer i forhold til andre vegetabilske olier. Den omega-3-fedtsyre alfa-linolensyre (ALA) som er i Chiafrøolie bidrager til at opretholde de sunde kolesterol niveauer. *
 <br/> * Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA.',
+  'weight' => '19,43 gram',
+  'above_claims' => 'Vores chiafrøolie er vegansk, koldpresset olie, rig på sunde omega 3-fedtsyrer',
 );

@@ -63,7 +63,7 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstof (E140)), vulstof (microkristallijne cellulose), ijzerfumaraat, nicotinamide, calcium-D-pantothenaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride',
+  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstof (E140)), vulstof (microkristallijne cellulose), ijzerfumaraat, nicotinamide, calcium-D-pantothenaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride',
   'end_date' => '09/2019',
   'batch_number' => '1916',
   'Vit and Min' => 'Vitamines en Mineralen',
@@ -76,4 +76,5 @@ De vitamines B2, B3, B5, B6 en B12 en ijzer helpen daarnaast vermoeidheid en moe
 <P><em>Heb je stress?</em>
 In stressvolle tijden draagt vitamanie B5 bij aan een normale weerstand tegen stress en een heldere geest.</ P>',
   'weight' => '22,1 gram',
+  'above_claims' => 'Energy Booster is supplement ter aanvulling van onze multivitaminen en bevat B-vitamines (B1, B2, B3, B5, B6, B12) en de mineralen ijzer en magnesium.',
 );

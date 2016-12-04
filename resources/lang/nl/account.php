@@ -65,7 +65,7 @@ return array (
     'add' => 
     array (
       'button-cancel-text' => 'Opzeggen',
-      'button-add-text' => 'Voortzetten',
+      'button-add-text' => 'Doorgaan',
       'title' => 'Voeg betaalmethode toe - Take Daily',
       'header' => 'Nieuwe betaalmethode',
     ),
@@ -87,7 +87,7 @@ return array (
     'snooze_popup' => 
     array (
       'title' => 'Selecteer aantal dagen',
-      'text' => 'Hoeveel dagen wil je je TakeDaily uitstellen?',
+      'text' => 'Hoeveel dagen wil je de volgende levering van jouw TakeDaily pakket uitstellen?',
       'option' => ':days dagen',
       'button-snooze-text' => 'Uitstellen',
       'button-close-text' => 'Annuleren',
@@ -105,7 +105,7 @@ return array (
   array (
     'errors' => 
     array (
-      'custom-package-cant-change' => 'Het samenstelling van het pakket is helaas niet te veranderen,',
+      'custom-package-cant-change' => 'De samenstelling van het pakket is helaas niet te veranderen,',
       'max-snooze' => 'Je kunt de levering voor maximaal 28 dagen uitstellen.',
     ),
     'successes' => 

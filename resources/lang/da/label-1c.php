@@ -32,7 +32,6 @@ Hud, hår og negle
 Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og bidragert til at holde håret stærk. Selen og zink er gode for negle. Vitamin A, B2, B3, B8 (biotin), og mineraler jod og zink hjælper til at opretholde en sund hud.',
   'praises' => 
   array (
-    'bone' => 'Multivitamin D+ Ekstra danner grundlag for dine personlige multivitamin- og mineraltabletter. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 20 mikrogram D-vitamin til kvinder og mænd over 70 år.',
     'general-health' => 'Til støtte for en optimal sundhed',
   ),
   'ingredients' => 'Fyldstof (dicalciumphosphatdihydrat), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E132), jern bisglycinate, L-ascorbinsyre, zinkgluconat, DL-alpha-tocopherylacetat, cholecalciferol, nicotinamid , L-selenomethionin, antiklumpningsmiddel (magnesiumstearat), calcium-D-pantothenat, retinylacetat, cyanocobalamin, phylloquinon (phytomenadion), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, chrompicolinat, pteroylmonoglutamic syre, kaliumiodid, D-biotin
@@ -168,8 +167,7 @@ Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og bidragert
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
   'web_description' => 'Vitamin D+ Ekstra er en multivitamin og mineral supplement som indeholder 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år. Den indeholder en velafbalanceret kombination af de 13 essentielle vitaminer og mineralerne calcium, chrom, phosphor, jern, jod, selen og zink. Vitaminer og mineraler i Multivitamin D+ Ekstra er et supplement til den daglige kost og spiller en vigtig rolle i at støtte og bevare et optimalt helbred.
-
-
-For mænd og kvinder i alderen 70 og derover, er der overbevisende dokumentation fra forskning, at et indtag af D-vitamin per dag kan reducere risikoen for knoglebrud. Det anbefales at personer over 70 tager et dagligt tilskud af 20 mikrogram vitamin D.',
+',
   'weight' => '27,44 gram',
+  'above_claims' => 'Multivitamin D+ Ekstra danner grundlag for dine personlige multivitamin- og mineraltabletter. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 20 mikrogram D-vitamin.',
 );

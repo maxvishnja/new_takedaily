@@ -39,4 +39,5 @@ return array (
   'Vit and Min' => 'Vitaminer og Mineraler',
   'web_description' => '"The Dairy portion indeholder vitamin B2, B12 og calcium. Tillægget har til formål at supplere multivitamin.',
   'weight' => '23,8 gram',
+  'above_claims' => '"The Dairy portion indeholder vitamin B2, B12 og calcium. Tillægget har til formål at supplere multivitamin.',
 );

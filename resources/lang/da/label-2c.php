@@ -77,4 +77,5 @@ Vitaminerne B2, B3, B5, B6 og B12 og jern bidrager til at mindske træthed. </ P
 <P> <em> Har du stress? </ Em>
 I stressende situationer kan vitamin B5 bidrage til en modstand mod stress og et klart sind. </ P>',
   'weight' => '22,1 gram',
+  'above_claims' => 'Energy Booster supplement til at supplere vores multivitaminer og indeholder B-vitaminer (B1, B2, B3, B5, B6, B12) og mineraler jern og magnesium.',
 );

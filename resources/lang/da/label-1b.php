@@ -36,7 +36,6 @@ Hud, hår og negle
 Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og holde håret stærk. Selen og zink er gode for negle. Vitamin A, B2, B3, B8 (biotin), og mineraler jod og zink hjælper til at opretholde en sund hud.',
   'praises' => 
   array (
-    'bone' => 'Multivitamin D+ danner grundlag for dine personlige multivitamin- og mineraltilskud. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 10 mikrogram D-vitamin',
     'general-health' => 'Til støtte for en optimal sundhed',
   ),
   'ingredients' => 'Fyldstof (dicalciumphosphatdihydrat), vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E141), jern bisglycinate, L-ascorbinsyre, zinkgluconat, DL-alpha-tocopherylacetat, nicotinamid, L -selenomethionine, antiklumpningsmiddel (magnesiumstearat), cholecalciferol, calcium-D-pantothenat, retinylacetat, cyanocobalamin, phylloquinon (phytomenadion), pyridoxal-5-phosphat, riboflavin, thiamin-hydrochlorid, chrompicolinat, pteroylmonoglutamic syre, kaliumiodid, D-biotin
@@ -172,17 +171,12 @@ Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og holde hå
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
   'web_description' => 'Multi Vitamin D+ er en multivitamin og mineraltilskud til voksne i alderen 18 med 10 mikrogram D-vitamin. Den indeholder en afbalanceret kombination af 13 vigtige vitaminer og mineraler; calcium, krom, fosfor, jern, jod, selen og zink. Vitaminer og mineraler i Multi Vitamin D+ er et tillæg til den daglige kost og spiller en vigtig rolle i at støtte og bevare et optimalt helbred.
-
-Sundhedsstyrelsen anbefaler bestemte grupper til at indtage 10 mikrogram D-vitamin som et dagligt tilskud:
-<ul>
-<li> Folk, der ikke er tilstrækkeligt udenfor; </li>
-<li> Mennesker med naturligt tonet eller mørk hud; </li>
-<li> Kvinder 50-69 </li>
-</ul>',
+',
   'weight' => '27,44 gram',
   'web_advantage_list' => '<ul>
 <li>En fordel</li>
 <li>endnu en fordel</li>
 <li>En tredje fordel</li>
 </ul>',
+  'above_claims' => 'Multivitamin D+ danner grundlag for dine personlige multivitamin- og mineraltilskud. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 10 mikrogram D-vitamin',
 );

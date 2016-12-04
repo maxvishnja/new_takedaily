@@ -4,7 +4,7 @@ return array (
   'back' => '‹ Terug naar de vorige vraag',
   'title' => 'Vind jouw persoonlijke advies - TakeDaily',
   'scripts' => 'Schakel JavaScript in',
-  'info_about_supplement' => 'De resultaten van deze test zijn gebaseerd op jouw specifieke leeftstijl en eetpatroon. TakeDaily draagt zorg dat jij alle vitaminen en mineralen binnenkrijgt die je nodig hebt. Als de TakeDaily supplementen worden gebruikt, zijn andere vitaminen-/mineralensupplementen niet meer nodig. Wil je extra supplementen gebruiken naast de TakeDaily supplementen, raadpleeg dan altijd eerst een arts of een deskundige.',
+  'info_about_supplement' => 'De resultaten van deze test zijn gebaseerd op jouw specifieke leefstijl en eetpatroon. TakeDaily draagt zorg dat jij alle vitaminen en mineralen binnenkrijgt die je nodig hebt. Als de TakeDaily supplementen worden gebruikt, zijn andere vitaminen-/mineralensupplementen niet meer nodig. Wil je extra supplementen gebruiken naast de TakeDaily supplementen, raadpleeg dan altijd eerst een arts of een deskundige.',
   'steps' => 
   array (
     'one' => 'Algemeen',
@@ -14,7 +14,7 @@ return array (
   ),
   'info' => 
   array (
-    'chiaoil' => 'Chiazaad olie is..',
+    'chiaoil' => 'Chiazaadolie is..',
     'fishoil' => 'Visolie is...',
   ),
   'button-order-text' => 'Bestel TakeDaily',
@@ -98,7 +98,7 @@ return array (
     '2-4' => 
     array (
       'title' => 'Heb je momenteel stress?',
-      'text' => 'In een stressvolle periode kunnen bepaalde B-vitames bijdragen aan de weerstand tegen stress en een heldere geest. B-vitamines zijn daarnaast belangrijk voor het zenuwstelsel en immuunsysteen.',
+      'text' => 'In een stressvolle periode kunnen bepaalde B-vitamines bijdragen aan de weerstand tegen stress en een heldere geest. B-vitamines zijn daarnaast belangrijk voor het zenuwstelsel en immuunsysteem.',
       'options' => 
       array (
         1 => 'Ja',
@@ -223,13 +223,13 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
     '3-5' => 
     array (
       'title' => 'Hoeveel porties aardappelen, rijst, pasta, couscous, quinoa, e.d. eet je gemiddeld per dag?',
-      'text' => 'Pasta, rijst, aardappelen, couscous e.d. zijn een belangrijke bron van B-vitamines en mineralen. Kies bij voorkeur volkoren variantien.',
+      'text' => 'Pasta, rijst, aardappelen, couscous e.d. zijn een belangrijke bron van B-vitamines en mineralen. Kies bij voorkeur volkoren varianten.',
       'options' => 
       array (
         1 => 'Geen',
-        2 => '1-2 porties (50-100 gram)',
-        3 => '3-4 porties (150-200 gram)',
-        4 => '4-5 porties of meer (200-250 gram)',
+        2 => '1-2 opscheplepels (50-100 gram)',
+        3 => '3-4 opscheplepels (150-200 gram)',
+        4 => '4-5 opscheplepels of meer (200-250 gram)',
       ),
     ),
     '3-6' => 
@@ -270,11 +270,11 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
     ),
     '3-9' => 
     array (
-      'title' => 'Wil je Chiazaad olie of visolie?',
+      'title' => 'Wil je Chiazaadolie of visolie?',
       'text' => 'Ud fra dine valg, kan vi se at du enten kan få chiaolie, eller fiskeolie, du får derfor frit valg. Mere information kan findes ved at trykke på "Mere info" teksten på valgmulighederne, du kan også fravælge olie helt.',
       'options' => 
       array (
-        1 => 'Chiazaad olie',
+        1 => 'Chiazaadolie',
         2 => 'Visolie',
         3 => 'Geen olie',
       ),
@@ -289,7 +289,7 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
 							Je hebt extra vitamine D nodig <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">in verband met jouw leeftijd</span>
 								<span v-show="( user_data.age >= \'50\'&& user_data.age <= \'70\') && user_data.skin > \'1\'">of</span>
 								<span v-show="user_data.skin > \'1\'">jouw getinte of donkere huidskleur</span>.
-								 Met de Multi Vitamine D+ zorgen wij dat je tenminste de hoeveelheid vitamine D binnenkrijgt die de Gezondsheidsraad adviseert.',
+								 Met de Multi Vitamine D+ zorgen wij dat je tenminste de hoeveelheid vitamine D binnenkrijgt die de Gezondheidsraad adviseert.',
       'basic-10-d-alt' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering.
 			  Je komt dagelijks onvoldoende buiten, waardoor jouw huid niet in staat is om voldoende vitamine D aan te maken. TakeDaily heeft de Multi Vitamine D+ toegevoegd om zorg te dragen dat jij dagelijks de hoeveelheid vitamine D binnenkrijgt die je nodig hebt.',
       'basic-20-d' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die je nodig hebt - in de juiste dosering. 
@@ -365,7 +365,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
 <br/> <br/>
 Als je dagelijkse consumptie van smeer- en bereidingsvetten wijzigt, vergeet dan niet om jouw profiel aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily</a>.
 TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen binnenkrijgt die je op dat moment nodig hebt.',
-      'g' => 'Je hebt Chiazaad olie gekozen! Chiazaad olie is rijk aan gezonde omega 3-vetzuren.',
+      'g' => 'Je hebt Chiazaadolie gekozen! Chiazaadolie is een plantaardige olie en rijk aan gezonde omega 3-vetzuren.Voor mensen die geen visolie willen gebruiken is Chiazaadolie met betrekking tot de omega-3 vetzuren een plantaardig alternatief!',
     ),
     'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.',
@@ -429,7 +429,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
       'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het hart*</div>
 
 <div class="clear"></div><span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot de instandhouding van de normale hersenfunctie en een normaal gezichtsvermogen**</div>',
-      'f' => '<div class="clear"></div><span class="icon icon-eye-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot het instandhouding van een normaal gezichtsvermgen</div>
+      'f' => '<div class="clear"></div><span class="icon icon-eye-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot het instandhouding van een normaal gezichtsvermogen</div>
                            <div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt bij het gezond houden van de huid</div>
                         <div class="clear"></div><span class="icon icon-teeth-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een sterk gebit</div>',
       'g' => '<span class="icon icon-blood-flow flow-promise-icon"></span> <div class="flow-promise-text">Alfa-linoleenzuur (ALA) helpt het cholesterolniveau gezond te houden.*</div>',
@@ -531,7 +531,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
   array (
     'wait' => 'Even geduld a.u.b.',
     'wait-text' => 'Even geduld a.u.b. TakeDaily stelt nu jouw persoonlijke pakket samen',
-    'your-recommendations' => 'Jouw persoonlijk advies',
+    'your-recommendations' => 'Jouw persoonlijk pakket',
     'send-them' => 'Stuur mijn persoonlijke advies naar mijn email.',
     'send' => 
     array (
@@ -551,7 +551,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
   ),
   'button-save-text' => 'Pas jouw pakket aan',
   'package-updated' => 'Jouw TakeDaily pakket is aangepast!',
-  'switch-to-chia' => 'Verander visolie in chiazaad olie',
-  'switch-to-fish' => 'Verander chiazaad olie in visolie',
+  'switch-to-chia' => 'Verander visolie in het plantaardige chiazaad olie',
+  'switch-to-fish' => 'Verander het plantaardige chiazaadolie in visolie',
   'ingredients' => 'Ingrediënten',
 );

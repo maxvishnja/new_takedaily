@@ -15,9 +15,9 @@ return array (
     ),
     0 => 
     array (
-      'name' => 'Chiaolie',
+      'name' => 'Chiazaadolie',
       'amount' => '580 mg',
-      'percent' => '*',
+      'percent' => '*-',
     ),
     2 => 
     array (
@@ -45,7 +45,7 @@ return array (
     ),
   ),
   'name' => 'Chiazaadolie',
-  'ingredients' => 'Chiazaadolie, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol)), antiklontermiddel (silica)',
+  'ingredients' => 'Chiazaadolie, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose)), verdikkingsmiddel (siliciumdioxide)',
   'disclaimer' => '* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.<br/>Rijk aan omega 3-vetzuren',
   'praises' => 
   array (
@@ -55,6 +55,8 @@ return array (
   'end_date' => '03/2018',
   'Vit and Min' => 'Ingrediënten',
   'disclaimer_web' => '* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.',
-  'web_description' => 'Chia zaden zijn afkomstig van de Salvia Hispanica, een plant die behoort tot de muntfamilie. Chiazaad olie wordt verkregen door een koude persing van de zaden. Chiazaad olie is een plantaardige olie die in vergelijking tot andere plantaardige oliën het hoogste gehalte aan omega 3-vetzuren bevat. Het omega 3-vetzuur alfa-linoleenzuur (ALA) in chiazaad olie helpt het cholesterolniveau gezond te houden.*
+  'web_description' => 'Chia zaden zijn afkomstig van de Salvia Hispanica, een plant die behoort tot de muntfamilie. Chiazaadolie wordt verkregen door een koude persing van de zaden. Chiazaadolie is een plantaardige olie die in vergelijking tot andere plantaardige oliën het hoogste gehalte aan omega 3-vetzuren bevat. Het omega 3-vetzuur alfa-linoleenzuur (ALA) in chiazaadolie helpt het cholesterolniveau gezond te houden.*
 <br/>* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.',
+  'weight' => '19,43 gram',
+  'above_claims' => 'Onze chiazaadolie is een plantaardige, koudgeperste olie en rijk aan gezonde omega 3-vetzuren',
 );
