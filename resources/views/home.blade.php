@@ -274,8 +274,12 @@
 				auto_slide_state = 0;
 				$("#slider_two .slider-arrow-right").click();
 			}
-
 		}, 10);
+
+		$("#slider_two .slider-arrow-left, #slider_two .slider-arrow-right").click(function()
+		{
+			auto_slide_state = 0;
+		});
 
 
 		var videoPopup = $("#video_popup");
