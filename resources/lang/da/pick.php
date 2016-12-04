@@ -20,6 +20,7 @@ return array (
     'not-enough' => 'Du har ikke valgt nok vitaminer, du skal mindst vælge :min forskellige.',
     'too-many-validation' => 'Du har valgt for mange vitaminer, du kan maksimalt vælge :max forskellige.',
     'not-found' => 'Du har valgt et vitamin som ikke findes, hvordan ved vi ikke, prøv igen.',
+    'already-has-multi' => 'Du har allerede valgt et multi-vitamin',
   ),
   'updated' => 'Dine vitaminer blev opdateret!',
 );

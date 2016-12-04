@@ -3,14 +3,16 @@
 return array (
   'title' => 'Kwaliteit',
   'page_title' => 'Onze producten',
-  'subtitle' => 'TakeDaily er høj kvalitet og rene, naturlige, aktive ingredienser, alle videnskabeligt bevist.
+  'subtitle' => 'Alle voedingssupplementen van TakeDaily zijn van hoge kwaliteit en samengesteld uit pure, actieve en wetenschappelijk bewezen ingrediënten.
 
-<p> Vi har samlet de bedste ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den ultimative måde at genopbygge din krop indefra.   </p>
-				<p> Videnskaben bag er kompleks, men for dig er det hele enkelt og ligetil.</p>',
+<p>TakeDaily werkt samen met bekwame voedingsdeskundigen die gebruik maken
+van de laatste wetenschappelijke inzichten om het lichaam optimaal gezond te houden.</p>
+
+<p>De wetenschap is zeer complex, maar voor jou maakt TakeDaily het duidelijk en eenvoudig.</p>',
   'section_vitamins' => 
   array (
     'title' => 'Onze voedingssupplementen',
-    'body' => '<p>TakeDaily streeft naar de hoogste kwaliteit voor haar supplementen. Alle ingrediënten zijn in de EU tot het kleinste detail goedgekeurd en al onze producten zijn ontwikkeld in overeenstemming is met de eisen van Nederlandse warenwet en de EFSA (Europese Autoriteit voor Voedselveiligheid).</p>
+    'body' => '<p>TakeDaily streeft naar de hoogste kwaliteit voor haar supplementen. Alle ingrediënten zijn in de EU tot het kleinste detail goedgekeurd en al onze producten zijn ontwikkeld in overeenstemming is met de eisen van Nederlandse warenwet en de EFSA (Europese Autoriteit voor Voedselveiligheid). Ons verpakkingscentrum is gespecialiseerd in het verpakken van voedingsmiddelen en is ISO 22000:2005 gecertificeerd.</p>
 
 <p>TakeDaily zorgt dat haar supplementen veilig en verantwoord gedoseerd zijn, ook voor de door ons geadviseerde combinaties van supplementen garanderen wij te allen tijde dat de dosering aan vitamines en mineralen veilig en verantwoord is.</p>',
   ),
@@ -36,7 +38,7 @@ return array (
   'section_foa' => 
   array (
     'title' => 'Onze Premium Omega-3 visolie',
-    'body' => '<p>Onze omega-3 visolie wordt gewonnen uit anjovis en sardines en bestaat voor 65% uit gezonde omega-3 vetzuren. De sardines en ansjovis worden gevangen in de schone zeeën rondom Peru en Chili. Om de visolie te beschermen tegen oxidatie is vitamine E als antioxidant toegevoegd.</p>
+    'body' => '<p>Onze omega-3 visolie wordt gewonnen uit ansjovis en sardines en bestaat voor 65% uit gezonde omega-3 vetzuren. De sardines en ansjovis worden gevangen in de schone zeeën rondom Peru en Chili. Om de visolie te beschermen tegen oxidatie is vitamine E als antioxidant toegevoegd.</p>
 					<p>Onze visolie is onderworpen aan de strengste kwaliteitsnormen en is optimaal gezuiverd en gecontroleerd op de aanwezigheid van verontreinigingen als zware metalen, dioxines en PCB\'s. De productie van onze visolie is van productie tot het transport gecertificeerd door "Friends of the Sea". De productie van visolie is traceerbaar vanaf het moment dat de vis gevangen wordt, Milieu en duurzaamheid staat bij de productie van onze visolie hoog in het vaandel.</p>',
   ),
 );

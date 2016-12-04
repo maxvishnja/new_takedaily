@@ -68,4 +68,5 @@ return array (
   'Vit and Min' => 'Vitaminer og Mineraler',
   'web_description' => 'Immun Booster er et supplement til at supplere vores multivitaminer, og er rig på vitaminer og mineraler (vitamin A, B6, B11 (folinsyre), B12, C, D og mineraler selen og zink). Et supplement til alle, der ønsker at forbedre immunforsvarets normale funktion! <P> Vitamin A, B6, folinsyre, B12, C, D og mineraler selen og zink bidrager til den normale funktion af immunsystemet og C-vitamin, selen og zink hjælp lichaamscellen at beskytte mod ydre påvirkninger. </ P>',
   'weight' => '15,4 gram',
+  'above_claims' => 'Immun Booster er et supplement til at supplere vores multivitaminer, og er rig på vitaminer og mineraler (vitamin A, B6, B11 (folinsyre), B12, C, D og mineraler selen og zink).',
 );

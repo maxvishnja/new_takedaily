@@ -79,7 +79,6 @@ Huid, haar en nagels
 Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en houdt de haren sterk. Seleen en zink zijn goed voor de nagels. Vitamine A, B2, B3, B8 (biotine),en de mineralen jodium en zink helpen bij het gezond houden van de huid.',
   'praises' => 
   array (
-    'bone' => 'Multi vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D</div>',
     'general-health' => 'Voor het ondersteunen van een optimale gezondheid',
   ),
   'vitamins' => 
@@ -163,17 +162,11 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
       'percent' => '50',
     ),
   ),
-  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E171, E141)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), cholecalciferol, calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
+  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose), kleurstoffen (E171, E141)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), cholecalciferol, calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en mineralen',
-  'web_description' => 'De Multi Vitamin D+ is een multivitaminen- & mineralensupplement voor volwassenen vanaf 18 jaar met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De vitamines en mineralen in de Multi Vitamin D+ zijn een aanvulling op de dagelijkse voeding en spelen een belangrijke rol in het ondersteunen en behoud van een optimale gezondheid. 
-
-De gezondheidsraad adviseert bepaalde doelgroepen om dagelijks 10 microgram extra vitamine D via een supplement te gebruiken:
-<ul>
-<li>Personen die onvoldoende buiten komen;</li>
-<li>Personen met een natuurlijk getinte of donkere huid;</li>
-<li>Vrouwen van 50-69 jaar</li>
-</ul>',
+  'web_description' => 'Multi vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De vitamines en mineralen in de Multi Vitamin D+ zijn een aanvulling op de dagelijkse voeding en spelen een belangrijke rol in het ondersteunen en behoud van een optimale gezondheid. ',
   'weight' => '27,44 gram',
+  'above_claims' => 'Multi vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D',
 );

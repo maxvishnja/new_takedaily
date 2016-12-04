@@ -14,11 +14,7 @@ return array (
     'three' => 'KOST OG VANER',
     'four' => 'ANBEFALING',
   ),
-  'info' => 
-  array (
-    'chiaoil' => 'Chiaolie er...',
-    'fishoil' => 'Fiskeolie er...',
-  ),
+  'info' => 'Resultatet af denne test er baseret på din kost og livsstil. TakeDaily sørger for, at du får alle de vitaminer og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre kosttilskud.',
   'button-order-text' => 'Bestil TakeDaily',
   'button-save-text' => 'Opdater din pakke',
   'questions' => 
@@ -203,22 +199,19 @@ return array (
     '3-3' => 
     array (
       'title' => 'Hvor mange skiver brød spiser du om dagen?',
-      'text' => 'Havregrød eller lign. tæller for én skive brød.<br/><br/>Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Vælg fuldkorn. Det mætter rigtig godt. Det får
-							dig til at spise mindre og gør det lettere at holde vægten. ',
+      'text' => 'Rugbrød, havregrød eller lign. tæller for én skive brød.<br/><br/>Brød er en vigtig kilde til B-vitamin, jern og kostfibre. Vælg fuldkorn. Det mætter rigtig godt. Det får
+							dig til at spise mindre og gør det lettere at holde vægten.',
       'options' => 
       array (
-        1 => 'Intet',
+        1 => 'Ingen',
         2 => '1-2 skiver.',
-        3 => '2-3 skiver.',
-        4 => '4-5 skiver.',
-        5 => '6 skiver, eller derover. ',
+        3 => '+3 skiver.',
       ),
     ),
     '3-4' => 
     array (
       'title' => 'Kommer du smør eller margarine på brødet eller bruger du det i din daglige madlavning?',
-      'text' => 'Margarine er en vigtige kilder til A-vitamin og D-vitamin, og smør er en god kilde til A-vitamin. Begge vitaminer er vigtige for kroppens immunforsvar.
-',
+      'text' => 'Olie til madlavning eller salaten tæller ikke med. Margarine er en vigtige kilder til A-vitamin og D-vitamin, og smør er en god kilde til A-vitamin. Begge vitaminer er vigtige for kroppens immunforsvar.',
       'options' => 
       array (
         1 => 'Ja',
@@ -270,7 +263,6 @@ return array (
         1 => 'Ingen',
         2 => '1 portion',
         3 => '2-3 portioner',
-        4 => '3-4 portioner',
       ),
     ),
     '3-9' => 
@@ -575,7 +567,9 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
   array (
     'wait' => 'Vent venligst..',
     'wait-text' => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
-    'your-recommendations' => 'Her er din anbefaling!',
+    'your-recommendations' => 'Her er din personlige pakke! 
+
+<p>Resultatet af denne test er baseret på din kost og livsstil. TakeDaily sørger for, at du får alle de vitaminer og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre kosttilskud.</p>',
     'send-them' => 'Send min anbefaling til min email.',
     'send' => 
     array (

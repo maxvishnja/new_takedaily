@@ -58,4 +58,5 @@ return array (
 <br/>*Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA.
 <br/>**Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg DHA.',
   'weight' => '42 gram',
+  'above_claims' => 'Niet iedereen eet voldoende vis. Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega 3-vetzuren EPA en DHA. Premium Omega-3 Fish Oil bevat 550 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
 );

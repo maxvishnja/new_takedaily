@@ -32,4 +32,5 @@ Mor & Baby indeholder 400 mcg folinsyre og 10 mcg af vitamin D. Sundhedsstyrelse
 
 Under graviditet, øges behovet for vitamin D. Sundhedsstyrelsen anbefaler at gravide kvinder har et dagligt indtag på 10 mcg D-vitami, da D-vitamin spiller en vigtig rolle i udviklingen af ​​dit barn.',
   'weight' => '12,6 gram',
+  'above_claims' => 'Mor & Baby er et kosttilskud for kvinder, der ønsker at blive gravid eller er gravide.',
 );

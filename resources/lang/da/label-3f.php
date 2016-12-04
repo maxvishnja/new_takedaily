@@ -36,4 +36,5 @@ return array (
   'Vit and Min' => 'Vitaminer og Mineraler',
   'web_description' => '"Ikke en smør elsker" indeholder vitamin A, D og E. Tillægget skal supplere multivitamin.',
   'weight' => '14 gram',
+  'above_claims' => '"Ikke en smør elsker" indeholder vitamin A, D og E. Tillægget skal supplere multivitamin.',
 );

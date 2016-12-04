@@ -11,7 +11,7 @@ return array (
     array (
       'text' => '4 weken vitamines & mineralen op maat',
       'price' => '€18,95<small>/mnd</small>',
-      'info' => 'Altijd opzegbaar - Gratis bezorgd',
+      'info' => 'Ieder moment opzegbaar - Gratis bezorgd',
     ),
     'what-is' => 'Wat is TakeDaily?',
     'pick' => 'Of stel je liever je eigen pakket samen?',

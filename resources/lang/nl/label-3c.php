@@ -25,7 +25,7 @@ return array (
       'percent' => '100',
     ),
   ),
-  'ingredients' => 'Calciumcarbonaat, plantaardige capsulewand (hydroxypropylmethylcellulose, gezuiverd water, verdikkingsmiddel (siliciumdioxide), bevochtigingsmiddel (sorbitol), kleurstoffen (E172, E171)), antiklontermiddel (magnesiumstearaat), cyanocobalamine, riboflavine',
+  'ingredients' => 'Calciumcarbonaat, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstoffen (E172, E171)), antiklontermiddel (magnesiumstearaat), cyanocobalamine, riboflavine',
   'name' => 'Supplement ter aanvulling van de dagelijkse zuivelinname',
   'praises' => 
   array (
@@ -38,4 +38,5 @@ return array (
   'Vit and Min' => 'Vitamines en Mineralen',
   'web_description' => '\'The Dairy Portion\' bevat vitamine B2, B12 en calcium. Het supplement dient ter aanvulling op de multivitaminen.',
   'weight' => '23,8 gram',
+  'above_claims' => '\'The Dairy Portion\' bevat vitamine B2, B12 en calcium. Het supplement dient ter aanvulling op de multivitaminen.',
 );

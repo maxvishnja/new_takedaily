@@ -1,11 +1,11 @@
 <?php
 
 return array (
-  'body' => '<p>TakeDaily maakt het mogelijk dat jij automatisch iedere maand de supplementen thuisbezorgd krijgt die aansluiten bij jouw persoonlijke behoeften. Wij zorgen ervoor dat jij je supplementen altijd in huis hebt. Nooit meer misgrijpen en geconfronteerd worden met lege potjes supplementen. Niet meer naar de winkel of uren struinen op het internet, dat is TakeDaily.</p>
+  'body' => '<p>Door het grote aanbod in voedingssupplementen is het lastig te bepalen wat je nodig hebt. TakeDaily zorgt voor jou en helpt je automatisch elke maand aan de juiste supplementen! Misgrijpen en uren zoeken naar de juiste voedingssupplementen behoort met TakeDaily tot het verleden.</p>
 
-<p>Het bestellen van jouw supplementen is super simpel. Het invullen van de test neemt slechts enkele minuten in een beslag, waarna wij jou een persoonlijk advies geven. Je kan uiteraard ook zelf een pakket selecteren als jij al weet waar je naar op zoek bent. </p>
+<p>Op basis van een korte test geven wij jou een persoonlijk advies op maat. Indien je zelf al weet wat je zoekt bieden wij de mogelijkheid een eigen pakket te selecteren. Bestellen is heel eenvoudig en wijst zich vanzelf.</p>
 
-<p>Je kan het TakeDaily abonnement uiteraard op ieder gewenst moment aanpassen, pauzeren of stopzetten.</p>',
+<p>Jouw persoonlijke TakeDaily ontvang je voor 18,95 per maand. Een TakeDaily abonnement kun je altijd aanpassen, pauzeren of opzeggen tot 5 dagen voor volgende verzendingsdatum via jouw TakeDaily profiel. Je zit dus nergens aan vast!</p>',
   'page_title' => 'Hoe werkt het?',
   'title' => 'Hoe werkt het?',
   'subtitle' => '&nbsp;',

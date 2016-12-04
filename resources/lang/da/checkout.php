@@ -3,7 +3,7 @@
 return array (
   'wait' => 'Vent...',
   'apply' => 'Anvend',
-  'back' => '‹ Gå tilbage til anbefalingen',
+  'back' => '‹ Gå tilbage til din TakeDaily pakke',
   'messages' => 
   array (
     'vitamins-not-selected' => 'Vi skal finde dine vitaminer før du kan handle.',
@@ -119,4 +119,5 @@ return array (
   ),
   'fb-login' => 'Log ind med Facebook',
   'cvv-information' => 'Kontrolnummeret står typisk bag på kortet',
+  'back-pick' => '‹ Gå tilbage til dine valg',
 );

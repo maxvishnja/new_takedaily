@@ -96,10 +96,10 @@ return array (
       'input-placeholder' => 'Jouw kortingscode',
       'button-text' => 'Toepassen',
     ),
-    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt bij voorkeur iedere maand per automatische afschrijving.
+    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt iedere maand per automatische afschrijving.
 					</p>
 
-					<p class="checkout_description">Je kan je abonnement ieder moment opzeggen, uitstellen of pauzeren tot 5 dagen voor volgende verzendingsdatum.</p>',
+					<p class="checkout_description">Je kan je abonnement ieder moment opzeggen, uitstellen of pauzeren tot 5 dagen voor de  volgende verzendingsdatum.</p>',
     'method' => 
     array (
       'title' => 'Selecteer betaalmethode',
@@ -109,7 +109,7 @@ return array (
       ),
     ),
   ),
-  'back' => '‹ Ga terug naar jouw persoonlijke advies',
+  'back' => '‹ Ga terug naar jouw persoonlijk TakeDaily pakket',
   'apply' => 'Toepassen',
   'wait' => 'Wacht..',
   'errors' => 
@@ -118,4 +118,5 @@ return array (
     'no-cart-session' => 'Der kunne ikke findes en kurv-session!',
   ),
   'fb-login' => 'Log ind med Facebook',
+  'back-pick' => '‹ Ga terug',
 );

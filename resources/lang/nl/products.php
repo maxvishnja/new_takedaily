@@ -15,5 +15,5 @@ return array (
   'package' => 'Keuzepakket',
   'vitamin' => 'Verwijder product
 ',
-  'minimum' => 'Minimumsordre',
+  'minimum' => 'Minimumbestelling',
 );

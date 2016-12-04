@@ -64,4 +64,5 @@ return array (
   'web_description' => '
 Jeg spiser ikke kulhydrater «er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre)) og indeholder mineralerne jod og jern. Tillægget har til formål at supplere multivitamin.',
   'weight' => '14 gram',
+  'above_claims' => 'Jeg spiser ikke kulhydrater «er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre)) og indeholder mineralerne jod og jern. Tillægget har til formål at supplere multivitamin',
 );

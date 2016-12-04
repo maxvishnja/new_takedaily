@@ -3,15 +3,15 @@
 return array (
   'header' => 
   array (
-    'title-1' => 'Skræddersyede vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
+    'title-1' => 'Daglige vitaminer.<br/>Tilpasset dig. Sendt til din dør.',
     'title-2' => 'TakeDaily udvælger vitaminer og mineraler i præcis de koncentrationer, som du har brug for.',
     'button-click-here' => 'Tag vitamintesten <small class="button-line2">Det tager under 2 minutter</small>',
     'button-gift-text' => 'Giv TakeDaily i gave',
     'splash' => 
     array (
-      'text' => '4 ugers forbrug af<br>vitaminer og mineraler.',
-      'price' => '149<small> kr./mdr.</small>',
-      'info' => 'Ingen binding - fragt 0 kr.',
+      'text' => '4 ugers forbrug af<br>vitaminer, mineraler & Omega-3.',
+      'price' => '149<small> kr./md.</small>',
+      'info' => 'Ingen binding',
     ),
     'what-is' => 'Hvad er TakeDaily?',
     'pick' => 'eller vælg blandt vores færdige pakker',
@@ -46,10 +46,10 @@ return array (
     ),
     'promises' => 
     array (
-      'title' => 'Hvad vi lover dig',
-      'promise-1' => 'Gratis rådgivning af TakeDailys egne professionelle diætister og ernæringseksperter',
-      'promise-2' => 'Vi bruger de bedste vitaminer, mineraler og omega-3 fedtsyrer på markedet. Foruden vores højkoncentrerede fiskeolie, er alle kapsler 100% plantebaserede. Dermed egnet til vegetarer/veganister/halal/kosher.',
-      'promise-3' => 'Vi springer alle de dyre mellemled over og leverer direkte fra fabrikken til din dør. På den måde er vi langt billigere end de fleste andre på markedet.',
+      'title' => 'Alt er tilpasset dig',
+      'promise-1' => 'Vores professionelle diætister og ernæringseksperter giver dig gratis rådgivning.',
+      'promise-2' => 'Vi bruger så naturlige råvarer som muligt, og derfor er vores kapsler, foruden fiskeolien, 100% plantebaserede. Dermed også egnet til vegetarer/veganister/halal/kosher.',
+      'promise-3' => 'Vi springer alle de dyre mellemled over og leverer direkte fra fabrikken til din dør.',
       'promise-4' => 'Med vores specialudviklede algoritme skræddersyer vi den optimale kombination af lige netop de vitaminer og mineraler, som du har brug for.',
       'read-more' => 'Læs mere her',
       'get-started' => 'Kom i gang her',
@@ -67,8 +67,7 @@ return array (
         'one' => 
         array (
           'title' => 'Tag vitamintesten',
-          'text' => 'Fortæl os lidt om din krop, kost og livsstil. Det tager ikke mere end 2 minutter at svare på
-							spørgsmålene.',
+          'text' => 'Fortæl os lidt om din kost, motion og livsstil. Det tager ikke mere end 2 minutter!',
         ),
         'two' => 
         array (
@@ -77,8 +76,8 @@ return array (
         ),
         'three' => 
         array (
-          'title' => 'Du modtager din TakeDaily',
-          'text' => 'Du får leveret din personlige TakeDaily direkte i din postkasse - helt gratis.',
+          'title' => 'Du modtager din æske.',
+          'text' => 'Du får leveret din skræddersyede æske direkte i din postkasse.',
         ),
       ),
     ),
@@ -173,7 +172,7 @@ Vitaminerne pakker vi til dig i dagsrationer, så de er lige til at tage. Nemt o
   array (
     'one' => 'Leveres i postkassen',
     'two' => 'Skræddersyet til dig',
-    'three' => 'Rådgivning af kostvejledere',
+    'three' => 'Rådgivning af ernæringseksperter',
     'four' => 'Fragt 0 kr.',
   ),
 );

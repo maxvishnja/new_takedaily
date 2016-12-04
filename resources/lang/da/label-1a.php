@@ -32,7 +32,6 @@ Hud, hår og negle
 Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og holde håret stærk. Selen og zink er gode for negle. Vitamin A, B2, B3, B8 (biotin), og mineraler jod og zink hjælper til at opretholde en sund hud.',
   'praises' => 
   array (
-    'shield' => 'Multi Basic danner grundlag for din personlige pakke med multivitaminer- og mineraler. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler.',
     'general-health' => '
 Støtte til en optimal sundhed',
   ),
@@ -175,4 +174,5 @@ Multi Basic er en multivitamin og mineraltilskud til voksne over 18 år. Den ind
 <li>endnu en fordel</li>
 <li>En tredje fordel</li>
 </ul>',
+  'above_claims' => 'Multi Basic danner grundlag for din personlige pakke med multivitaminer- og mineraler. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler.',
 );
