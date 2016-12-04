@@ -16,6 +16,7 @@ class Cart
 		{
 			return collect( [] );
 		}
+
 		$lines = collect( self::getModel()->getLines() );
 
 		if ( ! $showAll )

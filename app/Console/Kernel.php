@@ -37,29 +37,29 @@ class Kernel extends ConsoleKernel
 	 */
 	protected function schedule(Schedule $schedule)
 	{
-		$schedule->call('subscriptions:rebill')
+		$schedule->command('subscriptions:rebill')
 		         ->name('rebill-subscribed-users')
 		         ->everyThirtyMinutes()
 		         ->withoutOverlapping();
 
-		$schedule->call('currencies:update')
+		$schedule->command('currencies:update')
 		         ->hourly();
 
-		$schedule->call('subscriptions:pending')
+		$schedule->command('subscriptions:pending')
 		         ->name('notify-user-of-incoming-rebill')
 		         ->hourly()
 		         ->withoutOverlapping();
 
-		$schedule->call('customers:age-update')
+		$schedule->command('customers:age-update')
 		         ->daily();
 
-		$schedule->call('customers:pregnancy-update')
+		$schedule->command('customers:pregnancy-update')
 		         ->daily();
 
-		$schedule->call('mailflow:send')
+		$schedule->command('mailflow:send')
 		         ->everyTenMinutes();
 
-		$schedule->call('backup:run')
+		$schedule->command('backup:run')
 		         ->daily();
 	}
 }
