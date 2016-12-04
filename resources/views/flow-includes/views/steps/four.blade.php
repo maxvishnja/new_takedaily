@@ -13,7 +13,7 @@
 	</div>
 
 	<div id="advises-block" class="text-left" style="display: none;">
-		<h2>{!! trans('flow.four.your-recommendations') !!}</h2>
+		<h2 class="flow-title-with-p">{!! trans('flow.four.your-recommendations') !!}</h2>
 		<button type="submit"
 				class="button button--green button--large visible-xs button--full-mobile m-t-30 m-b-30">{{ trans('flow.button-order-text') }}</button>
 
@@ -32,3 +32,15 @@
 
 	<input type="hidden" name="flow-token" v-model="recommendation_token" />
 </div>
+
+<style>
+	.flow-title-with-p {
+
+	}
+
+	.flow-title-with-p p {
+		font-size: 14px;
+		line-height: 1.5;
+		font-weight: normal;
+	}
+</style>
