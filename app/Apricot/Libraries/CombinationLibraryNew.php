@@ -195,7 +195,13 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( ( isset( $data->foods ) && isset( $data->foods->fish ) ) && ( $data->foods->fish == '1' && ( isset( $data->locale ) && $data->locale == 'da' && $data->foods->fish != '3' ) ) )
+		if ( ( isset( $data->foods ) && isset( $data->locale ) && isset( $data->foods->fish ) )
+		     && (
+		     ($data->locale == 'da' && $data->foods->fish != '3')
+			||
+		     ($data->locale == 'nl' && $data->foods->fish == '3')
+		     )
+		)
 		{
 			$this->vitamins[] = '3e';
 			$this->groupThree = '3';
