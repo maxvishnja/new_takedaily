@@ -354,16 +354,6 @@
 			moreInfo: function (element, event) {
 				event.preventDefault();
 				event.stopPropagation();
-
-				switch (element) {
-					@if(is_array(trans('flow.info')))
-						@foreach(trans('flow.info') as $infoKey => $info)
-						case "{{ $infoKey }}":
-							swal("{!! $info !!}");
-							break;
-						@endforeach
-					@endif
-				}
 			},
 
 			getAge: function () {
