@@ -29,14 +29,19 @@ class PickMixController extends Controller
 		{
 			$selectedIds = $request->get( 'selected' );
 			$selectedIds = explode( ',', $selectedIds );
+			$type = 'id';
+
+			foreach($selectedIds as $selectedId)
+			{
+				if(!is_integer($selectedId))
+				{
+					$type = 'code';
+				}
+			}
 
 			$selectedVitamins = array_flatten(
 				Vitamin::select( 'id' )
-				       ->whereIn( 'code', $selectedIds )
-				       ->orWhere( function ( $query ) use ( $selectedIds )
-				       {
-					       $query->whereIn( 'id', $selectedIds );
-				       } )
+				       ->whereIn( $type, $selectedIds )
 				       ->limit( 4 )
 				       ->get()
 				       ->toArray()
