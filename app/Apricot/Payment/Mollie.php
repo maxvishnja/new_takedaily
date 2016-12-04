@@ -133,11 +133,15 @@ class Mollie implements PaymentInterface
 
 	public function getCustomerMethods( $customerId )
 	{
-		// TODO: Implement getCustomerMethods() method.
-
-		$mandates = \Mollie::api()->customersMandates()->withParentId( $customerId )->all();
-
 		$validMandates = [];
+
+		try {
+			$mandates = \Mollie::api()->customersMandates()->withParentId( $customerId )->all();
+		}
+		catch(\Exception $exception)
+		{
+			return $validMandates;
+		}
 
 		/** @var \Mollie_API_Object_Customer_Mandate $mandate */
 		foreach ( $mandates as $mandate )
