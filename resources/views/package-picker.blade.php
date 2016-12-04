@@ -83,7 +83,7 @@
 				},
 				packages: [@foreach($packages as $package) {
 					name: "{{ trans("pick-package.packages.{$package->identifier}.name") }}",
-					description: "{{ nl2br(str_replace ("\n", "", trans("pick-package.packages.{$package->identifier}.description"))) }}",
+					description: "{{ str_replace ("\n", "", nl2br(trans("pick-package.packages.{$package->identifier}.description"))) }}",
 					id: parseInt("{{ $package->id }}"),
 					icons: [
 						@if(is_array(trans("pick-package.packages.{$package->identifier}.icons")))
