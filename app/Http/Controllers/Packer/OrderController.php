@@ -27,6 +27,15 @@ class OrderController extends Controller
 		] );
 	}
 
+	function sent()
+	{
+		$orders = $this->repo->getShipped()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
+
+		return view( 'packer.orders.sent', [
+			'orders' => $orders
+		] );
+	}
+
 	function show( $id )
 	{
 		$order = Order::find( $id );

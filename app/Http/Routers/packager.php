@@ -28,5 +28,6 @@ Route::group( [ 'prefix' => 'packaging', 'middleware' => 'packer' ], function ()
 	Route::get( 'orders/download/{id}', 'Packer\OrderController@print' );
 	Route::get( 'download', 'Packer\OrderController@printAll' );
 	Route::get( 'ship', 'Packer\OrderController@shipAll' );
+	Route::get( 'shipped-orders', 'Packer\OrderController@sent' );
 	Route::post( 'orders/handle-multiple', 'Packer\OrderController@handleMultiple' );
 } );

@@ -286,4 +286,9 @@ class Order extends Model
 		return $query->where( 'state', 'paid' );
 	}
 
+	public function scopeSent( $query )
+	{
+		return $query->where( 'state', 'sent' );
+	}
+
 }

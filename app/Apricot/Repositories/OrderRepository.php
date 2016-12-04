@@ -21,7 +21,12 @@ class OrderRepository
 
 	public function getNotShipped()
 	{
-		return Order::where('state', '!=', 'shipped');
+		return Order::where('state', '!=', 'sent');
+	}
+
+	public function getShipped()
+	{
+		return Order::where('state', 'sent');
 	}
 
 	public function getToday()
