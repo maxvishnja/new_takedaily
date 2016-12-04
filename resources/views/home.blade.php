@@ -313,24 +313,5 @@
 				thisFaq.find('.faq_answer').stop().slideDown(250); // Sadly, height is dynamic so CSS animations is no option.
 			}
 		});
-
-		var header = $(".header--landing");
-		var promoBlock = $(".landing_advantages");
-		var promoBlockPlaceholder = $(".landing_advantages_placeholder");
-
-		$(window).scroll(function()
-		{
-			if($(this).scrollTop() >= (header.offset().top + header.height()))
-			{
-				promoBlock.addClass('sticky');
-				promoBlockPlaceholder.show();
-				promoBlockPlaceholder.height(promoBlock.outerHeight());
-			}
-			else
-			{
-				promoBlock.removeClass('sticky');
-				promoBlockPlaceholder.hide();
-			}
-		});
 	</script>
 @endsection
