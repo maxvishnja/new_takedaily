@@ -155,9 +155,8 @@ class CheckoutCompletion
 				$combinations = $this->getUser()->getCustomer()->calculateCombinations();
 				$vitamins     = [];
 
-				foreach ( $combinations as $key => $combination )
+				foreach ( $combinations as $pill )
 				{
-					$pill    = PillLibrary::getPill( $key, $combination );
 					$vitamin = Vitamin::select( 'id' )->whereCode( $pill )->first();
 
 					if ( $vitamin )
