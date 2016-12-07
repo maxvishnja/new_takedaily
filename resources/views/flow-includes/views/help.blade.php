@@ -4,10 +4,10 @@
 		<div>
 			<a href="javascript:void(0);" onclick="Tawk_API.toggle();" class="flow-helper_button hidden-xs hidden-sm">{{ trans('help.chat') }}</a>
 
-			<div class="mobile_info hidden-xs">
+			{{--<div class="mobile_info hidden-xs">
 				<div><strong>{{ trans('help.title') }}</strong></div>
 				<div>{{ trans('help.openings') }}</div>
-			</div>
+			</div>--}}
 
 			<a href="tel:12345678" class="flow-helper_button flow-helper_button--mobile">
 				<span class="visible-xs visible-sm icon icon-phone m-t-5"></span>
