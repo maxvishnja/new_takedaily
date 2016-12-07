@@ -14,7 +14,10 @@
 				<span class="hidden-xs hidden-sm">{{ trans('help.call') }}</span>
 			</a>
 
-			{{-- todo add email link --}}
+			<a href="mailto:{{ trans('general.mail') }}" class="flow-helper_button flow-helper_button--mobile">
+				<span class="visible-xs visible-sm icon icon-mail-small m-t-5"></span>
+				<span class="hidden-xs hidden-sm">{{ trans('help.email') }}</span>
+			</a>
 		</div>
 
 		<div class="m-t-10 hidden-xs">{{ trans('help.openings') }}</div>
