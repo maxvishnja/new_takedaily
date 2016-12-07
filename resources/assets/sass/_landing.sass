@@ -352,9 +352,22 @@ body.index
 
 		&.block--six
 			color: $main-green-dark
-			padding: 100px 0
-			background: url(/images/block-six-bg.jpg) no-repeat center center
-			background-size: cover
+
+			.slide
+				background-size: cover
+				padding: 100px 0
+
+				&.slide--one
+					background: url(/images/landing/smoke.jpg) no-repeat center center
+
+				&.slide--two
+					background: url(/images/landing/chili.jpg) no-repeat center center
+
+				&.slide--three
+					background: url(/images/landing/sleep.jpg) no-repeat center center
+
+				&.slide--four
+					background: url(/images/landing/pills.jpg) no-repeat center center
 
 			h2
 				font-weight: normal
@@ -405,7 +418,6 @@ body.index
 					position: relative
 					float: left
 					width: 100%
-					padding: 10px 0
 
 @media all and (min-height: 900px)
 	body.index

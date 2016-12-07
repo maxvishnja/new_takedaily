@@ -198,8 +198,8 @@
 
 					<div class="slider">
 						<div class="slide_container">
-							@foreach(trans('home.blocks.six.slides') as $slide)
-								<div class="slide">
+							@foreach(trans('home.blocks.six.slides') as $key => $slide)
+								<div class="slide slide--{{$key}}">
 									<div class="container">
 										<h2 class="text-center">{{ $slide['title'] }}</h2>
 										<p class="text-center">{{ $slide['text'] }}</p>
