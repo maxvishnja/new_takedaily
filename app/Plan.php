@@ -162,8 +162,8 @@ class Plan extends Model
 	{
 		return $this->isActive()
 		       && ! $this->isSnoozed()
-		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getSubscriptionStartedAt() )->diffInDays() >= 4
-		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() ) > Date::now();
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getSubscriptionStartedAt() )->diffInDays() >= 1
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->diffInDays() >= 4;
 	}
 
 	public function isCancelable()
