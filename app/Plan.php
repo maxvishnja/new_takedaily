@@ -195,7 +195,7 @@ class Plan extends Model
 
 	public function rebilled()
 	{
-		$this->subscription_rebill_at = Date::now()->addDays( 28 );
+		$this->subscription_rebill_at = Date::now()->addDays( 28 )->addWeekdays(4);
 		$this->save();
 
 		$this->markHasNotified( false );
