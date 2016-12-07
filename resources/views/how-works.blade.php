@@ -13,7 +13,7 @@
 
 			<div class="row">
 				<div class="col-md-6 col-md-push-3 text-left">
-					<h2>{!! trans('how-works.subtitle') !!}</h2>
+					{{--<h2>{!! trans('how-works.subtitle') !!}</h2>--}}
 				</div>
 			</div>
 		</div>
