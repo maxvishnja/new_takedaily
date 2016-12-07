@@ -75,14 +75,17 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 	\App\Apricot\Checkout\Cart::clear();
 	\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
 
+	$i = 1;
 	foreach($lib->getResult() as $vitamin)
 	{
-		\App\Apricot\Checkout\Cart::addProduct( \App\Apricot\Helpers\PillName::get($vitamin), '', [ 'key' => "vitamin.{$vitamin}" ] );
+		\App\Apricot\Checkout\Cart::addProduct( "$i. " . \App\Apricot\Helpers\PillName::get($vitamin), '', [ 'key' => "vitamin.{$vitamin}" ] );
 		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$vitamin}", $vitamin );
+
+		$i++;
 	}
 
 	\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );
-	\App\Apricot\Checkout\Cart::addInfo( "user_data", json_decode( $request->get( 'user_data' ) ) );
+	\App\Apricot\Checkout\Cart::addInfo( 'user_data', json_decode( $request->get( 'user_data' ) ) );
 
 	return Response::json( [
 		'num_advises'    => count( $lib->getAdvises() ),

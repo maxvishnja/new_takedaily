@@ -2,7 +2,7 @@
 	<div class="card">
 		<table class="order_table">
 			<tbody>
-			<tr v-for="item in totals" v-show="item.showPrice">
+			<tr v-for="item in totals">
 				<td>@{{ item.name }}</td>
 				<td>{{ trans('general.money-vue', ['amount' => 'item.price']) }}</td>
 			</tr>
