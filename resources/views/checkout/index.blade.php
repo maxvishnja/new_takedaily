@@ -322,6 +322,8 @@
 
 					<div class="m-t-20">
 						@include('includes.promo')
+
+						@include('flow-includes.views.help')
 					</div>
 				</div>
 
