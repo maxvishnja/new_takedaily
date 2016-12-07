@@ -23,10 +23,10 @@
 				<div class="m-t-30 m-b-10">
 					<a href="#" class="readMoreBtn">{{ trans('flow-actions.read-more') }}</a>
 
-					@if($vitamin == '3e')
+					@if($vitamin === '3e')
 						<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3g"
 						   data-oldvitamin="3e">{{ trans('flow.switch-to-chia') }}</a>
-					@elseif($vitamin == '3g')
+					@elseif($vitamin === '3g')
 						<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3e"
 						   data-oldvitamin="3g">{{ trans('flow.switch-to-fish') }}</a>
 					@endif
