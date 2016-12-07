@@ -13,10 +13,14 @@
 
 			<div class="row">
 				<div class="col-md-6 col-md-push-3 text-left">
-					<h2>{!! trans('quality.subtitle') !!}</h2>
+					{{--<h2>{!! trans('quality.subtitle') !!}</h2>--}}
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div class="container m-t-30">
+		<p>{!! trans('quality.subtitle') !!}</p>
 	</div>
 
 	<section class="quality_section_one">

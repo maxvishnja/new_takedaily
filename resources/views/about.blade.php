@@ -13,7 +13,7 @@
 
 			<div class="row">
 				<div class="col-md-6 col-md-push-3 text-left">
-					<h2>{!! trans('about.subtitle') !!}</h2>
+					{{--<h2>{!! trans('about.subtitle') !!}</h2>--}}
 				</div>
 			</div>
 		</div>
@@ -22,6 +22,7 @@
 	<div class="container m-t-30">
 		<div class="row">
 			<div class="col-md-6 col-md-push-3">
+				<p>{!! trans('about.subtitle') !!}</p>
 				{!! trans('about.body') !!}
 			</div>
 		</div>

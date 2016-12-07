@@ -20,9 +20,9 @@
 	</div>
 
 	<div class="container m-t-30">
-		<div class="col-md-6 col-md-push-3">
+		{{--<div class="col-md-6 col-md-push-3">--}}
 			{!! trans('how-works.body') !!}
-		</div>
+		{{--</div>--}}
 
 		<div class="clear"></div>
 
