@@ -108,7 +108,7 @@ class Plan extends Model
 			return false;
 		}
 
-		return Vitamin::whereIn( 'id', $vitamins )->where('code', '3e')->limit(1)->count() == 1; // todo unhardcode the 3e code
+		return Vitamin::whereIn( 'id', $vitamins )->where('code', '3e')->limit(1)->count() === 1; // todo unhardcode the 3e code
 	}
 
 	public function hasChiaoil()
@@ -120,7 +120,7 @@ class Plan extends Model
 			return false;
 		}
 
-		return Vitamin::whereIn( 'id', $vitamins )->where('code', '3g')->limit(1)->count() == 1; // todo unhardcode the 3e code
+		return Vitamin::whereIn( 'id', $vitamins )->where('code', '3g')->limit(1)->count() === 1; // todo unhardcode the 3e code
 	}
 
 	public function isSnoozed()
@@ -150,7 +150,7 @@ class Plan extends Model
 
 	public function moveRebill( $days = 1 )
 	{
-		$newDate = Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->addDays( $days );
+		$newDate = Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->addWeekday( $days );
 
 		$this->subscription_rebill_at = $newDate;
 		$this->save();
@@ -187,7 +187,7 @@ class Plan extends Model
 	{
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = null;
-		$this->subscription_rebill_at     = Date::now()->addMonth();
+		$this->subscription_rebill_at     = Date::now()->addDays( 28 )->addWeekdays(4);
 		$this->save();
 
 		return true;
