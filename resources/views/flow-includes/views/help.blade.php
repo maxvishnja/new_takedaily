@@ -13,6 +13,8 @@
 				<span class="visible-xs visible-sm icon icon-phone m-t-5"></span>
 				<span class="hidden-xs hidden-sm">{{ trans('help.call') }}</span>
 			</a>
+
+			{{-- todo add email link --}}
 		</div>
 
 		<div class="m-t-10 hidden-xs">{{ trans('help.openings') }}</div>
