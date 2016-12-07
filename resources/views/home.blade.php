@@ -212,10 +212,10 @@
 							@endforeach
 						</div>
 					</div>
-				</div>
 
-				<div class="slider_two_progress" style="position: absolute; left: 50%; margin-left: -50px; bottom: 20px; height: 4px; background: rgba(0,0,0,.25); width: 100px">
-					<div class="bar" style="height: 4px; background: rgba(0,0,0,.25); width: 0"></div>
+					<div class="slider_two_progress" style="position: absolute; left: 50%; margin-left: -50px; bottom: 20px; height: 4px; background: rgba(0,0,0,.25); width: 100px">
+						<div class="bar" style="height: 4px; background: rgba(0,0,0,.25); width: 0"></div>
+					</div>
 				</div>
 			</div>
 		@endif
