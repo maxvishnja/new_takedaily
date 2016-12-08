@@ -42,7 +42,7 @@
 			   class="button button--rounded button--huge button--landing button--green">
 				<strong>{!! trans('home.header.button-click-here') !!}</strong>
 			</a>
-			<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>
+{{--			<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 		</div>
 	</div>
 
