@@ -32,7 +32,7 @@
 									   class="button button--rounded button--huge button--landing button--green m-t-30">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
-{{--									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
+									{{--									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 									<div class="headervideo-block">
 										<span id="video-toggle-two" class="icon icon-play"></span>
 										<strong>{{ trans('home.header.what-is') }}</strong>
@@ -64,23 +64,31 @@
 	<div class="landing_advantages">
 		<div class="container-fluid">
 			<div class="col-md-3 col-sm-6">
-				<span class="icon icon-check-circle-large"></span>
-				{{ trans('home.promos.one') }}
+				<div class="home-promo-item-with-icon">
+					<span class="icon icon-front-post"></span>
+					{{ trans('home.promos.one') }}
+				</div>
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<span class="icon icon-check-circle-large"></span>
-				{{ trans('home.promos.two') }}
+				<div class="home-promo-item-with-icon">
+					<span class="icon icon-front-scissor"></span>
+					{{ trans('home.promos.two') }}
+				</div>
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<span class="icon icon-check-circle-large"></span>
-				{{ trans('home.promos.three') }}
+				<div class="home-promo-item-with-icon">
+					<span class="icon icon-front-support"></span>
+					{{ trans('home.promos.three') }}
+				</div>
 			</div>
 
 			<div class="col-md-3 col-sm-6">
-				<span class="icon icon-check-circle-large"></span>
-				{{ trans('home.promos.four') }}
+				<div class="home-promo-item-with-icon">
+					<span class="icon icon-front-delivery"></span>
+					{{ trans('home.promos.four') }}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -116,7 +124,7 @@
 				<div class="text-center m-t-50">
 					{!! trans('home.blocks.one.button') !!}
 
-{{--					<div class="m-t-20"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
+					{{--					<div class="m-t-20"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 				</div>
 			</div>
 		</div>
@@ -213,7 +221,8 @@
 						</div>
 					</div>
 
-					<div class="slider_two_progress" style="position: absolute; left: 50%; margin-left: -50px; bottom: 20px; height: 4px; background: rgba(0,0,0,.25); width: 100px">
+					<div class="slider_two_progress"
+						 style="position: absolute; left: 50%; margin-left: -50px; bottom: 20px; height: 4px; background: rgba(0,0,0,.25); width: 100px">
 						<div class="bar" style="height: 4px; background: rgba(0,0,0,.25); width: 0"></div>
 					</div>
 				</div>
@@ -264,20 +273,17 @@
 		var auto_slide_state = 0;
 		var auto_slide_interval = 800;
 
-		setInterval(function()
-		{
+		setInterval(function () {
 			auto_slide_state++;
 			auto_slide_progress_bar.width((auto_slide_state / 800 * 100) + '%');
 
-			if(auto_slide_state >= auto_slide_interval)
-			{
+			if (auto_slide_state >= auto_slide_interval) {
 				auto_slide_state = 0;
 				$("#slider_two .slider-arrow-right").click();
 			}
 		}, 10);
 
-		$("#slider_two .slider-arrow-left, #slider_two .slider-arrow-right").click(function()
-		{
+		$("#slider_two .slider-arrow-left, #slider_two .slider-arrow-right").click(function () {
 			auto_slide_state = 0;
 		});
 
@@ -318,4 +324,12 @@
 			}
 		});
 	</script>
+
+	<style>
+		.home-promo-item-with-icon
+		{
+			height: 31px;
+			line-height: 31px;
+		}
+	</style>
 @endsection
