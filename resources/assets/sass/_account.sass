@@ -1,21 +1,25 @@
 body.account
+	header.header--with-bg
+		z-index: 1
+
 	nav.account_nav
-		background: $lightest-grey
+		border-right: 1px solid $lightest-grey
+		position: static
 
 		ul
 			li
-				float: left
-				border-top: 2px solid transparent
+				display: block
+				border-right: 2px solid transparent
 
 				a
-					display: inline-block
+					display: block
 					font-size: 20px
 					padding: 28px 30px
 					color: $warm-grey
 					text-decoration: none !important
 
 				&:hover
-					background: $lighter-grey
+					background: $lightest-grey
 
 				&.active
 					background: #fff
