@@ -19,9 +19,18 @@
 </header>
 
 <main class="m-b-50">
-	@include('includes.app.account-nav')
 	<div class="container">
-		@yield('content')
+		<div class="row">
+			<div class="col-md-3">
+				<aside>
+					@include('includes.app.account-nav')
+				</aside>
+			</div>
+
+			<div class="col-md-9">
+				@yield('content')
+			</div>
+		</div>
 	</div>
 </main>
 
