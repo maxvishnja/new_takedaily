@@ -118,13 +118,12 @@ class CheckoutCompletion
 
 		if ( $userData )
 		{
-			$this->user->getCustomer()->update( [
-				'birthday' => date( 'Y-m-d', strtotime( $userData->birthdate ) ),
-				'gender'   => $userData->gender == 1 ? 'male' : 'female'
-			] );
-
 			$this->user->getCustomer()->updateUserdata( $userData );
 
+			$this->user->getCustomer()->update( [
+				'birthday' => date( 'Y-m-d', strtotime( $userData->birthdate ) ),
+				'gender'   => $userData->gender === (int) 1 ? 'male' : 'female'
+			] );
 		}
 
 		return $this;
