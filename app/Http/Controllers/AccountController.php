@@ -35,8 +35,9 @@ class AccountController extends Controller
 	function getHome()
 	{
 		$orders = $this->customer->getOrders();
+		$plan = $this->customer->getPlan();
 
-		return view( 'account.my-takedaily', compact( 'orders' ) );
+		return view( 'account.my-takedaily', compact( 'orders', 'plan' ) );
 	}
 
 	function updatePreferences( Request $request )
