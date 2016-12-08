@@ -49,6 +49,9 @@
 
 					<div class="clear"></div>
 				</div>
+
+				<div class="clear"></div>
+				<div class="hidden-xs hidden-sm">@include('includes.disclaimer')</div>
 			</div>
 		</div>
 		<div class="col-md-3">
@@ -100,12 +103,8 @@
 
 					</div>
 				</div>
-				<div class="hidden-xs hidden-sm">@include('includes.disclaimer')</div>
 			</aside>
 		</div>
-	</div>
-	<div class="visible-xs visible-sm">
-		<div class="container">@include('includes.disclaimer')</div>
 	</div>
 @endsection
 
