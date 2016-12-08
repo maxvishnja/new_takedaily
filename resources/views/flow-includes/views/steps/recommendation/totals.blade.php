@@ -65,7 +65,11 @@
 		</div>
 	</div>
 
-	<div class="card card--no-style m-t-20">
+	<div class="card card--no-style">
+		<div class="m-b-40">
+			{!! trans('checkout.index.disclaimer') !!}
+		</div>
+
 		@include('includes.promo')
 	</div>
 </div>
