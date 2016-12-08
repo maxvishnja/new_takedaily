@@ -9,7 +9,7 @@
 
 	<div class="container m-t-30">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-6 col-md-push-3">
 				<div class="card">
 					<form role="form" method="POST" action="{{ URL::action('Auth\AuthController@login') }}">
 						{!! csrf_field() !!}
@@ -43,15 +43,14 @@
 						<div><a href="{{ url('/password/reset') }}">{{ trans('login.forgot') }}</a></div>
 					</form>
 				</div>
-			</div>
 
-			<div class="col-md-6">
-				<div class="text-center m-b-50">
+				<div class="text-center m-t-50">
+					<h2>{{ trans('auth.new') }}</h2>
 					<a href="{{ url()->route('flow') }}"
 					   class="button button--rounded button--huge button--landing button--green">
 						<strong>{!! trans('home.header.button-click-here') !!}</strong>
 					</a>
-{{--					<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
+					{{--					<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 				</div>
 			</div>
 		</div>
