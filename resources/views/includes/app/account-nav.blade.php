@@ -12,11 +12,12 @@
 
 	<div class="visible-sm visible-xs text-center">
 		<a href="#profile-nav" class="toggle-mobile-nav">
-			<span class="hamburger">
+			<span class="hamburger" style="display: inline-block; vertical-align: middle">
 				<span class="meat"></span>
 				<span class="meat"></span>
 				<span class="meat meat--last"></span>
 			</span>
+			<strong>{{ trans('nav.account.menu') }}</strong>
 		</a>
 	</div>
 
