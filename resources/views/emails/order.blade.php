@@ -35,11 +35,4 @@
 		</tr>
 		</tbody>
 	</table>
-
-	@if( isset($password) && !is_null($password) )
-		<h3 style="margin-top: 20px;font-family: 'Open Sans',sans-serif; font-size: 18px;">{{ trans('mails.order.password.title') }}</h3>
-		<p class="size-14" style='font-style: normal;font-weight: 400;Margin-bottom: 0;Margin-top: 16px;font-size: 14px;line-height: 24px;font-family: "Open Sans",sans-serif;color: #60666d;'>
-			{{ trans('mails.order.password.it-is') }} <strong>{{ $password }}</strong>
-		</p>
-	@endif
 @endsection
