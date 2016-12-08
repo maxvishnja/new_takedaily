@@ -63,6 +63,7 @@ class CombinationLibraryNew
 
 	function combinationIsPossible( $groupOne, $groupTwo = null, $groupThree = null )
 	{
+		return true; // fix this
 		$combination = \Cache::remember( "combination_{$groupOne}{$groupTwo}{$groupThree}", 30, function () use ( $groupOne, $groupTwo, $groupThree )
 		{
 			return Combination::where( function ( Builder $query ) use ( $groupOne, $groupTwo, $groupThree )

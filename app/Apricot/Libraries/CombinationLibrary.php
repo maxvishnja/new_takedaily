@@ -298,7 +298,7 @@ class CombinationLibrary
 
 	private function generateGroupTwo( $data )
 	{
-		if ( isset( $data->custom ) && isset( $data->custom->two ) )
+		if ( isset( $data->custom, $data->custom->two ) )
 		{
 			$this->groupTwo = $data->custom->two;
 
