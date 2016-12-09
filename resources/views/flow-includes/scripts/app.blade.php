@@ -5,6 +5,7 @@
 			recommendation: {
 				hasOil: false
 			},
+			save_request: null,
 			step: 1,
 			sub_step: 1,
 			current_advise_one: null,
@@ -215,6 +216,8 @@
 						app.nextStep();
 					}
 
+					app.updateSavedState();
+
 					return true;
 				}, 5);
 			},
@@ -287,6 +290,23 @@
 				}
 			},
 
+			updateSavedState: function()
+			{
+				if( app.save_request !== null)
+				{
+					app.save_request.abort();
+				}
+
+				app.save_request = $.post("{{ url()->route('save-flow-state') }}", {
+					user_data: app.user_data,
+					step: app.step,
+					sub_step: app.sub_step
+				}).done(function()
+				{
+					app.save_request = null;
+				});
+			},
+
 			previousStep: function () {
 				if (app.sub_step == 1 && app.step == 1) {
 					return false;
@@ -346,6 +366,8 @@
 					if (curSubStep.hasClass('sub_step--skip')) {
 						app.previousStep();
 					}
+
+					app.updateSavedState();
 
 					return true;
 				}, 5);
