@@ -190,6 +190,8 @@
 							app.nextStep();
 						}
 
+						app.updateSavedState();
+
 						return true;
 					}
 
@@ -292,18 +294,24 @@
 
 			updateSavedState: function()
 			{
-				if( app.save_request !== null)
-				{
-					app.save_request.abort();
-				}
-
-				app.save_request = $.post("{{ url()->route('save-flow-state') }}", {
-					user_data: app.user_data,
-					step: app.step,
-					sub_step: app.sub_step
-				}).done(function()
-				{
-					app.save_request = null;
+				app.save_request = $.ajax({
+					url: '{{ url()->route('save-flow-state') }}',
+					method: 'POST',
+					dataType: 'JSON',
+					cache: false,
+					data: {
+						user_data: app.user_data,
+						step: app.step,
+						sub_step: app.sub_step
+					},
+					beforeSend: function () {
+						if (app.save_request !== null) {
+							app.save_request.abort();
+						}
+					},
+					success: function () {
+						app.save_request = null;
+					}
 				});
 			},
 
@@ -313,7 +321,6 @@
 				}
 
 				setTimeout(function () {
-
 					// resets some data
 					if (app.step < 4) {
 						$.each($("[name='step[" + app.step + "][" + app.sub_step + "]']"), function (i, input) {
@@ -346,6 +353,8 @@
 							if (previousSubStep.hasClass('sub_step--skip')) {
 								app.previousStep();
 							}
+
+							app.updateSavedState();
 
 							return true;
 						}

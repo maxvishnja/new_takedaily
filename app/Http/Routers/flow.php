@@ -173,12 +173,14 @@ Route::post( '/save-state', function ( \Illuminate\Http\Request $request )
 		{
 			$savedState        = new \App\SavedFlowState();
 			$savedState->token = str_random( 40 );
+			$request->session()->set( 'saved_flow_state', $savedState->token );
 		}
 	}
 	else
 	{
 		$savedState        = new \App\SavedFlowState();
 		$savedState->token = str_random( 40 );
+		$request->session()->set( 'saved_flow_state', $savedState->token );
 	}
 
 	$savedState->user_data = json_encode( $request->get( 'user_data' ) );
