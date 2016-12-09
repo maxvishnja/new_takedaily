@@ -263,7 +263,7 @@
 				var isDone = false;
 
 				var theInterval = setInterval(function () {
-					if (app.step === step && app.sub_step === sub_steps) {
+					if ((app.step >= step && app.sub_step >= sub_steps) || app.step >= 4) {
 						isDone = true;
 						clearInterval(theInterval);
 					}
