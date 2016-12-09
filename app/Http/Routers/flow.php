@@ -42,7 +42,14 @@ Route::get( '/flow', function ( \Illuminate\Http\Request $request )
 		}
 	}
 
-	return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice', 'userData', 'delay' ) );
+	$savedState = null;
+
+	if ( $request->session()->has( 'saved_flow_state' ) )
+	{
+		$savedState = \App\SavedFlowState::whereToken( $request->session()->get( 'saved_flow_state' ) )->first();
+	}
+
+	return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice', 'userData', 'delay', 'savedState' ) );
 } )->name( 'flow' );
 
 Route::post( 'flow/send-recommendation', function ( \Illuminate\Http\Request $request )

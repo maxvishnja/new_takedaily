@@ -259,6 +259,21 @@
 				}
 			},
 
+			goToStep: function (step, sub_steps) {
+				var isDone = false;
+
+				var theInterval = setInterval(function () {
+					if (app.step === step && app.sub_step === sub_steps) {
+						isDone = true;
+						clearInterval(theInterval);
+					}
+
+					if (!isDone) {
+						app.nextStep();
+					}
+				}, 10);
+			},
+
 			getCombinations: function (useTimeout) {
 				var time = 0;
 				var app = this;
@@ -315,8 +330,7 @@
 				}
 			},
 
-			updateSavedState: function()
-			{
+			updateSavedState: function () {
 				app.save_request = $.ajax({
 					url: '{{ url()->route('save-flow-state') }}',
 					method: 'POST',
@@ -458,6 +472,15 @@
 	}, 50);
 	@endif
 
+		@if($savedState !== null && count($userData) === 0)
+		app.user_data = JSON.parse('{!! $savedState->user_data !!}');
+
+	// This part is only for securing that Vue has updated elements..
+	// I've not found it necessary but rather safe than sorry.
+	setTimeout(function () {
+		app.goToStep(parseInt("{{ $savedState->step }}"), parseInt("{{ $savedState->sub_step }}"));
+	}, 50);
+	@endif
 
 	$("#advises-label").on('click', '.removePillButton', function () {
 		app.removeVitamin($(this).data('vitamin'));
@@ -471,15 +494,13 @@
 		app.getCombinations(false);
 	});
 
-	$("#advises-label").on('click', '.readMoreBtn', function(e)
-	{
+	$("#advises-label").on('click', '.readMoreBtn', function (e) {
 		e.preventDefault();
 
 		$(this).parent().parent().find('.description').stop().slideToggle(200);
 	});
 
-	$("#advises-label").on('click', '.seeIngredientsBtn', function(e)
-	{
+	$("#advises-label").on('click', '.seeIngredientsBtn', function (e) {
 		e.preventDefault();
 
 		$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
