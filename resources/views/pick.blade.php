@@ -254,13 +254,31 @@
 					event.preventDefault();
 
 					if (this.hasSelectedMaxVitamins) {
-						alert('{!! trans('pick.errors.too-many') !!}');
+						swal({
+							title: "{{ trans('message.warning-title') }}",
+							text: "{!! trans('pick.errors.too-many') !!}",
+							type: "warning",
+							html: true,
+							allowOutsideClick: true,
+							confirmButtonText: "{{ trans('popup.button-close') }}",
+							confirmButtonColor: "#3AAC87",
+							timer: 6000
+						});
 
 						return false;
 					}
 
 					if (this.hasMultivitamin && vitamin.type == 'multi') {
-						alert('{!! trans('pick.errors.already-has-multi') !!}');
+						swal({
+							title: "{{ trans('message.warning-title') }}",
+							text: "{!! trans('pick.errors.already-has-multi') !!}",
+							type: "warning",
+							html: true,
+							allowOutsideClick: true,
+							confirmButtonText: "{{ trans('popup.button-close') }}",
+							confirmButtonColor: "#3AAC87",
+							timer: 6000
+						});
 
 						return false;
 					}
