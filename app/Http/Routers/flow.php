@@ -76,12 +76,12 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 	\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
 
 	$i = 1;
-	foreach($lib->getResult() as $vitamin)
+	foreach ( $lib->getResult() as $vitamin )
 	{
-		\App\Apricot\Checkout\Cart::addProduct( "$i. " . \App\Apricot\Helpers\PillName::get($vitamin), '', [ 'key' => "vitamin.{$vitamin}" ] );
+		\App\Apricot\Checkout\Cart::addProduct( "$i. " . \App\Apricot\Helpers\PillName::get( $vitamin ), '', [ 'key' => "vitamin.{$vitamin}" ] );
 		\App\Apricot\Checkout\Cart::addInfo( "vitamins.{$vitamin}", $vitamin );
 
-		$i++;
+		$i ++;
 	}
 
 	\App\Apricot\Checkout\Cart::addProduct( 'shipping', 0 );
@@ -159,3 +159,27 @@ Route::post( 'flow-upsell', function ( \Illuminate\Http\Request $request )
 
 	return Redirect::to( '/flow' );
 } )->name( 'flow-upsell' );
+
+Route::post( '/save-state', function ( \Illuminate\Http\Request $request )
+{
+	if ( $request->session()->has( 'saved_flow_state' ) )
+	{
+		if ( ! $savedState = \App\SavedFlowState::whereToken( $request->session()->get( 'saved_flow_state' ) )->first() )
+		{
+			$savedState        = new \App\SavedFlowState();
+			$savedState->token = str_random( 40 );
+		}
+	}
+	else
+	{
+		$savedState        = new \App\SavedFlowState();
+		$savedState->token = str_random( 40 );
+	}
+
+	$savedState->user_data = json_encode( $request->get( 'user_data' ) );
+	$savedState->step      = $request->get( 'step' );
+	$savedState->sub_step  = $request->get( 'sub_step' );
+	$savedState->save();
+
+	return Response::json( [ 'message' => 'OK' ] );
+} )->name( 'save-flow-state' );
