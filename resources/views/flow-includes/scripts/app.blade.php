@@ -108,6 +108,29 @@
 
 				return total;
 			},
+			total_subscription: function () {
+				var amount = 0;
+
+				$.each(this.totals, function (i, line) {
+					amount += line.price;
+				});
+
+				if (this.discount.applied) {
+					if (this.discount.applies_to == 'plan') {
+						var discount = 0;
+						if (this.discount.type == 'percentage') {
+							discount = amount * (this.discount.amount / 100);
+						}
+						else if (this.discount.type == 'amount') {
+							discount = this.discount.amount;
+						}
+
+						amount -= discount;
+					}
+				}
+
+				return amount;
+			},
 			birthday: function () {
 				var newDate = new Date(this.user_data.birthdate);
 
