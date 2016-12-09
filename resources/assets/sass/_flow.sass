@@ -6,6 +6,19 @@
 	width: 34px
 	height: 34px
 
+.can-scroll
+	height: 36px
+	width: 36px
+	z-index: 9
+	position: absolute
+	top: 145px
+	right: 30px
+	animation: canScroll 2s infinite ease
+
+@keyframes canScroll
+	50%
+		transform: translateX(30px)
+
 .vitamin-item-for-recommendation
 	border-bottom: 1px solid #ddd
 	padding-bottom: 20px

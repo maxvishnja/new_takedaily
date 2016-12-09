@@ -20,7 +20,7 @@
 	</div>
 
 	<div class="container m-t-30">
-		<p>{!! trans('quality.subtitle') !!}</p>
+		{!! trans('quality.subtitle') !!}
 	</div>
 
 	<section class="quality_section_one">

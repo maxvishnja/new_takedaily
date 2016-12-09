@@ -47,6 +47,7 @@
 
 	<div data-sub-step="3" class="sub_step">
 		<h3 class="substep-title">{{ trans('flow.questions.1-3.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[1][3]" value="1" v-model="user_data.skin" data-model="skin"
