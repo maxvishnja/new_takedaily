@@ -46,22 +46,22 @@ class CombinationLibraryNew
 			} )->count() > 0;
 	}
 
-	function getResult()
+	public function getResult()
 	{
 		return $this->vitamins;
 	}
 
-	function getAdvises()
+	public function getAdvises()
 	{
 		return $this->advises;
 	}
 
-	function getAdviseInfos()
+	public function getAdviseInfos()
 	{
 		return $this->advise_info;
 	}
 
-	function combinationIsPossible( $groupOne, $groupTwo = null, $groupThree = null )
+	public function combinationIsPossible( $groupOne, $groupTwo = null, $groupThree = null )
 	{
 		return true; // fix this
 		$combination = \Cache::remember( "combination_{$groupOne}{$groupTwo}{$groupThree}", 30, function () use ( $groupOne, $groupTwo, $groupThree )
@@ -186,7 +186,7 @@ class CombinationLibraryNew
 
 	private function generateGroupThree( $data )
 	{
-		if ( isset( $data->custom ) && isset( $data->custom->three ) && $data->custom->three != '' && ! empty( $data->custom->three ) )
+		if ( isset( $data->custom, $data->custom->three ) && $data->custom->three !== '' && ! empty( $data->custom->three ) )
 		{
 			$this->vitamins[] = "3{$data->custom->three}";
 			$this->groupThree = $data->custom->three;
@@ -196,11 +196,11 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( ( isset( $data->foods ) && isset( $data->locale ) && isset( $data->foods->fish ) )
+		if (  isset( $data->foods, $data->locale, $data->foods->fish )
 		     && (
-		     ($data->locale == 'da' && $data->foods->fish != '3')
+		     ($data->locale === 'da' && $data->foods->fish != '3')
 			||
-		     ($data->locale == 'nl' && $data->foods->fish == '3')
+		     ($data->locale === 'nl' && $data->foods->fish == '1')
 		     )
 		)
 		{
@@ -224,14 +224,14 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( isset( $data->foods ) && isset( $data->locale ) && ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'a' ) &&
-		                                                          ( ( $data->locale == 'nl'
+		if ( isset( $data->foods, $data->locale ) && ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'a' ) &&
+		                                                          ( ( $data->locale === 'nl'
 		                                                              && ( $data->foods->fruits == '1'
 		                                                                   || $data->foods->fruits == '2'
 		                                                                   || $data->foods->vegetables == '1'
 		                                                                   || $data->foods->vegetables == '2' )
 		                                                            ) ||
-		                                                            ( $data->locale == 'da'
+		                                                            ( $data->locale === 'da'
 		                                                              && ( $data->foods->fruits == '1'
 		                                                                   || $data->foods->fruits == '2'
 		                                                                   || $data->foods->vegetables != '4' )
@@ -248,10 +248,10 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( isset( $data->gender ) && isset( $data->age ) && isset( $data->foods ) && isset( $data->locale ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'b' ) &&
+		if ( isset( $data->gender, $data->age, $data->foods, $data->locale ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'b' ) &&
 		     (
 			     (
-				     $data->locale == 'nl' &&
+				     $data->locale === 'nl' &&
 				     ( ( $data->foods->bread == '1' || $data->foods->wheat == '1' )
 				       || ( $data->age >= '51' && $data->foods->bread < '3' )
 				       || ( ( $data->gender == '2' && $data->foods->bread < '4' ) || ( $data->gender == '1' && $data->foods->bread != '4' ) )
@@ -261,7 +261,7 @@ class CombinationLibraryNew
 			     )
 			     ||
 			     (
-				     $data->locale == 'da' &&
+				     $data->locale === 'da' &&
 				     ( $data->foods->bread == '1' || $data->foods->wheat <= '2' )
 			     )
 		     )
@@ -277,12 +277,12 @@ class CombinationLibraryNew
 		}
 
 
-		if ( isset( $data->age ) && isset( $data->foods ) && isset( $data->locale ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'c' ) && (
-				( $data->locale == 'nl' && ( ( $data->foods->dairy == '1' )
+		if ( isset( $data->age, $data->foods, $data->locale ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'c' ) && (
+				( $data->locale === 'nl' && ( ( $data->foods->dairy == '1' )
 				                             || ( $data->age <= '50' && $data->foods->dairy < '3' )
 				                             || ( $data->age > '50' && $data->foods->dairy < '4' ) ) )
 				||
-				( $data->locale == 'da' && ( $data->foods->dairy == '1' || $data->foods->dairy == '2' ) )
+				( $data->locale === 'da' && ( $data->foods->dairy == '1' || $data->foods->dairy == '2' ) )
 			)
 		)
 		{
