@@ -1,7 +1,6 @@
 <?php
 namespace App\Apricot\Libraries;
 
-// todo start checking if combination is possible again
 
 use App\Combination;
 use App\Vitamin;
@@ -16,10 +15,6 @@ class CombinationLibraryNew
 	private $vitamins    = [];
 	private $advises     = [];
 	private $advise_info = [];
-
-	function __construct()
-	{
-	}
 
 	public function getPillNames()
 	{ // todo debug @ office
@@ -42,7 +37,7 @@ class CombinationLibraryNew
 	{
 		return collect( $this->vitamins )->filter( function ( $vitamin )
 			{
-				return $vitamin == '3e' || $vitamin == '3g';
+				return (string) $vitamin === '3e' || (string) $vitamin === '3g';
 			} )->count() > 0;
 	}
 
@@ -61,46 +56,6 @@ class CombinationLibraryNew
 		return $this->advise_info;
 	}
 
-	public function combinationIsPossible( $groupOne, $groupTwo = null, $groupThree = null )
-	{
-		return true; // fix this
-		$combination = \Cache::remember( "combination_{$groupOne}{$groupTwo}{$groupThree}", 30, function () use ( $groupOne, $groupTwo, $groupThree )
-		{
-			return Combination::where( function ( Builder $query ) use ( $groupOne, $groupTwo, $groupThree )
-			{
-				$query->where( 'group_1', "$groupOne" );
-
-				if ( ! is_null( $groupTwo ) )
-				{
-					$query->where( 'group_2', "$groupTwo" );
-				}
-
-				if ( ! is_null( $groupThree ) )
-				{
-					$query->where( 'group_3', "$groupThree" );
-				}
-				else
-				{
-					$query->whereNull( 'group_3' );
-				}
-			} )->first();
-		} );
-
-		if ( ! $combination )
-		{
-			if ( ! is_null( $groupThree ) )
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
-
-		return $combination->isPossible();
-	}
-
 	private function setAdvise( $num = 'one', $advise )
 	{
 		if ( ! isset( $this->advises[ $num ] ) )
@@ -117,14 +72,14 @@ class CombinationLibraryNew
 		}
 	}
 
-	function generateResult( $data )
+	public function generateResult( $data )
 	{
 		if ( ! isset( $data->gender ) && ! isset( $data->custom ) )
 		{
 			return [];
 		}
 
-		if ( isset( $data->locale ) && isset( $data->pregnant ) && $data->locale == 'nl' && $data->pregnant == 1 )
+		if ( isset( $data->locale, $data->pregnant ) && $data->locale === 'nl' && $data->pregnant == '1' )
 		{
 			$this->groupOne   = 'A';
 			$this->groupTwo   = 'd';
@@ -143,22 +98,22 @@ class CombinationLibraryNew
 			$this->setAdviseInfo( '3e', trans( 'flow.combination_info.3.e' ) );
 		}
 
-		if ( is_null( $this->groupOne ) )
+		if ( $this->groupOne === null )
 		{
 			$this->generateGroupOne( $data );
 		}
 
-		if ( is_null( $this->groupTwo ) )
+		if ( $this->groupTwo === null )
 		{
 			$this->generateGroupTwo( $data );
 		}
 
-		if ( is_null( $this->groupThree ) )
+		if ( $this->groupThree === null )
 		{
 			$this->generateGroupThree( $data );
 		}
 
-		if ( count( $this->vitamins ) == 0 )
+		if ( count( $this->vitamins ) === 0 )
 		{
 			$this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
 		}
@@ -196,7 +151,7 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if (  isset( $data->foods, $data->locale, $data->foods->fish )
+		if (CombinationChecker::isAllowed($this->groupOne, $this->groupTwo, 'e') && isset( $data->foods, $data->locale, $data->foods->fish )
 		     && (
 		     ($data->locale === 'da' && $data->foods->fish != '3')
 			||
@@ -213,7 +168,7 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( isset( $data->vegetarian ) && $data->vegetarian == '1' )
+		if (CombinationChecker::isAllowed($this->groupOne, $this->groupTwo, 'd') &&  isset( $data->vegetarian ) && $data->vegetarian == '1' )
 		{
 			$this->vitamins[] = '3d';
 			$this->groupThree = 'd';
@@ -224,7 +179,7 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( isset( $data->foods, $data->locale ) && ( $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'a' ) &&
+		if (CombinationChecker::isAllowed($this->groupOne, $this->groupTwo, 'a') &&  isset( $data->foods, $data->locale )  &&
 		                                                          ( ( $data->locale === 'nl'
 		                                                              && ( $data->foods->fruits == '1'
 		                                                                   || $data->foods->fruits == '2'
@@ -236,7 +191,7 @@ class CombinationLibraryNew
 		                                                                   || $data->foods->fruits == '2'
 		                                                                   || $data->foods->vegetables != '4' )
 		                                                            ) )
-			)
+
 		)
 		{
 			$this->vitamins[] = '3a';
@@ -248,7 +203,7 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( isset( $data->gender, $data->age, $data->foods, $data->locale ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'b' ) &&
+		if (CombinationChecker::isAllowed($this->groupOne, $this->groupTwo, 'b') &&  isset( $data->gender, $data->age, $data->foods, $data->locale ) &&
 		     (
 			     (
 				     $data->locale === 'nl' &&
@@ -277,7 +232,7 @@ class CombinationLibraryNew
 		}
 
 
-		if ( isset( $data->age, $data->foods, $data->locale ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'c' ) && (
+		if (CombinationChecker::isAllowed($this->groupOne, $this->groupTwo, 'c') &&  isset( $data->age, $data->foods, $data->locale ) && (
 				( $data->locale === 'nl' && ( ( $data->foods->dairy == '1' )
 				                             || ( $data->age <= '50' && $data->foods->dairy < '3' )
 				                             || ( $data->age > '50' && $data->foods->dairy < '4' ) ) )
@@ -294,7 +249,7 @@ class CombinationLibraryNew
 
 			return;
 		}
-		if ( isset( $data->foods ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'f' ) && ( $data->foods->butter != '1' ) )
+		if ( CombinationChecker::isAllowed($this->groupOne, $this->groupTwo, 'f') &&  isset( $data->foods ) && ( $data->foods->butter != '1' ) )
 		{
 			$this->vitamins[] = '3f';
 			$this->groupThree = 'f';
@@ -304,7 +259,7 @@ class CombinationLibraryNew
 
 			return;
 		}
-		if ( isset( $data->foods ) && $this->combinationIsPossible( $this->groupOne, $this->groupTwo, 'd' ) && ( $data->foods->meat == '1' ) )
+		if ( CombinationChecker::isAllowed($this->groupOne, $this->groupTwo, 'd') && isset( $data->foods ) && ( $data->foods->meat == '1' ) )
 		{
 			$this->vitamins[] = '3d';
 			$this->groupThree = 'd';
@@ -317,7 +272,7 @@ class CombinationLibraryNew
 
 		if ( isset( $data->foods->oil ) )
 		{
-			if ( ( $data->foods->oil == 'fishoil' ) )
+			if ( $data->foods->oil === 'fishoil' )
 			{
 				$this->vitamins[] = '3e';
 				$this->groupThree = 'e';
@@ -328,7 +283,7 @@ class CombinationLibraryNew
 				return;
 			}
 
-			if ( ( $data->foods->oil == 'chiaoil' ) )
+			if (  $data->foods->oil === 'chiaoil' )
 			{
 				$this->vitamins[] = '3g';
 				$this->groupThree = 'g';
@@ -340,7 +295,7 @@ class CombinationLibraryNew
 			}
 		}
 
-		if ( ( ( isset( $data->vegetarian ) && $data->vegetarian == '1' ) ) )
+		if (  isset( $data->vegetarian ) && $data->vegetarian == '1' )
 		{
 			$this->vitamins[] = '3g';
 			$this->groupThree = 'g';
@@ -354,7 +309,7 @@ class CombinationLibraryNew
 
 	private function generateGroupTwo( $data )
 	{
-		if ( isset( $data->custom ) && isset( $data->custom->two ) )
+		if ( isset( $data->custom, $data->custom->two ) )
 		{
 			$this->groupTwo   = $data->custom->two;
 			$this->vitamins[] = "2{$data->custom->two}";
@@ -366,7 +321,7 @@ class CombinationLibraryNew
 		}
 
 		// A
-		if ( $this->combinationIsPossible( $this->groupOne, 'A' ) && ( isset( $data->pregnant ) && $data->pregnant == '1' ) )
+		if (  isset( $data->pregnant ) && $data->pregnant == '1' )
 		{
 			$this->groupTwo   = 'A';
 			$this->vitamins[] = '2A';
@@ -378,7 +333,7 @@ class CombinationLibraryNew
 		}
 
 		// B
-		if ( $this->combinationIsPossible( $this->groupOne, 'B' ) && ( isset( $data->diet ) && $data->diet == '1' ) )
+		if (  isset( $data->diet ) && $data->diet == '1' )
 		{
 			$this->groupTwo   = 'B';
 			$this->vitamins[] = '2B';
@@ -390,7 +345,7 @@ class CombinationLibraryNew
 		}
 
 		// E
-		if ( $this->combinationIsPossible( $this->groupOne, 'E' ) && ( isset( $data->joints ) && $data->joints == '1' ) )
+		if ( isset( $data->joints ) && $data->joints == '1' )
 		{
 			$this->groupTwo   = 'E';
 			$this->vitamins[] = '2E';
@@ -402,7 +357,7 @@ class CombinationLibraryNew
 		}
 
 		// D
-		if ( $this->combinationIsPossible( $this->groupOne, 'D' ) && ( isset( $data->smokes ) && $data->smokes == '1' ) )
+		if (  isset( $data->smokes ) && $data->smokes == '1' )
 		{
 			$this->groupTwo   = 'D';
 			$this->vitamins[] = '2D';
@@ -414,7 +369,7 @@ class CombinationLibraryNew
 		}
 
 		// C
-		if ( $this->combinationIsPossible( $this->groupOne, 'C' ) && ( isset( $data->sports ) && $data->sports == '4' ) )
+		if ( isset( $data->sports ) && $data->sports == '4' )
 		{
 			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';
@@ -426,7 +381,7 @@ class CombinationLibraryNew
 		}
 
 		// D
-		if ( $this->combinationIsPossible( $this->groupOne, 'D' ) && ( isset( $data->immune_system ) && $data->immune_system != '1' ) )
+		if ( isset( $data->immune_system ) && $data->immune_system != '1' )
 		{
 			$this->groupTwo   = 'D';
 			$this->vitamins[] = '2D';
@@ -438,7 +393,7 @@ class CombinationLibraryNew
 		}
 
 		// C
-		if ( $this->combinationIsPossible( $this->groupOne, 'C' ) && ( ( isset( $data->stressed ) && $data->stressed == '1' ) || ( isset( $data->lacks_energy ) && $data->lacks_energy < '3' ) ) )
+		if (  ( isset( $data->stressed ) && $data->stressed == '1' ) || ( isset( $data->lacks_energy ) && $data->lacks_energy < '3' ) )
 		{
 			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';
@@ -452,7 +407,7 @@ class CombinationLibraryNew
 
 	private function generateGroupOne( $data )
 	{
-		if ( isset( $data->custom ) && isset( $data->custom->one ) )
+		if ( isset( $data->custom, $data->custom->one ) )
 		{
 			$this->groupOne   = $data->custom->one;
 			$this->vitamins[] = "1{$data->custom->one}";
