@@ -196,7 +196,9 @@
 				window.location.href = $("#link-to-change").attr('href').replace(vitamin, '');
 			},
 
-			nextStep: function () {
+			nextStep: function (saveState) {
+				saveState = saveState !== undefined ? saveState : true;
+
 				setTimeout(function () {
 					var currentStep = $(".step[data-step='" + app.step + "']");
 					var nextStep = $(".step[data-step='" + (app.step + 1) + "']");
@@ -213,7 +215,9 @@
 							app.nextStep();
 						}
 
-						app.updateSavedState();
+						if (saveState) {
+							app.updateSavedState();
+						}
 
 						return true;
 					}
@@ -238,10 +242,12 @@
 					var curSubStep = nextStep.find(".sub_step[data-sub-step='" + app.sub_step + "']");
 
 					if (curSubStep.hasClass('sub_step--skip')) {
-						app.nextStep();
+						app.nextStep(saveState);
 					}
 
-					app.updateSavedState();
+					if (saveState) {
+						app.updateSavedState();
+					}
 
 					return true;
 				}, 5);
@@ -269,9 +275,9 @@
 					}
 
 					if (!isDone) {
-						app.nextStep();
+						app.nextStep(false);
 					}
-				}, 10);
+				}, 25);
 			},
 
 			getCombinations: function (useTimeout) {
@@ -352,10 +358,12 @@
 				});
 			},
 
-			previousStep: function () {
+			previousStep: function (saveState) {
 				if (app.sub_step == 1 && app.step == 1) {
 					return false;
 				}
+
+				saveState = saveState !== undefined ? saveState : true;
 
 				setTimeout(function () {
 					// resets some data
@@ -388,10 +396,12 @@
 							previousSubStep.addClass('sub_step--active').addClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
 
 							if (previousSubStep.hasClass('sub_step--skip')) {
-								app.previousStep();
+								app.previousStep(saveState);
 							}
 
-							app.updateSavedState();
+							if (saveState) {
+								app.updateSavedState();
+							}
 
 							return true;
 						}
@@ -413,7 +423,9 @@
 						app.previousStep();
 					}
 
-					app.updateSavedState();
+					if (saveState) {
+						app.updateSavedState();
+					}
 
 					return true;
 				}, 5);
