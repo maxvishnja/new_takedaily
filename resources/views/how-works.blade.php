@@ -26,8 +26,8 @@
 					<img src="{{ asset('/images/how-works/icon-heart@2x.png') }}" height="276" alt="Heart">
 				</div>
 				<div class="col-md-6">
-					<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
-					<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
+					<h3>{{ trans('how-works.steps.one.title') }}</h3>
+					<p>{{ trans('how-works.steps.one.body') }}</p>
 				</div>
 			</div>
 		</div>
@@ -46,8 +46,8 @@
 					</div>
 				</div>
 				<div class="col-md-6 col-md-pull-4">
-					<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
-					<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
+					<h3>{{ trans('how-works.steps.two.title') }}</h3>
+					<p>{{ trans('how-works.steps.two.body') }}</p>
 				</div>
 			</div>
 		</div>
@@ -60,8 +60,8 @@
 					<img src="{{ asset('/images/how-works/icon-box@2x.png') }}" height="276" alt="Box">
 				</div>
 				<div class="col-md-6">
-					<h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
-					<p>{{ trans('home.blocks.one.steps.three.text') }}</p>
+					<h3>{{ trans('how-works.steps.three.title') }}</h3>
+					<p>{{ trans('how-works.steps.three.body') }}</p>
 				</div>
 			</div>
 		</div>
