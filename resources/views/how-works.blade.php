@@ -19,33 +19,41 @@
 		</div>
 	</div>
 
-	<div class="container m-t-30">
-		{{--<div class="col-md-6 col-md-push-3">--}}
-			{!! trans('how-works.body') !!}
-		{{--</div>--}}
-
-		<div class="clear"></div>
-
-		<div class="row text-center">
-			<div class="col-sm-4 block_item">
-				<span class="icon icon-heart"></span>
-				<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
-				<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
-			</div>
-
-			<div class="col-sm-4 block_item">
-				<span class="icon icon-logo"></span>
-				<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
-				<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
-			</div>
-
-			<div class="col-sm-4 block_item">
-				<span class="icon icon-box"></span>
-				<h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
-				<p>{{ trans('home.blocks.one.steps.three.text') }}</p>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6"><span class="icon icon-heart"></span></div>
+				<div class="col-md-6">
+					<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
+					<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
+				</div>
 			</div>
 		</div>
-	</div>
+	</section>
+
+	<section class="mid">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
+					<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
+				</div>
+				<div class="col-md-6"><span class="icon icon-logo"></span></div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6"><span class="icon icon-box"></span></div>
+				<div class="col-md-6">
+					<h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
+					<p>{{ trans('home.blocks.one.steps.three.text') }}</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<div class="text-center m-t-50">
 		<a href="{{ url()->route('flow') }}"
@@ -61,6 +69,14 @@
 			padding: 40px 0 60px;
 			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/how-works/bg.jpg);
 			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/how-works/bg.jpg);
+		}
+
+		section {
+			padding: 80px 0;
+		}
+
+		section.mid {
+			background: #fafafa;
 		}
 	</style>
 @endsection
