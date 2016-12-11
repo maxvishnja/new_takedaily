@@ -26,9 +26,9 @@
 								<strong>@{{ vitamin.name }}</strong>
 
 								<p v-html="vitamin.description"></p>
+								<div v-html="vitaminPraises(vitamin)"></div>
 
 								<div class="extra_content">
-
 									<div class="m-t-30 m-b-10">
 										<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--light pull-right"
 										   v-show="vitamin.isSelected">{{ trans('flow-actions.remove') }}</a>
@@ -122,19 +122,27 @@
 					@endforeach
 				},
 				vitamins: [
-						@foreach($vitamins as $vitamin)
+					@foreach($vitamins as $vitamin)
 					{
+						<?php $praises = ''; ?>
+						@if(is_array(trans("flow-praises.{$vitamin->code}")))
+							@foreach((array) trans("flow-praises.{$vitamin->code}") as $icon => $text)
+								<?php $praises .= '<div><span class="icon icon-' . $icon . '-flow flow-promise-icon"></span><div class="flow-promise-text">' . $text . '</div></div><div class="clear"></div>'; ?>
+							@endforeach
+						@endif
 						name: "{!! \App\Apricot\Helpers\PillName::get($vitamin->code) !!}",
 						code: "{!! $vitamin->code !!}",
 						id: "{{ $vitamin->id }}",
 						description: "{!! $vitamin->description !!}",
 						type: "{{ $vitamin->type }}",
 						extra_content: "",
+						praises: "{{ ($praises) }}",
 						isSelected: @if( in_array($vitamin->id, $selectedVitamins) ) true @else false @endif
 					},
 					@endforeach
 				]
 			},
+
 			computed: {
 				selectedVitamins: function () {
 					return this.vitamins.filter(function (vitamin) {
@@ -185,6 +193,9 @@
 				}
 			},
 			methods: {
+				vitaminPraises: function(vitamin){
+					return this.decodeHtml(vitamin.praises);
+				},
 				decodeHtml: function (html) {
 					var txt = document.createElement("textarea");
 					txt.innerHTML = html;
