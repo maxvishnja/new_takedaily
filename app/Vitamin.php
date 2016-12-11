@@ -32,4 +32,36 @@ class Vitamin extends Model
         'description',
         'type'
     ];
+
+    public function getInfo()
+    {
+    	$group = $this->code[0];
+    	$item = $this->code[1];
+
+    	if( (int) $group === 1)
+	    {
+	    	switch($item)
+		    {
+			    case (int) 1:
+			    case 'a':
+			    	$item = 'basic';
+			    	break;
+			    case (int) 2:
+			    case 'b':
+			    	$item = 'basic-10-d';
+			    	break;
+			    case (int) 3:
+			    case 'c':
+			    	$item = 'basic-20-d';
+			    	break;
+		    }
+	    }
+
+    	if( (int) $group === 2)
+	    {
+	    	$item = strtoupper($item);
+	    }
+
+    	return trans("flow.combination_info.{$group}.{$item}");
+    }
 }
