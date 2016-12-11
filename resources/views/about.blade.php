@@ -40,9 +40,13 @@
 			</div>
 		</div>
 
-		<div class="m-t-50">
-			<h2>{{ trans('about.story.title') }}</h2>
-			{!! trans('about.story.text') !!}
+		<div class="row">
+			<div class="col-md-8 col-md-push-2">
+				<div class="m-t-50">
+					<h2>{{ trans('about.story.title') }}</h2>
+					{!! trans('about.story.text') !!}
+				</div>
+			</div>
 		</div>
 
 		<div class="text-center m-t-50">
