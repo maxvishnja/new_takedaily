@@ -14,6 +14,13 @@
 			</strong>
 
 			@if(isset($descriptions[$vitamin])) <p>{!! $descriptions[$vitamin] !!}</p>@endif
+
+			@if(isset($advises[$vitamin]))
+				<p>
+					{!! $advises[$vitamin] !!}
+				</p>
+			@endif
+
 			@if(is_array(trans("flow-praises.{$vitamin}")))
 				@foreach((array) trans("flow-praises.{$vitamin}") as $icon => $text)
 					<div>
@@ -38,12 +45,6 @@
 				</div>
 
 				<div class="description">
-					@if(isset($advises[$vitamin]))
-						<p>
-							{!! $advises[$vitamin] !!}
-						</p>
-					@endif
-
 					@if(trans('label-' . strtolower($vitamin) . '.web_description') != 'label-' . strtolower($vitamin) . '.web_description')
 						<p>{!! nl2br(trans('label-' . strtolower($vitamin) . '.web_description')) !!}</p>
 					@endif
