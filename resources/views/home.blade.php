@@ -45,6 +45,7 @@
 								</div>
 							</div>
 
+							<div class="clear"></div>
 							<div class="text-center">
 								<div class="headervideo-block" style="margin-bottom: 25px">
 									{{--<strong>{{ trans('home.header.what-is') }}</strong>--}}
