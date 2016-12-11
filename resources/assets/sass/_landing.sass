@@ -5,6 +5,11 @@ html.no-flexbox
 				display: none
 
 body.index
+	.flex-desktop
+		display: flex
+		align-items: center
+		padding: 80px 0
+
 	.landing_advantages
 		text-align: center
 		padding: 18px 0
@@ -594,6 +599,10 @@ body.index
 
 @media all and (max-width: 767px)
 	body.index
+		.flex-desktop
+			display: block
+			padding: 50px 0
+
 		.slider_container
 			.slider-arrow-right
 				right: 5px
