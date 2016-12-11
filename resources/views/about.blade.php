@@ -21,7 +21,7 @@
 
 	<div class="container m-t-30">
 		<div class="row">
-			<div class="col-md-6 col-md-push-3">
+			<div class="col-md-8 col-md-push-2">
 				{!! trans('about.body') !!}
 			</div>
 		</div>
