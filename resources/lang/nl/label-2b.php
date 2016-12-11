@@ -36,11 +36,11 @@ return array (
     5 => 
     array (
       'amount' => '3,75 µg',
-      'name' => 'Vitaminen B12',
+      'name' => 'Vitamine B12',
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstoffen (E171, E132)), antiklontermiddel (magnesiumstearaat), retinylacetaat, cyanocobalamine, fytomenadion, pyridoxaal-5-fosfaat, thiaminehydrochloride',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E132)), antiklontermiddel (magnesiumstearaat), retinylacetaat, cyanocobalamine, fytomenadion, pyridoxaal-5-fosfaat, thiaminehydrochloride',
   'praises' => 
   array (
     'shield' => 'Vitamine A en C ondersteunen het immuunsysteem',

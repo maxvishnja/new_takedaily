@@ -23,7 +23,7 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse inname van smeer- en bereidingsvetten',
-  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstof (171)), DL-alfa-tocoferylacetaat, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstof (171)), DL-alfa-tocoferylacetaat, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol',
   'praises' => 
   array (
     'eye' => 'Vitamine A draagt bij tot het instandhouding van een normaal gezichtsvermogen',

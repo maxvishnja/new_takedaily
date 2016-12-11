@@ -4,10 +4,11 @@ return array (
   'title' => 'Kvalitet',
   'page_title' => 'TakeDaily fusionerer videnskab og naturlig sundhed 
 ',
-  'subtitle' => 'TakeDaily er vitaminer og kosttilskud af høj kvalitet med rene, aktive ingredienser - alle videnskabeligt dokumenteret.
+  'subtitle' => '<p> TakeDaily er vitaminer og kosttilskud af høj kvalitet med rene, aktive ingredienser - alle videnskabeligt dokumenteret.<br/>
 
-<p> Vi har samlet de bedste ernæringseksperter og anvender den nyeste videnskabelige forskning for at finde frem til den ultimative måde at genopbygge din krop indefra.   </p>
-				<p> Videnskaben bag er kompleks, men for dig er det hele enkelt og ligetil.</p>',
+Vi har samlet de bedste ernæringseksperter og anvender den nyeste videnskabelige forskning for at finde frem til den ultimative måde at vedligeholde din krop indefra.  <br/>
+
+Videnskaben bag er kompleks, men for dig er det hele enkelt og ligetil.</p>',
   'section_vitamins' => 
   array (
     'title' => 'Vores vitaminer og kosttilskud',
@@ -20,7 +21,7 @@ return array (
     'title' => 'Vores kapsler er 100% plantebaseret',
     'body' => '<p>Vi er en af de få  danske producenter, som anvender 100 % plantebaserede kapsler til vores vitaminer og mineraler.
 Med undtagelse af vores fiskolie*, er alle vores kapsler fremstillet af det organiske stof cellulose (hydroxypropyl methylcellulose), som findes i planters cellevægge. Det er omstændigt
-at producere denne type kapsel, men den har flere gode egenskaber, blandt andet er den bæredygtig og egnet til folk, som ikke ønsker gelatinebaserede produkter på grund af livsstil eller religion.</p>
+at producere denne type kapsel, men den har flere gode egenskaber, blandt andet er den bæredygtig og egnet til mennesker, som ikke ønsker gelatinebaserede produkter grundet livsstil eller religion.</p>
 
 <p><strong>I øvrigt er vores vitaminer, mineraler og omega-kapsler:</strong></p>
 

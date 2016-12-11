@@ -37,7 +37,7 @@ return array (
     4 => 
     array (
       'name' => 'Vitamin B9 (Folsyre)',
-      'amount' => '800 µg',
+      'amount' => '300 µg',
       'percent' => '150',
     ),
     5 => 

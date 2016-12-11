@@ -44,8 +44,8 @@ return array (
     ),
     4 => 
     array (
-      'amount' => '800 µg',
-      'name' => 'Vitamin B11 (Foliumzuur)',
+      'amount' => '300 µg',
+      'name' => 'Vitamin B11 (foliumzuur)',
       'percent' => '150',
     ),
     5 => 
@@ -61,7 +61,7 @@ return array (
     'shield' => 'Vitamine A, B6, foliumzuur, B12, C, D en de mineralen seleen en zink dragen bij aan een normale werking van het immuunsysteem',
     'shield-cell' => 'Vitamine C en de mineralen seleen en zink helpen lichaamscellen te beschermen tegen invloeden van buitenaf',
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstoffen (E171, E110, E127)), zinkgluconaat, L-selenomethionine, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol, cyanocobalamine, pyridoxaal-5-fosfaat, pteroymonoglutaminezuur',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E110, E127)), zinkgluconaat, L-selenomethionine, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol, cyanocobalamine, pyridoxaal-5-fosfaat, pteroymonoglutaminezuur',
   'end_date' => '09/2019',
   'batch_number' => '1916',
   'Vit and Min' => 'Vitamines en Mineralen',

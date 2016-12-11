@@ -106,8 +106,7 @@ return array (
       'input-placeholder' => 'Indtast rabatkode',
       'button-text' => 'Anvend',
     ),
-    'disclaimer' => '<p class="checkout_description">Du vil blive trukket <span v-show="price === total_subscription">{{ total_subscription }}
-							DKK</span><strong v-show="price !== total_subscription">{{ total_subscription }} DKK</strong> på dit kort hver 4 uge. Du kan både udskyde næste levering, sætte på pause, eller opsige dit abonnement til enhver tid. Dog senest 5 dage inden næste afsendelsesdato.</p>',
+    'disclaimer' => '<p class="checkout_description">Du vil blive trukket <span v-show="price === total_subscription">{{ total_subscription }} DKK</span><strong v-show="price !== total_subscription">{{ total_subscription }} DKK</strong> på dit kort hver 4 uge. Du kan både udskyde næste levering, sætte på pause, eller opsige dit abonnement til enhver tid. Dog senest 5 dage inden næste afsendelsesdato.</p>',
     'method' => 
     array (
       'title' => 'Vælg betalingsmetode',

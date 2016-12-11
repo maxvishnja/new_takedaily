@@ -38,7 +38,7 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse groente- en fruitinname',
-  'ingredients' => 'Kaliumwaterstoffosfaat, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat),  bèta-caroteen, pteroymonoglutaminezuur',
+  'ingredients' => 'Kaliumwaterstoffosfaat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat),  bèta-caroteen, pteroymonoglutaminezuur',
   'praises' => 
   array (
     'heart' => 'Kalium heeft een gunstige invloed op het behoud van een normale bloeddruk en vitamine C is belangrijk voor de bloedvaten',

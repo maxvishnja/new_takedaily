@@ -5,4 +5,5 @@ return array (
   'read-more' => 'Læs mere',
   'see-ingredients' => 'Se varedeklaration',
   'add' => 'Vælg',
+  'select' => 'Vælg',
 );

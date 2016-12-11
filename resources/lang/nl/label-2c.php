@@ -63,7 +63,7 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstof (E140)), vulstof (microkristallijne cellulose), ijzerfumaraat, nicotinamide, calcium-D-pantothenaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride',
+  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstof (E140)), vulstof (microkristallijne cellulose), ijzerfumaraat, nicotinamide, calcium-D-pantothenaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride',
   'end_date' => '09/2019',
   'batch_number' => '1916',
   'Vit and Min' => 'Vitamines en Mineralen',
