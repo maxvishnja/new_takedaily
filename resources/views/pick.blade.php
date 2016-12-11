@@ -315,7 +315,7 @@
 		$(window).on('resize load', function () {
 			if ($(window).width() >= 992) {
 				if (!isSticked) {
-					$("#sticky").sticky({topSpacing: 20});
+					$("#sticky").sticky({topSpacing: 109});
 					isSticked = true;
 				}
 			}
