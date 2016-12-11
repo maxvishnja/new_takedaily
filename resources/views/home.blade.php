@@ -159,8 +159,7 @@
 					</div>
 
 					<div class="promise-item">
-						<p>{{ trans('home.blocks.promises.promise-2') }}
-							<a href="{{ url()->route('our-products') }}">{{ trans('home.blocks.promises.read-more') }}</a></p>
+						<p>{{ trans('home.blocks.promises.promise-2') }}</p>
 					</div>
 
 					<div class="promise-item">
@@ -172,11 +171,46 @@
 					</div>
 
 					<div class="promise-item">
-						<p>{{ trans('home.blocks.promises.promise-4') }} <a href="{{ url()->route('flow') }}">{{ trans('home.blocks.promises.get-started') }}</a></p>
+						<p>{{ trans('home.blocks.promises.promise-4') }}</p>
 					</div>
 
 					<div class="promise-item">
 						<img src="/images/promises/promise_4.png" alt=""/>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="new_block">
+			<div class="container">
+				<div class="row">
+					<div style="display: flex; align-items: center; padding: 80px 0;">
+						<div class="col-md-6 col-md-push-6">
+							<img src="//placehold.it/400x400" alt=""/>
+						</div>
+						<div class="col-md-6 col-md-pull-6">
+							<h3>Demo demo demo</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda dolore dolores, eaque eius eveniet expedita iste itaque iusto necessitatibus
+								quasi sint soluta tempora tempore, ut veniam vero vitae. Aliquid.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="new_block">
+			<div class="container">
+				<div class="row">
+					<div style="display: flex; align-items: center; padding: 80px 0;">
+						<div class="col-md-6">
+							<img src="//placehold.it/400x400" alt=""/>
+						</div>
+						<div class="col-md-6">
+							<h3>Demo demo demo</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda dolore dolores, eaque eius eveniet expedita iste itaque iusto necessitatibus
+								quasi sint soluta tempora tempore, ut veniam vero vitae. Aliquid.</p>
+						</div>
 					</div>
 				</div>
 			</div>
