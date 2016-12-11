@@ -189,9 +189,8 @@
 							<img src="//placehold.it/400x400" alt=""/>
 						</div>
 						<div class="col-md-6 col-md-pull-6">
-							<h3 style="font-size: 20px;">Demo demo demo</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda dolore dolores, eaque eius eveniet expedita iste itaque iusto necessitatibus
-								quasi sint soluta tempora tempore, ut veniam vero vitae. Aliquid.</p>
+							<h3 style="font-size: 20px;">{{ trans('home.new_blocks.one.title') }}</h3>
+							<p>{{ trans('home.new_blocks.one.body') }}</p>
 						</div>
 					</div>
 				</div>
@@ -207,9 +206,8 @@
 							<img src="//placehold.it/400x400" alt=""/>
 						</div>
 						<div class="col-md-6">
-							<h3 style="font-size: 20px;">Demo demo demo</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda dolore dolores, eaque eius eveniet expedita iste itaque iusto necessitatibus
-								quasi sint soluta tempora tempore, ut veniam vero vitae. Aliquid.</p>
+							<h3 style="font-size: 20px;">{{ trans('home.new_blocks.two.title') }}</h3>
+							<p>{{ trans('home.new_blocks.two.body') }}</p>
 						</div>
 					</div>
 				</div>
