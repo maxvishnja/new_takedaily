@@ -13,11 +13,7 @@
 				</div>
 			</strong>
 
-			<p>
-				@if(isset($advises[$vitamin]))
-					{!! $advises[$vitamin] !!}
-				@endif
-			</p>
+			@if(isset($descriptions[$vitamin])) <p>{!! $descriptions[$vitamin] !!}</p>@endif
 
 			<div class="extra_content">
 				<div class="m-t-30 m-b-10">
@@ -33,7 +29,11 @@
 				</div>
 
 				<div class="description">
-					@if(isset($descriptions[$vitamin])) <p>{!! $descriptions[$vitamin] !!}</p> @endif
+					@if(isset($advises[$vitamin]))
+						<p>
+							{!! $advises[$vitamin] !!}
+						</p>
+					@endif
 					@if(trans('label-' . strtolower($vitamin) . '.web_advantage_list') != 'label-' . strtolower($vitamin) . '.web_advantage_list')
 						<div class="vitamin_advantage_list">
 							{!! trans('label-' . strtolower($vitamin) . '.web_advantage_list') !!}
