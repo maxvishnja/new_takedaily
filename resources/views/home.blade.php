@@ -127,11 +127,17 @@
 						<p>{{ trans('home.blocks.one.steps.three.text') }}</p>
 					</div>
 				</div>
+			</div>
+		</div>
 
-				<div class="text-center m-t-50">
-					{!! trans('home.blocks.one.button') !!}
-
-					{{--					<div class="m-t-20"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
+		<div class="block block--two">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h2>{!! trans('home.blocks.two.title') !!}</h2>
+						{!! trans('home.blocks.two.body') !!}
+						{!! trans('home.blocks.two.button') !!}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -171,35 +177,6 @@
 
 					<div class="promise-item">
 						<img src="/images/promises/promise_4.png" alt=""/>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		{{--<div class="block block--reviews">--}}
-		{{--<div class="container">--}}
-		{{--<h2 class="text-center">{{ trans('home.blocks.reviews.title') }}</h2>--}}
-
-		{{--<div class="row">--}}
-		{{--@if(is_array(trans('home.blocks.reviews.items')))--}}
-		{{--@foreach(trans('home.blocks.reviews.items') as $review)--}}
-		{{--<div class="col-sm-4 review-item text-center">--}}
-		{{--<img src="{{ $review['image'] }}" alt="{{ $review['name'] }}">--}}
-		{{--<blockquote>”{{ $review['text'] }}”</blockquote>--}}
-		{{--</div>--}}
-		{{--@endforeach--}}
-		{{--@endif--}}
-		{{--</div>--}}
-		{{--</div>--}}
-		{{--</div>--}}
-
-		<div class="block block--two">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<h2>{!! trans('home.blocks.two.title') !!}</h2>
-						{!! trans('home.blocks.two.body') !!}
-						{!! trans('home.blocks.two.button') !!}
 					</div>
 				</div>
 			</div>

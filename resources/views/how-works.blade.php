@@ -27,7 +27,7 @@
 				</div>
 				<div class="col-md-6">
 					<h3>{{ trans('how-works.steps.one.title') }}</h3>
-					<p>{{ trans('how-works.steps.one.body') }}</p>
+					<p>{!! trans('how-works.steps.one.body') !!}</p>
 				</div>
 			</div>
 		</div>
@@ -47,7 +47,7 @@
 				</div>
 				<div class="col-md-6 col-md-pull-4">
 					<h3>{{ trans('how-works.steps.two.title') }}</h3>
-					<p>{{ trans('how-works.steps.two.body') }}</p>
+					<p>{!! trans('how-works.steps.two.body') !!}</p>
 				</div>
 			</div>
 		</div>
@@ -61,7 +61,7 @@
 				</div>
 				<div class="col-md-6">
 					<h3>{{ trans('how-works.steps.three.title') }}</h3>
-					<p>{{ trans('how-works.steps.three.body') }}</p>
+					<p>{!! trans('how-works.steps.three.body') !!}</p>
 				</div>
 			</div>
 		</div>
