@@ -30,13 +30,21 @@
 			<h2 class="text-center">{{ trans('about.behind') }}</h2>
 
 			<div class="row m-t-20">
-				@foreach(range(1,8) as $item)
-					<div class="col-md-3 col-sm-4 person text-center">
-						<img src="//placehold.it/400x400" alt="Personens navn">
-						<h3>Navnet Her</h3>
-						<strong>Personens stilling</strong>
-					</div>
-				@endforeach
+				<div class="col-md-3 col-sm-4 person text-center">
+					<img src="{{ asset('/images/about/people/marc.jpg') }}" alt="Personens navn">
+					<h3>Navnet Her</h3>
+					<strong>Personens stilling</strong>
+				</div>
+				<div class="col-md-3 col-sm-4 person text-center">
+					<img src="{{ asset('/images/about/people/louise.jpg') }}" alt="Personens navn">
+					<h3>Navnet Her</h3>
+					<strong>Personens stilling</strong>
+				</div>
+				<div class="col-md-3 col-sm-4 person text-center">
+					<img src="{{ asset('/images/about/people/lasse.jpg') }}" alt="Personens navn">
+					<h3>Navnet Her</h3>
+					<strong>Personens stilling</strong>
+				</div>
 			</div>
 		</div>
 
