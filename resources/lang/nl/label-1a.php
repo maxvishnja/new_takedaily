@@ -155,7 +155,7 @@ Vitamine B5 en foliumzuur dragen bij aan de weerstand tegen stress.
 Huid, haar en nagels
 Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en houdt de haren sterk. Seleen en zink zijn goed voor de nagels. Vitamine A, B2, B3, B8 (biotine),en de mineralen jodium en zink helpen bij het gezond houden van de huid.
 ',
-  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose), kleurstoffen (E129, E171)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, cholecalciferol, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
+  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E129, E171)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, cholecalciferol, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
   'praises' => 
   array (
     'general-health' => 'Voor het ondersteunen van een optimale gezondheid',

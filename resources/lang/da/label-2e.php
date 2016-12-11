@@ -45,5 +45,5 @@ return array (
   'Vit and Min' => 'Vitaminer og Mineraler ',
   'web_description' => 'Bone & Muscle er et supplement til at supplere vores multivitaminer og indeholder vitaminer og mineraler, der spiller en rolle i opretholdelsen af ​​stærke knogler og glatte muskler (vitamin C, D og magnesium og mangan). <P> D-vitamin og magnesium bidrager til normal muskelfunktion. Vitamin D, magnesium og mangan bidrager til opretholdelse af stærke knogler og C-vitamin er vigtigt for brusken. </ P>',
   'weight' => '28 gram',
-  'above_claims' => 'Joint, Bone & Muscle er et supplement til at supplere vores multivitaminer og indeholder vitaminer og mineraler, der spiller en rolle i opretholdelsen af ​​stærke knogler og glatte muskler (vitamin C, D og magnesium og mangan).',
+  'above_claims' => 'Bone & Muscle er et supplement til at supplere vores multivitaminer og indeholder vitaminer og mineraler, der spiller en rolle i opretholdelsen af ​​stærke knogler og glatte muskler (vitamin C, D og magnesium og mangan).',
 );

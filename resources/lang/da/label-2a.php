@@ -9,13 +9,13 @@ return array (
     array (
       'name' => 'Vitamin D',
       'amount' => '10 µg',
-      'percent' => '200*',
+      'percent' => '200',
     ),
     1 => 
     array (
       'name' => 'Vitamin B11 (Folsyre)',
       'amount' => '400 µg',
-      'percent' => '200*',
+      'percent' => '200',
     ),
   ),
   'disclaimer' => '** Specielt justeret dosis folinsyre og D-vitamin til gravide kvinder og kvinder, der planlægger at blive gravide efter anbefalinger fra sundhedsstyrelsen. ',
@@ -26,11 +26,11 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'Mor & Baby er et kosttilskud for kvinder, der ønsker at blive gravid eller er gravide.
+  'web_description' => 'Mom & Baby er et kosttilskud for kvinder, der ønsker at blive gravid eller er gravide.
 
-Mor & Baby indeholder 400 mcg folinsyre og 10 mcg af vitamin D. Sundhedsstyrelsen anbefaler at supplere   med 400 mcg folinsyre fra det øjeblik, du ønsker at blive gravid. Folinsyre spiller en vigtig rolle i den tidlige udvikling af det ufødte barn. Folinsyre kan bruges i hele graviditeten.
+Mom & Baby indeholder 400 mcg folinsyre og 10 mcg af vitamin D. Sundhedsstyrelsen anbefaler at supplere   med 400 mcg folinsyre fra det øjeblik, du ønsker at blive gravid. Folinsyre spiller en vigtig rolle i den tidlige udvikling af det ufødte barn. Folinsyre kan bruges i hele graviditeten.
 
 Under graviditet, øges behovet for vitamin D. Sundhedsstyrelsen anbefaler at gravide kvinder har et dagligt indtag på 10 mcg D-vitami, da D-vitamin spiller en vigtig rolle i udviklingen af ​​dit barn.',
   'weight' => '12,6 gram',
-  'above_claims' => 'Mor & Baby er et kosttilskud for kvinder, der ønsker at blive gravid eller er gravide.',
+  'above_claims' => 'Mom & Baby er et kosttilskud for kvinder, der ønsker at blive gravid eller er gravide.',
 );

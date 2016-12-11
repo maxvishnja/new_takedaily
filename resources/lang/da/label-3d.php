@@ -43,7 +43,9 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamine og Mineraler',
-  'web_description' => '"Jeg er Vegetar/Vegansk" supplerer med vores multivitamin som er specielt egnet  for vegetarer, veganere og folk, der ikke spiser kød. Tillægget omfatter andre vitamin B12 og jern; næringsstoffer i en vegetarisk kost er ofte ikke tilstrækkeligt til stede.',
+  'web_description' => 'I am A Vegetarian / Vegan
+supplerer med vores multivitamin som er specielt egnet  for vegetarer, veganere og folk, der ikke spiser kød. Tillægget omfatter andre vitamin B12 og jern; næringsstoffer i en vegetarisk kost er ofte ikke tilstrækkeligt til stede.',
   'weight' => '14 gram',
-  'above_claims' => 'Jeg er Vegetar/Vegansk" supplerer med vores multivitamin som er specielt egnet  for vegetarer, veganere og folk, der ikke spiser kød.',
+  'above_claims' => 'I am A Vegetarian/Vegan
+supplerer med vores multivitamin som er specielt egnet  for vegetarer, veganere og folk, der ikke spiser kød.',
 );

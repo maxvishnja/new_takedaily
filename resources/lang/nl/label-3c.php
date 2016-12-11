@@ -25,7 +25,7 @@ return array (
       'percent' => '100',
     ),
   ),
-  'ingredients' => 'Calciumcarbonaat, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstoffen (E172, E171)), antiklontermiddel (magnesiumstearaat), cyanocobalamine, riboflavine',
+  'ingredients' => 'Calciumcarbonaat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E172, E171)), antiklontermiddel (magnesiumstearaat), cyanocobalamine, riboflavine',
   'name' => 'Supplement ter aanvulling van de dagelijkse zuivelinname',
   'praises' => 
   array (

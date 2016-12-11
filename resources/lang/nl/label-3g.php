@@ -45,7 +45,7 @@ return array (
     ),
   ),
   'name' => 'Chiazaadolie',
-  'ingredients' => 'Chiazaadolie, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose)), verdikkingsmiddel (siliciumdioxide)',
+  'ingredients' => 'Chiazaadolie, plantaardige capsulewand (hydroxypropylmethylcellulose), verdikkingsmiddel (siliciumdioxide)',
   'disclaimer' => '* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.<br/>Rijk aan omega 3-vetzuren',
   'praises' => 
   array (

@@ -15,5 +15,5 @@ return array (
   '3d' => 'I am Vegetarian / Vegan',
   '3e' => 'Premium Omega-3 Fiskeolie',
   '3f' => 'Not a Butter Lover',
-  '3g' => 'Premium Omega-3 Chiafrø olie',
+  '3g' => 'Premium Omega-3 Chiafrøolie',
 );

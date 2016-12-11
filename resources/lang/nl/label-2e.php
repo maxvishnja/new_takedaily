@@ -32,7 +32,7 @@ return array (
     ),
   ),
   'name' => 'Supplement voor de spieren, botten & kraakbeen',
-  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, calciumcitraat 4-hydraat, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstoffen (E171, E110)), dikaliumfosfaat, L-ascorbinezuur, calciumcarbonaat, antiklontermiddel (magnesiumstearaat), mangaangluconaat, cholecalciferol',
+  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, calciumcitraat 4-hydraat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E110)), dikaliumfosfaat, L-ascorbinezuur, calciumcarbonaat, antiklontermiddel (magnesiumstearaat), mangaangluconaat, cholecalciferol',
   'praises' => 
   array (
     'bone' => 'Vitamin C, D, magnesium en mangaan dragen bij aan de instandhouding van sterke botten',
@@ -44,5 +44,5 @@ return array (
   'Vit and Min' => 'Vitamines en Mineralen',
   'web_description' => 'Bone & Muscle is een supplement ter aanvulling van onze multivitaminen en bevat vitamines en mineralen die een rol spelen bij het behouden van sterke botten en soepele spieren (vitamine C, D en magnesium en mangaan).<P>Vitamine D en magnesium dragen bij tot een normale werking van de spieren. Vitamine D, magnesium en mangaan dragen bij aan de instandhouding van sterke botten en vitamine C is belangrijk voor het kraakbeen.</P>',
   'weight' => '28 gram',
-  'above_claims' => 'Joint, Bone & Muscle is een supplement ter aanvulling van onze multivitaminen en bevat vitamines en mineralen die een rol spelen bij het behouden van sterke botten en soepele spieren (vitamine C, D en magnesium en mangaan).',
+  'above_claims' => 'Bone & Muscle is een supplement ter aanvulling van onze multivitaminen en bevat vitamines en mineralen die een rol spelen bij het behouden van sterke botten en soepele spieren (vitamine C, D en magnesium en mangaan).',
 );

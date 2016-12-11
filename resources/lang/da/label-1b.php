@@ -178,5 +178,5 @@ Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og holde hå
 <li>endnu en fordel</li>
 <li>En tredje fordel</li>
 </ul>',
-  'above_claims' => 'Multivitamin D+ danner grundlag for dine personlige multivitamin- og mineraltilskud. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 10 mikrogram D-vitamin',
+  'above_claims' => 'Multi Vitamin D+ danner grundlag for dine personlige multivitamin- og mineraltilskud. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 10 mikrogram D-vitamin',
 );

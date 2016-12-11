@@ -50,7 +50,7 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse brood, rijst en pasta inname',
-  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstof (E172)), ijzer bisglycinaat, nicotinamide, antiklontermiddel (magnesiumstearaat), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, pteroylmonoglutaminezuur, kaliumjodide',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstof (E172)), ijzer bisglycinaat, nicotinamide, antiklontermiddel (magnesiumstearaat), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, pteroylmonoglutaminezuur, kaliumjodide',
   'praises' => 
   array (
     'brain-cog' => 'De B-vitamines (B1, B3, B6 en foliumzuur) zijn goed voor het concentratievermogen, geheugen en leerprestatie',
@@ -60,7 +60,7 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => '\'I\'m don\'t eat carbs\' is rijk aan B-vitamines (B, B2, B3, B5, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op de multivitaminen.',
+  'web_description' => 'I Don\'t Eat Carbs is rijk aan B-vitamines (B, B2, B3, B5, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op de multivitaminen.',
   'weight' => '14 gram',
-  'above_claims' => '\'I\'m don\'t eat carbs\' is rijk aan B-vitamines (B, B2, B3, B5, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op de multivitaminen.',
+  'above_claims' => 'I Don\'t Eat Carbs is rijk aan B-vitamines (B, B2, B3, B5, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op de multivitaminen.',
 );

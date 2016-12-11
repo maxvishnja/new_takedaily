@@ -32,7 +32,7 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose), ijzer bisglycinaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, thiaminehydrochloride',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose), ijzer bisglycinaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, thiaminehydrochloride',
   'praises' => 
   array (
     'brain-cog' => 'De B-vitamines (B1, B6 en B12) zijn goed voor het concentratievermogen, geheugen en leerprestatie',

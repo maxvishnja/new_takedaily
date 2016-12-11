@@ -96,10 +96,8 @@ return array (
       'input-placeholder' => 'Jouw kortingscode',
       'button-text' => 'Toepassen',
     ),
-    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt iedere maand per automatische afschrijving.
-					</p>
-
-					<p class="checkout_description">Je kan je abonnement ieder moment opzeggen, uitstellen of pauzeren tot 5 dagen voor de  volgende verzendingsdatum.</p>',
+    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt iedere maand per automatische afschrijving.</p>
+<p class="checkout_description">Je kan je abonnement ieder moment opzeggen, uitstellen of pauzeren tot 5 dagen voor de  volgende verzendingsdatum.</p>',
     'method' => 
     array (
       'title' => 'Selecteer betaalmethode',
