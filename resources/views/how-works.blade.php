@@ -22,8 +22,10 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4"><span class="icon icon-heart"></span></div>
 				<div class="col-md-4">
+					<img src="{{ asset('/images/how-works/icon-heart@2x.png') }}" height="276" alt="Heart">
+				</div>
+				<div class="col-md-6">
 					<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
 					<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
 				</div>
@@ -36,14 +38,14 @@
 			<div class="row">
 				<div class="col-md-4 col-md-push-8">
 					<div class="visible-xs">
-						<span class="icon icon-logo"></span>
+						<img src="{{ asset('/images/how-works/icon-logo@2x.png') }}" height="276" alt="Logo">
 					</div>
 
 					<div class="hidden-xs text-right">
-						<span class="icon icon-logo"></span>
+						<img src="{{ asset('/images/how-works/icon-logo@2x.png') }}" height="276" alt="Logo">
 					</div>
 				</div>
-				<div class="col-md-4 col-md-pull-4">
+				<div class="col-md-6 col-md-pull-4">
 					<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
 					<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
 				</div>
@@ -54,8 +56,10 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4"><span class="icon icon-box"></span></div>
 				<div class="col-md-4">
+					<img src="{{ asset('/images/how-works/icon-box@2x.png') }}" height="276" alt="Box">
+				</div>
+				<div class="col-md-6">
 					<h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
 					<p>{{ trans('home.blocks.one.steps.three.text') }}</p>
 				</div>
