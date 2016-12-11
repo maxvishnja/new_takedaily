@@ -26,15 +26,18 @@
 			</div>
 		</div>
 
-		<div class="row m-t-50">
-			<h2 class="text-center m-b-20">{{ trans('about.behind') }}</h2>
-			@foreach(range(1,8) as $item)
-				<div class="col-md-3 col-sm-4 person text-center">
-					<img src="//placehold.it/400x400" alt="Personens navn">
-					<h3>Navnet Her</h3>
-					<strong>Personens stilling</strong>
-				</div>
-			@endforeach
+		<div class="m-t-50">
+			<h2 class="text-center">{{ trans('about.behind') }}</h2>
+
+			<div class="row m-t-20">
+				@foreach(range(1,8) as $item)
+					<div class="col-md-3 col-sm-4 person text-center">
+						<img src="//placehold.it/400x400" alt="Personens navn">
+						<h3>Navnet Her</h3>
+						<strong>Personens stilling</strong>
+					</div>
+				@endforeach
+			</div>
 		</div>
 
 		<div class="m-t-50">
@@ -47,7 +50,7 @@
 			   class="button button--rounded button--huge button--landing button--green">
 				<strong>{!! trans('home.header.button-click-here') !!}</strong>
 			</a>
-{{--			<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
+			{{--			<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 		</div>
 	</div>
 
