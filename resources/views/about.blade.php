@@ -27,6 +27,7 @@
 		</div>
 
 		<div class="row m-t-50">
+			<h2>{{ trans('about.behind') }}</h2>
 			@foreach(range(1,8) as $item)
 				<div class="col-md-3 col-sm-4 person text-center">
 					<img src="//placehold.it/400x400" alt="Personens navn">
@@ -34,6 +35,11 @@
 					<strong>Personens stilling</strong>
 				</div>
 			@endforeach
+		</div>
+
+		<div class="m-t-50">
+			<h2>{{ trans('about.story.title') }}</h2>
+			{!! trans('about.story.text') !!}
 		</div>
 
 		<div class="text-center m-t-50">
