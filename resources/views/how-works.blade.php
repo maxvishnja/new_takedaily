@@ -22,8 +22,8 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6"><span class="icon icon-heart"></span></div>
-				<div class="col-md-6">
+				<div class="col-md-4"><span class="icon icon-heart"></span></div>
+				<div class="col-md-8">
 					<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
 					<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
 				</div>
@@ -34,8 +34,8 @@
 	<section class="mid">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-md-push-6 text-right"><span class="icon icon-logo"></span></div>
-				<div class="col-md-6 col-md-pull-6">
+				<div class="col-md-4 col-md-push-8 text-right"><span class="icon icon-logo"></span></div>
+				<div class="col-md-8 col-md-pull-4">
 					<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
 					<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
 				</div>
@@ -46,8 +46,8 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6"><span class="icon icon-box"></span></div>
-				<div class="col-md-6">
+				<div class="col-md-4"><span class="icon icon-box"></span></div>
+				<div class="col-md-8">
 					<h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
 					<p>{{ trans('home.blocks.one.steps.three.text') }}</p>
 				</div>
