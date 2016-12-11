@@ -16,7 +16,6 @@
 					<div class="clear"></div>
 
 					<div class="col-md-6" v-for="vitamin in vitaminsInGroup(group)">
-
 						<div class="new_vitamin_item" v-bind:class="{ 'faded': (vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) }">
 
 							<div class="pill_section">
@@ -36,12 +35,12 @@
 										<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--green pull-right"
 										   v-show="!vitamin.isSelected">{{ trans('flow-actions.select') }}</a>
 
-										<a href="javascript:void(0);" v-on:click="readMore(vitamin);">{{ trans('flow-actions.read-more') }}</a>
+										<a href="javascript:void(0);" v-on:click="readMore(vitamin, $event);">{{ trans('flow-actions.read-more') }}</a>
 									</div>
 
 									<div class="clear"></div>
 
-									<div v-html="vitamin.extra_content" class="m-t-10 vitamin_extra_content"></div>
+									<div v-html="vitamin.extra_content" class="m-t-10 vitamin_extra_content" style="display: none"></div>
 								</div>
 							</div>
 						</div>
@@ -192,11 +191,11 @@
 
 					return txt.value;
 				},
-				readMore: function (vitamin) {
+				readMore: function (vitamin, event) {
 					$.get('{{ url()->route('pick-n-mix-info', ['']) }}/' + vitamin.code).done(function (response) {
 						vitamin.extra_content = app.decodeHtml(response);
 
-						$(".vitamin_extra_content").stop().slideToggle(200);
+						$(event.target).parent().parent().find(".vitamin_extra_content").stop().slideToggle(200);
 					});
 
 					// todo allow hiding again

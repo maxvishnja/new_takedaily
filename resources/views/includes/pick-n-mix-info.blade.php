@@ -1,4 +1,8 @@
 <div class="description">
+	@if(trans('label-' . strtolower($vitamin) . '.web_description') != 'label-' . strtolower($vitamin) . '.web_description')
+		<p>{!! nl2br(trans('label-' . strtolower($vitamin) . '.web_description')) !!}</p>
+	@endif
+
 	@if(isset($descriptions[$vitamin])) <p>{!! $descriptions[$vitamin] !!}</p> @endif
 	<div class="vitamin_advantage_list">
 		{!! trans('label-' . strtolower($vitamin) . '.web_advantage_list') !!}
