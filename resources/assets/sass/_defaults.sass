@@ -99,6 +99,9 @@ div.logo, div.icon
 		font-size: 16px
 		line-height: 1.6
 
+body
+	padding-top: 86px
+
 header
 	background-color: $dark-grey
 	background-repeat: no-repeat
@@ -110,7 +113,7 @@ header
 
 	&.header--with-bg
 		background: #fff
-		box-shadow: 0 4px 10px rgba(0, 0, 0, .15)
+		//box-shadow: 0 4px 10px rgba(0, 0, 0, .15)
 		position: relative
 
 		nav[role="navigation"] ul li a
@@ -128,6 +131,13 @@ header
 
 	.header-nav
 		background: #fff
+		position: fixed
+		z-index: 999
+		top: 0
+		left: 0
+		width: 100%
+		height: 86px
+		box-shadow: 0 4px 10px rgba(0, 0, 0, .15)
 
 		nav[role="navigation"] ul li
 			.submenu
@@ -392,6 +402,12 @@ footer
 	header
 		.header_top, .header_top_tb
 			padding: 18px 0 15px
+
+		.header-nav
+			height: 69px
+
+	body
+		padding-top: 69px
 
 	footer
 		.bottom
