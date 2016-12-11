@@ -23,7 +23,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4"><span class="icon icon-heart"></span></div>
-				<div class="col-md-8">
+				<div class="col-md-4">
 					<h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
 					<p>{{ trans('home.blocks.one.steps.one.text') }}</p>
 				</div>
@@ -34,8 +34,16 @@
 	<section class="mid">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 col-md-push-8 text-right"><span class="icon icon-logo"></span></div>
-				<div class="col-md-8 col-md-pull-4">
+				<div class="col-md-4 col-md-push-8">
+					<div class="visible-xs">
+						<span class="icon icon-logo"></span>
+					</div>
+
+					<div class="hidden-xs text-right">
+						<span class="icon icon-logo"></span>
+					</div>
+				</div>
+				<div class="col-md-4 col-md-pull-4">
 					<h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
 					<p>{{ trans('home.blocks.one.steps.two.text') }}</p>
 				</div>
@@ -47,7 +55,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4"><span class="icon icon-box"></span></div>
-				<div class="col-md-8">
+				<div class="col-md-4">
 					<h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
 					<p>{{ trans('home.blocks.one.steps.three.text') }}</p>
 				</div>
@@ -60,7 +68,7 @@
 		   class="button button--rounded button--huge button--landing button--green">
 			<strong>{!! trans('home.header.button-click-here') !!}</strong>
 		</a>
-{{--		<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
+		{{--		<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 	</div>
 
 
