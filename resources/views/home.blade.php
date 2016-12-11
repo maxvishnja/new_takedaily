@@ -28,23 +28,27 @@
 							<div class="row">
 								<div class="col-md-8">
 									<h1>{!! trans('home.header.title-1') !!}</h1>
-									<p style="font-size: 18px;"><strong>Med TakeDaily kan du hver dag supplere din kost med præcis de vitaminer og mineraler, du har brug for</strong></p>
+									<p style="font-size: 18px;"><strong>Med TakeDaily kan du hver dag supplere din kost med præcis de vitaminer og mineraler, du har brug
+											for</strong></p>
 									<a href="{{ url()->route('flow') }}"
 									   class="button button--rounded button--huge button--landing button--green m-t-30">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
 									{{--									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
-									<div class="headervideo-block">
-										<span id="video-toggle-two" class="icon icon-play"></span>
-										<strong>{{ trans('home.header.what-is') }}</strong>
-									</div>
 								</div>
 								<div class="col-md-4 hidden-sm hidden-xs">
 									<div class="splash_circle pull-right hidden-xs">
-										<span>{!! trans('home.header.splash.text') !!}</span>
+										{{--										<span>{!! trans('home.header.splash.text') !!}</span>--}}
 										<strong>{!! trans('home.header.splash.price') !!}</strong>
 										<small class="info">{!! trans('home.header.splash.info') !!}</small>
 									</div>
+								</div>
+							</div>
+
+							<div class="text-center">
+								<div class="headervideo-block" style="margin-bottom: 25px">
+									{{--<strong>{{ trans('home.header.what-is') }}</strong>--}}
+									<span id="video-toggle-two" class="icon icon-play"></span>
 								</div>
 							</div>
 						</div>
@@ -327,8 +331,7 @@
 	</script>
 
 	<style>
-		.home-promo-item-with-icon
-		{
+		.home-promo-item-with-icon {
 			height: 31px;
 			line-height: 31px;
 		}
