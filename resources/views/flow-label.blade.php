@@ -14,6 +14,15 @@
 			</strong>
 
 			@if(isset($descriptions[$vitamin])) <p>{!! $descriptions[$vitamin] !!}</p>@endif
+			@if(is_array(trans("flow-praises.{$vitamin}")))
+				@foreach((array) trans("flow-praises.{$vitamin}") as $icon => $text)
+					<div>
+						<span class="icon icon-{{ $icon }}-flow flow-promise-icon"></span>
+						<div class="flow-promise-text">{{ $text }}</div>
+					</div>
+				<div class="clear"></div>
+				@endforeach
+			@endif
 
 			<div class="extra_content">
 				<div class="m-t-30 m-b-10">
