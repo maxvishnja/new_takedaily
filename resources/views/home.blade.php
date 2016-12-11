@@ -69,12 +69,6 @@
 
 	<div class="landing_advantages">
 		<div class="container-fluid">
-			<div class="col-md-3 col-sm-6">
-				<div class="home-promo-item-with-icon">
-					<span class="icon icon-front-post"></span>
-					{{ trans('home.promos.one') }}
-				</div>
-			</div>
 
 			<div class="col-md-3 col-sm-6">
 				<div class="home-promo-item-with-icon">
@@ -85,15 +79,22 @@
 
 			<div class="col-md-3 col-sm-6">
 				<div class="home-promo-item-with-icon">
-					<span class="icon icon-front-support"></span>
-					{{ trans('home.promos.three') }}
+					<span class="icon icon-front-delivery"></span>
+					{{ trans('home.promos.four') }}
 				</div>
 			</div>
 
 			<div class="col-md-3 col-sm-6">
 				<div class="home-promo-item-with-icon">
-					<span class="icon icon-front-delivery"></span>
-					{{ trans('home.promos.four') }}
+					<span class="icon icon-front-post"></span>
+					{{ trans('home.promos.one') }}
+				</div>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+				<div class="home-promo-item-with-icon">
+					<span class="icon icon-front-support"></span>
+					{{ trans('home.promos.three') }}
 				</div>
 			</div>
 		</div>
