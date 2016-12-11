@@ -186,7 +186,7 @@
 				<div class="row">
 					<div style="display: flex; align-items: center; padding: 80px 0;">
 						<div class="col-md-6 col-md-push-6">
-							<img src="//placehold.it/400x400" alt=""/>
+							<img src="//placehold.it/400x400" alt="" style="border-radius: 10px"/>
 						</div>
 						<div class="col-md-6 col-md-pull-6">
 							<h3 style="font-size: 20px;">{{ trans('home.new_blocks.one.title') }}</h3>
@@ -203,7 +203,7 @@
 				<div class="row">
 					<div style="display: flex; align-items: center; padding: 80px 0;">
 						<div class="col-md-6">
-							<img src="//placehold.it/400x400" alt=""/>
+							<img src="/images/new_blocks_two.jpg" width="400" alt="{{ trans('home.new_blocks.two.title') }}" style="border-radius: 10px"/>
 						</div>
 						<div class="col-md-6">
 							<h3 style="font-size: 20px;">{{ trans('home.new_blocks.two.title') }}</h3>
