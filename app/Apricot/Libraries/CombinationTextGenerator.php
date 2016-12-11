@@ -1,6 +1,8 @@
 <?php namespace App\Apricot\Libraries;
 
 
+use Illuminate\Support\Str;
+
 class CombinationTextGenerator
 {
 	/**
@@ -51,7 +53,10 @@ class CombinationTextGenerator
 
 			$text .= implode( $seperator, $reasons );
 
-			$text .= '.';
+			if(!Str::endsWith($text, '.'))
+			{
+				$text .= '.';
+			}
 		}
 
 		return $text;
