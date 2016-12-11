@@ -38,7 +38,7 @@ class CombinationTextGenerator
 			return ! in_array( $key, $matchedReasons, false );
 		} )->toArray();
 
-		$text = $main;
+		$text = "$main ";
 
 		if ( count( $reasons ) > 0 )
 		{
