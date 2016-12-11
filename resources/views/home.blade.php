@@ -28,6 +28,7 @@
 							<div class="row">
 								<div class="col-md-8">
 									<h1>{!! trans('home.header.title-1') !!}</h1>
+									<p style="font-size: 18px;"><strong>Med TakeDaily kan du hver dag supplere din kost med præcis de vitaminer og mineraler, du har brug for</strong></p>
 									<a href="{{ url()->route('flow') }}"
 									   class="button button--rounded button--huge button--landing button--green m-t-30">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>

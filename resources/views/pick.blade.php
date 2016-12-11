@@ -41,7 +41,7 @@
 
 									<div class="clear"></div>
 
-									<div v-html="vitamin.extra_content" class="m-t-10"></div>
+									<div v-html="vitamin.extra_content" class="m-t-10 vitamin_extra_content"></div>
 								</div>
 							</div>
 						</div>
@@ -195,6 +195,8 @@
 				readMore: function (vitamin) {
 					$.get('{{ url()->route('pick-n-mix-info', ['']) }}/' + vitamin.code).done(function (response) {
 						vitamin.extra_content = app.decodeHtml(response);
+
+						$(".vitamin_extra_content").stop().slideToggle(200);
 					});
 
 					// todo allow hiding again
