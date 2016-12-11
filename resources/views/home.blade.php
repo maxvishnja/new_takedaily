@@ -190,7 +190,7 @@
 						</div>
 						<div class="col-md-6 col-md-pull-6">
 							<h3 style="font-size: 20px;">{{ trans('home.new_blocks.one.title') }}</h3>
-							<p>{!! trans('home.new_blocks.one.body') !!}</p>
+							{!! trans('home.new_blocks.one.body') !!}
 						</div>
 					</div>
 				</div>
@@ -207,7 +207,7 @@
 						</div>
 						<div class="col-md-6">
 							<h3 style="font-size: 20px;">{{ trans('home.new_blocks.two.title') }}</h3>
-							<p>{!! trans('home.new_blocks.two.body') !!}</p>
+							{!! trans('home.new_blocks.two.body') !!}
 						</div>
 					</div>
 				</div>
