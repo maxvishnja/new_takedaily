@@ -30,37 +30,37 @@
 			<h2 class="text-center">{{ trans('about.behind') }}</h2>
 
 			<div class="row m-t-20">
-				<div class="col-md-3 col-sm-4 person text-center">
+				<div class="col-sm-4 person text-center">
 					<img src="{{ asset('/images/about/people/kirsten.jpg') }}" alt="{{ trans('about.people.kirsten.name') }}">
 					<h3>{{ trans('about.people.kirsten.name') }}</h3>
 					<strong>{{ trans('about.people.kirsten.job') }}</strong>
 				</div>
 
-				<div class="col-md-3 col-sm-4 person text-center">
+				<div class="col-sm-4 person text-center">
 					<img src="{{ asset('/images/about/people/louise.jpg') }}" alt="{{ trans('about.people.louise.name') }}">
 					<h3>{{ trans('about.people.louise.name') }}</h3>
 					<strong>{{ trans('about.people.louise.job') }}</strong>
 				</div>
 
-				<div class="col-md-3 col-sm-4 person text-center">
+				<div class="col-sm-4 person text-center">
 					<img src="{{ asset('/images/about/people/marie-louise.jpg') }}" alt="{{ trans('about.people.marie-louise.name') }}">
 					<h3>{{ trans('about.people.marie-louise.name') }}</h3>
 					<strong>{{ trans('about.people.marie-louise.job') }}</strong>
 				</div>
 
-				<div class="col-md-3 col-sm-4 person text-center">
+				<div class="col-sm-4 person text-center">
 					<img src="{{ asset('/images/about/people/marc.jpg') }}" alt="{{ trans('about.people.marc.name') }}">
 					<h3>{{ trans('about.people.marc.name') }}</h3>
 					<strong>{{ trans('about.people.marc.job') }}</strong>
 				</div>
 
-				<div class="col-md-3 col-sm-4 person text-center">
+				<div class="col-sm-4 person text-center">
 					<img src="{{ asset('/images/about/people/erik.jpg') }}" alt="{{ trans('about.people.erik.name') }}">
 					<h3>{{ trans('about.people.erik.name') }}</h3>
 					<strong>{{ trans('about.people.erik.job') }}</strong>
 				</div>
 
-				<div class="col-md-3 col-sm-4 person text-center">
+				<div class="col-sm-4 person text-center">
 					<img src="{{ asset('/images/about/people/lasse.jpg') }}" alt="{{ trans('about.people.lasse.name') }}">
 					<h3>{{ trans('about.people.lasse.name') }}</h3>
 					<strong>{{ trans('about.people.lasse.job') }}</strong>
