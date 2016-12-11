@@ -56,11 +56,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="aligner">
-					<div class="col-md-6 text-center">
-						<img src="/images/foa_logo.png" alt="Friends of the Sea"/>
-					</div>
-
-					<div class="col-md-6">
+					<div class="col-md-6 col-md-push-6">
 						<h2>{{ trans('quality.section_foa.title') }}</h2>
 						{!! trans('quality.section_foa.body') !!}
 					</div>
@@ -102,6 +98,12 @@
 			background-position: right center;
 		}
 
+		section.quality_section_three {
+			background-image: url(/images/quality/three.jpg);
+			background-position: left center;
+			background-size: contain;
+		}
+
 		section.quality_section_three img {
 			width: 202px;
 		}
@@ -128,6 +130,10 @@
 
 			section.quality_section_two {
 				background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 55%), linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(-270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), url(/images/quality/two.jpg);
+			}
+
+			section.quality_section_three {
+				background-image: linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 55%), linear-gradient(-90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), linear-gradient(-270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.00) 100%), url(/images/quality/three.jpg);
 			}
 		}
 	</style>
