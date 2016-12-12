@@ -12,39 +12,41 @@
 			<a href="{{ url()->route('flow',['token' => Request::get('flow_token') ]) }}">{{ trans('checkout.back') }}</a>
 			<div class="clear"></div>
 		@endif
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<div class="row" v-cloak="">
 				<div v-for="group in groups">
 					<div class="clear"></div>
 					<h2 class="text-center">@{{ groupTranslations[group] }}</h2>
 					<div class="clear"></div>
 
-					<div class="col-md-12" v-for="vitamin in vitaminsInGroup(group)">
-						<div class="new_vitamin_item" v-bind:class="{ 'faded': (vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) }">
+					<div class="pick-n-mix-flex">
+						<div v-for="vitamin in vitaminsInGroup(group)" class="flex-vitamin">
+							<div class="new_vitamin_item" v-bind:class="{ 'faded': (vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) }">
 
-							<div class="pill_section">
-								<span class="icon pill-@{{ vitamin.code.toLowerCase() }}"></span>
-							</div>
+								<div class="pill_section">
+									<span class="icon pill-@{{ vitamin.code.toLowerCase() }}"></span>
+								</div>
 
-							<div class="content_section">
-								<strong>@{{ vitamin.name }}</strong>
+								<div class="content_section">
+									<strong>@{{ vitamin.name }}</strong>
 
-								<p v-html="vitamin.description"></p>
-								<div v-html="vitaminPraises(vitamin)"></div>
+									<p v-html="vitamin.description"></p>
+									<div v-html="vitaminPraises(vitamin)"></div>
 
-								<div class="extra_content">
-									<div class="m-t-30 m-b-10">
-										<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--light pull-right"
-										   v-show="vitamin.isSelected">{{ trans('flow-actions.remove') }}</a>
-										<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--green pull-right"
-										   v-show="!vitamin.isSelected">{{ trans('flow-actions.select') }}</a>
+									<div class="extra_content">
+										<div class="m-t-30 m-b-10">
+											<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--light pull-right"
+											   v-show="vitamin.isSelected">{{ trans('flow-actions.remove') }}</a>
+											<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--green pull-right"
+											   v-show="!vitamin.isSelected">{{ trans('flow-actions.select') }}</a>
 
-										<a href="javascript:void(0);" v-on:click="readMore(vitamin, $event);">{{ trans('flow-actions.read-more') }}</a>
+											<a href="javascript:void(0);" v-on:click="readMore(vitamin, $event);">{{ trans('flow-actions.read-more') }}</a>
+										</div>
+
+										<div class="clear"></div>
+
+										<div v-html="vitamin.extra_content" class="m-t-10 vitamin_extra_content" style="display: none"></div>
 									</div>
-
-									<div class="clear"></div>
-
-									<div v-html="vitamin.extra_content" class="m-t-10 vitamin_extra_content" style="display: none"></div>
 								</div>
 							</div>
 						</div>
@@ -57,7 +59,7 @@
 				<div class="hidden-xs hidden-sm">@include('includes.disclaimer')</div>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<div class="cart-bubble" v-on:click="show_popup = !show_popup">
 				<div class="icon icon-cart">
 					<span class="cart-bubble_count">@{{ selectedVitamins.length }}</span>
@@ -126,14 +128,14 @@
 					@endforeach
 				},
 				vitamins: [
-					@foreach($vitamins as $vitamin)
+						@foreach($vitamins as $vitamin)
 					{
 						<?php $praises = ''; ?>
-						@if(is_array(trans("flow-praises.{$vitamin->code}")))
+							@if(is_array(trans("flow-praises.{$vitamin->code}")))
 							@foreach((array) trans("flow-praises.{$vitamin->code}") as $icon => $text)
-								<?php $praises .= '<div><span class="icon icon-' . $icon . '-flow flow-promise-icon"></span><div class="flow-promise-text">' . $text . '</div></div><div class="clear"></div>'; ?>
+						<?php $praises .= '<div><span class="icon icon-' . $icon . '-flow flow-promise-icon"></span><div class="flow-promise-text">' . $text . '</div></div><div class="clear"></div>'; ?>
 							@endforeach
-						@endif
+							@endif
 						name: "{!! \App\Apricot\Helpers\PillName::get($vitamin->code) !!}",
 						code: "{!! $vitamin->code !!}",
 						id: "{{ $vitamin->id }}",
@@ -197,7 +199,7 @@
 				}
 			},
 			methods: {
-				vitaminPraises: function(vitamin){
+				vitaminPraises: function (vitamin) {
 					return this.decodeHtml(vitamin.praises);
 				},
 				decodeHtml: function (html) {
@@ -313,9 +315,8 @@
 				vitaminIsSelected: function (vitamin) {
 					return vitamin.isSelected;
 				},
-				loadAllDescriptions: function()
-				{
-					this.vitamins.forEach(function(vitamin) {
+				loadAllDescriptions: function () {
+					this.vitamins.forEach(function (vitamin) {
 						$.get('{{ url()->route('pick-n-mix-info', ['']) }}/' + vitamin.code).done(function (response) {
 							vitamin.extra_content = app.decodeHtml(response);
 						});
@@ -345,11 +346,27 @@
 			}
 		});
 
-		$("body").on('click', '.seeIngredientsBtn', function(e)
-		{
+		$("body").on('click', '.seeIngredientsBtn', function (e) {
 			e.preventDefault();
 
 			$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
 		});
 	</script>
+
+	<style>
+		.pick-n-mix-flex {
+			display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;
+		}
+
+		.pick-n-mix-flex .flex-vitamin {
+			width: 49%;
+		}
+
+		@media all and (max-width: 767px)
+		{
+			.pick-n-mix-flex .flex-vitamin {
+				width: 100%
+			}
+		}
+	</style>
 @endsection
