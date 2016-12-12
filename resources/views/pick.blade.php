@@ -12,14 +12,14 @@
 			<a href="{{ url()->route('flow',['token' => Request::get('flow_token') ]) }}">{{ trans('checkout.back') }}</a>
 			<div class="clear"></div>
 		@endif
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<div class="row" v-cloak="">
 				<div v-for="group in groups">
 					<div class="clear"></div>
 					<h2 class="text-center">@{{ groupTranslations[group] }}</h2>
 					<div class="clear"></div>
 
-					<div class="col-md-6" v-for="vitamin in vitaminsInGroup(group)">
+					<div class="col-md-12" v-for="vitamin in vitaminsInGroup(group)">
 						<div class="new_vitamin_item" v-bind:class="{ 'faded': (vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) }">
 
 							<div class="pill_section">
@@ -57,7 +57,7 @@
 				<div class="hidden-xs hidden-sm">@include('includes.disclaimer')</div>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<div class="cart-bubble" v-on:click="show_popup = !show_popup">
 				<div class="icon icon-cart">
 					<span class="cart-bubble_count">@{{ selectedVitamins.length }}</span>
