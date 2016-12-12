@@ -305,7 +305,7 @@
 
 						combinationTimeout = setTimeout(function () {
 							$("#advises-label").html(response.label);
-							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes));
+							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes + '&flow_token=' + response.token));
 							app.result = response.result;
 							app.recommendation_token = response.token;
 
