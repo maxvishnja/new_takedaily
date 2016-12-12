@@ -11,7 +11,6 @@ class PillLibrary
 		'2b' => 'Shape Me up',
 		'2c' => 'Energy Booster',
 		'2d' => 'Immune Booster',
-//		'2e' => 'Joint & Muscle',
 		'2e' => 'Bone & Muscle',
 		'3a' => 'I\'m not a veggie fan',
 		'3b' => 'I don\'t Eat Carbs',
