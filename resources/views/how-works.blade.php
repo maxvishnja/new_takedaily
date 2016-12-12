@@ -82,6 +82,12 @@
 			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/how-works/bg.jpg);
 			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/how-works/bg.jpg);
 		}
+		main p {
+			font-size: 16px;
+		}
+		main h3 {
+			font-size: 22px;
+		}
 
 		section {
 			padding: 80px 0;

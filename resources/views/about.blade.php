@@ -93,7 +93,7 @@
 			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/about/bg.jpg);
 		}
 
-		p {
+		main p {
 			font-size: 16px;
 			line-height: 28px;
 		}

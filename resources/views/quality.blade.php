@@ -75,6 +75,10 @@
 
 
 	<style>
+		main p {
+			font-size: 16px;
+		}
+
 		.header_image {
 			padding: 40px 0;
 			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/quality/bg.jpg);
