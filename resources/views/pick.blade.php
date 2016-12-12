@@ -23,7 +23,7 @@
 						<div class="new_vitamin_item" v-bind:class="{ 'faded': (vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) }">
 
 							<div class="pill_section">
-								<span class="icon pill-@{{ vitamin.code }}"></span>
+								<span class="icon pill-@{{ vitamin.code.toLowerCase() }}"></span>
 							</div>
 
 							<div class="content_section">
