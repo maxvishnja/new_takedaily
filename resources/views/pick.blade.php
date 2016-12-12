@@ -68,7 +68,7 @@
 					<div v-cloak="">
 						<div class="cart-selection" v-for="vitamin in selectedVitamins | orderBy 'type'">
 							<div class="cart-selection_item cart-selection_code">
-								<span class="icon pill-@{{ vitamin.code }}"></span>
+								<span class="icon pill-@{{ vitamin.code.toLowerCase() }}"></span>
 							</div>
 
 							<div class="cart-selection_item cart-selection_name">
