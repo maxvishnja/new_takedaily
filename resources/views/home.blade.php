@@ -187,7 +187,7 @@
 					<div class="flex-desktop">
 						<div class="col-md-6 col-md-push-6 text-center">
 							<img src="/images/marie-louise-home.jpg" alt="Marie-Louise" style="border-radius: 10px" width="373"/>
-							<div>{!! trans('home.new_blocks.one.below_image') !!}</div>
+							<div class="m-t-20">{!! trans('home.new_blocks.one.below_image') !!}</div>
 						</div>
 						<div class="col-md-6 col-md-pull-6">
 							<h3 style="font-size: 20px;">{{ trans('home.new_blocks.one.title') }}</h3>
