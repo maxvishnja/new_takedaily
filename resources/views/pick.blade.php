@@ -73,6 +73,7 @@
 
 							<div class="cart-selection_item cart-selection_name">
 								@{{ vitamin.name }}
+								@{{ vitamin.code }}
 							</div>
 
 							<div class="cart-selection_item cart-selection_action">
