@@ -186,7 +186,7 @@
 				<div class="row">
 					<div class="flex-desktop">
 						<div class="col-md-6 col-md-push-6 text-center">
-							<img src="/images/marie-louise-home.jpg" alt="Marie-Louise" style="border-radius: 10px" width="373"/>
+							<img src="/images/marie-louise-home.jpg" alt="Marie-Louise" style="border-radius: 10px" width="330"/>
 							<div class="m-t-20">{!! trans('home.new_blocks.one.below_image') !!}</div>
 						</div>
 						<div class="col-md-6 col-md-pull-6">
