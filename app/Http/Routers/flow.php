@@ -105,11 +105,6 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 
 Route::post( 'flow', function ( \Illuminate\Http\Request $request )
 {
-	if ( $request->session()->has( 'saved_flow_state' ) )
-	{
-		$request->session()->forget( 'saved_flow_state' );
-	}
-
 	$userData = json_decode( $request->get( 'user_data' ) );
 
 	if ( Auth::check() && Auth::user()->isUser() && $request->get( 'update_only', 0 ) == 1 )

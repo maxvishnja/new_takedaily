@@ -8,6 +8,10 @@
 
 @section('content')
 	<div class="container" id="app">
+		@if(Request::session()->has('saved_flow_state'))
+			<a href="{{ url()->route('flow') }}">{{ trans('checkout.back') }}</a>
+		@endif
+
 		<div class="col-md-9">
 			<div class="row" v-cloak="">
 				<div v-for="group in groups">
