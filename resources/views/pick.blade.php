@@ -207,14 +207,7 @@
 					return txt.value;
 				},
 				readMore: function (vitamin, event) {
-					$.get('{{ url()->route('pick-n-mix-info', ['']) }}/' + vitamin.code).done(function (response) {
-						vitamin.extra_content = app.decodeHtml(response);
-
-						$(event.target).parent().parent().find(".vitamin_extra_content").stop().slideToggle(200);
-					});
-
-					// todo allow hiding again
-					// todo slideToggle
+					$(event.target).parent().parent().find(".vitamin_extra_content").stop().slideToggle(200);
 				},
 				setCart: function () {
 					var vitamins = [];
@@ -319,11 +312,20 @@
 				},
 				vitaminIsSelected: function (vitamin) {
 					return vitamin.isSelected;
+				},
+				loadAllDescriptions: function()
+				{
+					this.vitamins.forEach(function(vitamin) {
+						$.get('{{ url()->route('pick-n-mix-info', ['']) }}/' + vitamin.code).done(function (response) {
+							vitamin.extra_content = app.decodeHtml(response);
+						});
+					});
 				}
 			}
 		});
 
 		app.setCart();
+		app.loadAllDescriptions();
 	</script>
 	<script>
 		var isSticked = false;
