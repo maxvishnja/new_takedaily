@@ -59,6 +59,25 @@
 						<div class="clear"></div>
 					@endforeach
 				@endif
+
+				<div class="extra_content">
+					<div class="m-t-30 m-b-10"><a href="#" class="readMoreBtn">{{ trans('flow-actions.read-more') }}</a></div>
+
+					<div class="description">
+						@if(trans('label-' . strtolower($vitamin->code) . '.web_description') != 'label-' . strtolower($vitamin->code) . '.web_description')
+							<p>{!! nl2br(trans('label-' . strtolower($vitamin->code) . '.web_description')) !!}</p>
+						@endif
+
+						@if(trans('label-' . strtolower($vitamin->code) . '.web_advantage_list') != 'label-' . strtolower($vitamin->code) . '.web_advantage_list')
+							<div class="vitamin_advantage_list">
+								{!! trans('label-' . strtolower($vitamin->code) . '.web_advantage_list') !!}
+							</div>
+						@endif
+
+						<div class="m-t-20 m-b-10"><a href="#" class="seeIngredientsBtn">{{ trans('flow-actions.see-ingredients') }}</a></div>
+						<div class="ingredients">@include('flow-includes.views.vitamin_table', ['label' => strtolower($vitamin->code)])</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	@endforeach
@@ -93,6 +112,18 @@
 					return $("#snooze_form").submit();
 				}
 			});
+		});
+
+		$('.readMoreBtn').click(function(e){
+			e.preventDefault();
+
+			$(this).parent().parent().find('.description').stop().slideToggle(200);
+		});
+
+		$('.seeIngredientsBtn').click(function (e) {
+			e.preventDefault();
+
+			$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
 		});
 	</script>
 @endsection
