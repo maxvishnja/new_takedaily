@@ -60,6 +60,6 @@ class Kernel extends ConsoleKernel
 		         ->everyTenMinutes();
 
 		$schedule->command('backup:run')
-		         ->daily();
+		         ->dailyAt('00:00');
 	}
 }
