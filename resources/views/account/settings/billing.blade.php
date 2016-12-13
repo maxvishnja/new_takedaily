@@ -11,4 +11,12 @@
 			@include("account.settings.payment_methods.{$method}", [$source])
 		@endforeach
 	@endif
+
+	@if($plan->payment_method === 'stripe')
+		<div class="clear"></div>
+
+		<a href="#" class="button button--large button--green">Skift betalingsmetode</a>
+
+		@include('includes.payment.method', ['giftcard' => false, 'paymentMethods' => \App\Apricot\Helpers\PaymentMethods::getAcceptedMethodsForCountry( \App::getLocale() )])
+	@endif
 @endsection

@@ -111,7 +111,8 @@ class AccountController extends Controller
 
 		return view( 'account.settings.billing', [
 			'sources' => $sources['methods'],
-			'method'  => $sources['type']
+			'method'  => $sources['type'],
+		    'plan' => $this->customer->getPlan()
 		] );
 	}
 
