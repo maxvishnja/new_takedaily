@@ -69,7 +69,7 @@
 			<aside id="sticky" v-bind:class="{'enabled': show_popup}">
 				<div class="card">
 					<div v-cloak="">
-						<div class="cart-selection" v-for="vitamin in selectedVitamins | orderBy 'type'">
+						<div class="cart-selection" v-for="vitamin in selectedVitamins | orderBy 'type' -1">
 							<div class="cart-selection_item cart-selection_code">
 								<span class="icon pill-@{{ vitamin.code.toLowerCase() }}"></span>
 							</div>
