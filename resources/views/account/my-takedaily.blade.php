@@ -28,7 +28,7 @@
 				<strong>
 					{{ $vitamin->name }}
 				</strong>
-				<p>{!! trans("label-{$vitamin->code}.web_description") !!}</p>
+				<p>{!! trans('label-' . strtolower($vitamin->code) . '.web_description') !!}</p>
 			</div>
 		</div>
 	@endforeach
