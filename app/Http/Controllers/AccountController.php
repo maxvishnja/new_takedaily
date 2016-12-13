@@ -69,6 +69,8 @@ class AccountController extends Controller
 			'vitamins' => json_encode( $vitamins )
 		] );
 
+		// todo: Update price
+
 		return \Redirect::action( 'AccountController@getHome' )->with( 'success', trans( 'account.general.successes.vitamins-updated' ) );
 	}
 

@@ -13,7 +13,7 @@
 	@endforeach
 
 	@if( $plan->isActive() )
-		<p>{{ trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y H:i') ]) }}</p>
+		<p>{{ trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) }}</p>
 
 		<div class="m-t-50">
 			@if($plan->isSnoozeable())
