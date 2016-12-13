@@ -27,7 +27,7 @@
 						<span class="icon icon-{{ $icon }}-flow flow-promise-icon"></span>
 						<div class="flow-promise-text">{{ $text }}</div>
 					</div>
-				<div class="clear"></div>
+					<div class="clear"></div>
 				@endforeach
 			@endif
 
