@@ -60,7 +60,7 @@
 				<div class="hidden-xs hidden-sm">@include('includes.disclaimer')</div>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-3" style="margin-top: 56px;">
 			<div class="cart-bubble" v-on:click="show_popup = !show_popup">
 				<div class="icon icon-cart">
 					<span class="cart-bubble_count">@{{ selectedVitamins.length }}</span>
@@ -344,7 +344,7 @@
 		$(window).on('resize load', function () {
 			if ($(window).width() >= 992) {
 				if (!isSticked) {
-					$("#sticky").sticky({topSpacing: 109});
+					$("#sticky").sticky({topSpacing: 109 });
 					isSticked = true;
 				}
 			}
