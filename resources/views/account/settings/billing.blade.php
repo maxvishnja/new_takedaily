@@ -17,7 +17,7 @@
 
 		<a href="#" id="update_btn" class="button button--medium button--green">{{ trans('account.settings_billing.update') }}</a>
 
-		<form action="{{ url()->action('AccountController@updatePaymentMethod') }}" id="checkout-form" method="post" class="m-t-20" >
+		<form action="{{ url()->action('AccountController@updatePaymentMethod') }}" id="checkout-form" method="post" class="m-t-20" style="display: none">
 			@include('includes.payment.method', ['giftcard' => false, 'paymentMethods' => \App\Apricot\Helpers\PaymentMethods::getAcceptedMethodsForCountry( \App::getLocale() )])
 
 			<button id="button-submit" class="button button--green button--large">{{ trans('account.settings_billing.update') }}</button>
