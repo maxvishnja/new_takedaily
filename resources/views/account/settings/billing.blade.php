@@ -10,9 +10,5 @@
 		@foreach($sources as $source)
 			@include("account.settings.payment_methods.{$method}", [$source])
 		@endforeach
-	@else
-		<h3>{{ trans('account.settings_billing.no-method') }}</h3>
-		<a href="{{ URL::action('AccountController@getSettingsBillingAdd') }}"
-		   class="button button--green button--medium button--rounded button--full-mobile m-sm-b-10">{{ trans('account.settings_billing.button-add-method-text') }}</a>
 	@endif
 @endsection
