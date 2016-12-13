@@ -226,7 +226,7 @@
 					@include('includes.payment.method')
 
 					<div class="pull-left m-b-20" style="max-width: 50%">
-						<div style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd; line-height: 1.4">
+						<div style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd; line-height: 1.4; height: 64px; display: flex; justify-content: center; align-items: center">
 							{!! trans('checkout.terms-agree') !!}
 						</div>
 					</div>
