@@ -22,7 +22,7 @@
 			@endif
 
 			@if($plan->isCancelable())
-				<a href="{{ URL::action('AccountController@getSettingsSubscriptionCancel') }}"
+				<a href="{{ URL::action('AccountController@getCancelPage') }}"
 				   class="button button--regular button--white button--text-grey button--rounded">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
 			@else
 				<span

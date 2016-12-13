@@ -50,6 +50,16 @@ class AccountController extends Controller
 		return redirect()->route( 'flow' );
 	}
 
+	public function getCancelPage()
+	{
+		if ( ! $this->customer || !$this->customer->plan->isActive() || !$this->customer->plan->isCancelable() )
+		{
+			return redirect()->back();
+		}
+
+		return view( 'account.settings.cancel' );
+	}
+
 	function updateVitamins()
 	{
 		$combinations = $this->user->getCustomer()->calculateCombinations();
@@ -269,7 +279,7 @@ class AccountController extends Controller
 			return \Redirect::back();
 		}
 
-		$this->customer->getPlan()->cancel();
+		$this->customer->getPlan()->cancel(); // todo log reason
 
 		return redirect()->action( 'AccountController@getSettingsSubscription' )->with( 'success', trans( 'messages.successes.subscription.cancelled' ) );
 	}

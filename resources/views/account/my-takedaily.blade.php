@@ -24,8 +24,6 @@
 		<p>{{ trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) }}</p>
 	@endif
 
-
-
 	@foreach(Auth::user()->getCustomer()->getVitaminModels() as $vitamin)
 		<div class="new_vitamin_item">
 

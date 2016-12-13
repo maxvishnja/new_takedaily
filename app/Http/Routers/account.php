@@ -22,7 +22,8 @@ Route::group( [ 'middleware' => [ 'auth', 'user' ], 'prefix' => 'account' ], fun
 	Route::get( 'settings/subscription', 'AccountController@getSettingsSubscription' );
 	Route::post( 'settings/subscription/snooze', 'AccountController@postSettingsSubscriptionSnooze' );
 	Route::get( 'settings/subscription/start', 'AccountController@getSettingsSubscriptionStart' );
-	Route::get( 'settings/subscription/cancel', 'AccountController@getSettingsSubscriptionCancel' );
+	Route::get( 'settings/subscription/cancel-flow', 'AccountController@getCancelPage' );
+	Route::post( 'settings/subscription/cancel', 'AccountController@getSettingsSubscriptionCancel' );
 	Route::get( 'settings/subscription/restart', 'AccountController@getSettingsSubscriptionRestart' );
 
 	Route::get( 'settings/billing', 'AccountController@getSettingsBilling' );
