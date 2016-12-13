@@ -276,7 +276,7 @@ class CombinationLibraryNew
 				     || ( $data->age <= '50' && $data->foods->wheat != '4' )
 				)
 				{
-					$reasons['wheat'];
+					$reasons[] = 'wheat';
 				}
 
 				if ( ( $data->foods->bread == '1' )
@@ -285,19 +285,19 @@ class CombinationLibraryNew
 				     || ( $data->gender == '1' && $data->age <= '70' && $data->foods->bread != '5' )
 				)
 				{
-					$reasons['bread'];
+					$reasons[] = 'bread';
 				}
 			}
 			elseif ( $data->locale === 'da' )
 			{
 				if ( $data->foods->wheat == '1' )
 				{
-					$reasons['wheat'];
+					$reasons[] = 'wheat';
 				}
 
 				if ( $data->foods->bread <= '2' )
 				{
-					$reasons['bread'];
+					$reasons[] = 'bread';
 				}
 			}
 
