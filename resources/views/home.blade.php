@@ -149,7 +149,7 @@
 						<img src="/images/promises/promise_1.png" alt=""/>
 					</div>
 
-					<div class="promise-item">
+					<div class="promise-item" style="margin-left: -40px;">
 						<p>{{ trans('home.blocks.promises.promise-1') }}</p>
 					</div>
 
@@ -157,11 +157,11 @@
 						<img src="/images/promises/promise_2.png" alt=""/>
 					</div>
 
-					<div class="promise-item">
+					<div class="promise-item" style="margin-left: -40px;">
 						<p>{{ trans('home.blocks.promises.promise-2') }}</p>
 					</div>
 
-					<div class="promise-item">
+					<div class="promise-item" style="margin-right: -40px;">
 						<p>{{ trans('home.blocks.promises.promise-3') }}</p>
 					</div>
 
@@ -169,7 +169,7 @@
 						<img src="/images/promises/promise_3.png" alt=""/>
 					</div>
 
-					<div class="promise-item">
+					<div class="promise-item" style="margin-right: -40px;">
 						<p>{{ trans('home.blocks.promises.promise-4') }}</p>
 					</div>
 
