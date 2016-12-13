@@ -32,7 +32,6 @@
 		</div>
 	</div>
 
-	<hr>
 	<h1>{{ trans('account.transactions.header_history') }}</h1>
 	@if($orders->count() == 0 )
 		<h3>{{ trans('account.transactions.no-results') }}</h3>
