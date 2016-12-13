@@ -26,21 +26,24 @@
 					<div class="header_slide" data-slide="2">
 						<div class="container">
 							<div class="row">
-								<div class="col-md-8">
+								<div class="col-md-12">
+									{{--<div class="splash_circle pull-right">
+																				<span>{!! trans('home.header.splash.text') !!}</span>
+										<strong>{!! trans('home.header.splash.price') !!}</strong>
+										<small class="info">{!! trans('home.header.splash.info') !!}</small>
+									</div>--}}
 									<h1>{!! trans('home.header.title-1') !!}</h1>
 									<p style="font-size: 18px;"><strong>{{ trans('home.header.subtitle') }}</strong></p>
 									<a href="{{ url()->route('flow') }}"
 									   class="button button--rounded button--huge button--landing button--green m-t-30">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
-									{{--									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
-								</div>
-								<div class="col-md-4">
-									<div class="splash_circle pull-left hidden-xs">
-										{{--										<span>{!! trans('home.header.splash.text') !!}</span>--}}
+
+									<div class="m-t-40 pricing_item_header">
 										<strong>{!! trans('home.header.splash.price') !!}</strong>
 										<small class="info">{!! trans('home.header.splash.info') !!}</small>
 									</div>
+									{{--									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 								</div>
 							</div>
 
