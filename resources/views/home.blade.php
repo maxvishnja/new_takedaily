@@ -202,8 +202,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="flex-desktop">
-						<div class="col-md-6">
+						<div class="col-md-6 text-center">
 							<img src="/images/new_blocks_two.jpg" width="400" alt="{{ trans('home.new_blocks.two.title') }}" style="border-radius: 10px"/>
+							<div class="m-t-20">{!! trans('home.new_blocks.two.below_image') !!}</div>
 						</div>
 						<div class="col-md-6">
 							<h3 style="font-size: 20px;">{{ trans('home.new_blocks.two.title') }}</h3>
