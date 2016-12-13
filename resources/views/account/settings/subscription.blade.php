@@ -12,9 +12,17 @@
 		<p>{!! strip_tags(trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]), '<strong>') !!}</p>
 
 		<div class="m-b-30">
+			@if($plan->isSnoozeable())
+				<a href="#snooze-toggle" id="snooze-toggle"
+				   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
+			@else
+				<span
+					class="button button--regular button--light button--disabled button--rounded"
+					title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
+			@endif
 			@if($plan->isCancelable())
 				<a href="{{ URL::action('AccountController@getCancelPage') }}"
-				   class="button button--regular button--white button--text-grey button--rounded">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
+				   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
 			@else
 				<span
 					class="button button--regular button--white button--text-grey button--disabled button--rounded"
@@ -43,4 +51,37 @@
 			</div>
 		</div>
 	@endforeach
+@endsection
+
+@section('footer_scripts')
+	<script>
+		$("#snooze-toggle").click(function (e) {
+			e.preventDefault();
+
+			swal({
+				title: "{{ trans('account.settings_subscription.snooze_popup.title') }}",
+				text: "{{ trans('account.settings_subscription.snooze_popup.text') }}" +
+				"<form method=\"post\" action=\"{{ URL::action('AccountController@postSettingsSubscriptionSnooze') }}\" id=\"snooze_form\">" +
+				"<select class=\"select select--regular m-t-10\" name=\"days\">" +
+				@foreach(range(1,28) as $days)
+					"<option value=\"{{ $days }}\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => $days ]) }}</option>" +
+				@endforeach
+					"</select>" +
+				"<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
+				"</form>",
+				type: "",
+				html: true,
+				confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
+				cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
+				confirmButtonColor: "#3AAC87",
+				allowOutsideClick: true,
+				showCancelButton: true,
+				closeOnConfirm: false,
+			}, function (inputValue) {
+				if (inputValue) {
+					return $("#snooze_form").submit();
+				}
+			});
+		});
+	</script>
 @endsection

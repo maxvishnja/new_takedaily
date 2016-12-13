@@ -95,5 +95,9 @@
 				}
 			});
 		});
+
+		@if((int) Request::get('already_open', 0) === 1)
+			$("#snooze-toggle").click();
+		@endif
 	</script>
 @endsection
