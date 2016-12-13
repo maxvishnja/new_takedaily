@@ -7,7 +7,10 @@
 					<span v-show="!item.showPrice" style="margin-right: 30px"></span>
 					@{{ item.name }}
 				</td>
-				<td>{{ trans('general.money-vue', ['amount' => 'item.price']) }}</td>
+				<td>
+					<span v-show="item.showPrice">-</span>
+					<span v-show="!item.showPrice">{{ trans('general.money-vue', ['amount' => 'item.price']) }}</span>
+				</td>
 			</tr>
 			<tr v-show="discount.applied">
 				<td>@{{ discount.code }}</td>
