@@ -48,7 +48,7 @@
 				<div class="extra_content">
 					<div class="m-t-30 m-b-10">
 						<a href="#" class="readMoreBtn">{{ trans('flow-actions.read-more') }}</a>
-						<a href="#" class="readLessBtn">{{ trans('flow-actions.read-less') }}</a>
+						<a href="#" class="readLessBtn" style="display: none">{{ trans('flow-actions.read-less') }}</a>
 					</div>
 
 					<div class="description">
