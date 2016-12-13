@@ -31,10 +31,10 @@
 	<script>
 		$("#update_btn").click(function(e)
 		{
-			$(this).remove();
+			$(this).stop().slideUp(200);
 			e.preventDefault();
 
-			$("#checkout-form").stop().slideToggle(200);
+			$("#checkout-form").stop().slideDown(200);
 
 			setTimeout(function() {
 
