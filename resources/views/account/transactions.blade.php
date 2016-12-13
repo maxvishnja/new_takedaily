@@ -72,7 +72,7 @@
 				html: true,
 				confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
 				cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
-				confirmButtonColor: "#777",
+				confirmButtonColor: "#3AAC87",
 				allowOutsideClick: true,
 				showCancelButton: true,
 				closeOnConfirm: false,
