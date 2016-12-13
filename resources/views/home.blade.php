@@ -149,7 +149,7 @@
 						<img src="/images/promises/promise_1.png" alt=""/>
 					</div>
 
-					<div class="promise-item" style="margin-left: -40px; margin-right: 40px">
+					<div class="promise-item" style="margin-left: -55px; margin-right: 55px">
 						<p>{{ trans('home.blocks.promises.promise-1') }}</p>
 					</div>
 
@@ -157,7 +157,7 @@
 						<img src="/images/promises/promise_2.png" alt=""/>
 					</div>
 
-					<div class="promise-item" style="margin-left: -40px; margin-right: 40px">
+					<div class="promise-item" style="margin-left: -65px; margin-right: 65px">
 						<p>{{ trans('home.blocks.promises.promise-2') }}</p>
 					</div>
 
