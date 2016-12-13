@@ -47,7 +47,18 @@
 				<strong>
 					{{ $vitamin->name }}
 				</strong>
-				<p>{!! trans('label-' . strtolower($vitamin->code) . '.web_description') !!}</p>
+
+				<p>{!! $vitamin->getInfo() !!}</p>
+
+				@if(is_array(trans('flow-praises.' . strtolower($vitamin->code))))
+					@foreach((array) trans('flow-praises.' . strtolower($vitamin->code)) as $icon => $text)
+						<div>
+							<span class="icon icon-{{ $icon }}-flow flow-promise-icon"></span>
+							<div class="flow-promise-text">{{ $text }}</div>
+						</div>
+						<div class="clear"></div>
+					@endforeach
+				@endif
 			</div>
 		</div>
 	@endforeach
