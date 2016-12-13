@@ -162,7 +162,7 @@ class Plan extends Model
 	{
 		return $this->isActive()
 		       && ! $this->isSnoozed()
-		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getSubscriptionStartedAt() )->diffInDays() >= 1
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->created_at )->diffInDays() >= 1
 		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->diffInDays() >= 4;
 	}
 
