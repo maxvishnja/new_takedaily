@@ -38,7 +38,7 @@
 											<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--light pull-right"
 											   v-show="vitamin.isSelected">{{ trans('flow-actions.remove') }} ({{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin') * -1)) ]) }})</a>
 											<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--green pull-right"
-											   v-show="!vitamin.isSelected">{{ trans('flow-actions.select') }}</a>
+											   v-show="!vitamin.isSelected">{{ trans('flow-actions.select') }} (+{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin'))) ]) }})</a>
 
 											<a href="javascript:void(0);" class="readMoreBtn" v-on:click="readMore(vitamin, $event);">{{ trans('flow-actions.read-more') }}</a>
 											<a href="javascript:void(0);" class="readLessBtn" style="display: none;" v-on:click="readLess(vitamin, $event);">{{ trans('flow-actions.read-less') }}</a>
