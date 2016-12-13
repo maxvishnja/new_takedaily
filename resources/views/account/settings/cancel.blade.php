@@ -9,14 +9,21 @@
 
 	<form action="{{ url()->action('AccountController@getSettingsSubscriptionCancel') }}" id="form" method="post">
 		<label for="reason">{{ trans('account.settings_cancel.question') }}</label><br/>
-		<div class="m-t-10 m-b-50"><select name="reason" class="select select--regular" id="reason">
+		<div class="m-t-10 m-b-50">
+			<select name="reason" class="select select--regular" id="reason">
 				<option value="{{ trans('account.settings_cancel.reasons.0') }}">{{ trans('account.settings_cancel.reasons.0') }}</option>
 				<option value="{{ trans('account.settings_cancel.reasons.1') }}">{{ trans('account.settings_cancel.reasons.1') }}</option>
 				<option value="{{ trans('account.settings_cancel.reasons.2') }}">{{ trans('account.settings_cancel.reasons.2') }}</option>
 				<option value="{{ trans('account.settings_cancel.reasons.3') }}">{{ trans('account.settings_cancel.reasons.3') }}</option>
 				<option value="{{ trans('account.settings_cancel.reasons.4') }}">{{ trans('account.settings_cancel.reasons.4') }}</option>
 				<option value="{{ trans('account.settings_cancel.reasons.5') }}">{{ trans('account.settings_cancel.reasons.5') }}</option>
-			</select></div>
+				<option value="-1">{{ trans('account.settings_cancel.reasons.other') }}</option>
+			</select>
+
+			<div style="display: none;" id="other_reason" class="m-t-15 m-b-15">
+				<input type="text" name="other_reason" placeholder="{{ trans('account.settings_cancel.reason_text') }}" class="input input--regular input--full">
+			</div>
+		</div>
 		<a href="{{ url()->action('AccountController@getSettingsSubscription') }}" class="button button--green button--large">{{ trans('account.settings_cancel.cancel') }}</a>
 		<button type="submit" class="button button--white button--text-green button--large">{{ trans('account.settings_cancel.submit') }}</button>
 
@@ -28,6 +35,18 @@
 	<script>
 		$("#form").submit(function (e) {
 			return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
+		});
+
+		$("#reason").change(function()
+		{
+			if( $(this).val() === '-1')
+			{
+				$("#other_reason").show();
+			}
+			else
+			{
+				$("#other_reason").hide();
+			}
 		});
 	</script>
 @endsection
