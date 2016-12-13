@@ -114,7 +114,9 @@
 								<div id="facebookloginbox" class="pull-right text-center">
 									<a href="javascript:void(0);" onclick="loginFacebook()"
 									   class="button button--blue button--medium m-b-5">{{ trans('checkout.fb-login') }}</a>
-									<div><small style="font-size: 90%">{{ trans('checkout.facebook_disclaimer') }}</small></div>
+									<div>
+										<small style="font-size: 90%">{{ trans('checkout.facebook_disclaimer') }}</small>
+									</div>
 								</div>
 
 								<div class="visible-xs clear"></div>
@@ -224,8 +226,9 @@
 					@include('includes.payment.method')
 
 					<div class="pull-left m-b-20 m-t-15" style="max-width: 50%">
-						<div style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd;">
-						<span class="icon icon-check"></span> {!! trans('checkout.terms-agree') !!}
+						<div style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd; line-height: 1.4">
+							<span class="icon icon-check"></span>
+							{!! trans('checkout.terms-agree') !!}
 						</div>
 					</div>
 
@@ -336,7 +339,7 @@
 						</div>
 					@endif
 
-						<div class="clear"></div>
+					<div class="clear"></div>
 					<div class="m-t-40">
 						<div class="clear"></div>
 						@include('includes.promo')
