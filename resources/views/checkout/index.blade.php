@@ -223,8 +223,10 @@
 
 					@include('includes.payment.method')
 
-					<div class="pull-left m-b-20 m-t-20">
+					<div class="pull-left m-b-20 m-t-15">
+						<div style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd;">
 						<span class="icon icon-check"></span> {!! trans('checkout.terms-agree') !!}
+						</div>
 					</div>
 
 					<div class="visible-xs">
