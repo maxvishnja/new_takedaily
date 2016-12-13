@@ -71,6 +71,7 @@
 		flex-wrap: wrap;
 		height: 195mm;
 		height: 238mm;
+		height: 236mm;
 		width: 166mm;
 		position: relative;
 	}
@@ -112,7 +113,7 @@
 		font-style: normal;
 		color: #333;
 		font-size: 18pt;
-		line-height: 1.3;
+		line-height: 1.15;
 		text-transform: uppercase;
 	}
 </style>
