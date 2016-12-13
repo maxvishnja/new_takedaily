@@ -520,16 +520,8 @@ class Customer extends Model
 		return ! $isSimilar;
 	}
 
-
-	public function calculateCombinations()
+	public function getUserData()
 	{
-		if ( $this->plan->isCustom() )
-		{
-			return [];
-		}
-
-		$combinationLibrary = new CombinationLibraryNew();
-
 		$attributes = $this->customerAttributes()->where( 'identifier', 'LIKE', 'user_data.%' )->get();
 
 		$data = new \stdClass();
@@ -552,6 +544,21 @@ class Customer extends Model
 				$data->{$attributePoints[1]} = $attribute->value ?: null;
 			}
 		}
+
+		return $data;
+	}
+
+
+	public function calculateCombinations()
+	{
+		if ( $this->plan->isCustom() )
+		{
+			return [];
+		}
+
+		$combinationLibrary = new CombinationLibraryNew();
+
+		$data = $this->getUserData();
 
 		$combinationLibrary->generateResult( $data );
 

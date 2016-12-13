@@ -306,4 +306,12 @@ class AccountController extends Controller
 		return redirect()->action( 'AccountController@getSettingsBilling' )->with( 'success', trans( 'messages.successes.paymentmethod.updated' ) );
 	}
 
+	public function getSeeRecommendation()
+	{
+		/** @var \App\FlowCompletion $flowCompletion */
+		$flowCompletion = \App\FlowCompletion::generateNew( json_encode($this->customer->getUserData()) );
+
+		return redirect()->route('flow', ['token' => $flowCompletion->token]);
+	}
+
 }
