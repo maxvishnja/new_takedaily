@@ -17,7 +17,7 @@
 
 		<a href="#" id="update_btn" class="button button--medium button--green">{{ trans('account.settings_billing.update') }}</a>
 
-		<form action="{{ url()->action('AccountController@updatePaymentMethod') }}" id="checkout-form" method="post" class="m-t-20" style="display: none;">
+		<form action="{{ url()->action('AccountController@updatePaymentMethod') }}" id="checkout-form" method="post" class="m-t-20" >
 			@include('includes.payment.method', ['giftcard' => false, 'paymentMethods' => \App\Apricot\Helpers\PaymentMethods::getAcceptedMethodsForCountry( \App::getLocale() )])
 
 			<button id="button-submit" class="button button--green button--large">{{ trans('account.settings_billing.update') }}</button>
@@ -35,6 +35,24 @@
 			e.preventDefault();
 
 			$("#checkout-form").stop().slideToggle(200);
+
+			setTimeout(function() {
+
+				(function () {
+					var tip = new Tooltip('{{ trans('checkout.cvv-information') }}', { auto: true });
+					tip.position(document.querySelector('.cvr-info-icon'));
+
+					$(".cvr-info-icon").on('mouseover', function()
+					{
+						tip.show();
+					});
+
+					$(".cvr-info-icon").on('mouseout', function()
+					{
+						tip.hide();
+					});
+				})();
+			}, 250);
 		});
 	</script>
 @endsection
