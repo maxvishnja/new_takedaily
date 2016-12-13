@@ -11,6 +11,7 @@
 		<label for="reason">{{ trans('account.settings_cancel.question') }}</label><br/>
 		<div class="m-t-10 m-b-50">
 			<select name="reason" class="select select--regular" id="reason">
+				<option value="">{{ trans('account.settings_cancel.reasons.pick') }}</option>
 				<option value="{{ trans('account.settings_cancel.reasons.0') }}">{{ trans('account.settings_cancel.reasons.0') }}</option>
 				<option value="{{ trans('account.settings_cancel.reasons.1') }}">{{ trans('account.settings_cancel.reasons.1') }}</option>
 				<option value="{{ trans('account.settings_cancel.reasons.2') }}">{{ trans('account.settings_cancel.reasons.2') }}</option>

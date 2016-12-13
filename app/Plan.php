@@ -69,6 +69,7 @@ class Plan extends Model
 		'subscription_cancelled_at',
 		'subscription_snoozed_until',
 		'subscription_rebill_at',
+		'unsubscribe_reason',
 		'currency',
 		'vitamins',
 		'is_custom'
@@ -169,15 +170,16 @@ class Plan extends Model
 	public function isCancelable()
 	{
 		return Date::createFromFormat( 'Y-m-d H:i:s', $this->created_at )->diffInDays() >= 1
-		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->diffInDays() >= 4
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->diffInDays() >= 5
 		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() ) > Date::now();
 	}
 
-	public function cancel()
+	public function cancel($reason = '')
 	{
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = Date::now();
 		$this->subscription_rebill_at     = null;
+		$this->unsubscribe_reason     = $reason;
 		$this->save();
 
 		return true;
