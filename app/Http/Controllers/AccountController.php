@@ -69,7 +69,7 @@ class AccountController extends Controller
 			'vitamins' => json_encode( $vitamins )
 		] );
 
-		return \Redirect::action( 'AccountController@getSettingsSubscription' )->with( 'success', trans( 'account.general.successes.vitamins-updated' ) );
+		return \Redirect::action( 'AccountController@getHome' )->with( 'success', trans( 'account.general.successes.vitamins-updated' ) );
 	}
 
 	function getTransactions()
