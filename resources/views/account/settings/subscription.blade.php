@@ -8,14 +8,10 @@
 	<h1>{!! trans('account.settings_subscription.header', ['status' => trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) ]) !!}</h1>
 	<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true), 'currency' => $plan->currency])]) !!}</h2>
 
-	@foreach(Auth::user()->getCustomer()->getVitaminModels() as $vitamin)
-		<span class="icon pill-{{ $vitamin->code }}"></span>
-	@endforeach
-
 	@if( $plan->isActive() )
 		<p>{{ trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) }}</p>
 
-		<div class="m-t-50">
+		<div class="m-b-30">
 			@if($plan->isSnoozeable())
 				<a href="#snooze-toggle" id="snooze-toggle"
 				   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
@@ -35,11 +31,27 @@
 			@endif
 		</div>
 	@else
-		<div class="m-t-10">
-		<a href="{{ URL::action('AccountController@getSettingsSubscriptionRestart') }}"
-		   class="button button--large button--green button--rounded">{{ trans('account.settings_subscription.button-start-text') }}</a>
+		<div class="m-t-20 m-b-30">
+			<a href="{{ URL::action('AccountController@getSettingsSubscriptionRestart') }}"
+		   	class="button button--large button--green button--rounded">{{ trans('account.settings_subscription.button-start-text') }}</a>
 		</div>
 	@endif
+
+	@foreach(Auth::user()->getCustomer()->getVitaminModels() as $vitamin)
+		<div class="new_vitamin_item">
+
+			<div class="pill_section">
+				<span class="icon pill-{{ strtolower($vitamin->code) }}"></span>
+			</div>
+
+			<div class="content_section">
+				<strong>
+					{{ $vitamin->name }}
+				</strong>
+				<p>{!! trans('label-' . strtolower($vitamin->code) . '.web_description') !!}</p>
+			</div>
+		</div>
+	@endforeach
 @endsection
 
 @section('footer_scripts')
