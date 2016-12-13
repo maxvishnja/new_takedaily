@@ -35,8 +35,8 @@
 									</a>
 									{{--									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 								</div>
-								<div class="col-md-4 hidden-sm hidden-xs">
-									<div class="splash_circle pull-right hidden-xs">
+								<div class="col-md-4">
+									<div class="splash_circle pull-left hidden-xs">
 										{{--										<span>{!! trans('home.header.splash.text') !!}</span>--}}
 										<strong>{!! trans('home.header.splash.price') !!}</strong>
 										<small class="info">{!! trans('home.header.splash.info') !!}</small>
