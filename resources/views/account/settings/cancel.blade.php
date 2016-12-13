@@ -8,7 +8,8 @@
 	<h1>{!! trans('account.settings_cancel.header') !!}</h1>
 
 	<form action="{{ url()->action('AccountController@getSettingsSubscriptionCancel') }}" id="form" method="post">
-		<select name="reason">
+		<label for="reason">{{ trans('account.settings_cancel.question') }}</label>
+		<select name="reason" id="reason">
 			<option value="{{ trans('account.settings_cancel.reasons.0') }}">{{ trans('account.settings_cancel.reasons.0') }}</option>
 			<option value="{{ trans('account.settings_cancel.reasons.1') }}">{{ trans('account.settings_cancel.reasons.1') }}</option>
 			<option value="{{ trans('account.settings_cancel.reasons.2') }}">{{ trans('account.settings_cancel.reasons.2') }}</option>
