@@ -6,45 +6,59 @@
 
 @section('content')
 	<h1>{{ trans('account.transactions.header') }}</h1>
-	@if( $plan->isActive() )
-		<div class="row m-b-10">
-			<div class="col-md-6 m-b-10"><span>{!! trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) !!}</span></div>
-			<div class="col-md-6 m-b-10"><span>{!! trans('account.transactions.next-date', ['date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) !!}</span></div>
-		</div>
 
-		<div class="m-b-30">
-			@if($plan->isSnoozeable())
-				<a href="#snooze-toggle" id="snooze-toggle"
-				   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
-			@else
-				<span
-					class="button button--regular button--light button--disabled button--rounded"
-					title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
+	<div class="card m-b-30">
+		<div class="card_content">
+			@if( $plan->isActive() )
+				<div class="row m-b-10">
+					<div class="col-md-6 m-b-10">
+						<span>{!! trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) !!}</span>
+					</div>
+					<div class="col-md-6 m-b-10">
+						<span>{!! trans('account.transactions.next-date', ['date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) !!}</span></div>
+				</div>
+
+				<div class="">
+					@if($plan->isSnoozeable())
+						<a href="#snooze-toggle" id="snooze-toggle"
+						   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
+					@else
+						<span
+							class="button button--regular button--light button--disabled button--rounded"
+							title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
+					@endif
+				</div>
 			@endif
 		</div>
-	@endif
+	</div>
 
+	<hr>
+	<h1>{{ trans('account.transactions.header_history') }}</h1>
 	@if($orders->count() == 0 )
 		<h3>{{ trans('account.transactions.no-results') }}</h3>
 	@else
 		<table class="table table--full table--striped text-left table--responsive">
 			<thead>
-				<tr>
-					<th>#</th>
-					<th>{{ trans('account.transactions.table.date') }}</th>
-					<th>{{ trans('account.transactions.table.amount') }}</th>
-					<th>{{ trans('account.transactions.table.status') }}</th>
-					<th></th>
-				</tr>
+			<tr>
+				<th>#</th>
+				<th>{{ trans('account.transactions.table.date') }}</th>
+				<th>{{ trans('account.transactions.table.amount') }}</th>
+				<th>{{ trans('account.transactions.table.status') }}</th>
+				<th></th>
+			</tr>
 			</thead>
 			<tbody>
 			@foreach($orders as $order)
 				<tr>
 					<td data-th="#">#{{ $order->getPaddedId() }}</td>
 					<td data-th="{{ trans('account.transactions.table.date') }}">{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
-					<td data-th="{{ trans('account.transactions.table.amount') }}"><strong>{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true), 'currency' => $order->currency]) }}</strong></td>
-					<td data-th="{{ trans('account.transactions.table.status') }}"><span class="state-label state-label--{{ $order->state  }}">{{ trans("order.state.{$order->state}") }}</span></td>
-					<td data-th="&nbsp;"><a href="{{URL::action('AccountController@getTransaction', [ 'id' => $order->id ]) }}" class="button button--small button--rounded button--grey">{{ trans('account.transactions.button-show-text') }}</a></td>
+					<td data-th="{{ trans('account.transactions.table.amount') }}">
+						<strong>{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true), 'currency' => $order->currency]) }}</strong>
+					</td>
+					<td data-th="{{ trans('account.transactions.table.status') }}"><span
+							class="state-label state-label--{{ $order->state  }}">{{ trans("order.state.{$order->state}") }}</span></td>
+					<td data-th="&nbsp;"><a href="{{URL::action('AccountController@getTransaction', [ 'id' => $order->id ]) }}"
+											class="button button--small button--rounded button--grey">{{ trans('account.transactions.button-show-text') }}</a></td>
 				</tr>
 			@endforeach
 			</tbody>
