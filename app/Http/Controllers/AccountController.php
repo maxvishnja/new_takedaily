@@ -55,10 +55,9 @@ class AccountController extends Controller
 		$combinations = $this->user->getCustomer()->calculateCombinations();
 		$vitamins     = [];
 
-		foreach ( $combinations as $key => $combination )
+		foreach ( $combinations as $vitaminCode )
 		{
-			$pill    = PillLibrary::getPill( $key, $combination );
-			$vitamin = Vitamin::select( 'id' )->whereCode( $pill )->first();
+			$vitamin = Vitamin::select( 'id' )->whereCode( $vitaminCode )->first();
 
 			if ( $vitamin )
 			{
