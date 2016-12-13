@@ -111,8 +111,12 @@
 					@if(Auth::guest())
 						<div class="card card--large m-b-30 card-padding-fixer">
 							<fieldset>
-								<a id="facebookloginbox" href="javascript:void(0);" onclick="loginFacebook()"
-								   class="pull-right button button--blue button--medium">{{ trans('checkout.fb-login') }}</a>
+								<div class="pull-right text-center">
+									<a id="facebookloginbox" href="javascript:void(0);" onclick="loginFacebook()"
+									   class="button button--blue button--medium m-b-5">{{ trans('checkout.fb-login') }}</a>
+									<div><small>{{ trans('checkout.facebook_disclaimer') }}</small></div>
+								</div>
+
 								<div class="visible-xs clear"></div>
 								<legend class="card_title pull-left">{{ trans('checkout.index.order.info.title') }}</legend>
 								<div class="clear"></div>
