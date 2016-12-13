@@ -114,7 +114,7 @@
 								<div id="facebookloginbox" class="pull-right text-center">
 									<a href="javascript:void(0);" onclick="loginFacebook()"
 									   class="button button--blue button--medium m-b-5">{{ trans('checkout.fb-login') }}</a>
-									<div><small>{{ trans('checkout.facebook_disclaimer') }}</small></div>
+									<div><small style="font-size: 90%">{{ trans('checkout.facebook_disclaimer') }}</small></div>
 								</div>
 
 								<div class="visible-xs clear"></div>
