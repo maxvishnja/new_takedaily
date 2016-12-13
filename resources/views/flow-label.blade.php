@@ -23,7 +23,7 @@
 
 			@if(is_array(trans("flow-praises.{$vitamin}")))
 				@foreach((array) trans("flow-praises.{$vitamin}") as $icon => $text)
-					<div>
+					<div class="promise_v_item">
 						<span class="icon icon-{{ $icon }}-flow flow-promise-icon"></span>
 						<div class="flow-promise-text">{{ $text }}</div>
 					</div>

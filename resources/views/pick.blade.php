@@ -134,7 +134,7 @@
 						<?php $praises = ''; ?>
 							@if(is_array(trans("flow-praises.{$vitamin->code}")))
 							@foreach((array) trans("flow-praises.{$vitamin->code}") as $icon => $text)
-						<?php $praises .= '<div><span class="icon icon-' . $icon . '-flow flow-promise-icon"></span><div class="flow-promise-text">' . $text . '</div></div><div class="clear"></div>'; ?>
+						<?php $praises .= '<div class="promise_v_item"><span class="icon icon-' . $icon . '-flow flow-promise-icon"></span><div class="flow-promise-text">' . $text . '</div></div><div class="clear"></div>'; ?>
 							@endforeach
 							@endif
 						name: "{!! \App\Apricot\Helpers\PillName::get($vitamin->code) !!}",
