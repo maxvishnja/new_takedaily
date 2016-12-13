@@ -31,6 +31,7 @@
 	<script>
 		$("#update_btn").click(function(e)
 		{
+			$(this).remove();
 			e.preventDefault();
 
 			$("#checkout-form").stop().slideToggle(200);
