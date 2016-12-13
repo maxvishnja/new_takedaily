@@ -219,6 +219,10 @@
 
 					@include('includes.payment.method')
 
+					<div class="pull-left m-t-20">
+						Jeg accepterer TakeDailys <a href="/page/terms" cl>handelsbetingelser</a>
+					</div>
+
 					<div class="visible-xs">
 						<div class="form-button-submit-holder">
 							<button class="button button--huge button--green button--full button--rounded" type="submit"
@@ -326,7 +330,9 @@
 						</div>
 					@endif
 
-					<div class="m-t-20">
+						<div class="clear"></div>
+					<div class="m-t-40">
+						<div class="clear"></div>
 						@include('includes.promo')
 
 						@include('flow-includes.views.help')
