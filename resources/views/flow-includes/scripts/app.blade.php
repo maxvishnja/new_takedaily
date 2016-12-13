@@ -509,6 +509,16 @@
 	$("#advises-label").on('click', '.readMoreBtn', function (e) {
 		e.preventDefault();
 
+		$(this).hide();
+		$(this).parent().find('.readLessBtn').show();
+		$(this).parent().parent().find('.description').stop().slideToggle(200);
+	});
+
+	$("#advises-label").on('click', '.readLessBtn', function (e) {
+		e.preventDefault();
+
+		$(this).hide();
+		$(this).parent().find('.readMoreBtn').show();
 		$(this).parent().parent().find('.description').stop().slideToggle(200);
 	});
 

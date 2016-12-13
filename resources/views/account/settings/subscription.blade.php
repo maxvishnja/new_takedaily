@@ -61,7 +61,10 @@
 				@endif
 
 				<div class="extra_content">
-					<div class="m-t-30 m-b-10"><a href="#" class="readMoreBtn">{{ trans('flow-actions.read-more') }}</a></div>
+					<div class="m-t-30 m-b-10">
+						<a href="#" class="readMoreBtn">{{ trans('flow-actions.read-more') }}</a>
+						<a href="#" class="readLessBtn">{{ trans('flow-actions.read-less') }}</a>
+					</div>
 
 					<div class="description">
 						@if(trans('label-' . strtolower($vitamin->code) . '.web_description') != 'label-' . strtolower($vitamin->code) . '.web_description')
@@ -117,6 +120,16 @@
 		$('.readMoreBtn').click(function(e){
 			e.preventDefault();
 
+			$(this).hide();
+			$(this).parent().find('.readLessBtn').show();
+			$(this).parent().parent().find('.description').stop().slideToggle(200);
+		});
+
+		$('.readLessBtn').click(function(e){
+			e.preventDefault();
+
+			$(this).hide();
+			$(this).parent().find('.readMoreBtn').show();
 			$(this).parent().parent().find('.description').stop().slideToggle(200);
 		});
 

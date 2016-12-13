@@ -34,6 +34,7 @@
 			<div class="extra_content">
 				<div class="m-t-30 m-b-10">
 					<a href="#" class="readMoreBtn">{{ trans('flow-actions.read-more') }}</a>
+					<a href="#" class="readLessBtn" style="display: none">{{ trans('flow-actions.read-less') }}</a>
 
 					@if($vitamin === '3e')
 						<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3g"
