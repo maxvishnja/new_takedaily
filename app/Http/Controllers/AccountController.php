@@ -296,8 +296,13 @@ class AccountController extends Controller
 
 	public function updatePaymentMethod(Request $request)
 	{
+		$handler = $this->customer->getPlan()->getPaymentHandler();
+		$customer = $this->customer->getPlan()->getPaymentCustomer();
 
-		return redirect()->action( 'AccountController@getSettingsSubscription' )->with( 'success', trans( 'messages.successes.paymentmethod.updated' ) );
+		$handler->deleteMethodFor($customer->id);
+		$handler->addMethodToCustomer($request->get('stripeToken'), $customer);
+
+		return redirect()->action( 'AccountController@getSettingsBilling' )->with( 'success', trans( 'messages.successes.paymentmethod.updated' ) );
 	}
 
 }

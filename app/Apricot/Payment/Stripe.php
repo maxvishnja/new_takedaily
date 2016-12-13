@@ -224,7 +224,7 @@ class Stripe implements PaymentInterface
 	{
 		$customer = $this->findCustomer( $customerId );
 
-		foreach ( $customer->sources as $source )
+		foreach ( $customer->sources->all()->data as $source )
 		{
 			$source->delete();
 		}

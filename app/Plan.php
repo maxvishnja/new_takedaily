@@ -279,6 +279,13 @@ class Plan extends Model
 		return $paymentMethod->getCustomer( $customerToken );
 	}
 
+	public function getPaymentHandler()
+	{
+		$paymentMethod = new PaymentHandler( PaymentDelegator::getMethod( $this->getPaymentMethod() ) );
+
+		return $paymentMethod;
+	}
+
 	/**
 	 * @param Builder $query
 	 *
