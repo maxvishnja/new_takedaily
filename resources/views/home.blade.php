@@ -273,9 +273,11 @@
 		</div>
 
 		<div class="video-popup" id="video_popup">
-			<div class="video-popup_container">
-				<div class="video-popup-close" id="video_popup_close"><span class="icon icon-cross-large"></span></div>
-				<div id="video_popup-content"></div>
+			<div class="video_popup_aligner">
+				<div class="video-popup_container">
+					<div class="video-popup-close" id="video_popup_close"><span class="icon icon-cross-large"></span></div>
+					<div id="video_popup-content"></div>
+				</div>
 			</div>
 		</div>
 	</main>
@@ -308,7 +310,7 @@
 		var videoPopup = $("#video_popup");
 		var videoPopupContent = $("#video_popup-content");
 		$("#video-toggle, #video-toggle-two").click(function (e) {
-			videoPopupContent.html('<video width="1280" preload="none" autoplay controls>' +
+			videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
 				'<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
 				'<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
 				'<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
