@@ -225,7 +225,7 @@
 
 					@include('includes.payment.method')
 
-					<div class="pull-left m-b-20" style="max-width: 50%">
+					<div class="pull-left m-b-20 terms_container_box">
 						<div style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd; line-height: 1.3; height: 64px; display: flex; justify-content: center; align-items: center">
 							<div>{!! trans('checkout.terms-agree') !!}</div>
 						</div>
@@ -642,6 +642,19 @@
 			ignore: '[data-validate="false"]'
 		});
 	</script>
+
+	<style>
+		.terms_container_box {
+			max-width: 50%
+		}
+
+		@media all and (max-width: 767px)
+		{
+			.terms_container_box {
+				max-width: none
+			}
+		}
+	</style>
 @endsection
 
 @section('tracking-scripts')
