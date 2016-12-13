@@ -14,10 +14,10 @@
 		<div class="m-b-30">
 			@if($plan->isSnoozeable())
 				<a href="#snooze-toggle" id="snooze-toggle"
-				   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
+				   class="button button--regular button--light button--rounded m-r-10">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
 			@else
 				<span
-					class="button button--regular button--light button--disabled button--rounded"
+					class="button button--regular button--light button--disabled button--rounded m-r-10"
 					title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
 			@endif
 			@if($plan->isCancelable())
