@@ -294,4 +294,10 @@ class AccountController extends Controller
 		return redirect()->action( 'AccountController@getSettingsSubscription' )->with( 'success', trans( 'messages.successes.subscription.cancelled' ) );
 	}
 
+	public function updatePaymentMethod(Request $request)
+	{
+
+		return redirect()->action( 'AccountController@getSettingsSubscription' )->with( 'success', trans( 'messages.successes.paymentmethod.updated' ) );
+	}
+
 }

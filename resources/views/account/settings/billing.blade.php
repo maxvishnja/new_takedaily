@@ -17,7 +17,7 @@
 
 		<a href="#" class="button button--medium button--green">Skift betalingsmetode</a>
 
-		<form action="" id="checkout-form" method="post" class="m-t-20">
+		<form action="{{ url()->action('AccountController@updatePaymentMethod') }}" id="checkout-form" method="post" class="m-t-20">
 			@include('includes.payment.method', ['giftcard' => false, 'paymentMethods' => \App\Apricot\Helpers\PaymentMethods::getAcceptedMethodsForCountry( \App::getLocale() )])
 
 			<button id="button-submit" class="button button--green button--large">GO!</button>
