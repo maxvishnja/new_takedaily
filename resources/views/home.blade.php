@@ -39,7 +39,7 @@
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
 
-									<div class="m-t-40 pricing_item_header">
+									<div class="m-t-40 pricing_item_header m-b-30">
 										<strong>{!! trans('home.header.splash.price') !!}</strong>
 										<small class="info">{!! trans('home.header.splash.info') !!}</small>
 									</div>
