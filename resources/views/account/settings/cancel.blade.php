@@ -19,6 +19,8 @@
 			</select></div>
 		<button type="submit" class="button button--green button--large">{{ trans('account.settings_cancel.cancel') }}</button>
 		<button type="submit" class="button button--white button--text-green button--large">{{ trans('account.settings_cancel.submit') }}</button>
+
+		{{csrf_field()}}
 	</form>
 @endsection
 
