@@ -91,10 +91,10 @@
 		<h3 class="substep-title">{{ trans('flow.questions.3-4.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
-				<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" data-model="foods.butter"
+				<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" data-model="foods.butter"
 					   v-on:click="nextStep();"/>
-				<span class="icon icon-portion-butter-yes"></span>
-				<br/>{{ trans('flow.questions.3-4.options.1') }}
+				<span class="icon icon-portion-butter-no"></span>
+				<br/>{{ trans('flow.questions.3-4.options.2') }}
 			</label>
 			<label>
 				<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" data-model="foods.butter"
@@ -103,10 +103,10 @@
 				<br/>{{ trans('flow.questions.3-4.options.3') }}
 			</label>
 			<label>
-				<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" data-model="foods.butter"
+				<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" data-model="foods.butter"
 					   v-on:click="nextStep();"/>
-				<span class="icon icon-portion-butter-no"></span>
-				<br/>{{ trans('flow.questions.3-4.options.2') }}
+				<span class="icon icon-portion-butter-yes"></span>
+				<br/>{{ trans('flow.questions.3-4.options.1') }}
 			</label>
 		</div>
 

@@ -308,7 +308,11 @@
 		var videoPopup = $("#video_popup");
 		var videoPopupContent = $("#video_popup-content");
 		$("#video-toggle, #video-toggle-two").click(function (e) {
-			videoPopupContent.html('<iframe width="960" height="540" src="https://www.youtube.com/embed/r0iLfAV0pIg" frameborder="0" allowfullscreen></iframe>');
+			videoPopupContent.html('<video width="640" height="360" preload="none" autoplay controls>' +
+				'<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
+				'<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
+				'<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
+				'</video>');
 			videoPopup.fadeIn(200);
 		});
 
