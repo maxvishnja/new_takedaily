@@ -17,7 +17,7 @@
 				<option value="{{ trans('account.settings_cancel.reasons.4') }}">{{ trans('account.settings_cancel.reasons.4') }}</option>
 				<option value="{{ trans('account.settings_cancel.reasons.5') }}">{{ trans('account.settings_cancel.reasons.5') }}</option>
 			</select></div>
-		<button type="submit" class="button button--green button--large">{{ trans('account.settings_cancel.cancel') }}</button>
+		<a href="{{ url()->action('AccountController@getSettingsSubscription') }}" class="button button--green button--large">{{ trans('account.settings_cancel.cancel') }}</a>
 		<button type="submit" class="button button--white button--text-green button--large">{{ trans('account.settings_cancel.submit') }}</button>
 
 		{{csrf_field()}}
