@@ -7,7 +7,10 @@
 @section('content')
 	<h1>{{ trans('account.transactions.header') }}</h1>
 	@if( $plan->isActive() )
-		<p>{{ trans('account.transactions.next-date', ['date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) }}</p>
+		<div class="row m-b-20">
+			<div class="col-md-6"><span>{{ trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) }}</span></div>
+			<div class="col-md-6"><span>{{ trans('account.transactions.next-date', ['date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) }}</span></div>
+		</div>
 
 		<div class="m-b-30">
 			@if($plan->isSnoozeable())
