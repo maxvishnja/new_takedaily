@@ -219,8 +219,8 @@
 
 					@include('includes.payment.method')
 
-					<div class="pull-left m-t-20">
-						Jeg accepterer TakeDailys <a href="/page/terms" cl>handelsbetingelser</a>
+					<div class="pull-left m-b-20 m-t-20">
+						<span class="icon icon-check"></span> {!! trans('checkout.terms-agree') !!}
 					</div>
 
 					<div class="visible-xs">
