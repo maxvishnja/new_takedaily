@@ -22,7 +22,7 @@
 
 			<div style="display: none;" id="other_reason" class="m-t-15 m-b-15">
 				<label>{{ trans('account.settings_cancel.reason_text') }}</label><br/>
-				<input type="text" name="other_reason" placeholder="{{ trans('account.settings_cancel.reason_text') }}" class="input input--regular input--full">
+				<input type="text" name="other_reason" placeholder="{{ trans('account.settings_cancel.reason_text') }}" class="input input--regular input--full m-t-10">
 			</div>
 		</div>
 		<a href="{{ url()->action('AccountController@getSettingsSubscription') }}" class="button button--green button--large">{{ trans('account.settings_cancel.cancel') }}</a>
