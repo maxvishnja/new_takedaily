@@ -8,5 +8,5 @@
 
 	<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">{{ trans('mails.pending.snooze-title') }}</h3>
 	<p>{{ trans('mails.pending.snooze-text') }}</p>
-	<p>{!! trans('mails.pending.snooze-link', ['link' => URL::action('AccountController@getSettingsSubscription') ]) !!}</p>
+	<p>{!! trans('mails.pending.snooze-link', ['link' => URL::action('AccountController@getTransactions') ]) !!}</p>
 @endsection
