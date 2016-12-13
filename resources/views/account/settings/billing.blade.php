@@ -15,8 +15,12 @@
 	@if($plan->payment_method === 'stripe')
 		<div class="clear"></div>
 
-		<a href="#" class="button button--large button--green">Skift betalingsmetode</a>
+		<a href="#" class="button button--medium button--green">Skift betalingsmetode</a>
 
-		@include('includes.payment.method', ['giftcard' => false, 'paymentMethods' => \App\Apricot\Helpers\PaymentMethods::getAcceptedMethodsForCountry( \App::getLocale() )])
+		<form action="" id="checkout-form" method="post" class="m-t-20">
+			@include('includes.payment.method', ['giftcard' => false, 'paymentMethods' => \App\Apricot\Helpers\PaymentMethods::getAcceptedMethodsForCountry( \App::getLocale() )])
+
+			<button id="button-submit" class="button button--green button--large">GO!</button>
+		</form>
 	@endif
 @endsection
