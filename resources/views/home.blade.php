@@ -161,7 +161,7 @@
 						<p>{{ trans('home.blocks.promises.promise-2') }}</p>
 					</div>
 
-					<div class="promise-item" style="margin-right: -40px; margin-left: 40px">
+					<div class="promise-item" style="margin-right: -20px; margin-left: 20px">
 						<p>{{ trans('home.blocks.promises.promise-3') }}</p>
 					</div>
 
