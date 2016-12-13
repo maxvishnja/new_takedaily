@@ -280,8 +280,8 @@
 							@{{ item.name }}
 						</td>
 						<td>
-							<span v-show="!item.showPrice">-</span>
-							<span v-show="item.showPrice">
+							<span v-show="!item.showPrice && item.price === 0">-</span>
+							<span v-show="item.showPrice || item.price > 0">
 								<span v-show="item.price > 0">{{ trans('general.money-vue', ['amount' => 'item.price']) }}</span>
 								<span v-show="item.price === 0">{{ trans('products.free_shipping') }}</span>
 							</span>
