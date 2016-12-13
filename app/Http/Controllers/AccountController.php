@@ -279,7 +279,11 @@ class AccountController extends Controller
 			return \Redirect::back();
 		}
 
-		$this->customer->getPlan()->cancel(); // todo log reason
+		$reason = '';
+
+
+
+		$this->customer->getPlan()->cancel($reason);
 
 		return redirect()->action( 'AccountController@getSettingsSubscription' )->with( 'success', trans( 'messages.successes.subscription.cancelled' ) );
 	}
