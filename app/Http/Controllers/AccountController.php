@@ -87,7 +87,8 @@ class AccountController extends Controller
 	function getTransactions()
 	{
 		return view( 'account.transactions', [
-			'orders' => $this->customer->getOrders()
+			'orders' => $this->customer->getOrders(),
+		    'plan' => $this->customer->getPlan()
 		] );
 	}
 

@@ -235,6 +235,11 @@ class Plan extends Model
 		return $this->subscription_rebill_at;
 	}
 
+	public function getNextDelivery()
+	{
+		return (new Date($this->getRebillAt()))->addDays(5)->format('Y-m-d');
+	}
+
 	public function getTotal()
 	{
 		return $this->getPrice() + $this->getShippingPrice();

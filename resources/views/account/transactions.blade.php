@@ -6,6 +6,21 @@
 
 @section('content')
 	<h1>{{ trans('account.transactions.header') }}</h1>
+	@if( $plan->isActive() )
+		<p>{{ trans('account.transactions.next-date', ['date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) }}</p>
+
+		<div class="m-b-30">
+			@if($plan->isSnoozeable())
+				<a href="#snooze-toggle" id="snooze-toggle"
+				   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
+			@else
+				<span
+					class="button button--regular button--light button--disabled button--rounded"
+					title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
+			@endif
+		</div>
+	@endif
+
 	@if($orders->count() == 0 )
 		<h3>{{ trans('account.transactions.no-results') }}</h3>
 	@else
@@ -32,4 +47,37 @@
 			</tbody>
 		</table>
 	@endif
+@endsection
+
+@section('footer_scripts')
+	<script>
+		$("#snooze-toggle").click(function (e) {
+			e.preventDefault();
+
+			swal({
+				title: "{{ trans('account.settings_subscription.snooze_popup.title') }}",
+				text: "{{ trans('account.settings_subscription.snooze_popup.text') }}" +
+				"<form method=\"post\" action=\"{{ URL::action('AccountController@postSettingsSubscriptionSnooze') }}\" id=\"snooze_form\">" +
+				"<select class=\"select select--regular m-t-10\" name=\"days\">" +
+				@foreach(range(1,28) as $days)
+					"<option value=\"{{ $days }}\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => $days ]) }}</option>" +
+				@endforeach
+					"</select>" +
+				"<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
+				"</form>",
+				type: "",
+				html: true,
+				confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
+				cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
+				confirmButtonColor: "#777",
+				allowOutsideClick: true,
+				showCancelButton: true,
+				closeOnConfirm: false,
+			}, function (inputValue) {
+				if (inputValue) {
+					return $("#snooze_form").submit();
+				}
+			});
+		});
+	</script>
 @endsection
