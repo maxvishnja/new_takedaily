@@ -54,6 +54,7 @@
 										<div class="headervideo-block" style="margin-bottom: 25px">
 											{{--<strong>{{ trans('home.header.what-is') }}</strong>--}}
 											<span id="video-toggle-two" class="icon icon-play"></span>
+											<strong>{{ trans('home.play_video') }}</strong>
 										</div>
 									</div>
 								</div>
