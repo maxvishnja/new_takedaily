@@ -48,10 +48,14 @@
 							</div>
 
 							<div class="clear"></div>
-							<div class="text-center">
-								<div class="headervideo-block" style="margin-bottom: 25px">
-									{{--<strong>{{ trans('home.header.what-is') }}</strong>--}}
-									<span id="video-toggle-two" class="icon icon-play"></span>
+							<div class="row">
+								<div class="col-lg-4 col-md-5 col-sm-6">
+									<div class="text-center">
+										<div class="headervideo-block" style="margin-bottom: 25px">
+											{{--<strong>{{ trans('home.header.what-is') }}</strong>--}}
+											<span id="video-toggle-two" class="icon icon-play"></span>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
