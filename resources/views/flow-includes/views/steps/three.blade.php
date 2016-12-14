@@ -165,7 +165,8 @@
 		<p class="substep-explanation">{{ trans('flow.questions.3-6.text') }}</p>
 	</div>
 
-	<div data-sub-step="7" class="sub_step">
+	<div data-sub-step="7" class="sub_step"
+		 v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }">
 		<h3 class="substep-title">{{ trans('flow.questions.3-7.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
