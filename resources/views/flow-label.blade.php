@@ -23,7 +23,7 @@
 
 			@if(is_array(trans("flow-praises.{$vitamin}")))
 				<?php $praises = (array) trans("flow-praises.{$vitamin}"); ?>
-				<?php usort($praises, function($a, $b) {
+				<?php uasort($praises, function($a, $b) {
 					return strlen($a)-strlen($b);
 				}); ?>
 				@foreach($praises as $icon => $text)
