@@ -61,9 +61,16 @@ return array (
   'end_date' => '03/2018',
   'disclaimer_web' => '* Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA. ',
   'Vit and Min' => 'Ingredienser ',
-  'web_description' => '
-Chiafrø er afledt af Salvia hispanica, en plante, der tilhører mint familien. Chiafrøolie opnås ved koldpresning af frøene. Chiafrøolie er en vegetabilsk olie, der indeholder det højeste indhold af omega-3 fedtsyrer i forhold til andre vegetabilske olier. Den omega-3-fedtsyre alfa-linolensyre (ALA) som er i Chiafrøolie bidrager til at opretholde de sunde kolesterol niveauer. *
-<br/> * Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA.',
+  'web_description' => 'Chiaolien er en af de vegetabilske olier, med det højste indhold af omega-3 fedtsyrer. Den omega-3-fedtsyre, der findes i Chiafrøolien kaldes Alfa-linolensyre (ALA). Denne bidrager til opretholdelsen af sunde blodkolesterolniveauer. *
+
+*Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA.',
   'weight' => '19,43 gram',
   'above_claims' => 'Vores chiafrøolie er vegansk, koldpresset olie, rig på sunde omega 3-fedtsyrer',
+  'web_advantage_list' => '<ul>
+<li>100% vegetabilsk</li>
+<li>Plantebaseret kapsel</li>
+<li>Ikke-allergifremkaldende</li>
+<li>Ingen konserveringsmidler</li>
+<li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
+</ul>',
 );

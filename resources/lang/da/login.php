@@ -1,9 +1,9 @@
 <?php
 
 return array (
-  'title' => 'Log ind på dit TakeDaily',
-  'email_label' => 'Din e-mail adresse',
-  'password_label' => 'Din adgangskode',
+  'title' => 'Mit TakeDaily',
+  'email_label' => 'Din mailadresse',
+  'password_label' => 'Dit kodeord',
   'remember_me' => 'Husk mig',
   'button' => 'Log ind',
   'forgot' => 'Glemt dit kodeord?',

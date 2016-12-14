@@ -6,15 +6,15 @@ return array (
     'profile' => 'Mit TakeDaily',
     'deliveries' => 'Leveringer',
     'settings' => 'Mine Oplysninger',
-    'subscription' => 'Abonnement',
-    'billing' => 'Fakturering',
+    'subscription' => 'Medlemskab',
+    'billing' => 'Betalingsoplysninger',
     'logout' => 'Log ud',
     'pick' => 'Vitaminer',
     'menu' => 'Menu',
   ),
   'items' => 
   array (
-    'gifting' => 'Giv i gave',
+    'gifting' => 'Gavekort',
     'our-products' => 'Kvaliteten',
     'about-us' => 'Om os',
     'how-it-works' => 'Sådan virker det',

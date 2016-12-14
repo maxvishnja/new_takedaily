@@ -13,7 +13,7 @@ return array (
   'deselect-btn' => 'Fravælg denne',
   'btn-save' => 'Gem ændringer',
   'btn-order' => 'Gå til bestilling',
-  'min-vitamins' => 'Du mangler at vælge mindst {{ minVitamins - numSelectedVitamins }} vitamin<span v-show="(minVitamins - numSelectedVitamins) > 1">er</span>.',
+  'min-vitamins' => 'Du mangler at vælge mindst {{ minVitamins - numSelectedVitamins }} produkt<span v-show="(minVitamins - numSelectedVitamins) > 1">er</span> mere, du kan max vælge 4 i alt.',
   'errors' => 
   array (
     'too-many' => 'Du har valgt det maksimale antal vitaminer, fravælg en for at vælge denne.',

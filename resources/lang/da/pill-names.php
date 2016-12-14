@@ -6,7 +6,7 @@ return array (
   '1c' => 'Multi Vitamin D+ Extra',
   '2a' => 'Mom & Baby',
   '2b' => 'Shape Me up',
-  '2c' => 'Energy Booster',
+  '2c' => 'Energy Up',
   '2d' => 'Immune Booster',
   '2e' => 'Joint, Bone & Muscle',
   '3a' => 'I\'m not a veggie fan',

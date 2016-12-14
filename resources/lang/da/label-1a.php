@@ -166,13 +166,13 @@ Støtte til en optimal sundhed',
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => '
-Multi Basic er en multivitamin og mineraltilskud til voksne over 18 år. Den indeholder en velafbalanceret kombination af de 13 essentielle vitaminer og mineralerne calcium, chrom, phosphor, jern, jod, selen og zink. Vitaminer og mineraler i Multi Basic er et tillæg til den daglige kost og spiller en vigtig rolle i at støtte og bevare et optimalt helbred.',
+  'web_description' => 'Multi Basic er et multivitamin- og mineraltilskud til voksne fra 18 år. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler. Multi Basic er et tilskud som supplerer en varieret kost, og bidrager til dit daglige behov for vitaminer og mineraler.',
   'weight' => '27,44 gram',
   'web_advantage_list' => '<ul>
-<li>En fordel</li>
-<li>endnu en fordel</li>
-<li>En tredje fordel</li>
+<li>100 % plantebaseret kapsel</li>
+<li>Ikke-allergifremkaldende</li>
+<li>Ingen konserveringsmidler</li>
+<li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',
   'above_claims' => 'Multi Basic danner grundlag for din personlige pakke med multivitaminer- og mineraler. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler.',
 );

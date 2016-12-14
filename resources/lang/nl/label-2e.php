@@ -35,8 +35,8 @@ return array (
   'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, calciumcitraat 4-hydraat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E110)), dikaliumfosfaat, L-ascorbinezuur, calciumcarbonaat, antiklontermiddel (magnesiumstearaat), mangaangluconaat, cholecalciferol',
   'praises' => 
   array (
-    'bone' => 'Vitamin C, D, magnesium en mangaan dragen bij aan de instandhouding van sterke botten',
-    'muscle' => 'Vitamine D en magensium dragen bij tot een normale werking van de spieren',
+    'bone' => 'Vitamine C, D, magnesium en mangaan dragen bij aan de instandhouding van sterke botten',
+    'muscle' => 'Vitamine D en magnesium dragen bij tot een normale werking van de spieren',
     'cartilage' => 'Mangaan is goed voor de aanmaak/opbouw van kraakbeen (in de gewrichten)',
   ),
   'end_date' => '09/2019',

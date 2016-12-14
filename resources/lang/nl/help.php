@@ -2,7 +2,7 @@
 
 return array (
   'chat' => 'Chat',
-  'title' => 'Hulp nodig? Onze voedingsdeskundigen staan klaar om je te helpen!',
+  'title' => 'Kom je er niet uit?Onze voedingsdeskundigen staan voor je klaar!',
   'call' => 'Bel 020-2382580',
-  'openings' => 'Bereikbaar van maandag t/m vrijdag: 09:00-12:00 en 13:00-16:30 uur',
+  'openings' => 'Bereikbaar van maandag t/m vrijdag: 09:00-17:00 uur',
 );

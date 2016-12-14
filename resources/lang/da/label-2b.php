@@ -51,8 +51,13 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'name' => 'Shape Me Up',
-  'web_description' => '
-Shape Me Up er et kosttilskud specielt til personer, der følger en diæt. Hvis du på diæt, er det muligt, at du får færre vitaminer og mineraler end hvad din krop har behov for. Shape Me Up indeholder ekstra vitamin A, B1, B6, B12, C og K. Shape Me Up er derfor et til supplement til dit daglige kostindtag,  for at få de næringsstoffer, du har brug for.',
+  'web_description' => 'Din krops behov for disse vil dog være uændret. Derfor indeholder Shape Me Up ekstra vitamin A, -B1, -B6, -B12, -C og -K. Shape Me Up supplerer altså dit daglige kostindtag, med de næringsstoffer, som du har brug for at få tilført på en diæt.',
   'weight' => '12,6 gram',
   'above_claims' => 'Shape Me Up er et kosttilskud specielt til personer, der følger en diæt.',
+  'web_advantage_list' => '<ul>
+<li>100 % plantebaseret kapsel</li>
+<li>Ikke-allergifremkaldende</li>
+<li>Ingen konserveringsmidler</li>
+<li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
+</ul>',
 );

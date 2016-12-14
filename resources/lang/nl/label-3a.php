@@ -41,9 +41,9 @@ return array (
   'ingredients' => 'Kaliumwaterstoffosfaat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat),  bèta-caroteen, pteroymonoglutaminezuur',
   'praises' => 
   array (
-    'heart' => 'Kalium heeft een gunstige invloed op het behoud van een normale bloeddruk en vitamine C is belangrijk voor de bloedvaten',
+    'heart' => 'Vitamine C is belangrijk voor de bloedvaten',
     'brain-cog' => 'Foliumzuur en vitamine C zijn goed voor het concentratievermogen, geheugen en leerprestatie',
-    'nerve' => 'Vitamine C en kalium ondersteunen de normale werking van het zenuwstelsel',
+    'nerve' => 'Vitamine C ondersteunen de normale werking van het zenuwstelsel',
   ),
   'batch_number' => '1916',
   'end_date' => '09/2019',

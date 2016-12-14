@@ -8,7 +8,7 @@ return array (
     'pick' => '--- kiezen ---',
     'button-save-text' => 'Gegevens opslaan',
     'header' => 'Mijn TakeDaily',
-    'button-change' => 'Profiel aanpassen',
+    'button-change' => 'Nieuwe test doen',
   ),
   'transaction' => 
   array (
@@ -46,6 +46,8 @@ return array (
       'status' => 'Status',
     ),
     'button-show-text' => 'Tonen',
+    'next-date' => '<strong>Volgende leveringsdatum:</strong><br/> :date',
+    'header_history' => 'Leveringsgeschiedenis',
   ),
   'settings_basic' => 
   array (
@@ -69,6 +71,7 @@ return array (
       'title' => 'Voeg betaalmethode toe - Take Daily',
       'header' => 'Nieuwe betaalmethode',
     ),
+    'update' => 'Betaalgegevens aanpassen',
   ),
   'settings_subscription' => 
   array (
@@ -112,6 +115,28 @@ return array (
     array (
       'preferences-saved' => 'Jouw voorkeuren zijn opgeslagen!',
       'vitamins-updated' => 'Vitamines zijn bijgewerkt!',
+    ),
+  ),
+  'settings_cancel' => 
+  array (
+    'submit' => 'Opzeggen',
+    'title' => 'Abonnement opzeggen',
+    'header' => 'Abonnement opzeggen',
+    'are_you_sure' => 'Weet je het zeker?
+',
+    'cancel' => 'Abonnement behouden',
+    'question' => 'Waarom wil je jouw abonnement opzeggen?',
+    'reason_text' => 'Wat is de reden',
+    'reasons' => 
+    array (
+      0 => 'Ik heb de voorkeur voor de producten van een andere aanbieder',
+      1 => 'Ik vind TakeDaily te duur',
+      2 => 'TakeDaily biedt niet de supplementen waar ik naar op zoek ben',
+      3 => 'Ik vind het concept te ingewikkeld',
+      4 => 'Ik ben vaak in het buitenland',
+      5 => 'Ik gebruik de TakeDaily supplementen niet',
+      'other' => 'Andere reden',
+      'pick' => 'Kies reden',
     ),
   ),
 );

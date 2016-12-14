@@ -9,6 +9,6 @@ return array (
   'need-help' => 'Kan ik je jou helpen?',
   'direct-delivery' => 'Past door de brievenbus',
   'trustpilot' => 'Onze klanten zijn dol op ons!',
-  'opening-hours' => 'Bereikbaar van maandag t/m vrijdag: 09:00-12:00 en 13:00-16:30 uur',
+  'opening-hours' => 'Bereikbaar van maandag t/m vrijdag: 09:00-17:00 uur',
   'no-cuffs' => 'Ieder moment opzegbaar',
 );

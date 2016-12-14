@@ -26,11 +26,17 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'Mom & Baby er et kosttilskud for kvinder, der ønsker at blive gravid eller er gravide.
+  'web_description' => 'Nogle vitaminer og mineraler skal du have flere af allerede fra du planlægger at blive gravid. Sundhedsstyrelsen anbefaler, at du tager tilskud af folsyre, som er et B-vitamin, allerede fra du tænker på at blive gravid til 12 uger inde i graviditeten. Folsyre er vigtigt, når barnets centralnervesystem udvikles og nedsætter risikoen for misdannelser af hjerne og rygmarv (neuralrørsdefekt). I overensstemmelse med Sundhedsstyrelsens anbefalinger indeholder Mom & Baby 400 mcg folsyre dagligt. Folsyre kan tages gennem hele graviditeten.
 
-Mom & Baby indeholder 400 mcg folinsyre og 10 mcg af vitamin D. Sundhedsstyrelsen anbefaler at supplere   med 400 mcg folinsyre fra det øjeblik, du ønsker at blive gravid. Folinsyre spiller en vigtig rolle i den tidlige udvikling af det ufødte barn. Folinsyre kan bruges i hele graviditeten.
+Mom & Baby indeholder desuden 10 mcg D-vitamin. Sundhedsstyrelsen anbefaler at gravide supplerer med 10 mcg D-vitamin dagligt, da vitaminet spiller en vigtig rolle i fosterets udviklingen.
 
-Under graviditet, øges behovet for vitamin D. Sundhedsstyrelsen anbefaler at gravide kvinder har et dagligt indtag på 10 mcg D-vitami, da D-vitamin spiller en vigtig rolle i udviklingen af ​​dit barn.',
+Husk at opdaterer din personlige profil på TakeDaily, når du bliver gravid.',
   'weight' => '12,6 gram',
   'above_claims' => 'Mom & Baby er et kosttilskud for kvinder, der ønsker at blive gravid eller er gravide.',
+  'web_advantage_list' => '<ul>
+<li>100 % plantebaseret kapsel</li>
+<li>Ikke-allergifremkaldende</li>
+<li>Ingen konserveringsmidler</li>
+<li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
+</ul>',
 );

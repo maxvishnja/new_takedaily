@@ -107,7 +107,7 @@ return array (
       ),
     ),
   ),
-  'back' => '‹ Ga terug naar jouw persoonlijk TakeDaily pakket',
+  'back' => '‹ Ga terug naar jouw persoonlijk advies',
   'apply' => 'Toepassen',
   'wait' => 'Wacht..',
   'errors' => 
@@ -116,5 +116,8 @@ return array (
     'no-cart-session' => 'Der kunne ikke findes en kurv-session!',
   ),
   'fb-login' => 'Log ind med Facebook',
-  'back-pick' => '‹ Ga terug',
+  'back-pick' => '‹ Ga terug naar jouw selectie',
+  'terms-agree' => 'Ved at klikke "Bestil nu" accepterer du vores handelsbetingelser samt bekræfter, at du er over 18.',
+  'facebook_disclaimer' => '(Wij posten niets op jou Facebook profiel)',
+  'cvv-information' => 'De controle-nummer staat meestal achter op de kaart',
 );

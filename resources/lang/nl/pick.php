@@ -13,7 +13,7 @@ return array (
   'deselect-btn' => 'Selecteer',
   'btn-save' => 'Wijzigingen opslaan',
   'btn-order' => 'Ga naar de kassa',
-  'min-vitamins' => 'Het minimale aantal te bestellen supplementen is {{ minVitamins - numSelectedVitamins }} vitamin<span v-show="(minVitamins - numSelectedVitamins) > 1">er</span>.',
+  'min-vitamins' => 'Het minimale aantal te bestellen supplementen is {{ minVitamins - numSelectedVitamins }} vitamin<span v-show="(minVitamins - numSelectedVitamins) > 1">er</span> en max 4.',
   'errors' => 
   array (
     'too-many' => 'Je hebt het maximale aantal vitamines en mineralen geselecteerd. Selecteer het product dat je wilt verwijderen.',

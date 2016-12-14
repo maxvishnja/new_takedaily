@@ -14,41 +14,17 @@ return array (
     ),
     'pick' => 'eller vælg blandt vores færdige pakker',
     'cta' => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>',
+    'subtitle' => 'Med TakeDaily kan du hver dag supplere din kost med præcis de vitaminer, mineraler og Omega 3, du har brug for.',
   ),
   'blocks' => 
   array (
-    'reviews' => 
-    array (
-      'title' => 'Hvad vores kunder siger',
-      'items' => 
-      array (
-        0 => 
-        array (
-          'image' => 'https://s3.amazonaws.com/uifaces/faces/twitter/dgclegg/128.jpg',
-          'text' => 'Som vegetar er jeg SUPER glad for min månedlige Takedaily pakke!',
-          'name' => 'John Doe',
-        ),
-        1 => 
-        array (
-          'image' => 'https://s3.amazonaws.com/uifaces/faces/twitter/gergelyjanko/128.jpg',
-          'text' => 'Som vegetar er jeg SUPER glad for min månedlige Takedaily pakke!',
-          'name' => 'John Doe',
-        ),
-        2 => 
-        array (
-          'image' => 'https://s3.amazonaws.com/uifaces/faces/twitter/jimmuirhead/128.jpg',
-          'text' => 'Som vegetar er jeg SUPER glad for min månedlige Takedaily pakke!',
-          'name' => 'John Doe',
-        ),
-      ),
-    ),
     'promises' => 
     array (
       'title' => 'Til glæde for dig',
       'promise-1' => 'Vores professionelle diætister og ernæringseksperter giver dig gratis rådgivning.',
       'promise-2' => 'Vi bruger så naturlige råvarer som muligt, og vores kapsler er 100 % plantebaserede. ',
       'promise-3' => 'Vi springer alle de dyre mellemled over og leverer direkte fra fabrikken til din dør.',
-      'promise-4' => 'Vi har udviklet en algoritme, som gør det muligt at tilpasse den rette dosis vitaminer og mineraler til dig.',
+      'promise-4' => 'Vi har udviklet en algoritme, som gør det muligt at tilpasse den rette mængde vitaminer, mineraler og omega-3 til dig.',
     ),
     'one' => 
     array (
@@ -88,23 +64,6 @@ return array (
       'button' => '<a href="/flow"  class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Start på TakeDaily i dag</strong></a>',
     ),
-    'three' => 
-    array (
-      'name' => 'Suzan, diætist',
-      'quote' => '“Prevention is better than cure. Well said and well understood! But there are
-							certain types of headaches, which are part and parcel of you; gifted to you by birth! Sinus
-							headache is one of them, unfortunately.”',
-      'button' => '<a href="/page/fra-a-til-zink" class="anchor anchor--underline">Om vitaminer og sundhed</a>',
-    ),
-    'five' => 
-    array (
-      'body' => '<p>TakeDaily er høj kvalitet og rene, naturlige, aktive ingredienser. Vi har samlet de bedste
-					ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den
-					ultimative måde at genopbygge din krop indefra.  </p>
-
-				<p>Videnskaben bag er kompleks, men for dig er det hele enkelt og ligetil.</p>',
-      'button' => '<a href="/page/test-og-kvalitet" class="anchor anchor--underline anchor--inline m-t-20">Få mere baggrundsviden</a>',
-    ),
     'six' => 
     array (
       'slides' => 
@@ -139,20 +98,6 @@ return array (
         ),
       ),
     ),
-    'seven' => 
-    array (
-      'title' => 'Online konsultation',
-      'subtitle' => 'Hvilke vitaminer og mineraler mangler du?',
-      'text' => 'Vores dygtige diætister står bag de spørgsmål, som giver os svar på, hvilke vitaminer og mineraler, du skal tage for at få din krop i balance. Der er 39 spørgsmål, og efter kun 2 minutter har du dit resultat.',
-      'button' => '<a href="/flow" class="button button--green button--rounded button--large">Start på TakeDaily i dag</a>',
-    ),
-    'eight' => 
-    array (
-      'title' => 'Modtag vitaminer hver måned,<br/>det koster kun 149 kr.',
-      'text' => 'Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag
-							typewriter banh mi, squid keffiyeh High.',
-      'button' => '<a href="/flow" class="button button--green button--rounded button--large m-t-30">Start på TakeDaily i dag</a>',
-    ),
   ),
   'promos' => 
   array (
@@ -161,4 +106,24 @@ return array (
     'three' => 'Spørg vores ernæringseksperter',
     'four' => 'Fragt 0 kr.',
   ),
+  'new_blocks' => 
+  array (
+    'one' => 
+    array (
+      'title' => 'Spørg vores ernæringseksperter',
+      'body' => '<p>Er du i tvivl om noget, er vores ernæringseksperter klar til at svare på dine spørgsmål mandag til fredag fra 9-17 på <a href="tel:+4570605015">70 60 50 15</a>. Du kan også skrive dit spørgsmål til <a href="mailto:info@takedaily.dk">info@takedaily.dk</a>.</p>
+
+<a href="/about-us" class="button button--rounded button--medium button--green m-t-30">Mød ernæringseksperterne</a>',
+      'below_image' => 'Marie-Louise, Ernæringsekpert',
+    ),
+    'two' => 
+    array (
+      'title' => 'Vi tror på farmaceutisk videnskab',
+      'body' => '<p>Take Daily er høj kvalitet og rene, naturlige, aktive ingredienser. Vi har samlet de bedste ernæringseksperter og anvender den nyeste, farmaceutiske forskning for at finde frem til den ultimative måde at genopbygge din krop indefra.</p>
+
+<a href="/our-products" class="button button--rounded button--medium button--green m-t-30">Få mere viden</a>',
+      'below_image' => 'TakeDaily æsken er pakket i smarte dagsrationer, én til hver dag.',
+    ),
+  ),
+  'play_video' => 'Afspil video',
 );

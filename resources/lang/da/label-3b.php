@@ -61,7 +61,13 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'I Don\'t Eat Carbs er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre) og indeholder mineralerne jod og jern. Tillægget har til formål at supplere multivitamin.',
+  'web_description' => 'B-vitaminer (B1, B3, B6 samt folinsyre) er gode for koncentrationen, hukommelsen og indlæringsevnen. B-vitaminer (B1, B2, B3, B6) og jod støtter nervesystemets normale funktion. B-vitaminer (B2, B3) og jod bidrager desuden til opretholdelsen af en sund hud.',
   'weight' => '14 gram',
   'above_claims' => 'I Don\'t Eat Carbs er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre)) og indeholder mineralerne jod og jern. Tillægget har til formål at supplere multivitamin',
+  'web_advantage_list' => '<ul>
+<li>100 % plantebaseret kapsel</li>
+<li>Ikke-allergifremkaldende</li>
+<li>Ingen konserveringsmidler</li>
+<li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
+</ul>',
 );

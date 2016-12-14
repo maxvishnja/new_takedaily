@@ -55,7 +55,7 @@ return array (
     ),
     '1-4' => 
     array (
-      'title' => 'Er du udenfor hver dag i mindst 15-30 minutter?',
+      'title' => 'Er du udenfor i dagslys hver dag i mindst 15-30 minutter?',
       'text' => 'Du skal være ude mellem klokken 11.00-15.00, hvis du vil være sikker på, at din krop producerer nok D-vitamin fra solens stråler. Hvis du ikke er ude hver dag, hvis du undgår solen eller hvis du går tildækket, vil din krop ikke være i stand til at producere tilstrækkeligt med D-vitamin.',
       'options' => 
       array (
@@ -412,28 +412,28 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
   array (
     1 => 
     array (
-      'basic' => 'Multi Basic danner grundlag for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler.',
-      'basic-10-d' => 'Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D',
-      'basic-10-d-alt' => 'Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D',
-      'basic-20-d' => 'Multi Vitamin D+ Extra  udgør grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år.',
+      'basic' => 'Multi Basic danner grundlag for din personlige TakeDaily pakke med multivitaminer- og mineraler. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler.',
+      'basic-10-d' => 'Multi Vitamin D+ danner grundlaget for din personlige TakeDaily-pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D.',
+      'basic-10-d-alt' => 'Multi Vitamin D+ danner grundlaget for din personlige TakeDaily-pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D.',
+      'basic-20-d' => 'Multi Vitamin D+ Extra danner grundlaget for din personlige TakeDaily-pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 20 mikrogram vitamin D.',
     ),
     2 => 
     array (
-      'A' => '...',
-      'B' => '...',
-      'C' => '...',
-      'D' => '...',
-      'E' => '...',
+      'A' => 'Mom & Baby er et kosttilskud specialfremstillet til kvinder, der er gravide, eller ønsker at blive det. Det indeholder vigtige tilskud af folsyre samt D-vitamin og anbefales allerede inden du er blevet gravid.',
+      'B' => 'Shape Me Up er et kosttilskud specielt til personer, der følger en diæt. Når du er på diæt, er der risiko for, at du får færre vitaminer og mineraler gennem kosten end normalt. ',
+      'C' => 'Hvis du motionerer meget, eller har meget travlt i hverdagen, har du brug for ekstra vitaminer og mineraler. Vi har sammensat et tilskud med netop de vitaminer og mineraler, der bidrager til at du kan yde sit maksimale, når du træner eller har travlt.',
+      'D' => 'Hvis dit immunforsvar ikke er optimalt, har du brug for ekstra vitaminer og mineraler. Immune Booster er et supplement til din multivitamin, og er rig på vitaminer og mineraler (vitamin A, -B6, -B11 (folinsyre), -B12, -C, -D samt selen og zink).',
+      'E' => 'Joint, Bone & Muscle indeholder de vitaminer og mineraler, der især spiller en vigtig rolle i kroppens opretholdelse af ​​stærke knogler og muskler samt smidige led (vitamin C, -D samt magnesium og mangan).',
     ),
     3 => 
     array (
-      'a' => '...',
-      'b' => '...',
-      'c' => '...',
-      'd' => '...',
-      'e' => '...',
-      'f' => '...',
-      'g' => '...',
+      'a' => 'I\'m Not a Veggie Fan indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tilskuddet supplere din multivitamin med de essentielle vitaminer og mineraler, der normalt findes i frugt og grøntsager.',
+      'b' => 'I Don\'t Eat Carbs er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre) og indeholder mineralerne jod og jern. Tilskuddet supplerer din multivitamin med de essentielle vitaminer og mineraler, som normalt findes i de kulhydratholdige fødevarer.',
+      'c' => 'The Dairy portion indeholder vitamin B2, -B12 og calcium. Tilskuddet supplerer din multivitamin med disse essentielle vitaminer og mineraler, som normalt findes i mælk og mejeriprodukter.',
+      'd' => 'I am A Vegetarian/Vegan er fremstillet specielt til vegetarer, veganere og folk, der ikke spiser kød. Tilskuddet supplerer således din multivitamin med de essentielle vitaminer og mineraler, der normalt findes i kød og kødprodukter, og som en vegetarisk kost ofte indeholder for lidt af.',
+      'e' => 'Det er de færreste danskere, som spiser den anbefalet mængde fisk. Sundhedsstyrelsen anbefaler, at voksne spiser fisk som hovedmåltid mindst to gange om ugen, og helst fede fisk.',
+      'f' => 'The Not a Butter Lover indeholder vitamin A, -D og -E. Tilskuddet supplerer din multivitamin med disse essentielle vitaminer og mineraler, som normalt findes i smør og margarineprodukter.',
+      'g' => 'Vores Premium Omega-3 Chiafrøolie er afledt af planten Salvia hispanica, der tilhører familien af mintplanter. Olien udvindes ved koldpresning af Chiafrøene.',
     ),
   ),
   'call-me' => 

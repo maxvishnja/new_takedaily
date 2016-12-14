@@ -6,4 +6,5 @@ return array (
   'see-ingredients' => 'Ingrediënten...',
   'add' => 'Selecteren',
   'select' => 'Selecteren',
+  'read-less' => 'Less info...',
 );
