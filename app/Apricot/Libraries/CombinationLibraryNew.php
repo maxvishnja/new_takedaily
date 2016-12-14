@@ -162,6 +162,18 @@ class CombinationLibraryNew
 			return;
 		}
 
+		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'd' ) && isset( $data->vegetarian ) && $data->vegetarian == '1' )
+		{
+			$this->vitamins[] = '3d';
+			$this->groupThree = 'd';
+
+//			$this->setAdvise( '3d', trans( 'flow.combinations.3.d' ) );
+			$this->setAdvise( '3d', $this->textGenerator->generate( '3d', [ 'vegetarian' ], true ) );
+			$this->setAdviseInfo( '3d', trans( 'flow.combination_info.3.d' ) );
+
+			return;
+		}
+
 		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'e' ) && isset( $data->foods, $data->locale, $data->foods->fish )
 		     && (
 			     ( $data->locale === 'da' && $data->foods->fish != '3' )
@@ -176,18 +188,6 @@ class CombinationLibraryNew
 //			$this->setAdvise( '3e', trans( 'flow.combinations.3.e' ) );
 			$this->setAdvise( '3e', $this->textGenerator->generate( '3e', [ 'fish' ], true ) );
 			$this->setAdviseInfo( '3e', trans( 'flow.combination_info.3.e' ) );
-
-			return;
-		}
-
-		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'd' ) && isset( $data->vegetarian ) && $data->vegetarian == '1' )
-		{
-			$this->vitamins[] = '3d';
-			$this->groupThree = 'd';
-
-//			$this->setAdvise( '3d', trans( 'flow.combinations.3.d' ) );
-			$this->setAdvise( '3d', $this->textGenerator->generate( '3d', [ 'vegetarian' ], true ) );
-			$this->setAdviseInfo( '3d', trans( 'flow.combination_info.3.d' ) );
 
 			return;
 		}
