@@ -1,4 +1,4 @@
-@if(count($combinations) === 0)
+@if(count($combinations) === 2)
 	<div style="border: 1px solid #ddd; background: #fafafa; padding: 20px">
 		<p style="margin: 0; font-size: 18px">
 			{!! $descriptions['none'] !!}
