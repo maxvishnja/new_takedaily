@@ -35,6 +35,30 @@
 		background-repeat: no-repeat;
 		background-image: url(/images/icons/icon-next.png) !important;
 	}
+
+	.datepicker .datepicker-decades .datepicker-switch:before {
+		content: "-";
+		display: block;
+		font-weight: normal;
+	}
+
+	.datepicker .datepicker-years .datepicker-switch:before {
+		content: "-";
+		display: block;
+		font-weight: normal;
+	}
+
+	.datepicker .datepicker-months .datepicker-switch:before {
+		content: "{{ trans('flow.datepicker.days.back') }}";
+		display: block;
+		font-weight: normal;
+	}
+
+	.datepicker .datepicker-days .datepicker-switch:before {
+		content: "{{ trans('flow.datepicker.days.back') }}";
+		display: block;
+		font-weight: normal;
+	}
 </style>
 
 <script>
