@@ -85,7 +85,7 @@
 		<div class="pill_section">
 		</div>
 
-		<div class="content_section">
+		<div class="content_section" style="font-size: 17px">
 			{!! $descriptions['no-lifestyle'] !!}
 		</div>
 	</div>
@@ -96,7 +96,7 @@
 		<div class="pill_section">
 		</div>
 
-		<div class="content_section">
+		<div class="content_section" style="font-size: 17px">
 			{!! $descriptions['no-diet'] !!}
 		</div>
 	</div>
