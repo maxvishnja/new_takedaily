@@ -41,7 +41,7 @@
 												<span v-show="numSelectedVitamins >= 3">({{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin') * -1)) ]) }})</span>
 											</a>
 											<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--green pull-right"
-											   v-show="!vitamin.isSelected">
+											   v-show="!vitamin.isSelected" v-bind:class="{ 'faded': numSelectedVitamins < 4 }">
 												{{ trans('flow-actions.select') }}
 												<span v-show="numSelectedVitamins >= 2">(+{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin'))) ]) }})</span>
 											</a>
