@@ -49,13 +49,13 @@
 	}
 
 	.datepicker .datepicker-months .datepicker-switch:before {
-		content: "{{ trans('flow.datepicker.days.back') }}";
+		content: "{!! trans('flow.datepicker.days.back') !!}";
 		display: block;
 		font-weight: normal;
 	}
 
 	.datepicker .datepicker-days .datepicker-switch:before {
-		content: "{{ trans('flow.datepicker.days.back') }}";
+		content: "{!! trans('flow.datepicker.days.back') !!}";
 		display: block;
 		font-weight: normal;
 	}
