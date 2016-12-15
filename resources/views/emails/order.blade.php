@@ -16,7 +16,7 @@
 
 	<h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">{{ trans('mails.order.overview.title') }}</h3>
 		<p class="size-14" style='font-style: normal;font-weight: 400;Margin-bottom: 0;Margin-top: 16px;font-size: 14px;line-height: 24px;font-family: "Open Sans",sans-serif;color: #60666d;'>
-			{!! trans('mails.order.text') !!}
+			{!! nl2br(trans('mails.order.text')) !!}
 		</p>
 	<table class="size-14" style="border-spacing: 0;border-collapse: collapse;vertical-align: top;width: 100%;font-style: normal;font-weight: 400;font-size: 14px;line-height: 24px;font-family: 'Open Sans',sans-serif;color: #60666d;">
 		<tbody>

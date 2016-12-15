@@ -137,7 +137,7 @@ class CheckoutCompletion
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
 				'subscription_started_at'   => \Date::now(),
 				'currency'                  => trans( 'general.currency' ),
-				'subscription_rebill_at'    => \Date::now()->addDays( 28 )->addWeekdays(4),
+				'subscription_rebill_at'    => \Date::now()->addDays( 28 )->addWeekdays( 4 ),
 				'subscription_cancelled_at' => null
 			] );
 
@@ -244,16 +244,17 @@ class CheckoutCompletion
 			'priceTotal'    => $this->getCheckout()->getTotal(),
 			'priceSubtotal' => $this->getCheckout()->getSubTotal(),
 			'priceTaxes'    => $this->getCheckout()->getTaxTotal(),
-		    'locale' => \App::getLocale()
+			'name'      => $this->getCheckout()->getCustomer()->getName(),
+			'locale'        => \App::getLocale()
 		];
 
 		$mailEmail = $this->getUser()->getEmail();
 		$mailName  = $this->getUser()->getName();
-		$locale = \App::getLocale();
+		$locale    = \App::getLocale();
 
 		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName, $locale )
 		{
-			\App::setLocale($locale);
+			\App::setLocale( $locale );
 			$message->to( $mailEmail, $mailName );
 			$message->subject( trans( 'checkout.mail.subject' ) );
 		} );
