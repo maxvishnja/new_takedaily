@@ -30,7 +30,7 @@
 									<h1>{!! trans('home.header.title-1') !!}</h1>
 									<p style="font-size: 18px;"><strong>{{ trans('home.header.subtitle') }}</strong></p>
 
-									<div class="m-t-20 pricing_item_header m-t-30 m-b-50">
+									<div class="m-t-20 pricing_item_header m-t-20 m-b-50">
 										<strong>{!! trans('home.header.splash.price') !!}</strong>
 										<small class="info">{!! trans('home.header.splash.info') !!}</small>
 									</div>
@@ -64,12 +64,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-		<div class="header_bg_slides_container">
-			<div class="header_bg_slides">
-				<div class="header_bg_item header_bg_item--2" data-slide="2"></div>
 			</div>
 		</div>
 	</header>
