@@ -127,6 +127,16 @@ class CombinationLibraryNew
 
 		if ( count( $this->vitamins ) < 3 )
 		{
+			if ( $this->groupTwo === null )
+			{
+				$this->setAdvise( 'no-lifestyle', trans( 'flow.combinations.no-lifestyle' ) );
+			}
+
+			if ( $this->groupThree === null )
+			{
+				$this->setAdvise( 'no-diet', trans( 'flow.combinations.no-diet' ) );
+			}
+
 			$this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
 		}
 
