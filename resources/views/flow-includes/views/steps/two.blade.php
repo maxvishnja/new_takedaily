@@ -187,27 +187,7 @@
 		<p class="substep-explanation">{!! trans('flow.questions.2-8.text') !!}</p>
 	</div>
 
-	<div data-sub-step="9" class="sub_step">
-		<h3 class="substep-title">{{ trans('flow.questions.2-9.title') }}</h3>
-		<div class="sub_step_answers">
-			<label>
-				<input type="radio" name="step[2][9]" value="1" v-model="user_data.vegetarian" data-model="vegetarian"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-vegetarian-yes"></span>
-				<br/>{{ trans('flow.questions.2-9.options.1') }}
-			</label>
-			<label>
-				<input type="radio" name="step[2][9]" value="2" v-model="user_data.vegetarian" data-model="vegetarian"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-meat"></span>
-				<br/>{{ trans('flow.questions.2-9.options.2') }}
-			</label>
-		</div>
-
-		<p class="substep-explanation">{{ trans('flow.questions.2-9.text') }}</p>
-	</div>
-
-	<div data-sub-step="10" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
+	<div data-sub-step="9" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
 		<h3 class="substep-title">{{ trans('flow.questions.2-10.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -225,5 +205,25 @@
 		</div>
 
 		<p class="substep-explanation">{{ trans('flow.questions.2-10.text') }}</p>
+	</div>
+
+	<div data-sub-step="10" class="sub_step">
+		<h3 class="substep-title">{{ trans('flow.questions.2-9.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[2][9]" value="1" v-model="user_data.vegetarian" data-model="vegetarian"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-vegetarian-yes"></span>
+				<br/>{{ trans('flow.questions.2-9.options.1') }}
+			</label>
+			<label>
+				<input type="radio" name="step[2][9]" value="2" v-model="user_data.vegetarian" data-model="vegetarian"
+					   v-on:click="nextStep();"/>
+				<span class="icon icon-meat"></span>
+				<br/>{{ trans('flow.questions.2-9.options.2') }}
+			</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.2-9.text') }}</p>
 	</div>
 </div>
