@@ -15,7 +15,7 @@
 				<div class="col-md-6 col-md-push-3 text-left">
 					{{--<h2>{!! trans('how-works.subtitle') !!}</h2>--}}
 					<div class="headervideo-block text-center">
-						<div class="video_circle" id="video-toggle-two">
+						<div class="video_circle" id="video-toggle">
 							<div class="video_circle_content">
 								<span class="icon icon-play"></span>
 								<strong>{{ trans('home.play_video') }}</strong>
@@ -83,6 +83,14 @@
 		<div class="or-pick-mix-link-container m-t-10"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a></div>
 	</div>
 
+	<div class="video-popup" id="video_popup">
+		<div class="video_popup_aligner">
+			<div class="video-popup_container">
+				<div class="video-popup-close" id="video_popup_close"><span class="icon icon-cross-large"></span></div>
+				<div id="video_popup-content"></div>
+			</div>
+		</div>
+	</div>
 
 	<style>
 		.header_image {
@@ -105,4 +113,34 @@
 			background: #fafafa;
 		}
 	</style>
+@endsection
+
+@section('footer_scripts')
+	<script>
+		var videoPopup = $("#video_popup");
+		var videoPopupContent = $("#video_popup-content");
+		$("#video-toggle, #video-toggle-two").click(function (e) {
+			videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
+				'<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
+				'<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
+				'<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
+				'<source src="/video/{{ App::getLocale() }}/home.m4v" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
+				'</video>');
+			videoPopup.fadeIn(200);
+		});
+
+		$("#video_popup_close").click(function () {
+			videoPopupContent.html('');
+			videoPopup.hide();
+		});
+
+		$(".video-popup").click(function () {
+			videoPopupContent.html('');
+			videoPopup.hide();
+		});
+
+		$(".video-popup_container").click(function (e) {
+			e.stopPropagation();
+		});
+	</script>
 @endsection
