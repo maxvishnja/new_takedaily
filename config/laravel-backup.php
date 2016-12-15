@@ -160,7 +160,7 @@ return [
          * Here you can specify how messages should be sent to Slack.
          */
         'slack' => [
-            'channel'  => '#backups',
+            'channel'  => '#takedaily',
             'username' => 'Backup bot',
             'icon'     => ':robot:',
         ],
