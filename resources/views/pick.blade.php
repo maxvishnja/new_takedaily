@@ -266,7 +266,7 @@
 								name: "{!! trans('checkout.index.total.giftcard') !!}",
 								price: parseFloat(response.giftcard.worth) * -1,
 								showPrice: true
-							})
+							});
 						}
 					});
 				},
@@ -274,6 +274,12 @@
 					event.preventDefault();
 
 					vitamin.isSelected = false;
+
+					app.totals.push({
+						name: "temp",
+						price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin')) * -1 }}"),
+						showPrice: true
+					});
 
 					this.setCart();
 				},
@@ -310,7 +316,14 @@
 						return false;
 					}
 
+
 					vitamin.isSelected = true;
+
+					app.totals.push({
+						name: "temp",
+						price: parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin')) }}"),
+						showPrice: true
+					});
 
 					this.setCart();
 				},
