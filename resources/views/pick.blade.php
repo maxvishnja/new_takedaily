@@ -63,7 +63,7 @@
 				</div>
 
 				<div class="clear"></div>
-				<div class="hidden-xs hidden-sm">@include('includes.disclaimer')</div>
+				<div>@include('includes.disclaimer')</div>
 			</div>
 		</div>
 		<div class="col-md-3" style="margin-top: 56px;">

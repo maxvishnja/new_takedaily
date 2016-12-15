@@ -91,6 +91,12 @@
 		@endif
 
 		<p>{{ trans('label-product.RI') }}</p>
+		<p>{{ trans('label-product.contains') }}</p>
+		<p>{{ trans('label-product.weight') }}</p>
+
+
+		<p>{{ trans('label-product.Store_website') }}</p>
+		<p>{{ trans('label-product.Use_website') }}</p>
 
 		<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {{ trans("label-{$label}.ingredients") }}</p>
 

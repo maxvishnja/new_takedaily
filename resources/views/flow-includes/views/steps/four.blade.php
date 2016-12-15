@@ -22,6 +22,8 @@
 			@include('flow-includes.views.steps.recommendation.totals')
 		</div>
 
+		<div>@include('includes.disclaimer')</div>
+
 		<div class="m-b-20 m-t-20">
 			<button type="button" class="link-button" id="send-by-mail-button">{{ trans('flow.four.send-them') }}</button>
 		</div>
