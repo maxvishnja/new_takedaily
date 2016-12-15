@@ -20,7 +20,7 @@ return array (
   array (
     'page-title' => 'Jouw bestelling is geslaagd! - TakeDaily',
     'title' => 'Jouw bestelling is vewerkt',
-    'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over de bestelling en levering. Bedankt je voor jouw aankoop!',
+    'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over je bestelling en de levering van jouw TakeDaily pakket. Bedankt je voor jouw aankoop!',
     'button-text' => 'Ga naar Mjn TakeDaily',
     'giftcard' => 
     array (
@@ -60,6 +60,10 @@ return array (
         'is-company' => 'Bedrijfsnaam (Optioneel)',
         'password' => 'Gewenste wachtwoord',
         'password-placeholder' => 'Wachtwoord',
+        'password_confirmation' => 'Bevestig uw wachtwoord
+',
+        'password_confirmation-placeholder' => 'Herhaal wachtwoord',
+        'cvr' => 'KvK',
       ),
       'billing' => 
       array (
@@ -97,13 +101,13 @@ return array (
       'button-text' => 'Toepassen',
     ),
     'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt iedere maand per automatische afschrijving.</p>
-<p class="checkout_description">Je kan je abonnement ieder moment opzeggen, uitstellen of pauzeren tot 5 dagen voor de  volgende verzendingsdatum.</p>',
+<p class="checkout_description">Je kan je abonnement ieder moment pauzeren, uitstellen of opzeggen tot 4 dagen voor de  volgende verzendingsdatum.</p>',
     'method' => 
     array (
       'title' => 'Selecteer betaalmethode',
       'errors' => 
       array (
-        'no-method' => 'Je hebt nog geen betalingsmethode gekozen! Probeer opnieuw.',
+        'no-method' => 'Je hebt nog geen betaalmethode gekozen! Probeer opnieuw.',
       ),
     ),
   ),

@@ -61,7 +61,7 @@ return array (
   'end_date' => '03/2018',
   'disclaimer_web' => '* Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA. ',
   'Vit and Min' => 'Ingredienser ',
-  'web_description' => 'Chiaolien er en af de vegetabilske olier, med det højste indhold af omega-3 fedtsyrer. Den omega-3-fedtsyre, der findes i Chiafrøolien kaldes Alfa-linolensyre (ALA). Denne bidrager til opretholdelsen af sunde blodkolesterolniveauer. *
+  'web_description' => 'TakeDailys chiafrøolie er afledt af planten Salvia hispanica, der tilhører familien af mintplanter. Olien udvindes ved koldpresning af Chiafrøene. Chiaolien er en af de vegetabilske olier, med det højste indhold af omega-3 fedtsyrer. Den omega-3-fedtsyre, der findes i Chiafrøolien kaldes Alfa-linolensyre (ALA). Denne bidrager til opretholdelsen af sunde blodkolesterolniveauer. *
 
 *Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA.',
   'weight' => '19,43 gram',

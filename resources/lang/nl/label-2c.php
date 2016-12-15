@@ -67,7 +67,7 @@ return array (
   'end_date' => '09/2019',
   'batch_number' => '1916',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => '<P>De Energy Booster is supplement ter aanvulling van onze multivitaminen en bevat B-vitamines (B1, B2, B3, B5, B6, B12) en de mineralen ijzer en magnesium.</ P>
+  'web_description' => '<P>De Energy Booster is een supplement ter aanvulling van jouw Multi en bevat B-vitamines (B1, B2, B3, B5, B6, B12) en de mineralen ijzer en magnesium.</ P>
 
 <P><em>Voel jij je futloos en ervaar je een gebrek aan energie? Sport je meedere keren per week?</em> 
 De Energy Booster bevat B-vitamines (B1, B2, B3, B5, B6 en B12) en ijzer ter ondersteuning van het energieniveau. IJzer is ook betrokken bij het transport van zuurstof in ons lichaam. Zuurstof is belangrijk voor het vrijmaken van energie om onder andere te bewegen.
@@ -76,5 +76,5 @@ De vitamines B2, B3, B5, B6 en B12 en ijzer helpen daarnaast vermoeidheid en moe
 <P><em>Heb je stress?</em>
 In stressvolle tijden draagt vitamanie B5 bij aan een normale weerstand tegen stress en een heldere geest.</ P>',
   'weight' => '22,1 gram',
-  'above_claims' => 'Energy Booster is supplement ter aanvulling van onze multivitaminen en bevat B-vitamines (B1, B2, B3, B5, B6, B12) en de mineralen ijzer en magnesium.',
+  'above_claims' => 'Energy Booster is supplement ter aanvulling van jouw Multi en bevat B-vitamines (B1, B2, B3, B5, B6, B12) en de mineralen ijzer en magnesium.',
 );

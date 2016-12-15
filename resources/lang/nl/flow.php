@@ -203,8 +203,8 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'options' => 
       array (
         1 => 'Geen',
-        2 => '1 snee brood',
-        3 => '2-3 sneden brood',
+        2 => '1-2 sneden brood',
+        3 => '3 sneden brood',
         4 => '4-5 sneden brood',
         5 => '6 sneden brood of meer',
       ),
@@ -229,7 +229,7 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
         1 => 'Geen',
         2 => '1-2 opscheplepels (50-100 gram)',
         3 => '3-4 opscheplepels (150-200 gram)',
-        4 => '4-5 opscheplepels of meer (200-250 gram)',
+        4 => '5 opscheplepels of meer (+250 gram)',
       ),
     ),
     '3-6' => 
@@ -262,7 +262,7 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'text' => 'Zuivelproducten bevatten essentiële voedingsstoffen als vitamine B2, B12 en calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuivel dat je per dag nodig hebt hangt af van jouw leeftijd.',
       'options' => 
       array (
-        1 => 'Geen',
+        1 => 'Zelden',
         2 => '1 portie (150 ml/gram)',
         3 => '2-3 porties (300-450 ml/gram)',
         4 => '3-4 porties (450-600 ml/gram)',
