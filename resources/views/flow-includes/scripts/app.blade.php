@@ -212,7 +212,7 @@
 						nextSubStep.addClass('sub_step--active').removeClass("sub_step--slideout-prev").removeClass("sub_step--prev").addClass('sub_step--active-animated').removeClass("sub_step--out-animated");
 
 						if (nextSubStep.hasClass('sub_step--skip')) {
-							app.nextStep();
+							app.nextStep(saveState);
 						}
 
 						if (saveState) {
