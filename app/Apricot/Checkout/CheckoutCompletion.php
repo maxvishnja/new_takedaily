@@ -1,6 +1,5 @@
 <?php namespace App\Apricot\Checkout;
 
-use App\Apricot\Libraries\PillLibrary;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
 use App\Setting;
@@ -244,14 +243,17 @@ class CheckoutCompletion
 			'description'   => trans( "products.{$this->getCheckout()->getProduct()->name}" ),
 			'priceTotal'    => $this->getCheckout()->getTotal(),
 			'priceSubtotal' => $this->getCheckout()->getSubTotal(),
-			'priceTaxes'    => $this->getCheckout()->getTaxTotal()
+			'priceTaxes'    => $this->getCheckout()->getTaxTotal(),
+		    'locale' => \App::getLocale()
 		];
 
 		$mailEmail = $this->getUser()->getEmail();
 		$mailName  = $this->getUser()->getName();
+		$locale = \App::getLocale();
 
-		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName )
+		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName, $locale )
 		{
+			\App::setLocale($locale);
 			$message->to( $mailEmail, $mailName );
 			$message->subject( trans( 'checkout.mail.subject' ) );
 		} );
