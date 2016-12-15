@@ -97,11 +97,11 @@ class CombinationLibraryNew
 
 			if( $data->pregnancy->wish == '1')
 			{
-				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.pregnant', ['pregnant'], true ) );
+				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.wish', ['wish'], true ) );
 			}
 			else
 			{
-				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.wish', ['wish'], true ) );
+				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.pregnant', ['pregnant'], true ) );
 			}
 			$this->setAdviseInfo( '2A', trans( 'flow.combination_info.2.A' ) );
 
@@ -406,11 +406,11 @@ class CombinationLibraryNew
 
 			if( $data->pregnancy->wish == '1')
 			{
-				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.pregnant', ['pregnant'], true ) );
+				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.wish', ['wish'], true ) );
 			}
 			else
 			{
-				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.wish', ['wish'], true ) );
+				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.pregnant', ['pregnant'], true ) );
 			}
 			$this->setAdviseInfo( '2A', trans( 'flow.combination_info.2.A' ) );
 
