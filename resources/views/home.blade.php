@@ -49,12 +49,6 @@
 												<span class="icon icon-play"></span>
 												<strong>{{ trans('home.play_video') }}</strong>
 											</div>
-
-											<div class="rings">
-												<div class="ring"></div>
-												<div class="ring"></div>
-												<div class="ring"></div>
-											</div>
 										</div>
 									</div>
 								</div>
