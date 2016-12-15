@@ -235,8 +235,12 @@ class CheckoutCompletion
 		return $this;
 	}
 
-	public function queueEmail( $password )
+	public function queueEmail( $password, $name = '' )
 	{
+		$mailEmail = $this->getUser()->getEmail();
+		$mailName  = $this->getUser()->getName();
+		$locale    = \App::getLocale();
+
 		$data = [
 			'password'      => $password,
 			'giftcard'      => $this->getCheckout()->getGiftcard() ? $this->getCheckout()->getGiftcard()->token : null,
@@ -244,13 +248,9 @@ class CheckoutCompletion
 			'priceTotal'    => $this->getCheckout()->getTotal(),
 			'priceSubtotal' => $this->getCheckout()->getSubTotal(),
 			'priceTaxes'    => $this->getCheckout()->getTaxTotal(),
-			'name'      => $this->getCheckout()->getCustomer()->getName(),
-			'locale'        => \App::getLocale()
+			'name'          => $mailName,
+			'locale'        => $locale
 		];
-
-		$mailEmail = $this->getUser()->getEmail();
-		$mailName  = $this->getUser()->getName();
-		$locale    = \App::getLocale();
 
 		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName, $locale )
 		{
