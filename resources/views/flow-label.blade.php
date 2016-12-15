@@ -1,18 +1,3 @@
-@if(isset($descriptions['no-lifestyle']))
-	<div style="border: 1px solid #ddd; background: #fafafa; padding: 20px" class="m-b-20">
-		<p style="margin: 0; font-size: 18px">
-			{!! $descriptions['no-lifestyle'] !!}
-		</p>
-	</div>
-@endif
-@if(isset($descriptions['no-diet']))
-	<div style="border: 1px solid #ddd; background: #fafafa; padding: 20px" class="m-b-20">
-		<p style="margin: 0; font-size: 18px">
-			{!! $descriptions['no-diet'] !!}
-		</p>
-	</div>
-@endif
-
 @foreach($combinations as $vitamin)
 	<div class="new_vitamin_item">
 
@@ -93,3 +78,26 @@
 		</div>
 	</div>
 @endforeach
+
+@if(isset($descriptions['no-lifestyle']))
+	<div class="new_vitamin_item">
+
+		<div class="pill_section">
+		</div>
+
+		<div class="content_section">
+			{!! $descriptions['no-lifestyle'] !!}
+		</div>
+	</div>
+@endif
+@if(isset($descriptions['no-diet']))
+	<div class="new_vitamin_item">
+
+		<div class="pill_section">
+		</div>
+
+		<div class="content_section">
+			{!! $descriptions['no-diet'] !!}
+		</div>
+	</div>
+@endif
