@@ -12,6 +12,9 @@
 			<a href="{{ url()->route('flow',['token' => Request::get('flow_token') ]) }}">{{ trans('checkout.back') }}</a>
 			<div class="clear"></div>
 		@endif
+
+		<p>{!! trans('pick.text-above') !!}</p>
+
 		<div class="col-md-9">
 			<div class="row" v-cloak="">
 				<div v-for="group in groups">
