@@ -1,6 +1,6 @@
 @if(count($combinations) === 0)
 	<p>
-		{!! $advises['none'] !!}
+		{!! $descriptions['none'] !!}
 	</p>
 @else
 	@foreach($combinations as $vitamin)
