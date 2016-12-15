@@ -119,6 +119,14 @@
 					</div>
 				</div>
 				<p>{!! trans('pick.below_cart') !!}</p>
+
+				<div class="card card--no-style">
+					<div class="m-b-40">
+						{!! trans('checkout.index.disclaimer') !!}
+					</div>
+
+					@include('includes.promo')
+				</div>
 			</aside>
 		</div>
 	</div>
@@ -184,6 +192,9 @@
 					return this.selectedVitamins.filter(function (vitamin) {
 							return vitamin.type == "multi";
 						}).length >= 1;
+				},
+				total_subscription: function () {
+					return this.total_sum;
 				},
 				total_sum: function () {
 					var sum = 0;
