@@ -118,6 +118,7 @@
 
 					</div>
 				</div>
+				<p>{!! trans('pick.below_cart') !!}</p>
 			</aside>
 		</div>
 	</div>
