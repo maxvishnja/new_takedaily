@@ -14,7 +14,7 @@
 			<div class="row">
 				<div class="col-md-6 col-md-push-3 text-left">
 					{{--<h2>{!! trans('how-works.subtitle') !!}</h2>--}}
-					<div class="headervideo-block">
+					<div class="headervideo-block text-center">
 						<div class="video_circle" id="video-toggle-two">
 							<div class="video_circle_content">
 								<span class="icon icon-play"></span>
