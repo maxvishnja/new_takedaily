@@ -51,7 +51,7 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'name' => 'Shape Me Up',
-  'web_description' => 'Din krops behov for disse vil dog være uændret. Derfor indeholder Shape Me Up ekstra vitamin A, -B1, -B6, -B12, -C og -K. Shape Me Up supplerer altså dit daglige kostindtag, med de næringsstoffer, som du har brug for at få tilført på en diæt.',
+  'web_description' => 'Når du har fokus på at spise fedtfattigt, bliver din kost typisk mere ensidig, og så har du brug for et tilskud K-vitamin. Det er i det hele taget vigtigt, at du stadig får de vitaminer og mineraler, som du normalt indtager igennem en varieret kost. A-vitamin er godt for din hud og dit immunsystem. Mens C-vitamin øger kroppens evne til at nedbryde fedt. Så ingen af delene skal du have for lidt af, når du gerne vil tabe nogle kilo. Lidt ekstra B-vitamin sørger for, at du kan præstere mere, hvis du træner, og er også med til at producere og reparere celler.',
   'weight' => '12,6 gram',
   'above_claims' => 'Shape Me Up er et kosttilskud specielt til personer, der følger en diæt.',
   'web_advantage_list' => '<ul>

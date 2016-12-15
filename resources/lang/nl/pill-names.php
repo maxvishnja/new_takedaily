@@ -12,7 +12,7 @@ return array (
   '3a' => 'I\'m not a veggie fan',
   '3b' => 'I don\'t Eat Carbs',
   '3c' => 'The Dairy Portion',
-  '3d' => 'I am Vegetarian / Vegan',
+  '3d' => 'I\'m Vegetarian / Vegan',
   '3e' => 'Premium Omega-3 Visolie',
   '3f' => 'Not a Butter Lover',
   '3g' => 'Premium Omega-3 Chiazaadolie',

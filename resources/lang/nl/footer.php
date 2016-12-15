@@ -29,6 +29,6 @@ return array (
   'copyright' => 'TakeDaily',
   'links' => '<li class="hidden-sm hidden-md"><a href="/about-us">Over TakeDaily</a></li>
 					<li><a href="/faq">FAQ</a></li>
-					<li class="hidden-sm hidden-md"><a href="/use-giftcard">Indløs gavekort</a></li>
+					<li class="hidden-sm hidden-md"><a href="/use-giftcard">Verzilver cadeaubon</a></li>
 					<li><a href="/page/terms">Algemene voorwaarden</a></li>',
 );

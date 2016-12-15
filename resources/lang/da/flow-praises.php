@@ -78,8 +78,8 @@ return array (
   ),
   '3e' => 
   array (
-    'heart' => 'Bidrager til opretholdelsen af en normal hjertefunktion',
-    'blood' => 'Bidrager til opretholdelsen af en normal funktion af hjernen og synet',
+    'heart' => 'Bidrager til opretholdelsen af en normal hjertefunktion*',
+    'blood' => 'Bidrager til opretholdelsen af en normal funktion af hjernen og synet**',
   ),
   '3f' => 
   array (

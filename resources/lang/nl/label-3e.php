@@ -38,8 +38,8 @@ return array (
       'amount' => '10 mg',
     ),
   ),
-  'Allergener' => 'vis(olie)',
-  'ingredients' => 'visolie(vetzuren), capsulewand (gelatine), geleermiddel (glycerol), water, antioxidant (d-alpha-tocoferol concentraat)',
+  'Allergener' => 'bevat <strong>vis(olie)</strong>',
+  'ingredients' => '<strong>vis</strong>olie(vetzuren), capsulewand (gelatine), geleermiddel (glycerol), water, antioxidant (d-alpha-tocoferol concentraat)',
   'praises' => 
   array (
     'brain' => 'DHA draagt bij tot de instandhouding van de normale hersenfunctie en normaal gezichtvermogen.**',

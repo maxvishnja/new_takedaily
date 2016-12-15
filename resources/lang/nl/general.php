@@ -4,7 +4,7 @@ return array (
   'money' => '€ :amount',
   'money-vue' => '€ {{ :amount | currency \'\' }}',
   'tawk_id' => '1b1rde9bt',
-  'tax_zone' => 'netherlands',
+  'tax_zone' => 'Nederland',
   'currency' => 'EUR',
   'locale' => 'nl_NL',
   'mail' => 'info@takedaily.nl',

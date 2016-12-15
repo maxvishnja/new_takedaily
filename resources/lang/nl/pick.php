@@ -17,6 +17,9 @@ return array (
   'errors' => 
   array (
     'too-many' => 'Je hebt het maximale aantal vitamines en mineralen geselecteerd. Selecteer het product dat je wilt verwijderen.',
+    'already-has-multi' => 'Je kan maximaal een multi kiezen',
+    'not-enough' => 'Je hebt niet genoeg producten geselecteerd. Je moet minimaal :min selecteren.',
+    'too-many-validation' => 'Je hebt te veel producten geselecteerd. Je kan max :max selecteren.',
   ),
   'updated' => 'Jouw supplementepakket is aangepast',
 );

@@ -95,12 +95,12 @@ return array (
       'button-snooze-text' => 'Uitstellen',
       'button-close-text' => 'Annuleren',
     ),
-    'cant-cancel' => 'Jouw volgende levering is binnen 48 uur. Je kunt de bestelling helaas niet meer uitstellen.',
-    'cant-snooze' => 'Jouw volgende levering is binnen 24 uur. Je kunt de bestelling helaas niet meer uitstellen.',
+    'cant-cancel' => 'Jouw eerstvolgende TakeDaily pakket wordt binnen 5 dagen geleverd. Je kunt deze levering niet meer pauzeren of annuleren.',
+    'cant-snooze' => 'Jouw eerstvolgende TakeDaily pakket wordt binnen 4 dagen geleverd. Je kunt deze levering niet meer uitstellen.',
     'new-recommendation' => 
     array (
-      'btn' => 'Pas mijn vitamines aan',
-      'text' => 'Vanuit jouw profiel, kunnen we zien dat andere vitamines beter aansluiten bij jou behoeften.',
+      'btn' => 'Pas mijn supplementen-pakket aan',
+      'text' => 'Vanuit jouw profiel, kunnen we zien dat andere voedingssupplementen beter aansluiten bij jouw behoefte.',
       'title' => 'We hebben een nieuw advies voor je.',
     ),
   ),

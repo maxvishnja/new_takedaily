@@ -170,7 +170,7 @@ Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og holde hå
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'Multi Vitamin D+ er et multivitamin- og mineraltilskud til voksne fra 18 år med 10 mikrogram D-vitamin. Tilskuddet indeholder en afbalanceret kombination af 13 vigtige vitaminer og mineralerne calcium, krom, fosfor, jern, jod, selen og zink. Vitaminerne og mineralerne i Multi Vitamin D+ er et tilskud til din daglige kost og bidrager til opretholdelsen af et optimalt helbred.',
+  'web_description' => 'Multi Vitamin D+ er et multivitamin- og mineraltilskud til voksne med 10 mikrogram D-vitamin. Tilskuddet indeholder en afbalanceret kombination af 13 vigtige vitaminer og mineralerne calcium, krom, fosfor, jern, jod, selen og zink. Vitaminerne og mineralerne i Multi Vitamin D+ er et tilskud til din daglige kost og bidrager til opretholdelsen af et optimalt helbred.',
   'weight' => '27,44 gram',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>

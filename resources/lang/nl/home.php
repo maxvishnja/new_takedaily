@@ -3,7 +3,7 @@
 return array (
   'header' => 
   array (
-    'title-1' => 'Vitamines, Mineralen & Omega-3<br/>op maat | Gratis bezorgd | <br/> Past door de brievenbus',
+    'title-1' => 'Vitamines & Mineralen<br/>op maat | Gratis bezorgd ',
     'title-2' => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
     'button-click-here' => 'Doe de test <small class="button-line2">Duurt slechts enkele minuten</small>',
     'button-gift-text' => 'Geef TakeDaily cadeau',
@@ -137,6 +137,7 @@ return array (
 
 <a href="/our-products" class="button button--rounded button--medium button--green m-t-30">Meer informatie</a>',
       'title' => 'TakeDaily supplementen',
+      'below_image' => 'Jouw supplementen worden verpakt in handige dagelijkse porties',
     ),
   ),
   'play_video' => 'Play video',
