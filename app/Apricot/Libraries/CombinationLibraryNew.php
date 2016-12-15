@@ -127,6 +127,7 @@ class CombinationLibraryNew
 
 		if ( count( $this->vitamins ) < 3 )
 		{
+			$this->vitamins = [];
 			$this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
 		}
 
