@@ -22,10 +22,11 @@
 			@endif
 
 			@if(is_array(trans("flow-praises.{$vitamin}")))
-				<?php $praises = (array) trans("flow-praises.{$vitamin}"); ?>
-				<?php uasort($praises, function($a, $b) {
-					return strlen($a)-strlen($b);
-				}); ?>
+				<?php $praises = (array) trans( "flow-praises.{$vitamin}" ); ?>
+				<?php uasort( $praises, function ( $a, $b )
+				{
+					return strlen( $a ) - strlen( $b );
+				} ); ?>
 				@foreach($praises as $icon => $text)
 					<div class="promise_v_item">
 						<span class="icon icon-{{ $icon }}-flow flow-promise-icon"></span>
@@ -37,16 +38,21 @@
 
 			<div class="extra_content">
 				<div class="m-t-30 m-b-10">
-					<a href="#" class="readMoreBtn">{{ trans('flow-actions.read-more') }}</a>
-					<a href="#" class="readLessBtn" style="display: none">{{ trans('flow-actions.read-less') }}</a>
+					<div class="pull-left">
+						<a href="#" class="button button--small button--white button--text-green readMoreBtn">{{ trans('flow-actions.read-more') }}</a>
+						<a href="#" class="button button--small button--white button--text-green readLessBtn" style="display: none">{{ trans('flow-actions.read-less') }}</a>
+					</div>
+					<div class="pull-right">
+						@if($vitamin === '3e')
+							<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3g"
+							   data-oldvitamin="3e">{{ trans('flow.switch-to-chia') }}</a>
+						@elseif($vitamin === '3g')
+							<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3e"
+							   data-oldvitamin="3g">{{ trans('flow.switch-to-fish') }}</a>
+						@endif
+					</div>
 
-					@if($vitamin === '3e')
-						<a href="javascript:void(0);" class="m-l-10 button button--small m-l-50 button--light customVitaminButton" data-vitamin="3g"
-						   data-oldvitamin="3e">{{ trans('flow.switch-to-chia') }}</a>
-					@elseif($vitamin === '3g')
-						<a href="javascript:void(0);" class="m-l-10 button button--small m-l-50 button--light customVitaminButton" data-vitamin="3e"
-						   data-oldvitamin="3g">{{ trans('flow.switch-to-fish') }}</a>
-					@endif
+					<div class="clear"></div>
 				</div>
 
 				<div class="description">
