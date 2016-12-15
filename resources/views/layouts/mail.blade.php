@@ -1294,8 +1294,7 @@
 										</div>
 										<p class="size-16"
 										   style='font-style: normal;font-weight: 600;Margin-bottom: 0;Margin-top: 20px;text-align: center;'>
-											{{ trans('mails.general.regards') }}<br/>
-											TakeDaily
+											{!! nl2br(trans('mails.general.regards')) !!}
 										</p>
 									</td>
 								</tr>
