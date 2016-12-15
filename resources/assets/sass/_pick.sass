@@ -26,3 +26,16 @@ body.page-pick
 
 			&.faded
 				opacity: 0.5
+
+.pick-n-mix-flex
+	display: flex
+	flex-direction: row
+	flex-wrap: wrap
+	justify-content: space-between
+
+	.flex-vitamin
+		width: 49%
+
+@media all and (max-width: 767px)
+	.pick-n-mix-flex .flex-vitamin
+		width: 100%
