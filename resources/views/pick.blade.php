@@ -368,21 +368,4 @@
 			$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
 		});
 	</script>
-
-	<style>
-		.pick-n-mix-flex {
-			display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between;
-		}
-
-		.pick-n-mix-flex .flex-vitamin {
-			width: 49%;
-		}
-
-		@media all and (max-width: 767px)
-		{
-			.pick-n-mix-flex .flex-vitamin {
-				width: 100%
-			}
-		}
-	</style>
 @endsection

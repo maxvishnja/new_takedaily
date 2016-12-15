@@ -1,6 +1,5 @@
 <div class="m-t-20">
 	<div class="table_container">
-		<p style="line-height: 1.1 !important; font-weight: 200; margin: 10px 0;">{!! trans("label-{$label}.web_description") !!}</p>
 		<div><strong>{!! trans("flow.ingredients") !!}</strong></div>
 		<div class="m-b-10">{!! strip_tags(trans('label-product.recommended-daily-use')) !!}</div>
 
