@@ -33,7 +33,7 @@ class PickMixController extends Controller
 
 			foreach($selectedIds as $selectedId)
 			{
-				if(!is_integer($selectedId))
+				if(!is_numeric($selectedId))
 				{
 					$type = 'code';
 				}
