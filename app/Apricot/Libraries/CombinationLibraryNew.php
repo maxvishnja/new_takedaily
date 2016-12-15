@@ -470,7 +470,7 @@ class CombinationLibraryNew
 			$this->vitamins[] = '2C';
 
 			$this->setAdvise( '2C', $this->textGenerator->generate( '2C', ['sports'], true ) );
-			$this->setAdvise( '2C', trans( 'flow.combinations.2.C' ) );
+//			$this->setAdvise( '2C', trans( 'flow.combinations.2.C' ) );
 			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
 
 			return;
@@ -712,7 +712,7 @@ class CombinationLibraryNew
 							$this->vitamins[] = '1b';
 
 							$this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'outside', 'skin' ] ) );
-							$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d-alt' ) );
+//							$this->setAdvise( '1b', trans( 'flow.combinations.1.basic-10-d-alt' ) );
 							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 							return;
