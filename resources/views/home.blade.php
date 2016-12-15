@@ -29,15 +29,16 @@
 								<div class="col-md-8">
 									<h1>{!! trans('home.header.title-1') !!}</h1>
 									<p style="font-size: 18px;"><strong>{{ trans('home.header.subtitle') }}</strong></p>
-									<a href="{{ url()->route('flow') }}"
-									   class="button button--rounded button--huge button--landing button--green m-t-30">
-										<strong>{!! trans('home.header.button-click-here') !!}</strong>
-									</a>
 
-									<div class="m-t-20 pricing_item_header m-b-30">
+									<div class="m-t-20 pricing_item_header m-t-30 m-b-30">
 										<strong>{!! trans('home.header.splash.price') !!}</strong>
 										<small class="info">{!! trans('home.header.splash.info') !!}</small>
 									</div>
+
+									<a href="{{ url()->route('flow') }}"
+									   class="button button--rounded button--huge button--landing button--green m-b-30">
+										<strong>{!! trans('home.header.button-click-here') !!}</strong>
+									</a>
 									{{--									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 								</div>
 
