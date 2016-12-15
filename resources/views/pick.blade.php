@@ -140,7 +140,7 @@
 						name: "{!! \App\Apricot\Helpers\PillName::get($vitamin->code) !!}",
 						code: "{!! $vitamin->code !!}",
 						id: "{{ $vitamin->id }}",
-						description: "{!! $vitamin->getInfo() !!}",
+						description: "{!! str_replace ("\n", "", nl2br($vitamin->getInfo())) !!}",
 						type: "{{ $vitamin->type }}",
 						extra_content: "",
 						praises: "{{ ($praises) }}",
