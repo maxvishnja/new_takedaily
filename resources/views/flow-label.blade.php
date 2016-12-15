@@ -41,10 +41,10 @@
 					<a href="#" class="readLessBtn" style="display: none">{{ trans('flow-actions.read-less') }}</a>
 
 					@if($vitamin === '3e')
-						<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3g"
+						<a href="javascript:void(0);" class="m-l-10 button button--small m-l-50 button--light customVitaminButton" data-vitamin="3g"
 						   data-oldvitamin="3e">{{ trans('flow.switch-to-chia') }}</a>
 					@elseif($vitamin === '3g')
-						<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3e"
+						<a href="javascript:void(0);" class="m-l-10 button button--small m-l-50 button--light customVitaminButton" data-vitamin="3e"
 						   data-oldvitamin="3g">{{ trans('flow.switch-to-fish') }}</a>
 					@endif
 				</div>
