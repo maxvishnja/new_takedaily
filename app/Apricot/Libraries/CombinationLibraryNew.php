@@ -411,7 +411,14 @@ class CombinationLibraryNew
 			$this->vitamins[] = '2A';
 
 //			$this->setAdvise( '2A', trans( 'flow.combinations.2.A' ) );
-			$this->setAdvise( '2A', $this->textGenerator->generate( '2A', ['pregnant'], true ) );
+			if( $data->pregnancy->wish == '1')
+			{
+				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.pregnant', ['pregnant'], true ) );
+			}
+			else
+			{
+				$this->setAdvise( '2A', $this->textGenerator->generate( '2A.wish', ['wish'], true ) );
+			}
 			$this->setAdviseInfo( '2A', trans( 'flow.combination_info.2.A' ) );
 
 			return;
