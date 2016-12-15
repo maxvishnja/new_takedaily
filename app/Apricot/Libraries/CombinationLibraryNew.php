@@ -2,9 +2,7 @@
 namespace App\Apricot\Libraries;
 
 
-use App\Combination;
 use App\Vitamin;
-use Illuminate\Database\Eloquent\Builder;
 
 class CombinationLibraryNew
 {
@@ -127,7 +125,7 @@ class CombinationLibraryNew
 			$this->generateGroupThree( $data );
 		}
 
-		if ( count( $this->vitamins ) === 0 )
+		if ( count( $this->vitamins ) < 3 )
 		{
 			$this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
 		}
