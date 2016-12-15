@@ -36,10 +36,10 @@
 									</div>
 
 									<a href="{{ url()->route('flow') }}"
-									   class="button button--rounded button--huge button--landing button--green m-b-30 m-t-10">
+									   class="button button--rounded button--huge button--landing button--green m-b-10 m-t-10">
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
-									{{--									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
+									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a></div>
 								</div>
 
 								<div class="col-md-4">
