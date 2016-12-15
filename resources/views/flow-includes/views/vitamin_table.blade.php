@@ -92,7 +92,7 @@
 
 		<p>{{ trans('label-product.RI') }}</p>
 		<p>{{ trans('label-product.Contains_website') }}</p>
-		<p>{{ trans('label-product.weight') }}</p>
+		<p>{{ trans('label-product.weight') }} {{ trans( "label-{$label}.weight" ) }}</p>
 		<p>{!! trans('label-product.Store_website') !!}</p>
 		<p>{!! trans('label-product.Use_website') !!} </p>
 
