@@ -6,7 +6,7 @@
 		</div>
 
 		<div class="content_section">
-			<strong>
+			<strong class="title">
 				{{ \App\Apricot\Helpers\PillName::get($vitamin) }}
 				<div class="removePillButton pull-right" data-vitamin="{{ $vitamin }}">
 					{{ trans('flow-actions.remove') }}

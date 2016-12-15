@@ -28,7 +28,7 @@
 								</div>
 
 								<div class="content_section">
-									<strong>@{{ vitamin.name }}</strong>
+									<strong class="title">@{{ vitamin.name }}</strong>
 
 									<p v-html="vitamin.description"></p>
 									<div v-html="vitaminPraises(vitamin)"></div>

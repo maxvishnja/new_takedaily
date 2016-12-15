@@ -44,7 +44,7 @@
 			</div>
 
 			<div class="content_section">
-				<strong>
+				<strong class="title">
 					{{ $vitamin->name }}
 				</strong>
 
