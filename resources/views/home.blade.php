@@ -34,7 +34,7 @@
 										<strong>{!! trans('home.header.button-click-here') !!}</strong>
 									</a>
 
-									<div class="m-t-20 pricing_item_header m-b-30 visible-xs">
+									<div class="m-t-20 pricing_item_header m-b-30">
 										<strong>{!! trans('home.header.splash.price') !!}</strong>
 										<small class="info">{!! trans('home.header.splash.info') !!}</small>
 									</div>
@@ -42,25 +42,24 @@
 								</div>
 
 								<div class="col-md-4">
-									<div class="splash_circle pull-right hidden-xs">
-										<strong>{!! trans('home.header.splash.price') !!}</strong>
-										<small class="info">{!! trans('home.header.splash.info') !!}</small>
+									<div class="headervideo-block pull-right text-center" style="margin-bottom: 25px">
+										<div class="video_circle" id="video-toggle-two">
+											<div class="video_circle_content">
+												<span class="icon icon-play"></span>
+												<strong>{{ trans('home.play_video') }}</strong>
+											</div>
+
+											<div class="rings">
+												<div class="ring"></div>
+												<div class="ring"></div>
+												<div class="ring"></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
 
 							<div class="clear"></div>
-							<div class="row">
-								<div class="col-lg-4 col-md-5 col-sm-6">
-									<div class="text-center">
-										<div class="headervideo-block" style="margin-bottom: 25px">
-											{{--<strong>{{ trans('home.header.what-is') }}</strong>--}}
-											<span id="video-toggle-two" class="icon icon-play"></span>
-											<strong>{{ trans('home.play_video') }}</strong>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
