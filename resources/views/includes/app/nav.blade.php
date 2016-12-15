@@ -5,7 +5,7 @@
 			<li class="cta"><a href="/flow">{{ trans('nav.cta') }}</a></li>
 		@endif
 		@foreach(\App\Apricot\Helpers\NavGenerator::generate(App::getLocale()) as $item)
-			<li><a href="/{{ $item['link'] }}">{{ $item['text'] }}</a></li>
+			<li @if(URL::getRequest()->path() === $item['link']) class="cta" @endif><a href="/{{ $item['link'] }}">{{ $item['text'] }}</a></li>
 		@endforeach
 
 		@if(Auth::guest() || Auth::user()->isUser())
