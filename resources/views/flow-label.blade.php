@@ -1,7 +1,9 @@
 @if(count($combinations) === 0)
-	<p>
-		{!! $descriptions['none'] !!}
-	</p>
+	<div style="border: 1px solid #ddd; background: #fafafa; padding: 20px">
+		<p style="margin: 0; font-size: 18px">
+			{!! $descriptions['none'] !!}
+		</p>
+	</div>
 @else
 	@foreach($combinations as $vitamin)
 		<div class="new_vitamin_item">
@@ -43,8 +45,9 @@
 
 				<div class="extra_content">
 					<div class="m-t-30 m-b-10">
-							<a href="#" class="pull-left button button--small button--white button--text-green readMoreBtn">{{ trans('flow-actions.read-more') }}</a>
-							<a href="#" class="pull-left button button--small button--white button--text-green readLessBtn" style="display: none">{{ trans('flow-actions.read-less') }}</a>
+						<a href="#" class="pull-left button button--small button--white button--text-green readMoreBtn">{{ trans('flow-actions.read-more') }}</a>
+						<a href="#" class="pull-left button button--small button--white button--text-green readLessBtn"
+						   style="display: none">{{ trans('flow-actions.read-less') }}</a>
 						<div class="pull-right">
 							@if($vitamin === '3e')
 								<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3g"
