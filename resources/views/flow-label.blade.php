@@ -15,7 +15,7 @@
 
 			@if(isset($descriptions[$vitamin])) <p>{!! $descriptions[$vitamin] !!}</p>@endif
 
-			@if(isset($advises[$vitamin]) && $advises[$vitamin] !== '' && $advises[$vitamin] !== '&nbsp;')
+			@if(isset($advises[$vitamin]) && $advises[$vitamin] !== '' && $advises[$vitamin] !== '&nbsp;' && $vitamin !== '2a' && $vitamin !== '2A')
 				<p>
 					{!! $advises[$vitamin] !!}
 				</p>
