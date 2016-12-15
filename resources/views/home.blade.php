@@ -42,7 +42,7 @@
 								</div>
 
 								<div class="col-md-4">
-									<div class="headervideo-block pull-right text-center" style="margin-bottom: 25px">
+									<div class="headervideo-block" style="margin-bottom: 25px">
 										<div class="video_circle" id="video-toggle-two">
 											<div class="video_circle_content">
 												<span class="icon icon-play"></span>
