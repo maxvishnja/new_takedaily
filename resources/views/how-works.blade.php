@@ -20,7 +20,7 @@
 								<span class="icon icon-play"></span>
 							</div>
 						</div>
-							<strong>{{ trans('home.play_video') }}</strong>
+						<div class="m-t-10"><strong>{{ trans('home.play_video') }}</strong></div>
 					</div>
 				</div>
 			</div>
