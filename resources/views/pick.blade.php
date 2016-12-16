@@ -13,10 +13,14 @@
 			<div class="clear"></div>
 		@endif
 
-		<div class="text-center">
-			<h1>{{ trans('pick.title') }}</h1>
-			<p>{!! trans('pick.text-above') !!}</p>
+		<div class="col-md-9">
+			<div class="text-center m-t-30">
+				<h1>{{ trans('pick.title') }}</h1>
+				<p>{!! trans('pick.text-above') !!}</p>
+			</div>
 		</div>
+
+		<div class="clear"></div>
 
 		<div class="col-md-9">
 			<div class="row" v-cloak="">
