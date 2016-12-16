@@ -13,7 +13,7 @@
 				</div>
 			</strong>
 
-			@if(isset($descriptions[$vitamin])) <p>{!! $descriptions[$vitamin] !!}</p>@endif
+			@if(isset($descriptions[$vitamin])) <p>{!! nl2br($descriptions[$vitamin]) !!}</p>@endif
 
 			@if(isset($advises[$vitamin]) && $advises[$vitamin] !== '' && $advises[$vitamin] !== '&nbsp;' && $vitamin !== '2a' && $vitamin !== '2A')
 				<p>
@@ -55,7 +55,7 @@
 				</div>
 
 				<div class="description">
-					@if(trans('label-' . strtolower($vitamin) . '.web_description') != 'label-' . strtolower($vitamin) . '.web_description')
+					@if(trans('label-' . strtolower($vitamin) . '.web_description') != 'label-' . strtolower($vitamin) . '.web_description' && $vitamin !== '2a' && $vitamin !== '2A')
 						<p>{!! nl2br(trans('label-' . strtolower($vitamin) . '.web_description')) !!}</p>
 					@endif
 
