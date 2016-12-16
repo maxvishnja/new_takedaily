@@ -137,6 +137,9 @@
 				</div>
 			</aside>
 		</div>
+
+		<div class="clear"></div>
+		@include('flow-includes.views.help')
 	</div>
 @endsection
 
