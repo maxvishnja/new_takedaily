@@ -26,7 +26,7 @@
 					<div class="header_slide" data-slide="2">
 						<div class="container">
 							<div class="row">
-								<div class="col-md-8">
+								<div class="col-md-9">
 									<h1>{!! trans('home.header.title-1') !!}</h1>
 									<p style="font-size: 18px;"><strong>{{ trans('home.header.subtitle') }}</strong></p>
 
@@ -35,23 +35,29 @@
 										<small class="info">{!! trans('home.header.splash.info') !!}</small>
 									</div>
 
-									<a href="{{ url()->route('flow') }}"
-									   class="button button--rounded button--huge button--landing button--green m-b-10 m-t-10">
-										<strong>{!! trans('home.header.button-click-here') !!}</strong>
-									</a>
-									<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a></div>
-								</div>
+									<div class="m-t-10">
+										<div class="pull-left">
+											<a href="{{ url()->route('flow') }}"
+											   class="button button--rounded button--huge button--landing button--green m-b-10">
+												<strong>{!! trans('home.header.button-click-here') !!}</strong>
+											</a>
+											<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a></div>
+										</div>
 
-								<div class="col-md-4">
-									<div class="headervideo-block m-r-20">
-{{--										<div class="m-b-10" style="font-size: 16px; font-weight: bold;">{{ trans('home.header.what-is') }}</div>--}}
-										<div class="video_circle" id="video-toggle-two">
-											<div class="video_circle_content">
-												<span class="icon icon-play"></span>
+										<div class="pull-left">
+											<div class="headervideo-block m-l-20">
+												<div class="video_circle" id="video-toggle-two">
+													<div class="video_circle_content">
+														<span class="icon icon-play"></span>
+													</div>
+												</div>
+												<strong>{{ trans('home.header.what-is') }}</strong>
 											</div>
 										</div>
-										<strong>{{ trans('home.header.what-is') }}</strong>
+										<div class="clear"></div>
 									</div>
+
+									<div class="clear"></div>
 								</div>
 							</div>
 
