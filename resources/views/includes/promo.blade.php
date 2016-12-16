@@ -8,7 +8,7 @@
 
 	<div class="m-b-20" style="margin-top: -20px">
 		<h4>{{ trans('promo.advantages') }}</h4>
-		<ul>
+		<ul style="line-height: 2">
 			@if(trans('promo.custom-fit') != '')
 				<li><span class="icon icon-check"></span> {{ trans('promo.custom-fit') }}</li>
 			@endif
