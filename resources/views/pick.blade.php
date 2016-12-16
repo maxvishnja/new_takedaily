@@ -128,12 +128,12 @@
 				</div>
 
 				<div class="card card--no-style" style="margin: 0">
-					<p class="m-b-40">{!! trans('pick.below_cart') !!}</p>
-					<div class="m-t-50 m-b-40" v-show="numSelectedVitamins !== 0">
+					<p class="m-b-10">{!! trans('pick.below_cart') !!}</p>
+					<div class="m-b-40" v-show="numSelectedVitamins !== 0">
 						{!! trans('checkout.index.disclaimer') !!}
 					</div>
 
-					@include('includes.promo')
+					<div class="m-t-40">@include('includes.promo')</div>
 				</div>
 			</aside>
 		</div>
