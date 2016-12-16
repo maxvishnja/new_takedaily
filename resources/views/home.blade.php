@@ -47,7 +47,7 @@
 										<div class="clear visible-xs"></div>
 
 										<div class="pull-left pull-left-n-mobile">
-											<div class="headervideo-block m-l-20">
+											<div class="headervideo-block m-l-35">
 												<div class="video_circle" id="video-toggle-two">
 													<div class="video_circle_content">
 														<span class="icon icon-play"></span>
