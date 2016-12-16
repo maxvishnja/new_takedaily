@@ -44,7 +44,9 @@
 											<div class="or-pick-mix-link-container"><a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a></div>
 										</div>
 
-										<div class="pull-left">
+										<div class="clear visible-xs"></div>
+
+										<div class="pull-left pull-left-n-mobile">
 											<div class="headervideo-block m-l-20">
 												<div class="video_circle" id="video-toggle-two">
 													<div class="video_circle_content">
