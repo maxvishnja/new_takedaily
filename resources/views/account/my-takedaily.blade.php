@@ -11,7 +11,8 @@
 				<h2 class="card_title">{{ trans('account.settings_subscription.new-recommendation.title') }}</h2>
 				<hr>
 				<p>{{ trans('account.settings_subscription.new-recommendation.text') }}</p>
-				<a href="{{ URL::action('AccountController@updateVitamins') }}" class="button button--green button--large">{{ trans('account.settings_subscription.new-recommendation.btn') }}</a>
+				<a href="{{ URL::action('AccountController@updateVitamins') }}"
+				   class="button button--green button--large">{{ trans('account.settings_subscription.new-recommendation.btn') }}</a>
 			</div>
 		</div>
 	@endif
@@ -63,7 +64,7 @@
 						@endif
 
 						@if(trans('label-' . strtolower($vitamin->code) . '.foot_note_disclaimer') != 'label-' . strtolower($vitamin->code) . '.foot_note_disclaimer')
-							<small>
+							<small class="m-t-15">
 								{!! trans('label-' . strtolower($vitamin->code) . '.foot_note_disclaimer') !!}
 							</small>
 						@endif
@@ -99,9 +100,13 @@
 				<tr>
 					<td data-th="#">#{{ $order->getPaddedId() }}</td>
 					<td data-th="{{ trans('account.transactions.table.date') }}">{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
-					<td data-th="{{ trans('account.transactions.table.amount') }}"><strong>{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true), 'currency' => $order->currency]) }}</strong></td>
-					<td data-th="{{ trans('account.transactions.table.status') }}"><span class="state-label state-label--{{ $order->state  }}">{{ trans("order.state.{$order->state}") }}</span></td>
-					<td data-th="&nbsp;"><a href="{{URL::action('AccountController@getTransaction', [ 'id' => $order->id ]) }}" class="button button--small button--rounded button--grey">{{ trans('account.transactions.button-show-text') }}</a></td>
+					<td data-th="{{ trans('account.transactions.table.amount') }}">
+						<strong>{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true), 'currency' => $order->currency]) }}</strong>
+					</td>
+					<td data-th="{{ trans('account.transactions.table.status') }}"><span
+							class="state-label state-label--{{ $order->state  }}">{{ trans("order.state.{$order->state}") }}</span></td>
+					<td data-th="&nbsp;"><a href="{{URL::action('AccountController@getTransaction', [ 'id' => $order->id ]) }}"
+											class="button button--small button--rounded button--grey">{{ trans('account.transactions.button-show-text') }}</a></td>
 				</tr>
 			@endforeach
 			</tbody>
@@ -112,7 +117,7 @@
 @section('footer_scripts')
 	<script>
 
-		$('.readMoreBtn').click(function(e){
+		$('.readMoreBtn').click(function (e) {
 			e.preventDefault();
 
 			$(this).hide();
@@ -120,7 +125,7 @@
 			$(this).parent().parent().find('.description').stop().slideToggle(200);
 		});
 
-		$('.readLessBtn').click(function(e){
+		$('.readLessBtn').click(function (e) {
 			e.preventDefault();
 
 			$(this).hide();

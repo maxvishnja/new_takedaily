@@ -9,7 +9,7 @@
 	</div>
 
 	@if(trans('label-' . strtolower($vitamin) . '.foot_note_disclaimer') != 'label-' . strtolower($vitamin) . '.foot_note_disclaimer')
-		<small>
+		<small class="m-t-15">
 			{!! trans('label-' . strtolower($vitamin) . '.foot_note_disclaimer') !!}
 		</small>
 	@endif

@@ -32,7 +32,7 @@
 	@else
 		<div class="m-t-20 m-b-30">
 			<a href="{{ URL::action('AccountController@getSettingsSubscriptionRestart') }}"
-		   	class="button button--large button--green button--rounded">{{ trans('account.settings_subscription.button-start-text') }}</a>
+			   class="button button--large button--green button--rounded">{{ trans('account.settings_subscription.button-start-text') }}</a>
 		</div>
 	@endif
 
@@ -78,7 +78,7 @@
 						@endif
 
 						@if(trans('label-' . strtolower($vitamin->code) . '.foot_note_disclaimer') != 'label-' . strtolower($vitamin->code) . '.foot_note_disclaimer')
-							<small>
+							<small class="m-t-15">
 								{!! trans('label-' . strtolower($vitamin->code) . '.foot_note_disclaimer') !!}
 							</small>
 						@endif
@@ -123,7 +123,7 @@
 			});
 		});
 
-		$('.readMoreBtn').click(function(e){
+		$('.readMoreBtn').click(function (e) {
 			e.preventDefault();
 
 			$(this).hide();
@@ -131,7 +131,7 @@
 			$(this).parent().parent().find('.description').stop().slideToggle(200);
 		});
 
-		$('.readLessBtn').click(function(e){
+		$('.readLessBtn').click(function (e) {
 			e.preventDefault();
 
 			$(this).hide();
