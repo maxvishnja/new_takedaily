@@ -14,9 +14,9 @@
 			<div class="row">
 				<div class="col-md-6 col-md-push-3 text-left">
 					{{--<h2>{!! trans('how-works.subtitle') !!}</h2>--}}
-					<div class="headervideo-block text-center">
+					<div class="headervideo-block text-center" id="video-toggle">
 						<div class="m-b-10" style="font-size: 16px; font-weight: bold;">{{ trans('home.header.what-is') }}</div>
-						<div class="video_circle" id="video-toggle">
+						<div class="video_circle">
 							<div class="video_circle_content">
 								<span class="icon icon-play"></span>
 							</div>
