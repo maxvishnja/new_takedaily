@@ -47,9 +47,9 @@
 										<div class="video_circle" id="video-toggle-two">
 											<div class="video_circle_content">
 												<span class="icon icon-play"></span>
-												<strong>{{ trans('home.play_video') }}</strong>
 											</div>
 										</div>
+										<strong>{{ trans('home.play_video') }}</strong>
 									</div>
 								</div>
 							</div>
