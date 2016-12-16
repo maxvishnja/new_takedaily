@@ -381,6 +381,7 @@
 		});
 
 		app.setCart();
+		app.getCart();
 		app.loadAllDescriptions();
 	</script>
 	<script>
