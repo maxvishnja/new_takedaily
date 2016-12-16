@@ -128,7 +128,7 @@
 				</div>
 
 				<div class="card card--no-style" style="margin: 0">
-					<p class="m-b-10">{!! trans('pick.below_cart') !!}</p>
+					<p class="m-b-10"><strong>{!! trans('pick.below_cart') !!}</strong></p>
 					<div class="m-b-40" v-show="numSelectedVitamins !== 0">
 						{!! trans('checkout.index.disclaimer') !!}
 					</div>
