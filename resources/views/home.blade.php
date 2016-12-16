@@ -44,6 +44,7 @@
 
 								<div class="col-md-4">
 									<div class="headervideo-block m-r-20">
+										<div class="m-b-10" style="font-size: 16px; font-weight: bold;">{{ trans('home.header.what-is') }}</div>
 										<div class="video_circle" id="video-toggle-two">
 											<div class="video_circle_content">
 												<span class="icon icon-play"></span>
