@@ -13,7 +13,10 @@
 			<div class="clear"></div>
 		@endif
 
-		<p>{!! trans('pick.text-above') !!}</p>
+		<div class="text-center">
+			<h1>{{ trans('pick.title') }}</h1>
+			<p>{!! trans('pick.text-above') !!}</p>
+		</div>
 
 		<div class="col-md-9">
 			<div class="row" v-cloak="">
@@ -41,16 +44,21 @@
 											<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--light pull-right"
 											   v-show="vitamin.isSelected">
 												{{ trans('flow-actions.remove') }}
-												<span v-show="numSelectedVitamins >= 3">({{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin') * -1)) ]) }})</span>
+												<span
+													v-show="numSelectedVitamins >= 3">({{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin') * -1)) ]) }}
+													)</span>
 											</a>
 											<a href="javascript:void(0);" v-on:click="toggleVitamin(vitamin, $event)" class="button button--green pull-right"
 											   v-show="!vitamin.isSelected" v-bind:class="{ 'faded': numSelectedVitamins >= 4 }">
 												{{ trans('flow-actions.select') }}
-												<span v-show="numSelectedVitamins >= 2">(+{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin'))) ]) }})</span>
+												<span
+													v-show="numSelectedVitamins >= 2">(+{{ trans('general.money', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat((\App\Apricot\Checkout\ProductPriceGetter::getPrice('vitamin'))) ]) }}
+													)</span>
 											</a>
 
 											<a href="javascript:void(0);" class="readMoreBtn" v-on:click="readMore(vitamin, $event);">{{ trans('flow-actions.read-more') }}</a>
-											<a href="javascript:void(0);" class="readLessBtn" style="display: none;" v-on:click="readLess(vitamin, $event);">{{ trans('flow-actions.read-less') }}</a>
+											<a href="javascript:void(0);" class="readLessBtn" style="display: none;"
+											   v-on:click="readLess(vitamin, $event);">{{ trans('flow-actions.read-less') }}</a>
 										</div>
 
 										<div class="clear"></div>
@@ -378,7 +386,7 @@
 		$(window).on('resize load', function () {
 			if ($(window).width() >= 992) {
 				if (!isSticked) {
-					$("#sticky").sticky({topSpacing: 109, bottomSpacing: 500 });
+					$("#sticky").sticky({topSpacing: 109, bottomSpacing: 500});
 					isSticked = true;
 				}
 			}
