@@ -3,6 +3,8 @@
 		<div><strong>{!! trans("flow.ingredients") !!}</strong></div>
 		<div class="m-b-10">{!! strip_tags(trans('label-product.recommended-daily-use')) !!}</div>
 
+		<p>{{ trans('label-product.RI') }}</p>
+
 		@if(is_array(trans("label-{$label}.first-vitamins")) && count(trans("label-{$label}.first-vitamins")) > 0)
 			<table style="width: 100%;">
 				<thead>
@@ -89,11 +91,11 @@
 			</table>
 		@endif
 
-		<p>{{ trans('label-product.RI') }}</p>
+
 		<p>{{ trans('label-product.Contains_website') }}</p>
 		<p>{{ trans('label-product.weight') }} {{ trans( "label-{$label}.weight" ) }}</p>
-		<p>{!! trans('label-product.Store_website') !!}</p>
 		<p>{!! trans('label-product.Use_website') !!} </p>
+		<p>{!! trans('label-product.Store_website') !!}</p>
 
 		<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {!! trans("label-{$label}.ingredients") !!}</p>
 
