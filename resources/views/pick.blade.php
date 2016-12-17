@@ -31,7 +31,7 @@
 
 					<div class="pick-n-mix-flex">
 						<div v-for="vitamin in vitaminsInGroup(group)" class="flex-vitamin">
-							<div class="new_vitamin_item" v-bind:class="{ 'faded': (vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) }">
+							<div class="new_vitamin_item" v-bind:class="{ 'faded': ((vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) || (vitamin.type == 'oil' && hasOilVitamin && !vitamin.isSelected) || (vitamin.type == 'diet' && hasDietVitamin && !vitamin.isSelected) || (vitamin.type == 'lifestyle' && hasLifestyleVitamin && !vitamin.isSelected) ) }">
 
 								<div class="pill_section">
 									<span class="icon pill-@{{ vitamin.code.toLowerCase() }}"></span>
@@ -208,6 +208,21 @@
 							return vitamin.type == "multi";
 						}).length >= 1;
 				},
+				hasLifestyleVitamin: function () {
+					return this.selectedVitamins.filter(function (vitamin) {
+							return vitamin.type == "lifestyle";
+						}).length >= 1;
+				},
+				hasOilVitamin: function () {
+					return this.selectedVitamins.filter(function (vitamin) {
+							return vitamin.type == "oil";
+						}).length >= 1;
+				},
+				hasDietVitamin: function () {
+					return this.selectedVitamins.filter(function (vitamin) {
+							return vitamin.type == "diet";
+						}).length >= 1;
+				},
 				total_subscription: function () {
 					return this.total_sum;
 				},
@@ -346,6 +361,20 @@
 						return false;
 					}
 
+					if(vitamin.type == 'oil' && this.hasOilVitamin)
+					{
+						return false;
+					}
+
+					if(vitamin.type == 'diet' && this.hasDietVitamin)
+					{
+						return false;
+					}
+
+					if(vitamin.type == 'lifestyle' && this.hasLifestyleVitamin)
+					{
+						return false;
+					}
 
 					vitamin.isSelected = true;
 
