@@ -13,7 +13,7 @@ return array (
     'one' => 
     array (
       'title' => '1. Kies je Healthy Gift',
-      'text' => 'Kies het aantal weken (4,12 of 24) dat je TakeDaily cadeau wilt geven.',
+      'text' => 'Kies het aantal weken (4, 12 of 24) dat je TakeDaily cadeau wilt geven.',
     ),
     'two' => 
     array (
@@ -23,7 +23,7 @@ return array (
     'three' => 
     array (
       'title' => '3. Geef je Healthy Gift cadeau',
-      'text' => 'Print de cadeaubon en maak iemand blij met een Healthy Gift',
+      'text' => 'Print de cadeaubon en maak iemand blij met een Healthy Gift.',
     ),
   ),
 );

@@ -66,7 +66,7 @@ return array (
   'above_claims' => 'I Don\'t Eat Carbs er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre)) og indeholder mineralerne jod og jern. Tillægget har til formål at supplere multivitamin',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',

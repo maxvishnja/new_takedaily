@@ -172,7 +172,7 @@ Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og bidragert
   'above_claims' => 'Multi Vitamin D+ Extra danner grundlag for dine personlige multivitamin- og mineraltabletter. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 20 mikrogram D-vitamin.',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',

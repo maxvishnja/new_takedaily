@@ -56,7 +56,7 @@ return array (
   'above_claims' => 'Shape Me Up er et kosttilskud specielt til personer, der følger en diæt.',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',

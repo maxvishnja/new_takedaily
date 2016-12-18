@@ -32,7 +32,7 @@ return array (
     ),
   ),
   'name' => 'Supplement voor de spieren, botten & kraakbeen',
-  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, calciumcitraat 4-hydraat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E110)), dikaliumfosfaat, L-ascorbinezuur, calciumcarbonaat, antiklontermiddel (magnesiumstearaat), mangaangluconaat, cholecalciferol',
+  'ingredients' => 'Magnesiumhydroxide DC 10% zetmeel, calciumcitraat 4-hydraat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, zonnegeel FCF)), dikaliumfosfaat, L-ascorbinezuur, calciumcarbonaat, antiklontermiddel (magnesiumstearaat), mangaangluconaat, cholecalciferol',
   'praises' => 
   array (
     'bone' => 'Vitamine C, D, magnesium en mangaan dragen bij aan de instandhouding van sterke botten',
@@ -45,4 +45,10 @@ return array (
   'web_description' => 'Bone & Muscle is een supplement ter aanvulling van jouw Multi en bevat vitamines en mineralen die een rol spelen bij het behouden van sterke botten en soepele spieren (vitamine C, D en magnesium en mangaan).<P>Vitamine D en magnesium dragen bij tot een normale werking van de spieren. Vitamine D, magnesium en mangaan dragen bij aan de instandhouding van sterke botten en vitamine C is belangrijk voor het kraakbeen.</P>',
   'weight' => '28 gram',
   'above_claims' => 'Bone & Muscle is een supplement ter aanvulling van jouw Multi en bevat vitamines en mineralen die een rol spelen bij het behouden van sterke botten en soepele spieren (vitamine C, D en magnesium en mangaan).',
+  'web_advantage_list' => '<ul>
+<li>Plantaardige capsule</li>
+<li>Gluten- en lactosevrij</li>
+<li>Zonder conserveermiddelen</li>
+<li>Zonder geur- en smaakstoffen</li>
+</ul>',
 );

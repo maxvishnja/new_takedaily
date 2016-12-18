@@ -28,26 +28,18 @@ return array (
   array (
     'pregnant' => 
     array (
-      'main' => 'Du er gravid. Tillykke! I den søde ventetid, sørger TakeDaily for, at du og din baby får de særlige tilskud, I har brug for.
-							<br/><br/>
-							Gennem hele graviditeten er det godt for udviklingen af babyens knogler og muskler at tage et tilskud af D-vitamin.
-							<br/><br/>
-							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin), allerede når du begynder at drømme om en baby. Du skal tage folsyre
-							helt fra graviditetens begyndelse, da det har betydning for celledelingen og arvematerialet i kroppens celler. Folsyre nedsætter
-							risikoen for alvorlige medfødte misdannelser af hjerne og rygmarv (neuralrørsdefekter).
-							<br/><br/>
-							Folinsyre i en yderligere indtagelse af 400 mikrogram per dag i mindst en kurv og i op til 3 måneder efter undfangelsen.',
+      'main' => 'Tillykke med din graviditet! Når du er gravid, er behovet for de fleste vitaminer og mineraler lidt større end normalt. Det gælder især folsyre, D-vitamin og jern.
+
+Mom & Baby indeholder 400 mcg folinsyre og 10 mcg af vitamin D. Sundhedsstyrelsen anbefaler at du supplerer med 400 mcg folinsyre fra det øjeblik, du planlægger at blive gravid til 12 uger ind i graviditeten. Folinsyre kan dog også med fordel tages gennem hele graviditeten. Folinsyre spiller en vigtig rolle i den tidlige udvikling af det ufødte barn og nedsætter risikoen for misdannelser af hjerne og rygmarv (neuralrørsdefekt).
+
+Mom & Baby indeholder 10 mcg D-vitamin. Sundhedsstyrelsen anbefaler at du som gravid har et dagligt indtag på 10 mcg D-vitamin, da vitaminet spiller en vigtig rolle i udviklingen af dit barn.
+',
     ),
     'wish' => 
     array (
-      'main' => 'Du ønsker at blive gravid!
-							<br/><br/>
-							Vi håber, du snart får dit ønske om en baby opfyldt. Mens du prøver at blive gravid, har din krop brug for særlige vitaminer og
-							mineraler. Det sørger TakeDaily for.
-							<br/><br/>
-							Sundhedsstyrelsen anbefaler, at du tager folsyre (B9-vitamin), allerede når du begynder at drømme om en baby. Du skal tage folsyre
-							helt fra graviditetens begyndelse, da det har betydning for celledelingen og arvematerialet i kroppens celler. Folsyre nedsætter
-							risikoen for alvorlige medfødte misdannelser af hjerne og rygmarv (neuralrørsdefekter).',
+      'main' => 'Du skal have Mom & Baby fordi du ønsker at blive gravid. 
+
+Mom & Baby er et kosttilskud specialfremstillet til kvinder, der er gravide, eller ønsker at blive det. Det indeholder vigtige tilskud af folsyre samt D-vitamin og anbefales allerede inden du er blevet gravid.',
     ),
   ),
   '2b' => 

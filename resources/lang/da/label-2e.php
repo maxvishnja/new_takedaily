@@ -48,7 +48,7 @@ return array (
   'above_claims' => 'Bone & Muscle er et supplement til at supplere vores multivitaminer og indeholder vitaminer og mineraler, der spiller en rolle i opretholdelsen af ​​stærke knogler og glatte muskler (vitamin C, D og magnesium og mangan).',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',

@@ -15,15 +15,15 @@ return array (
   ),
   'mail' => 
   array (
-    'subject' => 'Ordrebekræftelse fra TakeDaily',
+    'subject' => 'Ordrebekræftelse og TakeDaily til dig',
     'subject-subscription' => 'Vi har trukket penge for dit medlemskab hos TakeDaily.',
-    'subject-subscription-failed' => 'Vi kunne ikke trække penge for dit medlemskab!',
+    'subject-subscription-failed' => 'Vi kunne ikke trække penge for dit TakeDaily medlemskab!',
   ),
   'success' => 
   array (
     'page-title' => 'Din ordre blev godkendt! - TakeDaily',
-    'title' => 'Din ordre blev oprettet',
-    'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Tak for dit køb!',
+    'title' => 'Din ordre er blevet oprettet!',
+    'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Vi forventer at levere din skræddersyet TakeDaily i din postkasse indenfor 4-5 hverdage. Tak for dit køb!',
     'button-text' => 'Gå til dit TakeDaily',
     'giftcard' => 
     array (
@@ -106,7 +106,7 @@ return array (
       'input-placeholder' => 'Indtast rabatkode',
       'button-text' => 'Anvend',
     ),
-    'disclaimer' => '<p class="checkout_description">Du vil blive trukket <span v-show="price === total_subscription">{{ total_subscription }} DKK</span><strong v-show="price !== total_subscription">{{ total_subscription }} DKK</strong> på dit kort hver 4 uge. Du kan både udskyde næste levering, sætte på pause, eller opsige dit medlemskab til enhver tid. Dog senest 5 dage inden næste afsendelsesdato.</p>',
+    'disclaimer' => '<p class="checkout_description">Du vil blive trukket <span v-show="price === total_subscription">{{ total_subscription }} DKK</span><span v-show="price !== total_subscription">{{ total_subscription }} DKK</span> på dit kort hver 4 uge. Du kan både udskyde næste levering, sætte på pause, eller opsige dit medlemskab til enhver tid. Dog senest 5 dage inden næste afsendelsesdato.</p>',
     'method' => 
     array (
       'title' => 'Vælg betalingsmetode',

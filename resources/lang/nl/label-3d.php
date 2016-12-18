@@ -45,4 +45,10 @@ return array (
   'web_description' => '\'I\'m Vegetarian/Vegan\' is een aanvulling op onze multivitamine speciaal voor vegetariërs, veganisten en mensen die geen vlees eten. Het supplement bevat onder ander vitamine B12 en ijzer; voedingsstoffen die in een vegetarische en veganistische voeding vaak niet voldoende aanwezig zijn.',
   'weight' => '14 gram',
   'above_claims' => '\'I\'m Vegetarian/Vegan\' is een aanvulling op onze multivitamine speciaal voor vegetariërs, veganisten en mensen die geen vlees eten.',
+  'web_advantage_list' => '<ul>
+<li>Plantaardige capsule</li>
+<li>Gluten- en lactosevrij</li>
+<li>Zonder conserveermiddelen</li>
+<li>Zonder kleur-, geur- en smaakstoffen</li>
+</ul>',
 );

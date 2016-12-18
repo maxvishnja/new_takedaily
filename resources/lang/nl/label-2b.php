@@ -40,7 +40,7 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E132)), antiklontermiddel (magnesiumstearaat), retinylacetaat, cyanocobalamine, fytomenadion, pyridoxaal-5-fosfaat, thiaminehydrochloride',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, indigotine)), antiklontermiddel (magnesiumstearaat), retinylacetaat, cyanocobalamine, fytomenadion, pyridoxaal-5-fosfaat, thiaminehydrochloride',
   'praises' => 
   array (
     'shield' => 'Vitamine A en C ondersteunen het immuunsysteem',
@@ -54,4 +54,10 @@ return array (
   'web_description' => 'Shape Me Up is een voedingssupplement speciaal voor mensen die een afvaldieet volgen. Als je aan het lijnen bent is het mogelijk dat je minder vitamines en mineralen binnenkrijgt dan jouw lichaam nodig heeft. Shape me up bevat extra vitamine A, B1, B6, B12, C en K. Het helpt je om als aanvulling op de dagelijkse voeding de voedingsstoffen binnen te krijgen die je nodig hebt.',
   'weight' => '12,6 gram',
   'above_claims' => 'Shape Me Up is een voedingssupplement speciaal voor mensen die een afvaldieet volgen.',
+  'web_advantage_list' => '<ul>
+<li>Plantaardige capsule</li>
+<li>Gluten- en lactosevrij</li>
+<li>Zonder conserveermiddelen</li>
+<li>Zonder geur- en smaakstoffen</li>
+</ul>',
 );

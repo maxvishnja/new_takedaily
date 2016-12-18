@@ -3,7 +3,7 @@
 return array (
   'title' => 'Gavekort',
   'title-element' => 'Gavekort',
-  'subtitle' => 'Giv TakeDaily i gave ',
+  'subtitle' => 'Giv en sund gave til én du holder af!',
   'select' => 'Vælg',
   'giftcard_1' => 'Gavekort til 4 uger (1 mdr.)',
   'giftcard_3' => 'Gavekort til 12 uger (3 mdr.)',

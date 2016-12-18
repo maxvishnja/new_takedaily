@@ -38,7 +38,7 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse groente- en fruitinname',
-  'ingredients' => 'Kaliumwaterstoffosfaat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat), bèta-caroteen, pteroymonoglutaminezuur',
+  'ingredients' => 'Kaliumwaterstoffosfaat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, kopercomplexen van chlorofylen en chlorofylinen)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat), bèta-caroteen, pteroymonoglutaminezuur',
   'praises' => 
   array (
     'heart' => 'Vitamine C is belangrijk voor de bloedvaten',
@@ -51,4 +51,10 @@ return array (
   'web_description' => '\'I\'m not a veggie fan\' bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement is een aanvulling op jouw Multi.',
   'weight' => '29,4 gram',
   'above_claims' => '\'I\'m not a veggie fan\' bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement dient ter aanvulling op de multivitamine',
+  'web_advantage_list' => '<ul>
+<li>Plantaardige capsule</li>
+<li>Gluten- en lactosevrij</li>
+<li>Zonder conserveermiddelen</li>
+<li>Zonder geur- en smaakstoffen</li>
+</ul>',
 );

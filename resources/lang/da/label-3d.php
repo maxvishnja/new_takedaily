@@ -49,7 +49,7 @@ return array (
 supplerer med vores multivitamin som er specielt egnet  for vegetarer, veganere og folk, der ikke spiser kød.',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',

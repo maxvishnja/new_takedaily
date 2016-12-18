@@ -54,7 +54,7 @@ return array (
   'above_claims' => 'I\'m Not a Veggie Lover indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tillægget har til formål at supplere multivitamin.',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',

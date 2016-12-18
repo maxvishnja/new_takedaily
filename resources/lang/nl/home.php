@@ -16,7 +16,7 @@ return array (
     'what-is' => 'Wat is TakeDaily?',
     'pick' => 'Of stel je liever je eigen pakket samen?',
     'cta' => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>',
-    'subtitle' => 'Als je header.subtitle zoekt in translation manager kan je deze text veranderen/vertalen',
+    'subtitle' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de<br/>vitamines, mineralen omega-3 die aansluiten op jouw persoonlijke behoefte!',
   ),
   'blocks' => 
   array (
@@ -137,8 +137,8 @@ return array (
 
 <a href="/our-products" class="button button--rounded button--medium button--green m-t-30">Meer informatie</a>',
       'title' => 'TakeDaily supplementen',
-      'below_image' => 'Jouw supplementen worden verpakt in handige dagelijkse porties',
+      'below_image' => 'Jouw supplementen verpakt in handige dagelijkse porties',
     ),
   ),
-  'play_video' => 'Play video',
+  'play_video' => 'Play',
 );

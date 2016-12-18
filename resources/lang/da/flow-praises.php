@@ -90,6 +90,6 @@ return array (
   ),
   '3g' => 
   array (
-    'blood' => 'Bidrager til opretholdelsen af normale blodkolesterolniveauer',
+    'blood' => 'Bidrager til opretholdelsen af normale blodkolesterolniveauer*',
   ),
 );
