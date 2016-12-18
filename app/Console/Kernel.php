@@ -59,7 +59,13 @@ class Kernel extends ConsoleKernel
 		$schedule->command('mailflow:send')
 		         ->everyTenMinutes();
 
-		$schedule->command('backup:run')
+		$schedule->command('clearold:flows')
 		         ->dailyAt('00:00');
+
+		$schedule->command('clearold:carts')
+		         ->dailyAt('00:20');
+
+		$schedule->command('backup:run')
+		         ->dailyAt('01:00');
 	}
 }
