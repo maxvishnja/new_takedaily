@@ -61,11 +61,17 @@ return array (
     'shield' => 'Vitamine A, B6, foliumzuur, B12, C, D en de mineralen seleen en zink dragen bij aan een normale werking van het immuunsysteem',
     'shield-cell' => 'Vitamine C, seleen en zink helpen lichaamscellen te beschermen tegen invloeden van buitenaf',
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E171, E110, E127)), zinkgluconaat, L-selenomethionine, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol, cyanocobalamine, pyridoxaal-5-fosfaat, pteroymonoglutaminezuur',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, zonnegeel FCF, erytrosine)), zinkgluconaat, L-selenomethionine, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol, cyanocobalamine, pyridoxaal-5-fosfaat, pteroymonoglutaminezuur',
   'end_date' => '09/2019',
   'batch_number' => '1916',
   'Vit and Min' => 'Vitamines en Mineralen',
   'web_description' => 'De Immune Booster is een supplement ter aanvulling van onze Multi en is rijk aan vitamines en mineralen die de weerstand ondersteunen (vitamine A, B6, B11 (foliumzuur), B12, C, D en de mineralen seleen en zink). <P>Vitamine A, B6, foliumzuur, B12, C, D en de mineralen seleen en zink dragen bij aan een normale werking van het immuunsysteem en vitamine C, seleen en zink helpen lichaamscellen te beschermen tegen invloeden van buitenaf.</P>',
   'weight' => '15,4 gram',
   'above_claims' => 'De Immune Booster is een supplement ter aanvulling van onze multivitaminen en is rijk aan vitamines en mineralen die de weerstand ondersteunen (vitamine A, B6, B11 (foliumzuur), B12, C, D en de mineralen seleen en zink).',
+  'web_advantage_list' => '<ul>
+<li>Plantaardige capsule</li>
+<li>Gluten- en lactosevrij</li>
+<li>Zonder conserveermiddelen</li>
+<li>Zonder geur- en smaakstoffen</li>
+</ul>',
 );

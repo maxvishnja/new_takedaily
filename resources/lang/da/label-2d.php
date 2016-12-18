@@ -71,7 +71,7 @@ return array (
   'above_claims' => 'Immun Booster er et supplement til at supplere vores multivitaminer, og er rig på vitaminer og mineraler (vitamin A, B6, B11 (folinsyre), B12, C, D og mineraler selen og zink).',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',

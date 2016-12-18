@@ -26,16 +26,16 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'Nogle vitaminer og mineraler skal du have flere af allerede fra du planlægger at blive gravid. Sundhedsstyrelsen anbefaler, at du tager tilskud af folsyre, som er et B-vitamin, allerede fra du tænker på at blive gravid til 12 uger inde i graviditeten. Folsyre er vigtigt, når barnets centralnervesystem udvikles og nedsætter risikoen for misdannelser af hjerne og rygmarv (neuralrørsdefekt). I overensstemmelse med Sundhedsstyrelsens anbefalinger indeholder Mom & Baby 400 mcg folsyre dagligt. Folsyre kan tages gennem hele graviditeten.
+  'web_description' => 'Når du er gravid, er behovet for de fleste vitaminer og mineraler lidt større end normalt. Det gælder især folsyre, D-vitamin og jern.
 
-Mom & Baby indeholder desuden 10 mcg D-vitamin. Sundhedsstyrelsen anbefaler at gravide supplerer med 10 mcg D-vitamin dagligt, da vitaminet spiller en vigtig rolle i fosterets udviklingen.
+Mom & Baby indeholder 400 mcg folinsyre og 10 mcg af vitamin D. Sundhedsstyrelsen anbefaler at du supplerer med 400 mcg folinsyre fra det øjeblik, du planlægger at blive gravid til 12 uger ind i graviditeten. Folinsyre kan dog tages gennem hele graviditeten. Folinsyre spiller en vigtig rolle i den tidlige udvikling af det ufødte barn og nedsætter risikoen for misdannelser af hjerne og rygmarv (neuralrørsdefekt).
 
-Husk at opdaterer din personlige profil på TakeDaily, når du bliver gravid.',
+Mom & Baby indeholder 10 mcg D-vitamin. Sundhedsstyrelsen anbefaler at du som gravid har et dagligt indtag på 10 mcg D-vitamin, da vitaminet spiller en vigtig rolle i udviklingen af ​​dit barn.',
   'weight' => '12,6 gram',
   'above_claims' => 'Mom & Baby er et kosttilskud for kvinder, der ønsker at blive gravid eller er gravide.',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',

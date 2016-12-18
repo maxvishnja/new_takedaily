@@ -12,9 +12,10 @@ return array (
       'price' => '149<small> kr./md.</small>',
       'info' => 'Ingen binding',
     ),
+    'what-is' => 'Hvad er TakeDaily?',
     'pick' => 'eller vælg blandt vores færdige pakker',
     'cta' => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>',
-    'subtitle' => 'Med TakeDaily kan du hver dag supplere din kost med præcis de vitaminer, mineraler og Omega 3, du har brug for.',
+    'subtitle' => 'Med TakeDaily får du skræddersyet din helt egen kombination af vitaminer, mineraler og Omega-3. Tag testen og se hvad du kan supplere din kost med for et optimalt helbred.',
   ),
   'blocks' => 
   array (
@@ -125,5 +126,5 @@ return array (
       'below_image' => 'TakeDaily æsken er pakket i smarte dagsrationer, én til hver dag.',
     ),
   ),
-  'play_video' => 'Afspil video',
+  'play_video' => 'Afspil',
 );

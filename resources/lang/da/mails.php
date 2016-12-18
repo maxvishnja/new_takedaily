@@ -3,7 +3,8 @@
 return array (
   'general' => 
   array (
-    'regards' => 'Mvh.',
+    'regards' => 'Kærlig hilsen
+TakeDaily-teamet',
     'company' => 'Take Daily ApS',
     'reason' => 'Du får denne mail, fordi du er kunde hos os.',
     'unsubscribe' => 'Det er ikke muligt at opsige denne type mail.',
@@ -70,7 +71,7 @@ return array (
   'order' => 
   array (
     'title' => 'Tak for din ordre hos TakeDaily',
-    'summary' => 'Din ordrebekræftelse fra TakeDaily',
+    'summary' => 'TakeDaily til dig',
     'giftcard' => 
     array (
       'title' => 'Gavekort',
@@ -91,6 +92,11 @@ return array (
       'title' => 'Dit TakeDaily kodeord',
       'it-is' => 'Dit kodeord til TakeDaily er:',
     ),
+    'text' => '<strong>Kære {name}</strong>
+Vi er glade for, at du har lyst til at prøve TakeDaily. I denne mail finder du din ordrebekræftelse. Og du kan godt begynde at glæde dig, for din første æske med TakeDaily lander i din postkasse om 4-5 hverdage.
+
+<strong>Kan vi hjælpe med noget?</strong>
+ Du er altid velkommen til at kontakte os, hvis du bliver i tvivl om noget eller savner svar på et spørgsmål. Ring til en af vores ernæringseksperter på 70 60 50 15 eller svar på denne mail, så hører du fra os hurtigst muligt.',
   ),
   'mailflow' => 
   array (

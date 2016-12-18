@@ -16,28 +16,27 @@ Om actief te kunnen blijven inspelen op deze ontwikkelingen, werken wij samen me
   ),
   'section_plants' => 
   array (
-    'title' => '100% plantaardige capsules ',
-    'body' => '<p>Onze voedingssupplementen zijn, met uitzondering van ons visolie-supplement*, omsloten door een 100% plantaardige capsule gemaakt van cellulose (hydroxypropylmethylcellulose), afkomstig van bomen. De capsules zijn vrij van gelatine en geschikt voor vegetariërs en veganisten.</p>
+    'title' => 'Plantaardige capsules',
+    'body' => '<p>Onze voedingssupplementen zijn, met uitzondering van ons visolie-supplement*, omsloten door een plantaardige capsule gemaakt van cellulose (hydroxypropylmethylcellulose), afkomstig van bomen. De capsules zijn vrij van gelatine en geschikt voor vegetariërs en veganisten.</p>
 <p><small>*capsule vervaardigd van gelatine</small></p>
 
 <p><strong>TakeDaily kiest voor deze capsules:</strong></p>
 
 <ul>
-    <li>100% plantaardig</li>
     <li>Kosher en Halal</li>
     <li>Vrij van geur- en smaakstoffen</li>
     <li>Vrij van allergenen</li>
-    <li>Vrij van conseringsmiddelen</li><li>Vrij van genetisch gemodificeerde ingrediënten (GMO-vrij)</li>
+    <li>Vrij van conserveermiddelen</li>
+     <li>Vrij van genetisch gemodificeerde ingrediënten (GMO-vrij)</li>
     <li>Vrij van bestraling</li>
     <li>Geproduceerd volgens richtlijnen ISO 9001 en GMP (Good Manufacturing Practice)</li>
-</ul>
-						',
+</ul>',
   ),
   'section_foa' => 
   array (
     'title' => 'TakeDaily Premium Omega-3 visolie',
     'body' => '<p>Duurzaamheid en het milieu vinden wij erg belangrijk. Het productieproces van onze omega-3 visolie is dan ook van begin tot eind traceerbaar en gecertificeerd door Friends of the Sea  (FOS).</p>
-					<p>Onze visolie wordt gewonnen uit kleine vette vissoorten als ansjovis en sardines met een hoog gehalte (65%) aan omega-3 vetzuren. De vis is afkomstig uit de schone wateren rondom Peru en Chili. Omega-3 vetzuren zijn erg kwetsbaar voor oxidatie, ter bescherming voegen wij daarom vitamine E toe, een antioxidant.</p>
+					<p>Onze visolie wordt gewonnen uit kleine vette vissoorten als ansjovis en sardines met een hoog gehalte aan omega-3 vetzuren. De vis is afkomstig uit de schone wateren rondom Peru en Chili. Omega-3 vetzuren zijn erg kwetsbaar voor oxidatie, ter bescherming voegen wij daarom vitamine E toe, een antioxidant.</p>
 
 <p>Des te hoger de vis in de voedselketen staat, des te meer zware metalen er kunnen zijn opgehoopt in het vetweefsel van de vis. Ansjovis en sardines zijn kleine vissoorten die laag in de voedselketen staan. Daarnaast wordt ook deze olie nog optimaal gezuiverd en gecontroleerd op de aanwezigheid van zware metalen en andere verontreinigingen zoals dioxines en PCB’s.</p>',
   ),

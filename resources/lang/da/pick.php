@@ -1,12 +1,12 @@
 <?php
 
 return array (
-  'title' => 'Vælg selv dine vitaminer',
+  'title' => 'Udvælg selv dine vitaminer, mineraler og Omega-3',
   'groups' => 
   array (
     'oil' => 'Omega-3',
     'lifestyle' => 'Livsstil',
-    'multi' => 'Generelt',
+    'multi' => 'Multivitaminer',
     'diet' => 'Kostvaner',
   ),
   'select-btn' => 'Vælg denne',
@@ -23,4 +23,7 @@ return array (
     'already-has-multi' => 'Du kan kun vælge en multi-vitamin',
   ),
   'updated' => 'Dine vitaminer blev opdateret!',
+  'cta_for_other_pages' => 'Eller vælg selv dine vitaminer og mineraler',
+  'text-above' => 'Ved du hvad du vil have, kan du selv sammensætte din egen TakeDaily. Har du brug for hjælp, sidder vores ernæringseksperter klar til at hjælpe dig! ',
+  'below_cart' => 'Vælg 2 produkter til 124 kr. Herefter 25 kr. pr. produkt. Du kan maks. vælge 4 produkter.',
 );

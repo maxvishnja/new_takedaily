@@ -6,7 +6,6 @@ return array (
   'batch' => 'Batchnr.',
   'expiration' => 'Ten minste houdbaar tot einde:',
   'ingredients' => 'INGREDIENTEN',
-  'production' => 'Geproduceerd in Spanje (m.u.v. chiazaad olie in Duitsland en visolie in Belgie.',
   'titles' => 
   array (
     'amount' => 'Per tablet',

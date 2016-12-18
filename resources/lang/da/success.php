@@ -1,6 +1,6 @@
 <?php
 
 return array (
-  'upsell' => 'Har dine kære brug for TakeDaily?',
-  'upsell-btn' => 'Giv dem en rabatkode og 50 % rabat',
+  'upsell' => 'Har din bedre halvdel, venner eller familie brug for TakeDaily?',
+  'upsell-btn' => 'Giv dem en rabatkode med 50% rabat!',
 );

@@ -155,7 +155,7 @@ Vitamine B5 en foliumzuur dragen bij aan de weerstand tegen stress.
 Huid, haar en nagels
 Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en houdt de haren sterk. Seleen en zink zijn goed voor de nagels. Vitamine A, B2, B3, B8 (biotine),en de mineralen jodium en zink helpen bij het gezond houden van de huid.
 ',
-  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (E129, E171)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, cholecalciferol, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
+  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titaniumdioxide, allurarood AC)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, cholecalciferol, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
   'praises' => 
   array (
     'general-health' => 'Voor het ondersteunen van een optimale gezondheid',
@@ -166,4 +166,10 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
   'web_description' => 'De Multi Basic vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De vitamines en mineralen in de Multi Basic zijn een aanvulling op de dagelijkse voeding en spelen een belangrijke rol in het ondersteunen en behoud van een optimale gezondheid.',
   'weight' => '27,44 gram',
   'above_claims' => 'Multi Basic vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen.',
+  'web_advantage_list' => '<ul>
+<li>Plantaardige capsule</li>
+<li>Gluten- en lactosevrij</li>
+<li>Zonder conserveermiddelen</li>
+<li>Zonder geur- en smaakstoffen</li>
+</ul>',
 );

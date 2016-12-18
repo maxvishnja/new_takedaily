@@ -69,10 +69,10 @@ return array (
   'Vit and Min' => 'Vitaminer og Mineraler',
   'web_description' => 'Energy Up har B-vitamin som blandt andet indgår i kroppens energiomsætning, og er med til at producere og reparere celler. Jern er også vigtigt, hvis du motionerer meget. Det sørger nemlig for, at ilten transporteres rundt i kroppen. Når du føler dig træt og mangler energi, kan det skyldes mangel på B-vitaminer. Både B1, B2 , B3, B5 og B6 spiller en afgørende rolle for dit energiniveau.',
   'weight' => '22,1 gram',
-  'above_claims' => 'Energy Booster supplement til at supplere vores multivitaminer og indeholder B-vitaminer (B1, B2, B3, B5, B6, B12) og mineraler jern og magnesium.',
+  'above_claims' => 'Energy Up er et tilskud der supplerer vores multivitaminer og indeholder B-vitaminer (B1, B2, B3, B5, B6, B12) og mineraler jern og magnesium.',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',

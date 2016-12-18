@@ -166,11 +166,11 @@ Støtte til en optimal sundhed',
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'Multi Basic er et multivitamin- og mineraltilskud til voksne fra 18 år. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler. Multi Basic er et tilskud som supplerer en varieret kost, og bidrager til dit daglige behov for vitaminer og mineraler.',
+  'web_description' => 'Multi Basic er et multivitamin- og mineraltilskud til voksne fra 18 år. Det supplerer en varieret kost, og indeholder en lang række forskellige gode vitaminer og mineraler som er gode for kroppen.',
   'weight' => '27,44 gram',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
-<li>Ikke-allergifremkaldende</li>
+<li>Gluten- og laktosefri</li>
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',
