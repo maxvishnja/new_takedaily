@@ -5,7 +5,7 @@ _ide_helper.php
 /node_modules
 Homestead.yaml
 Homestead.json
-
+public/temp_opcachereset.php
 # Project specific
 /public/css/app.css.map
 /public/css/app.css
