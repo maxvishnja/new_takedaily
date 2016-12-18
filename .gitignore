@@ -19,6 +19,7 @@ public/temp_opcachereset.php
 /public/images/block-six-bg.jpg
 /public/images/header_bg.jpg
 /public/images/package-bg.jpg
+/public/images/quality/*
 
 # IDE specific
 .idea/magicento.xml
