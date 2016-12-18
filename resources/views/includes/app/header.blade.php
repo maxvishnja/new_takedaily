@@ -9,6 +9,8 @@
 
 	<link href="{{ elixir('css/app.css') }}" rel="stylesheet"/>
 
+	<meta property="og:image" content="{{ asset('/images/meta.png') }}">
+
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<link rel="icon" type="image/png" href="/favicon.png"/>
 
