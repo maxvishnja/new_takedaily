@@ -10,6 +10,7 @@
 	<link href="{{ elixir('css/app.css') }}" rel="stylesheet"/>
 
 	<meta property="og:image" content="{{ asset('/images/meta.png') }}" />
+	<meta property="og:title" content="@yield('title', 'TakeDaily')" />
 
 	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 	<link rel="icon" type="image/png" href="/favicon.png"/>
