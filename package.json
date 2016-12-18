@@ -7,6 +7,7 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "laravel-elixir": "^4.0.0",
+    "laravel-elixir-imagemin": "^0.2.3",
     "laravel-elixir-spritesmith": "^0.4.0",
     "tooltip": "darsain/tooltip"
   }

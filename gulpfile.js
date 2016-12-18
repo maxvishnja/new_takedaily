@@ -1,5 +1,6 @@
 var elixir = require('laravel-elixir');
 require('laravel-elixir-spritesmith');
+require('laravel-elixir-imagemin');
 
 
 /*
@@ -15,11 +16,15 @@ require('laravel-elixir-spritesmith');
 
 elixir.extend('sourcemaps', false);
 
+elixir.config.images = {
+	folder: 'images',
+	outputFolder: 'images'
+};
 
 elixir(function (mix) {
 	mix.spritesmith('resources/assets/sprites', {
 		retinaSrcFilter: 'resources/assets/sprites/*@2x.png',
-		imgOutput: 'public/images',
+		imgOutput: 'resources/assets/images',
 		cssOutput: 'resources/assets/sass/',
 		cssName: '_sprites.sass',
 		imgPath: '/images/sprite.png',
@@ -50,4 +55,6 @@ elixir(function (mix) {
 	], 'public/js/validator.js');
 
 	mix.version(['js/validator.js', 'js/app.js', 'css/app.css', 'css/print.css']);
+
+	mix.imagemin();
 });
