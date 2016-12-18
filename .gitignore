@@ -15,6 +15,10 @@ public/temp_opcachereset.php
 /resources/assets/images/sprite*
 /public/images/sprite*
 /public/js/app.js
+/public/images/block-two-bg.jpg
+/public/images/block-six-bg.jpg
+/public/images/header_bg.jpg
+/public/images/package-bg.jpg
 
 # IDE specific
 .idea/magicento.xml
