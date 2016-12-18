@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\SavedFlowState;
 use Illuminate\Console\Command;
+use Jenssegers\Date\Date;
 
 class ClearOldSavedFlows extends Command
 {
@@ -12,7 +13,7 @@ class ClearOldSavedFlows extends Command
      *
      * @var string
      */
-    protected $signature = 'clearold:flows';
+    protected $signature = 'clear:flows';
 
     /**
      * The console command description.

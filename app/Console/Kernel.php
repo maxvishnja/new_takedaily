@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ClearOldCarts;
+use App\Console\Commands\ClearOldSavedFlows;
 use App\Console\Commands\GenerateSitemapCommand;
 use App\Console\Commands\MailFlowSender;
 use App\Console\Commands\NotifyPendingRebills;
@@ -25,7 +27,9 @@ class Kernel extends ConsoleKernel
 		NotifyPendingRebills::class,
 	    UpdateAges::class,
 	    MailFlowSender::class,
-		UpdatePregnancyWeeks::class
+		UpdatePregnancyWeeks::class,
+	    ClearOldCarts::class,
+	    ClearOldSavedFlows::class
 	];
 
 	/**
@@ -59,10 +63,10 @@ class Kernel extends ConsoleKernel
 		$schedule->command('mailflow:send')
 		         ->everyTenMinutes();
 
-		$schedule->command('clearold:flows')
+		$schedule->command('clear:flows')
 		         ->dailyAt('00:00');
 
-		$schedule->command('clearold:carts')
+		$schedule->command('clear:carts')
 		         ->dailyAt('00:20');
 
 		$schedule->command('backup:run')

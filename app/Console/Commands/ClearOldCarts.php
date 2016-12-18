@@ -13,7 +13,7 @@ class ClearOldCarts extends Command
      *
      * @var string
      */
-    protected $signature = 'clearold:carts';
+    protected $signature = 'clear:carts';
 
     /**
      * The console command description.
