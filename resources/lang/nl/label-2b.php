@@ -40,7 +40,7 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, indigotine)), antiklontermiddel (magnesiumstearaat), retinylacetaat, cyanocobalamine, fytomenadion, pyridoxaal-5-fosfaat, thiaminehydrochloride',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, indigokarmijn)), antiklontermiddel (magnesiumstearaat), retinylacetaat, cyanocobalamine, fytomenadion, pyridoxaal-5-fosfaat, thiaminehydrochloride',
   'praises' => 
   array (
     'shield' => 'Vitamine A en C ondersteunen het immuunsysteem',

@@ -71,6 +71,10 @@ return array (
         'password_confirmation' => 'Gentag kodeord',
         'password_confirmation-placeholder' => 'Gentagelse af kodeord',
         'password-placeholder' => 'Kodeord',
+        'first_name' => 'Fornavn',
+        'first-name-placeholder' => 'John',
+        'last_name' => 'Efternavn',
+        'last-name-placeholder' => 'Madsen',
       ),
       'billing' => 
       array (

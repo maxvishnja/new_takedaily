@@ -160,7 +160,7 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
       'percent' => '50',
     ),
   ),
-  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, indigotine)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, cholecalciferol, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
+  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, indigokarmijn)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, cholecalciferol, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',

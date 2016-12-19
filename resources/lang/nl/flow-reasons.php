@@ -34,6 +34,11 @@ return array (
   '3e' => 
   array (
     'main' => 'Je eet onvoldoende (vette) vis. Vis bevat gezonde visvetzuren. Deze vetzuren (EPA en DHA) zijn goed voor hart. TakeDaily zorgt ervoor dat je deze visvetzuren voldoende binnenkrijgt.',
+    'reasons' => 
+    array (
+      'pregnant' => 'Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inname van DHA door de moeder is goed voor de ontwikkeling van de hersenen van de baby en ondersteunt de normale ontwikkeling van het gezichtsvermogen van de baby. Het gunstige effect wordt verkregen bij een dagelijkse inname van 200 mg DHA naast de aanbevolen dagelijkse inname voor omega-3 vetzuren voor volwassen (250 mg DHA en EPA). 
+',
+    ),
   ),
   '3d' => 
   array (
@@ -94,5 +99,9 @@ Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger zijn met 
       'skin' => 'omdat je een natuurlijk getinte of donkere huidskleur hebt.',
       'age' => 'omdat je een vrouw bent in de leeftijd van 50 tot 70 jaar.',
     ),
+  ),
+  '1a' => 
+  array (
+    'main' => 'Multi Basic vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. ',
   ),
 );

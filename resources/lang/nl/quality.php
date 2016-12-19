@@ -17,15 +17,13 @@ Om actief te kunnen blijven inspelen op deze ontwikkelingen, werken wij samen me
   'section_plants' => 
   array (
     'title' => 'Plantaardige capsules',
-    'body' => '<p>Onze voedingssupplementen zijn, met uitzondering van ons visolie-supplement*, omsloten door een plantaardige capsule gemaakt van cellulose (hydroxypropylmethylcellulose), afkomstig van bomen. De capsules zijn vrij van gelatine en geschikt voor vegetariërs en veganisten.</p>
+    'body' => '<p>Onze voedingssupplementen zijn, met uitzondering van ons visolie-supplement*, omsloten door een plantaardige capsule gemaakt van cellulose (hydroxypropylmethylcellulose), afkomstig van bomen. De capsules zijn vrij van gelatine.</p>
 <p><small>*capsule vervaardigd van gelatine</small></p>
 
 <p><strong>TakeDaily kiest voor deze capsules:</strong></p>
 
 <ul>
-    <li>Kosher en Halal</li>
     <li>Vrij van geur- en smaakstoffen</li>
-    <li>Vrij van allergenen</li>
     <li>Vrij van conserveermiddelen</li>
      <li>Vrij van genetisch gemodificeerde ingrediënten (GMO-vrij)</li>
     <li>Vrij van bestraling</li>

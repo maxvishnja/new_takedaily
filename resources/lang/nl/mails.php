@@ -28,7 +28,7 @@ return array (
 ',
     'summary' => 'Hier is persoonlijke TakeDaily pakket ',
     'text' => 'Hallo, je hebt een persoonlijk advies gekregen van TakeDaily. Je kan verder winkelen via de link hieronder',
-    'button' => 'Verder winkelen kan je hier',
+    'button' => 'Verder winkelen',
     'subject' => 'Jouw persoonlijk advies van TakeDaily',
   ),
   'password' => 

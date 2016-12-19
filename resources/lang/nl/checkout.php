@@ -20,12 +20,12 @@ return array (
   array (
     'page-title' => 'Jouw bestelling is geslaagd! - TakeDaily',
     'title' => 'Jouw bestelling is vewerkt',
-    'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over je bestelling en de levering van jouw TakeDaily pakket. Bedankt je voor jouw aankoop!',
+    'text' => 'Bedankt je voor jouw bestelling bij TakeDaily! Je ontvangt binnen 5 minuten een orderbevestiging met belangrijke informatie over je bestelling en de levering. ',
     'button-text' => 'Ga naar Mjn TakeDaily',
     'giftcard' => 
     array (
       'title' => 'Code cadeaubon:',
-      'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over jouw cadeaubon. Bedankt voor jouw aankoop!',
+      'text' => 'Bedankt voor jouw aankoop bij TakeDaily! Je ontvangt binnen 5 minuten een orderbevestiging met de belangrijke informatie over de cadeaubon. ',
     ),
   ),
   'index' => 
@@ -64,6 +64,8 @@ return array (
 ',
         'password_confirmation-placeholder' => 'Herhaal wachtwoord',
         'cvr' => 'KvK',
+        'last_name' => 'Last name',
+        'first_name' => 'First name',
       ),
       'billing' => 
       array (
@@ -121,7 +123,7 @@ return array (
   ),
   'fb-login' => 'Log ind med Facebook',
   'back-pick' => '‹ Ga terug naar jouw selectie',
-  'terms-agree' => 'Ved at klikke "Bestil nu" accepterer du vores handelsbetingelser samt bekræfter, at du er over 18.',
+  'terms-agree' => 'Door te klikken op "Bestel nu" ga je akkoord met de<a href=“/page/terms”>algemene voorwaarden</a> en bevestig je dat je ouder bent dan 18 jaar oud.',
   'facebook_disclaimer' => '(Wij posten niets op jou Facebook profiel)',
   'cvv-information' => 'De controle-nummer staat meestal achter op de kaart',
 );
