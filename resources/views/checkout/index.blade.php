@@ -149,7 +149,7 @@
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('first_name')) input--error @endif"
 											   id="input_info_f_name"
 											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.first-name-placeholder') }}" name="first_name" required="required"
-											   aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->customer->getFirstname() : '')) }}"/>
+											   aria-required="true" value="{{ Request::old('first_name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->customer->getFirstname() : '')) }}"/>
 									</div>
 
 									<div class="col-md-6">
@@ -159,7 +159,7 @@
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('last_name')) input--error @endif"
 											   id="input_info_l_name"
 											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.last-name-placeholder') }}" name="last_name" required="required"
-											   aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->customer->getLastName() : '')) }}"/>
+											   aria-required="true" value="{{ Request::old('last_name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->customer->getLastName() : '')) }}"/>
 									</div>
 								</div>
 
