@@ -195,6 +195,15 @@ class Customer extends Model
 		return $names[0];
 	}
 
+	public function getLastName()
+	{
+		$name = $this->getName();
+
+		$names = explode( ' ', $name );
+
+		return $names[count($names) - 1];
+	}
+
 	public function getEmail()
 	{
 		return $this->getUser()->getEmail();

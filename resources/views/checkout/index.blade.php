@@ -13,7 +13,11 @@
 					$("#facebookloginbox").hide();
 
 					FB.api('/me?fields=email,name', function (response) {
-						$("#input_info_name").val(response.name);
+						var names = response.name.split(" ");
+						var f_name = names[0];
+						var l_name = names[names.length - 1];
+						$("#input_info_f_name").val(f_name);
+						$("#input_info_l_name").val(l_name);
 						$("#input_info_email").val(response.email);
 					});
 				}
@@ -139,17 +143,27 @@
 								</div>
 
 								<div class="row m-t-50 m-sm-t-20 m-b-50 m-sm-b-20">
-									<div class="col-md-12">
-										<label class="label label--full checkout--label" for="input_info_name">{{ trans('checkout.index.order.info.name') }}
+									<div class="col-md-6 m-t-">
+										<label class="label label--full checkout--label" for="input_info_f_name">{{ trans('checkout.index.order.info.first_name') }}
 											<span class="required">*</span></label>
-										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('name')) input--error @endif"
-											   id="input_info_name"
-											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.name-placeholder') }}" name="name" required="required"
-											   aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->name: '')) }}"/>
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('first_name')) input--error @endif"
+											   id="input_info_f_name"
+											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.first-name-placeholder') }}" name="first_name" required="required"
+											   aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->customer->getFirstname() : '')) }}"/>
+									</div>
+
+									<div class="col-md-6">
+										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+										<label class="label label--full checkout--label" for="input_info_l_name">{{ trans('checkout.index.order.info.last_name') }}
+											<span class="required">*</span></label>
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('last_name')) input--error @endif"
+											   id="input_info_l_name"
+											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.last-name-placeholder') }}" name="last_name" required="required"
+											   aria-required="true" value="{{ Request::old('name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->customer->getLastName() : '')) }}"/>
 									</div>
 								</div>
 
-								<div class="row m-b-50 m-sm-b-20">
+								<div class="row m-t-50 m-sm-t-20 m-b-50 m-sm-b-20">
 									<div class="col-md-6">
 										<label class="label label--full checkout--label" for="input_info_email">{{ trans('checkout.index.order.info.email') }}
 											<span class="required">*</span></label>
