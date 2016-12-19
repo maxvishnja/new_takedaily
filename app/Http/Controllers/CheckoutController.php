@@ -104,7 +104,7 @@ class CheckoutController extends Controller
 		$city     = $request->get( 'address_city' );
 		$zipcode  = $request->get( 'address_zipcode' );
 		$userData = $request->get( 'user_data' );
-		$name     = $request->get( 'name' );
+		$name     = sprintf('%s %s', $request->get( 'first_name' ), $request->get( 'last_name' ));
 		$email    = $request->get( 'email' );
 
 		if ( \Auth::check() && \Auth::user()->isUser() )
@@ -113,7 +113,7 @@ class CheckoutController extends Controller
 			$street  = \Auth::user()->customer->getCustomerAttribute( 'address_street', $request->get( 'address_street' ) );
 			$city    = \Auth::user()->customer->getCustomerAttribute( 'address_city', $request->get( 'address_city' ) );
 			$zipcode = \Auth::user()->customer->getCustomerAttribute( 'address_zipcode', $request->get( 'address_zipcode' ) );
-			$name    = \Auth::user()->getCustomer();
+			$name    = \Auth::user()->getCustomer()->getName();
 			$email   = \Auth::user()->getEmail();
 		}
 
