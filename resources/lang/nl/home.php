@@ -26,7 +26,8 @@ return array (
       'promise-1' => 'Ons team met diëtisten en voedingskundigen staat geheel tot jouw beschikking om inhoudelijke vragen over onze producten te beantwoorden. ',
       'promise-2' => 'De hoge kwaliteit vitamines, mineralen en vetzuren worden omsloten door 100% plantaardige capsules, met uitzondering van ons visolie-supplement* .
 
-<small>* capsule vervaardigd van gelatine</small>',
+</p>
+<p><small>*capsule vervaardigd van gelatine</small></p>',
       'promise-3' => 'We houden onze prijzen zo laag mogelijk door zonder tussenpersonen te werken. Wij verzenden direct naar jouw adres.',
       'promise-4' => 'Een test speciaal ontwikkeld door voedingsprofessionals en volgens de laatste wetenschappelijke inzichten. Hierdoor stellen wij jouw pakket aan voedingssupplementen zo samen dat ze goed aansluiten op de behoefte van jouw lichaam én levensstijl. ',
       'read-more' => 'Lees hier meer',

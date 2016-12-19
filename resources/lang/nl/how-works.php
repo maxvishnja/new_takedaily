@@ -19,7 +19,7 @@ return array (
     'three' => 
     array (
       'body' => 'Na bestelling worden jouw voedingssupplementen per vier weken gratis bij je bezorgd. Het pakketje past door de brievenbus, je hoeft dus niet thuis te zijn om het in ontvangst te nemen.
-Je ontvangt steeds een pakketje voor 28 dagen, één dosering voor elke dag. Voor het verstrijken van deze periode ontvang je de voedingssupplementen voor de daaropvolgende periode. TakeDaily past zich aan naar het seizoen en jouw levensstijl. In de donkere wintermaanden bijvoorbeeld kan je extra behoefte hebben aan vitamine D. Indien je besluit meer te bewegen of je groente-inname te verhogen, log dan eerst in op jouw TakeDaily profiel en geef je levensstijl veranderingen door. De volgende periode is je samenstelling aan vitamines, mineralen en omega-3 daarop aangepast!',
+Je ontvangt steeds een pakketje voor 28 dagen, één dosering voor elke dag. Voor het verstrijken van deze periode ontvang je de voedingssupplementen voor de daaropvolgende periode. TakeDaily past zich aan naar het seizoen en jouw levensstijl. In de donkere wintermaanden bijvoorbeeld kan je extra behoefte hebben aan vitamine D. Indien je besluit meer te bewegen of je groente-inname te verhogen, log dan eerst in op jouw TakeDaily profiel en geef je levensstijl veranderingen door. De volgende periode is je samenstelling aan vitamines, mineralen en omega-3 daarop aangepast! Een TakeDaily abonnement kun je via jouw TakeDaily account aanpassen, pauzeren of opzeggen tot vier dagen voor de volgende verzenddatum. Je zit dus nergens aan vast.',
       'title' => 'Ontvang jouw TakeDaily',
     ),
     'two' => 

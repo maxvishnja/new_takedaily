@@ -90,7 +90,7 @@ return array (
     'snooze_popup' => 
     array (
       'title' => 'Selecteer aantal dagen',
-      'text' => 'Hoeveel dagen wil je de volgende levering van jouw TakeDaily pakket uitstellen?',
+      'text' => 'Hoeveel dagen wil je de eerstvolgende levering van jouw TakeDaily pakket uitstellen?',
       'option' => ':days dagen',
       'button-snooze-text' => 'Uitstellen',
       'button-close-text' => 'Annuleren',

@@ -180,9 +180,9 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'options' => 
       array (
         1 => 'Nooit',
-        2 => '100 gram',
-        3 => '200 gram',
-        4 => '250 gram of meer',
+        2 => '50-100 gram (1-2 opscheplepels)',
+        3 => '150-200 gram (3-4 opscheplepels)',
+        4 => '250 gram of meer (5 opscheplepels of meer)',
       ),
     ),
     '3-2' => 
@@ -227,9 +227,9 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'options' => 
       array (
         1 => 'Geen',
-        2 => '1-2 opscheplepels (50-100 gram)',
-        3 => '3-4 opscheplepels (150-200 gram)',
-        4 => '5 opscheplepels of meer (+250 gram)',
+        2 => '50-100 gram (1-2 opscheplepels)',
+        3 => '150-200 gram (3-4 opscheplepels)',
+        4 => '250 gram of meer (5 opscheplepels of meer)',
       ),
     ),
     '3-6' => 
@@ -245,7 +245,7 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
     ),
     '3-7' => 
     array (
-      'title' => 'Hoeveel porties vette vis eet jij gemiddeld per week (zoals: zalm, makreel, haring, e.d.)?',
+      'title' => 'Hoeveel porties vette vis eet jij gemiddeld per week?',
       'text' => 'Vis bevat gezonde visvetzuren. Deze vetzuren zijn goed voor hart en bloedvaten. Hoe vetter de vis, hoe meer gezonde vetzuren de vis bevat. Naast visvetzuren bevat vis onder andere de mineralen seleen en jodium.
 								VETTE VIS: haring, makreel, zalm, sardines, bokking, kaviaar, paling, sprot. 
 								Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weinig visvetzuren omdat het een magere, witte vis is.',
