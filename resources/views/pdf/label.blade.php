@@ -1,9 +1,9 @@
 <?php App::setLocale($customer->getLocale()); ?>
 <div style="position: relative; height: 50mm; width: 160mm">
-		<img style="width: 112pt; height: 59pt; float: right" src="{{ asset('/images/logo-postnl@2x.png') }}"/>
+		<img style="width: 112pt; height: 59pt; position: absolute; top: 0; right: 65pt;" src="{{ asset('/images/logo-postnl@2x.png') }}"/>
 
 		<address>
-			<img style="width: 100pt; height: 19pt; margin-bottom: 1pt; " src="{{ asset('/images/pdf-logo.png') }}"/>
+			<img style="width: 100pt; height: 19pt; margin-bottom: 1pt;" src="{{ asset('/images/pdf-logo.png') }}"/>
 			<div style="margin-bottom: 4pt;"><strong>{{ $customer->getName() }}</strong>@if($customer->getCustomerAttribute('company') != '') - {{ $customer->getCustomerAttribute('company') }}@endif</div>
 			{{ $customer->getCustomerAttribute('address_line1') }}<br/>
 			@if($customer->getCustomerAttribute('address_line2') != '')
