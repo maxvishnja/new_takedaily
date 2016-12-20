@@ -74,6 +74,7 @@
 		height: 236mm;
 		width: 166mm;
 		width: 79.04%;
+		width: 100%;
 		position: relative;
 	}
 
