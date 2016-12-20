@@ -72,6 +72,7 @@
 		height: 195mm;
 		height: 238mm;
 		height: 236mm;
+		height: 200mm;
 		width: 166mm;
 		width: 79.04%;
 		width: 100%;
