@@ -34,6 +34,9 @@
 					</div>
 					<div class="clear"></div>
 				@endforeach
+				@if(trans('label-product.RI') != 'label-product.RI')
+					<p>{{ trans('label-product.RI') }}</p>
+				@endif
 			@endif
 
 			<div class="extra_content">
