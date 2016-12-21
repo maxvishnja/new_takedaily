@@ -34,9 +34,12 @@
 					</div>
 					<div class="clear"></div>
 				@endforeach
-				@if(trans('label-product.RI') != 'label-product.RI')
-					<p>{{ trans('label-product.RI') }}</p>
-				@endif
+			@endif
+
+			@if(trans('label-' . strtolower($vitamin) . '.foot_note_disclaimer') != 'label-' . strtolower($vitamin) . '.foot_note_disclaimer')
+				<small class="m-t-30">
+					{!! trans('label-' . strtolower($vitamin) . '.foot_note_disclaimer') !!}
+				</small>
 			@endif
 
 			<div class="extra_content">
@@ -66,12 +69,6 @@
 						<div class="vitamin_advantage_list">
 							{!! trans('label-' . strtolower($vitamin) . '.web_advantage_list') !!}
 						</div>
-					@endif
-
-					@if(trans('label-' . strtolower($vitamin) . '.foot_note_disclaimer') != 'label-' . strtolower($vitamin) . '.foot_note_disclaimer')
-						<small class="m-t-30">
-							{!! trans('label-' . strtolower($vitamin) . '.foot_note_disclaimer') !!}
-						</small>
 					@endif
 
 					<div class="m-t-20 m-b-10"><a href="#" class="seeIngredientsBtn">{{ trans('flow-actions.see-ingredients') }}</a></div>

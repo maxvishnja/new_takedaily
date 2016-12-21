@@ -3,6 +3,10 @@
 		<div><strong>{!! trans("flow.ingredients") !!}</strong></div>
 		<div class="m-b-10">{!! strip_tags(trans('label-product.recommended-daily-use')) !!}</div>
 
+		@if(trans('label-product.RI') != 'label-product.RI')
+			<p>{{ trans('label-product.RI') }}</p>
+		@endif
+
 		@if(is_array(trans("label-{$label}.first-vitamins")) && count(trans("label-{$label}.first-vitamins")) > 0)
 			<table style="width: 100%;">
 				<thead>
