@@ -61,6 +61,12 @@ class SubscriptionRebillCommand extends Command
 
 				continue;
 			}
+
+			\Mail::queue('emails.subscription', [ 'locale' => $customer->getLocale() ], function (Message $message) use ($mailEmail, $mailName)
+			{
+				$message->to($mailEmail, $mailName);
+				$message->subject(trans('checkout.mail.subject-subscription'));
+			});
 		}
 	}
 }
