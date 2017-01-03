@@ -30,9 +30,9 @@ return array (
   ),
   '2B' => 
   array (
-    'shield' => 'Bidrager til kroppens stofskifteprocesser',
     'lightning' => 'Bidrager til at mindske træthed og udmattelse',
     'resistance' => 'Bidrager til en normal funktion af immunforsvaret',
+    'energy' => 'Bidrager til kroppens stofskifteprocesser',
   ),
   '2C' => 
   array (

@@ -4,7 +4,7 @@ return array (
   'back' => '‹ Terug naar de vorige vraag',
   'title' => 'Vind jouw persoonlijke advies - TakeDaily',
   'scripts' => 'Schakel JavaScript in',
-  'info_about_supplement' => 'De resultaten van deze test zijn gebaseerd op jouw specifieke leefstijl en eetpatroon. TakeDaily draagt zorg dat jij alle vitaminen en mineralen binnenkrijgt die je nodig hebt. Als de TakeDaily supplementen worden gebruikt, zijn andere vitaminen-/mineralensupplementen niet meer nodig. Wil je extra supplementen gebruiken naast de TakeDaily supplementen, raadpleeg dan altijd eerst een arts of een deskundige.',
+  'info_about_supplement' => 'De resultaten van deze test zijn gebaseerd op jouw specifieke levensstijl en voedingspatroon. TakeDaily selecteert op basis daarvan de vitamines, mineralen en eventueel omega-3 vetzuren die je kunt gebruiken als aanvulling op jouw dagelijkse voeding. ',
   'steps' => 
   array (
     'one' => 'Algemeen',
@@ -23,7 +23,7 @@ return array (
     '1-1' => 
     array (
       'title' => 'Wat is jouw geslacht?',
-      'text' => 'De behoefte van vrouwen en mannen aan vitaminen en mineralen verschilt.',
+      'text' => 'De behoefte van vrouwen en mannen aan vitamines en mineralen verschilt.',
       'options' => 
       array (
         1 => 'Man',
@@ -35,7 +35,7 @@ return array (
       'title' => 'Wat is jouw geboortedatum?',
       'title-alt' => 'Wat is jouw geboortedatum?',
       'age' => 'Geboortedaum',
-      'text' => 'Als je ouder wordt, verandert jouw behoefte aan vitaminen en mineralen. De behoefte aan vitamine D bijvoorbeeld neemt toe naarmate je ouder wordt. Vitamine D is belangrijk voor sterke botten en soepele spieren.',
+      'text' => 'Als je ouder wordt, verandert jouw behoefte aan vitaminen en mineralen. De behoefte aan vitamine D bijvoorbeeld neemt toe naarmate je ouder wordt. Vitamine D draagt bij aan de instandhouding van sterke botten en speelt een rol bij het behouden van soepele en sterke spieren.',
       'button-text' => 'Kies jouw geboortedatum',
       'button-submit-text' => 'Ja, mijn geboortedatum is {{birthday}}',
     ),
@@ -53,10 +53,7 @@ return array (
     '1-4' => 
     array (
       'title' => 'Kom je elke dag (tussen 11:00-15:00 uur) 30 minuten buiten met jouw gezicht en handen onbedekt?',
-      'text' => 'Vitamine D is een van de weinige vitamines die het lichaam zelf kan aanmaken. Hiervoor dien je dagelijks tussen 11:00-15:00 uur minimaal 15-30 minuten buiten te komen met minimaal handen en gezicht onbedekt. Tussen 11:00-15.00 uur staat de zon op zijn hoogst en is jouw lichaam in staat om vitamine D aan te maken met behulp van het zonlicht. 
-								Personen die dagelijks weinig buitenkomen, de zon mijden of buiten
-								lichaamsbedekkende
-								kleding dragen, kunnen een vitamine D-tekort oplopen als zij geen vitamine D supplement gebruiken. Bij volwassenen en ouderen kan een vitamine D-tekort op den duur leiden tot botontkalking en/of spierzwakte.',
+      'text' => 'Vitamine D is een van de weinige vitamines die het lichaam zelf kan aanmaken. Hiervoor dien je dagelijks tussen 11:00-15:00 uur minimaal 15-30 minuten buiten te komen met minimaal handen en gezicht onbedekt. Tussen 11:00-15.00 uur staat de zon op zijn hoogst en is jouw lichaam in staat om vitamine D aan te maken met behulp van het zonlicht. Extra vitamine D is belangrijk voor personen die dagelijks weinig buitenkomen, de zon mijden of buiten lichaamsbedekkende kleding dragen.',
       'options' => 
       array (
         1 => 'Ja',
@@ -66,7 +63,9 @@ return array (
     '2-1' => 
     array (
       'title' => 'Ben je zwanger of probeer je zwanger te worden?',
-      'text' => 'Als je zwanger bent of zwanger wilt worden, is de behoefte aan bepaalde vitamines en mineralen verhoogd. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Foliumzuur speelt een belangrijke rol bij de vroege ontwikkeling van het ongeboren kind. Foliumzuursupplementen kunnen zonder risico gedurende de gehele zwangerschap gebruikt worden. Visolie speelt een rol in de ontwikkeling van het ongeboren kind. Het is zowel goed voor de baby en jou.',
+      'text' => 'Als je zwanger bent of zwanger wilt worden, is de behoefte aan bepaalde vitamines en mineralen verhoogd. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Foliumzuur speelt een belangrijke rol bij de vroege ontwikkeling van het ongeboren kind. Foliumzuursupplementen kunnen gedurende de gehele zwangerschap gebruikt worden. 
+Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inname van DHA door de moeder is goed voor de ontwikkeling van de hersenen van de baby en ondersteunt de normale ontwikkeling van het gezichtsvermogen van de baby. Het gunstige effect wordt verkregen bij een dagelijkse inname van 200 mg DHA naast de aanbevolen dagelijkse inname voor omega-3 vetzuren voor volwassen (250 mg DHA en EPA). 
+',
       'options' => 
       array (
         1 => 'Ja',
@@ -76,7 +75,7 @@ return array (
     '2-2' => 
     array (
       'title' => 'Ben je momenteel op dieet om gewicht te verliezen?',
-      'text' => 'In de periode dat je gewicht probeert te verliezen, kan de behoefte aan bepaalde vitamines en mineralen toenemen. Je dieet kan mogelijk te eenzijdig zijn, waardoor je lichaam behoefte heeft aan extra vitamines en mineralen. Je behoefte aan vitamine C is hoger als je meer gewicht hebt. Vitamine C zorgt samen met vitamine A mede voor een goede weerstand. De B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam. Het is belangrijk dat je tijdens het afvallen geen tekorten aan vitamines en mineralen ontwikkelt.',
+      'text' => 'de periode dat je gewicht probeert te verliezen is het belangrijk dat je lichaam voldoende voedingsstoffen binnenkrijgt. Vitamine A en C zorgen mede voor een goede weerstand en B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam. Vitamine C is daarnaast van belang voor de vorming van collageen die helpt de huid te verstevigen ',
       'options' => 
       array (
         1 => 'Ja',
@@ -86,7 +85,7 @@ return array (
     '2-3' => 
     array (
       'title' => 'Hoe vaak sport je?',
-      'text' => 'Bewegen is goed voor zowel jouw gezondheid als welzijn. Als je vaak sport, heb je extra behoefte aan bepaalde vitamines en mineralen. B-vitamines en ijzer zorgen bijvoorbeeld voor het bevorderen van de energiestofwisseling en lichamelijke prestaties.',
+      'text' => 'Bewegen is goed voor zowel jouw gezondheid als welzijn. Als je vaak sport, heb je extra behoefte aan bepaalde vitamines en mineralen. B-vitamines, ijzer en magnesium bevorderen de energiestofwisseling. Magnesium is goed voor de spieren en ijzer helpt bij een normaal zuurstoftransport in het lichaam.',
       'options' => 
       array (
         1 => 'Zelden',
@@ -97,8 +96,8 @@ return array (
     ),
     '2-4' => 
     array (
-      'title' => 'Heb je momenteel stress?',
-      'text' => 'In een stressvolle periode kunnen bepaalde B-vitamines bijdragen aan de weerstand tegen stress en een heldere geest. B-vitamines zijn daarnaast belangrijk voor het zenuwstelsel en immuunsysteem.',
+      'title' => 'Zit je momenteel in een periode van stress?',
+      'text' => 'Vitamine B5 helpt bij geestelijke inspanning/druk en draagt bij aan de normale weerstand tegen stress.  Vitamine B1, B3, B6 en B12 en magnesium dragen bij aan een heldere geest en zijn goed voor de gemoedstoestand. ',
       'options' => 
       array (
         1 => 'Ja',
@@ -107,24 +106,22 @@ return array (
     ),
     '2-5' => 
     array (
-      'title' => 'Hoe vaak voel je je moe of ervaar je een gebrek aan energie?',
-      'text' => 'B-vitamines spelen een belangrijke rol in het ondersteunen van het energieniveau van jouw lichaam. Een tekort aan B-vitamines kan leiden tot vermoeidheid en een verlaging van het energieniveau.',
+      'title' => 'Wil je je gebrek aan energie helpen te verminderen en/of jouw energieniveau ondersteunen?',
+      'text' => 'B-vitamines spelen een belangrijke rol in het ondersteunen van het energieniveau van jouw lichaam. Vitamine B2, B3, B5, B6 en B12, ijzer en magnesium helpen vermoeidheid en moeheid te verminderen.',
       'options' => 
       array (
-        1 => 'Iedere dag',
-        2 => 'Af en toe',
-        3 => 'Zelden',
+        1 => 'Ja',
+        2 => 'Nee',
       ),
     ),
     '2-6' => 
     array (
-      'title' => 'Hoe is jouw weerstand (immuunsysteem) momenteel?',
-      'text' => 'Bepaalde vitamines kunnen jouw weerstand/immuunsysteem versterken. Vitamine C is belangrijk voor het immuunsysteem; het helpt het lichaam bij het produceren van witte bloedcellen. Ook vitamine A en D zijn belangrijk als je niet ziek wilt worden,',
+      'title' => 'Wil je jouw weerstand (immuunsysteem) ondersteunen? ',
+      'text' => 'Bepaalde vitamines kunnen jouw weerstand/immuunsysteem ondersteunen. Vitamine C is belangrijk voor het immuunsysteem. Ook vitamine A, B6, foliumzuur, B12, D, seleen en zink zijn belangrijk.',
       'options' => 
       array (
-        1 => 'Goed',
-        2 => 'Redelijk',
-        3 => 'Slecht',
+        1 => 'Ja',
+        2 => 'Nee',
       ),
     ),
     '2-7' => 
@@ -140,7 +137,7 @@ return array (
     '2-8' => 
     array (
       'title' => 'Hoeveel weken bent u zwanger?',
-      'text' => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Extra vitamine D tijdens de zwangerschap is belangrijk voor een goede groei van jouw kindje.',
+      'text' => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Extra vitamine D tijdens de zwangerschap is belangrijk voor de botaanmaak van jouw baby.',
       'options' => 
       array (
         1 => 'Hoelang ben je zwanger?',
@@ -154,9 +151,7 @@ return array (
     '2-9' => 
     array (
       'title' => 'Ben je vegetariër/veganist?',
-      'text' => 'Vlees bevat veel ijzer, vitamine B1 en B12. Deze vitamines spelen een belangrijke rol in het in het bevorderen van jouw energiestofwisseling.
-
-Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is van belang voor het behoud van sterke botten en soepele spieren.',
+      'text' => 'Vlees bevat veel ijzer, vitamine B1 en B12. Deze vitamines spelen een belangrijke rol in het in het bevorderen van jouw energiestofwisseling.',
       'options' => 
       array (
         1 => 'Ja',
@@ -165,8 +160,8 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
     ),
     '2-10' => 
     array (
-      'title' => 'Heb je pijnlijke spieren en/of gewrichten?',
-      'text' => 'Bepaalde vitamines en mineralen zijn goed voor je botten, kraakbeen en spieren. Vitamine D speelt een rol bij het behouden van sterke en soepele spieren. Gebrek aan vitamine D kan leiden tot spierpijn en spierzwakte.',
+      'title' => 'Wil je je botten en de werking van je spieren ondersteunen?',
+      'text' => 'Bepaalde vitamines en mineralen zijn goed voor je botten, kraakbeen (in de gewrichten) en spieren. Vitamine D en magnesium spelen een rol bij het behouden van sterke en soepele spieren. Vitamine C, D, magnesium en mangaan dragen bij aan de instandhouding van sterke botten. Mangaan is goed voor de aanmaak/opbouw van kraakbeen (in de gewrichten)',
       'options' => 
       array (
         1 => 'Ja',
@@ -180,9 +175,9 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'options' => 
       array (
         1 => 'Nooit',
-        2 => '100 gram',
-        3 => '200 gram',
-        4 => '250 gram of meer',
+        2 => '50-100 gram (1-2 opscheplepels)',
+        3 => '150-200 gram (3-4 opscheplepels)',
+        4 => '250 gram of meer (5 opscheplepels of meer)',
       ),
     ),
     '3-2' => 
@@ -203,8 +198,8 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'options' => 
       array (
         1 => 'Geen',
-        2 => '1 snee brood',
-        3 => '2-3 sneden brood',
+        2 => '1-2 sneden brood',
+        3 => '3 sneden brood',
         4 => '4-5 sneden brood',
         5 => '6 sneden brood of meer',
       ),
@@ -227,15 +222,15 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'options' => 
       array (
         1 => 'Geen',
-        2 => '1-2 opscheplepels (50-100 gram)',
-        3 => '3-4 opscheplepels (150-200 gram)',
-        4 => '4-5 opscheplepels of meer (200-250 gram)',
+        2 => '50-100 gram (1-2 opscheplepels)',
+        3 => '150-200 gram (3-4 opscheplepels)',
+        4 => '250 gram of meer (5 opscheplepels of meer)',
       ),
     ),
     '3-6' => 
     array (
       'title' => 'Hoe vaak eet jij vlees(waren)?',
-      'text' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en de mineralen ijzer, zink en seleen.',
+      'text' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en de mineralen ijzer.',
       'options' => 
       array (
         1 => 'Geen',
@@ -245,10 +240,8 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
     ),
     '3-7' => 
     array (
-      'title' => 'Hoeveel porties vette vis eet jij gemiddeld per week (zoals: zalm, makreel, haring, e.d.)?',
-      'text' => 'Vis bevat gezonde visvetzuren. Deze vetzuren zijn goed voor hart en bloedvaten. Hoe vetter de vis, hoe meer gezonde vetzuren de vis bevat. Naast visvetzuren bevat vis onder andere de mineralen seleen en jodium.
-								VETTE VIS: haring, makreel, zalm, sardines, bokking, kaviaar, paling, sprot. 
-								Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weinig visvetzuren omdat het een magere, witte vis is.',
+      'title' => 'Hoeveel porties vette vis eet jij gemiddeld per week?',
+      'text' => 'Vis bevat gezonde omega-3 visvetzuren (DHA en EPA). EPA en DHA zijn goed voor het hart. Dit gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA. Hoe vetter de vis, hoe meer gezonde vetzuren de vis bevat. Naast visvetzuren bevat vis onder andere de mineralen seleen en jodium. VETTE VIS: haring, makreel, zalm, sardines, bokking, kaviaar, paling, sprot. Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weinig visvetzuren omdat het een magere, witte vis is.',
       'options' => 
       array (
         1 => 'Minder dan 1 portie vette vis (100 gram)',
@@ -262,7 +255,7 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'text' => 'Zuivelproducten bevatten essentiële voedingsstoffen als vitamine B2, B12 en calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuivel dat je per dag nodig hebt hangt af van jouw leeftijd.',
       'options' => 
       array (
-        1 => 'Geen',
+        1 => 'Zelden',
         2 => '1 portie (150 ml/gram)',
         3 => '2-3 porties (300-450 ml/gram)',
         4 => '3-4 porties (450-600 ml/gram)',
@@ -319,7 +312,7 @@ De B-vitamines (B1, B2, B3, B5, B6, B12) spelen een belangrijke rol in de energi
 De juiste vitamines en mineralen kunnen jouw immuunsysteem ondersteunen. Vitamine C is een anti-oxidant en is belangrijk voor het immuunsysteem omdat het jouw lichaam helpt witte bloedcellen te produceren. Vitamine A en D zijn ook belangrijk als je niet ziek wilt worden. </ Span>
 <Span v-show = "user_data.smokes == 1">
 Natuurlijk is ons beste advies om te stoppen met roken, maar zolang jij rookt zorgt TakeDaily ervoor dat wij voorzien in jouw verhoogde behoefte aan vitamine C. Het is wetenschappelijk bewezen dat de behoefte van rokers aan vitamine C verhoogd is, omdat er in het lichaam meer vitamine C wordt afgebroken door de sigarettenrook.
-Als je stopt met roken, vergeet dit dan niet aan te passen in jouw profiel via<a href="/account" target="_blank"> Mijn TakeDaily</a>. </ Span>',
+Als je stopt met roken, vergeet dit dan niet aan te passen in jouw account via<a href="/account" target="_blank"> Mijn TakeDaily</a>. </ Span>',
       'E' => 'Bepaalde voedingsstoffen ondersteunen jouw spieren en kraakbeen. Vitamine D en magnesium zijn belangrijk voor een normale spierwerking en een tekort kan leiden tot spierpijn en spierzwakte. Vitamine C is belangrijk voor het kraakbeen. ',
     ),
     3 => 
@@ -328,29 +321,29 @@ Als je stopt met roken, vergeet dit dan niet aan te passen in jouw profiel via<a
 Fruit is een belangrijke bron van vitamine C, foliumzuur en kalium. Je eet onvoldoende fruit, waardoor er een tekort kan ontstaan aan deze belangrijke vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt. Voedingssupplementen
 zijn geen vervanging voor een gezonde en gevarieerde voeding. 
 <br/> <br/>
-Als je dagelijkse fruitconsumptie verandert, vergeet dan niet om jouw profiel aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt. </ span>
+Als je dagelijkse fruitconsumptie verandert, vergeet dan niet om jouw account aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt. </ span>
 <Span v-show = "user_data.foods.vegetables == 1">
 Groenten zijn een belangrijke bron van vitamine C, foliumzuur en kalium. Je eet onvoldoende groente, waardoor er een tekort kan ontstaan aan deze belangrijke vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt. Voedingssupplementen zijn geen vervanging voor een gezonde en gevarieerde voeding. 
 <br/> <br/>
-Als je dagelijkse groenteconsumptie verandert, vergeet dan niet om jouw profiel aan te passen  via <a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt. </ span>',
+Als je dagelijkse groenteconsumptie verandert, vergeet dan niet om jouw account aan te passen  via <a href="/account" target="_blank"> Mijn TakeDaily </a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt. </ span>',
       'b' => '<Span v-show = "user_data.foods.bread == 1">
 Brood is een belangrijke bron van B-vitamines, ijzer en vezels. Brood is de belangrijkste bron van jodium in Nederland. De B-vitamines, ijzer en jodium zijn belangrijk voor jouw energiestofwisseling. Je eet onvoldoende brood(producten), waardoor er een tekort kan ontstaan aan deze belangrijke vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt. Voedingssupplementen zijn echter geen vervanging voor een gezonde en gevarieerde voeding.  <br/> <br/>
-Als je dagelijkse consumptie van brood(producten) wijzigt, vergeet dan niet om jouw profiel aan te passen via
+Als je dagelijkse consumptie van brood(producten) wijzigt, vergeet dan niet om jouw account aan te passen via
 <a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt. </ span>
 <Span v-show = "user_data.foods.wheat == 1">
 Je eet onvoldoende aardappelen, rijst, pasta, e.d. waardoor er een tekort kan ontstaan aan deze belangrijke vitamines en mineralen. Deze voedingsmiddelen zijn een belangrijke bron van B-vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt. Voedingssupplementen zijn geen vervanging voor een gezonde en gevarieerde voeding. 
 <br/> <br/>
-Als je dagelijkse consumptie van aardappelen, rijst, pasta, e.d. wijzigt, vergeet dan niet om jouw profiel aan te passen via
+Als je dagelijkse consumptie van aardappelen, rijst, pasta, e.d. wijzigt, vergeet dan niet om jouw account aan te passen via
 <a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen van ons ontvangt die je op dat moment nodig hebt.</ span>',
       'c' => 'Je gebruikt dagelijks onvoldoende melk(producten), waardoor je een tekort kunt ontwikkelen aan calcium, vitamine B2 en B12. Calcium is onder andere goed voor jouw botten en spieren. Voedingssupplementen zijn geen vervanging voor een gezonde en gevarieerde voeding. 
 <br/> <br/>
-Als je dagelijkse consumptie van zuivel(producten) wijzigt, vergeet dan niet om jouw profiel aan te passen via
+Als je dagelijkse consumptie van zuivel(producten) wijzigt, vergeet dan niet om jouw account aan te passen via
 <a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen binnenkrijgt die je op dat moment nodig hebt.',
       'd' => '<span v-show="(user_data.vegetarian == 2 && user_data.foods.meat == 1)">
 Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en ijzer. Je geeft aan geen vlees(producten) te eten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt. Voedingssupplementen zijn geen vervanging voor een gezonde en gevarieerde voeding. 
 
 <br/> <br/>
-Als je consumptie van vlees(producten) wijzigt, vergeet dan niet om jouw profiel aan te passen via
+Als je consumptie van vlees(producten) wijzigt, vergeet dan niet om jouw account aan te passen via
 <a href="/account" target="_blank"> Mijn TakeDaily</a>. TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen binnenkrijgt die je op dat moment nodig hebt.
 </span>
 
@@ -359,13 +352,13 @@ Vlees(producten) bevat veel ijzer, vitamine B1 en B12. Als vegetariër of vegani
 </span>',
       'e' => 'Je eet onvoldoende (vette) vis. Vis bevat gezonden visvetzuren. Deze vetzuren zijn goed voor hart en bloedvaten. TakeDaily zorgt ervoor dat je deze visvetzuren voldoende binnenkrijgt.
 <br/> <br/>
-Als je visconsumptie wijzigt, vergeet dan niet om jouw profiel aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily</a>.
+Als je visconsumptie wijzigt, vergeet dan niet om jouw account aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily</a>.
 TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen binnekrijgt die je op dat moment nodig hebt.',
       'f' => 'Je gebruikt onvoldoende halvarine/margarine/boter op jouw brood of tijdens het koken. Deze producten zijn een belangrijke bron van vitamine A en D. Beide vitamines ondersteunen jouw immuunsysteem. TakeDaily zorgt ervoor dat je deze vitamines en mineralen voldoende binnenkrijgt. Voedingssupplementen zijn geen vervanging voor een gezonde en gevarieerde voeding.  
 <br/> <br/>
-Als je dagelijkse consumptie van smeer- en bereidingsvetten wijzigt, vergeet dan niet om jouw profiel aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily</a>.
+Als je dagelijkse consumptie van smeer- en bereidingsvetten wijzigt, vergeet dan niet om jouw account aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily</a>.
 TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen binnenkrijgt die je op dat moment nodig hebt.',
-      'g' => 'Je hebt Chiazaadolie gekozen! Chiazaadolie is een plantaardige olie en rijk aan gezonde omega 3-vetzuren.Voor mensen die geen visolie willen gebruiken is Chiazaadolie met betrekking tot de omega-3 vetzuren een plantaardig alternatief!',
+      'g' => 'Je hebt Chiazaadolie gekozen! Chiazaadolie is een plantaardige olie en bevat gezonde omega 3-vetzuren.Voor mensen die geen visolie willen gebruiken is Chiazaadolie met betrekking tot de omega-3 vetzuren een plantaardig alternatief.',
     ),
     'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.',
@@ -374,65 +367,28 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
   array (
     1 => 
     array (
-      'basic' => 'De Multi Basic vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen.
-
-<div class="clear"></div>
-
-<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
-      'basic-10-d' => 'De Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D
-
-<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
-      'basic-10-d-alt' => 'De Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D
-
-<div class="clear"></div>
-
-<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
-      'basic-20-d' => 'Multi Vitamine D+ Extra vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D voor mannen en vrouwen vanaf 70 jaar.
-
-<div class="clear"></div>
-
-<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Voor het ondersteunen van een optimale gezondheid</div>',
+      'basic' => 'De Multi Basic vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van vitamines en mineralen.e vitamines en mineralen in de Multi Basic zijn een algemene dagelijkse aanvulling op jouw voeding.',
+      'basic-10-d' => 'Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van vitamines en mineralen. e vitamines en mineralen in de Multi Vitamin D+ zijn een algemene dagelijkse aanvulling op jouw voeding.',
+      'basic-10-d-alt' => 'Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van vitamines en mineralen. De vitamines en mineralen in de Multi Vitamin D+ zijn een algemene dagelijkse aanvulling op jouw voeding.',
+      'basic-20-d' => 'Multi vitamine D+ Extra vormt de basis van jouw persoonlijke TakeDaily pakket met 20 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen. De vitamines en mineralen in de Multi Vitamin D+ Extra zijn een algemene dagelijkse aanvulling op jouw voeding.',
     ),
     2 => 
     array (
-      'A' => '<div class="clear"></div><span class="icon icon-baby-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot de groei van het ongeboren kind tijdens de zwangerschap</div>
-
-                   <span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt het immuunsysteem</div>',
-      'B' => '<span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">Bevordert de energiestofwisseling</div>
-					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt om vermoeidheid en moeiheid te verminderen</div>
-					<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt het immuunsysteem</div>',
-      'C' => '<span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale energiestofwisseling</div>
-					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt om vermoeidheid en moeheid te verminderen</div>
-					<div class="clear"></div><span class="icon icon-stress-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale weerstand tegen stress</div>
-
-<span class="icon icon-muscle-flow flow-promise-icon"></span><div class="flow-promise-text">Draagt bij tot een normale eiwitsynthese en helpt het normale werken van de spieren</div>',
-      'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het immuunsysteem</div>
-<div class="clear"></div><span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt lichaamscellen te beschermen tegen invloeden van buitenaf</div>',
-      'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span><div class="flow-promise-text">Draagt bij tot een normale werking van de spieren</div>
-					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan de instandhouding van sterke botten</div>
-					<div class="clear"></div><span class="icon icon-cartilage-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het kraakbeen</div>',
+      'A' => 'Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn. Mom & Baby bevat 400 microgram foliumzuur en 10 microgram vitamine D. ',
+      'B' => 'Shape Me Up is een voedingssupplement speciaal voor mensen die gewicht proberen te verliezen. In de periode dat je gewicht probeert te verliezen is het belangrijk dat je lichaam voldoende vitamines en mineralen binnenkrijgt. TakeDaily zorgt dat jij in deze periode de vitamines en mineralen binnenkrijgt die jij als aanvulling op de dagelijkse voeding kunt gebruiken. De B-vitamines (B1, B6 en B12) spelen een belangrijke rol in de energiestofwisseling van het lichaam. Vitamine A en C zorgen mede voor een goede weerstand. Vitamine C is daarnaast van belang voor de vorming van collageen die helpt de huid te verstevigen en vitamine K ondersteunt een normale bloedstolling. Daarnaast is het natuurlijk belangrijk dat je stress vermijdt, goed slaapt en beweegt.',
+      'C' => 'Energy Support bevat vitamines en mineralen die jouw energieniveau ondersteunen, helpen vermoeidheid en moeheid te verminderen en bijdragen aan een heldere geest en normale weerstand tegen stress.',
+      'D' => 'Immune Booster is rijk aan vitamines en mineralen die jouw weerstand ondersteunen (vitamine A, B6, B11 (foliumzuur), B12, C, D en de mineralen seleen en zink).',
+      'E' => 'Joint, Bone & Muscle bevat vitamine C, D, magnesium en mangaan. Vitamine D en magnesium zijn belangrijk voor een normale spierwerking. Vitamine C en mangaan zijn goed voor het kraakbeen. ',
     ),
     3 => 
     array (
-      'a' => '<div class="clear"></div><span class="icon icon-nerve-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt de normale werking van het zenuwstelsel</div>
-			     <span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
-			     <span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Heeft een gunstige invloed op het behoud van een normale bloeddruk en is belangrijk voor de bloedvaten</div>',
-      'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
-		        <div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt bij het gezond houden van de huid</div>
-					<div class="clear"></div><span class="icon icon-nerve-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>',
-      'c' => '<span class="icon icon-teeth-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt de tanden sterk te houden</div>
-					<div class="clear"></div><span class="icon icon-nerve-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>
-                             </div><span class="icon icon-intestine-flow flow-promise-icon"></span> <div class="flow-promise-text">Ondersteunt de spijsvertering</div>',
-      'd' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Goed voor het concentratievermogen, geheugen en leerprestatie</div>
-		       <span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan de normale vorming van rode bloedcellen</div>
-					<div class="clear"></div><span class="icon icon-nerve-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het zenuwstelsel</div>',
-      'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een normale werking van het hart*</div>
-
-<div class="clear"></div><span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot de instandhouding van de normale hersenfunctie en een normaal gezichtsvermogen**</div>',
-      'f' => '<div class="clear"></div><span class="icon icon-eye-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij tot het instandhouding van een normaal gezichtsvermogen</div>
-                           <div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Helpt bij het gezond houden van de huid</div>
-                        <div class="clear"></div><span class="icon icon-teeth-flow flow-promise-icon"></span> <div class="flow-promise-text">Draagt bij aan een sterk gebit</div>',
-      'g' => '<span class="icon icon-blood-flow flow-promise-icon"></span> <div class="flow-promise-text">Alfa-linoleenzuur (ALA) helpt het cholesterolniveau gezond te houden.*</div>',
+      'a' => 'I\'m Not a Veggie or Fruit Fan bevat belangrijke voedingsstoffen aanwezig in groente en fruit (beta-caroteen, vitamine B11 (foliumzuur), vitamine C en kalium). Het supplement dient ter aanvulling op de multivitamine.',
+      'b' => 'I\'m Don\'t Eat Carbs is rijk aan B-vitamines (B1, B2, B3, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op de multivitamine.',
+      'c' => 'The Dairy Portion bevat vitamine B2, B12 en calcium. Het zijn voedingsstoffen die van nature voorkomen in melk(producten). Het supplement dient ter aanvulling op de multivitamine.',
+      'd' => 'I\'m Vegetarian/Vegan is speciaal voor vegetariërs, veganisten en mensen die geen vlees eten. Het supplement bevat vitamine B1, B6, B12 en ijzer; voedingsstoffen die van nature aanwezig zijn in vlees. Het supplement dient ter aanvulling op de multivitamine.',
+      'e' => 'Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega 3-vetzuren EPA en DHA. De Gezondheidsraad adviseert volwassenen om minimaal één keer per week vis te eten, bij voorkeur vette vis. Premium Omega-3 visolie wordt gewonnen uit kleine vette vissoorten als ansjovis en sardines met een hoog gehalte aan omega-3 vetzuren. Premium Omega-3 visolie bevat 550 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
+      'f' => 'Not a Butter Lover bevat vitamine A, D en E. Halvarine en margarine zijn belangrijke bronnen van vitamine A en D. Boter is een belangrijke bron van vitamine A. Oliën  bevatten vitamine E. Het supplement dient ter aanvulling op de multivitamine.',
+      'g' => 'Premium Omega-3 Chiazaadolie is een plantaardige olie, verkregen door een koude persing van de zaden. Het bevat gezonde omega-3 vetzuren!',
     ),
   ),
   'call-me' => 
@@ -450,7 +406,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
     ),
     'today' => 'Vandaag',
     'tomorrow' => 'Morgen',
-    'success' => 'Bedankt! Takedaily neemt zo spoedig mogelijk contact met je op!',
+    'success' => 'Bedankt! TakeDaily neemt zo spoedig mogelijk contact met je op!',
     'button-text' => 'Bel mij',
   ),
   'datepicker' => 
@@ -536,11 +492,11 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
     'send' => 
     array (
       'title' => 'Mijn persoonlijk advies versturen naar',
-      'email' => 'Jouw emailadres:',
+      'email' => 'Jouw e-mailadres:',
       'send' => 'Versturen',
       'cancel' => 'Annuleren',
       'placeholder' => 'navn@email.nl',
-      'error' => 'Zou je je emailadres kunnen invullen?',
+      'error' => 'Zou je je e-mailadres kunnen invullen?',
       'success' => 'Mijn persoonlijk advies is verstuurd',
     ),
   ),
@@ -551,7 +507,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
   ),
   'button-save-text' => 'Pas jouw pakket aan',
   'package-updated' => 'Jouw TakeDaily pakket is aangepast!',
-  'switch-to-chia' => 'Verander visolie in het plantaardige chiazaad olie',
-  'switch-to-fish' => 'Verander het plantaardige chiazaadolie in visolie',
+  'switch-to-chia' => 'Verander visolie in het plantaardige chia-olie',
+  'switch-to-fish' => 'Verander het plantaardige chia-olie in visolie',
   'ingredients' => 'Ingrediënten',
 );

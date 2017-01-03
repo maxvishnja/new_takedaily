@@ -78,7 +78,7 @@ return array (
 ',
         ),
       ),
-      'button-submit-text' => 'Bestel nu',
+      'button-submit-text' => 'Betalen',
     ),
     'total' => 
     array (

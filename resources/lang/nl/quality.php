@@ -3,42 +3,39 @@
 return array (
   'title' => 'Kwaliteit',
   'page_title' => 'Onze producten',
-  'subtitle' => 'Alle voedingssupplementen van TakeDaily zijn van hoge kwaliteit en samengesteld uit pure, actieve en wetenschappelijk bewezen ingrediënten.
-
-<p>TakeDaily werkt samen met bekwame voedingsdeskundigen die gebruik maken
-van de laatste wetenschappelijke inzichten om het lichaam optimaal gezond te houden.</p>
-
-<p>De wetenschap is zeer complex, maar voor jou maakt TakeDaily het duidelijk en eenvoudig.</p>',
+  'subtitle' => '<p>TakeDaily voedingssupplementen zijn van hoogwaardige kwaliteit, bestaande uit zuivere en bewezen ingrediënten. Onze producten zijn samengesteld op basis van de laatste wetenschappelijke inzichten op het gebied van voedingsstoffen en gezondheid. 
+Om actief te kunnen blijven inspelen op deze ontwikkelingen, werken wij samen met een team van voedingsprofessionals.</p>
+<p>Met TakeDaily hoef je zelf niet meer te onderzoeken welke voedingssupplementen aansluiten op jouw behoefte en levensstijl, dat doen wij voor jou! Onze range aan voedingssupplementen is zo opgezet, dat wij voor iedereen een passend TakeDaily pakket aan supplementen kunnen samenstellen. 
+</p>',
   'section_vitamins' => 
   array (
-    'title' => 'Onze voedingssupplementen',
-    'body' => '<p>TakeDaily streeft naar de hoogste kwaliteit voor haar supplementen. Alle ingrediënten zijn in de EU tot het kleinste detail goedgekeurd en al onze producten zijn ontwikkeld in overeenstemming is met de eisen van Nederlandse warenwet en de EFSA (Europese Autoriteit voor Voedselveiligheid). Ons verpakkingscentrum is gespecialiseerd in het verpakken van voedingsmiddelen en is ISO 22000:2005 gecertificeerd.</p>
+    'title' => 'TakeDaily voedingssupplementen',
+    'body' => '<p>Wij streven naar de hoogst haalbare kwaliteit voor onze voedingssupplementen. De ingrediënten die wij gebruiken zijn goedgekeurd op Europees niveau en de voedingssupplementen voldoen aan alle eisen van de EFSA (Europese Autoriteit voor Voedselveiligheid) en de Nederlandse Warenwet. De voedingssupplementen worden professioneel verpakt volgens de kwaliteitseisen en zijn ISO 22000 gecertificeerd.</p>
 
-<p>TakeDaily zorgt dat haar supplementen veilig en verantwoord gedoseerd zijn, ook voor de door ons geadviseerde combinaties van supplementen garanderen wij te allen tijde dat de dosering aan vitamines en mineralen veilig en verantwoord is.</p>',
+<p>De dosering van onze voedingssupplementen is verantwoord, ook in de voor ons geadviseerde combinaties kom je niet uit boven de aanvaardbare bovengrens van de afzonderlijke vitamines, mineralen en omega-3.</p>',
   ),
   'section_plants' => 
   array (
-    'title' => 'Capsules van 100% plantaardig materiaal',
-    'body' => '<p>Met uitzondering van ons visolie supplement*, zijn de capsules die TakeDaily voor haar supplementen gebruikt gemaakt van plantaardig materiaal. Onze plantaardige capsules zijn vervaardigd van cellulose (hydroxypropylmethylcellulose) afkomstig van bomen. De capsules zijn vrij van gelatine en daarom geschikt voor mensen die omwille van hun religie of voedingspatroon geen gelatine wensen te eten.</p>
+    'title' => 'Plantaardige capsules',
+    'body' => '<p>Onze voedingssupplementen zijn, met uitzondering van ons visolie-supplement*, omsloten door een plantaardige capsule gemaakt van cellulose (hydroxypropylmethylcellulose), afkomstig van bomen. De capsules zijn vrij van gelatine.</p>
+<p><small>*capsule vervaardigd van gelatine</small></p>
 
-<p><strong>De voordelen van onze plantaardige capsules:</strong></p>
+<p><strong>TakeDaily kiest voor deze capsules:</strong></p>
 
 <ul>
-    <li>productie gecertificeerd volgens ISO 9001: 2008 en GMP (Good Manufacturing Practice)</li>
-    <li>bevatten geen conserveringsmiddelen.</li>
-    <li>geschikt voor kosher/ halal/ vegetariërs/ veganisten.</li>
-    <li>allergenen vrij (let op: onze capsules bevatten wel kleurstoffen!)</li>
-    <li>vrij van Genetische modificatie (GMO)</li>
-</ul>
-						
-<p>Om de verschillende supplementen in jouw TakeDaily pakket goed van elkaar te kunnen onderscheiden maken wij gebruik van gekleurde capsules. De kleurstoffen zijn als hulpstof goedgekeurd door de Europese Unie volgens Verordening nr. 1333/2008 en 231/2012.</p>
-						
-<p><small>*capsule vervaardigd van gelatine</small></p>',
+    <li>Vrij van geur- en smaakstoffen</li>
+    <li>Vrij van conserveermiddelen</li>
+     <li>Vrij van genetisch gemodificeerde ingrediënten</li>
+    <li>Vrij van bestraling</li>
+    <li>Geproduceerd volgens richtlijnen ISO 9001 en GMP (Good Manufacturing Practice)</li>
+</ul>',
   ),
   'section_foa' => 
   array (
-    'title' => 'Onze Premium Omega-3 visolie',
-    'body' => '<p>Onze omega-3 visolie wordt gewonnen uit ansjovis en sardines en bestaat voor 65% uit gezonde omega-3 vetzuren. De sardines en ansjovis worden gevangen in de schone zeeën rondom Peru en Chili. Om de visolie te beschermen tegen oxidatie is vitamine E als antioxidant toegevoegd.</p>
-					<p>Onze visolie is onderworpen aan de strengste kwaliteitsnormen en is optimaal gezuiverd en gecontroleerd op de aanwezigheid van verontreinigingen als zware metalen, dioxines en PCB\'s. De productie van onze visolie is van productie tot het transport gecertificeerd door "Friends of the Sea". De productie van visolie is traceerbaar vanaf het moment dat de vis gevangen wordt, Milieu en duurzaamheid staat bij de productie van onze visolie hoog in het vaandel.</p>',
+    'title' => 'TakeDaily Premium Omega-3 visolie',
+    'body' => '<p>Duurzaamheid en het milieu vinden wij erg belangrijk. Het productieproces van onze omega-3 visolie is dan ook van begin tot eind traceerbaar en gecertificeerd door Friends of the Sea  (FOS).</p>
+					<p>Onze visolie wordt gewonnen uit kleine vette vissoorten als ansjovis en sardines met een hoog gehalte aan omega-3 vetzuren. De vis is afkomstig uit de schone wateren rondom Peru en Chili. Omega-3 vetzuren zijn kwetsbaar voor oxidatie, ter bescherming voegen wij daarom vitamine E toe, een antioxidant.</p>
+
+<p>Des te hoger de vis in de voedselketen staat, des te meer zware metalen er kunnen zijn opgehoopt in het vetweefsel van de vis. Ansjovis en sardines zijn kleine vissoorten die laag in de voedselketen staan. Daarnaast wordt ook deze olie nog optimaal gezuiverd en gecontroleerd op de aanwezigheid van zware metalen en andere verontreinigingen zoals dioxines en PCB’s.</p>',
   ),
 );

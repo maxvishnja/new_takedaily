@@ -8,7 +8,8 @@ return array (
     'pick' => '--- kiezen ---',
     'button-save-text' => 'Gegevens opslaan',
     'header' => 'Mijn TakeDaily',
-    'button-change' => 'Profiel aanpassen',
+    'button-change' => 'Nieuwe test doen',
+    'button-see_recommendation' => 'Zie mijn persoonlijk advies',
   ),
   'transaction' => 
   array (
@@ -46,6 +47,8 @@ return array (
       'status' => 'Status',
     ),
     'button-show-text' => 'Tonen',
+    'next-date' => '<strong>Volgende leveringsdatum:</strong><br/> :date',
+    'header_history' => 'Leveringsgeschiedenis',
   ),
   'settings_basic' => 
   array (
@@ -69,6 +72,7 @@ return array (
       'title' => 'Voeg betaalmethode toe - Take Daily',
       'header' => 'Nieuwe betaalmethode',
     ),
+    'update' => 'Betaalgegevens aanpassen',
   ),
   'settings_subscription' => 
   array (
@@ -87,17 +91,17 @@ return array (
     'snooze_popup' => 
     array (
       'title' => 'Selecteer aantal dagen',
-      'text' => 'Hoeveel dagen wil je de volgende levering van jouw TakeDaily pakket uitstellen?',
+      'text' => 'Hoeveel dagen wil je de eerstvolgende levering van jouw TakeDaily pakket uitstellen?',
       'option' => ':days dagen',
       'button-snooze-text' => 'Uitstellen',
       'button-close-text' => 'Annuleren',
     ),
-    'cant-cancel' => 'Jouw volgende levering is binnen 48 uur. Je kunt de bestelling helaas niet meer uitstellen.',
-    'cant-snooze' => 'Jouw volgende levering is binnen 24 uur. Je kunt de bestelling helaas niet meer uitstellen.',
+    'cant-cancel' => 'Jouw eerstvolgende TakeDaily pakket wordt binnen 5 dagen geleverd. Je kunt deze levering niet meer pauzeren of annuleren.',
+    'cant-snooze' => 'Jouw eerstvolgende TakeDaily pakket wordt binnen 4 dagen geleverd. Je kunt deze levering niet meer uitstellen.',
     'new-recommendation' => 
     array (
-      'btn' => 'Pas mijn vitamines aan',
-      'text' => 'Vanuit jouw profiel, kunnen we zien dat andere vitamines beter aansluiten bij jou behoeften.',
+      'btn' => 'Pas mijn supplementen-pakket aan',
+      'text' => 'Jouw TakeDaily account laat ons zien dat andere supplementen beter aansluiten bij jouw behoefte.',
       'title' => 'We hebben een nieuw advies voor je.',
     ),
   ),
@@ -113,5 +117,31 @@ return array (
       'preferences-saved' => 'Jouw voorkeuren zijn opgeslagen!',
       'vitamins-updated' => 'Vitamines zijn bijgewerkt!',
     ),
+  ),
+  'settings_cancel' => 
+  array (
+    'submit' => 'Opzeggen',
+    'title' => 'Abonnement opzeggen',
+    'header' => 'Abonnement opzeggen',
+    'are_you_sure' => 'Weet je het zeker?
+',
+    'cancel' => 'Abonnement behouden',
+    'question' => 'Waarom wil je jouw abonnement opzeggen?',
+    'reason_text' => 'Wat is de reden',
+    'reasons' => 
+    array (
+      0 => 'Ik heb de voorkeur voor de producten van een andere aanbieder',
+      1 => 'Ik vind TakeDaily te duur',
+      2 => 'TakeDaily biedt niet de supplementen waar ik naar op zoek ben',
+      3 => 'Ik vind het concept te ingewikkeld',
+      4 => 'Ik ben vaak in het buitenland',
+      5 => 'Ik gebruik de TakeDaily supplementen niet',
+      'other' => 'Andere reden',
+      'pick' => 'Kies reden',
+    ),
+  ),
+  'personal' => 
+  array (
+    'title' => 'Mijn TakeDaily - TakeDaily',
   ),
 );

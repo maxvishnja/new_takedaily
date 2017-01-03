@@ -126,13 +126,13 @@ Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og holde hå
     0 => 
     array (
       'name' => 'Calcium',
-      'amount' => '165,9 mg',
-      'percent' => '20',
+      'amount' => '166 mg',
+      'percent' => '21',
     ),
     1 => 
     array (
       'name' => 'Fosfor',
-      'amount' => '128,2 mg',
+      'amount' => '128 mg',
       'percent' => '18',
     ),
     2 => 

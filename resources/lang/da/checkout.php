@@ -3,7 +3,7 @@
 return array (
   'wait' => 'Vent...',
   'apply' => 'Anvend',
-  'back' => '‹ Gå tilbage til din TakeDaily pakke',
+  'back' => '‹ Gå tilbage til din anbefaling',
   'messages' => 
   array (
     'vitamins-not-selected' => 'Vi skal finde dine vitaminer før du kan handle.',
@@ -15,15 +15,15 @@ return array (
   ),
   'mail' => 
   array (
-    'subject' => 'Ordrebekræftelse fra TakeDaily',
-    'subject-subscription' => 'Vi har trukket penge for dit abonnement',
-    'subject-subscription-failed' => 'Vi kunne ikke trække penge for dit abonnement!',
+    'subject' => 'Ordrebekræftelse og TakeDaily til dig',
+    'subject-subscription' => 'Vi har trukket penge for dit medlemskab hos TakeDaily.',
+    'subject-subscription-failed' => 'Vi kunne ikke trække penge for dit TakeDaily medlemskab!',
   ),
   'success' => 
   array (
     'page-title' => 'Din ordre blev godkendt! - TakeDaily',
-    'title' => 'Din ordre blev oprettet',
-    'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Tak for dit køb!',
+    'title' => 'Din ordre er blevet oprettet!',
+    'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Vi forventer at levere din skræddersyet TakeDaily i din postkasse indenfor 4-5 hverdage. Har du købt et gavekort, vil du modtage dette i en separat mail. Tak for dit køb!',
     'button-text' => 'Gå til dit TakeDaily',
     'giftcard' => 
     array (
@@ -71,6 +71,10 @@ return array (
         'password_confirmation' => 'Gentag kodeord',
         'password_confirmation-placeholder' => 'Gentagelse af kodeord',
         'password-placeholder' => 'Kodeord',
+        'first_name' => 'Fornavn',
+        'first-name-placeholder' => 'John',
+        'last_name' => 'Efternavn',
+        'last-name-placeholder' => 'Madsen',
       ),
       'billing' => 
       array (
@@ -106,8 +110,7 @@ return array (
       'input-placeholder' => 'Indtast rabatkode',
       'button-text' => 'Anvend',
     ),
-    'disclaimer' => '<p class="checkout_description">Du vil blive trukket <span v-show="price === total_subscription">{{ total_subscription }}
-							DKK</span><strong v-show="price !== total_subscription">{{ total_subscription }} DKK</strong> på dit kort hver 4 uge. Du kan både udskyde næste levering, sætte på pause, eller opsige dit abonnement til enhver tid. Dog senest 5 dage inden næste afsendelsesdato.</p>',
+    'disclaimer' => '<p class="checkout_description">Du vil blive trukket <span v-show="price === total_subscription">{{ total_subscription }} DKK</span><span v-show="price !== total_subscription">{{ total_subscription }} DKK</span> på dit kort hver 4 uge. Du kan både udskyde næste levering, sætte på pause, eller opsige dit medlemskab til enhver tid. Dog senest 5 dage inden næste afsendelsesdato.</p>',
     'method' => 
     array (
       'title' => 'Vælg betalingsmetode',
@@ -120,4 +123,6 @@ return array (
   'fb-login' => 'Log ind med Facebook',
   'cvv-information' => 'Kontrolnummeret står typisk bag på kortet',
   'back-pick' => '‹ Gå tilbage til dine valg',
+  'terms-agree' => 'Ved at klikke "Bestil nu" accepterer du vores <a href=“/page/terms”>handelsbetingelser</a> samt bekræfter, at du er over 18.',
+  'facebook_disclaimer' => '(Vi slår ingenting op på din Facebook profil)',
 );
