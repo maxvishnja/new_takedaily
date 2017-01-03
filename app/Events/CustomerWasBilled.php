@@ -24,7 +24,7 @@ class CustomerWasBilled extends Event
 	/**
 	 * CustomerWasBilled constructor.
 	 *
-	 * @param \App\Customer $customer
+	 * @param $int $customerId
 	 * @param int           $amount
 	 * @param string        $chargeToken
 	 * @param string        $product
@@ -32,9 +32,9 @@ class CustomerWasBilled extends Event
 	 * @param int           $balanceAmount
 	 * @param mixed         $coupon
 	 */
-	public function __construct(Customer $customer, $amount = 100, $chargeToken = '', $product = 'subscription', $balance = false, $balanceAmount = 0, $coupon)
+	public function __construct($customerId, $amount = 100, $chargeToken = '', $product = 'subscription', $balance = false, $balanceAmount = 0, $coupon)
 	{
-		$this->customer      = $customer;
+		$this->customer      = Customer::find($customerId);
 		$this->orderAmount   = $amount;
 		$this->chargeToken   = $chargeToken;
 		$this->product       = $product;

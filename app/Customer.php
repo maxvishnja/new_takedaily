@@ -471,7 +471,7 @@ class Customer extends Model
 
 		if ( $makeOrder )
 		{
-			\Event::fire( new CustomerWasBilled( $this, $amount, $chargeId, $product, $usedBalance, $prevAmount * - 1, $coupon ) );
+			\Event::fire( new CustomerWasBilled( $this->id, $amount, $chargeId, $product, $usedBalance, $prevAmount * - 1, $coupon ) );
 		}
 
 		return true;
