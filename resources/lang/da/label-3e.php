@@ -7,7 +7,7 @@ return array (
     'brain' => 'DHA bidrager til opretholdelse af en normal hjernefunktion og et normalt syn. **',
     'heart' => 'EPA og DHA bidrager til den normale funktion af hjertet.*',
   ),
-  'ingredients' => '<strong>Fiske</strong>olie (fedtsyrer), kapselvæg (gelatine), konsistensmiddel (glycerol), vand, antioxidant (d-alfa-tocopherol koncentrat)',
+  'ingredients' => '<strong>Fiske</strong>olie (fedtsyrer), gelatine, konsistensmiddel (glycerol), vand, antioxidant (d-alfa-tocopherol koncentrat)',
   'other-vitamins' => 
   array (
     0 => 
@@ -39,13 +39,13 @@ return array (
     array (
       'name' => 'Vitamin E',
       'amount' => '10 mg',
-      'percent' => '83',
     ),
   ),
   'disclaimer' => 'Bæredygtigt fiskeri, optimalt renset, certificeret af Friends of the Sea (FOS)
 <span class="clear" style="clear:both;display:block"></span>
 <br/> * Den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA.
 <br/> ** Den gavnlige effekt opnås ved et dagligt indtag på 250 mg DHA.',
+  'Allergener' => 'Fisk',
   'batch_number' => ' L201016',
   'disclaimer_web' => '* Den gavnlige effekt opnås ved et dagligt indtag på 250 mg EPA og DHA.
 <br/> ** Den gavnlige effekt opnås ved et dagligt indtag på 250 mg DHA.',

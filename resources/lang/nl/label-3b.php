@@ -33,7 +33,7 @@ return array (
     2 => 
     array (
       'amount' => '24 mg',
-      'name' => 'Vitamine B3',
+      'name' => 'Vitamine B3 (Niacine)',
       'percent' => '150',
     ),
     3 => 
@@ -45,22 +45,22 @@ return array (
     4 => 
     array (
       'amount' => '300 µg',
-      'name' => 'Vitamine B11 (foliumzuur)',
+      'name' => 'Vitamine B11 (Foliumzuur)',
       'percent' => '150',
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse brood, rijst en pasta inname',
-  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstof (rood ijzeroxide)), ijzer bisglycinaat, nicotinamide, antiklontermiddel (magnesiumstearaat), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, pteroylmonoglutaminezuur, kaliumjodide',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), verdikkingsmiddel (hydroxypropylmethylcellulose), ijzer bisglycinaat, nicotinamide, antiklontermiddel (magnesiumzout van vetzuren), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, kleurstof (rood ijzeroxide), pteroylmonoglutaminezuur, kaliumjodide',
   'praises' => 
   array (
-    'brain-cog' => 'Vitamine B1, B3, B6 en B11 (foliumzuur )zijn goed voor het concentratievermogen, geheugen en leerprestatie',
+    'brain-cog' => 'Vitamine B1, B3, B6 en foliumzuur (vitamine B11 ) zijn goed voor het concentratievermogen en geheugen ',
     'skin' => 'Vitamine B2, B3 en jodium helpen bij het gezond houden van de huid',
     'nerve' => 'Vitamine B1, B2, B3, B6 en jodium ondersteunen de normale werking van het zenuwstelsel',
   ),
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => 'I Don\'t Eat Carbs is rijk aan B-vitamines (B, B2, B3, B5, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op jouw Multi.Voedingssupplementen zijn geen vervanging voor een gezonde en gevarieerde voeding.',
+  'web_description' => 'I Don\'t Eat Carbs is een aanvuling op de multivitamine en is rijk aan B-vitamines (B, B2, B3, B5, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer.',
   'weight' => '14 gram',
   'above_claims' => 'I Don\'t Eat Carbs is rijk aan B-vitamines (B1, B2, B3, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op de multivitaminen.',
   'web_advantage_list' => '<ul>

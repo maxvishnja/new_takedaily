@@ -12,7 +12,7 @@ return array (
   array (
     'profile' => 
     array (
-      'updated' => 'Jouw profiel is bijgewerkt!',
+      'updated' => 'Jouw account is bijgewerkt!',
     ),
     'subscription' => 
     array (

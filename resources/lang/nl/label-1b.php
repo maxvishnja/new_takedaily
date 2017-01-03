@@ -5,13 +5,13 @@ return array (
   array (
     0 => 
     array (
-      'amount' => '165,9 mg',
-      'percent' => '20',
+      'amount' => '166 mg',
+      'percent' => '21',
       'name' => 'Calcium',
     ),
     1 => 
     array (
-      'amount' => '128,2 mg',
+      'amount' => '128 mg',
       'name' => 'Fosfor',
       'percent' => '18',
     ),
@@ -104,13 +104,13 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
     11 => 
     array (
       'amount' => '25 µg',
-      'name' => 'Vitamine B8 (biotine)',
+      'name' => 'Vitamine B8 (Biotine)',
       'percent' => '50',
     ),
     12 => 
     array (
       'amount' => '3 mg',
-      'name' => 'Vitamine B5',
+      'name' => 'Vitamine B5 (Pantotheenzuur)',
       'percent' => '50',
     ),
     2 => 
@@ -146,7 +146,7 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
     7 => 
     array (
       'amount' => '8 mg',
-      'name' => 'Vitamine B3',
+      'name' => 'Vitamine B3 (Niacine)',
       'percent' => '50',
     ),
     8 => 
@@ -158,15 +158,15 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
     9 => 
     array (
       'amount' => ' 100 µg',
-      'name' => 'Vitamine B11 (foliumzuur)',
+      'name' => 'Vitamine B11 (Foliumzuur)',
       'percent' => '50',
     ),
   ),
-  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, kopercomplexen van chlorofylen en chlorofylinen)), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumstearaat), cholecalciferol, calcium-D-pantothenaat, retinylacetaat, cyanocobalamine, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
+  'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), verdikkingsmiddel (hydroxypropylmethylcellulose), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumzout van vetzuren), cholecalciferol, calcium-D-pantothenaat, kleurstoffen (titaandioxide, kopercomplexen van chlorofylen en chlorofylinen), retinylacetaat, cyanocobalamine, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en mineralen',
-  'web_description' => 'Multi vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De vitamines en mineralen in de Multi Vitamin D+ zijn een aanvulling op de dagelijkse voeding en spelen een belangrijke rol in het ondersteunen en behoud van een optimale gezondheid. ',
+  'web_description' => 'Multi vitamine D+ is een multivitamine- en mineralensupplement met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De vitamines en mineralen in de Multi Basic zijn een algemene dagelijkse aanvulling op jouw voeding.',
   'weight' => '27,44 gram',
   'above_claims' => 'Multi vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 10 microgram vitamine D',
   'web_advantage_list' => '<ul>
@@ -175,4 +175,5 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',
+  'Disclaimer_warningage' => 'Dit voedingssupplement is niet geschikt voor kinderen onder de 1 jaar.',
 );

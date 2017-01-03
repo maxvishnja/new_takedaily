@@ -2,7 +2,7 @@
 
 return array (
   'name' => 'Supplement til det daglige indtag af frugt og grønt',
-  'ingredients' => 'Kaliumhydrogenphosphat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E141), L-ascorbinsyre, fyldstof (mikrokrystallinsk cellulose), antiklumpningsmiddel (magnesiumstearat), beta-caroten, pteroymonoglutaminezuur',
+  'ingredients' => 'Kaliumhydrogenphosphat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E141), L-ascorbinsyre, fyldstof (mikrokrystallinsk cellulose), antiklumpningsmiddel (magnesiumstearat), beta-caroten 10%, pteroymonoglutaminezuur',
   'vitamins' => 
   array (
     0 => 
@@ -29,8 +29,8 @@ return array (
     0 => 
     array (
       'name' => 'Kalium',
-      'amount' => '317,1 mg',
-      'percent' => '15',
+      'amount' => '317 mg',
+      'percent' => '16',
     ),
     1 => 
     array (

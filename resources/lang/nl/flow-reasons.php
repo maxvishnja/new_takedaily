@@ -9,8 +9,8 @@ return array (
   array (
     'reasons' => 
     array (
-      'wheat' => 'Je eet onvoldoende aardappelen, rijst, pasta, e.d. Deze voedingsmiddelen zijn een belangrijke bron van B-vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen ter aanvulling op jouw voeding voldoende binnenkrijgt.',
-      'bread' => 'Brood is een belangrijke bron van B-vitamines, ijzer en vezels. Brood is de belangrijkste bron van jodium in Nederland. De B-vitamines, ijzer en jodium zijn belangrijk voor jouw energiestofwisseling. Je eet onvoldoende brood(producten), waardoor het mogelijk is dat jouw voeding deze vitamines en mineralen onvoldoende bevat. TakeDaily zorgt ervoor dat je deze vitamines en mineralen ter aanvulling op jouw voldoende binnenkrijgt.',
+      'wheat' => 'Je eet onvoldoende aardappelen, rijst, pasta, e.d. Deze voedingsmiddelen zijn een belangrijke bron van B-vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
+      'bread' => 'Brood is een belangrijke bron van B-vitamines, ijzer en vezels. Brood is de belangrijkste bron van jodium in Nederland. De B-vitamines, ijzer en jodium zijn belangrijk voor jouw energiestofwisseling. Je eet onvoldoende brood(producten), waardoor het mogelijk is dat jouw voeding deze vitamines en mineralen onvoldoende bevat. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
     ),
     'main' => 'TakeDaily heeft het \'I don\'t Eat Carbs\' supplement toegevoegd aan jouw persoonlijke pakket.',
   ),
@@ -18,18 +18,18 @@ return array (
   array (
     'reasons' => 
     array (
-      'vegetables' => 'Groenten zijn een belangrijke bron van vitamine C, foliumzuur en kalium. Je eet onvoldoende groente, waardoor jouw voeding deze belangrijke voedingsstoffen mogelijk onvoldoende kan aanleveren. TakeDaily zorgt ervoor dat je deze vitamines en mineralen ter aanvulling op jouw voeding voldoende binnenkrijgt.',
-      'fruits' => 'Fruit is een belangrijke bron van vitamine C, foliumzuur en kalium. Je eet onvoldoende fruit, waardoor jouw voeding te weinig vitamine C, foliumzuur en kalium kan bevatten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen ter aanvulling op jouw voeding voldoende binnenkrijgt.',
+      'vegetables' => 'Groenten zijn een belangrijke bron van vitamine C, foliumzuur en kalium. Je eet onvoldoende groente, waardoor jouw voeding deze belangrijke voedingsstoffen mogelijk onvoldoende kan aanleveren. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
+      'fruits' => 'Fruit is een belangrijke bron van vitamine C, foliumzuur en kalium. Je eet onvoldoende fruit, waardoor jouw voeding te weinig vitamine C, foliumzuur en kalium kan bevatten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
     ),
-    'main' => 'TakeDaily heeft het \'I\'m not a veggie fan\' supplement toegevoegd aan jouw persoonlijke pakket.',
+    'main' => 'TakeDaily heeft I\'m Not a Veggie or Fruit Fan toegevoegd aan jouw persoonlijke pakket.',
   ),
   '2e' => 
   array (
-    'main' => 'Je wenst graag jouw botten en de werking van jouw spieren te ondersteunen. TakeDaily adviseert jouw het \'Joint, Bone & Muscle\' supplement. Het bevat vitamines en mineralen die een rol spelen bij het behoud van sterke botten, soepele spieren en goed zijn voor de aanmaak van kraakbeen (in de gewrichten).',
+    'main' => 'Je wil je botten en de werking van jouw spieren ondersteunen. Joint, Bone & Muscle bevat vitamines en mineralen die een rol spelen bij het behoud van sterke botten, soepele spieren en goed zijn voor de aanmaak van kraakbeen (in de gewrichten).',
   ),
   '3f' => 
   array (
-    'main' => 'Je gebruikt onvoldoende halvarine/margarine/boter op jouw brood of tijdens het koken. Deze producten zijn een belangrijke bron van vitamine A en D. Beide vitamines ondersteunen jouw immuunsysteem. TakeDaily zorgt ervoor dat je deze vitamines en mineralen ter aanvulling op jouw voeding voldoende binnenkrijgt.',
+    'main' => 'Je gebruikt onvoldoende halvarine/margarine/boter op jouw brood of tijdens het koken. Deze producten bevatten vitamine A en D. Beide vitamines ondersteunen jouw immuunsysteem. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
   ),
   '3e' => 
   array (
@@ -44,21 +44,21 @@ return array (
   array (
     'reasons' => 
     array (
-      'pregnant' => 'TakeDaily selecteert voor jou \'I\'m a vegetarian/vegan\' supplement. Het supplement bevat B-vitamines (B1, B6, B12) en ijzer. De B-vitamines ondersteunen je energieniveau en ijzer ondersteunt jouw lichaam bij de aanmaak van rode bloedcellen.',
+      'pregnant' => 'TakeDaily selecteert voor jou I\'m a Vegetarian/Vegan\'. Het supplement bevat B-vitamines (B1, B6, B12) en ijzer. De B-vitamines ondersteunen je energieniveau en ijzer ondersteunt jouw lichaam bij de aanmaak van rode bloedcellen.',
       'not_vegetarian_meat' => 'Vlees bevat ijzer, vitamine B1, B6 en B12. Als je geen vlees eet is het belangrijk dat je deze voedingsstoffen voldoende binnenkrijgt, daar zij onder andere een belangrijke rol spelen in de energiestofwisseling van ons lichaam.',
-      'vegetarian' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en ijzer. Je eet geen vlees(producten) te eten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen ter aanvulling op jouw voeding voldoende binnenkrijgt. ',
+      'vegetarian' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en ijzer. Je eet geen vlees(producten) te eten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
     ),
   ),
   '2b' => 
   array (
-    'main' => 'In de periode dat je gewicht probeert te verliezen is het belangrijk dat je lichaam voldoende vitamines en mineralen binnenkrijgt. TakeDaily zorgt dat jij in deze periode de vitamines en mineralen binnenkrijgt die jij ter aanvulling op de dagelijkse voeding kunt gebruiken. Daarnaast is het natuurlijk belangrijk dat je stress vermijdt, goed slaapt en beweegt!',
+    'main' => 'Als je aan het lijnen bent is het belangrijk dat je lichaam voldoende voedingsstoffen binnenkrijgt.',
   ),
   '2c' => 
   array (
     'reasons' => 
     array (
-      'sports' => 'Bewegen is goed voor je gezondheid! Als je veel sport, kan jouw lichaam extra behoefte aan bepaalde vitamines en mineralen hebben. TakeDaily zorgt dat jij ter aanvulling op je dagelijkse voeding voldoende vitamines en mineralen binnenkrijgt. ',
-      'lacks_energy_stressed' => 'De B-vitamines (B1, B2, B3, B5, B6, B12) spelen een belangrijke rol in de energiestofwisseling van jouw lichaam. Vitamine B5 kan bijdragen aan een normale weerstand tegen stress en een heldere geest.  ',
+      'sports' => 'Bewegen is goed voor je gezondheid! Omdat je veel sport, kan jouw lichaam extra behoefte hebben aan bepaalde vitamines en mineralen hebben. TakeDaily zorgt dat jij ter aanvulling op je dagelijkse voeding voldoende vitamines en mineralen binnenkrijgt.',
+      'lacks_energy_stressed' => 'Je wilt jouw energieniveau ondersteunen en/of ervaart momenteel een periode van stress. ',
     ),
   ),
   '2d' => 
@@ -74,25 +74,21 @@ return array (
   array (
     'pregnant' => 
     array (
-      'main' => 'Gefeliciteerd met jouw zwangerschap! TakeDaily heeft voor jou en jouw baby het \'Mom & Baby\' supplement geselecteerd.
-Als je zwanger bent heb je een verhoogde behoefte aan foliumzuur en vitamine D. 
-
-Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger zijn met foliumzuur (vitamine B11) en vitamine D.',
+      'main' => 'Gefeliciteerd met jouw zwangerschap! Take Daily heeft voor jou en jouw baby de vitamines geselecteerd die je als aanvulling op jouw dagelijkse voeding kunt gebruiken.',
     ),
     'wish' => 
     array (
-      'main' => 'Je hebt een zwangerschapwens. 
-
-\'Mom & Baby\' is een voedingssupplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn. Het bevat foliumzuur (vitamine B11) en vitamine D.',
+      'main' => 'Je hebt een zwangerschapswens. Take Daily heeft voor jou de vitamines geselecteerd die je als aanvulling op jouw dagelijkse voeding kunt gebruiken.
+',
     ),
   ),
   '1c' => 
   array (
-    'main' => 'Multi vitamine D+ Extra vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De Multi Vitamin D+ Extra bevat daarnaast extra vitamine D vanwege jouw leeftijd.',
+    'main' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte. In een voor jou passende dosering. Je bent 70 of ouder en hebt extra vitamine D nodig. Het advies van de Gezondheidsraad voor mannen en vrouwen vanaf 70 jaar is om dagelijkse een supplement met 20 microgram vitamine D te gebruiken. TakeDaily zorgt dat jij in aanvulling op je dagelijkse voeding voldoende vitamine D binnenkrijgt.',
   ),
   '1b' => 
   array (
-    'main' => 'Multi vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De Multi Vitamin D+ bevat daarnaast extra vitamine D',
+    'main' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte. In een voor jou passende dosering. In aanvulling op jouw dagelijkse voeding heb je extra vitamine D nodig, ',
     'reasons' => 
     array (
       'outside' => 'omdat je dagelijks onvoldoende buiten komt.',
@@ -102,6 +98,6 @@ Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger zijn met 
   ),
   '1a' => 
   array (
-    'main' => 'Multi Basic vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. ',
+    'main' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte. In een voor jou passende dosering.',
   ),
 );

@@ -14,11 +14,11 @@ return array (
     array (
       'name' => '- EPA (eicosapentaeenzuur)*',
       'percent' => '*',
-      'amount' => '300 mg',
+      'amount' => '274 mg',
     ),
     3 => 
     array (
-      'amount' => '200 mg',
+      'amount' => '182 mg',
       'name' => '- DHA (docosahexaeenzuur)*',
       'percent' => '*',
     ),
@@ -32,11 +32,10 @@ return array (
     0 => 
     array (
       'name' => 'Vitamine E',
-      'percent' => '83',
       'amount' => '10 mg',
     ),
   ),
-  'ingredients' => '<strong>vis</strong>olie(vetzuren), capsulewand (gelatine), geleermiddel (glycerol), water, antioxidant (d-alpha-tocoferol concentraat)',
+  'ingredients' => '<strong>vis</strong>olie(vetzuren), gelatine, geleermiddel (glycerol), water, antioxidant (d-alpha-tocoferol concentraat)',
   'praises' => 
   array (
     'brain' => 'DHA draagt bij tot de instandhouding van de normale hersenfunctie en normaal gezichtvermogen.**',
@@ -51,12 +50,11 @@ return array (
   'disclaimer_web' => '*Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA.
 <br/>**Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg DHA.',
   'end_date' => '10/2019',
-  'web_description' => 'Niet iedereen eet voldoende vis. Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega 3-vetzuren EPA en DHA. De Gezondheidsraad adviseert volwassenen om minimaal 1 keer per week vis te eten, bij voorkeur vette vis. Premium Omega-3 Fish Oil bevat 500 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
+  'web_description' => 'Niet iedereen eet voldoende vis. Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega 3-vetzuren EPA en DHA. De Gezondheidsraad adviseert volwassenen om minimaal 1 keer per week vis te eten, bij voorkeur vette vis. Premium Omega-3 Fish Oil bevat 456 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
   'weight' => '42 gram',
-  'above_claims' => 'Niet iedereen eet voldoende vis. Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega 3-vetzuren EPA en DHA. Premium Omega-3 Fish Oil bevat 500 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
+  'above_claims' => 'Niet iedereen eet voldoende vis. Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega 3-vetzuren EPA en DHA. Premium Omega-3 Fish Oil bevat 456 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
   'foot_note_disclaimer' => '<br/>*Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg EPA en DHA.
 <br/>**Het gunstige effect wordt verkregen bij een dagelijkse inname van 250 mg DHA.',
-  'disclaimer EPA en DHA' => '* Als ethyl esters',
   'web_advantage_list' => '<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder kleur-, geur- en smaakstoffen</li>

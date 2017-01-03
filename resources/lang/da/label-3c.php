@@ -24,7 +24,7 @@ return array (
     array (
       'name' => 'Calcium',
       'amount' => '287 mg',
-      'percent' => '35',
+      'percent' => '36',
     ),
   ),
   'disclaimer' => '',

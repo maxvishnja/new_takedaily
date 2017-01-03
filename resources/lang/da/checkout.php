@@ -23,7 +23,7 @@ return array (
   array (
     'page-title' => 'Din ordre blev godkendt! - TakeDaily',
     'title' => 'Din ordre er blevet oprettet!',
-    'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Vi forventer at levere din skræddersyet TakeDaily i din postkasse indenfor 4-5 hverdage. Tak for dit køb!',
+    'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Vi forventer at levere din skræddersyet TakeDaily i din postkasse indenfor 4-5 hverdage. Har du købt et gavekort, vil du modtage dette i en separat mail. Tak for dit køb!',
     'button-text' => 'Gå til dit TakeDaily',
     'giftcard' => 
     array (

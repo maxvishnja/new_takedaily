@@ -26,5 +26,5 @@ return array (
   'below_cart' => 'Selecteer 2 voedingssupplementen voor slechts € 15,95. Wil je meer supplementen toevoegen aan jouw pakket, dan bedragen deze slechts € 2,99 per stuk. Je kunt maximaal 4 supplementen selecteren.',
   'cta_for_other_pages' => 'Of stel zelf een supplementenpakket samen
 ',
-  'text-above' => 'Als je precies weet waar je naar op zoek bent, kan je zelf een Take Daily pakket samenstellen. Heb je hulp nodig? Onze  voedingsdeskundigen staan voor jou klaar!',
+  'text-above' => 'Als je precies weet waar je naar op zoek bent, kan je zelf een Take Daily pakket samenstellen. Heb je hulp nodig? Ons deskundig team staan voor jou klaar!',
 );

@@ -122,13 +122,13 @@ Støtte til en optimal sundhed',
     0 => 
     array (
       'name' => 'Calcium',
-      'amount' => '166,6 mg',
-      'percent' => '20',
+      'amount' => '167 mg',
+      'percent' => '21',
     ),
     1 => 
     array (
       'name' => 'Fosfor',
-      'amount' => '128,7 mg',
+      'amount' => '129 mg',
       'percent' => '18',
     ),
     2 => 

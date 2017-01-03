@@ -60,13 +60,13 @@ TakeDaily-teamet',
   ),
   'pending' => 
   array (
-    'subject' => 'Vi sender din næste TakeDaily om 24 timer',
-    'title' => 'En ny TakeDaily afsendes indenfor 24 timer',
-    'summary' => 'Vi sender din næste TakeDaily om 24 timer',
+    'subject' => 'Vi sender snart din næste TakeDaily',
+    'title' => 'Din næste TakeDaily sendes snart.',
+    'summary' => 'Vi sender snart din næste TakeDaily',
     'next-order' => 'Din næste forsendelse oprettes d. :date',
-    'snooze-title' => 'Ønsker du at udskyde din næste forsendelse?',
-    'snooze-text' => 'Har du stadig et par dages forbrug tilbage af din TakeDaily? Du kan udskyde leveringen af din næste forsendelse, så det passer med, at du ikke har mere tilbage, når den næste TakeDaily lander i din postkasse.',
-    'snooze-link' => 'Ønsker du at udskyde din næste levering af TakeDaily? I så fald, så <a href=":link" target="_blank">Tryk her</a> så hjælper vi dig.',
+    'snooze-title' => 'Udskyd din næste forsendelse?',
+    'snooze-text' => 'Har du stadig et par dages forbrug tilbage af din nuværende TakeDaily? Du kan udskyde leveringen af din næste forsendelse, så det passer med, at du ikke har mere tilbage, når den næste TakeDaily lander i din postkasse.',
+    'snooze-link' => 'Udskyd din næste levering af TakeDaily? <a href=":link" target="_blank">Klik her</a> ',
   ),
   'order' => 
   array (

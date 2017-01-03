@@ -6,7 +6,7 @@ return array (
   array (
     'blood' => 'Alfa-linolensyre (ALA) bidrager til at opretholdelse af normale blodkolesterolniveauer. *',
   ),
-  'ingredients' => 'Chiafrøolie, vegetabilsk kapselvæg (hydroxypropylmethylcellulose), fortykningsmiddel (siliciumdioxid)',
+  'ingredients' => 'Chiaolie (Salvia hispanica), vegetabilsk kapselvæg (hydroxypropylmethylcellulose), fortykningsmiddel (siliciumdioxid)',
   'other-vitamins' => 
   array (
     0 => 
@@ -24,19 +24,19 @@ return array (
     2 => 
     array (
       'name' => 'Mættede fedtsyrer',
-      'amount' => '58,58 mg',
+      'amount' => '58,6 mg',
       'percent' => '*',
     ),
     3 => 
     array (
       'name' => 'Enkeltumættede fedtsyrer',
-      'amount' => '37,00 mg',
+      'amount' => '37 mg',
       'percent' => '*',
     ),
     4 => 
     array (
       'name' => 'Flerumættede fedtsyrer',
-      'amount' => '482,56 mg',
+      'amount' => '482,6 mg',
       'percent' => '*',
     ),
     5 => 
@@ -46,14 +46,14 @@ return array (
     6 => 
     array (
       'name' => 'Omega-3 fedtsyrer',
-      'amount' => '371,20 mg',
+      'amount' => '371,2 mg',
       'percent' => '*',
     ),
     7 => 
     array (
       'percent' => '*',
       'name' => 'Alfa-linolensyre (ALA)',
-      'amount' => '369,46 mg',
+      'amount' => '369,5 mg',
     ),
   ),
   'disclaimer' => '* Den gavnlige effekt opnås ved et dagligt indtag på 2 g ALA. <br/> Rig på omega-3 fedtsyrer',

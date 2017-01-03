@@ -2,7 +2,7 @@
 
 return array (
   'name' => 'Tilskud for muskler, knogler og brusk',
-  'ingredients' => 'Magnesiumhydroxid DC 10% stivelse, calciumcitrat 4-hydrat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E110), dikaliumphosphat, L-ascorbinsyre, calciumcarbonat, antiklumpningsmiddel (magnesiumstearat), mangan, cholecalciferol',
+  'ingredients' => 'Magnesiumhydroxid, calciumcitrat 4-hydrat, vegetabilsk kapselvæg (hydroxypropylmethylcellulose, renset vand, fortykningsmiddel (siliciumdioxid), fugtighedsbevarende middel (sorbitol), farvestoffer (E171, E110), dikaliumphosphat, L-ascorbinsyre, calciumcarbonat, antiklumpningsmiddel (magnesiumstearat), mangan, cholecalciferol',
   'vitamins' => 
   array (
     0 => 
@@ -24,7 +24,7 @@ return array (
     array (
       'name' => 'Magnesium',
       'amount' => '175 mg',
-      'percent' => '46',
+      'percent' => '47',
     ),
     1 => 
     array (

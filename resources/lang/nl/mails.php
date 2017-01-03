@@ -3,9 +3,10 @@
 return array (
   'general' => 
   array (
-    'regards' => 'Met vriendelijke groet,',
+    'regards' => 'Met vriendelijke groet,
+Het TakeDaily team',
     'company' => 'TakeDaliy Benelux B.V.',
-    'reason' => 'Je ontvangt deze e-mail omdat je een klant van TakeDaily bent.',
+    'reason' => 'Je ontvangt deze e-mail omdat je klant van TakeDaily bent.',
     'unsubscribe' => 'Je kunt je niet afmelden voor deze e-mails.  ',
   ),
   'giftcard' => 
@@ -18,7 +19,7 @@ return array (
   'order-sent' => 
   array (
     'title' => 'Jouw bestelling is verzonden',
-    'summary' => 'Jouw bestelling bij TakeDailu is verstuurd!',
+    'summary' => 'Jouw bestelling bij TakeDaily is verstuurd!',
     'text' => 'Jouw bestelling bij TakeDaily heeft de status \'verzonden\'.',
     'subject' => 'Jouw bestelling is verstuurd!',
   ),
@@ -49,14 +50,14 @@ return array (
   array (
     'title' => 'De automatische incasso is geslaagd',
     'summary' => 'De automatische incasso in opdracht van TakeDaily',
-    'content' => 'Hallo {name}, je hebt een TakeDaily abonnement. We hebben een nieuwe bestelling geplaatst en de abonnementskosten zijn via automatische incasso afgeschreven. Je kunt jouw bestelling bekijken via jouw \'Mijn TakeDaily\' profiel op onze website.',
+    'content' => 'Hallo {name}, je hebt een TakeDaily abonnement. We hebben een nieuwe bestelling geplaatst en de abonnementskosten zijn via automatische incasso afgeschreven. Je kunt jouw bestelling bekijken via jouw \'Mijn TakeDaily\' account op onze website.',
   ),
   'rebill-failed' => 
   array (
     'title' => 'De automatische incasso is niet geslaagd',
     'summary' => 'TakeDaily is er niet in geslaagd om via automatische incasso jouw vierwekelijkse abonnementskosten af te schrijven.',
-    'text' => 'Beste {name}, het is TakeDaily niet gelukt om middels automatische incasso jouw vierwekelijkse abonnementskosten af te schrijven. Het kan zijn dat jouw saldo op het moment van afschrijving ontoereikend was of jouw betalingsgegevens in jouw TakeDaily profiel onjuist zijn.',
-    'text2' => 'Wij verzoeken je om jouw rekening en de betalingsgegevens in jouw TakeDaily profiel te controleren, zodat wij jouw pakket alsnog kunnen toesturen. Wij proberen het binnen 24 uur automatisch opnieuw.',
+    'text' => 'Beste {name}, het is TakeDaily niet gelukt om middels automatische incasso jouw vierwekelijkse abonnementskosten af te schrijven. Het kan zijn dat jouw saldo op het moment van afschrijving ontoereikend was of jouw betalingsgegevens in jouw TakeDaily account onjuist zijn.',
+    'text2' => 'Wij verzoeken je om jouw rekening en de betalingsgegevens in jouw TakeDaily account te controleren, zodat wij jouw pakket alsnog kunnen toesturen. Wij proberen het binnen 24 uur automatisch opnieuw.',
   ),
   'pending' => 
   array (
@@ -92,6 +93,11 @@ return array (
       'title' => 'Jouw TakeDaily wachtwoord',
       'it-is' => 'Jouw wachtwoord van TakeDaily is:',
     ),
+    'text' => '<strong> Beste {name}</strong>
+Bedankt voor jouw bestelling bij TakeDaily! Deze e-mail is de bevestiging van jouw bestelling. Jouw eerste TakeDaily pakket zal binnen 3-5 werkdagen bezorgd worden in jouw brievenbus.
+
+<Strong> Kunnen wij je helpen? </ Strong>
+Je bent altijd welkom om contact met ons te nemen als je vragen hebt. Bel één van onze diëtisten op 020-2382580 of antwoord deze e-mail en zullen wij je zo snel mogelijk helpen.',
   ),
   'mailflow' => 
   array (

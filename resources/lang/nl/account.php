@@ -9,6 +9,7 @@ return array (
     'button-save-text' => 'Gegevens opslaan',
     'header' => 'Mijn TakeDaily',
     'button-change' => 'Nieuwe test doen',
+    'button-see_recommendation' => 'Zie mijn persoonlijk advies',
   ),
   'transaction' => 
   array (
@@ -100,7 +101,7 @@ return array (
     'new-recommendation' => 
     array (
       'btn' => 'Pas mijn supplementen-pakket aan',
-      'text' => 'Vanuit jouw profiel, kunnen we zien dat andere voedingssupplementen beter aansluiten bij jouw behoefte.',
+      'text' => 'Jouw TakeDaily account laat ons zien dat andere supplementen beter aansluiten bij jouw behoefte.',
       'title' => 'We hebben een nieuw advies voor je.',
     ),
   ),
@@ -138,5 +139,9 @@ return array (
       'other' => 'Andere reden',
       'pick' => 'Kies reden',
     ),
+  ),
+  'personal' => 
+  array (
+    'title' => 'Mijn TakeDaily - TakeDaily',
   ),
 );

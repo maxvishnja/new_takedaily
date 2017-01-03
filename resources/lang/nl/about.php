@@ -3,7 +3,7 @@
 return array (
   'title' => 'Over TakeDaily',
   'page_title' => 'Over TakeDaily',
-  'body' => '<p>Samen met diëtisten, voedingswetenschappers en farmaceuten hebben wij nagedacht hoe we de inname van vitamines, mineralen en omega-3 makkelijker zouden kunnen maken. In een voor jou passende dosering. Dat zou toch mogelijk moeten zijn? Met elkaar hebben wij daarvoor een algoritme ontwikkeld dat op basis van de door jou ingevulde test-antwoorden, een advies berekent wat aansluit op de behoefte van jouw lichaam én levensstijl!</p>',
+  'body' => '<p>TakeDaily heeft een duidelijke missie! Wij willen het voor jou makkelijker en eenvoudiger maken om de voedingssupplementen te vinden die aansluiten bij jouw persoonlijke behoefte. In een voor jou passende dosering. Dat zou toch mogelijk moeten zijn? Een team van diëtisten en voedingswetenschappers heeft daarvoor een algoritme ontwikkeld dat op basis van de door jou ingevulde test-antwoorden, een advies berekent wat aansluit op de behoefte van jouw lichaam én levensstijl!</p>',
   'behind' => 'Wie zijn wij?',
   'story' => 
   array (

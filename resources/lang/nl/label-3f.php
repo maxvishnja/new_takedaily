@@ -23,7 +23,7 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse inname van smeer- en bereidingsvetten',
-  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstof (titanium dioxide)), DL-alfa-tocoferylacetaat, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), verdikkingsmiddel (hydroxypropylmethylcellulose), DL-alfa-tocoferylacetaat, retinylacetaat, antiklontermiddel (magnesiumzout van vetzuren), cholecalciferol, kleurstof (titaandioxide) ',
   'praises' => 
   array (
     'eye' => 'Vitamine A draagt bij tot het instandhouding van een normaal gezichtsvermogen',
@@ -33,13 +33,14 @@ return array (
   'end_date' => '09/2019',
   'batch_number' => '1916',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => '\'Not a butter lover\' bevat vitamine A, D en E. Het supplement dient ter aanvulling op de multivitaminen.',
+  'web_description' => 'Not a Butter Lover bevat vitamine A, D en E. Het supplement dient ter aanvulling op de multivitamine.',
   'weight' => '14 gram',
   'above_claims' => '\'Not a butter lover\' bevat vitamine A, D en E. Het supplement dient ter aanvulling op de multivitaminen.',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
 <li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
-<li>Zonder = geur- en smaakstoffen</li>
+<li>Zonder geur- en smaakstoffen</li>
 </ul>',
+  'Disclaimer_warningage' => 'Dit voedingssupplement is niet geschikt voor kinderen tot en met 3 jaar,',
 );
