@@ -160,7 +160,7 @@ class Order extends Model
 		$this->state = 'sent';
 		$this->save();
 
-		/*if ( $this->customer )
+		if ( $this->customer )
 		{
 			$receiverName  = $this->customer->getName();
 			$receiverEmail = $this->customer->getEmail();
@@ -173,7 +173,7 @@ class Order extends Model
 			} );
 
 			\App::setLocale($locale);
-		}*/
+		}
 
 		return true;
 	}
