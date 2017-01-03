@@ -37,7 +37,13 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => '"The Dairy portion indeholder vitamin B2, B12 og calcium. Tillægget har til formål at supplere multivitamin.',
+  'web_description' => 'The Dairy Portion har blandt andet calcium, som har mange vigtige funktioner i kroppen. Blandt andet indgår calcium i opretholdelsen af stærke tænder og knogler stærke, det har betydning for muskelsammentrækning, impuls-ledning i nerverne, størkning af blodet, blodtryk og fordøjelse. Vitamin B2 og -B12 bidrager til nervesystemets normale funktion.',
   'weight' => '23,8 gram',
   'above_claims' => '"The Dairy portion indeholder vitamin B2, B12 og calcium. Tillægget har til formål at supplere multivitamin.',
+  'web_advantage_list' => '<ul>
+<li>100 % plantebaseret kapsel</li>
+<li>Gluten- og laktosefri</li>
+<li>Ingen konserveringsmidler</li>
+<li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
+</ul>',
 );

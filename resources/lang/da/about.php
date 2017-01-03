@@ -3,6 +3,44 @@
 return array (
   'title' => 'Om TakeDaily',
   'page_title' => 'Om TakeDaily',
-  'subtitle' => 'Vi er en gruppe dedikerede diætister, farmaceuter og læger, der er gået sammen om radikalt at forny den måde vi indtager vitaminer og kosttilskud på.',
-  'body' => '<p>Ideen til TakeDaily opstod, da vores stifter Marc en dag skulle købe nogle vitaminer, uden at vide præcist hvad han havde brug for. Efter at have besøgt de traditionelle butikker, hvor udbuddet var enormt uoverskueligt og den kvalificerede rådgivning forbavsende lav, endte han med at forlade butikken uden sine vitaminpiller. Efter at have spekuleret over den gammeldags proces, besluttede han sig for at forny hele måden man som forbruger fik sine kosttilskud. Efterfølgende gik han sammen med en gruppe erfarne diætister, læger og farmaceuter og efter næsten 1,5 år var TakeDaily skabt. </p>',
+  'body' => '<p>Vi er en gruppe dedikerede diætister, farmaceuter og ernæringseksperter med en klar ambition: Vi vil gøre det let for dig at finde de vitaminer og mineraler, du har brug for. I den rette dosis. Derfor har vi sammen udarbejdet en algoritme, som tager udgangspunkt i sundhedsfaglige indsigter. Viden om kost, krop og livsstil er blevet til matematik, som kan regne sig frem til, hvad du har brug for i din dagligdag. </p>',
+  'behind' => 'Hvem er vi?',
+  'story' => 
+  array (
+    'title' => 'Helt fra starten',
+    'text' => '<p>Ideen til TakeDaily opstod, da vores stifter Marc Lucas stod foran en bugnende butikshylde med kosttilskud. Han havde en intention om at finde præcis dét, der kunne give hans krop de vitaminer og mineraler, han måtte være i underskud af. Marc havde længe følt sig træt og udmattet, så han spurgte om råd og vejledning i butikken. Det gjorde ham ikke meget klogere, så han prøvede en anden butik, men måtte snart opgive sin mission. Hylderne var fyldt med pilleglas, der lovede det ene og det andet, men Marc fandt aldrig svar på, hvad hans krop havde brug for. Han gik hjem med tomme lommer, mens han spekulerede på, hvordan man kunne gøre valget nemmere. Idéen til TakeDaily begyndte for alvor at tage form, da han satte sig sammen med en gruppe erfarne diætister, læger og farmaceuter. 1,5 år senere var TakeDaily i luften.</p>',
+  ),
+  'people' => 
+  array (
+    'marc' => 
+    array (
+      'name' => 'Marc',
+      'job' => 'Direktør',
+    ),
+    'marie-louise' => 
+    array (
+      'name' => 'Marie-Louise',
+      'job' => 'Ernæringsekspert, Prof. Bach. Ernæring & Sundhed',
+    ),
+    'louise' => 
+    array (
+      'name' => 'Louise',
+      'job' => 'Statsaut. Klinisk Diætist',
+    ),
+    'lasse' => 
+    array (
+      'name' => 'Lasse',
+      'job' => 'Udvikler',
+    ),
+    'kirsten' => 
+    array (
+      'name' => 'Kirsten',
+      'job' => 'Ernæringsekspert, Diætist',
+    ),
+    'erik' => 
+    array (
+      'name' => 'Erik',
+      'job' => 'Marketing',
+    ),
+  ),
 );

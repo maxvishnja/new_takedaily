@@ -16,16 +16,20 @@ return array (
     ),
     'subscription' => 
     array (
-      'snoozed' => 'Abonnementet blev udskudt i :days dage!',
-      'not-snoozed' => 'Abonnementet kunne ikke udskydes!',
-      'started' => 'Abonnementet blev aktiveret igen!',
-      'cancelled' => 'Abonnementet blev opsagt!',
+      'snoozed' => 'Din næste levering er blevet udskudt med :days dage!',
+      'not-snoozed' => 'Medlemskabet kunne ikke udskydes!',
+      'started' => 'Dit medlemskab er blevet aktiveret igen!',
+      'cancelled' => 'Dit medlemskab er blevet afmeldt!',
     ),
     'billing' => 
     array (
       'removed' => 'Metoden blev fjernet.',
       'removing-failed' => 'Metoden kunne ikke fjernes, prøv igen senere.',
       'refreshed' => 'Betalingsmetoder blev opdateret!',
+    ),
+    'paymentmethod' => 
+    array (
+      'updated' => 'Betalingsmetoden blev ændret!',
     ),
   ),
 );
