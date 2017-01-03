@@ -5,6 +5,4 @@ return array (
   'remove' => 'Verwijder',
   'see-ingredients' => 'Ingrediënten...',
   'add' => 'Selecteren',
-  'select' => 'Selecteren',
-  'read-less' => 'Less info...',
 );

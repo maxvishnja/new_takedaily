@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => 'Multi Vitamin D+ Extra er en multivitamin og mineral supplement som indeholdende 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år. Den indeholder en afbalanceret kombination af essentielle vitaminer, mineraler og sporstoffer. Multi Vitamin D+ Extra er et supplement og bidrager til daglige behov for vitaminer og mineraler. Multi Vitamin D+ Extra spiller en vigtig rolle i støtten af et optimalt helbred.
+  'name' => 'Multivitamin D+ Ekstra er en multivitamin og mineral supplement som indeholdende 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år. Den indeholder en afbalanceret kombination af essentielle vitaminer, mineraler og sporstoffer. Multivitamin D+ er et supplement og bidrager til daglige behov for vitaminer og mineraler. Multivitamin D+ spiller en vigtig rolle i støtten af et optimalt helbred.
 
 
 For mænd og kvinder i alderen 70 og derover, er der overbevisende dokumentation fra forskning, at et indtag af D-vitamin per dag kan reducere risikoen for knoglebrud. Det anbefales derfor at personer over 70 år tager et dagligt tilskud af 20 mikrogram vitamin D.
@@ -166,14 +166,8 @@ Vitamin B8 (biotin) og mineraler selen og zink er godt for dit hår og bidragert
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'Multi Vitamin D+ Extra er et multivitamin- og mineraltilskud med 20 mikrogram D-vitamin. Tilskuddet er specielt til kvinder og mænd over 70 år, da Sundhedsstyrelsen anbefaler at man i denne alder supplerer sin kost med 20 mikrogram D-vitamin dagligt. Dette skyldes dels at huden med alderen mister sin evne til at danne D-vitamin fra solens stråler, og delt at kroppens behov for D-vitamin bliver højere for at holde knogler og tænder vedlige. Tilskuddet indeholder desuden en afbalanceret kombination af 13 vigtige vitaminer og mineralerne calcium, krom, fosfor, jern, jod, selen og zink. 
+  'web_description' => 'Vitamin D+ Ekstra er en multivitamin og mineral supplement som indeholder 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år. Den indeholder en velafbalanceret kombination af de 13 essentielle vitaminer og mineralerne calcium, chrom, phosphor, jern, jod, selen og zink. Vitaminer og mineraler i Multivitamin D+ Ekstra er et supplement til den daglige kost og spiller en vigtig rolle i at støtte og bevare et optimalt helbred.
 ',
   'weight' => '27,44 gram',
-  'above_claims' => 'Multi Vitamin D+ Extra danner grundlag for dine personlige multivitamin- og mineraltabletter. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 20 mikrogram D-vitamin.',
-  'web_advantage_list' => '<ul>
-<li>100 % plantebaseret kapsel</li>
-<li>Gluten- og laktosefri</li>
-<li>Ingen konserveringsmidler</li>
-<li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
-</ul>',
+  'above_claims' => 'Multivitamin D+ Ekstra danner grundlag for dine personlige multivitamin- og mineraltabletter. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler med 20 mikrogram D-vitamin.',
 );

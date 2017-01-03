@@ -1,8 +1,8 @@
 <?php
 
 return array (
-  'subscription' => 'TakeDaily (3 produkter inklusiv)',
-  'subscription_family' => 'TakeDaily Medlemskab',
+  'subscription' => 'TakeDaily Abonnement',
+  'subscription_family' => 'TakeDaily Abonnement',
   'giftcard_1' => '1 måneds gavekort',
   'giftcard_3' => '3 måneders gavekort',
   'giftcard_6' => '6 måneders gavekort',
@@ -13,7 +13,6 @@ return array (
   'oil' => 'Ekstra olie',
   'extra' => 'Ekstra vitamin',
   'package' => 'Selvvalgt pakke',
-  'vitamin' => 'Fjernet produkt',
+  'vitamin' => 'Fjernet vitamin',
   'minimum' => 'Minimumsordre',
-  'free_shipping' => 'Gratis',
 );

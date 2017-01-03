@@ -4,7 +4,7 @@ return array (
   'name' => 'Supplement til det daglige indtag af brød, ris og pasta.',
   'praises' => 
   array (
-    'brain-cog' => 'B-vitaminer (B1, B3, B6 og folinsyre) er gode for koncentrationen, hukommelsen og indlæringsevnen.',
+    'brain-cog' => 'B-vitaminer (B1, B3, B6 og folinsyre) er gode for koncentrationen, hukommelseen og indlæringsevnen.',
     'skin' => 'B-vitaminer (B2, B3) og jod hjælpe til at opretholde en sund hud.',
     'nerve' => 'B-vitaminer (B1, B2, B3, B6) og jod støtter nervesystemets normale funktion.',
   ),
@@ -61,13 +61,8 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'B-vitaminer (B1, B3, B6 samt folinsyre) er gode for koncentrationen, hukommelsen og indlæringsevnen. B-vitaminer (B1, B2, B3, B6) og jod støtter nervesystemets normale funktion. B-vitaminer (B2, B3) og jod bidrager desuden til opretholdelsen af en sund hud.',
+  'web_description' => '
+Jeg spiser ikke kulhydrater «er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre)) og indeholder mineralerne jod og jern. Tillægget har til formål at supplere multivitamin.',
   'weight' => '14 gram',
-  'above_claims' => 'I Don\'t Eat Carbs er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre)) og indeholder mineralerne jod og jern. Tillægget har til formål at supplere multivitamin',
-  'web_advantage_list' => '<ul>
-<li>100 % plantebaseret kapsel</li>
-<li>Gluten- og laktosefri</li>
-<li>Ingen konserveringsmidler</li>
-<li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
-</ul>',
+  'above_claims' => 'Jeg spiser ikke kulhydrater «er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre)) og indeholder mineralerne jod og jern. Tillægget har til formål at supplere multivitamin',
 );

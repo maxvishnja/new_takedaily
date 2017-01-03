@@ -32,7 +32,7 @@ return array (
       'percent' => '150',
     ),
   ),
-  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose), ijzer bisglycinaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, thiaminehydrochloride',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose), ijzer bisglycinaat, antiklontermiddel (magnesiumstearaat), cyanocobalamine, pyridoxaal-5-fosfaat, thiaminehydrochloride',
   'praises' => 
   array (
     'brain-cog' => 'De B-vitamines (B1, B6 en B12) zijn goed voor het concentratievermogen, geheugen en leerprestatie',
@@ -45,10 +45,4 @@ return array (
   'web_description' => '\'I\'m Vegetarian/Vegan\' is een aanvulling op onze multivitamine speciaal voor vegetariërs, veganisten en mensen die geen vlees eten. Het supplement bevat onder ander vitamine B12 en ijzer; voedingsstoffen die in een vegetarische en veganistische voeding vaak niet voldoende aanwezig zijn.',
   'weight' => '14 gram',
   'above_claims' => '\'I\'m Vegetarian/Vegan\' is een aanvulling op onze multivitamine speciaal voor vegetariërs, veganisten en mensen die geen vlees eten.',
-  'web_advantage_list' => '<ul>
-<li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
-<li>Zonder conserveermiddelen</li>
-<li>Zonder kleur-, geur- en smaakstoffen</li>
-</ul>',
 );

@@ -5,17 +5,16 @@ return array (
   array (
     'profile' => 'Mit TakeDaily',
     'deliveries' => 'Leveringer',
-    'settings' => 'Mine Oplysninger',
-    'subscription' => 'Medlemskab',
-    'billing' => 'Betalingsoplysninger',
+    'settings' => 'Indstillinger',
+    'subscription' => 'Abonnent',
+    'billing' => 'Fakturering',
     'logout' => 'Log ud',
     'pick' => 'Vitaminer',
-    'menu' => 'Menu',
   ),
   'items' => 
   array (
-    'gifting' => 'Gavekort',
-    'our-products' => 'Kvaliteten',
+    'gifting' => 'Giv i gave',
+    'our-products' => 'Kvalitet',
     'about-us' => 'Om os',
     'how-it-works' => 'Sådan virker det',
   ),
@@ -55,5 +54,4 @@ return array (
       ),
     ),
   ),
-  'cta' => 'Start i dag',
 );

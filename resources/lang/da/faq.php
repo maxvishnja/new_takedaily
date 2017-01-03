@@ -1,5 +1,5 @@
 <?php
 
 return array (
-  'title' => 'Spørgsmål til TakeDaily',
+  'title' => 'Ofte stillede spørgsmål',
 );

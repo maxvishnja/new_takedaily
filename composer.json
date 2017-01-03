@@ -26,7 +26,6 @@
 		"watson/rememberable": "^1.0",
 		"doctrine/dbal": "^2.5",
 		"bugsnag/bugsnag-laravel": "^2.0",
-		"barryvdh/laravel-translation-manager": "^0.2.5",
 		"skovmand/mailchimp-laravel": "^1.0",
 		"spatie/laravel-backup": "^3.0.0",
 		"pda/Pheanstalk": "^3.1"
@@ -43,7 +42,8 @@
 			"database"
 		],
 		"psr-4": {
-			"App\\": "app/"
+			"App\\": "app/",
+			"Barryvdh\\TranslationManager\\": "app/barryvdh/laravel-translation-manager/src"
 		}
 	},
 	"autoload-dev": {

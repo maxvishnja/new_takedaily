@@ -38,23 +38,17 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse groente- en fruitinname',
-  'ingredients' => 'Kaliumwaterstoffosfaat, plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstoffen (titanium dioxide, kopercomplexen van chlorofylen en chlorofylinen)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat), bèta-caroteen, pteroymonoglutaminezuur',
+  'ingredients' => 'Kaliumwaterstoffosfaat, plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstoffen (E171, E141)), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumstearaat),  bèta-caroteen, pteroymonoglutaminezuur',
   'praises' => 
   array (
-    'heart' => 'Vitamine C is belangrijk voor de bloedvaten',
+    'heart' => 'Kalium heeft een gunstige invloed op het behoud van een normale bloeddruk en vitamine C is belangrijk voor de bloedvaten',
     'brain-cog' => 'Foliumzuur en vitamine C zijn goed voor het concentratievermogen, geheugen en leerprestatie',
-    'nerve' => 'Vitamine C ondersteunen de normale werking van het zenuwstelsel',
+    'nerve' => 'Vitamine C en kalium ondersteunen de normale werking van het zenuwstelsel',
   ),
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => '\'I\'m not a veggie fan\' bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement is een aanvulling op jouw Multi.',
+  'web_description' => '\'I\'m not a veggie fan\' bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement dient ter aanvulling op de multivitaminen.',
   'weight' => '29,4 gram',
   'above_claims' => '\'I\'m not a veggie fan\' bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement dient ter aanvulling op de multivitamine',
-  'web_advantage_list' => '<ul>
-<li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
-<li>Zonder conserveermiddelen</li>
-<li>Zonder geur- en smaakstoffen</li>
-</ul>',
 );

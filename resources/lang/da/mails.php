@@ -3,10 +3,9 @@
 return array (
   'general' => 
   array (
-    'regards' => 'Kærlig hilsen
-TakeDaily-teamet',
-    'company' => 'Take Daily ApS',
-    'reason' => 'Du får denne mail, fordi du er kunde hos os.',
+    'regards' => 'Mvh.',
+    'company' => 'TakeDaily ApS',
+    'reason' => 'Du får denne mail fordi du er kunde hos os.',
     'unsubscribe' => 'Det er ikke muligt at opsige denne type mail.',
   ),
   'giftcard' => 
@@ -49,29 +48,29 @@ TakeDaily-teamet',
   array (
     'title' => 'Vi har trukket penge',
     'summary' => 'Du blev faktureret af TakeDaily',
-    'content' => 'Hej {name}, da du er medlem hos os, har vi nu oprettet en ny ordre og trukket pengene for den. Du kan se dine ordre under "Mit TakeDaily" på vores hjemmeside.',
+    'content' => 'Hej, da du har et abonnent hos os, har vi nu oprettet en ny ordre og trukket pengene for den. Du kan se dine ordre under "Mit TakeDaily" på vores hjemmeside.',
   ),
   'rebill-failed' => 
   array (
-    'title' => 'Vi kan ikke trække penge for dit medlemskab.',
-    'summary' => 'TakeDaily har forgæves forsøgt at fakturere dig for dit TakeDaily medlemskab.',
-    'text' => 'Hej {name}, vi har netop forsøgt at trække penge for dit aktive medlemskab, men fejlede. Dette kan skyldes flere ting, bl.a. at betalingsmetoden er udløbet, eller at der ikke er dækning på kontoen.',
+    'title' => 'Vi kan ikke trække penge for dit abonnement',
+    'summary' => 'TakeDaily har forgæves forsøgt at fakturere dig for dit abonnement',
+    'text' => 'Hej, vi har netop forsøgt at trække penge for dit aktive abonnement, men fejlede. Dette kan skyldes flere ting, bl.a. at betalingsmetoden er udløbet, eller at der ikke er dækning på kontoen.',
     'text2' => 'Ønsker du at modtage din TakeDaily pakke beder vi dig derfor gennemgå dine konti, og betalingsmetoden du anvender. Vi forsøger automatisk igen indenfor 24 timer.',
   ),
   'pending' => 
   array (
-    'subject' => 'Vi sender din næste TakeDaily om 24 timer',
-    'title' => 'En ny TakeDaily afsendes indenfor 24 timer',
-    'summary' => 'Vi sender din næste TakeDaily om 24 timer',
+    'subject' => 'Vi sender din næste pakke om 24 timer!',
+    'title' => 'En ny pakke afsendes indenfor 24 timer',
+    'summary' => 'Vi sender din næste pakke om 24 timer!',
     'next-order' => 'Din næste forsendelse oprettes d. :date',
-    'snooze-title' => 'Ønsker du at udskyde din næste forsendelse?',
+    'snooze-title' => 'Ønsker du at udskyde din forsendelse?',
     'snooze-text' => 'Har du stadig et par dages forbrug tilbage af din TakeDaily? Du kan udskyde leveringen af din næste forsendelse, så det passer med, at du ikke har mere tilbage, når den næste TakeDaily lander i din postkasse.',
-    'snooze-link' => 'Ønsker du at udskyde din næste levering af TakeDaily? I så fald, så <a href=":link" target="_blank">Tryk her</a> så hjælper vi dig.',
+    'snooze-link' => 'Ønsker du at udskyde din næste TakeDaily? I så fald, så <a href=":link" target="_blank">Tryk her</a> så hjælper vi dig.',
   ),
   'order' => 
   array (
     'title' => 'Tak for din ordre hos TakeDaily',
-    'summary' => 'TakeDaily til dig',
+    'summary' => 'Din ordrebekræftelse fra TakeDaily',
     'giftcard' => 
     array (
       'title' => 'Gavekort',
@@ -92,11 +91,6 @@ TakeDaily-teamet',
       'title' => 'Dit TakeDaily kodeord',
       'it-is' => 'Dit kodeord til TakeDaily er:',
     ),
-    'text' => '<strong>Kære {name}</strong>
-Vi er glade for, at du har lyst til at prøve TakeDaily. Denne mail er din ordrebekræftelse. Du kan godt begynde at glæde dig, for din første æske med TakeDaily lander i din postkasse om 4-5 hverdage.
-
-<strong>Kan vi hjælpe med noget?</strong>
- Du er altid velkommen til at kontakte os, hvis du bliver i tvivl om noget eller savner svar på et spørgsmål. Ring til en af vores ernæringseksperter på 70 60 50 15 eller svar på denne mail, så hører du fra os hurtigst muligt.',
   ),
   'mailflow' => 
   array (

@@ -180,9 +180,9 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'options' => 
       array (
         1 => 'Nooit',
-        2 => '50-100 gram (1-2 opscheplepels)',
-        3 => '150-200 gram (3-4 opscheplepels)',
-        4 => '250 gram of meer (5 opscheplepels of meer)',
+        2 => '100 gram',
+        3 => '200 gram',
+        4 => '250 gram of meer',
       ),
     ),
     '3-2' => 
@@ -203,8 +203,8 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'options' => 
       array (
         1 => 'Geen',
-        2 => '1-2 sneden brood',
-        3 => '3 sneden brood',
+        2 => '1 snee brood',
+        3 => '2-3 sneden brood',
         4 => '4-5 sneden brood',
         5 => '6 sneden brood of meer',
       ),
@@ -227,9 +227,9 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'options' => 
       array (
         1 => 'Geen',
-        2 => '50-100 gram (1-2 opscheplepels)',
-        3 => '150-200 gram (3-4 opscheplepels)',
-        4 => '250 gram of meer (5 opscheplepels of meer)',
+        2 => '1-2 opscheplepels (50-100 gram)',
+        3 => '3-4 opscheplepels (150-200 gram)',
+        4 => '4-5 opscheplepels of meer (200-250 gram)',
       ),
     ),
     '3-6' => 
@@ -245,7 +245,7 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
     ),
     '3-7' => 
     array (
-      'title' => 'Hoeveel porties vette vis eet jij gemiddeld per week?',
+      'title' => 'Hoeveel porties vette vis eet jij gemiddeld per week (zoals: zalm, makreel, haring, e.d.)?',
       'text' => 'Vis bevat gezonde visvetzuren. Deze vetzuren zijn goed voor hart en bloedvaten. Hoe vetter de vis, hoe meer gezonde vetzuren de vis bevat. Naast visvetzuren bevat vis onder andere de mineralen seleen en jodium.
 								VETTE VIS: haring, makreel, zalm, sardines, bokking, kaviaar, paling, sprot. 
 								Kibbeling wordt gefrituurd in vet, maar is geen vette vis! Kibbeling bevat weinig visvetzuren omdat het een magere, witte vis is.',
@@ -262,7 +262,7 @@ Zuivelproducten zijn een belangrijke bron van onder andere calcium. Calcium is v
       'text' => 'Zuivelproducten bevatten essentiële voedingsstoffen als vitamine B2, B12 en calcium. Calcium is onder andere goed voor jouw botten. Het aantal porties zuivel dat je per dag nodig hebt hangt af van jouw leeftijd.',
       'options' => 
       array (
-        1 => 'Zelden',
+        1 => 'Geen',
         2 => '1 portie (150 ml/gram)',
         3 => '2-3 porties (300-450 ml/gram)',
         4 => '3-4 porties (450-600 ml/gram)',

@@ -23,7 +23,7 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse inname van smeer- en bereidingsvetten',
-  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (hydroxypropylmethylcellulose, kleurstof (titanium dioxide)), DL-alfa-tocoferylacetaat, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol',
+  'ingredients' => 'Vulstof (microkristallijne cellulose), plantaardige capsulewand (verdikkingsmiddel (hydroxypropylmethylcellulose, kleurstof (171)), DL-alfa-tocoferylacetaat, retinylacetaat, antiklontermiddel (magnesiumstearaat), cholecalciferol',
   'praises' => 
   array (
     'eye' => 'Vitamine A draagt bij tot het instandhouding van een normaal gezichtsvermogen',
@@ -36,10 +36,4 @@ return array (
   'web_description' => '\'Not a butter lover\' bevat vitamine A, D en E. Het supplement dient ter aanvulling op de multivitaminen.',
   'weight' => '14 gram',
   'above_claims' => '\'Not a butter lover\' bevat vitamine A, D en E. Het supplement dient ter aanvulling op de multivitaminen.',
-  'web_advantage_list' => '<ul>
-<li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
-<li>Zonder conserveermiddelen</li>
-<li>Zonder = geur- en smaakstoffen</li>
-</ul>',
 );

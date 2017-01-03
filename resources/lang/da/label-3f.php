@@ -34,13 +34,7 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'Vitamin A bidrager til vedligeholdelsen af et normalt syn og opretholdelsen af en sund hud. Vitamin D indgår i kroppens vedligeholdelse af stærke tænder og knogler. Vitamin E er en antioxidant, der beskytter kroppens celler mod frie radikaler.',
+  'web_description' => '"Ikke en smør elsker" indeholder vitamin A, D og E. Tillægget skal supplere multivitamin.',
   'weight' => '14 gram',
   'above_claims' => '"Ikke en smør elsker" indeholder vitamin A, D og E. Tillægget skal supplere multivitamin.',
-  'web_advantage_list' => '<ul>
-<li>100 % plantebaseret kapsel</li>
-<li>Gluten- og laktosefri</li>
-<li>Ingen konserveringsmidler</li>
-<li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
-</ul>',
 );

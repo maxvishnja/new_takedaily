@@ -10,18 +10,18 @@ return array (
   array (
     'one' => 
     array (
-      'title' => 'Tilmeld dig vores nyhedsbrev',
+      'title' => 'Vil du gerne være med, men har ikke tid lige nu? Tilmeld dig vores nyhedsbrev.',
       'input-placeholder' => 'min@mailadresse.dk',
       'button-text' => 'Send',
     ),
     'two' => 
     array (
-      'title' => 'Følg os her',
+      'title' => 'Følg os på:',
     ),
     'three' => 
     array (
       'title' => 'Kontakt os',
-      'text' => 'Du kan ringe til os alle hverdage fra 9-17.',
+      'text' => 'Send en mail og få svar inden 24 timer. Du kan ringe til os alle hverdage ml. 09-17',
       'info' => '+45 70 60 50 15<br/><a href="mailto:info@takedaily.dk">info@takedaily.dk</a>',
     ),
   ),
@@ -30,5 +30,6 @@ return array (
   'links' => '<li class="hidden-sm hidden-md"><a href="/about-us">Om TakeDaily</a></li>
 					<li><a href="/faq">FAQ</a></li>
 					<li><a href="/use-giftcard">Indløs gavekort</a></li>
-					<li><a href="/page/terms">Handelsbetingelser</a></li>',
+					<li><a href="/page/privacy">Fortrolighed & cookies</a></li>
+					<li><a href="/page/terms">Vilkår og betingelser</a></li>',
 );

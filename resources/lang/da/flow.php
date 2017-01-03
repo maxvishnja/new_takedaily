@@ -14,11 +14,7 @@ return array (
     'three' => 'KOST OG VANER',
     'four' => 'ANBEFALING',
   ),
-  'info' => 
-  array (
-    'chiaoil' => 'Chiaolie er...',
-    'fishoil' => 'Fiskeolie er...',
-  ),
+  'info' => 'Resultatet af denne test er baseret på din kost og livsstil. TakeDaily sørger for, at du får alle de vitaminer og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre kosttilskud.',
   'button-order-text' => 'Bestil TakeDaily',
   'button-save-text' => 'Opdater din pakke',
   'questions' => 
@@ -55,7 +51,7 @@ return array (
     ),
     '1-4' => 
     array (
-      'title' => 'Er du udenfor i dagslys hver dag i mindst 15-30 minutter?',
+      'title' => 'Er du udenfor hver dag i mindst 15-30 minutter?',
       'text' => 'Du skal være ude mellem klokken 11.00-15.00, hvis du vil være sikker på, at din krop producerer nok D-vitamin fra solens stråler. Hvis du ikke er ude hver dag, hvis du undgår solen eller hvis du går tildækket, vil din krop ikke være i stand til at producere tilstrækkeligt med D-vitamin.',
       'options' => 
       array (
@@ -176,7 +172,7 @@ return array (
     ),
     '3-1' => 
     array (
-      'title' => 'Hvor mange grøntsager spiser du om dagen?',
+      'title' => 'Hvor mange grønsager spiser du om dagen?',
       'text' => 'Grøntsager er en vigtig kilde til mange forskellige næringsstoffer, blandt andet C-vitamin, folsyre og kalium.',
       'options' => 
       array (
@@ -261,10 +257,10 @@ return array (
     array (
       'title' => 'Hvor mange mejeriprodukter får du dagligt?',
       'text' => 'Mejeriprodukter indeholder vigtige næringsstoffer, blandt andet protein, B2-vitamin, B12-vitamin,
-							kalk, fosfor og jod. Kalk er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.',
+							kalcium, fosfor og jod. Kalcium er godt for knoglerne, men hvor mange mejeriprodukter du har brug for, afhænger af din alder.',
       'options' => 
       array (
-        1 => 'Sjældent',
+        1 => 'Ingen',
         2 => '1 portion',
         3 => '2-3 portioner',
       ),
@@ -375,7 +371,8 @@ Folinsyre i en yderligere indtagelse af 400 mikrogram per dag i mindst en kurv o
 						Begynder du at spise mere ris, pasta eller det, der ligner, skal du huske at ændre din profil på
 						<a href="/account" target="_blank">Mit TakeDaily</a>. Så er du sikker på, at de mineraler og vitaminer vi sender til dig,
 						indeholder lige præcis de doser, du har brug for.</span>',
-      'c' => 'Du får ikke mejeriprodukter nok, og derfor heller ikke nok kalcium og B2-vitamin. Begge dele har dine knogler og led brug for. Vi
+      'c' => '
+						Du får ikke mejerprodukter nok, og derfor heller ikke nok kalcium og B2-vitamin. Begge dele har dine knogler og led brug for. Vi
 						sørger for at afstemme din dosis efter din alder. Den har nemlig indflydelse på, hvor meget kalcium og B2-vitamin din krop har
 						behov for.
 						<br/><br/>
@@ -403,7 +400,7 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
 					<br/><br/>
 					Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>.
 					Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-      'g' => '<span class="icon icon-chiaoil-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>',
+      'g' => 'Du har valgt Chiaoile',
     ),
     'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.',
@@ -412,29 +409,66 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
   array (
     1 => 
     array (
-      'basic' => 'Multi Basic danner grundlag for din personlige TakeDaily pakke med multivitaminer- og mineraler. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler.',
-      'basic-10-d' => 'Multi Vitamin D+ danner grundlaget for din personlige TakeDaily-pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D.',
-      'basic-10-d-alt' => 'Multi Vitamin D+ danner grundlaget for din personlige TakeDaily-pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D.',
-      'basic-20-d' => 'Multi Vitamin D+ Extra danner grundlaget for din personlige TakeDaily-pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 20 mikrogram vitamin D.',
+      'basic' => 'Multi Basic danner grundlag for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af essentielle vitaminer og mineraler.
+
+<div class="clear"></div>
+
+<span class="icon icon-balance-flow flow-promise-icon"></span> <div class="flow-promise-text">Understøtter din generelle sundhed og hjælper til med at opretteholde kroppens naturlige balance</div>',
+      'basic-10-d' => 'Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D
+
+<div class="clear"></div>
+
+<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>',
+      'basic-10-d-alt' => 'Multi Vitamin D+ er grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 10 mikrogram vitamin D
+
+<div class="clear"></div>
+
+<span class="icon-general_health-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en optimal sundhed</div>',
+      'basic-20-d' => 'Multivitamin D+ Ekstra  udgør grundlaget for din personlige TakeDaily pakke. Den indeholder en afbalanceret kombination af vigtige vitaminer og mineraler med 20 mikrogram D-vitamin for mænd og kvinder i alderen 70 år.
+
+<div class="clear"></div>
+
+<span class="icon icon-general-health-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en optimal sundhed </div>',
     ),
     2 => 
     array (
-      'A' => 'Mom & Baby er et kosttilskud specialfremstillet til kvinder, der er gravide, eller ønsker at blive det. Det indeholder vigtige tilskud af folsyre samt D-vitamin og anbefales allerede inden du er blevet gravid.',
-      'B' => 'Shape Me Up er et kosttilskud specielt til personer, der følger en diæt. Når du er på diæt, er der risiko for, at du får færre vitaminer og mineraler gennem kosten end normalt. Din krops behov for disse vil dog være uændret. Derfor indeholder Shape Me Up ekstra vitamin A, -B1, -B6, -B12, -C og -K. Shape Me Up supplerer altså dit daglige kostindtag, med de næringsstoffer, som du har brug for at få tilført på en diæt.',
-      'C' => 'Energy Up er et tilskud med netop de vitaminer og mineraler, der bidrager til at du kan yde dit maksimale, når du træner eller har travlt, og hjælper til at reducere følelsen af træthed og udmattelse.',
-      'D' => 'Hvis dit immunforsvar ikke er optimalt, har du brug for ekstra vitaminer og mineraler. Immune Booster er et tilskud som er rigt på vitaminer og mineraler der alle er gode for immunforsvaret og kroppens modstand overfor bakterier og vira.',
-      'E' => 'Joint, Bone & Muscle indeholder de essentielle vitaminer og mineraler, såsom D-vitamin, magnesium og mangan, som er tre komponenter som sikrer opretholdelse af stærke knogler, muskler og led.',
+      'A' => '<span class="icon icon-tissue-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til moderens væv vækst under graviditeten</div>
+					<div class="clear"></div><span class="icon icon-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Spiller en rolle i celledeling proces</div>
+					<div class="clear"></div><span class="icon icon-baby-flow flow-promise-icon"></span> <div class="flow-promise-text">Støtter væksten af din baby</div>',
+      'B' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
+					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>',
+      'C' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
+					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
+					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">For en fit og energisk følelse</div>',
+      'D' => '<span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
+<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstandsdygtighed</div>',
+      'E' => '<span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal muskelfunktion</div>
+					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
+					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
     ),
     3 => 
     array (
-      'a' => 'I\'m Not a Veggie Fan indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tilskuddet supplerer din multivitamin med de essentielle vitaminer og mineraler, der normalt findes i frugt og grøntsager.',
-      'b' => 'I Don\'t Eat Carbs er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre) og indeholder mineralerne jod og jern. Tilskuddet supplerer din multivitamin med de essentielle vitaminer og mineraler, som normalt findes i de kulhydratholdige fødevarer.',
-      'c' => 'The Dairy Portion indeholder vitamin B2, -B12 og calcium. Tilskuddet supplerer din multivitamin med disse essentielle vitaminer og mineraler, som normalt findes i mælk og mejeriprodukter.',
-      'd' => 'I\'m Vegetarian/Vegan er fremstillet specielt til vegetarer, veganere og folk, der ikke spiser kød. Tilskuddet supplerer således din multivitamin med de essentielle vitaminer og mineraler, der normalt findes i kød og kødprodukter, og som en vegetarisk kost indeholder for lidt af.',
-      'e' => 'Premium Omega-3 Fiskeolie indeholder over 65% af den reneste koncentration af Omega-3 fra sardiner og ansjoser. Niveauerne af DHA og EPA er høje, så du får godt med sunde fedtsyrer, der er godt for en lang række ting, blandt andet hjerte, hjerne og syn. Tungmetaller er der ikke noget af - naturligvis!',
-      'f' => 'Not a Butter Lover indeholder vitamin A, -D og -E. Tilskuddet supplerer din multivitamin med disse essentielle vitaminer og mineraler, som normalt findes i smør og margarineprodukter.',
-      'g' => 'Vores Premium Omega-3 Chiafrøolie er populær, da denne olie er vegansk, koldpresset og rig på sunde omega-3 fedtsyrer. 
-',
+      'a' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
+					<div class="clear"></div><span class="icon icon-shield-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til den normale funktion af immunsystemet</div>
+					<div class="clear"></div><span class="icon icon-lightning-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til en god modstand og en følelse pasform</div>',
+      'b' => '<span class="icon icon-brain-cog-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal kognitiv funktion</div>
+					<div class="clear"></div><span class="icon icon-skin-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal hud</div>
+					<div class="clear"></div><span class="icon icon-brain-flow flow-promise-icon"></span> <div class="flow-promise-text">For hjerner og sund hud</div>',
+      'c' => '<span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Nødvendige for vedligeholdelse af normale knogler</div>
+					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler</div>',
+      'd' => '<span class="icon icon-metabolism-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal energi-givende metabolisme</div>
+					<div class="clear"></div><span class="icon icon-resistance-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til at mindske træthed og udmattelse</div>
+					<div class="clear"></div><span class="icon icon-energy-flow flow-promise-icon"></span> <div class="flow-promise-text">En fit og energisk følelse</div>',
+      'e' => '<span class="icon icon-heart-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til normal funktion af hjertet*</div>
+					<div class="clear"></div><span class="icon icon-blood-flow flow-promise-icon"></span> <div class="flow-promise-text">For kardiovaskulære**</div>',
+      'f' => '<span class="icon icon-shield-cell-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til beskyttelse af celler mod oxidativt stress</div>
+					<div class="clear"></div><span class="icon icon-bone-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til vedligeholdelse af normale knogler</div>
+					<div class="clear"></div><span class="icon icon-muscle-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal muskelfunktion</div>
+					<div class="clear"></div><span class="icon icon-eye-flow flow-promise-icon"></span> <div class="flow-promise-text">Bidrager til opretholdelse af normal vision</div>
+					<div class="clear"></div><span class="flow-promise-icon"></span> <div class="flow-promise-text">For stærke knogler og muskler</div>',
+      'g' => '<span class="icon icon-chiaoil-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>',
     ),
   ),
   'call-me' => 
@@ -520,28 +554,20 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
       'select-month' => 'Vælg måned',
       'select-year' => 'Vælg årstal',
     ),
-    'days' => 
-    array (
-      'back' => 'Gå tilbage til måneder',
-    ),
-    'months' => 
-    array (
-      'back' => 'Gå tilbage til år',
-    ),
   ),
   'show' => 
   array (
     'supplements' => 'Supplementer',
     'description' => 'Beskrivelse',
     'contents' => 'Produkt information',
-    'change-vitamins' => 'Ønsker du selv at ændre sammensætningen af din TakeDaily anbefaling?',
-    'click-me' => 'Klik her',
+    'change-vitamins' => 'Ønsker du at ændre dine vitaminer?',
+    'click-me' => 'Tryk her',
   ),
   'four' => 
   array (
     'wait' => 'Vent venligst..',
     'wait-text' => 'Vent et øjeblik mens vi sammensætter den ideelle Takedaily pakke til dig',
-    'your-recommendations' => 'Her er din personlige TakeDaily anbefaling! 
+    'your-recommendations' => 'Her er din personlige pakke! 
 
 <p>Resultatet af denne test er baseret på din kost og livsstil. TakeDaily sørger for, at du får alle de vitaminer og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre kosttilskud.</p>',
     'send-them' => 'Send min anbefaling til min email.',
@@ -549,7 +575,7 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
     array (
       'title' => 'Send anbefaling',
       'email' => 'Indtast din e-mail adresse:',
-      'send' => 'Tilmeld',
+      'send' => 'Send',
       'cancel' => 'Annuller',
       'placeholder' => 'navn@email.dk',
       'error' => 'Du skal indtaste din e-mail!',
@@ -561,7 +587,7 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
     'wait' => 'Vent...',
     'apply' => 'Anvend',
   ),
-  'switch-to-chia' => 'Udskift Fiskeolie med vores organiske Chiafrøolie',
-  'switch-to-fish' => 'Udskift Chiafrøolie med Fiskeolie',
+  'switch-to-chia' => 'Udskift fiskeolien med chiafrøolie',
+  'switch-to-fish' => 'Udskift chiafrøolien med fiskeolie',
   'ingredients' => 'Ingredienser',
 );

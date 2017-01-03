@@ -98,7 +98,7 @@ return array (
     ),
     'busy_life' => 
     array (
-      'description' => 'Heb je een druk leven en wil je je energieniveau ondersteunen? Het TakeDaily Busy Life pakket bevat extra B-vitamines, ijzer en magnesium die het energieniveau ondersteunen* en helpen vermoeidheid en moeheid te verminderen**. Extra is visolie toegevoegd. De visvetzuren (DHA en EPA) zijn goed voor hart, hersenen en ogen.
+      'description' => 'Heb je een druk leven en wil je je energieniveau ondersteunen? Het TakeDaily Busy Life pakket bevat extra B-vitamines, ijzer en magnesium die het energieniveau ondersteunen* en vermoeidheid en moeheid te verminderen**. Extra is visolie toegevoegd. De visvetzuren (DHA en EPA) zijn goed voor hart, hersenen en ogen.
 
 *De B-vitamines (B1, B2, B3, B5, B6 en B12), ijzer en magnesium ondersteunen het energieniveau.
 

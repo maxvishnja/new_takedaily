@@ -16,5 +16,4 @@ return array (
   'vitamin' => 'Verwijder product
 ',
   'minimum' => 'Minimumbestelling',
-  'free_shipping' => 'Gratis',
 );

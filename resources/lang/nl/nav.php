@@ -10,7 +10,6 @@ return array (
     'billing' => 'Betaalmethode',
     'logout' => 'Uitloggen',
     'pick' => 'Vitamines',
-    'menu' => 'Menu',
   ),
   'items' => 
   array (
@@ -60,5 +59,4 @@ return array (
       ),
     ),
   ),
-  'cta' => 'Get started',
 );

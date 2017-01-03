@@ -20,12 +20,12 @@ return array (
   array (
     'page-title' => 'Jouw bestelling is geslaagd! - TakeDaily',
     'title' => 'Jouw bestelling is vewerkt',
-    'text' => 'Bedankt je voor jouw bestelling bij TakeDaily! Je ontvangt binnen 5 minuten een orderbevestiging met belangrijke informatie over je bestelling en de levering. ',
+    'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over de bestelling en levering. Bedankt je voor jouw aankoop!',
     'button-text' => 'Ga naar Mjn TakeDaily',
     'giftcard' => 
     array (
       'title' => 'Code cadeaubon:',
-      'text' => 'Bedankt voor jouw aankoop bij TakeDaily! Je ontvangt binnen 5 minuten een orderbevestiging met de belangrijke informatie over de cadeaubon. ',
+      'text' => 'Je ontvangt binnen 5 minuten een orderbevestiging met informatie over jouw cadeaubon. Bedankt voor jouw aankoop!',
     ),
   ),
   'index' => 
@@ -60,12 +60,6 @@ return array (
         'is-company' => 'Bedrijfsnaam (Optioneel)',
         'password' => 'Gewenste wachtwoord',
         'password-placeholder' => 'Wachtwoord',
-        'password_confirmation' => 'Bevestig uw wachtwoord
-',
-        'password_confirmation-placeholder' => 'Herhaal wachtwoord',
-        'cvr' => 'KvK',
-        'last_name' => 'Last name',
-        'first_name' => 'First name',
       ),
       'billing' => 
       array (
@@ -102,18 +96,20 @@ return array (
       'input-placeholder' => 'Jouw kortingscode',
       'button-text' => 'Toepassen',
     ),
-    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><span v-show="price !== total_subscription">€ {{ total_subscription }}</span> geschiedt iedere maand per automatische afschrijving.</p>
-<p class="checkout_description">Je kan je abonnement ieder moment pauzeren, uitstellen of opzeggen tot 4 dagen voor de  volgende verzendingsdatum.</p>',
+    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><strong v-show="price !== total_subscription">€ {{ total_subscription }}</strong> geschiedt iedere maand per automatische afschrijving.
+					</p>
+
+					<p class="checkout_description">Je kan je abonnement ieder moment opzeggen, uitstellen of pauzeren tot 5 dagen voor de  volgende verzendingsdatum.</p>',
     'method' => 
     array (
       'title' => 'Selecteer betaalmethode',
       'errors' => 
       array (
-        'no-method' => 'Je hebt nog geen betaalmethode gekozen! Probeer opnieuw.',
+        'no-method' => 'Je hebt nog geen betalingsmethode gekozen! Probeer opnieuw.',
       ),
     ),
   ),
-  'back' => '‹ Ga terug naar jouw persoonlijk advies',
+  'back' => '‹ Ga terug naar jouw persoonlijk TakeDaily pakket',
   'apply' => 'Toepassen',
   'wait' => 'Wacht..',
   'errors' => 
@@ -122,8 +118,5 @@ return array (
     'no-cart-session' => 'Der kunne ikke findes en kurv-session!',
   ),
   'fb-login' => 'Log ind med Facebook',
-  'back-pick' => '‹ Ga terug naar jouw selectie',
-  'terms-agree' => 'Door te klikken op "Bestel nu" ga je akkoord met de<a href=“/page/terms”>algemene voorwaarden</a> en bevestig je dat je ouder bent dan 18 jaar oud.',
-  'facebook_disclaimer' => '(Wij posten niets op jou Facebook profiel)',
-  'cvv-information' => 'De controle-nummer staat meestal achter op de kaart',
+  'back-pick' => '‹ Ga terug',
 );
