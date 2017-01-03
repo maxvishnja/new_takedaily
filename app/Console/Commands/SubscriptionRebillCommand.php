@@ -59,7 +59,7 @@ class SubscriptionRebillCommand extends Command
 					$message->subject( trans( 'checkout.mail.subject-subscription-failed' ) );
 				} );
 
-				return false;
+				continue;
 			}
 		}
 	}

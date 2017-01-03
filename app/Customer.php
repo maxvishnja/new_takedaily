@@ -256,7 +256,7 @@ class Customer extends Model
 			return false;
 		}
 
-		// send rebill mail. (your_next_delivery_sent) Din næste TakeDaily er afsendt!
+		// todo send rebill mail. (your_next_delivery_sent) Din næste TakeDaily er afsendt!
 
 		$this->getPlan()->rebilled();
 
