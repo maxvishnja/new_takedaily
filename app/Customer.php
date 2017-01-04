@@ -87,7 +87,7 @@ class Customer extends Model
 	 */
 	public function user()
 	{
-		return $this->hasOne( 'App\User', 'id', 'user_id' );
+		return $this->belongsTo( User::class );
 	}
 
 	public function getLocale()
@@ -201,7 +201,7 @@ class Customer extends Model
 
 		$names = explode( ' ', $name );
 
-		return $names[count($names) - 1];
+		return $names[ count( $names ) - 1 ];
 	}
 
 	public function getEmail()
@@ -500,7 +500,7 @@ class Customer extends Model
 
 		foreach ( $this->getVitaminModels() as $vitaminModel )
 		{
-			$currentVitamins[] = strtolower($vitaminModel->code);
+			$currentVitamins[] = strtolower( $vitaminModel->code );
 		}
 
 		foreach ( $combinations as $vitamin )
@@ -606,9 +606,9 @@ class Customer extends Model
 		return Vitamin::whereIn( 'id', $vitamins )->get();
 	}
 
-	public function loadLabel($order = null)
+	public function loadLabel( $order = null )
 	{
-		if( is_null($order))
+		if ( is_null( $order ) )
 		{
 			$order = new Order();
 		}
@@ -616,9 +616,9 @@ class Customer extends Model
 		return view( 'pdf.label', [ 'customer' => $this, 'order' => $order ] );
 	}
 
-	public function loadSticker($order = null)
+	public function loadSticker( $order = null )
 	{
-		if( is_null($order))
+		if ( is_null( $order ) )
 		{
 			$order = new Order();
 		}
@@ -652,7 +652,7 @@ class Customer extends Model
 		             ->whereNull( 'plans.deleted_at' )
 		             ->whereNull( 'plans.subscription_cancelled_at' )
 		             ->whereNotNull( 'plans.subscription_rebill_at' )
-		             ->where( 'plans.subscription_rebill_at', '<=', Date::now()->addDays(3) );
+		             ->where( 'plans.subscription_rebill_at', '<=', Date::now()->addDays( 3 ) );
 	}
 
 	public function getPaymentMethods()
