@@ -322,7 +322,7 @@ class Customer extends Model
 
 	public function makeOrder( $amount = 100, $chargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null )
 	{
-		$taxing = new TaxLibrary( $this->getCustomerAttribute( 'address_country' ) );
+		$taxing = new TaxLibrary( $this->getCustomerAttribute( 'address_country', 'denmark' ) );
 
 		$shipping = $shipping ?: $this->getPlan()->getShippingPrice();
 		$taxes    = $amount * $taxing->rate();

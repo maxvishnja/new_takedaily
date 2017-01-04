@@ -11,7 +11,21 @@ class TaxLibrary
 	{
 		$repository = new TaxZoneRepository();
 
-		$this->zone = $repository->getZone( $zone );
+		$this->zone = $repository->getZone( $this->formatZone( $zone ) );
+	}
+
+	private function formatZone( $zone )
+	{
+		switch ( $zone )
+		{
+			case 'danmark':
+			case 'dk':
+			case '':
+				return 'denmark';
+
+			default:
+				return $zone;
+		}
 	}
 
 	public function zone()
