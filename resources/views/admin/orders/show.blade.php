@@ -85,9 +85,9 @@
 				@foreach($order->lines as $line)
 					<tr>
 						<td>{{ trans("products.{$line->description}") }}</td>
-						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true) }} kr.</td>
-						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true) }} kr.</td>
-						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true) }} kr.</td>
+						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->amount, true) }} {{ $order->currency }}</td>
+						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->tax_amount, true) }} {{ $order->currency }}</td>
+						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($line->total_amount, true) }} {{ $order->currency }}</td>
 					</tr>
 				@endforeach
 				</tbody>
@@ -97,7 +97,7 @@
 					<td colspan="2" style="border: none;"></td>
 					<td style="border: none; text-align: right;">Subtotal</td>
 					<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->sub_total, true) }}
-						kr.
+						{{ $order->currency }}
 					</td>
 				</tr>
 
@@ -105,7 +105,7 @@
 					<td colspan="2" style="border: none;"></td>
 					<td style="border: none; text-align: right;">Fragt</td>
 					<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_shipping, true) }}
-						kr.
+						{{ $order->currency }}
 					</td>
 				</tr>
 
@@ -113,7 +113,7 @@
 					<td colspan="2" style="border: none;"></td>
 					<td style="border: none; text-align: right;">Heraf moms</td>
 					<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_taxes, true) }}
-						kr.
+						{{ $order->currency }}
 					</td>
 				</tr>
 
@@ -121,7 +121,7 @@
 					<td colspan="2" style="border: none;"></td>
 					<td style="border: none; text-align: right; font-weight: bold;">Total</td>
 					<td style="border: none; font-weight: bold;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total, true) }}
-						kr.
+						{{ $order->currency }}
 					</td>
 				</tr>
 				</tfoot>
