@@ -28,11 +28,13 @@
 					return strlen( $a ) - strlen( $b );
 				} ); ?>
 				@foreach($praises as $icon => $text)
-					<div class="promise_v_item">
-						<span class="icon icon-{{ $icon }}-flow flow-promise-icon"></span>
-						<div class="flow-promise-text">{{ $text }}</div>
-					</div>
-					<div class="clear"></div>
+					@if($text !== '' && !empty($text))
+						<div class="promise_v_item">
+							<span class="icon icon-{{ $icon }}-flow flow-promise-icon"></span>
+							<div class="flow-promise-text">{{ $text }}</div>
+						</div>
+						<div class="clear"></div>
+					@endif
 				@endforeach
 			@endif
 

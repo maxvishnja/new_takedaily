@@ -18,11 +18,13 @@
 						<div style="margin-bottom: 2pt;">{!! trans('label-product.contains') !!}</div>
 						@if(is_array(trans("label-{$vitaminModel->code}.praises")) && count(trans("label-{$vitaminModel->code}.praises")) > 0)
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
-								<div style="margin-bottom: 1.6pt">
-									<img src="{{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}"
-										 style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; "/>
-									{{ strip_tags($praiseText) }}
-								</div>
+								@if($praiseText !== '')
+									<div style="margin-bottom: 1.6pt">
+										<img src="{{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}"
+											 style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; "/>
+										{{ strip_tags($praiseText) }}
+									</div>
+								@endif
 							@endforeach
 						@endif
 						<div>{!! trans('label-product.recommended-daily-use') !!}</div>
