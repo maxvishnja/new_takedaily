@@ -45,8 +45,8 @@
 				</tr>
 
 				<tr>
-					<td>Køn</td>
-					<td>{{ $customer->gender }}</td>
+					<td>Gender</td>
+					<td>{{ ((string) $customer->getCustomerAttribute('user_data.gender', '1') === '1') ? 'Male' : 'Female' }}<br/></td>
 				</tr>
 
 				@if($customer->hasBirthday())

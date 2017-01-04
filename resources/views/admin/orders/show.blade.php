@@ -63,9 +63,9 @@
 						<small><a href="{{ URL::action('Dashboard\CustomerController@show', [$order->customer->id]) }}"><i
 									class="icon icon-eye-open"></i></a></small>
 					</h3>
-					Køn: {{ $order->customer->gender }}<br/>
-					Fødselsdag: {{ $order->customer->getBirthday() }} ({{ $order->customer->getAge() }} år)<br/>
-					Antal ordre: {{ $order->customer->getOrderCount() }}
+					Gender: {{ ((string) $order->customer->getCustomerAttribute('user_data.gender', '1') === '1') ? 'Male' : 'Female' }}<br/>
+					Birthdate: {{ $order->customer->getBirthday() }} ({{ $order->customer->getAge() }} år)<br/>
+					Count orders: {{ $order->customer->getOrderCount() }}
 				</div>
 			</div>
 			<hr/>
