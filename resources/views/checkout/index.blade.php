@@ -259,9 +259,7 @@
 									id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
 
 							<div class="clear"></div>
-							<p style="padding: 10px; font-weight: bold; background: #f2dede; border-color: #ebccd1; color: #a94442; border-radius: 2px; font-size: 12px; text-align: center">
-								Grundet helligdagene sendes nye ordrer 2. Januar
-							</p>
+
 						</div>
 						<div class="clear"></div>
 					</div>
