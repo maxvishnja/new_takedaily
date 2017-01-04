@@ -249,10 +249,6 @@
 						<div class="form-button-submit-holder">
 							<button class="button button--huge button--green button--full button--rounded" type="submit"
 									id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
-
-							<p style="padding: 10px; font-weight: bold; background: #f2dede; border-color: #ebccd1; color: #a94442; border-radius: 2px; font-size: 12px; text-align: center">
-								Grundet helligdagene sendes nye ordrer 2. Januar
-							</p>
 							<div class="clear"></div>
 						</div>
 					</div>
