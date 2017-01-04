@@ -114,9 +114,10 @@
 						</table>
 					@endif
 
+					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {!! trans("label-{$vitaminModel->code}.ingredients") !!}</p>
+
 					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{{ trans('label-product.RI') }}</p>
 
-					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {!! trans("label-{$vitaminModel->code}.ingredients") !!}</p>
 
 					@if(trans("label-{$vitaminModel->code}.Allergener") != '' && trans("label-{$vitaminModel->code}.Allergener") != "label-{$vitaminModel->code}.Allergener")
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.Allergener') }}:</strong> {!! trans("label-{$vitaminModel->code}.Allergener") !!}</p>
