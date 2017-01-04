@@ -223,7 +223,7 @@ class CheckoutCompletion
 
 	public function fireCustomerWasBilled( $chargeId )
 	{
-		\Event::fire( new CustomerWasBilled( $this->getUser()->getCustomer(),
+		\Event::fire( new CustomerWasBilled( $this->getUser()->getCustomer()->id,
 			$this->getCheckout()->getTotal(),
 			$chargeId,
 			$this->getCheckout()->getProduct()->name,
@@ -248,7 +248,7 @@ class CheckoutCompletion
 			'priceTotal'    => $this->getCheckout()->getTotal(),
 			'priceSubtotal' => $this->getCheckout()->getSubTotal(),
 			'priceTaxes'    => $this->getCheckout()->getTaxTotal(),
-			'name'          => $mailName,
+			'name'          => $this->getUser()->getCustomer()->getFirstname(),
 			'locale'        => $locale
 		];
 

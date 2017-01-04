@@ -2,28 +2,30 @@
 
 namespace App\Listeners;
 
+use App\Customer;
 use App\Events\CustomerWasBilled;
 
 class OrderCreateCustomer
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+	/**
+	 * Create the event listener.
+	 */
+	public function __construct()
+	{
+		//
+	}
 
-    /**
-     * Handle the event.
-     *
-     * @param  CustomerWasBilled  $event
-     * @return void
-     */
-    public function handle(CustomerWasBilled $event)
-    {
-		$event->customer->makeOrder($event->orderAmount, $event->chargeToken, null, $event->product, $event->balance, $event->balanceAmount, $event->coupon);
-    }
+	/**
+	 * Handle the event.
+	 *
+	 * @param  CustomerWasBilled $event
+	 *
+	 * @return void
+	 */
+	public function handle( CustomerWasBilled $event )
+	{
+		$customer = Customer::find( $event->customerId );
+
+		$customer->makeOrder( $event->orderAmount, $event->chargeToken, null, $event->product, $event->balance, $event->balanceAmount, $event->coupon );
+	}
 }
