@@ -79,7 +79,7 @@ class Customer extends Model
 	 */
 	public function plan()
 	{
-		return $this->hasOne( 'App\Plan', 'id', 'plan_id' );
+		return $this->belongsTo( Plan::class );
 	}
 
 	/**
