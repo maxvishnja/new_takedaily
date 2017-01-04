@@ -649,7 +649,7 @@ class Customer extends Model
 	public function scopeRebillable( $query )
 	{
 		return $query->join( 'plans', 'plans.id', '=', 'customers.plan_id' )
-			->select('customers.*')
+		             ->select( 'customers.*' )
 		             ->whereNull( 'plans.deleted_at' )
 		             ->whereNull( 'plans.subscription_cancelled_at' )
 		             ->whereNotNull( 'plans.subscription_rebill_at' )

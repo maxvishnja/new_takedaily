@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class CreateTablePlans extends Migration
 {
@@ -17,7 +17,7 @@ class CreateTablePlans extends Migration
 			$table->string('stripe_token');
 			$table->integer('price');
 			$table->integer('price_shipping');
-			$table->timestamp('subscription_started_at');
+			$table->timestamp('subscription_started_at')->nullable();
 			$table->timestamp('subscription_paused_at')->nullable();
 			$table->timestamp('subscription_cancelled_at')->nullable();
             $table->timestamps();
