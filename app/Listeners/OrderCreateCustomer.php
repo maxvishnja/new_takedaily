@@ -24,6 +24,7 @@ class OrderCreateCustomer
 	 */
 	public function handle( CustomerWasBilled $event )
 	{
+		\Log::info( $event->customerId );
 		$customer = Customer::find( $event->customerId );
 
 		$customer->makeOrder( $event->orderAmount, $event->chargeToken, null, $event->product, $event->balance, $event->balanceAmount, $event->coupon );
