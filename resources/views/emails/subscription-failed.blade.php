@@ -5,10 +5,10 @@
 
 @section('content')
 	<p>
-		{{ trans('mails.rebill-failed.text') }}
-	</p>
+	{!! str_replace('{name}', $name, nl2br(trans('mails.rebill-failed.text'))) !!}
+</p>
 
-	<p>
-		{{ trans('mails.rebill-failed.text2') }}
-	</p>
+<p>
+	{{ trans('mails.rebill-failed.text2') }}
+</p>
 @endsection

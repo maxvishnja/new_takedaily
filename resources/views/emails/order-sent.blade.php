@@ -5,6 +5,6 @@
 
 @section('content')
 	<p>
-		{{ trans('mails.order-sent.text') }}
+		{!! str_replace('{name}', $name, nl2br(trans('mails.order-sent.text'))) !!}
 	</p>
 @endsection

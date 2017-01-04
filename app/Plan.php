@@ -332,7 +332,8 @@ class Plan extends Model
 	{
 		$customer = $this->customer;
 		\App::setLocale($customer->getLocale());
-		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt() ], function ( Message $message ) use ( $customer )
+
+		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname() ], function ( Message $message ) use ( $customer )
 		{
 			$message->to( $customer->getEmail(), $customer->getName() )
 			        ->subject( trans('mails.pending.subject') );

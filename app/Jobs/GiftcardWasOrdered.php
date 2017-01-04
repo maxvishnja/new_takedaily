@@ -48,7 +48,7 @@ class GiftcardWasOrdered extends Job implements ShouldQueue
         $to = $this->customer->getEmail();
         $name = $this->customer->getName();
 
-        \Mail::send('emails.giftcard', [], function(Message $message) use($pdf, $to, $name)
+        \Mail::send('emails.giftcard', ['locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function(Message $message) use($pdf, $to, $name)
         {
         	$message->to($to, $name);
         	$message->subject(trans('mails.giftcard.subject'));
