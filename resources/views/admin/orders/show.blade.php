@@ -18,7 +18,7 @@
 
 	<div class="module">
 		<div class="module-head">
-			<h3 class="pull-left">Ordreinformation (#{{ $order->getPaddedId() }})</h3>
+			<h3 class="pull-left">Order (#{{ $order->getPaddedId() }})</h3>
 			<span style="margin-left: 10px;"
 				  class="label pull-left label-{{ $order->stateToColor() }}">{{ $order->state }}</span>
 
@@ -26,18 +26,18 @@
 				<a class="btn btn-info"
 				   href="{{ URL::action('Dashboard\OrderController@edit', [ 'id' => $order->id ]) }}"><i
 						class="icon-pencil"></i>
-					Rediger</a>
+					Edit</a>
 
 				@if($order->state == 'paid' )
 					<a class="btn btn-default"
 					   href="{{ URL::action('Dashboard\OrderController@markSent', [ 'id' => $order->id ]) }}"><i
 							class="icon-truck"></i>
-						Marker som sendt</a>
+						Mark as sent</a>
 
 					<a class="btn btn-default"
 					   href="{{ URL::action('Dashboard\OrderController@refund', [ 'id' => $order->id ]) }}"><i
 							class="icon-money"></i>
-						Refunder</a>
+						Refund</a>
 				@endif
 			</div>
 			<div class="clear"></div>
@@ -46,7 +46,7 @@
 		<div class="module-body">
 			<div class="row">
 				<div class="span4">
-					<h3>Leveringsadresse</h3>
+					<h3>Deliveryaddress</h3>
 					@if($order->shipping_company != '')
 						{{ $order->shipping_company }}<br/>
 						c/o: {{ $order->shipping_name }}<br/>
@@ -59,7 +59,7 @@
 				</div>
 
 				<div class="span4">
-					<h3>Kunde #{{ $order->customer->id }}
+					<h3>Customer #{{ $order->customer->id }}
 						<small><a href="{{ URL::action('Dashboard\CustomerController@show', [$order->customer->id]) }}"><i
 									class="icon icon-eye-open"></i></a></small>
 					</h3>
@@ -73,9 +73,9 @@
 				<thead>
 				@if(count($order->lines) > 0)
 					<tr>
-						<th>Beskrivelse</th>
-						<th>Beløb</th>
-						<th>Moms</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Taxes</th>
 						<th>Total</th>
 					</tr>
 				@endif
@@ -103,7 +103,7 @@
 
 				<tr>
 					<td colspan="2" style="border: none;"></td>
-					<td style="border: none; text-align: right;">Fragt</td>
+					<td style="border: none; text-align: right;">Shipping</td>
 					<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_shipping, true) }}
 						{{ $order->currency }}
 					</td>
@@ -111,7 +111,7 @@
 
 				<tr>
 					<td colspan="2" style="border: none;"></td>
-					<td style="border: none; text-align: right;">Heraf moms</td>
+					<td style="border: none; text-align: right;">Taxes</td>
 					<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_taxes, true) }}
 						{{ $order->currency }}
 					</td>
