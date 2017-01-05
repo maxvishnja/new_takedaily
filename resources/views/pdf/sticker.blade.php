@@ -20,7 +20,7 @@
 							@foreach(trans("label-{$vitaminModel->code}.praises") as $praise => $praiseText)
 								@if($praiseText !== '')
 									<div style="margin-bottom: 1.6pt">
-										<img src="{{ asset('/images/icons/flow/icon-' . $praise . '-flow@2x.png') }}"
+										<img src="{{ asset('/images/icons/flow/icon-' . strtolower($praise) . '-flow@2x.png') }}"
 											 style="display: inline-block; vertical-align: -4px; height: 17px; width: 17px; "/>
 										{{ strip_tags($praiseText) }}
 									</div>

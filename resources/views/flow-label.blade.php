@@ -30,7 +30,7 @@
 				@foreach($praises as $icon => $text)
 					@if($text !== '' && !empty($text))
 						<div class="promise_v_item">
-							<span class="icon icon-{{ $icon }}-flow flow-promise-icon"></span>
+							<span class="icon icon-{{ strtolower($icon) }}-flow flow-promise-icon"></span>
 							<div class="flow-promise-text">{{ $text }}</div>
 						</div>
 						<div class="clear"></div>
