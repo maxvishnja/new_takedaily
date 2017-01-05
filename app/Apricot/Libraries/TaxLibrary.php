@@ -16,12 +16,19 @@ class TaxLibrary
 
 	private function formatZone( $zone )
 	{
-		switch ( $zone )
+		switch ( strtolower($zone) )
 		{
 			case 'danmark':
+			case 'dansk':
 			case 'dk':
 			case '':
 				return 'denmark';
+
+			case 'nederland':
+			case 'nederlands':
+			case 'dutch':
+			case 'nl':
+				return 'netherlands';
 
 			default:
 				return $zone;

@@ -1,5 +1,4 @@
 <?php
-
 Route::get( '/flow', function ( \Illuminate\Http\Request $request )
 {
 	$giftcard = null;
