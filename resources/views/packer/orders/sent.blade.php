@@ -26,7 +26,7 @@
 						</td>
 						<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
 						<td>
-							@if($order->getCustomer()->getPlan() && $vitamins = json_decode($order->getCustomer()->getPlan()->vitamins))
+							@if($order->getCustomer() && $order->getCustomer()->getPlan() && $vitamins = json_decode($order->getCustomer()->getPlan()->vitamins))
 								@foreach($vitamins as $vitamin)
 									· {{ \App\Vitamin::remember(60)->find($vitamin)->name }}<br/>
 								@endforeach
