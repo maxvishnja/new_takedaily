@@ -19,7 +19,8 @@ class SetLocale
 		$domainEndings = [
 			'dk'    => 'da',
 			'com'   => 'en',
-			'co.uk' => 'en'
+			'co.uk' => 'en',
+			'nl'    => 'nl',
 		];
 
 		$domainRedirects = [
@@ -27,7 +28,7 @@ class SetLocale
 			'net'  => 'com',
 			'info' => 'com',
 			'org'  => 'com',
-		    'com' => 'dk'
+			'com'  => 'dk'
 		];
 
 		$tld = substr( strstr( $request->getHttpHost(), '.' ), 1 );
