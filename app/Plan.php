@@ -151,9 +151,7 @@ class Plan extends Model
 
 	public function moveRebill( $days = 1 )
 	{
-		$newDate = Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->addWeekday( $days );
-
-		$this->subscription_rebill_at = $newDate;
+		$this->subscription_rebill_at = Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->addWeekday( $days );
 		$this->save();
 
 		return true;
@@ -299,10 +297,10 @@ class Plan extends Model
 	public function scopeRebillPending( $query )
 	{
 		return $query->where( 'subscription_rebill_at', '<=', Date::now()->addDays( 5 ) )
-		             ->where( function ( Builder $where )
+		             ->where( function ( $where )
 		             {
 			             $where->whereNull( 'subscription_snoozed_until' )
-			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now() );
+			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now()->addDays( 5 ) );
 		             } )
 		             ->whereNull( 'subscription_cancelled_at' );
 	}

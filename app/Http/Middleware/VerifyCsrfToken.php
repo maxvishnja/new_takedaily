@@ -17,5 +17,6 @@ class VerifyCsrfToken extends BaseVerifier
         '/cart-pick-n-mix',
         '/save-state',
         '/flow/recommendations',
+        '/checkout/apply-coupon'
     ];
 }
