@@ -425,6 +425,11 @@ class Customer extends Model
 
 	public function charge( $amount, $makeOrder = true, $product = 'subscription', $coupon )
 	{
+		if( ! $this->getPlan() )
+		{
+			return false;
+		}
+
 		/** @var PaymentHandler $paymentHandler */
 		$paymentHandler = new PaymentHandler( PaymentDelegator::getMethod( $this->getPlan()->getPaymentMethod() ) );
 
