@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+var randomString = require('randomstring');
 require('laravel-elixir-spritesmith');
 require('laravel-elixir-imagemin');
 
@@ -21,15 +22,17 @@ elixir.config.images = {
 	outputFolder: 'images'
 };
 
+elixir.spriteName = randomString.generate() + '_sprite';
+
 elixir(function (mix) {
 	mix.spritesmith('resources/assets/sprites', {
 		retinaSrcFilter: 'resources/assets/sprites/*@2x.png',
 		imgOutput: 'resources/assets/images',
 		cssOutput: 'resources/assets/sass/',
 		cssName: '_sprites.sass',
-		imgPath: '/images/sprite.png',
-		retinaImgName: 'sprite@2x.png',
-		retinaImgPath: '/images/sprite@2x.png'
+		imgPath: '/images/' + elixir.spriteName + '.png',
+		retinaImgName: elixir.spriteName + '@2x.png',
+		retinaImgPath: '/images/' + elixir.spriteName + '@2x.png'
 	});
 
 	mix.sass('app.sass', false, {indentedSyntax: true});

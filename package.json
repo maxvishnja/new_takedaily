@@ -9,6 +9,7 @@
     "laravel-elixir": "^4.0.0",
     "laravel-elixir-imagemin": "^0.2.3",
     "laravel-elixir-spritesmith": "^0.4.0",
+    "randomstring": "^1.1.5",
     "tooltip": "darsain/tooltip"
   }
 }

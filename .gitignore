@@ -12,8 +12,8 @@ public/temp_opcachereset.php
 /public/css/print.css
 /public/css/print.css.map
 /public/uploads/*/*/*
-/resources/assets/images/sprite*
-/public/images/sprite*
+/resources/assets/images/*sprite*
+/public/images/*sprite*
 /public/js/app.js
 /public/images/block-two-bg.jpg
 /public/images/block-six-bg.jpg
