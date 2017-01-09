@@ -31,6 +31,7 @@ elixir(function (mix) {
 		cssOutput: 'resources/assets/sass/',
 		cssName: '_sprites.sass',
 		imgPath: '/images/' + elixir.spriteName + '.png',
+		imgName: elixir.spriteName + '.png',
 		retinaImgName: elixir.spriteName + '@2x.png',
 		retinaImgPath: '/images/' + elixir.spriteName + '@2x.png'
 	});
