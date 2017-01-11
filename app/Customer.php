@@ -226,7 +226,7 @@ class Customer extends Model
 
 	public function getAge()
 	{
-		if ( is_null( $this->getBirthday() ) )
+		if ( $this->getBirthday() === '' || $this->getBirthday() === null )
 		{
 			return false;
 		}
