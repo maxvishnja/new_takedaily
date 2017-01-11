@@ -16,6 +16,7 @@ public/temp_opcachereset.php
 /public/images/*sprite*
 /public/js/app.js
 /public/js/validation_messages_*.js
+/public/js/*.map
 /public/images/block-two-bg.jpg
 /public/images/block-six-bg.jpg
 /public/images/header_bg.jpg
