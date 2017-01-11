@@ -104,7 +104,7 @@
 		@endif
 
 		@if(trans("label-{$label}.Disclaimer_warningage") != '' && trans("label-{$label}.Disclaimer_warningage") != "label-{$label}.Disclaimer_warningage")
-			<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{!! trans("label-{$label}.Disclaimer_warningage") !!}</p>
+			<p style="line-height: 1.1; font-weight: 200; margin: 10px 0;">{!! trans("label-{$label}.Disclaimer_warningage") !!}</p>
 		@endif
 
 		@if(trans("label-{$label}.disclaimer_colorants") != '' && trans("label-{$label}.disclaimer_colorants") != "label-{$label}.disclaimer_colorants")
