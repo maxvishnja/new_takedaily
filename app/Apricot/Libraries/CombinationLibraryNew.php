@@ -729,7 +729,7 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = '1b';
 
-							$this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'age', 'outside' ] ) );
+							$this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'age' ] ) );
 							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 							return;
@@ -744,7 +744,7 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = '1b';
 
-							$this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'skin' ] ) );
+							$this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'age' ] ) );
 							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d' ) );
 
 							return;
@@ -755,7 +755,7 @@ class CombinationLibraryNew
 							$this->groupOne   = '2';
 							$this->vitamins[] = '1b';
 
-							$this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'skin' ] ) );
+							$this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'age' ] ) );
 							$this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 							return;
