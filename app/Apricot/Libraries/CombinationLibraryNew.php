@@ -210,10 +210,13 @@ class CombinationLibraryNew
 
 		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'a' ) && isset( $data->foods, $data->locale ) &&
 		     ( ( $data->locale === 'nl'
-		         && ( $data->foods->fruits == '1'
-		              || $data->foods->fruits == '2'
-		              || $data->foods->vegetables == '1'
-		              || $data->foods->vegetables == '2' )
+		         && (
+			         (
+				         ( $data->foods->fruits == '1'
+				           || $data->foods->fruits == '2'
+				         ) && $data->foods->vegetables != '4'
+			         ) || $data->foods->vegetables == '1'
+			         || $data->foods->vegetables == '2' )
 		       ) ||
 		       ( $data->locale === 'da'
 		         && ( ( (
@@ -303,7 +306,7 @@ class CombinationLibraryNew
 				     || ( $data->gender == '2' && (
 							( $data->age <= '50' && $data->foods->bread != '4' && $data->foods->bread != '5' )
 							|| ( $data->age > '50' && $data->foods->bread != '3' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-						))
+						) )
 				     || ( $data->gender == '1' && $data->foods->bread != '4' && $data->foods->bread != '5' )
 				)
 				{
