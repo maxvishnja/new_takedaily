@@ -239,9 +239,9 @@
 
 					@include('includes.payment.method')
 
-					<div class="pull-left m-b-20 terms_container_box">
+					<div class="m-b-20 terms_container_box">
 						<label style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd; line-height: 1.3; min-height: 64px; display: flex; justify-content: center; align-items: center">
-							<input type="checkbox" style="margin-right: 20px" />
+							<input type="checkbox" aria-required="true" data-validate="true" required="required" id="terms_checkbox" style="margin-right: 20px" />
 							<div>{!! trans('checkout.terms-agree') !!}</div>
 						</label>
 					</div>
@@ -255,7 +255,7 @@
 					</div>
 
 					<div class="hidden-xs">
-						<div class="form-button-submit-holder pull-right">
+						<div class="form-button-submit-holder">
 							<button class="button button--huge button--green button--rounded" type="submit"
 									id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
 
