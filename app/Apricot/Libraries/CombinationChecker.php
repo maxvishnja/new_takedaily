@@ -3,17 +3,13 @@
 class CombinationChecker
 {
 	private static $notAllowedCombinations = [
-		'1Aa',
-		'1Ab',
-
 		'1Af',
+
 		'1Bf',
 
 	    '1Cb',
 	    '1Cd',
 
-	    '1Da',
-	    '1Db',
 	    '1Df',
 
 	    '1Ef',
@@ -24,7 +20,6 @@ class CombinationChecker
 	    '2Ad',
 	    '2Ae',
 	    '2Af',
-	    '2Ag',
 
 	    '2Bf',
 
@@ -32,8 +27,6 @@ class CombinationChecker
 	    '2Cd',
 	    '2Cf',
 
-	    '2Da',
-	    '2Db',
 	    '2Df',
 
 	    '2Ef',
@@ -44,7 +37,6 @@ class CombinationChecker
 	    '3Ad',
 	    '3Ae',
 	    '3Af',
-	    '3Ag',
 
 	    '3Bf',
 
@@ -58,15 +50,13 @@ class CombinationChecker
 		'3Dd',
 		'3De',
 		'3Df',
-		'3Dg',
 
 		'3Ea',
 		'3Eb',
 		'3Ec',
 		'3Ed',
 		'3Ee',
-		'3Ef',
-		'3Eg',
+		'3Ef'
 	];
 
 	public static function isAllowed($groupOne, $groupTwo, $groupThree)
