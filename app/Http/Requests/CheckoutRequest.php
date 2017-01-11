@@ -38,6 +38,7 @@ class CheckoutRequest extends Request
 			'address_city'    => 'required',
 			'address_country' => 'required',
 			'payment_method'  => 'required',
+			'terms_accept'    => 'required',
 			'stripeToken'     => 'required_if:payment_method,stripe',
 			'user_data'       => 'required'
 		];

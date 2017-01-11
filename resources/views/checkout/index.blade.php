@@ -241,7 +241,7 @@
 
 					<div class="m-b-20 terms_container_box">
 						<label style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd; line-height: 1.3; min-height: 64px; display: flex; justify-content: center; align-items: center">
-							<input type="checkbox" aria-required="true" data-validate="true" required="required" id="terms_checkbox" style="margin-right: 20px" />
+							<input name="terms_accept" type="checkbox" aria-required="true" data-validate="true" required="required" id="terms_checkbox" style="margin-right: 20px" />
 							<div>{!! trans('checkout.terms-agree') !!}</div>
 						</label>
 					</div>
@@ -513,6 +513,7 @@
 
 			$("#coupon-form").submit(function (e) {
 				e.preventDefault();
+
 				var form = $(this);
 				var button = form.find('button');
 
@@ -590,13 +591,6 @@
 						$("#coupon-form-errors-mobile").text('');
 						$("#coupon-form-successes").text(response.message);
 						$("#coupon-form-errors").text('');
-
-//						app.discount.applied = true;
-//						app.discount.type = response.coupon.discount_type;
-//						app.discount.amount = response.coupon.discount;
-//						app.discount.applies_to = response.coupon.applies_to;
-//						app.discount.description = response.coupon.description;
-//						app.discount.code = response.coupon.code;
 
 						app.getCart();
 					},
