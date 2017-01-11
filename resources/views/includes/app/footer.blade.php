@@ -246,7 +246,7 @@
 		}(window,
 			document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-		fbq('init', '201670066926857');
+		fbq('init', '936783626391570');
 		fbq('track', "PageView");
 		fbq('track', 'ViewContent');
 	</script>
@@ -263,7 +263,7 @@
 	</script>
 
 	<noscript>
-		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=201670066926857&ev=PageView&noscript=1"/>
+		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=936783626391570&ev=PageView&noscript=1"/>
 	</noscript>
 	<!-- End Facebook Pixel Code -->
 	@yield('tracking-scripts')
