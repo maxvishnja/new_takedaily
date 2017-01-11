@@ -15,6 +15,7 @@ public/temp_opcachereset.php
 /resources/assets/images/*sprite*
 /public/images/*sprite*
 /public/js/app.js
+/public/js/validation_messages_*.js
 /public/images/block-two-bg.jpg
 /public/images/block-six-bg.jpg
 /public/images/header_bg.jpg

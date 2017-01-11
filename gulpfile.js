@@ -54,9 +54,11 @@ elixir(function (mix) {
 	], 'public/js/app.js');
 
 	mix.scripts([
-		'/vendor/validation/core.js',
-		'/vendor/validation/messages_da.js'
+		'/vendor/validation/core.js'
 	], 'public/js/validator.js');
+
+	mix.scripts('/vendor/validation/validation_messages_da.js');
+	mix.scripts('/vendor/validation/validation_messages_nl.js');
 
 	mix.version(['js/validator.js', 'js/app.js', 'css/app.css', 'css/print.css']);
 

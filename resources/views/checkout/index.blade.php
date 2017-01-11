@@ -644,6 +644,8 @@
 		});
 	</script>
 
+	<script src="{{ asset('public/js/validation_messages_' . App::getLocale() . '.js') }}"></script>
+
 	<script>
 		$("#checkout-form").validate({
 			errorClass: 'input--error label--error',
