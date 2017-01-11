@@ -240,9 +240,10 @@
 					@include('includes.payment.method')
 
 					<div class="pull-left m-b-20 terms_container_box">
-						<div style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd; line-height: 1.3; min-height: 64px; display: flex; justify-content: center; align-items: center">
+						<label style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd; line-height: 1.3; min-height: 64px; display: flex; justify-content: center; align-items: center">
+							<input type="checkbox" style="margin-right: 20px" />
 							<div>{!! trans('checkout.terms-agree') !!}</div>
-						</div>
+						</label>
 					</div>
 
 					<div class="visible-xs">
