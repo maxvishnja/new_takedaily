@@ -105,7 +105,7 @@
 				<span class="icon icon-awake"></span>
 				<br/>{{ trans('flow.questions.2-5.options.2') }}
 			</label>
-			@if(trans('flow.questions.2-5.options.3') !== 'flow.questions.2-5.options.3' && trans('flow.questions.2-5.options.3') !== '')
+			@if(Lang::has('flow.questions.2-5.options.3', App::getLocale(), false) && trans('flow.questions.2-5.options.3') !== 'flow.questions.2-5.options.3' && trans('flow.questions.2-5.options.3') !== '')
 				<label>
 					<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" data-model="lacks_energy"
 						   v-on:click="nextStep();"/>
@@ -133,7 +133,7 @@
 				<span class="icon icon-immune-moderate"></span>
 				<br/>{{ trans('flow.questions.2-6.options.2') }}
 			</label>
-			@if(trans('flow.questions.2-6.options.3') !== 'flow.questions.2-6.options.3' && trans('flow.questions.2-6.options.3') !== '')
+			@if(Lang::has('flow.questions.2-6.options.3', App::getLocale(), false) && trans('flow.questions.2-6.options.3') !== 'flow.questions.2-6.options.3' && trans('flow.questions.2-6.options.3') !== '')
 				<label>
 					<input type="radio" name="step[2][6]" value="3" v-model="user_data.immune_system" data-model="immune_system"
 						   v-on:click="nextStep();"/>
