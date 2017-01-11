@@ -1,6 +1,9 @@
 <?php
-namespace App\Apricot\Libraries;
 
+// Yeah.. this is not very type-safe.. honestly I don't even know the types (integers or strings..)
+// So I rely on PHP to do what it does "best": ignore types.
+
+namespace App\Apricot\Libraries;
 
 use App\Vitamin;
 
@@ -22,7 +25,7 @@ class CombinationLibraryNew
 	}
 
 	public function getPillNames()
-	{ // todo debug @ office
+	{
 		$names = [];
 
 		foreach ( $this->vitamins as $vitamin )

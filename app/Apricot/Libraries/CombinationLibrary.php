@@ -1,7 +1,26 @@
 <?php
 namespace App\Apricot\Libraries;
 
-// todo start checking if combination is possible again
+/**
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ * DO NOT USE THIS!!!!!!
+ *
+ * (Yes, I should remove this, asap.. I just need to *really* check every aspect of the code to make sure nothing breaks**)
+ * ** Yes; some tests would benefit. A lot.
+ */
 
 use App\Combination;
 
