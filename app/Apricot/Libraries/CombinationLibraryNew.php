@@ -3,6 +3,8 @@
 // Yeah.. this is not very type-safe.. honestly I don't even know the types (integers or strings..)
 // So I rely on PHP to do what it does "best": ignore types.
 
+// Welcome to hell, sir. *PLEASE* attempt to refactor this.
+
 namespace App\Apricot\Libraries;
 
 use App\Vitamin;
@@ -268,12 +270,14 @@ class CombinationLibraryNew
 		     (
 			     (
 				     $data->locale === 'nl' &&
-				     ( ( $data->foods->bread == '1' || $data->foods->wheat == '1' )
-				       || ( $data->age >= '51' && $data->foods->bread < '3' )
-				       || ( ( $data->gender == '2' && $data->foods->bread < '4' ) || ( $data->gender == '1' && $data->foods->bread != '4' ) )
-				       || ( $data->gender == '1' && $data->age <= '70' && $data->foods->bread != '5' )
-				       || ( $data->age > '50' && $data->foods->wheat != '3' )
-				       || ( $data->age <= '50' && $data->foods->wheat != '4' ) )
+				     ( ( $data->foods->wheat != '3' || $data->foods->wheat != '4' )
+				       || ( $data->gender == '1' && $data->foods->bread != '4' && $data->foods->bread != '5' )
+				       || ( $data->gender == '2' && (
+							     ( $data->age <= '50' && $data->foods->bread != '4' && $data->foods->bread != '5' )
+							     || ( $data->age > '50' && $data->foods->bread != '3' && $data->foods->bread != '4' && $data->foods->bread != '5' )
+						     )
+				       )
+				     )
 			     )
 			     ||
 			     (
@@ -290,18 +294,17 @@ class CombinationLibraryNew
 
 			if ( $data->locale === 'nl' )
 			{
-				if ( ( $data->foods->wheat == '1' )
-				     || ( $data->age > '50' && $data->foods->wheat != '3' )
-				     || ( $data->age <= '50' && $data->foods->wheat != '4' )
-				)
+				if ( $data->foods->wheat != '3' || $data->foods->wheat != '4' )
 				{
 					$reasons[] = 'wheat';
 				}
 
-				if ( ( $data->foods->bread == '1' )
-				     || ( $data->age >= '51' && $data->foods->bread < '3' )
-				     || ( ( $data->gender == '2' && $data->foods->bread < '4' ) || ( $data->gender == '1' && $data->foods->bread != '4' ) )
-				     || ( $data->gender == '1' && $data->age <= '70' && $data->foods->bread != '5' )
+				if ( ( $data->age >= '51' && $data->foods->bread < '3' )
+				     || ( $data->gender == '2' && (
+							( $data->age <= '50' && $data->foods->bread != '4' && $data->foods->bread != '5' )
+							|| ( $data->age > '50' && $data->foods->bread != '3' && $data->foods->bread != '4' && $data->foods->bread != '5' )
+						))
+				     || ( $data->gender == '1' && $data->foods->bread != '4' && $data->foods->bread != '5' )
 				)
 				{
 					$reasons[] = 'bread';
