@@ -157,7 +157,7 @@
 					</div>
 
 					<div class="promise-item">
-						<p>{{ trans('home.blocks.promises.promise-1') }}</p>
+						<p>{!! trans('home.blocks.promises.promise-1') !!}</p>
 					</div>
 
 					<div class="promise-item">
@@ -165,11 +165,11 @@
 					</div>
 
 					<div class="promise-item">
-						<p>{{ trans('home.blocks.promises.promise-2') }}</p>
+						<p>{!! trans('home.blocks.promises.promise-2') !!}</p>
 					</div>
 
 					<div class="promise-item">
-						<p>{{ trans('home.blocks.promises.promise-3') }}</p>
+						<p>{!! trans('home.blocks.promises.promise-3') !!}</p>
 					</div>
 
 					<div class="promise-item">
@@ -177,7 +177,7 @@
 					</div>
 
 					<div class="promise-item">
-						<p>{{ trans('home.blocks.promises.promise-4') }}</p>
+						<p>{!! trans('home.blocks.promises.promise-4') !!}</p>
 					</div>
 
 					<div class="promise-item">
