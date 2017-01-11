@@ -105,12 +105,14 @@
 				<span class="icon icon-awake"></span>
 				<br/>{{ trans('flow.questions.2-5.options.2') }}
 			</label>
-			<label>
-				<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" data-model="lacks_energy"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-fresh"></span>
-				<br/>{{ trans('flow.questions.2-5.options.3') }}
-			</label>
+			@if(trans('flow.questions.2-5.options.3') !== 'flow.questions.2-5.options.3' && trans('flow.questions.2-5.options.3') !== '')
+				<label>
+					<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" data-model="lacks_energy"
+						   v-on:click="nextStep();"/>
+					<span class="icon icon-fresh"></span>
+					<br/>{{ trans('flow.questions.2-5.options.3') }}
+				</label>
+			@endif
 		</div>
 
 		<p class="substep-explanation">{{ trans('flow.questions.2-5.text') }}</p>
@@ -132,12 +134,12 @@
 				<br/>{{ trans('flow.questions.2-6.options.2') }}
 			</label>
 			@if(trans('flow.questions.2-6.options.3') !== 'flow.questions.2-6.options.3' && trans('flow.questions.2-6.options.3') !== '')
-			<label>
-				<input type="radio" name="step[2][6]" value="3" v-model="user_data.immune_system" data-model="immune_system"
-					   v-on:click="nextStep();"/>
-				<span class="icon icon-immune-ignore"></span>
-				<br/>{{ trans('flow.questions.2-6.options.3') }}
-			</label>
+				<label>
+					<input type="radio" name="step[2][6]" value="3" v-model="user_data.immune_system" data-model="immune_system"
+						   v-on:click="nextStep();"/>
+					<span class="icon icon-immune-ignore"></span>
+					<br/>{{ trans('flow.questions.2-6.options.3') }}
+				</label>
 			@endif
 		</div>
 
@@ -170,7 +172,8 @@
 		<div class="sub_step_answers">
 			<label class="text-center flow_label_noclick">
 				<span>{{ trans('flow.questions.2-8.button-text') }}</span><br/>
-				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-on:change="nextStep();" v-model="user_data.pregnancy.week" class="select select--full m-t-10">
+				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-on:change="nextStep();" v-model="user_data.pregnancy.week"
+						class="select select--full m-t-10">
 					<option value="0">{{ trans('flow.questions.2-8.pick-one') }}</option>
 					@foreach(range(1,40) as $week)
 						<option value="{{ $week }}">{{ trans('flow.questions.2-8.select') }} {{ $week }}</option>
