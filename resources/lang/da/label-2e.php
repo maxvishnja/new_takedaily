@@ -32,6 +32,18 @@ return array (
       'amount' => '1 mg',
       'percent' => '50',
     ),
+    2 => 
+    array (
+      'percent' => '6',
+      'amount' => '50 mg',
+      'name' => 'Calcium',
+    ),
+    3 => 
+    array (
+      'amount' => '50 mg',
+      'percent' => '3',
+      'name' => 'Kalium',
+    ),
   ),
   'disclaimer' => '',
   'praises' => 

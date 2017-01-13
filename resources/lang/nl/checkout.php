@@ -66,6 +66,8 @@ return array (
         'cvr' => 'KvK',
         'last_name' => 'Last name',
         'first_name' => 'First name',
+        'first-name-placeholder' => 'Amy',
+        'last-name-placeholder' => 'Visser',
       ),
       'billing' => 
       array (
@@ -102,8 +104,8 @@ return array (
       'input-placeholder' => 'Jouw kortingscode',
       'button-text' => 'Toepassen',
     ),
-    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><span v-show="price !== total_subscription">€ {{ total_subscription }}</span> geschiedt iedere maand per automatische afschrijving.</p>
-<p class="checkout_description">Je kan je abonnement ieder moment pauzeren, uitstellen of opzeggen tot 4 dagen voor de  volgende verzendingsdatum.</p>',
+    'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><span v-show="price !== total_subscription">€ {{ total_subscription }}</span> geschiedt iedere vier weken per automatische afschrijving.</p>
+<p class="checkout_description">Je kan je abonnement ieder moment pauzeren, uitstellen of opzeggen tot 4 dagen voor de volgende verzendingsdatum.</p>',
     'method' => 
     array (
       'title' => 'Selecteer betaalmethode',
@@ -121,9 +123,9 @@ return array (
     'payment-error' => 'Er is een fout opgetreden bij de verwerking van de betaling, probeer het opnieuw.',
     'no-cart-session' => 'Der kunne ikke findes en kurv-session!',
   ),
-  'fb-login' => 'Log ind med Facebook',
+  'fb-login' => 'Log in met Facebook',
   'back-pick' => '‹ Ga terug naar jouw selectie',
-  'terms-agree' => 'Door te klikken op "Bestel nu" ga je akkoord met de<a href=“/page/terms”>algemene voorwaarden</a> en bevestig je dat je ouder bent dan 18 jaar oud.',
+  'terms-agree' => 'Door te betalen ga je akkoord met de<a href="/page/terms"> algemene voorwaarden</a>, de vierwekelijkse automatische incasso van de abonnementskosten en bevestig je dat je ouder bent dan 18 jaar oud.',
   'facebook_disclaimer' => '(Wij posten niets op jou Facebook profiel)',
   'cvv-information' => 'De controle-nummer staat meestal achter op de kaart',
 );

@@ -20,8 +20,8 @@ TakeDaily-teamet',
   array (
     'title' => 'Din ordre blev afsendt',
     'summary' => 'Din ordre hos TakeDaily blev afsendt!',
-    'text' => 'Din ordre på TakeDaily blev markeret som "afsendt".',
-    'subject' => 'Din ordre blev afsendt!',
+    'text' => 'Kære {name}, din TakeDaily er idag blevet sendt afsted til dig. Du modtager den indenfor 3-4 hverdage i din postkasse. Så du behøver ikke være hjemme for at modtage den. Har du spørgsmål, er du meget velkommen til at skrive til os på info@takedaily.dk eller ringe på 70605015 (hverdage 9-17). ',
+    'subject' => 'Din TakeDaily er blevet afsendt!',
   ),
   'recommendation' => 
   array (
@@ -56,7 +56,7 @@ TakeDaily-teamet',
     'title' => 'Vi kan ikke trække penge for dit medlemskab.',
     'summary' => 'TakeDaily har forgæves forsøgt at fakturere dig for dit TakeDaily medlemskab.',
     'text' => 'Hej {name}, vi har netop forsøgt at trække penge for dit aktive medlemskab, men fejlede. Dette kan skyldes flere ting, bl.a. at betalingsmetoden er udløbet, eller at der ikke er dækning på kontoen.',
-    'text2' => 'Ønsker du at modtage din TakeDaily pakke beder vi dig derfor gennemgå dine konti, og betalingsmetoden du anvender. Vi forsøger automatisk igen indenfor 24 timer.',
+    'text2' => 'Ønsker du at modtage din TakeDaily pakke beder vi dig derfor gennemgå dine konti, og betalingsmetoden du anvender. Du kan opdatere dine betalingsoplysninger ved at logge ind på "Mit TakeDaily" her: https://takedaily.dk/loginVi forsøger automatisk igen indenfor 24 timer.',
   ),
   'pending' => 
   array (

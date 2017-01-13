@@ -26,7 +26,7 @@ return array (
   'ingredients' => 'Vulstof (microkristallijne cellulose), verdikkingsmiddel (hydroxypropylmethylcellulose), DL-alfa-tocoferylacetaat, retinylacetaat, antiklontermiddel (magnesiumzout van vetzuren), cholecalciferol, kleurstof (titaandioxide) ',
   'praises' => 
   array (
-    'eye' => 'Vitamine A draagt bij tot het instandhouding van een normaal gezichtsvermogen',
+    'eye' => 'Vitamine A draagt bij tot de instandhouding van een normaal gezichtsvermogen',
     'teeth' => 'Vitamine D draagt bij aan een sterk gebit',
     'skin' => 'Vitamine A helpt bij het gezond houden van de huid',
   ),
@@ -38,9 +38,7 @@ return array (
   'above_claims' => '\'Not a butter lover\' bevat vitamine A, D en E. Het supplement dient ter aanvulling op de multivitaminen.',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',
-  'Disclaimer_warningage' => 'Dit voedingssupplement is niet geschikt voor kinderen tot en met 3 jaar,',
 );

@@ -39,7 +39,7 @@ return array (
     ),
   ),
   'name' => 'Chia-olie',
-  'ingredients' => 'Chia-olie (Salvia hispanica), verdikkingsmiddel (hydroxypropylmethylcellulose), verdikkingsmiddel (siliciumdioxide)',
+  'ingredients' => 'Chia-olie(vetzuren) (Salvia hispanica), verdikkingsmiddel (hydroxypropylmethylcellulose), verdikkingsmiddel (siliciumdioxide)',
   'disclaimer' => '* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.<br/>Rijk aan omega 3-vetzuren',
   'praises' => 
   array (
@@ -51,11 +51,10 @@ return array (
   'disclaimer_web' => '* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.',
   'web_description' => 'Chia zaden zijn afkomstig van de Salvia Hispanica, een plant die behoort tot de muntfamilie. Chia-olie wordt verkregen door een koude persing van de zaden van chia. Chia-olie is een plantaardige olie die in vergelijking tot andere plantaardige oliën het hoogste gehalte aan omega 3-vetzuren bevat. Het omega 3-vetzuur alfa-linoleenzuur (ALA) in chia-olie helpt het cholesterolniveau gezond te houden.*',
   'weight' => '19,43 gram',
-  'above_claims' => 'Onze chia-olie is een plantaardige, koudgeperste olie en rijk aan gezonde omega 3-vetzuren',
+  'above_claims' => 'Onze chia-olie is een plantaardige, koudgeperste olie en bevat de gezonde omega 3-vetzuren',
   'foot_note_disclaimer' => '* Het gunstige effect wordt verkregen bij een dagelijkse inname van 2 g ALA.',
   'web_advantage_list' => '<ul>
 <li>100% plantaardig</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder kleur-,geur- en smaakstoffen</li>
 <li>Vrij van genetisch manipulatie (GMO)</li>

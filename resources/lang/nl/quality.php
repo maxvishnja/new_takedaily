@@ -10,7 +10,7 @@ Om actief te kunnen blijven inspelen op deze ontwikkelingen, werken wij samen me
   'section_vitamins' => 
   array (
     'title' => 'TakeDaily voedingssupplementen',
-    'body' => '<p>Wij streven naar de hoogst haalbare kwaliteit voor onze voedingssupplementen. De ingrediënten die wij gebruiken zijn goedgekeurd op Europees niveau en de voedingssupplementen voldoen aan alle eisen van de EFSA (Europese Autoriteit voor Voedselveiligheid) en de Nederlandse Warenwet. De voedingssupplementen worden professioneel verpakt volgens de kwaliteitseisen en zijn ISO 22000 gecertificeerd.</p>
+    'body' => '<p>Wij streven naar de hoogst haalbare kwaliteit voor onze voedingssupplementen. De ingrediënten die wij gebruiken zijn goedgekeurd op Europees niveau en de voedingssupplementen voldoen aan de eisen van de Nederlandse Voedsel- en Warenautoriteit. De voedingssupplementen worden professioneel verpakt volgens de kwaliteitseisen en zijn ISO 22000 gecertificeerd.</p>
 
 <p>De dosering van onze voedingssupplementen is verantwoord, ook in de voor ons geadviseerde combinaties kom je niet uit boven de aanvaardbare bovengrens van de afzonderlijke vitamines, mineralen en omega-3.</p>',
   ),

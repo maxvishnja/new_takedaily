@@ -42,7 +42,7 @@ return array (
     '1-3' => 
     array (
       'title' => 'Wat is jouw huidskleur?',
-      'text' => 'Als je een lichte huidskleur hebt kan jouw huid bij gelijke, alledaagse blootstelling aan zonlicht meer vitamine D aanmaken dan een natuurlijk getinte huid of donkere huid. Extra vitamine D is belangrijk voor mensen met een getinte of donkere huid.',
+      'text' => 'Als je een lichte huidskleur hebt kan jouw huid bij gelijke, alledaagse blootstelling aan zonlicht meer vitamine D aanmaken dan een natuurlijk getinte huid of donkere huid. Extra vitamine D is belangrijk voor mensen met een natuurlijk getinte of donkere huid.',
       'options' => 
       array (
         1 => 'Licht',
@@ -52,7 +52,7 @@ return array (
     ),
     '1-4' => 
     array (
-      'title' => 'Kom je elke dag (tussen 11:00-15:00 uur) 30 minuten buiten met jouw gezicht en handen onbedekt?',
+      'title' => 'Kom je elke dag (tussen 11:00-15:00 uur) minimaal 15-30 minuten buiten met jouw gezicht en handen onbedekt?',
       'text' => 'Vitamine D is een van de weinige vitamines die het lichaam zelf kan aanmaken. Hiervoor dien je dagelijks tussen 11:00-15:00 uur minimaal 15-30 minuten buiten te komen met minimaal handen en gezicht onbedekt. Tussen 11:00-15.00 uur staat de zon op zijn hoogst en is jouw lichaam in staat om vitamine D aan te maken met behulp van het zonlicht. Extra vitamine D is belangrijk voor personen die dagelijks weinig buitenkomen, de zon mijden of buiten lichaamsbedekkende kleding dragen.',
       'options' => 
       array (
@@ -75,7 +75,7 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     '2-2' => 
     array (
       'title' => 'Ben je momenteel op dieet om gewicht te verliezen?',
-      'text' => 'de periode dat je gewicht probeert te verliezen is het belangrijk dat je lichaam voldoende voedingsstoffen binnenkrijgt. Vitamine A en C zorgen mede voor een goede weerstand en B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam. Vitamine C is daarnaast van belang voor de vorming van collageen die helpt de huid te verstevigen ',
+      'text' => 'In de periode dat je gewicht probeert te verliezen is het belangrijk dat je lichaam voldoende voedingsstoffen binnenkrijgt. Vitamine A en C zorgen mede voor een goede weerstand en B-vitamines spelen een belangrijke rol in de energiestofwisseling van het lichaam. Vitamine C is daarnaast van belang voor de vorming van collageen die helpt de huid te verstevigen',
       'options' => 
       array (
         1 => 'Ja',
@@ -137,7 +137,7 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     '2-8' => 
     array (
       'title' => 'Hoeveel weken bent u zwanger?',
-      'text' => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Extra vitamine D tijdens de zwangerschap is belangrijk voor de botaanmaak van jouw baby.',
+      'text' => 'De behoefte aan bepaalde vitamines en mineralen verandert als je zwanger bent of zwanger wilt worden. Het advies van de Gezondheidsraad is om extra foliumzuur te gebruiken vanaf het moment dat je een zwangerschapswens hebt en stopt met het gebruik van anticonceptiemiddelen. Daarnaast is tijdens de zwangerschap jouw behoefte aan vitamine D verhoogd.',
       'options' => 
       array (
         1 => 'Hoelang ben je zwanger?',
@@ -367,27 +367,27 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
   array (
     1 => 
     array (
-      'basic' => 'De Multi Basic vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van vitamines en mineralen.e vitamines en mineralen in de Multi Basic zijn een algemene dagelijkse aanvulling op jouw voeding.',
-      'basic-10-d' => 'Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van vitamines en mineralen. e vitamines en mineralen in de Multi Vitamin D+ zijn een algemene dagelijkse aanvulling op jouw voeding.',
+      'basic' => 'De Multi Basic vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van vitamines en mineralen. De vitamines en mineralen in de Multi Basic zijn een algemene dagelijkse aanvulling op jouw voeding.',
+      'basic-10-d' => 'Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van vitamines en mineralen. De vitamines en mineralen in de Multi Vitamin D+ zijn een algemene dagelijkse aanvulling op jouw voeding.',
       'basic-10-d-alt' => 'Multi Vitamine D+ vormt de basis van jouw persoonlijke TakeDaily pakket met 10 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van vitamines en mineralen. De vitamines en mineralen in de Multi Vitamin D+ zijn een algemene dagelijkse aanvulling op jouw voeding.',
-      'basic-20-d' => 'Multi vitamine D+ Extra vormt de basis van jouw persoonlijke TakeDaily pakket met 20 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen. De vitamines en mineralen in de Multi Vitamin D+ Extra zijn een algemene dagelijkse aanvulling op jouw voeding.',
+      'basic-20-d' => 'Multi vitamine D+ Extra vormt de basis van jouw persoonlijke TakeDaily pakket met 20 microgram vitamine D. Het bevat een uitgebalanceerde combinatie van essentiële vitamines en mineralen. De vitamines en mineralen in de Multi Vitamin D+ Extra zijn een algemene dagelijkse aanvulling op jouw voeding.',
     ),
     2 => 
     array (
-      'A' => 'Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn. Mom & Baby bevat 400 microgram foliumzuur en 10 microgram vitamine D. ',
-      'B' => 'Shape Me Up is een voedingssupplement speciaal voor mensen die gewicht proberen te verliezen. In de periode dat je gewicht probeert te verliezen is het belangrijk dat je lichaam voldoende vitamines en mineralen binnenkrijgt. TakeDaily zorgt dat jij in deze periode de vitamines en mineralen binnenkrijgt die jij als aanvulling op de dagelijkse voeding kunt gebruiken. De B-vitamines (B1, B6 en B12) spelen een belangrijke rol in de energiestofwisseling van het lichaam. Vitamine A en C zorgen mede voor een goede weerstand. Vitamine C is daarnaast van belang voor de vorming van collageen die helpt de huid te verstevigen en vitamine K ondersteunt een normale bloedstolling. Daarnaast is het natuurlijk belangrijk dat je stress vermijdt, goed slaapt en beweegt.',
+      'A' => 'Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn. Mom & Baby bevat 400 microgram foliumzuur en 10 microgram vitamine D volgens het advies van de Gezondheidsraad.',
+      'B' => 'Shape Me Up is een voedingssupplement speciaal voor mensen die gewicht proberen te verliezen. In de periode dat je gewicht probeert te verliezen is het belangrijk dat je lichaam voldoende vitamines en mineralen binnenkrijgt. TakeDaily zorgt dat jij in deze periode als aanvulling op je dagelijkse voeding voldoende vitamines en mineralen binnenkrijgt. De B-vitamines (B1, B6 en B12) spelen een belangrijke rol in de energiestofwisseling van het lichaam. Vitamine A en C zorgen mede voor een goede weerstand. Vitamine C is daarnaast van belang voor de vorming van collageen die helpt de huid te verstevigen en vitamine K ondersteunt een normale bloedstolling. Daarnaast is het natuurlijk belangrijk dat je stress vermijdt, goed slaapt en beweegt.',
       'C' => 'Energy Support bevat vitamines en mineralen die jouw energieniveau ondersteunen, helpen vermoeidheid en moeheid te verminderen en bijdragen aan een heldere geest en normale weerstand tegen stress.',
       'D' => 'Immune Booster is rijk aan vitamines en mineralen die jouw weerstand ondersteunen (vitamine A, B6, B11 (foliumzuur), B12, C, D en de mineralen seleen en zink).',
-      'E' => 'Joint, Bone & Muscle bevat vitamine C, D, magnesium en mangaan. Vitamine D en magnesium zijn belangrijk voor een normale spierwerking. Vitamine C en mangaan zijn goed voor het kraakbeen. ',
+      'E' => 'Bepaalde voedingsstoffen ondersteunen jouw botten, spieren en kraakbeen (in de gewrichten). Joint, Bone & Muscle bevat vitamine C, D, magnesium en mangaan. Vitamine D en magnesium zijn belangrijk voor een normale spierwerking. Vitamine C en mangaan zijn goed voor het kraakbeen.',
     ),
     3 => 
     array (
-      'a' => 'I\'m Not a Veggie or Fruit Fan bevat belangrijke voedingsstoffen aanwezig in groente en fruit (beta-caroteen, vitamine B11 (foliumzuur), vitamine C en kalium). Het supplement dient ter aanvulling op de multivitamine.',
+      'a' => 'No Veggie or Fruit Fan bevat belangrijke voedingsstoffen aanwezig in groente en fruit (beta-caroteen, vitamine B11 (foliumzuur), vitamine C en kalium). Het supplement dient ter aanvulling op de multivitamine.',
       'b' => 'I\'m Don\'t Eat Carbs is rijk aan B-vitamines (B1, B2, B3, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op de multivitamine.',
       'c' => 'The Dairy Portion bevat vitamine B2, B12 en calcium. Het zijn voedingsstoffen die van nature voorkomen in melk(producten). Het supplement dient ter aanvulling op de multivitamine.',
-      'd' => 'I\'m Vegetarian/Vegan is speciaal voor vegetariërs, veganisten en mensen die geen vlees eten. Het supplement bevat vitamine B1, B6, B12 en ijzer; voedingsstoffen die van nature aanwezig zijn in vlees. Het supplement dient ter aanvulling op de multivitamine.',
-      'e' => 'Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega 3-vetzuren EPA en DHA. De Gezondheidsraad adviseert volwassenen om minimaal één keer per week vis te eten, bij voorkeur vette vis. Premium Omega-3 visolie wordt gewonnen uit kleine vette vissoorten als ansjovis en sardines met een hoog gehalte aan omega-3 vetzuren. Premium Omega-3 visolie bevat 550 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
-      'f' => 'Not a Butter Lover bevat vitamine A, D en E. Halvarine en margarine zijn belangrijke bronnen van vitamine A en D. Boter is een belangrijke bron van vitamine A. Oliën  bevatten vitamine E. Het supplement dient ter aanvulling op de multivitamine.',
+      'd' => 'I Don\'t Eat Meat is speciaal voor vegetariërs, veganisten en mensen die geen vlees eten. Het supplement bevat vitamine B1, B6, B12 en ijzer; voedingsstoffen die van nature aanwezig zijn in vlees. Het supplement dient ter aanvulling op de multivitamine.',
+      'e' => 'Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega 3-vetzuren EPA en DHA. De Gezondheidsraad adviseert volwassenen om minimaal één keer per week vis te eten, bij voorkeur vette vis. Premium Omega-3 visolie wordt gewonnen uit kleine vette vissoorten als ansjovis en sardines met een hoog gehalte aan omega-3 vetzuren. Premium Omega-3 visolie bevat 456 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
+      'f' => 'Not a Butter Lover bevat vitamine A, D en E. Halvarine en margarine zijn belangrijke bronnen van vitamine A en D. Boter is een belangrijke bron van vitamine A. Oliën bevatten vitamine E. Het supplement dient ter aanvulling op de multivitamine.',
       'g' => 'Premium Omega-3 Chiazaadolie is een plantaardige olie, verkregen door een koude persing van de zaden. Het bevat gezonde omega-3 vetzuren!',
     ),
   ),
@@ -406,7 +406,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
     ),
     'today' => 'Vandaag',
     'tomorrow' => 'Morgen',
-    'success' => 'Bedankt! TakeDaily neemt zo spoedig mogelijk contact met je op!',
+    'success' => 'Bedankt! TakeDaily neemt zo spoedig mogelijk contact met je op! :-)',
     'button-text' => 'Bel mij',
   ),
   'datepicker' => 
@@ -474,12 +474,20 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
     'pick-year' => 'Kies jaar',
     'pick-month' => 'Kies maand',
     'pick-decade' => 'Kies decennium',
+    'months' => 
+    array (
+      'back' => 'Ga terug naar selectie Jaar',
+    ),
+    'days' => 
+    array (
+      'back' => 'Ga terug naar selectie Maand',
+    ),
   ),
   'show' => 
   array (
     'supplements' => 'Supplementen',
     'description' => 'Toelichting',
-    'change-vitamins' => 'Wil je jouw vitaminenpakket veranderen?',
+    'change-vitamins' => 'Wil je de samenstelling van jouw persoonlijke TakeDaily pakket veranderen?',
     'click-me' => 'Klik hier',
     'contents' => 'Productinformatie',
   ),
@@ -497,7 +505,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
       'cancel' => 'Annuleren',
       'placeholder' => 'navn@email.nl',
       'error' => 'Zou je je e-mailadres kunnen invullen?',
-      'success' => 'Mijn persoonlijk advies is verstuurd',
+      'success' => 'Jouw persoonlijk advies is verstuurd',
     ),
   ),
   'coupon' => 

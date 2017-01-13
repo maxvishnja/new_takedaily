@@ -42,12 +42,11 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => 'I\'m Vegetarian/Vegan is een aanvulling op onze multivitamine speciaal voor vegetariërs, veganisten en mensen die geen vlees eten. Het supplement bevat vitamine B1, B6, B12 en ijzer; voedingsstoffen die van nature aanwezig zijn in vlees',
+  'web_description' => 'I Don\'t Eat Meat is een aanvulling op de multivitamine en bevat vitamine B1, B6, B12 en ijzer.',
   'weight' => '14 gram',
-  'above_claims' => '\'I\'m Vegetarian/Vegan\' is een aanvulling op onze multivitamine speciaal voor vegetariërs, veganisten en mensen die geen vlees eten.',
+  'above_claims' => '\'I Don\'t Eat Meat\' is een aanvulling op onze multivitamine speciaal voor vegetariërs, veganisten en mensen die geen vlees eten.',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder kleur-, geur- en smaakstoffen</li>
 </ul>',

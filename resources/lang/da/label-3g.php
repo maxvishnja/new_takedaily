@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'name' => 'Chiafrøolie',
+  'name' => 'Chiaolie',
   'praises' => 
   array (
     'blood' => 'Alfa-linolensyre (ALA) bidrager til at opretholdelse af normale blodkolesterolniveauer. *',
@@ -20,12 +20,6 @@ return array (
       'name' => 'Heraf',
       'amount' => '',
       'percent' => '',
-    ),
-    2 => 
-    array (
-      'name' => 'Mættede fedtsyrer',
-      'amount' => '58,6 mg',
-      'percent' => '*',
     ),
     3 => 
     array (
@@ -63,7 +57,7 @@ return array (
   'Vit and Min' => 'Ingredienser ',
   'web_description' => 'TakeDailys chiafrøolie er afledt af planten Salvia hispanica, der tilhører familien af mintplanter. Olien udvindes ved koldpresning af Chiafrøene. Chiaolien er en af de vegetabilske olier, med det højste indhold af omega-3 fedtsyrer. Den omega-3-fedtsyre, der findes i Chiafrøolien kaldes Alfa-linolensyre (ALA). Denne bidrager til opretholdelsen af sunde blodkolesterolniveauer. *',
   'weight' => '19,43 gram',
-  'above_claims' => 'Vores chiafrøolie er vegansk, koldpresset olie, rig på sunde omega 3-fedtsyrer',
+  'above_claims' => 'Vores chiaolie er vegansk, koldpresset olie, rig på sunde omega 3-fedtsyrer',
   'web_advantage_list' => '<ul>
 <li>100% vegetabilsk</li>
 <li>Plantebaseret kapsel</li>

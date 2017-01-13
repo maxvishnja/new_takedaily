@@ -22,23 +22,22 @@ return array (
   'disclaimer' => '** Specifiek aangepaste dosering foliumzuur en vitamine D voor zwangere vrouwen en vrouwen die zwanger willen worden conform het advies van de Gezondheidsraad',
   'praises' => 
   array (
-    'baby' => 'Foliumzuur draagt bij tot de groei van het ongeboren kind tijdens de zwangerschap',
+    'baby' => 'Foliumzuur (vitamine B11) draagt bij tot de groei van het ongeboren kind tijdens de zwangerschap',
+    'shield' => 'Foliumzuur (vitamine B11) en vitamine D ondersteunen het immuunsysteem',
   ),
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
   'web_description' => 'Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn.
 
-Mom & Baby bevat 400 mcg foliumzuur en 10 mcg vitamine D. Het advies van de Gezondheidsraad is om een supplement met 400 mcg foliumzuur te slikken vanaf het moment dat je zwanger wilt worden. Foliumzuur speelt een belangrijke rol in de vroege ontwikkeling van het ongeboren kindje. Foliumzuur kan gedurende de gehele zwangerschap gebruikt worden.
+Mom & Baby bevat 400 microgram foliumzuur en 10 microgram vitamine D. Het advies van de Gezondheidsraad is om een supplement met 400 microgram foliumzuur te slikken vanaf het moment dat je zwanger wilt worden. Foliumzuur speelt een belangrijke rol in de vroege ontwikkeling van het ongeboren kindje. Foliumzuur kan gedurende de gehele zwangerschap gebruikt worden.
 
-Tijdens de zwangerschap is de behoefte aan vitamine D verhoogd en de Gezondheidsraad adviseert zwangeren dagelijks 10 mcg extra vitamine D te gebruiken.',
+Tijdens de zwangerschap is de behoefte aan vitamine D verhoogd en de Gezondheidsraad adviseert zwangeren dagelijks 10 microgram extra vitamine D te gebruiken.',
   'weight' => '12,6 gram',
   'above_claims' => 'Mom & Baby is een voedingssupplement speciaal voor vrouwen die zwanger willen worden of zwanger zijn.',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',
-  'disclaimer_colorants' => 'Allurarood AC en chinolinegeel kunnen de activiteit of oplettendheid van kinderen nadelig beïnvloeden',
 );

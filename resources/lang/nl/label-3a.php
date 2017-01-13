@@ -1,15 +1,6 @@
 <?php
 
 return array (
-  'minerals' => 
-  array (
-    0 => 
-    array (
-      'amount' => '317 mg',
-      'name' => 'Kalium',
-      'percent' => '16',
-    ),
-  ),
   'vitamins' => 
   array (
     0 => 
@@ -32,7 +23,7 @@ return array (
     ),
   ),
   'name' => 'Supplement ter aanvulling van de dagelijkse groente- en fruitinname',
-  'ingredients' => 'Kaliumwaterstoffosfaat, verdikkingsmiddel (hydroxypropylmethylcellulose, L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumzout van vetzuren), bèta-caroteen 10%, kleurstoffen (titaandioxide, kopercomplexen van chlorofylen en chlorofylinen), pteroymonoglutaminezuur',
+  'ingredients' => 'Kaliumwaterstoffosfaat, verdikkingsmiddel (hydroxypropylmethylcellulose), L-ascorbinezuur, vulstof (microkristallijne cellulose), antiklontermiddel (magnesiumzout van vetzuren), bèta-caroteen 10%, kleurstoffen (titaandioxide, kopercomplexen van chlorofylen en chlorofylinen), pteroymonoglutaminezuur',
   'praises' => 
   array (
     'heart' => 'Vitamine C is belangrijk voor de bloedvaten',
@@ -42,13 +33,21 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => 'I\'m not a Veggie or Fruit Fan is een aanvulling op de multivitamine en bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. ',
+  'web_description' => 'No Veggie or Fruit Fan is een aanvulling op de multivitamine en bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C en kalium.',
   'weight' => '29,4 gram',
-  'above_claims' => '\'I\'m not a veggie fan\' bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement dient ter aanvulling op de multivitamine',
+  'above_claims' => 'No Veggie or Fruit Fan bevat beta-caroteen, vitamine B11 (foliumzuur), vitamine C, fosfor en kalium. Het supplement dient ter aanvulling op de multivitamine',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',
+  'minerals' => 
+  array (
+    0 => 
+    array (
+      'name' => 'Kalium',
+      'percent' => '16',
+      'amount' => '317 mg',
+    ),
+  ),
 );

@@ -158,19 +158,19 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
   'ingredients' => 'vulstof (dicalciumfosfaat dihydraat), verdikkingsmiddel (hydroxypropylmethylcellulose), ijzer bisglycinaat, L-ascorbinezuur, zinkgluconaat, DL-alfa-tocoferylacetaat, nicotinamide, L-selenomethionine, antiklontermiddel (magnesiumzout van vetzuren), calcium-D-pantothenaat, retinylacetaat, kleurstoffen (titaandioxide, allurarood AC), cyanocobalamine, cholecalciferol, fyllochinon (fytomenadion), pyridoxaal-5-fosfaat, riboflavine, thiaminehydrochloride, chroompicolinaat, pteroylmonoglutaminezuur, kaliumjodide, D-biotine',
   'praises' => 
   array (
-    'general-health' => 'Voor het ondersteunen van een optimale gezondheid',
+    'shield' => 'Vitamine A, B11 (Foliumzuur), C, D, seleen en zink ondersteunen de afweer van het lichaam',
+    'energy' => 'Vitamine B1, B2, B3, B5, B6, B12, ijzer en jodium activeren je natuurlijke energie in het lichaam',
+    'muscle' => 'Calcium en vitamine D spelen een rol bij het behouden van sterke botten en soepele spieren',
   ),
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => 'Multi Basic is een multivitamine- en mineralensupplement en bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De vitamines en mineralen in de Multi Basic zijn een algemene dagelijkse aanvulling op jouw voeding.',
+  'web_description' => 'Multi Basic is een multivitamine- en mineralensupplement en bevat een uitgebalanceerde combinatie van de 13 essentiële vitamines en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De vitamines en mineralen in de Multi Basic zijn een algemene dagelijkse aanvulling op jouw voeding.',
   'weight' => '27,44 gram',
   'above_claims' => 'Multi Basic vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen.',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',
-  'disclaimer_colorants' => 'Allurarood AC kan de activiteit of oplettendheid van kinderen nadelig beïnvloeden',
 );

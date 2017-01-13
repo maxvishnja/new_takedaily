@@ -24,21 +24,6 @@ return array (
       'percent' => '150',
     ),
   ),
-  'minerals' => 
-  array (
-    0 => 
-    array (
-      'name' => 'Kalium',
-      'amount' => '317 mg',
-      'percent' => '16',
-    ),
-    1 => 
-    array (
-      'name' => 'Fosfor',
-      'amount' => '126,3 mg',
-      'percent' => '18',
-    ),
-  ),
   'disclaimer' => '',
   'praises' => 
   array (
@@ -58,4 +43,13 @@ return array (
 <li>Ingen konserveringsmidler</li>
 <li>GMO-fri (indeholder ikke gen-modificerede organismer)</li>
 </ul>',
+  'minerals' => 
+  array (
+    0 => 
+    array (
+      'name' => 'Kalium',
+      'percent' => '16',
+      'amount' => '317 mg',
+    ),
+  ),
 );

@@ -75,10 +75,6 @@ Vitamine B5 en foliumzuur dragen bij aan de weerstand tegen stress.
 Huid, haar en nagels
 Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en houdt de haren sterk. Seleen en zink zijn goed voor de nagels. Vitamine A, B2, B3, B8 (biotine),en de mineralen jodium en zink helpen bij het gezond houden van de huid.
 ',
-  'praises' => 
-  array (
-    'general-health' => 'Voor het ondersteunen van een optimale gezondheid',
-  ),
   'vitamins' => 
   array (
     0 => 
@@ -164,14 +160,18 @@ Vitamine B8 (biotine) en de mineralen seleen en zink zijn goed voor je haren en 
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => 'Multi vitamine D+ Extra is een multivitamine- en mineralensupplement met 20 microgram vitamine D en is speciaal voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitaminen en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De vitamines en mineralen in de Multi Vitamin D+ Extra zijn een algemene dagelijkse aanvulling op jouw voeding.',
+  'web_description' => 'Multi vitamine D+ Extra is een multivitamine- en mineralensupplement met 20 microgram vitamine D en is speciaal voor mannen en vrouwen vanaf 70 jaar. Het bevat een uitgebalanceerde combinatie van de 13 essentiële vitamines en de mineralen calcium, chroom, fosfor, ijzer, jodium, seleen en zink. De vitamines en mineralen in de Multi Vitamin D+ Extra zijn een algemene dagelijkse aanvulling op jouw voeding.',
   'weight' => '27,44 gram',
   'above_claims' => 'Multi vitamine D+ Extra vormt de basis van jouw persoonlijke TakeDaily pakket. Het bevat een uitgebalanceerde combinatie van essentiële vitaminen en mineralen met 20 microgram vitamine D.',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',
-  'Disclaimer_warningage' => 'Dit voedingssupplement is niet geschikt voor kinderen onder de 1 jaar.',
+  'praises' => 
+  array (
+    'energy' => 'Vitamine B1, B2, B3, B5, B6, B12, ijzer en jodium activeren je natuurlijke energie in het lichaam',
+    'muscle' => 'Calcium en vitamine D spelen een rol bij het behouden van sterke botten en soepele spieren',
+    'shield' => 'Vitamine A, B11 (Foliumzuur), C, D, seleen en zink ondersteunen de afweer van het lichaam',
+  ),
 );

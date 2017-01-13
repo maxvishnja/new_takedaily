@@ -20,8 +20,10 @@ Het TakeDaily team',
   array (
     'title' => 'Jouw bestelling is verzonden',
     'summary' => 'Jouw bestelling bij TakeDaily is verstuurd!',
-    'text' => 'Jouw bestelling bij TakeDaily heeft de status \'verzonden\'.',
-    'subject' => 'Jouw bestelling is verstuurd!',
+    'text' => 'Beste {naam}, jouw bestelling is verwerkt en jouw TakeDaily pakket wordt vandaag naar jou verzonden. Binnen 2-5 werkdagen wordt het bezorgd in jouw brievenbus, Je hoeft dus niet thuis te zijn om jouw TakeDaily in ontvangst te nemen, Heb je een vraag of wens je extra informatie over je bestelling? Neem dan contact op met het TakeDaily-team, zij zijn bereikbaar via 020-2382580 of info@takedaily.com. 
+
+Wij danken je nogmaals voor je bestelling bij TakeDaily!',
+    'subject' => 'Jouw TakeDaily is verstuurd!',
   ),
   'recommendation' => 
   array (
@@ -50,14 +52,14 @@ Het TakeDaily team',
   array (
     'title' => 'De automatische incasso is geslaagd',
     'summary' => 'De automatische incasso in opdracht van TakeDaily',
-    'content' => 'Hallo {name}, je hebt een TakeDaily abonnement. We hebben een nieuwe bestelling geplaatst en de abonnementskosten zijn via automatische incasso afgeschreven. Je kunt jouw bestelling bekijken via jouw \'Mijn TakeDaily\' account op onze website.',
+    'content' => 'Beste {name}, je hebt een TakeDaily abonnement. We hebben een nieuwe bestelling geplaatst en de abonnementskosten zijn via automatische incasso afgeschreven. Je kunt jouw bestelling bekijken via jouw \'Mijn TakeDaily\' account op onze website.',
   ),
   'rebill-failed' => 
   array (
     'title' => 'De automatische incasso is niet geslaagd',
     'summary' => 'TakeDaily is er niet in geslaagd om via automatische incasso jouw vierwekelijkse abonnementskosten af te schrijven.',
     'text' => 'Beste {name}, het is TakeDaily niet gelukt om middels automatische incasso jouw vierwekelijkse abonnementskosten af te schrijven. Het kan zijn dat jouw saldo op het moment van afschrijving ontoereikend was of jouw betalingsgegevens in jouw TakeDaily account onjuist zijn.',
-    'text2' => 'Wij verzoeken je om jouw rekening en de betalingsgegevens in jouw TakeDaily account te controleren, zodat wij jouw pakket alsnog kunnen toesturen. Wij proberen het binnen 24 uur automatisch opnieuw.',
+    'text2' => 'Wij verzoeken je om jouw rekening en de betalingsgegevens in jouw TakeDaily account te controleren, zodat wij jouw pakket alsnog kunnen toesturen. Update jouw betalingsgegevens hier: https://takedaily.nl/loginWij proberen het binnen 24 uur automatisch opnieuw.',
   ),
   'pending' => 
   array (

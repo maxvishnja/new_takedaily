@@ -12,7 +12,7 @@ return array (
       'wheat' => 'Je eet onvoldoende aardappelen, rijst, pasta, e.d. Deze voedingsmiddelen zijn een belangrijke bron van B-vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
       'bread' => 'Brood is een belangrijke bron van B-vitamines, ijzer en vezels. Brood is de belangrijkste bron van jodium in Nederland. De B-vitamines, ijzer en jodium zijn belangrijk voor jouw energiestofwisseling. Je eet onvoldoende brood(producten), waardoor het mogelijk is dat jouw voeding deze vitamines en mineralen onvoldoende bevat. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
     ),
-    'main' => 'TakeDaily heeft het \'I don\'t Eat Carbs\' supplement toegevoegd aan jouw persoonlijke pakket.',
+    'main' => 'TakeDaily adviseert jou het I Don\'t Eat Carbs supplement.',
   ),
   '3a' => 
   array (
@@ -21,11 +21,10 @@ return array (
       'vegetables' => 'Groenten zijn een belangrijke bron van vitamine C, foliumzuur en kalium. Je eet onvoldoende groente, waardoor jouw voeding deze belangrijke voedingsstoffen mogelijk onvoldoende kan aanleveren. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
       'fruits' => 'Fruit is een belangrijke bron van vitamine C, foliumzuur en kalium. Je eet onvoldoende fruit, waardoor jouw voeding te weinig vitamine C, foliumzuur en kalium kan bevatten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
     ),
-    'main' => 'TakeDaily heeft I\'m Not a Veggie or Fruit Fan toegevoegd aan jouw persoonlijke pakket.',
   ),
   '2e' => 
   array (
-    'main' => 'Je wil je botten en de werking van jouw spieren ondersteunen. Joint, Bone & Muscle bevat vitamines en mineralen die een rol spelen bij het behoud van sterke botten, soepele spieren en goed zijn voor de aanmaak van kraakbeen (in de gewrichten).',
+    'main' => 'Het ondersteunen van je botten en de werking van jouw spieren is voor jou belangrijk. Joint, Bone & Muscle bevat vitamines en mineralen die een rol spelen bij het behoud van sterke botten, soepele spieren en goed zijn voor de aanmaak van kraakbeen (in de gewrichten).',
   ),
   '3f' => 
   array (
@@ -44,7 +43,7 @@ return array (
   array (
     'reasons' => 
     array (
-      'pregnant' => 'TakeDaily selecteert voor jou I\'m a Vegetarian/Vegan\'. Het supplement bevat B-vitamines (B1, B6, B12) en ijzer. De B-vitamines ondersteunen je energieniveau en ijzer ondersteunt jouw lichaam bij de aanmaak van rode bloedcellen.',
+      'pregnant' => 'Dit supplement is een aanvulling op Mom & Baby. Het bevat B-vitamines (B1, B6, B12) en ijzer. Als je zwanger bent neemt de hoeveelheid bloed in het lichaam toe, waardoor er tijdens de zwangerschap een extra behoefte aan ijzer ontstaat. IJzer helpt bij de normale vorming van rode bloedcellen en hemoglobine, Het hemoglobine aanwezig in de rode bloedcellen transporteert het zuurstof door het lichaam en naar jouw kindje.',
       'not_vegetarian_meat' => 'Vlees bevat ijzer, vitamine B1, B6 en B12. Als je geen vlees eet is het belangrijk dat je deze voedingsstoffen voldoende binnenkrijgt, daar zij onder andere een belangrijke rol spelen in de energiestofwisseling van ons lichaam.',
       'vegetarian' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en ijzer. Je eet geen vlees(producten) te eten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
     ),
@@ -58,16 +57,15 @@ return array (
     'reasons' => 
     array (
       'sports' => 'Bewegen is goed voor je gezondheid! Omdat je veel sport, kan jouw lichaam extra behoefte hebben aan bepaalde vitamines en mineralen hebben. TakeDaily zorgt dat jij ter aanvulling op je dagelijkse voeding voldoende vitamines en mineralen binnenkrijgt.',
-      'lacks_energy_stressed' => 'Je wilt jouw energieniveau ondersteunen en/of ervaart momenteel een periode van stress. ',
+      'lacks_energy_stressed' => 'Je wilt je energieniveau ondersteunen en/of ervaart momenteel een periode van stress.',
     ),
   ),
   '2d' => 
   array (
     'reasons' => 
     array (
-      'immune_system' => 'De juiste vitamines en mineralen kunnen jouw immuunsysteem ondersteunen. Vitamine C is een anti-oxidant en is belangrijk voor het immuunsysteem. Vitamine A en D zijn ook belangrijk voor het immuunsysteem.',
-      'smokes' => 'Natuurlijk is ons beste advies om te stoppen met roken, maar zolang jij rookt zorgt TakeDaily ervoor dat wij voorzien in jouw verhoogde behoefte aan vitamine C. Het is wetenschappelijk bewezen dat de behoefte van rokers aan vitamine C verhoogd is, omdat er in het lichaam meer vitamine C wordt afgebroken door de sigarettenrook.
-',
+      'immune_system' => 'De juiste vitamines en mineralen kunnen jouw immuunsysteem ondersteunen. Vitamine C is een anti-oxidant en is belangrijk voor het immuunsysteem. Ook vitamine A en D zijn belangrijk voor het immuunsysteem.',
+      'smokes' => 'Natuurlijk is ons beste advies om te stoppen met roken, maar zolang jij rookt zorgt TakeDaily ervoor dat wij ter aanvulling op jouw voeding voorzien in jouw verhoogde behoefte aan vitamine C. Het is wetenschappelijk bewezen dat de behoefte van rokers aan vitamine C verhoogd is, omdat er in het lichaam meer vitamine C wordt afgebroken door de sigarettenrook.',
     ),
   ),
   '2a' => 
@@ -84,7 +82,7 @@ return array (
   ),
   '1c' => 
   array (
-    'main' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte. In een voor jou passende dosering. Je bent 70 of ouder en hebt extra vitamine D nodig. Het advies van de Gezondheidsraad voor mannen en vrouwen vanaf 70 jaar is om dagelijkse een supplement met 20 microgram vitamine D te gebruiken. TakeDaily zorgt dat jij in aanvulling op je dagelijkse voeding voldoende vitamine D binnenkrijgt.',
+    'main' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte. In een voor jou passende dosering. Je bent 70 jaar of ouder en hebt  extra vitamine D nodig. Het advies van de Gezondheidsraad voor mannen en vrouwen vanaf 70 jaar is om dagelijkse een supplement met 20 microgram vitamine D te gebruiken. TakeDaily zorgt dat jij in aanvulling op je dagelijkse voeding voldoende vitamine D binnenkrijgt.',
   ),
   '1b' => 
   array (

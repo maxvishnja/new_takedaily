@@ -10,13 +10,13 @@ return array (
     'splash' => 
     array (
       'text' => 'Vier weken voedingssupplementen op maat voor',
-      'price' => '€18,95<small>/mnd</small>',
-      'info' => 'Vierwekelijks opzegbaar',
+      'price' => '<small>Jouw gepersonaliseerde pakket voedingssupplementen voor</small> €18,95<small> per 4 weken</small>',
+      'info' => 'Ieder moment opzegbaar',
     ),
     'what-is' => 'Wat is TakeDaily?',
     'pick' => 'Of stel je liever je eigen pakket samen?',
     'cta' => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>',
-    'subtitle' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte!',
+    'subtitle' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte! Wil jij weten welke voedingssupplementen aansluiten bij jouw persoonlijke behoefte? Doe dan snel de test!',
   ),
   'blocks' => 
   array (
@@ -26,8 +26,7 @@ return array (
       'promise-1' => 'Ons deskundige team staat geheel tot jouw beschikking om inhoudelijke vragen over onze producten te beantwoorden.',
       'promise-2' => 'De hoge kwaliteit vitamines, mineralen en vetzuren worden omsloten door plantaardige capsules, met uitzondering van ons visolie-supplement* .
 
-</p>
-<p><small>*capsule vervaardigd van gelatine</small></p>',
+</p><p><small>*capsule vervaardigd van gelatine</small></p>',
       'promise-3' => 'We houden onze prijzen zo laag mogelijk door zonder tussenpersonen te werken. Wij verzenden direct naar jouw adres.',
       'promise-4' => 'Een test speciaal ontwikkeld door voedingsprofessionals en volgens de laatste wetenschappelijke inzichten. Hierdoor kunnen wij voor jou een pakket voedingssupplementen samenstellen dat aansluit op de behoefte van jouw lichaam én levensstijl.  ',
       'read-more' => 'Lees hier meer',
@@ -95,7 +94,7 @@ return array (
         'three' => 
         array (
           'title' => 'Zit je in een drukke periode?',
-          'text' => 'Zorg dan extra goed voor jezelf. B-vitamines kunnen bijdragen aan het verminderen van vermoeidheid, B5 kan in het bijzonder ook bijdragen aan een heldere geest.',
+          'text' => 'Zorg dan extra goed voor jezelf. B-vitamines kunnen bijdragen aan het verminderen van vermoeidheid. B5 kan in het bijzonder ook bijdragen aan een heldere geest.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
 								<strong>Doe de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>

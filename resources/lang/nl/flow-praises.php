@@ -21,7 +21,7 @@ return array (
   ),
   '2D' => 
   array (
-    'shield' => 'Vitamine A, B6, foliumzuur, B12, C, D en de mineralen seleen en zink dragen bij aan een normale werking van het immuunsysteem',
+    'shield' => 'Vitamine A, B6, foliumzuur, B12, C, D, seleen en zink dragen bij aan een normale werking van het immuunsysteem',
     'resistance' => 'Vitamine C, seleen en zink helpen lichaamscellen te beschermen tegen invloeden van buitenaf',
   ),
   '2E' => 
@@ -32,13 +32,13 @@ return array (
   ),
   '3a' => 
   array (
-    'brain-cog' => 'Foliumzuur (vitamine B11) en vitamine C zijn goed voor het concentratievermogen en geheugen ',
+    'brain-cog' => 'Vitamine B11 (foliumzuur) en vitamine C zijn goed voor het concentratievermogen en geheugen',
     'blood' => 'Vitamine C is belangrijk voor de bloedvaten',
     'nerve' => 'Vitamine C ondersteunt de normale werking van het zenuwstelsel',
   ),
   '3b' => 
   array (
-    'brain-cog' => 'Vitamine B1, B3, B6 en foliumzuur (vitamine B11) zijn goed voor het concentratievermogen en geheugen ',
+    'brain-cog' => 'Vitamine B1, B3, B6 en B11 (foliumzuur) zijn goed voor het concentratievermogen en geheugen',
     'nerve' => 'Vitamine B1, B2, B3, B6 en jodium ondersteunen de normale werking van het zenuwstelsel',
     'skin' => 'Vitamine B2, B3 en jodium helpen bij het gezond houden van de huid',
   ),
@@ -56,7 +56,7 @@ return array (
   ),
   '3f' => 
   array (
-    'eye' => 'Vitamine A draagt bij tot het instandhouding van een normaal gezichtsvermogen',
+    'eye' => 'Vitamine A draagt bij tot de instandhouding van een normaal gezichtsvermogen',
     'skin' => 'Vitamine A helpt bij het gezond houden van de huid',
     'teeth' => 'Vitamine D draagt bij aan een sterk gebit',
   ),
@@ -66,8 +66,8 @@ return array (
   ),
   '3e' => 
   array (
-    'heart' => 'EPA en DHA dragen bij tot de normale werking van het hart.*',
-    'brain' => 'DHA draagt bij tot de instandhouding van de normale hersenfunctie en normaal gezichtvermogen.**',
+    'heart' => 'EPA en DHA dragen bij aan een normale werking van het hart.*',
+    'brain' => 'DHA draagt bij tot de instandhouding van de normale hersenfunctie en een normaal gezichtsvermogen.**',
   ),
   '1a' => 
   array (

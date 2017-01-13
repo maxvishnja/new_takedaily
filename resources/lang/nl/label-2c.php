@@ -19,8 +19,8 @@ return array (
   'name' => 'Supplement voor personen met actief en/of druk leven',
   'praises' => 
   array (
-    'energy' => 'De B-vitamines (B1, B2, B3, B5, B6 en B12), ijzer en magnesium bevorderen de energiestofwisseling',
-    'lightning' => 'De B-vitamines (B2, B3, B5, B6 en B12), ijzer en magnesium helpen vermoeidheid en moeheid te verminderen',
+    'energy' => 'Vitamine B1, B2, B3, B5, B6 en B12, ijzer en magnesium bevorderen de energiestofwisseling',
+    'lightning' => 'Vitamine B2, B3, B5, B6 en B12, ijzer en magnesium helpen vermoeidheid en moeheid te verminderen',
     'stress' => 'Vitamine B5 draagt bij aan een normale weerstand tegen stress',
     'muscle' => 'Magnesium draagt bij tot een normale eiwitsynthese en helpt het normale werken van de spieren',
   ),
@@ -67,7 +67,7 @@ return array (
   'end_date' => '09/2019',
   'batch_number' => '1916',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => '<P>Energy Support is een supplement ter aanvulling van jouw Multi en bevat B-vitamines (B1, B2, B3, B5, B6, B12) en de mineralen ijzer en magnesium.</ P>
+  'web_description' => '<P>Energy Support is een supplement ter aanvulling van de multivitamine en bevat B-vitamines (B1, B2, B3, B5, B6, B12) en de mineralen ijzer en magnesium.</ P>
 
 <P><em>Wil je jouw energieniveau ondersteunen? Wil je jouw gebrek aan energie helpen te verminderen? Of sport je meerdere keren per week? </em> 
 Energy Support bevat B-vitamines (B1, B2, B3, B5, B6 en B12) en ijzer ter ondersteuning van het energieniveau. IJzer is ook betrokken bij het transport van zuurstof in ons lichaam. Zuurstof is belangrijk voor het vrijmaken van energie om onder andere te bewegen. Magnesium draagt daarnaast bij tot een normale eiwitsynthese en is goed voor de spieren. De vitamines B2, B3, B5, B6 en B12 en ijzer helpen daarnaast vermoeidheid en moeheid te verminderen.</ P>
@@ -78,7 +78,6 @@ Vitamine B5 draagt bij aan een heldere geest en een normale weerstand tegen stre
   'above_claims' => 'Energy Support is supplement ter aanvulling van jouw Multi en bevat B-vitamines (B1, B2, B3, B5, B6, B12) en de mineralen ijzer en magnesium.',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',

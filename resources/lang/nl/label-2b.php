@@ -51,14 +51,12 @@ return array (
   'batch_number' => '1916',
   'name' => 'Shape Me Up',
   'Vit and Min' => 'Vitamines en Mineralen',
-  'web_description' => 'Shape Me Up is een aanvulling op de multivitamine en speciaal voor mensen die gewicht proberen te verliezen. Als je aan het lijnen bent is het belangrijk dat je lichaam voldoende voedingsstoffen binnenkrijgt. Shape me up bevat extra vitamine A, B1, B6, B12, C en K. De B-vitamines (B1, B6 en B12) spelen een belangrijke rol in de energiestofwisseling van het lichaam. Vitamine A en C zorgen mede voor een goede weerstand. Vitamine C is daarnaast van belang voor de vorming van collageen die helpt de huid te verstevigen en vitamine K ondersteunt een normale bloedstolling. Ook is het natuurlijk belangrijk dat je stress vermijdt, goed slaapt en beweegt.',
+  'web_description' => 'Shape Me Up is een aanvulling op de multivitamine en speciaal voor mensen die gewicht proberen te verliezen. Als je aan het lijnen bent is het belangrijk dat je lichaam voldoende voedingsstoffen binnenkrijgt. Shape me up bevat vitamine A, B1, B6, B12, C en K. De B-vitamines (B1, B6 en B12) spelen een belangrijke rol in de energiestofwisseling van het lichaam. Vitamine A en C zorgen mede voor een goede weerstand. Vitamine C is daarnaast van belang voor de vorming van collageen die helpt de huid te verstevigen en vitamine K ondersteunt een normale bloedstolling. Tenslotte is het natuurlijk belangrijk dat je stress vermijdt, goed slaapt en beweegt.',
   'weight' => '12,6 gram',
   'above_claims' => 'Shape Me Up is een voedingssupplement speciaal voor mensen die een afvaldieet volgen.',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',
-  'Disclaimer_warningage' => 'Dit voedingssupplement is niet geschikt voor kinderen tot en met 3 jaar.',
 );

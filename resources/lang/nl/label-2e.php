@@ -59,9 +59,7 @@ return array (
   'above_claims' => 'Bone & Muscle is een supplement ter aanvulling van jouw Multi en bevat vitamines en mineralen die een rol spelen bij het behouden van sterke botten en soepele spieren (vitamine C, D en magnesium en mangaan).',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',
-  'disclaimer_colorants' => 'Zonnegeel FCF kan de activiteit of oplettendheid van kinderen nadelig beïnvloeden',
 );

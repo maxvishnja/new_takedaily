@@ -58,7 +58,7 @@ return array (
   'name' => 'Supplement ter ondersteuning van het immuunsysteem',
   'praises' => 
   array (
-    'shield' => 'Vitamine A, B6, foliumzuur, B12, C, D en de mineralen seleen en zink dragen bij aan een normale werking van het immuunsysteem',
+    'shield' => 'Vitamine A, B6, B11 (foliumzuur), B12, C, D, seleen en zink dragen bij aan een normale werking van het immuunsysteem',
     'shield-cell' => 'Vitamine C, seleen en zink helpen lichaamscellen te beschermen tegen invloeden van buitenaf',
   ),
   'ingredients' => 'Vulstof (microkristallijne cellulose), L-ascorbinezuur, verdikkingsmiddel (hydroxypropylmethylcellulose), zinkgluconaat, L-selenomethionine, retinylacetaat, antiklontermiddel (magnesiumzout van vetzuren), cholecalciferol, cyanocobalamine, kleurstoffen (titaandioxide, zonnegeel FCF, erytrosine), pyridoxaal-5-fosfaat, pteroymonoglutaminezuur',
@@ -70,10 +70,7 @@ return array (
   'above_claims' => 'De Immune Booster is een supplement ter aanvulling van onze multivitaminen en is rijk aan vitamines en mineralen die de weerstand ondersteunen (vitamine A, B6, B11 (foliumzuur), B12, C, D en de mineralen seleen en zink).',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
-<li>Gluten- en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',
-  'disclaimer_colorants' => 'Zonnegeel FCF kan de activiteit of oplettendheid van kinderen nadelig beïnvloeden',
-  'Disclaimer_warningage' => 'Dit voedingssupplement is niet geschikt voor kinderen tot en met 3 jaar.',
 );

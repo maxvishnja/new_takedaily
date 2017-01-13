@@ -24,7 +24,7 @@ return array (
         'description' => 'Omschrijving',
         'amount' => 'Bedrag',
         'taxes' => 'BTW',
-        'total' => 'Maandelijkse kosten',
+        'total' => 'Vierwekelijkse kosten',
       ),
       'totals' => 
       array (
