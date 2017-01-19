@@ -1,5 +1,5 @@
 <?php namespace App\Apricot\Libraries;
-
+// FIXME: this should not be used anywhere.
 use App\Customer;
 use Stripe\Charge;
 use Stripe\Error\Card;
