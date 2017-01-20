@@ -26,6 +26,7 @@ public/temp_opcachereset.php
 /public/images/vitamins/*
 
 # IDE specific
+/.idea
 .idea/magicento.xml
 .idea/workspace.xml
 .idea/tasks.xml
