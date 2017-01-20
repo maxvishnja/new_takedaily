@@ -1,5 +1,6 @@
 # Framework specific
 .env
+.htaccess
 _ide_helper.php
 /vendor
 /node_modules
@@ -53,3 +54,4 @@ _ide_helper_models.php
 public/build/
 public/js/validator.js
 resources/assets/sass/_sprites.sass
+id_rsa
