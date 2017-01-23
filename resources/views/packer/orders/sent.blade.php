@@ -28,7 +28,8 @@
 						<td>
 							@if($order->getCustomer() && $order->getCustomer()->getPlan() && $vitamins = json_decode($order->getCustomer()->getPlan()->vitamins))
 								@foreach($vitamins as $vitamin)
-									· {{ \App\Vitamin::remember(60)->find($vitamin)->name }}<br/>
+
+									· {{ \App\Apricot\Helpers\PillName::get(strtolower(\App\Vitamin::remember(60)->find($vitamin)->code)) }}<br/>
 								@endforeach
 							@else
 								No vitamins selected

@@ -498,7 +498,8 @@
 		app.removeVitamin($(this).data('vitamin'));
 	});
 
-	$("#advises-label").on('click', '.customVitaminButton', function () {
+	$("#advises-label").on('click', '.customVitaminButton', function (e) {
+		e.preventDefault();
 		var vitamin = $(this).data('vitamin');
 		var old_vitamin = $(this).data('oldvitamin');
 

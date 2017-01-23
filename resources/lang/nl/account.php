@@ -47,7 +47,7 @@ return array (
       'status' => 'Status',
     ),
     'button-show-text' => 'Tonen',
-    'next-date' => '<strong>Volgende leveringsdatum:</strong><br/> :date',
+    'next-date' => '<strong>Volgende leveringsdatum:</strong><br/>:date1 - :date',
     'header_history' => 'Leveringsgeschiedenis',
   ),
   'settings_basic' => 

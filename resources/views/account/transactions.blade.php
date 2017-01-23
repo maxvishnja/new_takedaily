@@ -15,7 +15,11 @@
 						<span>{!! trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) !!}</span>
 					</div>
 					<div class="col-md-6 m-b-10">
+						@if(App::getLocale() == "da")
 						<span>{!! trans('account.transactions.next-date', ['date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) !!}</span></div>
+						@else
+						<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', date('Y-m-d',strtotime($plan->getNextDelivery().' - 3 days')))->format('j. M'), 'date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) !!}</span></div>
+						@endif
 				</div>
 
 				<div class="">
