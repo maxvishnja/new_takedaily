@@ -51,7 +51,7 @@
 					   style="display: none">{{ trans('flow-actions.read-less') }}</a>
 					<div class="pull-right">
 						@if($vitamin === '3e')
-							<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3g"
+							<a class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3g"
 							   data-oldvitamin="3e">{{ trans('flow.switch-to-chia') }}</a>
 						@elseif($vitamin === '3g')
 							<a href="javascript:void(0);" class="m-l-10 button button--small button--light customVitaminButton" data-vitamin="3e"
