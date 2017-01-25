@@ -15,7 +15,7 @@ return array (
   'items' => 
   array (
     'gifting' => 'Cadeau',
-    'our-products' => 'Producten',
+    'our-products' => 'Kwaliteit',
     'about-us' => 'Over ons',
     'how-it-works' => 'Hoe werkt het?',
   ),

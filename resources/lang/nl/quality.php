@@ -2,7 +2,7 @@
 
 return array (
   'title' => 'Kwaliteit',
-  'page_title' => 'Onze producten',
+  'page_title' => 'Kwaliteit',
   'subtitle' => '<p>TakeDaily voedingssupplementen zijn van hoogwaardige kwaliteit, bestaande uit zuivere en bewezen ingrediënten. Onze producten zijn samengesteld op basis van de laatste wetenschappelijke inzichten op het gebied van voedingsstoffen en gezondheid. 
 Om actief te kunnen blijven inspelen op deze ontwikkelingen, werken wij samen met een team van voedingsprofessionals.</p>
 <p>Met TakeDaily hoef je zelf niet meer te onderzoeken welke voedingssupplementen aansluiten op jouw behoefte en levensstijl, dat doen wij voor jou! Onze range aan voedingssupplementen is zo opgezet, dat wij voor iedereen een passend TakeDaily pakket aan supplementen kunnen samenstellen. 

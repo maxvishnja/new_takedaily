@@ -7,9 +7,9 @@ return array (
   'info_about_supplement' => 'De resultaten van deze test zijn gebaseerd op jouw specifieke levensstijl en voedingspatroon. TakeDaily selecteert op basis daarvan de vitamines, mineralen en eventueel omega-3 vetzuren die je kunt gebruiken als aanvulling op jouw dagelijkse voeding. ',
   'steps' => 
   array (
-    'one' => 'Algemeen',
-    'two' => 'Leefstijl',
-    'three' => 'Eetpatroon',
+    'one' => '1. Algemeen',
+    'two' => '2. Leefstijl',
+    'three' => '3. Eetpatroon',
     'four' => 'Persoonlijk advies',
   ),
   'info' => 
@@ -106,7 +106,7 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     ),
     '2-5' => 
     array (
-      'title' => 'Wil je je gebrek aan energie helpen te verminderen en/of jouw energieniveau ondersteunen?',
+      'title' => 'WIl je je energieniveau ondersteunen?',
       'text' => 'B-vitamines spelen een belangrijke rol in het ondersteunen van het energieniveau van jouw lichaam. Vitamine B2, B3, B5, B6 en B12, ijzer en magnesium helpen vermoeidheid en moeheid te verminderen.',
       'options' => 
       array (
@@ -150,7 +150,7 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     ),
     '2-9' => 
     array (
-      'title' => 'Ben je vegetariër/veganist?',
+      'title' => 'Ben je vegetariër of veganist?',
       'text' => 'Vlees bevat veel ijzer, vitamine B1 en B12. Deze vitamines spelen een belangrijke rol in het in het bevorderen van jouw energiestofwisseling.',
       'options' => 
       array (

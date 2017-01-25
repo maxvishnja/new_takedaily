@@ -20,7 +20,7 @@ Het TakeDaily team',
   array (
     'title' => 'Jouw bestelling is verzonden',
     'summary' => 'Jouw bestelling bij TakeDaily is verstuurd!',
-    'text' => 'Beste {naam}, jouw bestelling is verwerkt en jouw TakeDaily pakket wordt vandaag naar jou verzonden. Binnen 2-5 werkdagen wordt het bezorgd in jouw brievenbus, Je hoeft dus niet thuis te zijn om jouw TakeDaily in ontvangst te nemen, Heb je een vraag of wens je extra informatie over je bestelling? Neem dan contact op met het TakeDaily-team, zij zijn bereikbaar via 020-2382580 of info@takedaily.com. 
+    'text' => 'Beste {naam}, jouw bestelling is verwerkt en jouw TakeDaily pakket wordt vandaag naar jou verzonden. Binnen 2-5 werkdagen wordt het bezorgd in jouw brievenbus, Je hoeft dus niet thuis te zijn om jouw TakeDaily in ontvangst te nemen, Heb je een vraag of wens je extra informatie over je bestelling? Neem dan contact op met het TakeDaily-team, zij zijn bereikbaar via 020-2382580 of info@takedaily.nl. 
 
 Wij danken je nogmaals voor je bestelling bij TakeDaily!',
     'subject' => 'Jouw TakeDaily is verstuurd!',
@@ -38,14 +38,14 @@ Wij danken je nogmaals voor je bestelling bij TakeDaily!',
   array (
     'title' => 'Jouw nieuwe wachtwoord voor TakeDaily is',
     'summary' => 'Wijzig je wachtwoord hier',
-    'ignore' => 'Heb jij géén opdracht gegeven om je wachtwoord te wijzigen, negeer deze e-mail dan.',
-    'text' => 'Je wenst je wachtwoord van TakeDaily te wijzigen. Om je wachtwoord te wijzigen klik op: <a href=":link">Wijzig mijn wachtwoord</a>',
+    'ignore' => 'Heb jij géén opdracht gegeven om je wachtwoord opnieuw in te stellen, negeer deze e-mail dan.',
+    'text' => 'Je wenst je wachtwoord voor TakeDaily opnieuw in te stellen. Om je wachtwoord te wijzigen klik op: <a href=":link">Wijzig mijn wachtwoord</a>',
     'subject' => 'Jouw nieuwe wachtwoord voor TakeDaily',
   ),
   'new-password' => 
   array (
     'title' => 'Jouw nieuwe wachtwoord is:',
-    'summary' => 'Je krijgt een nieuw wachtwoord voor TakeDaily',
+    'summary' => 'Je ontvangt een nieuw wachtwoord voor TakeDaily',
     'subject' => 'Jouw nieuwe wachtwoord voor TakeDaily',
   ),
   'subscription' => 
@@ -66,7 +66,7 @@ Wij danken je nogmaals voor je bestelling bij TakeDaily!',
     'subject' => 'Jouw volgende TakeDaily pakket wordt binnen 24 uur verzonden!',
     'title' => 'Jouw TakeDaily pakket wordt binnen 24 uur verstuurd',
     'summary' => 'Jouw volgende TakeDaily pakket wordt binnen 24 uur verzonden!',
-    'next-order' => 'De eerstvolgende TakeDaily levering is. :date',
+    'next-order' => 'Jouw eerstvolgende TakeDaily pakket wordt verstuurd op :date',
     'snooze-title' => 'Wil je de eerstvolgende levering uitstellen?',
     'snooze-text' => 'Wij maken het mogelijk om jouw eerstvolgende levering uit te stellen - bijvoorbeeld omdat je nog TakeDaily supplementen op voorraad hebt.',
     'snooze-link' => 'Wi je de eerstvolgende levering uitstellen? Als dat het geval is, <a href=":link" target="_blank"> klik</a> en wij zullen jou helpen.',
@@ -96,10 +96,10 @@ Wij danken je nogmaals voor je bestelling bij TakeDaily!',
       'it-is' => 'Jouw wachtwoord van TakeDaily is:',
     ),
     'text' => '<strong> Beste {name}</strong>
-Bedankt voor jouw bestelling bij TakeDaily! Deze e-mail is de bevestiging van jouw bestelling. Jouw eerste TakeDaily pakket zal binnen 3-5 werkdagen bezorgd worden in jouw brievenbus.
+Bedankt voor jouw bestelling bij TakeDaily! Deze e-mail is de bevestiging van jouw bestelling. Jouw eerste TakeDaily pakket zal binnen 2-5 werkdagen bezorgd worden in jouw brievenbus.
 
 <Strong> Kunnen wij je helpen? </ Strong>
-Je bent altijd welkom om contact met ons te nemen als je vragen hebt. Bel één van onze diëtisten op 020-2382580 of antwoord deze e-mail en zullen wij je zo snel mogelijk helpen.',
+Heb je een vraag of wens je extra informatie over je bestelling? Neem dan contact op met het TakeDaily-team, zij zijn bereikbaar via 020-2382580 of info@takedaily.nl. ',
   ),
   'mailflow' => 
   array (

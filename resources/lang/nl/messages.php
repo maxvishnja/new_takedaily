@@ -16,16 +16,20 @@ return array (
     ),
     'subscription' => 
     array (
-      'snoozed' => 'Abonnement is gepauzeerd voor :days dage!',
+      'snoozed' => 'De eerstevolgende levering is uitgesteld met :days dage!',
       'not-snoozed' => 'Abonnement kan niet worden gepauzeerd!',
-      'started' => 'Abonnement is weer actief!',
-      'cancelled' => 'Abonnement is opgezegd!',
+      'started' => 'Jouw TakeDaily abonnement is weer actief!',
+      'cancelled' => 'Jouw TakeDaily abonnement is opgezegd!',
     ),
     'billing' => 
     array (
       'removed' => 'Betaalmethode is verwijderd.',
       'removing-failed' => 'Betaalmethode kan niet aangepast worden, probeer het a.u.b. later nog een keer.',
       'refreshed' => 'Betaalmethode is aangepast!',
+    ),
+    'paymentmethod' => 
+    array (
+      'updated' => 'Betaalmethode is gewijzigd!',
     ),
   ),
 );

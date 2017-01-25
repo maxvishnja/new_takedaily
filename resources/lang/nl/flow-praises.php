@@ -73,21 +73,18 @@ return array (
   array (
     'shield' => 'Vitamine A, B11 (Foliumzuur), C en D, seleen en zink ondersteunen de afweer van het lichaam',
     'energy' => 'Vitamine B1, B2, B3, B5, B6, B12, ijzer en jodium activeren je natuurlijke energie in het lichaam',
-    'muscle' => 'Calcium en vitamine D spelen een rol bij het behouden van sterke botten en soepele spieren
-',
+    'muscle' => 'Vitamine D en calcium spelen een rol bij het behouden van sterke botten en soepele spieren',
   ),
   '1b' => 
   array (
     'shield' => 'Vitamine A, B11 (Foliumzuur), C en D, seleen en zink ondersteunen de afweer van het lichaam',
     'energy' => 'Vitamine B1, B2, B3, B5, B6, B12, ijzer en jodium activeren je natuurlijke energie in het lichaam',
-    'muscle' => 'Calcium en vitamine D spelen een rol bij het behouden van sterke botten en soepele spieren
-',
+    'muscle' => 'Vitamine D en calcium spelen een rol bij het behouden van sterke botten en soepele spieren',
   ),
   '1c' => 
   array (
     'shield' => 'Vitamine A, B11 (Foliumzuur), C en D, seleen en zink ondersteunen de afweer van het lichaam',
     'energy' => 'Vitamine B1, B2, B3, B5, B6, B12, ijzer en jodium activeren je natuurlijke energie in het lichaam',
-    'muscle' => 'Calcium en vitamine D spelen een rol bij het behouden van sterke botten en soepele spieren
-',
+    'muscle' => 'Vitamine D en calcium spelen een rol bij het behouden van sterke botten en soepele spieren',
   ),
 );

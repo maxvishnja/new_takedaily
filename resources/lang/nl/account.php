@@ -47,7 +47,7 @@ return array (
       'status' => 'Status',
     ),
     'button-show-text' => 'Tonen',
-    'next-date' => '<strong>Volgende leveringsdatum:</strong><br/> :date',
+    'next-date' => '<strong>Volgende levering:</strong><br/> :date',
     'header_history' => 'Leveringsgeschiedenis',
   ),
   'settings_basic' => 
@@ -79,7 +79,7 @@ return array (
     'title' => 'Abonnement  - TakeDaily',
     'header' => 'Jouw abonnement is <u>:status</u>',
     'total' => '<span>:amount</span><small> / maand</small>',
-    'next-date' => 'Volgende levering :date',
+    'next-date' => 'Volgende verzenddatum :date',
     'plan' => 
     array (
       'active' => 'Actief ',
@@ -96,8 +96,8 @@ return array (
       'button-snooze-text' => 'Uitstellen',
       'button-close-text' => 'Annuleren',
     ),
-    'cant-cancel' => 'Jouw eerstvolgende TakeDaily pakket wordt binnen 5 dagen geleverd. Je kunt deze levering niet meer pauzeren of annuleren.',
-    'cant-snooze' => 'Jouw eerstvolgende TakeDaily pakket wordt binnen 4 dagen geleverd. Je kunt deze levering niet meer uitstellen.',
+    'cant-cancel' => 'Binnen 5 dagen wordt jouw nieuwe TakeDaily pakket naar je verzonden en worden de abonnementskosten per automatische incasso van jouw rekening afgeschreven. Je kan de levering van jouw eerstvolgende levering niet meer uitstellen of je abonnement opzeggen.',
+    'cant-snooze' => 'Binnen 4 dagen wordt jouw nieuwe TakeDaily pakket naar je verzonden en worden de abonnementskosten per automatische incasso van jouw rekening afgeschreven. Je kan de levering van jouw eerstvolgende levering niet meer uitstellen of je abonnement opzeggen.',
     'new-recommendation' => 
     array (
       'btn' => 'Pas mijn supplementen-pakket aan',

@@ -23,7 +23,7 @@ return array (
     'promises' => 
     array (
       'title' => 'Wat TakeDaily belooft!',
-      'promise-1' => 'Ons deskundige team staat geheel tot jouw beschikking om inhoudelijke vragen over onze producten te beantwoorden.',
+      'promise-1' => 'Ons deskundig team staat geheel tot jouw beschikking om inhoudelijke vragen over onze producten te beantwoorden.',
       'promise-2' => 'De hoge kwaliteit vitamines, mineralen en vetzuren worden omsloten door plantaardige capsules, met uitzondering van ons visolie-supplement* .
 
 </p><p><small>*capsule vervaardigd van gelatine</small></p>',

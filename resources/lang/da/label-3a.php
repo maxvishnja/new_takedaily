@@ -34,9 +34,9 @@ return array (
   'batch_number' => '1916',
   'end_date' => '09/2019',
   'Vit and Min' => 'Vitaminer og Mineraler',
-  'web_description' => 'I\'m Not a Veggie Lover har folinsyre og C-vitamin som er gode for koncentrationen, hukommelsen og indlæringsevnen. Kalium har en gunstig effekt på opretholdelsen af et normalt blodtryk, og C-vitamin er vigtigt for blodkarrenes fleksibilitet. C-vitamin og kalium understøtter desuden nervesystemets normale funktion.',
+  'web_description' => 'No Veggie or Fruit Fan har folinsyre og C-vitamin som er gode for koncentrationen, hukommelsen og indlæringsevnen. Kalium har en gunstig effekt på opretholdelsen af et normalt blodtryk, og C-vitamin er vigtigt for blodkarrenes fleksibilitet. C-vitamin og kalium understøtter desuden nervesystemets normale funktion.',
   'weight' => '29,4 gram',
-  'above_claims' => 'I\'m Not a Veggie Lover indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tillægget har til formål at supplere multivitamin.',
+  'above_claims' => 'No Veggie or Fruit Fan indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tillægget har til formål at supplere multivitamin.',
   'web_advantage_list' => '<ul>
 <li>100 % plantebaseret kapsel</li>
 <li>Gluten- og laktosefri</li>

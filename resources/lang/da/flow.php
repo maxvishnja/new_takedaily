@@ -9,10 +9,10 @@ return array (
 							og mineraler, du har brug for. Du skal derfor ikke bekymre dig om at tage andre kosttilskud.',
   'steps' => 
   array (
-    'one' => 'PERSONLIGT',
-    'two' => 'HELBRED',
-    'three' => 'KOST OG VANER',
-    'four' => 'ANBEFALING',
+    'one' => '1. PERSONLIGT',
+    'two' => '2. HELBRED',
+    'three' => '3. KOST OG VANER',
+    'four' => 'DIN ANBEFALING',
   ),
   'info' => 
   array (
@@ -421,16 +421,16 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
     array (
       'A' => 'Mom & Baby er et kosttilskud specialfremstillet til kvinder, der er gravide, eller ønsker at blive det. Det indeholder vigtige tilskud af folsyre samt D-vitamin og anbefales allerede inden du er blevet gravid.',
       'B' => 'Shape Me Up er et kosttilskud specielt til personer, der følger en diæt. Når du er på diæt, er der risiko for, at du får færre vitaminer og mineraler gennem kosten end normalt. Din krops behov for disse vil dog være uændret. Derfor indeholder Shape Me Up ekstra vitamin A, -B1, -B6, -B12, -C og -K. Shape Me Up supplerer altså dit daglige kostindtag, med de næringsstoffer, som du har brug for at få tilført på en diæt.',
-      'C' => 'Energy Up er et tilskud med netop de vitaminer og mineraler, der bidrager til at du kan yde dit maksimale, når du træner eller har travlt, og hjælper til at reducere følelsen af træthed og udmattelse.',
+      'C' => 'Energy Support er et tilskud med netop de vitaminer og mineraler, der bidrager til at du kan yde dit maksimale, når du træner eller har travlt, og hjælper til at reducere følelsen af træthed og udmattelse.',
       'D' => 'Hvis dit immunforsvar ikke er optimalt, har du brug for ekstra vitaminer og mineraler. Immune Booster er et tilskud som er rigt på vitaminer og mineraler der alle er gode for immunforsvaret og kroppens modstand overfor bakterier og vira.',
       'E' => 'Joint, Bone & Muscle indeholder de essentielle vitaminer og mineraler, såsom D-vitamin, magnesium og mangan, som er tre komponenter som sikrer opretholdelse af stærke knogler, muskler og led.',
     ),
     3 => 
     array (
-      'a' => 'I\'m Not a Veggie Fan indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tilskuddet supplerer din multivitamin med de essentielle vitaminer og mineraler, der normalt findes i frugt og grøntsager.',
+      'a' => 'No Veggie or Fruit Fan indeholder beta-caroten, B11-vitamin (folsyre), C-vitamin, fosfor og kalium. Tilskuddet supplerer din multivitamin med de essentielle vitaminer og mineraler, der normalt findes i frugt og grøntsager.',
       'b' => 'I Don\'t Eat Carbs er rig på B-vitaminer (B, B2, B3, B5, B6 og B11 (folinsyre) og indeholder mineralerne jod og jern. Tilskuddet supplerer din multivitamin med de essentielle vitaminer og mineraler, som normalt findes i de kulhydratholdige fødevarer.',
       'c' => 'The Dairy Portion indeholder vitamin B2, -B12 og calcium. Tilskuddet supplerer din multivitamin med disse essentielle vitaminer og mineraler, som normalt findes i mælk og mejeriprodukter.',
-      'd' => 'I\'m Vegetarian/Vegan er fremstillet specielt til vegetarer, veganere og folk, der ikke spiser kød. Tilskuddet supplerer således din multivitamin med de essentielle vitaminer og mineraler, der normalt findes i kød og kødprodukter, og som en vegetarisk kost indeholder for lidt af.',
+      'd' => 'I Don\'t Eat Meat er fremstillet specielt til vegetarer, veganere og folk, der ikke spiser kød. Tilskuddet supplerer således din multivitamin med de essentielle vitaminer og mineraler, der normalt findes i kød og kødprodukter, og som en vegetarisk kost indeholder for lidt af.',
       'e' => 'Premium Omega-3 Fiskeolie indeholder over 65% af den reneste koncentration af Omega-3 fra sardiner og ansjoser. Niveauerne af DHA og EPA er høje, så du får godt med sunde fedtsyrer, der er godt for en lang række ting, blandt andet hjerte, hjerne og syn. Tungmetaller er der ikke noget af - naturligvis!',
       'f' => 'Not a Butter Lover indeholder vitamin A, -D og -E. Tilskuddet supplerer din multivitamin med disse essentielle vitaminer og mineraler, som normalt findes i smør og margarineprodukter.',
       'g' => 'Vores Premium Omega-3 Chiafrøolie er populær, da denne olie er vegansk, koldpresset og rig på sunde omega-3 fedtsyrer. 
