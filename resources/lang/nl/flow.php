@@ -106,7 +106,7 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     ),
     '2-5' => 
     array (
-      'title' => 'Wil je je gebrek aan energie helpen te verminderen en/of jouw energieniveau ondersteunen?',
+      'title' => 'WIl je je energieniveau ondersteunen?',
       'text' => 'B-vitamines spelen een belangrijke rol in het ondersteunen van het energieniveau van jouw lichaam. Vitamine B2, B3, B5, B6 en B12, ijzer en magnesium helpen vermoeidheid en moeheid te verminderen.',
       'options' => 
       array (
