@@ -12,8 +12,6 @@ class CombinationChecker
 
 	    '1Df',
 
-//	    '1Ef',
-
 	    '2Aa',
 	    '2Ab',
 	    '2Ac',
@@ -25,7 +23,7 @@ class CombinationChecker
 
 	    '2Cb',
 	    '2Cd',
-//	    '2Cf',
+
 
 	    '2Df',
 
@@ -62,7 +60,7 @@ class CombinationChecker
 	public static function isAllowed($groupOne, $groupTwo, $groupThree)
 	{
 		$combination = $groupOne . strtoupper($groupTwo) . $groupThree;
-
-		return !isset(self::$notAllowedCombinations[$combination]);
+		$newarray = array_flip(self::$notAllowedCombinations);
+		return !isset($newarray[$combination]);
 	}
 }

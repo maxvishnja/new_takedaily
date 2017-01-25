@@ -212,7 +212,7 @@ class CombinationLibraryNew
 		     ( ( $data->locale === 'nl'
 		         && (($data->foods->fruits == '3' && $data->foods->vegetables == '1')
 					 || $data->foods->vegetables == '1'
-						 || ($data->foods->fruits == '2' && $data->foods->vegetables == '1')
+						 || ($data->foods->fruits == '2' && ($data->foods->vegetables == '1' || $data->foods->vegetables == '2'))
 						 || ($data->foods->fruits == '1' && $data->foods->vegetables != '4')
 					 )
 		       ) ||
@@ -272,10 +272,10 @@ class CombinationLibraryNew
 			     (
 				     $data->locale === 'nl' &&
 				     ( ( $data->foods->wheat != '3' || $data->foods->wheat != '4' )
-				       || ( $data->gender == '1' && $data->foods->bread != '4' && $data->foods->wheat = '1' )
-				       || ( $data->gender == '2' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-				       || ( $data->gender == '2' && $data->foods->bread != '3' && $data->foods->bread != '4' && $data->foods->bread != '5' && $data->foods->wheat != '3' && $data->foods->wheat != '4')
-				       || ( $data->gender == '1' && $data->foods->bread != '4' && $data->foods->bread != '5' && $data->foods->wheat != '4')
+				       || ( $data->gender == '1' && $data->foods->bread != '5' && $data->foods->wheat = '1' )
+				       || ( $data->gender == '2' && $data->foods->bread != '4' && $data->foods->bread != '5' && $data->foods->wheat = '1')
+				       || ( $data->gender == '2' && $data->foods->bread == '2' && ($data->foods->wheat == '1' || $data->foods->wheat == '2'))
+				       || ( $data->gender == '1' && ($data->foods->bread == '2' || $data->foods->bread == '3') && $data->foods->wheat != '4')
 //						 ( $data->gender == '2' && (
 //							     ( $data->age <= '50' && $data->foods->bread != '4' && $data->foods->bread != '5' )
 //							     || ( $data->age > '50' && $data->foods->bread != '3' && $data->foods->bread != '4' && $data->foods->bread != '5' )
