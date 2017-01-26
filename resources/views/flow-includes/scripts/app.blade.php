@@ -474,6 +474,7 @@
 		}
 	});
 
+
 	@if(count($userData) > 0)
 		app.user_data = JSON.parse('{!! json_encode($userData) !!}');
 
@@ -486,7 +487,6 @@
 
 		@if($savedState !== null && count($userData) === 0)
 		app.user_data = JSON.parse('{!! $savedState->user_data !!}');
-
 		// This part is only for securing that Vue has updated elements..
 		// I've not found it necessary but rather safe than sorry.
 		setTimeout(function () {
@@ -498,11 +498,13 @@
 		app.removeVitamin($(this).data('vitamin'));
 	});
 
-	$("#advises-label").on('click', '.customVitaminButton', function () {
+	$("#advises-label").on('click', '.customVitaminButton', function (e) {
+		e.preventDefault();
 		var vitamin = $(this).data('vitamin');
 		var old_vitamin = $(this).data('oldvitamin');
 
 		app.user_data.replacements.push({old_vitamin: old_vitamin, new_vitamin: vitamin});
+
 		app.getCombinations(false);
 	});
 

@@ -1,5 +1,6 @@
 # Framework specific
 .env
+.htaccess
 _ide_helper.php
 /vendor
 /node_modules
@@ -13,6 +14,7 @@ public/temp_opcachereset.php
 /public/css/print.css.map
 /public/uploads/*/*/*
 /resources/assets/images/*sprite*
+/resources/lang
 /public/images/*sprite*
 /public/js/app.js
 /public/js/validation_messages_*.js
@@ -25,6 +27,7 @@ public/temp_opcachereset.php
 /public/images/vitamins/*
 
 # IDE specific
+/.idea
 .idea/magicento.xml
 .idea/workspace.xml
 .idea/tasks.xml
@@ -53,3 +56,5 @@ _ide_helper_models.php
 public/build/
 public/js/validator.js
 resources/assets/sass/_sprites.sass
+id_rsa
+dump.rdb

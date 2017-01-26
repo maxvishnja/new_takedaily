@@ -46,6 +46,10 @@ Route::get( '/flow', function ( \Illuminate\Http\Request $request )
 	if ( $request->session()->has( 'saved_flow_state' ) )
 	{
 		$savedState = \App\SavedFlowState::whereToken( $request->session()->get( 'saved_flow_state' ) )->first();
+		$users=json_decode($savedState->user_data);
+		$users->replacements=[];
+		$savedState->user_data = json_encode($users);
+
 	}
 
 	return view( 'flow', compact( 'giftcard', 'coupon', 'product', 'taxRate', 'shippingPrice', 'userData', 'delay', 'savedState' ) );

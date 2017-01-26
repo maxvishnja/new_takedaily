@@ -50,6 +50,7 @@ return array (
           'city' => 'Woonplaats',
           'city-placeholder' => 'Houtdam',
           'country' => 'Land',
+          'require' => 'Jouw bestelling kan alleen in Nederland bezorgd worden',
         ),
         'optional' => 'Optioneel',
         'company' => 'Bedrijfsnaam (optioneel)',

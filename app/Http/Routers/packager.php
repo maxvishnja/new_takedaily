@@ -1,5 +1,5 @@
 <?php
-Route::group( [ 'prefix' => 'packaging', 'middleware' => 'packer' ], function ()
+Route::group( [ 'prefix' => 'packaging', 'middleware' => ['packer', 'setLocale']], function ()
 {
 	view()->composer( 'packer.sidebar', function ( $view )
 	{

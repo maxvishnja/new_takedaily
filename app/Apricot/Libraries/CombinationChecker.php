@@ -12,8 +12,6 @@ class CombinationChecker
 
 	    '1Df',
 
-	    '1Ef',
-
 	    '2Aa',
 	    '2Ab',
 	    '2Ac',
@@ -25,7 +23,7 @@ class CombinationChecker
 
 	    '2Cb',
 	    '2Cd',
-	    '2Cf',
+
 
 	    '2Df',
 
@@ -42,27 +40,27 @@ class CombinationChecker
 
 	    '3Cb',
 	    '3Cd',
-	    '3Cf',
+//	    '3Cf',
 
-		'3Da',
-		'3Db',
-		'3Dc',
-		'3Dd',
-		'3De',
+//		'3Da',
+//		'3Db',
+//		'3Dc',
+//		'3Dd',
+//		'3De',
 		'3Df',
 
-		'3Ea',
-		'3Eb',
-		'3Ec',
-		'3Ed',
-		'3Ee',
+//		'3Ea',
+//		'3Eb',
+//		'3Ec',
+//		'3Ed',
+//		'3Ee',
 		'3Ef'
 	];
 
 	public static function isAllowed($groupOne, $groupTwo, $groupThree)
 	{
 		$combination = $groupOne . strtoupper($groupTwo) . $groupThree;
-
-		return !isset(self::$notAllowedCombinations[$combination]);
+		$newarray = array_flip(self::$notAllowedCombinations);
+		return !isset($newarray[$combination]);
 	}
 }

@@ -195,6 +195,9 @@
 								</div>
 
 								<div class="row">
+									@if(App::getLocale() == "nl")
+									<h3 class="require-text">{{ trans('checkout.index.order.info.address.require') }}</h3>
+									@endif
 									<div class="col-md-5">
 										<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}
 											<span class="required">*</span></label>

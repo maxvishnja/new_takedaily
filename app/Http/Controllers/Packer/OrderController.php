@@ -15,7 +15,7 @@ class OrderController extends Controller
 	function __construct( OrderRepository $repo )
 	{
 		$this->repo = $repo;
-		\App::setLocale( 'en' );
+		//\App::setLocale( 'en' );
 	}
 
 	function index()

@@ -210,13 +210,11 @@ class CombinationLibraryNew
 
 		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'a' ) && isset( $data->foods, $data->locale ) &&
 		     ( ( $data->locale === 'nl'
-		         && (
-			         (
-				         ( $data->foods->fruits == '1'
-				           || $data->foods->fruits == '2'
-				         ) && $data->foods->vegetables != '4'
-			         ) || $data->foods->vegetables == '1'
-			         || $data->foods->vegetables == '2' )
+		         && (($data->foods->fruits == '3' && $data->foods->vegetables == '1')
+					 || $data->foods->vegetables == '1'
+						 || ($data->foods->fruits == '2' && ($data->foods->vegetables == '1' || $data->foods->vegetables == '2'))
+						 || ($data->foods->fruits == '1' && $data->foods->vegetables != '4')
+					 )
 		       ) ||
 		       ( $data->locale === 'da'
 		         && ( ( (
@@ -274,12 +272,15 @@ class CombinationLibraryNew
 			     (
 				     $data->locale === 'nl' &&
 				     ( ( $data->foods->wheat != '3' || $data->foods->wheat != '4' )
-				       || ( $data->gender == '1' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-				       || ( $data->gender == '2' && (
-							     ( $data->age <= '50' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-							     || ( $data->age > '50' && $data->foods->bread != '3' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-						     )
-				       )
+				       || ( $data->gender == '1' && $data->foods->bread != '5' && $data->foods->wheat = '1' )
+				       || ( $data->gender == '2' && $data->foods->bread != '4' && $data->foods->bread != '5' && $data->foods->wheat = '1')
+				       || ( $data->gender == '2' && $data->foods->bread == '2' && ($data->foods->wheat == '1' || $data->foods->wheat == '2'))
+				       || ( $data->gender == '1' && ($data->foods->bread == '2' || $data->foods->bread == '3') && $data->foods->wheat != '4')
+//						 ( $data->gender == '2' && (
+//							     ( $data->age <= '50' && $data->foods->bread != '4' && $data->foods->bread != '5' )
+//							     || ( $data->age > '50' && $data->foods->bread != '3' && $data->foods->bread != '4' && $data->foods->bread != '5' )
+//						     )
+//				       )
 				     )
 			     )
 			     ||
@@ -334,8 +335,7 @@ class CombinationLibraryNew
 
 
 		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'c' ) && isset( $data->age, $data->foods, $data->locale ) && (
-				( $data->locale === 'nl' && ( ( $data->foods->dairy == '1' )
-				                              || ( $data->age <= '50' && $data->foods->dairy < '3' )
+				( $data->locale === 'nl' && (  ( $data->age <= '50' && $data->foods->dairy < '3' )
 				                              || ( $data->age > '50' && $data->foods->dairy < '4' ) ) )
 				||
 				( $data->locale === 'da' && ( $data->foods->dairy == '1' || $data->foods->dairy == '2' ) )
