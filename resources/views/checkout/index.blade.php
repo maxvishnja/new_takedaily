@@ -338,7 +338,7 @@
 										   value="{{ Request::old('coupon', Session::get('applied_coupon')) }}" required="required"/>
 								</div>
 								<div class="col-md-5">
-									<button type="submit" class="button button--regular button--full button--green">{{ trans('checkout.index.coupon.button-text') }}</button>
+									<button type="submit" onsubmit="ga('send', 'event', 'order', 'completed');" class="button button--regular button--full button--green">{{ trans('checkout.index.coupon.button-text') }}</button>
 								</div>
 							</div>
 							{{ csrf_field() }}

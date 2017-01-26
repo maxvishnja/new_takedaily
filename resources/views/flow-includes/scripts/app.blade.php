@@ -197,14 +197,19 @@
 			},
 
 			nextStep: function (saveState) {
+
 				saveState = saveState !== undefined ? saveState : true;
 
+
 				setTimeout(function () {
+
 					var currentStep = $(".step[data-step='" + app.step + "']");
 					var nextStep = $(".step[data-step='" + (app.step + 1) + "']");
 					var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + app.sub_step + "']");
 					var nextSubStep = currentStep.find(".sub_step[data-sub-step='" + (app.sub_step + 1) + "']");
-
+					if(app.sub_step+1 == 11){
+						ga('send', 'event', 'flow' , 'started', 'question.3-1');
+					}
 					if (nextSubStep[0]) {
 						app.sub_step = nextSubStep.attr("data-sub-step") * 1;
 
@@ -214,7 +219,11 @@
 						if (nextSubStep.hasClass('sub_step--skip')) {
 							app.nextStep(saveState);
 						}
+						var step = currentStep.find('.sub_step--active').not('.sub_step--skip').data('sub-step');
 
+						if(step && step != "undefined"){
+							ga('send', 'event', 'flow' , 'started', 'question.'+app.step+'-'+step);
+						}
 						if (saveState) {
 							app.updateSavedState();
 						}
@@ -251,6 +260,7 @@
 
 					return true;
 				}, 5);
+
 			},
 
 			getSubStepsForStep: function (step) {
@@ -474,6 +484,9 @@
 		}
 	});
 
+	if(app.step == 1 && app.sub_step == 1){
+		ga('send', 'event', 'flow' , 'started', 'question.1-1');
+	}
 
 	@if(count($userData) > 0)
 		app.user_data = JSON.parse('{!! json_encode($userData) !!}');
@@ -502,9 +515,7 @@
 		e.preventDefault();
 		var vitamin = $(this).data('vitamin');
 		var old_vitamin = $(this).data('oldvitamin');
-
 		app.user_data.replacements.push({old_vitamin: old_vitamin, new_vitamin: vitamin});
-
 		app.getCombinations(false);
 	});
 
@@ -531,6 +542,8 @@
 	});
 
 	function forceUpdateAndSubmit() {
+		ga('send', 'event', 'flow', 'completed', 'all');
+		alert('111');
 		var form = $("#flow_form");
 
 		form.append('<input type="hidden" name="update_only" value="1" />');
