@@ -502,9 +502,7 @@
 		e.preventDefault();
 		var vitamin = $(this).data('vitamin');
 		var old_vitamin = $(this).data('oldvitamin');
-
 		app.user_data.replacements.push({old_vitamin: old_vitamin, new_vitamin: vitamin});
-
 		app.getCombinations(false);
 	});
 

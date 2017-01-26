@@ -79,6 +79,7 @@ class CombinationLibraryNew
 		if ( ! isset( $this->advise_info[ $num ] ) )
 		{
 			$this->advise_info[ $num ] = $advise;
+
 		}
 	}
 
@@ -160,7 +161,12 @@ class CombinationLibraryNew
 				}
 			}
 
+            if($newVitamins[2] == '3g'){
+				$this->setAdvise( '3g', $this->textGenerator->generate( '3g', [ 'chiaoil' ], true ) );
+				$this->setAdviseInfo( '3g', trans( 'flow.combination_info.3.g' ) );
+			}
 			$this->vitamins = $newVitamins;
+
 		}
 
 		return [];
@@ -201,7 +207,6 @@ class CombinationLibraryNew
 		{
 			$this->vitamins[] = '3e';
 			$this->groupThree = '3';
-
 			$this->setAdvise( '3e', $this->textGenerator->generate( '3e', [ 'fish' ], true ) );
 			$this->setAdviseInfo( '3e', trans( 'flow.combination_info.3.e' ) );
 
@@ -370,6 +375,8 @@ class CombinationLibraryNew
 
 			return;
 		}
+
+
 
 		if ( isset( $data->foods->oil ) )
 		{

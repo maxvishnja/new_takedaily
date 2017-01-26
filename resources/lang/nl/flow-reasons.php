@@ -98,4 +98,8 @@ return array (
   array (
     'main' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte. In een voor jou passende dosering.',
   ),
+  '3g' => 
+  array (
+    'main' => '1Chia zaden zijn afkomstig van de Salvia Hispanica, een plant die behoort tot de muntfamilie. Chia-olie wordt verkregen door een koude persing van de zaden van chia. Chia-olie is een plantaardige olie die in vergelijking tot andere plantaardige oliën het hoogste gehalte aan omega 3-vetzuren bevat.',
+  ),
 );
