@@ -208,7 +208,7 @@
 					var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + app.sub_step + "']");
 					var nextSubStep = currentStep.find(".sub_step[data-sub-step='" + (app.sub_step + 1) + "']");
 					if(app.sub_step+1 == 11){
-						ga('send', 'event', 'flow' , 'started', 'question.3.1');
+						ga('send', 'event', 'flow' , 'started', 'question.3-1');
 					}
 					if (nextSubStep[0]) {
 						app.sub_step = nextSubStep.attr("data-sub-step") * 1;
@@ -222,7 +222,7 @@
 						var step = currentStep.find('.sub_step--active').not('.sub_step--skip').data('sub-step');
 
 						if(step && step != "undefined"){
-							ga('send', 'event', 'flow' , 'started', 'question.'+app.step+'.'+step);
+							ga('send', 'event', 'flow' , 'started', 'question.'+app.step+'-'+step);
 						}
 						if (saveState) {
 							app.updateSavedState();
@@ -485,7 +485,7 @@
 	});
 
 	if(app.step == 1 && app.sub_step == 1){
-		ga('send', 'event', 'flow' , 'started', 'question.1.1');
+		ga('send', 'event', 'flow' , 'started', 'question.1-1');
 	}
 
 	@if(count($userData) > 0)
