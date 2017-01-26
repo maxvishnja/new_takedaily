@@ -278,14 +278,10 @@ class CombinationLibraryNew
 				     $data->locale === 'nl' &&
 				     ( ( $data->foods->wheat != '3' || $data->foods->wheat != '4' )
 				       || ( $data->gender == '1' && $data->foods->bread != '5' && $data->foods->wheat = '1' )
-				       || ( $data->gender == '2' && $data->foods->bread != '4' && $data->foods->bread != '5' && $data->foods->wheat = '1')
+				       || ( $data->gender == '2' && $data->foods->wheat = '1' && ($data->foods->bread == '1' || $data->foods->bread == '2' || $data->foods->bread == '3'))
 				       || ( $data->gender == '2' && $data->foods->bread == '2' && ($data->foods->wheat == '1' || $data->foods->wheat == '2'))
 				       || ( $data->gender == '1' && ($data->foods->bread == '2' || $data->foods->bread == '3') && $data->foods->wheat != '4')
-//						 ( $data->gender == '2' && (
-//							     ( $data->age <= '50' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-//							     || ( $data->age > '50' && $data->foods->bread != '3' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-//						     )
-//				       )
+//
 				     )
 			     )
 			     ||
@@ -495,6 +491,19 @@ class CombinationLibraryNew
 			return;
 		}
 
+		if ( isset( $data->stressed ) && $data->stressed == '1' )
+		{
+			$this->groupTwo   = 'C';
+			$this->vitamins[] = '2C';
+
+			$this->setAdvise( '2C', $this->textGenerator->generate( '2C', [ 'lacks_energy_stressed' ], true ) );
+			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
+
+			return;
+		}
+
+
+
 		// D
 		if ( isset( $data->immune_system ) && $data->immune_system != '1' )
 		{
@@ -508,7 +517,7 @@ class CombinationLibraryNew
 		}
 
 		// C
-		if ( ( isset( $data->stressed ) && $data->stressed == '1' ) || ( isset( $data->lacks_energy ) && $data->lacks_energy < '3' ) )
+		if (  isset( $data->lacks_energy ) && $data->lacks_energy < '3'  )
 		{
 			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';
