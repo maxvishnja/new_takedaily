@@ -276,12 +276,11 @@ class CombinationLibraryNew
 		     (
 			     (
 				     $data->locale === 'nl' &&
-				     ( ( $data->foods->wheat != '3' || $data->foods->wheat != '4' )
+				     ( ( $data->foods->wheat != '3' && $data->foods->wheat != '4' )
 				       || ( $data->gender == '1' && $data->foods->bread != '5' && $data->foods->wheat = '1' )
 				       || ( $data->gender == '2' && $data->foods->wheat = '1' && ($data->foods->bread == '1' || $data->foods->bread == '2' || $data->foods->bread == '3'))
 				       || ( $data->gender == '2' && $data->foods->bread == '2' && ($data->foods->wheat == '1' || $data->foods->wheat == '2'))
 				       || ( $data->gender == '1' && ($data->foods->bread == '2' || $data->foods->bread == '3') && $data->foods->wheat != '4')
-//
 				     )
 			     )
 			     ||
