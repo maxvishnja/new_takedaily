@@ -179,7 +179,7 @@
 											<span class="required">*</span></label>
 										<input type="password" class="input input--medium input--semibold input--full @if($errors->has('password')) input--error @endif"
 											   id="input_info_password"
-											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.password-placeholder') }}" name="password" required="required"
+											   data-validate="true" placeholder="{{ App::getLocale() != 'nl' ? trans('checkout.index.order.info.password-placeholder') : '' }}" name="password" required="required"
 											   aria-required="true"/>
 									</div>
 								</div>
