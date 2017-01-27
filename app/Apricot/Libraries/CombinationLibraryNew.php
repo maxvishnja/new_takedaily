@@ -110,7 +110,7 @@ class CombinationLibraryNew
 			$this->setAdviseInfo( '2A', trans( 'flow.combination_info.2.A' ) );
 
 			$this->setAdvise( '3d', $this->textGenerator->generate( '3d', [ 'pregnant' ], true ) );
-			$this->setAdviseInfo( '3d', trans( 'flow.combination_info.3.d' ) );
+			//$this->setAdviseInfo( '3d', trans( 'flow.combination_info.3.d' ) );
 
 			$this->setAdvise( '3e', $this->textGenerator->generate( '3e', [ 'pregnant' ], true ) );
 			$this->setAdviseInfo( '3e', trans( 'flow.combination_info.3.e' ) );

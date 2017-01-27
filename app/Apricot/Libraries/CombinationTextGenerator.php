@@ -32,9 +32,16 @@ class CombinationTextGenerator
 
 	public function generate( $key, array $matchedReasons = [], $lines = false )
 	{
-		$key = strtolower( $key );
+		$key = strtolower($key);
 
-		$main    = $this->getMain( $key );
+		if(\App::getLocale() == 'nl' and $key == '3e' and $matchedReasons[0] == 'pregnant'){
+
+			$main = '';
+		} else{
+
+			$main = $this->getMain($key);
+		}
+
 		$reasons = collect( $this->getReasons( $key ) )->reject( function ( $value, $key ) use ( $matchedReasons )
 		{
 			return ! in_array( $key, $matchedReasons, false );
