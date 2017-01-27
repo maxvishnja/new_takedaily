@@ -148,7 +148,7 @@
 											<span class="required">*</span></label>
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('first_name')) input--error @endif"
 											   id="input_info_f_name"
-											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.first-name-placeholder') }}" name="first_name" required="required"
+											   data-validate="true" placeholder="{{ App::getLocale() != 'nl' ? trans('checkout.index.order.info.first-name-placeholder') : '' }}" name="first_name" required="required"
 											   aria-required="true" value="{{ Request::old('first_name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->customer->getFirstname() : '')) }}"/>
 									</div>
 
@@ -158,7 +158,7 @@
 											<span class="required">*</span></label>
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('last_name')) input--error @endif"
 											   id="input_info_l_name"
-											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.last-name-placeholder') }}" name="last_name" required="required"
+											   data-validate="true" placeholder="{{ App::getLocale() != 'nl' ? trans('checkout.index.order.info.last-name-placeholder') : '' }}" name="last_name" required="required"
 											   aria-required="true" value="{{ Request::old('last_name', (Auth::user() && Auth::user()->isUser() ? Auth::user()->customer->getLastName() : '')) }}"/>
 									</div>
 								</div>
@@ -221,7 +221,7 @@
 										<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
 											<span class="required">*</span></label>
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_city')) input--error @endif"
-											   id="input_info_address_city" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.city-placeholder') }}"
+											   id="input_info_address_city" data-validate="true" placeholder="{{ App::getLocale() != 'nl' ? trans('checkout.index.order.info.address.city-placeholder') : '' }}"
 											   name="address_city" required="required" aria-required="true"
 											   value="{{ Request::old('address_city', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
 									</div>

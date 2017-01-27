@@ -3,7 +3,7 @@
 return array (
   'messages' => 
   array (
-    'vitamins-not-selected' => 'Voordat je een bestelling kunt plaatsen, dien je eerst de vragenlijst af te ronden zodat wij jouw vitamines en mineralen kunnen selecteren.',
+    'vitamins-not-selected' => 'Voordat je een bestelling kunt plaatsen, dien je eerst de vragenlijst af te ronden zodat wij jouw supplementen kunnen selecteren.',
     'payment-invalid' => 'De betaling is niet geslaagd, probeer het opnieuw. :error',
     'no-such-coupon' => 'Kortingscode onjuist of al gebruikt. Probeer het nog eens.',
     'coupon-missing' => 'Voer jouw kortingscode in.',
@@ -58,7 +58,7 @@ return array (
         'cvr-placeholder' => 'Nl- 0612345678',
         'phone-placeholder' => '0612345678',
         'phone' => 'Mobiel telefoonnummer',
-        'is-company' => 'Bedrijfsnaam (Optioneel)',
+        'is-company' => '  ',
         'password' => 'Gewenste wachtwoord',
         'password-placeholder' => 'Wachtwoord',
         'password_confirmation' => 'Bevestig uw wachtwoord
@@ -67,7 +67,6 @@ return array (
         'cvr' => 'KvK',
         'last_name' => 'Last name',
         'first_name' => 'First name',
-        'first-name-placeholder' => 'Amy',
         'last-name-placeholder' => 'Visser',
       ),
       'billing' => 
@@ -106,7 +105,7 @@ return array (
       'button-text' => 'Toepassen',
     ),
     'disclaimer' => '<p class="checkout_description">Betaling van jouw TakeDaily abonnementskosten van <span v-show="price === total_subscription">€ {{ total_subscription }}</span><span v-show="price !== total_subscription">€ {{ total_subscription }}</span> geschiedt iedere vier weken per automatische afschrijving.</p>
-<p class="checkout_description">Je kan je abonnement ieder moment pauzeren, uitstellen of opzeggen tot 4 dagen voor de volgende verzendingsdatum.</p>',
+<p class="checkout_description">Je kan je abonnement ieder moment pauzeren, uitstellen of opzeggen tot 4 dagen voor de volgende verzenddatum.</p>',
     'method' => 
     array (
       'title' => 'Selecteer betaalmethode',
