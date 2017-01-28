@@ -286,14 +286,19 @@ class CheckoutController extends Controller
 	 */
 	function getSuccess( Request $request )
 	{
+
 		if ( ! $request->session()->has( 'order_created' ) )
 		{
 			return \Redirect::route( 'home' );
 		}
 
 		$vitamins = \Auth::user()->getCustomer()->getVitaminModels();
+		$plans = \Auth::user()->getCustomer()->getOrders();
 
-		return view( 'checkout.success', [ 'vitamins' => $vitamins ] );
+		foreach($plans as $plan){
+			$order_id = $plan->id;
+		}
+		return view( 'checkout.success', [ 'vitamins' => $vitamins, 'order_id' => $order_id ] );
 	}
 
 	/**

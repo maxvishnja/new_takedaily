@@ -256,6 +256,7 @@
 		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=201670066926857&ev=PageView&noscript=1"/>
 	</noscript>
 	<!-- End Facebook Pixel Code -->
+
 	@yield('tracking-scripts')
 	@endif
 	</body>
