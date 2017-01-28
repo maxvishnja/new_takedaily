@@ -161,7 +161,7 @@ class CombinationLibraryNew
 				}
 			}
 
-            if($newVitamins[2] == '3g'){
+            if(isset($newVitamins[2]) and $newVitamins[2] == '3g'){
 				$this->setAdvise( '3g', $this->textGenerator->generate( '3g', [ 'chiaoil' ], true ) );
 				$this->setAdviseInfo( '3g', trans( 'flow.combination_info.3.g' ) );
 			}
@@ -504,7 +504,7 @@ class CombinationLibraryNew
 
 
 		// D
-		if ( isset( $data->immune_system ) && $data->immune_system != '1' )
+		if ( isset( $data->immune_system ) && $data->immune_system == '1' )
 		{
 			$this->groupTwo   = 'D';
 			$this->vitamins[] = '2D';
@@ -516,7 +516,7 @@ class CombinationLibraryNew
 		}
 
 		// C
-		if (  isset( $data->lacks_energy ) && $data->lacks_energy < '3'  )
+		if (  isset( $data->lacks_energy ) && $data->lacks_energy == '1'  )
 		{
 			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';
