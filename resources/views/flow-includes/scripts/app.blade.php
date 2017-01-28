@@ -498,14 +498,14 @@
 	}, 50);
 	@endif
 
-		{{--@if($savedState !== null && count($userData) === 0)--}}
-		{{--app.user_data = JSON.parse('{!! $savedState->user_data !!}');--}}
-		{{--// This part is only for securing that Vue has updated elements..--}}
-		{{--// I've not found it necessary but rather safe than sorry.--}}
-		{{--setTimeout(function () {--}}
-			{{--app.goToStep(parseInt("{{ $savedState->step }}"), parseInt("{{ $savedState->sub_step }}"));--}}
-		{{--}, 50);--}}
-	{{--@endif--}}
+		@if($savedState !== null && count($userData) === 0)
+		app.user_data = JSON.parse('{!! $savedState->user_data !!}');
+		// This part is only for securing that Vue has updated elements..
+		// I've not found it necessary but rather safe than sorry.
+		setTimeout(function () {
+			app.goToStep(parseInt("{{ $savedState->step }}"), parseInt("{{ $savedState->sub_step }}"));
+		}, 50);
+	@endif
 
 	$("#advises-label").on('click', '.removePillButton', function () {
 		app.removeVitamin($(this).data('vitamin'));
