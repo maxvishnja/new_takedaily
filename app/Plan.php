@@ -112,6 +112,22 @@ class Plan extends Model
 		return Vitamin::whereIn( 'id', $vitamins )->where('code', '3e')->limit(1)->count() === 1; // todo unhardcode the 3e code
 	}
 
+
+	public function getVitamiPlan (){
+
+		$vitamins = json_decode( $this->vitamins );
+
+		if ( is_null( $vitamins ) )
+		{
+			return false;
+		}
+
+		foreach($vitamins as $vitamin){
+			$allvitamins[] = Vitamin::find($vitamin);
+		}
+		return $allvitamins;
+	}
+
 	public function hasChiaoil()
 	{
 		$vitamins = json_decode( $this->vitamins );
