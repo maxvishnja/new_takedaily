@@ -214,7 +214,7 @@
 											   id="input_info_address_zipcode" data-validate="true"
 											   placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
 											   name="address_zipcode" required="required" aria-required="true"
-											   value="{{ Request::old('address_street', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
+											   value="{{ Request::old('address_zipcode', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 									</div>
 									<div class="col-md-4 col-xs-6">
 										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
