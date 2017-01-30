@@ -210,11 +210,11 @@
 										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 										<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }}
 											<span class="required">*</span></label>
-										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zipcode')) input--error @endif"
+										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_codezip')) input--error @endif"
 											   id="input_info_address_zipcode" data-validate="true"
 											   placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
-											   name="address_zipcode" required="required" aria-required="true"
-											   value="{{ Request::old('address_zipcode', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
+											   name="address_codezip" required="required" aria-required="true"
+											   value="{{ Request::old('address_codezip', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 									</div>
 									<div class="col-md-4 col-xs-6">
 										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>

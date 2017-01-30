@@ -98,7 +98,7 @@ class CheckoutController extends Controller
 		$taxZone  = $request->get( 'address_country', trans( 'general.tax_zone' ) );
 		$street   = $request->get( 'address_street' );
 		$city     = $request->get( 'address_city' );
-		$zipcode  = $request->get( 'address_zipcode' );
+		$zipcode  = $request->get( 'address_codezip' );
 		$userData = $request->get( 'user_data' );
 		$name     = sprintf('%s %s', $request->get( 'first_name' ), $request->get( 'last_name' ));
 		$email    = $request->get( 'email' );
@@ -108,7 +108,7 @@ class CheckoutController extends Controller
 			$taxZone = \Auth::user()->customer->getCustomerAttribute( 'address_country', $request->get( 'address_country', trans( 'general.tax_zone' ) ) );
 			$street  = \Auth::user()->customer->getCustomerAttribute( 'address_street', $request->get( 'address_street' ) );
 			$city    = \Auth::user()->customer->getCustomerAttribute( 'address_city', $request->get( 'address_city' ) );
-			$zipcode = \Auth::user()->customer->getCustomerAttribute( 'address_zipcode', $request->get( 'address_zipcode' ) );
+			$zipcode = \Auth::user()->customer->getCustomerAttribute( 'address_codezip', $request->get( 'address_codezip' ) );
 			$name    = \Auth::user()->getCustomer()->getName();
 			$email   = \Auth::user()->getEmail();
 		}
@@ -142,7 +142,7 @@ class CheckoutController extends Controller
 		$request->session()->put( 'email', $email );
 		$request->session()->put( 'address_street', $street );
 		$request->session()->put( 'address_city', $city );
-		$request->session()->put( 'address_zipcode', $zipcode );
+		$request->session()->put( 'address_codezip', $zipcode );
 		$request->session()->put( 'address_country', $taxZone );
 		$request->session()->put( 'company', $request->get( 'company' ) );
 		$request->session()->put( 'cvr', $request->get( 'cvr' ) );
@@ -236,7 +236,7 @@ class CheckoutController extends Controller
 				'address_city'    => $request->session()->get( 'address_city' ),
 				'address_line1'   => $request->session()->get( 'address_street' ),
 				'address_country' => $request->session()->get( 'address_country' ),
-				'address_postal'  => $request->session()->get( 'address_zipcode' ),
+				'address_postal'  => $request->session()->get( 'address_codezip' ),
 				'company'         => $request->session()->get( 'company' ),
 				'cvr'             => $request->session()->get( 'cvr' ),
 				'phone'           => $request->session()->get( 'phone' ),
