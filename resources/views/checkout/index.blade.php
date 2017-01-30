@@ -214,7 +214,7 @@
 											<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zip')) input--error @endif"
 												   id="input_info_address_zip" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
 												   name="address_zip" required="required" aria-required="true"
-												   value="{{ Request::old('address_zip') }}"/>
+												   value="{{ Request::old('address_zip', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 										</div>
 
 									<div class="col-md-4 col-xs-6">
