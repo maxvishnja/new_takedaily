@@ -193,7 +193,7 @@
 											   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
 									</div>
 								</div>
-								{{dd(Request::all())}}
+
 								<div class="row">
 									@if(App::getLocale() == "nl")
 									<h3 class="require-text">{{ trans('checkout.index.order.info.address.require') }}</h3>
@@ -212,7 +212,7 @@
 											<span class="required">*</span></label>
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_codezip')) input--error @endif"
 											   id="input_info_address_zipcode" data-validate="true"
-											   placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
+											   {{--placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"--}}
 											   name="address_codezip" required="required" aria-required="true"
 											   value="{{ Request::old('address_codezip', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 									</div>
