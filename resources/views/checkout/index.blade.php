@@ -18,7 +18,7 @@
 						var l_name = names[names.length - 1];
 						$("#input_info_f_name").val(f_name);
 						$("#input_info_l_name").val(l_name);
-						$("#input_info_email").val(response.email);
+						//$("#input_info_email").val(response.email);
 					});
 				}
 			}
@@ -169,7 +169,7 @@
 											<span class="required">*</span></label>
 										<input type="email" class="input input--medium input--semibold input--full @if($errors->has('email')) input--error @endif"
 											   id="input_info_email"
-											   data-validate="true" placeholder="{{ trans('checkout.index.order.info.email-placeholder') }}" name="email" required="required"
+											   data-validate="true" placeholder="{{ App::getLocale() != 'nl' ? trans('checkout.index.order.info.email-placeholder'): '' }}" name="email" required="required"
 											   aria-required="true" value="{{ Request::old('email', (Auth::user() && Auth::user()->isUser() ? Auth::user()->email : '')) }}"/>
 									</div>
 
