@@ -373,7 +373,16 @@ class CombinationLibraryNew
 
 			return;
 		}
+		if (isset( $data->foods ))
+		{
+			$this->vitamins[] = '3g';
+			$this->groupThree = 'g';
 
+			$this->setAdvise( '3g', $this->textGenerator->generate( '3g', [ 'chiaoil' ], true ) );
+			$this->setAdviseInfo( '3g', trans( 'flow.combination_info.3.g' ) );
+
+			return;
+		}
 
 
 		if ( isset( $data->foods->oil ) )
