@@ -384,7 +384,7 @@ button.button
 	vertical-align: middle
 	display: inline-block
 	padding: 8px 15px
-	color: $lighter-grey
+	color: $black
 	font-size: 15px
 	border-radius: 0
 	line-height: 1.4
@@ -394,6 +394,12 @@ button.button
 	-moz-appearance: none
 	appearance: none
 	outline: none
+
+	&::-webkit-input-placeholder
+		color: $lighter-grey
+
+	&:-moz-placeholder
+		color: $lighter-grey
 
 	&:focus
 		box-shadow: 0 0 4px rgba(0, 0, 0, .3)
