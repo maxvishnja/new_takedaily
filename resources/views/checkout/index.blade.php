@@ -206,16 +206,27 @@
 											   name="address_street" required="required" aria-required="true"
 											   value="{{ Request::old('address_street', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_line1') : '')) }}"/>
 									</div>
-									<div class="col-md-3 col-xs-6">
-										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
-										<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }}
-											<span class="required">*</span></label>
-										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zip')) input--error @endif"
-											   id="input_info_address_zip" data-validate="true"
-											   placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
-											   name="address_zip" required="required" aria-required="true"
-											   value="{{ Request::old('address_city', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
-									</div>
+									{{--<div class="col-md-3 col-xs-6">--}}
+										{{--<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>--}}
+										{{--<label class="label label--full checkout--label" for="input_info_address_zipcode">{{ trans('checkout.index.order.info.address.zipcode') }}--}}
+											{{--<span class="required">*</span></label>--}}
+										{{--<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zip')) input--error @endif"--}}
+											   {{--id="input_info_address_zip" data-validate="true"--}}
+											   {{--placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"--}}
+											   {{--name="address_zip" required="required" aria-required="true"--}}
+											   {{--value="{{ Request::old('address_zip', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>--}}
+									{{--</div>--}}
+
+										<div class="col-md-4 col-xs-6">
+											<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+											<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.zipcode') }}
+												<span class="required">*</span></label>
+											<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zip')) input--error @endif"
+												   id="input_info_address_zip" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
+												   name="address_zip" required="required" aria-required="true"
+												   value="{{ Request::old('address_zip', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
+										</div>
+
 									<div class="col-md-4 col-xs-6">
 										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 										<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
