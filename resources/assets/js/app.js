@@ -5,6 +5,11 @@ $(".toggle-mobile-nav").click(function (e)
 	$($(this).attr('href')).toggleClass('active');
 });
 
+$('.video_circle_content').on('click', function(){
+	ga('send', 'event', 'video', 'click');
+});
+
+
 function validateFormInput(form, addClasses)
 {
 	var errors = [];

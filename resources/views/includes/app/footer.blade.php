@@ -190,6 +190,9 @@
 <!--End of Tawk.to Script-->
 
 <script>
+
+
+
 	$("#mailchimp_signup").submit(function(e)
 	{
 		e.preventDefault();
