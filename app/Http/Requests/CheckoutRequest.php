@@ -34,7 +34,7 @@ class CheckoutRequest extends Request
 			'first_name'      => 'required',
 			'last_name'       => 'required',
 			'address_street'  => 'required',
-			'address_zipcode' => 'required',
+			'address_codezip' => 'required',
 			'address_city'    => 'required',
 			'address_country' => 'required',
 			'payment_method'  => 'required',
