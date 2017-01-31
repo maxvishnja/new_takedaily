@@ -3,7 +3,7 @@
 return array (
   'money' => ':amount kr.',
   'money-vue' => '{{ :amount | currency \'\' }} kr.',
-  'tawk_id' => '573c49314084da3e71efb4e9',
+  'tawk_id' => 'default',
   'tax_zone' => 'denmark',
   'currency' => 'DKK',
   'mail' => 'info@takedaily.dk',

@@ -30,8 +30,8 @@
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->updated_at)->format('j. M Y H:i') }}</td>
 						<td>
 							<div class="btn-group">
-								{{--<a class="btn btn-info" href="{{ URL::action('Dashboard\CustomerController@edit', [ 'id' => $customer->id ]) }}"><i class="icon-pencil"></i>
-									Rediger</a>--}}
+								<a class="btn btn-info" href="{{ URL::action('Dashboard\CustomerController@edit', [ 'id' => $customer->id ]) }}"><i class="icon-pencil"></i>
+									</a>
 
 								<a class="btn btn-default" href="{{ URL::action('Dashboard\CustomerController@show', [ 'id' => $customer->id ]) }}"><i class="icon-eye-open"></i>
 									Vis</a>

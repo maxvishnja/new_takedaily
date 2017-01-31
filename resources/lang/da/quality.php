@@ -8,7 +8,9 @@ return array (
   'section_vitamins' => 
   array (
     'title' => 'Til punkt og prikke',
-    'body' => '<p>TakeDaily er vitaminer og kosttilskud af høj kvalitet med rene, aktive ingredienser – alle videnskabeligt dokumenteret. Vores leverandører og de grundstoffer, vi anvender, er godkendt af EU. Og alle formuleringerne er i overensstemmelse med reglerne for kosttilskud, som er defineret af EFSA (European Food Safety Authority) og de nordiske kostråd (NNR). Vores produktions- og pakkefacilitet er ISO 22000:2005 certificeret.</p>',
+    'body' => '<p>TakeDaily er vitaminer og kosttilskud af høj kvalitet med rene, aktive ingredienser – alle videnskabeligt dokumenteret. Vores leverandører og de grundstoffer, vi anvender, er godkendt af EU. Og alle formularer er i overensstemmelse med reglerne for kosttilskud, som er defineret af EFSA (European Food Safety Authority) og de nordiske kostråd (NNR). Vores produktions- og pakkefacilitet er ISO 22000:2005 certificeret.</p>
+
+',
   ),
   'section_plants' => 
   array (

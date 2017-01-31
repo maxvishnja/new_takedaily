@@ -403,8 +403,7 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
 					<br/><br/>
 					Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>.
 					Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-      'g' => '<span class="icon icon-chiaoil-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>
-',
+      'g' => '<span class="icon icon-chiaoil-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>',
     ),
     'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.',

@@ -81,5 +81,12 @@
 		@if(Auth::check())
 			fbq('track', 'CompleteRegistration');
 		@endif
+
+
 	</script>
+	<img src="//dk.cpdelivery.com/sad/m/takedaily_track_2017_01/track.php" width="1" height="1" border="0" alt="" />
+	<script src="https://online.adservicemedia.dk/cgi-bin/API/ConversionService/js?camp_id=6123&order_id={{$order_id}}" type="text/javascript"></script>
+	<noscript>
+		<img src="https://online.adservicemedia.dk/cgi-bin/API/ConversionService/p?camp_id=6123" width="1" height="1" border="0">
+	</noscript>
 @endsection

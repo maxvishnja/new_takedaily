@@ -161,7 +161,7 @@ class CombinationLibraryNew
 				}
 			}
 
-            if($newVitamins[2] == '3g'){
+            if(isset($newVitamins[2]) and $newVitamins[2] == '3g'){
 				$this->setAdvise( '3g', $this->textGenerator->generate( '3g', [ 'chiaoil' ], true ) );
 				$this->setAdviseInfo( '3g', trans( 'flow.combination_info.3.g' ) );
 			}
@@ -276,12 +276,14 @@ class CombinationLibraryNew
 		     (
 			     (
 				     $data->locale === 'nl' &&
-				     ( ( $data->foods->wheat != '3' || $data->foods->wheat != '4' )
-				       || ( $data->gender == '1' && $data->foods->bread != '5' && $data->foods->wheat = '1' )
-				       || ( $data->gender == '2' && $data->foods->wheat = '1' && ($data->foods->bread == '1' || $data->foods->bread == '2' || $data->foods->bread == '3'))
-				       || ( $data->gender == '2' && $data->foods->bread == '2' && ($data->foods->wheat == '1' || $data->foods->wheat == '2'))
-				       || ( $data->gender == '1' && ($data->foods->bread == '2' || $data->foods->bread == '3') && $data->foods->wheat != '4')
-//
+				     (( $data->gender == '2' && $data->foods->wheat != '4' && ($data->foods->bread == '1' || $data->foods->bread == '2'))
+				       || ( $data->gender == '2' && $data->foods->bread == '3' && ($data->foods->wheat == '1' || $data->foods->wheat == '2'))
+				       || ( $data->gender == '2' && $data->foods->bread == '4' && $data->foods->wheat == '1')
+				       || ( $data->gender == '1' && $data->foods->bread == '1')
+				       || ( $data->gender == '1' && $data->foods->bread == '2' && $data->foods->wheat != '4')
+				       || ( $data->gender == '1' && ($data->foods->bread == '3' || $data->foods->bread == '4') && ($data->foods->wheat == '1' || $data->foods->wheat == '2'))
+				       || ( $data->gender == '1' && $data->foods->bread == '5' && $data->foods->wheat == '1')
+
 				     )
 			     )
 			     ||
@@ -371,7 +373,16 @@ class CombinationLibraryNew
 
 			return;
 		}
+		if (isset( $data->foods ))
+		{
+			$this->vitamins[] = '3g';
+			$this->groupThree = 'g';
 
+			$this->setAdvise( '3g', $this->textGenerator->generate( '3g', [ 'chiaoil' ], true ) );
+			$this->setAdviseInfo( '3g', trans( 'flow.combination_info.3.g' ) );
+
+			return;
+		}
 
 
 		if ( isset( $data->foods->oil ) )
@@ -505,7 +516,7 @@ class CombinationLibraryNew
 
 
 		// D
-		if ( isset( $data->immune_system ) && $data->immune_system != '1' )
+		if ( isset( $data->immune_system ) && $data->immune_system == '1' )
 		{
 			$this->groupTwo   = 'D';
 			$this->vitamins[] = '2D';
@@ -517,7 +528,18 @@ class CombinationLibraryNew
 		}
 
 		// C
-		if (  isset( $data->lacks_energy ) && $data->lacks_energy < '3'  )
+		if (  isset( $data->lacks_energy ) && $data->lacks_energy == '1'  )
+		{
+			$this->groupTwo   = 'C';
+			$this->vitamins[] = '2C';
+
+			$this->setAdvise( '2C', $this->textGenerator->generate( '2C', [ 'lacks_energy_stressed' ], true ) );
+			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
+
+			return;
+		}
+
+		if (  isset( $data) )
 		{
 			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';

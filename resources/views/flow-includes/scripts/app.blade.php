@@ -543,7 +543,6 @@
 
 	function forceUpdateAndSubmit() {
 		ga('send', 'event', 'flow', 'completed', 'all');
-		alert('111');
 		var form = $("#flow_form");
 
 		form.append('<input type="hidden" name="update_only" value="1" />');

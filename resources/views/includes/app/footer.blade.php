@@ -181,7 +181,7 @@
 	(function () {
 		var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
 		s1.async = true;
-		s1.src = 'https://embed.tawk.to/573c49314084da3e71efb4e9/{{ trans('general.tawk_id') }}';
+		s1.src = 'https://embed.tawk.to/{{ trans('general.tawk_id') }}/default';
 		s1.charset = 'UTF-8';
 		s1.setAttribute('crossorigin', '*');
 		s0.parentNode.insertBefore(s1, s0);
@@ -190,6 +190,9 @@
 <!--End of Tawk.to Script-->
 
 <script>
+
+
+
 	$("#mailchimp_signup").submit(function(e)
 	{
 		e.preventDefault();
@@ -224,6 +227,23 @@
 	});
 </script>
 	@if(App::environment() != 'local')
+			<!-- Adform Tracking Code BEGIN -->
+	<script type="text/javascript">
+		window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+		window._adftrack.push({
+			pm: 788995,
+			divider: encodeURIComponent('|'),
+			pagename: encodeURIComponent('Take Daily conversion')
+		});
+		(function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://track.adform.net/serving/scripts/trackpoint/async/'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+
+	</script>
+	<noscript>
+		<p style="margin:0;padding:0;border:0;">
+			<img src="https://track.adform.net/Serving/TrackPoint/?pm=788995&ADFPageName=Take%20Daily%20conversion&ADFdivider=|" width="1" height="1" alt="" />
+		</p>
+	</noscript>
+	<!-- Adform Tracking Code END -->
 			<!-- Facebook Pixel Code -->
 	<script>
 		!function (f, b, e, v, n, t, s) {
@@ -256,6 +276,7 @@
 		<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=201670066926857&ev=PageView&noscript=1"/>
 	</noscript>
 	<!-- End Facebook Pixel Code -->
+
 	@yield('tracking-scripts')
 	@endif
 	</body>

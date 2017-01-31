@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Vitamin;
 use Illuminate\Mail\Message;
+use Illuminate\Http\Request;
+use App\Http\Requests;
 
 class CustomerController extends Controller
 {
@@ -41,6 +44,91 @@ class CustomerController extends Controller
 		return view('admin.customers.show', [
 			'customer' => $customer
 		]);
+	}
+
+	function edit($id)
+	{
+		$customer = Customer::find($id);
+
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
+		}
+
+		$allvitamins = \DB::table('ltm_translations')->where([['group', '=', 'pill-names'], ['locale', '=', 'nl']])->get();
+		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders' ]);
+
+		return view('admin.customers.edit', [
+			'customer' => $customer,
+			'allvit' => $allvitamins
+		]);
+	}
+
+
+
+	function update(Request $request, $id)
+	{
+		$customer = Customer::find($id);
+
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
+		}
+
+		foreach($customer->customerAttributes as $ident){
+			if($ident->identifier == 'user_data.birthdate'){
+				$ident->value = $request->get('user_data_birthdate');
+				$ident->update();
+			}
+			if($ident->identifier == 'phone'){
+				$ident->value = $request->get('phone');
+				$ident->update();
+			}
+			if($ident->identifier == 'address_line1'){
+				$ident->value = $request->get('address_line1');
+				$ident->update();
+			}
+			if($ident->identifier == 'address_city'){
+				$ident->value = $request->get('address_city');
+				$ident->update();
+			}
+			if($ident->identifier == 'address_country'){
+				$ident->value = $request->get('address_country');
+				$ident->update();
+			}
+			if($ident->identifier == 'address_postal'){
+				$ident->value = $request->get('address_postal');
+				$ident->update();
+			}
+			if($ident->identifier == 'user_data.age'){
+				$ident->value = $customer->getAge();
+				$ident->update();
+			}
+		}
+
+		$usernew['name'] = $request->get('cust_name');
+		$usernew['email'] = $request->get('cust_email');
+		$customer->user->update($usernew);
+
+
+		if($request->get('vitamin-1')){
+			$vitamins_one = Vitamin::where('code', '=', $request->get('vitamin-1'))->value('id');
+		}
+		if($request->get('vitamin-2')){
+			$vitamins_two = Vitamin::where('code', '=', strtoupper($request->get('vitamin-2')))->value('id');
+		}
+		if($request->get('vitamin-3')){
+			$vitamins_three = Vitamin::where('code', '=', $request->get('vitamin-3'))->value('id');
+		}
+
+		if(isset($vitamins_one) or isset($vitamins_two) or isset($vitamins_three)){
+			$vitamins = '['.$vitamins_one.','.$vitamins_two.','.$vitamins_three.']';
+			$customer->plan->vitamins = $vitamins;
+			$customer->plan->update();
+		}
+
+
+		return \Redirect::action('Dashboard\CustomerController@index')->with('success', 'Kunden er blevet ændret.');
 	}
 
 	function newPass($id)
