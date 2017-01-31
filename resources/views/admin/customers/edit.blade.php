@@ -35,7 +35,7 @@
                 <div class="control-group">
                     <label for="page_title" class="control-label">Age</label>
                     <div class="controls">
-                        <input type="text" class="form-control span8" name="user_data.birthdate" id="birthdate-picker"
+                        <input type="text" class="form-control span8 datepicker" name="user_data.birthdate" id="birthdate-picker"
                                value="{{ Request::old('user_data.birthdate', ($customer->getBirthday()) ? $customer->getBirthday() : '' ) }}"
                                placeholder="Age"/>
                     </div>
@@ -90,3 +90,12 @@
         </div>
     </div><!--/.module-->
 @stop
+@section('scripts')
+    <script>
+        $(function() {
+            $('.datepicker').datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
+    </script>
+@endsection
