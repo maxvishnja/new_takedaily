@@ -57,6 +57,5 @@ return array (
 <li>100% plantaardig</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder kleur-,geur- en smaakstoffen</li>
-<li>Vrij van genetisch manipulatie (GMO)</li>
 </ul>',
 );

@@ -123,6 +123,6 @@ return array (
   'fb-login' => 'Log ind med Facebook',
   'cvv-information' => 'Kontrolnummeret står typisk bag på kortet',
   'back-pick' => '‹ Gå tilbage til dine valg',
-  'terms-agree' => 'Ved at klikke "Bestil nu" accepterer du vores <a href="/page/terms">handelsbetingelser</a> samt bekræfter, at du er over 18.',
+  'terms-agree' => 'Ved at klikke "Bestil nu" accepterer du vores <a class="terms" href="/page/terms">handelsbetingelser</a> samt bekræfter, at du er over 18.',
   'facebook_disclaimer' => '(Vi slår ingenting op på din Facebook profil)',
 );

@@ -45,7 +45,7 @@ return array (
     array (
       'pregnant' => 'Dit supplement is een aanvulling op Mom & Baby. Het bevat B-vitamines (B1, B6, B12) en ijzer. Als je zwanger bent neemt de hoeveelheid bloed in het lichaam toe, waardoor er tijdens de zwangerschap een extra behoefte aan ijzer ontstaat. IJzer helpt bij de normale vorming van rode bloedcellen en hemoglobine, Het hemoglobine aanwezig in de rode bloedcellen transporteert het zuurstof door het lichaam en naar jouw kindje.',
       'not_vegetarian_meat' => 'Vlees bevat ijzer, vitamine B1, B6 en B12. Als je geen vlees eet is het belangrijk dat je deze voedingsstoffen voldoende binnenkrijgt, daar zij onder andere een belangrijke rol spelen in de energiestofwisseling van ons lichaam.',
-      'vegetarian' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en ijzer. Je eet geen vlees(producten) te eten. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
+      'vegetarian' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en ijzer. Je eet geen vlees(producten). TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
     ),
   ),
   '2b' => 
