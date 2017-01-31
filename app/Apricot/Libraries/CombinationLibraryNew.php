@@ -301,20 +301,14 @@ class CombinationLibraryNew
 
 			if ( $data->locale === 'nl' )
 			{
-				if ( $data->foods->wheat != '3' || $data->foods->wheat != '4' )
-				{
-					$reasons[] = 'wheat';
-				}
-
-				if ( ( $data->age >= '51' && $data->foods->bread < '3' )
-				     || ( $data->gender == '2' && (
-							( $data->age <= '50' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-							|| ( $data->age > '50' && $data->foods->bread != '3' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-						) )
-				     || ( $data->gender == '1' && $data->foods->bread != '4' && $data->foods->bread != '5' )
-				)
+				if ( $data->foods->bread == '1' || $data->foods->bread == '2' )
 				{
 					$reasons[] = 'bread';
+				}
+
+				if ($data->foods->wheat == '0' || $data->foods->wheat == '1')
+				{
+					$reasons[] = 'wheat';
 				}
 			}
 			elseif ( $data->locale === 'da' )
@@ -539,16 +533,6 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if (  isset( $data) )
-		{
-			$this->groupTwo   = 'C';
-			$this->vitamins[] = '2C';
-
-			$this->setAdvise( '2C', $this->textGenerator->generate( '2C', [ 'lacks_energy_stressed' ], true ) );
-			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
-
-			return;
-		}
 	}
 
 	private function generateGroupOne( $data )

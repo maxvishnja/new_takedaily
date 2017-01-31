@@ -200,6 +200,7 @@ class CheckoutController extends Controller
 				                'email'           => $request->session()->get( 'email' ),
 				                'address_street'  => $request->session()->get( 'address_street' ),
 				                'address_city'    => $request->session()->get( 'address_city' ),
+				                'address_zip'     => $request->session()->get( 'address_zip' ),
 				                'address_country' => $request->session()->get( 'address_country' ),
 				                'company'         => $request->session()->get( 'company' ),
 				                'cvr'             => $request->session()->get( 'cvr' ),

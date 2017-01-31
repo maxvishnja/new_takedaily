@@ -82,17 +82,17 @@
 	</div>
 @endforeach
 
-@if(isset($descriptions['no-lifestyle']))
-	<div class="new_vitamin_item">
+{{--@if(isset($descriptions['no-lifestyle']))--}}
+	{{--<div class="new_vitamin_item">--}}
 
-		<div class="pill_section">
-		</div>
+		{{--<div class="pill_section">--}}
+		{{--</div>--}}
 
-		<div class="content_section" style="font-size: 17px">
-			{!! $descriptions['no-lifestyle'] !!}
-		</div>
-	</div>
-@endif
+		{{--<div class="content_section" style="font-size: 17px">--}}
+			{{--{!! $descriptions['no-lifestyle'] !!}--}}
+		{{--</div>--}}
+	{{--</div>--}}
+{{--@endif--}}
 @if(isset($descriptions['no-diet']))
 	<div class="new_vitamin_item">
 

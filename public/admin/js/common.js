@@ -1,10 +1,10 @@
 ﻿$(document).ready(function () {
 
-$('#birthdate-picker').datepicker({
-    format: "yyyy-mm-dd",
-
-
-});
+//$('#birthdate-picker').datepicker({
+//    format: "yyyy-mm-dd",
+//
+//
+//});
 
 
 });

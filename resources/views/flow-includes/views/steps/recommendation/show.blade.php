@@ -1,6 +1,8 @@
 <div class="col-md-7">
 	<div id="advises-label"></div>
+	@if(App::getLocale() != "nl")
 	<p>{{ trans('flow.show.change-vitamins') }} <a href="{{ url()->route('pick-n-mix') }}" id="link-to-change">{{ trans('flow.show.click-me') }}</a></p>
+	@endif
 	{{--	<p><strong>{{ trans('flow.info_about_supplement')  }}</strong></p>--}}
 
 	<div style="margin: 20px 0 60px">
