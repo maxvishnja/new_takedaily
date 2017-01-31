@@ -533,16 +533,6 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if (  isset( $data) )
-		{
-			$this->groupTwo   = 'C';
-			$this->vitamins[] = '2C';
-
-			$this->setAdvise( '2C', $this->textGenerator->generate( '2C', [ 'lacks_energy_stressed' ], true ) );
-			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
-
-			return;
-		}
 	}
 
 	private function generateGroupOne( $data )

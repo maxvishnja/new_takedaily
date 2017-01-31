@@ -121,8 +121,21 @@ class CustomerController extends Controller
 			$vitamins_three = Vitamin::where('code', '=', $request->get('vitamin-3'))->value('id');
 		}
 
-		if(isset($vitamins_one) or isset($vitamins_two) or isset($vitamins_three)){
-			$vitamins = '['.$vitamins_one.','.$vitamins_two.','.$vitamins_three.']';
+		$vitamins = '';
+
+		if(isset($vitamins_one)) {
+			$vitamins .= '[' . $vitamins_one . ',';
+		}
+
+		if(isset($vitamins_two)) {
+			$vitamins .= $vitamins_two . ',';
+		}
+
+		if(isset($vitamins_three)) {
+			$vitamins .= $vitamins_three . ']';
+		}
+
+		if($vitamins!=''){
 			$customer->plan->vitamins = $vitamins;
 			$customer->plan->update();
 		}
