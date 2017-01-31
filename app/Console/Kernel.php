@@ -7,6 +7,7 @@ use App\Console\Commands\ClearOldSavedFlows;
 use App\Console\Commands\GenerateSitemapCommand;
 use App\Console\Commands\MailFlowSender;
 use App\Console\Commands\NotifyPendingRebills;
+use App\Console\Commands\SendHealthMail;
 use App\Console\Commands\SubscriptionRebillCommand;
 use App\Console\Commands\UpdateAges;
 use App\Console\Commands\UpdateCurrencies;
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
 		NotifyPendingRebills::class,
 	    UpdateAges::class,
 	    MailFlowSender::class,
+	    SendHealthMail::class,
 		UpdatePregnancyWeeks::class,
 	    ClearOldCarts::class,
 	    ClearOldSavedFlows::class
@@ -48,6 +50,9 @@ class Kernel extends ConsoleKernel
 
 		$schedule->command('currencies:update')
 		         ->hourly();
+
+		$schedule->command('healthmail:send')
+			     ->dailyAt('13:00');
 
 		$schedule->command('subscriptions:pending')
 		         ->name('notify-user-of-incoming-rebill')

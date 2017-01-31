@@ -20,6 +20,14 @@ class CustomerRepository
 		return Customer::today();
 	}
 
+	public function getNewCustomer(){
+		$date = new \DateTime();
+		$date->modify('-14 days');
+		return Customer::where('order_count','=',1)
+			->where('created_at','like','%'.$date->format('Y-m-d').'%')
+			->get();
+	}
+
 	public function getMonthlyNew()
 	{
 		return Customer::selectRaw("YEAR(created_at) as year, MONTH(created_at) as month, COUNT(DISTINCT id) as total")
