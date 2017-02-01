@@ -125,30 +125,41 @@ class CustomerController extends Controller
 
 
 		if($request->get('vitamin-1')){
-			$vitamins_one = Vitamin::where('code', '=', $request->get('vitamin-1'))->value('id');
+			foreach($request->get('vitamin-1') as $vit1){
+				$vitamins_one = Vitamin::where('code', '=', $vit1)->value('id');
+			}
 		}
 		if($request->get('vitamin-2')){
-			$vitamins_two = Vitamin::where('code', '=', strtoupper($request->get('vitamin-2')))->value('id');
+			foreach($request->get('vitamin-2') as $vit2) {
+				$vitamins_two = Vitamin::where('code', '=', strtoupper($vit2))->value('id');
+			}
 		}
 		if($request->get('vitamin-3')){
-			$vitamins_three = Vitamin::where('code', '=', $request->get('vitamin-3'))->value('id');
+			foreach($request->get('vitamin-3') as $vit3) {
+				$vitamins_three[] = Vitamin::where('code', '=', $vit3)->value('id');
+			}
 		}
 
-		$vitamins = '';
+		$vitamins = '[';
 
 		if(isset($vitamins_one)) {
-			$vitamins .= '[' . $vitamins_one . ',';
+			$vitamins .=  $vitamins_one . ',';
 		}
 
 		if(isset($vitamins_two)) {
 			$vitamins .= $vitamins_two . ',';
 		}
 
-		if(isset($vitamins_three)) {
-			$vitamins .= $vitamins_three . ']';
+		if(isset($vitamins_three[0])) {
+			$vitamins .= $vitamins_three[0];
 		}
 
-		if($vitamins!=''){
+		if(isset($vitamins_three[1])) {
+			$vitamins .= ','.$vitamins_three[1];
+		}
+		$vitamins .= ']';
+
+		if($vitamins!='[]'){
 			$customer->plan->vitamins = $vitamins;
 			$customer->plan->update();
 		}
