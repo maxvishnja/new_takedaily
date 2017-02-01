@@ -153,11 +153,11 @@
 			{{--<div class="vitamin" style="height: 160mm;"></div>--}}
 		@endif
 	</div>
-
-	<div style="text-align: center; font-size: 7pt; margin: 18pt 0 2px; color: #1A8562">
-		{{ trans('label-product.pill_color_reason') }}
-	</div>
-
+	@if($customer->getLocale() != 'nl')
+		<div style="text-align: center; font-size: 7pt; margin: 18pt 0 2px; color: #1A8562">
+			{{ trans('label-product.pill_color_reason') }}
+		</div>
+	@endif
 	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1;position: absolute; bottom: 4mm; text-align: center">
 		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
 		<div>{{ trans('label-product.address') }}</div>
