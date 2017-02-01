@@ -203,7 +203,8 @@ class Plan extends Model
 	{
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = null;
-		$this->subscription_rebill_at     = Date::now()->addDays( 28 )->addWeekdays(4);
+//		$this->subscription_rebill_at     = Date::now()->addDays( 28 )->addWeekdays(4);
+		$this->subscription_rebill_at     = Date::now()->addDays( 28 );
 		$this->save();
 
 		return true;
@@ -211,7 +212,7 @@ class Plan extends Model
 
 	public function rebilled()
 	{
-		$this->subscription_rebill_at = Date::now()->addDays( 28 )->addWeekdays(4);
+		$this->subscription_rebill_at = Date::now()->addDays( 28 );
 		$this->save();
 
 		$this->markHasNotified( false );
