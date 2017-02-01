@@ -197,6 +197,8 @@ class CheckoutController extends Controller
 			                ->withErrors( trans( 'checkout.errors.payment-error' ) )
 			                ->withInput( [
 				                'name'            => $request->session()->get( 'name' ),
+				                'first_name'      => $request->session()->get( 'first_name' ),
+				                'last_name'       => $request->session()->get( 'last_name' ),
 				                'email'           => $request->session()->get( 'email' ),
 				                'address_street'  => $request->session()->get( 'address_street' ),
 				                'address_city'    => $request->session()->get( 'address_city' ),
