@@ -153,12 +153,15 @@
 			{{--<div class="vitamin" style="height: 160mm;"></div>--}}
 		@endif
 	</div>
-	@if($customer->getLocale() != 'nl')
-		<div style="text-align: center; font-size: 7pt; margin: 18pt 0 2px; color: #1A8562">
+
+		<div style="text-align: center; font-size: 7pt; min-height:20px; margin: 18pt 0 2px; color: #1A8562">
+			@if(App::getLocale() == 'da')
 			{{ trans('label-product.pill_color_reason') }}
+			@endif
 		</div>
-	@endif
-	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1;position: absolute; bottom: 4mm; text-align: center">
+
+	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1; position: absolute; bottom: -4mm; text-align: center">
+		<br/>
 		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
 		<div>{{ trans('label-product.address') }}</div>
 		<strong>{{ trans('label-product.Questions') }}</strong>
