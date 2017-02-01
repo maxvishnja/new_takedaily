@@ -46,7 +46,7 @@ class SendHealthMail extends Command
         foreach ( $customers as $customer ) {
 
             \App::setLocale($customer->getLocale());
-            
+
             $mailEmail = $customer->getEmail();
             $mailName  = $customer->getName();
 

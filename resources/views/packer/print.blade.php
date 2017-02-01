@@ -67,7 +67,7 @@
 	 */
 	.vitamins {
 		display: flex;
-		flex-direction: column;
+		/*flex-direction: column;*/
 		flex-wrap: wrap;
 		height: 195mm;
 		height: 238mm;
@@ -77,6 +77,7 @@
 		width: 79.04%;
 		width: 100%;
 		position: relative;
+
 	}
 
 	.vitamins:after {
@@ -93,7 +94,7 @@
 
 	.vitamins .vitamin {
 		width: 50%;
-		padding: 2pt;
+		padding: 10pt;
 	}
 
 	.vitamins .vitamin {
@@ -131,8 +132,8 @@ $cur = 0;
 	$cur ++;
 	?>
 	<div class="print" style="width: 210mm; width: 100%; height: 297mm; position: absolute; left: 0; top: {{ ($cur-1)*100 }}%; width: 100%; height: 100%;">
-		<div style="width: 82.8571428571429%; position: relative; position: absolute; height: 100%;">
-			<div style="width: 82.8571428571429%; height: 240mm; position: absolute; top: 0; left: 0; height: 80.80808080808080801%; overflow: hidden;">
+		<div style="width: 99.8571428571429%; position: relative; position: absolute; height: 100%;">
+			<div style="width: 99.8571428571429%; height: 240mm; position: absolute; top: 0; left: 0; height: 80.80808080808080801%; overflow: hidden;">
 				{!! $printable['sticker'] !!}
 			</div>
 
