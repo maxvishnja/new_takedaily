@@ -36,6 +36,8 @@ class NotifyPendingRebills extends Command
      */
     public function handle()
     {
+
+
         $plans = Plan::rebillPending()->notNotifiedPending()->get();
 
 	    /** @var Plan $plan */

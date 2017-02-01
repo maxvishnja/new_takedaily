@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Order;
 use App\Vitamin;
 use Illuminate\Mail\Message;
 use Illuminate\Http\Request;
@@ -69,6 +70,7 @@ class CustomerController extends Controller
 	function update(Request $request, $id)
 	{
 		$customer = Customer::find($id);
+		$order = Order::where([['state', '=', 'paid'],['customer_id', '=', $id]])->first();
 
 		if( ! $customer )
 		{
@@ -86,18 +88,27 @@ class CustomerController extends Controller
 			}
 			if($ident->identifier == 'address_line1'){
 				$ident->value = $request->get('address_line1');
+				$order->shipping_street = $request->get('address_line1');
+				$order->update();
 				$ident->update();
 			}
 			if($ident->identifier == 'address_city'){
 				$ident->value = $request->get('address_city');
+				$order->shipping_city = $request->get('address_city');
+				$order->update();
 				$ident->update();
 			}
 			if($ident->identifier == 'address_country'){
 				$ident->value = $request->get('address_country');
+				$order->shipping_country = $request->get('address_country');
+				$order->update();
 				$ident->update();
+
 			}
 			if($ident->identifier == 'address_postal'){
 				$ident->value = $request->get('address_postal');
+				$order->shipping_zipcode = $request->get('address_postal');
+				$order->update();
 				$ident->update();
 			}
 			if($ident->identifier == 'user_data.age'){
@@ -107,8 +118,10 @@ class CustomerController extends Controller
 		}
 
 		$usernew['name'] = $request->get('cust_name');
+		$order->shipping_name = $request->get('cust_name');
 		$usernew['email'] = $request->get('cust_email');
 		$customer->user->update($usernew);
+		$order->update();
 
 
 		if($request->get('vitamin-1')){
