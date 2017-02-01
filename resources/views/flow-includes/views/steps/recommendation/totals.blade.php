@@ -32,7 +32,7 @@
 			</tr>
 			</tbody>
 		</table>
-		@if(Auth::check())
+		@if(Auth::check() and App::getLocale() !='nl')
 			<div class="text-center">
 				<button type="button"
 						class="button button--green button--huge button--full-mobile m-t-30" onclick="forceUpdateAndSubmit();">{{ trans('flow.button-save-text') }}</button>
@@ -40,7 +40,7 @@
 		@endif
 		<div class="text-center">
 			<button type="submit" onclick="ga('send', 'event', 'flow', 'completed', 'all');"
-					class="button @if(!Auth::check()) button--green @else button--light @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
+					class="button @if(!Auth::check() ) button--green @else @if(App::getLocale() !='nl') button--light @else button--green @endif @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
 
 			@if(!$giftcard)
 				<div class="m-t-20 m-b-20">
