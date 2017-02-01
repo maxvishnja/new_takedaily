@@ -99,6 +99,9 @@ class CheckoutController extends Controller
 		$street   = $request->get( 'address_street' );
 		$city     = $request->get( 'address_city' );
 		$zipcode  = $request->get( 'address_zip' );
+		$first_name  = $request->get( 'first_name' );
+		$last_name  = $request->get( 'last_name' );
+		$zipcode  = $request->get( 'address_zip' );
 		$userData = $request->get( 'user_data' );
 		$name     = sprintf('%s %s', $request->get( 'first_name' ), $request->get( 'last_name' ));
 		$email    = $request->get( 'email' );
@@ -139,6 +142,8 @@ class CheckoutController extends Controller
 		$request->session()->put( 'charge_id', $charge->id );
 		$request->session()->put( 'payment_customer_id', $checkout->getCustomer()->id );
 		$request->session()->put( 'name', $name );
+		$request->session()->put( 'first_name', $first_name );
+		$request->session()->put( 'last_name', $last_name );
 		$request->session()->put( 'email', $email );
 		$request->session()->put( 'address_street', $street );
 		$request->session()->put( 'address_city', $city );
@@ -192,7 +197,7 @@ class CheckoutController extends Controller
 		$isSuccessful = $checkout->getPaymentHandler()->isChargeValid( $request->session()->get( 'charge_id' ) );
 
 		if ( ! $isSuccessful )
-		{   dd($request->session());
+		{   
 			return \Redirect::action( 'CheckoutController@getCheckout' )
 			                ->withErrors( trans( 'checkout.errors.payment-error' ) )
 			                ->withInput( [

@@ -18,7 +18,7 @@
 						var l_name = names[names.length - 1];
 						$("#input_info_f_name").val(f_name);
 						$("#input_info_l_name").val(l_name);
-						//$("#input_info_email").val(response.email);
+						$("#input_info_email").val(response.email);
 					});
 				}
 			}
