@@ -306,7 +306,7 @@ class CombinationLibraryNew
 					$reasons[] = 'bread';
 				}
 
-				if ($data->foods->wheat == '0' || $data->foods->wheat == '1')
+				if ($data->foods->wheat == '1' || $data->foods->wheat == '2')
 				{
 					$reasons[] = 'wheat';
 				}
