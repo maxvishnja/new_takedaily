@@ -320,6 +320,7 @@ class Plan extends Model
 			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now()->addDays( 5 ) );
 		             } )
 		             ->whereNull( 'subscription_cancelled_at' );
+
 	}
 
 	/**
