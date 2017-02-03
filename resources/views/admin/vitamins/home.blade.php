@@ -3,7 +3,7 @@
 @section('content')
     <div class="module">
         <div class="module-head">
-            <h3>Vitamins</h3>
+            <h3>Sold</h3>
         </div>
 
         <div class="module-body table">
