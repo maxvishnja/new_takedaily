@@ -118,7 +118,7 @@
 
 					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {!! trans("label-{$vitaminModel->code}.ingredients") !!}</p>
 
-					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{{ trans('label-product.RI') }}</p>
+					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;">{{ trans('label-product.RI') }}</p>
 
 
 					@if(trans("label-{$vitaminModel->code}.Allergener") != '' && trans("label-{$vitaminModel->code}.Allergener") != "label-{$vitaminModel->code}.Allergener")
@@ -154,7 +154,7 @@
 		@endif
 	</div>
 
-		<div style="text-align: center; font-size: 7.5pt;  margin: 65pt 0 0 0; color: #1A8562">
+		<div style="text-align: center; font-size: 7.5pt;  margin: 70pt 0 0 0; color: #1A8562">
 			@if($customer->getLocale() == 'da')
 			{{ trans('label-product.pill_color_reason') }}
 			@endif
