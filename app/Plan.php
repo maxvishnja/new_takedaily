@@ -128,6 +128,19 @@ class Plan extends Model
 		return $allvitamins;
 	}
 
+
+	public function getVitamins (){
+
+		$vitamins = json_decode( $this->vitamins );
+
+		if ( is_null( $vitamins ) )
+		{
+			return false;
+		}
+		return $vitamins;
+	}
+
+
 	public function hasChiaoil()
 	{
 		$vitamins = json_decode( $this->vitamins );
