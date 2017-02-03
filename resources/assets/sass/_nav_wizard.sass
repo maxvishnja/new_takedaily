@@ -1,0 +1,103 @@
+.nav-wizard
+  > li
+    display: inline-block
+    position: relative
+    > .flow-step
+      position: relative
+      background-color: #f3f6f8
+      .badge
+        margin-left: 3px
+        color: #eeeeee
+        background-color: #fff
+    &:not(:first-child) > .flow-step
+      padding-left: 34px
+      &:before
+        width: 0px
+        height: 0px
+        border-top: 34px inset transparent
+        border-bottom: 34px inset transparent
+        border-left: 20px solid #f3f6f8
+        position: absolute
+        content: ""
+        top: 0
+        left: 0
+    &:not(:last-child) > .flow-step
+      //margin-right: 6px
+      &:after
+        width: 0px
+        height: 0px
+        border-top: 34px inset transparent
+        border-bottom: 34px inset transparent
+        border-left: 20px solid #777777
+        position: absolute
+        content: ""
+        top: 0
+        right: -22px
+        z-index: 2
+    &:first-child > .flow-step
+      border-top-left-radius: 4px
+      border-bottom-left-radius: 4px
+    &:last-child > .flow-step
+      border-top-right-radius: 4px
+      border-bottom-right-radius: 4px
+    &.done:hover > .flow-step, &:hover > .flow-step
+      background-color: #d5d5d5
+    &.done:hover > .flow-step:before, &:hover > .flow-step:before
+      border-right-color: #d5d5d5
+    &.done:hover > .flow-step:after, &:hover > .flow-step:after
+      border-left-color: #d5d5d5
+    &.done > .flow-step
+      background-color: #e2e2e2
+      &:before
+        border-right-color: #e2e2e2
+      &:after
+        border-left-color: #e2e2e2
+    &.active > .flow-step
+      color: #ffffff
+      background-color: #fff
+      &:hover, &:focus
+        color: #ffffff
+        background-color: #fff
+      &:after
+        border-left-color: #fff
+      .badge
+        color: #428bca
+        background-color: #ffffff
+    &.disabled > .flow-step
+      color: #777777
+      &:hover, &:focus
+        color: #777777
+        text-decoration: none
+        background-color: #eeeeee
+        cursor: default
+      &:before
+        border-right-color: #eeeeee
+      &:after
+        border-left-color: #eeeeee
+  &.nav-justified > li
+    float: none
+    > .flow-step
+      padding: 10px 15px
+  > li.active
+    > .flow-step
+      &:after
+        width: 0px
+        height: 0px
+        border-top: 34px inset transparent
+        border-bottom: 34px inset transparent
+        border-left: 20px solid #fff
+        position: absolute
+        content: ""
+        top: 0
+        z-index: 2
+  > li.active
+    > .flow-step
+      &:after
+        border-left-color: #fff
+
+@media (max-width: 768px)
+  .nav-wizard.nav-justified > li > .flow-step
+    border-radius: 4px
+    margin-right: 0
+    &:before, &:after
+      border: none !important
