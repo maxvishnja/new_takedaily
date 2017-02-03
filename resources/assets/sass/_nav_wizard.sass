@@ -1,4 +1,5 @@
 .nav-wizard
+  overflow: hidden
   > li
     display: inline-block
     position: relative
@@ -10,45 +11,45 @@
   >li:not(:last-child):after
     position: absolute
     content: ""
-    top: 0
+    top: -4px
     z-index: 1
     display: block
     right: -20px
-    border-top: 34px inset transparent
-    border-bottom: 34px inset transparent
+    border-top: 38px inset transparent
+    border-bottom: 38px inset transparent
     border-left: 20px solid #f3f6f8
 
   >li:not(:last-child):before
     position: absolute
     content: ""
-    top: 0
+    top: -4px
     z-index: 1
     display: block
     right: -23px
-    border-top: 34px inset transparent
-    border-bottom: 34px inset transparent
+    border-top: 38px inset transparent
+    border-bottom: 38px inset transparent
     border-left: 20px solid $pale-grey-border
 
   > li.active:after
     position: absolute
     content: ""
-    top: 0
+    top: -4px
     z-index: 0
     display: block
     right: -23px
-    border-top: 34px inset transparent
-    border-bottom: 34px inset transparent
+    border-top: 38px inset transparent
+    border-bottom: 38px inset transparent
     border-left: 20px solid $pale-grey-border
 
   > li.active:before
     position: absolute
     content: ""
-    top: 0
+    top: -4px
     z-index: 1
     display: block
     right: -20px
-    border-top: 34px inset transparent
-    border-bottom: 34px inset transparent
+    border-top: 38px inset transparent
+    border-bottom: 38px inset transparent
     border-left: 20px solid #ffffff
 
   >li:last-child
