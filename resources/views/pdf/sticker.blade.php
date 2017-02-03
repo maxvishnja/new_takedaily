@@ -102,7 +102,7 @@
 								<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
 							</tr>
 							</thead>
-							<tbody style="line-height: 1;font-size: 6pt; color:#1A8562;">
+							<tbody style="line-height: 1;font-size: 7.5pt; color:#1A8562;">
 							<?php $otherVitamins = (trans("label-{$vitaminModel->code}.other-vitamins")); ?>
 							<?php ksort($otherVitamins); ?>
 							@foreach($otherVitamins as $vitamin)
