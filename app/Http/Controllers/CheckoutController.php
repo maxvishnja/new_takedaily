@@ -294,11 +294,11 @@ class CheckoutController extends Controller
 	 */
 	function getSuccess( Request $request )
 	{
-//
-//		if ( ! $request->session()->has( 'order_created' ) )
-//		{
-//			return \Redirect::route( 'home' );
-//		}
+
+		if ( ! $request->session()->has( 'order_created' ) )
+		{
+			return \Redirect::route( 'home' );
+		}
 
 		$vitamins = \Auth::user()->getCustomer()->getVitaminModels();
 		$plans = \Auth::user()->getCustomer()->getOrders();
