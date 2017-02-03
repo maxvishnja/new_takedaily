@@ -122,26 +122,26 @@
 
 
 					@if(trans("label-{$vitaminModel->code}.Allergener") != '' && trans("label-{$vitaminModel->code}.Allergener") != "label-{$vitaminModel->code}.Allergener")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.Allergener') }}:</strong> {!! trans("label-{$vitaminModel->code}.Allergener") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.Allergener') }}:</strong> {!! trans("label-{$vitaminModel->code}.Allergener") !!}</p>
 					@endif
 
 					@if(trans("label-{$vitaminModel->code}.Disclaimer_warningage") != '' && trans("label-{$vitaminModel->code}.Disclaimer_warningage") != "label-{$vitaminModel->code}.Disclaimer_warningage")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.Disclaimer_warningage") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.Disclaimer_warningage") !!}</p>
 					@endif
 
 					@if(trans("label-{$vitaminModel->code}.Disclaimer_warningage") != '' && trans("label-{$vitaminModel->code}.Disclaimer_warningage") != "label-{$vitaminModel->code}.Disclaimer_warningage")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.Disclaimer_warningage") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.Disclaimer_warningage") !!}</p>
 					@endif
 
 					@if(trans("label-{$vitaminModel->code}.disclaimer_colorants") != '' && trans("label-{$vitaminModel->code}.disclaimer_colorants") != "label-{$vitaminModel->code}.disclaimer_colorants")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer_colorants") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer_colorants") !!}</p>
 					@endif
 
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
 						@if($vitaminModel->code == '3e')
 							<img src="/images/foa_logo.png" style="float: left; height: 8mm; margin-right: 3pt;margin-bottom: 3pt;margin-top: 3pt" alt="Friends of the Sea"/>
 						@endif
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 4pt 0 0;font-style:italic">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 4pt 0 0;font-style:italic">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
 					<div style="font-size: 6pt;color: #1A8562; margin-top: 1pt; font-weight: 200; ">
 						<strong>{{ trans('label-product.batch') }}</strong> {{ trans("label-{$vitaminModel->code}.batch_number") }} ·
@@ -154,7 +154,7 @@
 		@endif
 	</div>
 
-		<div style="text-align: center; font-size: 7.5pt;  margin: 90pt 0 0 0; color: #1A8562">
+		<div style="text-align: center; font-size: 7.5pt;  margin: 100pt 0 0 0; color: #1A8562">
 			@if($customer->getLocale() == 'da')
 			{{ trans('label-product.pill_color_reason') }}
 			@endif
