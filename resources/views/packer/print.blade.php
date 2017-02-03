@@ -94,7 +94,7 @@
 
 	.vitamins .vitamin {
 		width: 50%;
-		padding: 10pt;
+		padding: 5pt;
 	}
 
 	.vitamins .vitamin {
@@ -137,7 +137,7 @@ $cur = 0;
 				{!! $printable['sticker'] !!}
 			</div>
 
-			<div style="width: 82.8571428571429%; height: 57mm; position: absolute; bottom: -25px; left: 0; height: 19.19191919191919%; overflow: hidden;">
+			<div style="width: 82.8571428571429%; height: 57mm; position: absolute; bottom: -45px; left: 0; height: 19.19191919191919%; overflow: hidden;">
 				<div style="padding: 3.5mm 7mm; position: relative">
 					{!! $printable['label'] !!}
 				</div>
