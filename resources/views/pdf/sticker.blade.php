@@ -160,9 +160,9 @@
 			@endif
 		</div>
 
-	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1; position: absolute; bottom: -4mm; text-align: center">
-		<br/>
-		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
+	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1; position: absolute; bottom: 5mm; text-align: center">
+
+		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/><br/><br/>
 		<div>{{ trans('label-product.address') }}</div>
 		<strong>{{ trans('label-product.Questions') }}</strong>
 	</div>
