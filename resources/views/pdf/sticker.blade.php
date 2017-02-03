@@ -116,7 +116,7 @@
 						</table>
 					@endif
 
-					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {!! trans("label-{$vitaminModel->code}.ingredients") !!}</p>
+					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {!! trans("label-{$vitaminModel->code}.ingredients") !!}</p>
 
 					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 6pt; margin: 2pt 0 0;">{{ trans('label-product.RI') }}</p>
 
@@ -150,19 +150,19 @@
 				</div>
 			@endforeach
 
-			{{--<div class="vitamin" style="height: 160mm;"></div>--}}
+			<div class="vitamin" style="height: 160mm;"></div>
 		@endif
 	</div>
 
-		<div style="text-align: center; font-size: 7pt; min-height:20px; margin: 18pt 0 2px; color: #1A8562">
+		<div style="text-align: center; font-size: 7.5pt;  margin: 24pt 0 -2pt 0; color: #1A8562">
 			@if($customer->getLocale() == 'da')
 			{{ trans('label-product.pill_color_reason') }}
 			@endif
 		</div>
 
-	<div style="font-weight: 200;font-size: 6.5pt;color: #1A8562;line-height: 1; position: absolute; bottom: 1mm; text-align: center">
+	<div style="font-weight: 200;font-size: 7.5pt;color: #1A8562;line-height: 1; position: absolute; bottom: 1mm; text-align: center">
 
-		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/><br/><br/>
+		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/><br/>
 		<div>{{ trans('label-product.address') }}</div>
 		<strong>{{ trans('label-product.Questions') }}</strong>
 	</div>
