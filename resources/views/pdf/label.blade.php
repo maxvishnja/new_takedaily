@@ -1,5 +1,5 @@
 <?php App::setLocale($customer->getLocale()); ?>
-<div style="position: relative; height: 50mm; width: 160mm;">
+<div style="position: relative; height: 40mm; width: 160mm;">
 		<img style="width: 112pt; height: 59pt; position: absolute; top: 0; right: 25pt;" src="{{ asset('/images/logo-postnl@2x.png') }}"/>
 
 		<address>
