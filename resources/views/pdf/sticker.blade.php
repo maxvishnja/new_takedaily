@@ -160,7 +160,7 @@
 			@endif
 		</div>
 
-	<div style="font-weight: 200;font-size: 7.5pt;color: #1A8562;line-height: 1; position: absolute; bottom: 1mm; text-align: center">
+	<div style="font-weight: 200;font-size: 7.5pt;color: #1A8562;line-height: 1; position: relative; margin-top:10pt; text-align: center">
 
 		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/><br/>
 		<div>{{ trans('label-product.address') }}</div>
