@@ -1,6 +1,6 @@
 <div data-step="3" class="step">
 	<div data-sub-step="1" class="sub_step sub_step--active" >
-		<div class="count-step">(1/8)</div>
+		<div class="count-step">(13%/100%)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-1.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -29,7 +29,7 @@
 	</div>
 
 	<div data-sub-step="2" class="sub_step">
-		<div class="count-step">(2/8)</div>
+		<div class="count-step">(26%/100%)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-2.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -53,7 +53,7 @@
 	</div>
 
 	<div data-sub-step="3" class="sub_step">
-		<div class="count-step">(3/8)</div>
+		<div class="count-step">(39%/100%)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-3.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -91,7 +91,7 @@
 	</div>
 
 	<div data-sub-step="4" class="sub_step">
-		<div class="count-step">(4/8)</div>
+		<div class="count-step">(52%/100%)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-4.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -118,7 +118,7 @@
 	</div>
 
 	<div data-sub-step="5" class="sub_step">
-		<div class="count-step">(5/8)</div>
+		<div class="count-step">(65%/100%)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-5.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -148,7 +148,7 @@
 
 	<div data-sub-step="6" class="sub_step"
 		 v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }">
-		<div class="count-step">(6/8)</div>
+		<div class="count-step">(78%/100%)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-6.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -173,7 +173,7 @@
 
 	<div data-sub-step="7" class="sub_step"
 		 v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }">
-		<div class="count-step">(7/8)</div>
+		<div class="count-step">(91%/100%)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-7.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -200,7 +200,7 @@
 	</div>
 
 	<div data-sub-step="8" class="sub_step">
-		<div class="count-step">(8/8)</div>
+		<div class="count-step">(100%/100%)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-8.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
