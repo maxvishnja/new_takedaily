@@ -30,7 +30,7 @@
     border-bottom: 38px inset transparent
     border-left: 20px solid $pale-grey-border
 
-  > li.active:after
+  > li.active:not(:last-child):after
     position: absolute
     content: ""
     top: -4px
@@ -41,7 +41,7 @@
     border-bottom: 38px inset transparent
     border-left: 20px solid $pale-grey-border
 
-  > li.active:before
+  > li.active:not(:last-child):before
     position: absolute
     content: ""
     top: -4px

@@ -43,7 +43,8 @@ class Checkout
 			}
 			elseif ( $coupon->discount_type == 'amount' )
 			{
-				$this->deductTotal( MoneyLibrary::toMoneyFormat( $coupon->discount ) );
+				//$this->deductTotal( MoneyLibrary::toMoneyFormat( $coupon->discount ) );
+				$this->deductTotal( $coupon->discount  );
 			}
 
 			if ( $coupon->applies_to == 'plan' )
@@ -51,7 +52,6 @@ class Checkout
 				$this->setSubscriptionPrice( $this->getTotal() );
 			}
 		}
-
 		return $this;
 	}
 
@@ -122,7 +122,6 @@ class Checkout
 		{
 			$this->setTotal( $this->getTotal() * ( 1 - $byAmount ) );
 		}
-
 		return $this;
 	}
 
