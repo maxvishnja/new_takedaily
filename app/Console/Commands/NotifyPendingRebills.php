@@ -40,19 +40,13 @@ class NotifyPendingRebills extends Command
 
 
         $plans = Plan::rebillPending()->notNotifiedPending()->get();
-       $customers = Plan::where('subscription_cancelled_at','=',NULL)->get();
+
 	    /** @var Plan $plan */
-//	    foreach($plans as $plan)
-//	    {
-//	    	$plan->notifyUserPendingRebill();
-//	    }
-        foreach($customers as $customer){
-           $ds= $customer->subscription_rebill_at;
-            $customer->subscription_rebill_at =  \Date::createFromFormat( 'Y-m-d H:i:s', $ds  )->addDays(-7);
-            echo $customer->subscription_rebill_at."-----";
-            $customer->update();
-        }
-dd('11');
+	    foreach($plans as $plan)
+	    {
+	    	$plan->notifyUserPendingRebill();
+	    }
+
 	    echo "Notified {$plans->count()} user(s).\n";
 	    return true;
     }
