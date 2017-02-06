@@ -42,9 +42,9 @@
 							<tbody style="font-size: 6pt; color:#1A8562;line-height: 1;">
 							@foreach(collect(trans("label-{$vitaminModel->code}.first-vitamins"))->sortBy('name', SORT_NATURAL) as $vitamin)
 								<tr>
-									<td style="text-align: left; font-size: 7.5pt;font-size: 7.5pt;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
-									<td style="text-align: center; font-size: 7.5pt;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
-									<td style="text-align: right; font-size: 7.5pt;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
+									<td style="text-align: left; font-size: 7pt;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
+									<td style="text-align: center; font-size: 7pt;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
+									<td style="text-align: right; font-size: 7pt;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
 								</tr>
 							@endforeach
 							</tbody>
@@ -55,17 +55,17 @@
 						<table style="width: 100%;">
 							<thead>
 							<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
-								<th style="text-align: left;width: 50%; font-size: 7.5pt;">{{ trans('label-product.titles.vitamins') }}</th>
-								<th style="text-align: center;width: 30%; font-size: 7.5pt;">{{ trans('label-product.titles.amount') }}</th>
-								<th style="text-align: right; font-size: 7.5pt;">{{ trans('label-product.titles.percent') }}</th>
+								<th style="text-align: left;width: 50%; font-size: 7pt;">{{ trans('label-product.titles.vitamins') }}</th>
+								<th style="text-align: center;width: 30%; font-size: 7pt;">{{ trans('label-product.titles.amount') }}</th>
+								<th style="text-align: right; font-size: 7pt;">{{ trans('label-product.titles.percent') }}</th>
 							</tr>
 							</thead>
 							<tbody style="font-size: 6pt; color:#1A8562;line-height: 1;">
 							@foreach(collect(trans("label-{$vitaminModel->code}.vitamins"))->sortBy('name', SORT_NATURAL) as $vitamin)
 								<tr>
-									<td style="text-align: left; font-size: 7.5pt;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
-									<td style="text-align: center; font-size: 7.5pt;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
-									<td style="text-align: right; font-size: 7.5pt;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
+									<td style="text-align: left; font-size: 7pt;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
+									<td style="text-align: center; font-size: 7pt;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
+									<td style="text-align: right; font-size: 7pt;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
 								</tr>
 							@endforeach
 							</tbody>
@@ -76,17 +76,17 @@
 						<table style="width: 100%;">
 							<thead>
 							<tr style="font-weight: bold;font-size: 7pt; color: #1A8562;">
-								<th style="text-align: left; width: 50%; font-size: 7.5pt;">{{ trans('label-product.titles.minerals') }}</th>
-								<th style="text-align: center; width: 30%; font-size: 7.5pt;">{{ trans('label-product.titles.amount') }}</th>
-								<th style="text-align: right; font-size: 7.5pt;">{{ trans('label-product.titles.percent') }}</th>
+								<th style="text-align: left; width: 50%; font-size: 7pt;">{{ trans('label-product.titles.minerals') }}</th>
+								<th style="text-align: center; width: 30%; font-size: 7pt;">{{ trans('label-product.titles.amount') }}</th>
+								<th style="text-align: right; font-size: 7pt;">{{ trans('label-product.titles.percent') }}</th>
 							</tr>
 							</thead>
 							<tbody style="font-size: 6pt; color:#1A8562;line-height: 1;">
 							@foreach(collect(trans("label-{$vitaminModel->code}.minerals"))->sortBy('name', SORT_NATURAL) as $vitamin)
 								<tr>
-									<td style="text-align: left; font-size: 7.5pt;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
-									<td style="text-align: center; font-size: 7.5pt;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
-									<td style="text-align: right; font-size: 7.5pt;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
+									<td style="text-align: left; font-size: 7pt;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
+									<td style="text-align: center; font-size: 7pt;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
+									<td style="text-align: right; font-size: 7pt;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
 								</tr>
 							@endforeach
 							</tbody>
