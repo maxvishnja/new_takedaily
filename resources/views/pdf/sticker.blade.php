@@ -151,7 +151,7 @@
 		@endif
 	</div>
 
-		<div style="text-align: center; font-size: 7.5pt;  margin: 105pt 0 0 0; color: #1A8562">
+		<div style="text-align: center; font-size: 7.5pt;  margin: 110pt 0 0 0; color: #1A8562">
 			@if($customer->getLocale() == 'da')
 			{{ trans('label-product.pill_color_reason') }}
 			@endif
