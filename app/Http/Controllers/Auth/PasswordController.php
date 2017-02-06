@@ -21,6 +21,7 @@ class PasswordController extends Controller
     use ResetsPasswords;
 
 	protected $redirectPath = '/account';
+	protected $subject = 'TakeDaily wachtwoord wijzigen';
 
     /**
      * Create a new password controller instance.
