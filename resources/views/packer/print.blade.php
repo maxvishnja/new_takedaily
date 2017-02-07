@@ -89,7 +89,7 @@
 
 	.vitamins .vitamin {
 		width: 50%;
-		padding: 5pt;
+		padding: 5pt 7pt;
 	}
 
 	.vitamins .vitamin {
@@ -133,7 +133,7 @@ $cur = 0;
 			</div>
 
 			<div style="width: 100%; height: 50mm; position: relative;  left: 0;  overflow: hidden;">
-				<div style="padding: 0pt 5pt; position: relative; margin-top:40pt">
+				<div style="padding: 0pt 10pt; position: relative; margin-top:40pt">
 					{!! $printable['label'] !!}
 				</div>
 			</div>

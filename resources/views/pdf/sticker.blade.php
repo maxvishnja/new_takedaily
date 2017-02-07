@@ -1,6 +1,6 @@
 <?php App::setLocale( $customer->getLocale() ); ?>
 <div style="width: 100%; height: 100%;  padding: 1mm;">
-	<div style="height: 5mm; position: relative;">
+	<div style="height: 5mm; position: relative; padding:0 7pt;">
 		<h1 style="margin: 0; font-weight: normal;font-size: 12pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
 			<strong>{{ strlen($customer->getName()) > 25 ? \Illuminate\Support\Str::words($customer->getName(), 1, '') : $customer->getName() }}</strong></h1>
 
@@ -151,13 +151,13 @@
 		@endif
 	</div>
 
-		<div style="text-align: center; font-size: 7pt;  margin: 10pt 0 0 0; color: #1A8562">
+		<div style="text-align: center;  font-size: 7pt;  margin: 5pt 0 0 0; color: #1A8562">
 			@if($customer->getLocale() == 'da')
 			{{ trans('label-product.pill_color_reason') }}
 			@endif
 		</div>
 
-	<div style="font-weight: 200;font-size: 7pt;color: #1A8562;line-height: 1; position: relative; margin-top:10pt; text-align: center">
+	<div style="font-weight: 200;font-size: 7pt;color: #1A8562;line-height: 1; position: relative; padding:0 0 0 5pt; margin-top:10pt; text-align: center">
 
 		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/><br/>
 		<div>{{ trans('label-product.address') }}</div>
