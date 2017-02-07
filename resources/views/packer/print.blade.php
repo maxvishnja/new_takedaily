@@ -128,11 +128,11 @@ $cur = 0;
 	?>
 	<div class="print" style="left: 0; top: {{ ($cur-1)*100 }}%; width: 173mm; ">
 		<div style="width: 99.8571428571429%; position: relative;  height: 100%;">
-			<div style="width: 99.8571428571429%; position: relative; height: 235mm;  top: 0; left: 0;  overflow: hidden;">
+			<div style="width: 99.8571428571429%; position: relative; height: 240mm;  top: 0; left: 0;  overflow: hidden;">
 				{!! $printable['sticker'] !!}
 			</div>
 
-			<div style="width: 100%; height: 50mm; position: relative;  left: 0;  overflow: hidden;">
+			<div style="width: 100%; height: 40mm; position: relative;  left: 0;  overflow: hidden;">
 				<div style="padding: 0pt 10pt; position: relative; margin-top:40pt">
 					{!! $printable['label'] !!}
 				</div>

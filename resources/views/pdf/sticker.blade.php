@@ -1,10 +1,10 @@
 <?php App::setLocale( $customer->getLocale() ); ?>
 <div style="width: 100%; height: 100%;  padding: 1mm;">
-	<div style="height: 5mm; position: relative; padding:0 7pt;">
+	<div style="height: 12mm; position: relative; padding:8mm 0 0 7pt;">
 		<h1 style="margin: 0; font-weight: normal;font-size: 12pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
 			<strong>{{ strlen($customer->getName()) > 25 ? \Illuminate\Support\Str::words($customer->getName(), 1, '') : $customer->getName() }}</strong></h1>
 
-		<span style="position: absolute; top: 0; right: 0; font-size: 9pt; font-weight: 200; color: #1A8562;">#{{ $order->getPaddedId() }}</span>
+		<span style="position: absolute; top: 8mm; right: 0; font-size: 9pt; font-weight: 200; color: #1A8562;">#{{ $order->getPaddedId() }}</span>
 	</div>
 
 	<div class="vitamins">
@@ -151,7 +151,7 @@
 		@endif
 	</div>
 
-		<div style="text-align: center;  font-size: 7pt;  margin: 5pt 0 0 0; color: #1A8562">
+		<div style="text-align: center;  font-size: 7pt;  margin: 0pt 0 0 0; color: #1A8562">
 			@if($customer->getLocale() == 'da')
 			{{ trans('label-product.pill_color_reason') }}
 			@endif
