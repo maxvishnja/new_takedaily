@@ -1,7 +1,7 @@
 <?php App::setLocale( $customer->getLocale() ); ?>
 <div style="width: 100%; height: 100%;  padding: 1mm;">
-	<div style="height: 9mm; position: relative;">
-		<h1 style="margin: 0; font-weight: normal;font-size: 15pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
+	<div style="height: 5mm; position: relative;">
+		<h1 style="margin: 0; font-weight: normal;font-size: 12pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
 			<strong>{{ strlen($customer->getName()) > 25 ? \Illuminate\Support\Str::words($customer->getName(), 1, '') : $customer->getName() }}</strong></h1>
 
 		<span style="position: absolute; top: 0; right: 0; font-size: 9pt; font-weight: 200; color: #1A8562;">#{{ $order->getPaddedId() }}</span>
@@ -102,7 +102,7 @@
 								<th style="text-align: right;">{{ trans('label-product.titles.percent') }}</th>
 							</tr>
 							</thead>
-							<tbody style="line-height: 1;font-size: 7.5pt; color:#1A8562;">
+							<tbody style="line-height: 1;font-size: 7pt; color:#1A8562;">
 							<?php $otherVitamins = (trans("label-{$vitaminModel->code}.other-vitamins")); ?>
 							<?php ksort($otherVitamins); ?>
 							@foreach($otherVitamins as $vitamin)
@@ -115,32 +115,32 @@
 							</tbody>
 						</table>
 					@endif
-					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;">{{ trans('label-product.RI') }}</p>
-					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {!! trans("label-{$vitaminModel->code}.ingredients") !!}</p>
+					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 0;">{{ trans('label-product.RI') }}</p>
+					<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.ingredients') }}:</strong> {!! trans("label-{$vitaminModel->code}.ingredients") !!}</p>
 
 					@if(trans("label-{$vitaminModel->code}.Allergener") != '' && trans("label-{$vitaminModel->code}.Allergener") != "label-{$vitaminModel->code}.Allergener")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.Allergener') }}:</strong> {!! trans("label-{$vitaminModel->code}.Allergener") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 0;"><strong>{{ trans('label-product.Allergener') }}:</strong> {!! trans("label-{$vitaminModel->code}.Allergener") !!}</p>
 					@endif
 
 					@if(trans("label-{$vitaminModel->code}.Disclaimer_warningage") != '' && trans("label-{$vitaminModel->code}.Disclaimer_warningage") != "label-{$vitaminModel->code}.Disclaimer_warningage")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.Disclaimer_warningage") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.Disclaimer_warningage") !!}</p>
 					@endif
 
 					@if(trans("label-{$vitaminModel->code}.Disclaimer_warningage") != '' && trans("label-{$vitaminModel->code}.Disclaimer_warningage") != "label-{$vitaminModel->code}.Disclaimer_warningage")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.Disclaimer_warningage") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.Disclaimer_warningage") !!}</p>
 					@endif
 
 					@if(trans("label-{$vitaminModel->code}.disclaimer_colorants") != '' && trans("label-{$vitaminModel->code}.disclaimer_colorants") != "label-{$vitaminModel->code}.disclaimer_colorants")
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer_colorants") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer_colorants") !!}</p>
 					@endif
 
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
 						@if($vitaminModel->code == '3e')
 							<img src="/images/foa_logo.png" style="float: left; height: 8mm; margin-right: 3pt;margin-bottom: 3pt;margin-top: 3pt" alt="Friends of the Sea"/>
 						@endif
-						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7.5pt; margin: 4pt 0 0;font-style:italic">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
+						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0 0;font-style:italic">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
-					<div style="font-size: 7.5pt;color: #1A8562; margin-top: 1pt; font-weight: 200; ">
+					<div style="font-size: 7pt;color: #1A8562; margin-top: 1pt; font-weight: 200; ">
 						<strong>{{ trans('label-product.batch') }}</strong> {{ trans("label-{$vitaminModel->code}.batch_number") }} ·
 						<strong>{{ trans('label-product.expiration') }}</strong> {{ trans("label-{$vitaminModel->code}.end_date") }}
 					</div>
@@ -151,13 +151,13 @@
 		@endif
 	</div>
 
-		<div style="text-align: center; font-size: 7.5pt;  margin: 105pt 0 0 0; color: #1A8562">
+		<div style="text-align: center; font-size: 7pt;  margin: 98pt 0 0 0; color: #1A8562">
 			@if($customer->getLocale() == 'da')
 			{{ trans('label-product.pill_color_reason') }}
 			@endif
 		</div>
 
-	<div style="font-weight: 200;font-size: 7.5pt;color: #1A8562;line-height: 1; position: relative; margin-top:10pt; text-align: center">
+	<div style="font-weight: 200;font-size: 7pt;color: #1A8562;line-height: 1; position: relative; margin-top:10pt; text-align: center">
 
 		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/><br/>
 		<div>{{ trans('label-product.address') }}</div>

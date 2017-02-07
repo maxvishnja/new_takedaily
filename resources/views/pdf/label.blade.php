@@ -1,5 +1,5 @@
 <?php App::setLocale($customer->getLocale()); ?>
-<div style="position:relative; height: 35mm; width: 160mm;">
+<div style="position:relative;  width: 170mm;">
 		<img style="width: 112pt; height: 59pt; position: absolute; top: 0; right: 25pt;" src="{{ asset('/images/logo-postnl@2x.png') }}"/>
 
 		<address>
@@ -13,5 +13,5 @@
 			{{ ucfirst($customer->getCustomerAttribute('address_country')) }}</p>
 		</address>
 
-		<div style="font-size: 10pt; position: absolute; bottom: 4mm; font-weight: 200;"><small>{{ trans('label-product.return') }}</small></div>
+		<div style="font-size: 10pt; font-weight: 200;"><small>{{ trans('label-product.return') }}</small></div>
 </div>
