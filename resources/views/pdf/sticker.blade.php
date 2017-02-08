@@ -1,6 +1,6 @@
 <?php App::setLocale( $customer->getLocale() ); ?>
 <div style="width: 100%; height: 100%;  padding: 1mm;">
-	<div style="height: 12mm; position: relative; padding:8mm 0 0 7pt;">
+	<div style="height: 12mm; position: relative; padding:8mm 0 0 15pt;">
 		<h1 style="margin: 0; font-weight: normal;font-size: 12pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
 			<strong>{{ strlen($customer->getName()) > 25 ? \Illuminate\Support\Str::words($customer->getName(), 1, '') : $customer->getName() }}</strong></h1>
 
@@ -12,7 +12,7 @@
 			@foreach($customer->getVitaminModels() as $vitaminModel)
 				<?php $vitaminModel->code = strtolower($vitaminModel->code); ?>
 				<div class="vitamin" >
-					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt;">
+					<img src="{{ asset('/images/icons/pills/pill-' . $vitaminModel->code . '@2x.png') }}" alt="Vitamin icon" style="float: right;width:20pt; height: 19pt; margin-right:9pt">
 					<h2 style="font-weight: bold; font-size: 10.5pt; margin: 0 0 2pt; color: #1A8562">{{ \App\Apricot\Helpers\PillName::get($vitaminModel->code) }}</h2>
 					<div style="margin: 4pt 0; font-size: 7pt; line-height: 1.2; color: #1A8562;">
 						<div style="margin-bottom: 2pt;">{!! trans('label-product.contains') !!}</div>
@@ -151,16 +151,16 @@
 		@endif
 	</div>
 
-		<div style="text-align: center;  font-size: 7pt;  margin: 0pt 0 0 0; color: #1A8562">
+		<div style="text-align: center;  font-size: 7pt;  padding:0 0 0 12pt; color: #1A8562">
 			@if($customer->getLocale() == 'da')
 			{{ trans('label-product.pill_color_reason') }}
 			@endif
 		</div>
 
-	<div style="font-weight: 200;font-size: 7pt;color: #1A8562;line-height: 1; position: relative; padding:0 0 0 5pt; margin-top:10pt; text-align: center">
+	<div style="font-weight: 200;font-size: 7pt;color: #1A8562;line-height: 1; position: relative; padding:0 0 0 12pt; margin-top:5pt; text-align: center">
 
-		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/><br/>
-		<div>{{ trans('label-product.address') }}</div>
+		{!! trans('label-product.Use') !!} {!! trans('label-product.Store') !!}<br/>
+		<div style="margin-top:3pt;">{{ trans('label-product.address') }}</div>
 		<strong>{{ trans('label-product.Questions') }}</strong>
 	</div>
 </div>
