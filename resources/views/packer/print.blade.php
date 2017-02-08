@@ -89,7 +89,7 @@
 
 	.vitamins .vitamin {
 		width: 50%;
-		padding: 5pt 2pt 2pt 13pt;
+		padding: 5pt 5pt 2pt 13pt;
 	}
 
 	.vitamins .vitamin {
