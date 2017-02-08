@@ -137,7 +137,7 @@ class CheckoutCompletion
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
 				'subscription_started_at'   => \Date::now(),
 				'currency'                  => trans( 'general.currency' ),
-				'subscription_rebill_at'    => \Date::now()->addDays( 28 ),
+				'subscription_rebill_at'    => \Date::now()->addDays( 28 )->addWeekdays( 4 ),
 				'subscription_cancelled_at' => null
 			] );
 
