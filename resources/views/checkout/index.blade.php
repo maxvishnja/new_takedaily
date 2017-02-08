@@ -18,7 +18,7 @@
 						var l_name = names[names.length - 1];
 						$("#input_info_f_name").val(f_name);
 						$("#input_info_l_name").val(l_name);
-						//$("#input_info_email").val(response.email);
+						$("#input_info_email").val(response.email);
 					});
 				}
 			}
@@ -244,15 +244,15 @@
 					@include('includes.payment.method')
 
 					<div class="m-b-20 terms_container_box">
-						<label style="padding: 8px 12px; background: #f7f7f7; border: 1px solid #ddd; line-height: 1.3; min-height: 64px; display: flex; justify-content: center; align-items: center">
-							<input name="terms_accept" type="checkbox" aria-required="true" data-validate="true" required="required" id="terms_checkbox" style="margin-right: 20px" />
+						<label class="terms-label">
+							<input name="terms_accept" type="checkbox" aria-required="true" data-validate="true" required="required" id="terms_checkbox"  />
 							<div>{!! trans('checkout.terms-agree') !!}</div>
 						</label>
 					</div>
 
 					<div class="visible-xs">
 						<div class="form-button-submit-holder">
-							<button class="button button--huge button--green button--full button--rounded" type="submit"
+							<button onsubmit="ga('send', 'event', 'order', 'completed');" class="button button--huge button--green button--full button--rounded" type="submit"
 									id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
 							<div class="clear"></div>
 						</div>
@@ -260,7 +260,7 @@
 
 					<div class="hidden-xs">
 						<div class="form-button-submit-holder">
-							<button class="button button--huge button--green button--rounded" type="submit"
+							<button onsubmit="ga('send', 'event', 'order', 'completed');" class="button button--huge button--green button--rounded" type="submit"
 									id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
 
 							<div class="clear"></div>
@@ -339,7 +339,7 @@
 										   value="{{ Request::old('coupon', Session::get('applied_coupon')) }}" required="required"/>
 								</div>
 								<div class="col-md-5">
-									<button type="submit" onsubmit="ga('send', 'event', 'order', 'completed');" class="button button--regular button--full button--green">{{ trans('checkout.index.coupon.button-text') }}</button>
+									<button type="submit"  class="button button--regular button--full button--green">{{ trans('checkout.index.coupon.button-text') }}</button>
 								</div>
 							</div>
 							{{ csrf_field() }}

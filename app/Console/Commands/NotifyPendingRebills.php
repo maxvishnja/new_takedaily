@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Customer;
 use App\Plan;
 use Illuminate\Console\Command;
 
@@ -36,6 +37,8 @@ class NotifyPendingRebills extends Command
      */
     public function handle()
     {
+
+
         $plans = Plan::rebillPending()->notNotifiedPending()->get();
 
 	    /** @var Plan $plan */

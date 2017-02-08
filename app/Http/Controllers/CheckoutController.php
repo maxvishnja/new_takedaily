@@ -99,6 +99,9 @@ class CheckoutController extends Controller
 		$street   = $request->get( 'address_street' );
 		$city     = $request->get( 'address_city' );
 		$zipcode  = $request->get( 'address_zip' );
+		$first_name  = $request->get( 'first_name' );
+		$last_name  = $request->get( 'last_name' );
+		$zipcode  = $request->get( 'address_zip' );
 		$userData = $request->get( 'user_data' );
 		$name     = sprintf('%s %s', $request->get( 'first_name' ), $request->get( 'last_name' ));
 		$email    = $request->get( 'email' );
@@ -139,6 +142,8 @@ class CheckoutController extends Controller
 		$request->session()->put( 'charge_id', $charge->id );
 		$request->session()->put( 'payment_customer_id', $checkout->getCustomer()->id );
 		$request->session()->put( 'name', $name );
+		$request->session()->put( 'first_name', $first_name );
+		$request->session()->put( 'last_name', $last_name );
 		$request->session()->put( 'email', $email );
 		$request->session()->put( 'address_street', $street );
 		$request->session()->put( 'address_city', $city );
@@ -197,6 +202,8 @@ class CheckoutController extends Controller
 			                ->withErrors( trans( 'checkout.errors.payment-error' ) )
 			                ->withInput( [
 				                'name'            => $request->session()->get( 'name' ),
+				                'first_name'      => $request->session()->get( 'first_name' ),
+				                'last_name'       => $request->session()->get( 'last_name' ),
 				                'email'           => $request->session()->get( 'email' ),
 				                'address_street'  => $request->session()->get( 'address_street' ),
 				                'address_city'    => $request->session()->get( 'address_city' ),
@@ -295,11 +302,12 @@ class CheckoutController extends Controller
 
 		$vitamins = \Auth::user()->getCustomer()->getVitaminModels();
 		$plans = \Auth::user()->getCustomer()->getOrders();
+		$email = \Auth::user()->email;
 
 		foreach($plans as $plan){
 			$order_id = $plan->id;
 		}
-		return view( 'checkout.success', [ 'vitamins' => $vitamins, 'order_id' => $order_id ] );
+		return view( 'checkout.success', [ 'vitamins' => $vitamins, 'order_id' => $order_id, 'user_email' => $email ] );
 	}
 
 	/**

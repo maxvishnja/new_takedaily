@@ -128,6 +128,19 @@ class Plan extends Model
 		return $allvitamins;
 	}
 
+
+	public function getVitamins (){
+
+		$vitamins = json_decode( $this->vitamins );
+
+		if ( is_null( $vitamins ) )
+		{
+			return false;
+		}
+		return $vitamins;
+	}
+
+
 	public function hasChiaoil()
 	{
 		$vitamins = json_decode( $this->vitamins );
@@ -203,7 +216,8 @@ class Plan extends Model
 	{
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = null;
-		$this->subscription_rebill_at     = Date::now()->addDays( 28 )->addWeekdays(4);
+//		$this->subscription_rebill_at     = Date::now()->addDays( 28 )->addWeekdays(4);
+		$this->subscription_rebill_at     = Date::now()->addDays( 28 );
 		$this->save();
 
 		return true;
@@ -211,7 +225,7 @@ class Plan extends Model
 
 	public function rebilled()
 	{
-		$this->subscription_rebill_at = Date::now()->addDays( 28 )->addWeekdays(4);
+		$this->subscription_rebill_at = Date::now()->addDays( 28 );
 		$this->save();
 
 		$this->markHasNotified( false );
@@ -319,6 +333,7 @@ class Plan extends Model
 			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now()->addDays( 5 ) );
 		             } )
 		             ->whereNull( 'subscription_cancelled_at' );
+
 	}
 
 	/**

@@ -31,8 +31,8 @@
 
 	@media print {
 		html, body {
-			width: 210mm;
-			height: 297mm;
+			width: 173mm;
+			height: 277mm;
 		}
 
 		/* ... the rest of the rules ... */
@@ -69,14 +69,11 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
-		height: 195mm;
-		height: 238mm;
-		height: 236mm;
-		height: 190mm;
-		width: 166mm;
-		width: 79.04%;
-		width: 100%;
+		height: 200mm;
+		width: 173mm;
 		position: relative;
+		padding: 5pt 5pt 0 12pt;
+
 	}
 
 	.vitamins:after {
@@ -93,7 +90,7 @@
 
 	.vitamins .vitamin {
 		width: 50%;
-		padding: 2pt;
+		padding: 1pt;
 	}
 
 	.vitamins .vitamin {
@@ -130,14 +127,14 @@ $cur = 0;
 	App::setLocale( $printable['locale'] );
 	$cur ++;
 	?>
-	<div class="print" style="width: 210mm; width: 100%; height: 297mm; position: absolute; left: 0; top: {{ ($cur-1)*100 }}%; width: 100%; height: 100%;">
-		<div style="width: 82.8571428571429%; position: relative; position: absolute; height: 100%;">
-			<div style="width: 82.8571428571429%; height: 240mm; position: absolute; top: 0; left: 0; height: 80.80808080808080801%; overflow: hidden;">
+	<div class="print" style="left: 0; top: {{ ($cur-1)*100 }}%; width: 173mm; ">
+		<div style="width: 99.8571428571429%; position: relative;  height: 100%;">
+			<div style="width: 99.8571428571429%; position: relative; height: 240mm;  top: 0; left: 0;  overflow: hidden;">
 				{!! $printable['sticker'] !!}
 			</div>
 
-			<div style="width: 82.8571428571429%; height: 57mm; position: absolute; bottom: 0; left: 0; height: 19.19191919191919%; overflow: hidden;">
-				<div style="padding: 3.5mm 7mm; position: relative">
+			<div style="width: 100%; height: 40mm; position: relative;  left: 0;  overflow: hidden;">
+				<div style="padding: 0pt  0 0 20pt; position: relative; margin-top:25pt">
 					{!! $printable['label'] !!}
 				</div>
 			</div>

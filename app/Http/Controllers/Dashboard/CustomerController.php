@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Order;
 use App\Vitamin;
 use Illuminate\Mail\Message;
 use Illuminate\Http\Request;
@@ -69,6 +70,7 @@ class CustomerController extends Controller
 	function update(Request $request, $id)
 	{
 		$customer = Customer::find($id);
+		$order = Order::where([['state', '=', 'paid'],['customer_id', '=', $id]])->first();
 
 		if( ! $customer )
 		{
@@ -86,18 +88,27 @@ class CustomerController extends Controller
 			}
 			if($ident->identifier == 'address_line1'){
 				$ident->value = $request->get('address_line1');
+				$order->shipping_street = $request->get('address_line1');
+				$order->update();
 				$ident->update();
 			}
 			if($ident->identifier == 'address_city'){
 				$ident->value = $request->get('address_city');
+				$order->shipping_city = $request->get('address_city');
+				$order->update();
 				$ident->update();
 			}
 			if($ident->identifier == 'address_country'){
 				$ident->value = $request->get('address_country');
+				$order->shipping_country = $request->get('address_country');
+				$order->update();
 				$ident->update();
+
 			}
 			if($ident->identifier == 'address_postal'){
 				$ident->value = $request->get('address_postal');
+				$order->shipping_zipcode = $request->get('address_postal');
+				$order->update();
 				$ident->update();
 			}
 			if($ident->identifier == 'user_data.age'){
@@ -107,35 +118,48 @@ class CustomerController extends Controller
 		}
 
 		$usernew['name'] = $request->get('cust_name');
+		$order->shipping_name = $request->get('cust_name');
 		$usernew['email'] = $request->get('cust_email');
 		$customer->user->update($usernew);
+		$order->update();
 
 
 		if($request->get('vitamin-1')){
-			$vitamins_one = Vitamin::where('code', '=', $request->get('vitamin-1'))->value('id');
+			foreach($request->get('vitamin-1') as $vit1){
+				$vitamins_one = Vitamin::where('code', '=', $vit1)->value('id');
+			}
 		}
 		if($request->get('vitamin-2')){
-			$vitamins_two = Vitamin::where('code', '=', strtoupper($request->get('vitamin-2')))->value('id');
+			foreach($request->get('vitamin-2') as $vit2) {
+				$vitamins_two = Vitamin::where('code', '=', strtoupper($vit2))->value('id');
+			}
 		}
 		if($request->get('vitamin-3')){
-			$vitamins_three = Vitamin::where('code', '=', $request->get('vitamin-3'))->value('id');
+			foreach($request->get('vitamin-3') as $vit3) {
+				$vitamins_three[] = Vitamin::where('code', '=', $vit3)->value('id');
+			}
 		}
 
-		$vitamins = '';
+		$vitamins = '[';
 
 		if(isset($vitamins_one)) {
-			$vitamins .= '[' . $vitamins_one . ',';
+			$vitamins .=  $vitamins_one . ',';
 		}
 
 		if(isset($vitamins_two)) {
 			$vitamins .= $vitamins_two . ',';
 		}
 
-		if(isset($vitamins_three)) {
-			$vitamins .= $vitamins_three . ']';
+		if(isset($vitamins_three[0])) {
+			$vitamins .= $vitamins_three[0];
 		}
 
-		if($vitamins!=''){
+		if(isset($vitamins_three[1])) {
+			$vitamins .= ','.$vitamins_three[1];
+		}
+		$vitamins .= ']';
+
+		if($vitamins!='[]'){
 			$customer->plan->vitamins = $vitamins;
 			$customer->plan->update();
 		}

@@ -1,5 +1,6 @@
 <div data-step="1" class="step step--active">
 	<div data-sub-step="1" class="sub_step sub_step--active">
+		<div class="count-step">(1/4)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.1-1.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -20,6 +21,7 @@
 	</div>
 
 	<div data-sub-step="2" class="sub_step" >
+		<div class="count-step">(2/4)</div>
 		<h3 class="substep-title"
 			v-show="user_data.gender == 1">{{ trans('flow.questions.1-2.title') }}</h3>
 		<h3 class="substep-title"
@@ -46,6 +48,7 @@
 	</div>
 
 	<div data-sub-step="3" class="sub_step">
+		<div class="count-step">(3/4)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.1-3.title') }}</h3>
 		<div class="sub_step_answers">
 			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
@@ -73,6 +76,7 @@
 	</div>
 
 	<div data-sub-step="4" class="sub_step">
+		<div class="count-step">(4/4)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.1-4.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>

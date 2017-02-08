@@ -55,6 +55,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::resource( 'coupons', 'Dashboard\CouponController' );
 	Route::resource( 'settings', 'Dashboard\SettingController' );
 	Route::resource( 'products', 'Dashboard\ProductController' );
+	Route::resource( 'vitamins', 'Dashboard\VitaminController' );
 	Route::resource( 'pages', 'Dashboard\PageController' );
 	Route::resource( 'page-translations', 'Dashboard\PageTranslationController' );
 	Route::get( 'page-translations/{id}/delete', 'Dashboard\PageTranslationController@delete' );
