@@ -4,7 +4,7 @@
 		<h1 style="margin: 0; font-weight: normal;font-size: 12pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
 			<strong>{{ strlen($customer->getName()) > 25 ? \Illuminate\Support\Str::words($customer->getName(), 1, '') : $customer->getName() }}</strong></h1>
 
-
+		<span style="position: absolute; top: 8mm; right: 0; font-size: 9pt; font-weight: 200; color: #1A8562;">#{{ $order->getPaddedId() }}</span>
 	</div>
 
 	<div class="vitamins">
