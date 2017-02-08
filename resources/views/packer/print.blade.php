@@ -72,6 +72,7 @@
 		height: 200mm;
 		width: 173mm;
 		position: relative;
+		padding: 5pt 5pt 0 12pt;
 
 	}
 
@@ -89,7 +90,7 @@
 
 	.vitamins .vitamin {
 		width: 50%;
-		padding: 5pt 5pt 2pt 13pt;
+		padding: 1pt;
 	}
 
 	.vitamins .vitamin {
