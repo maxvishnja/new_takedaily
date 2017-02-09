@@ -27,7 +27,10 @@
 								@endif
 							@endforeach
 						@endif
-						<div>{!! trans('label-product.recommended-daily-use') !!}</div>
+						@if(trans("label-{$vitaminModel->code}.disclaimer_EPA_en_DHA") != "label-{$vitaminModel->code}.disclaimer_EPA_en_DHA")
+							<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0 0;font-style:italic">{!! trans("label-{$vitaminModel->code}.disclaimer_EPA_en_DHA") !!}</p>
+						@endif
+						<div style="margin-top:2pt">{!! trans('label-product.recommended-daily-use') !!}</div>
 					</div>
 
 					@if(is_array(trans("label-{$vitaminModel->code}.first-vitamins")) && count(trans("label-{$vitaminModel->code}.first-vitamins")) > 0)
@@ -103,14 +106,17 @@
 							</tr>
 							</thead>
 							<tbody style="line-height: 1;font-size: 7pt; color:#1A8562;">
+
 							<?php $otherVitamins = (trans("label-{$vitaminModel->code}.other-vitamins")); ?>
 							<?php ksort($otherVitamins); ?>
 							@foreach($otherVitamins as $vitamin)
+								@if(isset($vitamin['name']))
 								<tr>
 									<td style="text-align: left;">{{ isset($vitamin['name']) ? $vitamin['name'] : '' }}</td>
 									<td style="text-align: center;">{{ isset($vitamin['amount']) ? $vitamin['amount'] : '' }}</td>
 									<td style="text-align: right;">{{ isset($vitamin['percent']) ? $vitamin['percent'] : '' }}</td>
 								</tr>
+								@endif
 							@endforeach
 							</tbody>
 						</table>
@@ -133,13 +139,13 @@
 					@if(trans("label-{$vitaminModel->code}.disclaimer_colorants") != '' && trans("label-{$vitaminModel->code}.disclaimer_colorants") != "label-{$vitaminModel->code}.disclaimer_colorants")
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 2pt 0 0;">{!! trans("label-{$vitaminModel->code}.disclaimer_colorants") !!}</p>
 					@endif
-
 					@if(trans("label-{$vitaminModel->code}.disclaimer") != '')
 						@if($vitaminModel->code == '3e')
 							<img src="/images/foa_logo.png" style="float: left; height: 8mm; margin-right: 3pt;margin-bottom: 3pt;margin-top: 3pt" alt="Friends of the Sea"/>
 						@endif
 						<p style="line-height: 1.1; font-weight: 200; color: #1A8562; font-size: 7pt; margin: 4pt 0 0;font-style:italic">{!! trans("label-{$vitaminModel->code}.disclaimer") !!}</p>
 					@endif
+
 					<div style="font-size: 7pt;color: #1A8562; margin-top: 1pt; font-weight: 200; ">
 						<strong>{{ trans('label-product.batch') }}</strong> {{ trans("label-{$vitaminModel->code}.batch_number") }} ·
 						<strong>{{ trans('label-product.expiration') }}</strong> {{ trans("label-{$vitaminModel->code}.end_date") }}
