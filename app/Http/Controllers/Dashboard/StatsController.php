@@ -49,6 +49,7 @@ class StatsController extends Controller
                     $i = 0;
                     foreach($ordercount as $order){
                         $newdate = \Date::createFromFormat( 'Y-m-d H:i:s', $order->subscription_started_at )->addDays( 28 )->addWeekdays( 5 );
+
                        if($newdate < \Date::createFromFormat( 'Y-m-d H:i:s', $order->subscription_rebill_at )){
                             $i++;
                        }
