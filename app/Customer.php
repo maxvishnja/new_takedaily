@@ -490,6 +490,8 @@ class Customer extends Model
 		] );
 	}
 
+
+
 	public function hasNewRecommendations()
 	{
 		$alphabet        = range( 'a', 'c' );

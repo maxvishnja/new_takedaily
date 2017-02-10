@@ -61,6 +61,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'page-translations/{id}/delete', 'Dashboard\PageTranslationController@delete' );
 
 	Route::resource( 'faq', 'Dashboard\FaqController' );
+	Route::get( 'stats', 'Dashboard\StatsController@index' );
+	Route::post('stats/post', ['as' => 'stats-post', 'uses' => 'Dashboard\StatsController@getData']);
 	Route::resource( 'faq-translations', 'Dashboard\FaqTranslationController' );
 	Route::get( 'faq-translations/{id}/delete', 'Dashboard\FaqTranslationController@delete' );
 

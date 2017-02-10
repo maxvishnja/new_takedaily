@@ -2,12 +2,18 @@
 
 
 use App\Customer;
+use App\Plan;
 
 class CustomerRepository
 {
 	public function all()
 	{
 		return Customer::orderBy('created_at', 'DESC')->get();
+	}
+
+	public function allActive()
+	{
+		return Plan::whereNull('subscription_cancelled_at')->count();
 	}
 
 	public function rebillAble()
