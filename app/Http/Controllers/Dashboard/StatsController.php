@@ -43,11 +43,19 @@ class StatsController extends Controller
                 case 1:
                     return Customer::whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
                 case 2:
-                    return Plan::whereNotNull('subscription_snoozed_until')->whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
+                    return Plan::whereNotNull('subscription_snoozed_until')->whereBetween('subscription_snoozed_until', [$data['start-date'], $data['end-date']])->count();
                 case 3:
-                    return Customer::where('order_count', '>', 1)->whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
+                    $ordercount=Plan::whereBetween('updated_at', [$data['start-date'], $data['end-date']])->whereNull('subscription_snoozed_until')->whereNull('subscription_cancelled_at')->get();
+                    $i = 0;
+                    foreach($ordercount as $order){
+                        $newdate = \Date::createFromFormat( 'Y-m-d H:i:s', $order->subscription_started_at )->addDays( 28 )->addWeekdays( 5 );
+                       if($newdate < \Date::createFromFormat( 'Y-m-d H:i:s', $order->subscription_rebill_at )){
+                            $i++;
+                       }
+                    }
+                return $i;
                 case 4:
-                    return Plan::whereNotNull('subscription_cancelled_at')->whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
+                    return Plan::whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start-date'], $data['end-date']])->count();
                 default:
                     return 0;
             }
