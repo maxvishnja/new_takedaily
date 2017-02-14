@@ -233,6 +233,8 @@ class Plan extends Model
 		return true;
 	}
 
+
+
 	public function startFromToday()
 	{
 		$this->subscription_snoozed_until = null;

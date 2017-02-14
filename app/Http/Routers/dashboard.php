@@ -40,6 +40,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'customers/newpass/{id}', 'Dashboard\CustomerController@newPass' );
 	Route::get( 'customers/bill/{id}', 'Dashboard\CustomerController@bill' );
 	Route::get( 'customers/cancel/{id}', 'Dashboard\CustomerController@cancel' );
+	Route::get( 'customers/delete/{id}', 'Dashboard\CustomerController@destroy' );
 
 	Route::resource( 'calls', 'Dashboard\CallController' );
 	Route::get( 'calls/mark-done/{id}', 'Dashboard\CallController@markDone' );
