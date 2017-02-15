@@ -451,6 +451,7 @@ class Customer extends Model
 			try
 			{
 				$charge = $paymentHandler->makeRebill( $amount, $this->getPlan()->getPaymentCustomer() );
+
 			} catch ( \Exception $exception )
 			{
 				\Log::critical( $exception->getMessage() );

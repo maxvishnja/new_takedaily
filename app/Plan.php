@@ -216,8 +216,8 @@ class Plan extends Model
 	{
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = null;
-//		$this->subscription_rebill_at     = Date::now()->addDays( 28 )->addWeekdays(4);
-		$this->subscription_rebill_at     = Date::now()->addDays( 28 );
+		$this->subscription_rebill_at     = Date::now()->addDays( 28 )->addWeekdays(4);
+		//$this->subscription_rebill_at     = Date::now()->addDays( 28 );
 		$this->save();
 
 		return true;
@@ -225,7 +225,7 @@ class Plan extends Model
 
 	public function rebilled()
 	{
-		$this->subscription_rebill_at = Date::now()->addDays( 28 );
+		$this->subscription_rebill_at = Date::now()->addDays( 28 )->addWeekdays(4);
 		$this->save();
 
 		$this->markHasNotified( false );
@@ -363,10 +363,15 @@ class Plan extends Model
 	{
 		$customer = $this->customer;
 		\App::setLocale($customer->getLocale());
-
-		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname() ], function ( Message $message ) use ( $customer )
+		if($customer->getLocale()== 'nl') {
+			$fromEmail = 'info@takedaily.nl';
+		} else{
+			$fromEmail = 'info@takedaily.dk';
+		}
+		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname() ], function ( Message $message ) use ( $customer, $fromEmail )
 		{
-			$message->to( $customer->getEmail(), $customer->getName() )
+			$message->from($fromEmail, 'TakeDaily')
+					->to( $customer->getEmail(), $customer->getName() )
 			        ->subject( trans('mails.pending.subject') );
 		} );
 

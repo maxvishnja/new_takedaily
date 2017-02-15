@@ -167,9 +167,14 @@ class Order extends Model
 			$locale = \App::getLocale();
 //
 			\App::setLocale( $this->customer->getLocale() );
-
-			\Mail::send( 'emails.order-sent', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail )
+			if($locale == 'nl') {
+				$fromEmail = 'info@takedaily.nl';
+			} else{
+				$fromEmail = 'info@takedaily.dk';
+			}
+			\Mail::send( 'emails.order-sent', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
 			{
+				$message->from( $fromEmail, 'TakeDaily' );
 				$message->to( $receiverEmail, $receiverName );
 				$message->subject( trans( 'mails.order-sent.subject' ) );
 			} );
