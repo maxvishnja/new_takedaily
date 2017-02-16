@@ -250,7 +250,9 @@ class CustomerController extends Controller
 			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
+
 		$customer->delete();
+
 
 		return \Redirect::action('Dashboard\CustomerController@index')->with('success', 'Kunden blev slettet.');
 

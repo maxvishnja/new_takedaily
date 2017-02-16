@@ -37,9 +37,14 @@ class MailFlow extends Model
 		$email = $customer->getEmail();
 		$name = $customer->getName();
 		$identifier = $this->identifier;
-
-		\Mail::queue("emails.mailflow.{$this->identifier}", [ 'customer' => $customer ], function(Message $message) use($email, $name, $identifier)
+		if($customer->getLocale()== 'nl') {
+			$fromEmail = 'info@takedaily.nl';
+		} else{
+			$fromEmail = 'info@takedaily.dk';
+		}
+		\Mail::queue("emails.mailflow.{$this->identifier}", [ 'customer' => $customer ], function(Message $message) use($email, $name, $identifier, $fromEmail)
 		{
+			$message->to($fromEmail, 'TakeDaily');
 			$message->to($email, $name);
 			$message->subject(trans("mails.mailflow.{$identifier}.subject"));
 		});

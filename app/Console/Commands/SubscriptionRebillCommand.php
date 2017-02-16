@@ -47,14 +47,20 @@ class SubscriptionRebillCommand extends Command
 			\App::setLocale($customer->getLocale());
 			$mailEmail = $customer->getEmail();
 			$mailName  = $customer->getName();
+			if($customer->getLocale()== 'nl') {
+				$fromEmail = 'info@takedaily.nl';
+			} else{
+				$fromEmail = 'info@takedaily.dk';
+			}
 
 			/* @var $customer Customer */
 			if ( ! $customer->rebill() )
 			{
 				$customer->getPlan()->moveRebill( 1 ); // consider a max attempts limit
 
-				\Mail::queue( 'emails.subscription-failed', [ 'locale' => $customer->getLocale(), 'name' => $customer->getFirstname() ], function ( Message $message ) use ( $mailEmail, $mailName )
+				\Mail::queue( 'emails.subscription-failed', [ 'locale' => $customer->getLocale(), 'name' => $customer->getFirstname() ], function ( Message $message ) use ( $mailEmail, $mailName, $fromEmail )
 				{
+					$message->from( $fromEmail, 'TakeDaily' );
 					$message->to( $mailEmail, $mailName );
 					$message->subject( trans( 'checkout.mail.subject-subscription-failed' ) );
 				} );
@@ -62,11 +68,6 @@ class SubscriptionRebillCommand extends Command
 				continue;
 			}
 
-			/*\Mail::queue('emails.subscription', [ 'locale' => $customer->getLocale() ], function (Message $message) use ($mailEmail, $mailName)
-			{
-				$message->to($mailEmail, $mailName);
-				$message->subject(trans('checkout.mail.subject-subscription'));
-			});*/
 		}
 	}
 }

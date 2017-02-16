@@ -72,12 +72,11 @@
 			</div>
 		@endif
 	</div>
+
 @endsection
 @section('footer_scripts')
 	@if(App::getLocale() == 'nl')
-		<noscript>
-			<img src="http://oa1.nl/m/5824/19fa5023ff43b6545d455e24a6a475f880acd6a1/?transactie_id={{$user_email}}" style="width: 1px; height: 1px; border: 0px;”>
-		</noscript>
+		<img src="http://oa1.nl/m/5824/19fa5023ff43b6545d455e24a6a475f880acd6a1/?transactie_id={{$user_email}}" style="width: 1px; height: 1px; border: 0px;">
 	@endif
 @endsection
 
@@ -91,6 +90,7 @@
 	</script>
 
 <noscript>
+
 	<img src="//dk.cpdelivery.com/sad/m/takedaily_track_2017_01/track.php" width="1" height="1" border="0" alt="" />
 
 		</noscript>

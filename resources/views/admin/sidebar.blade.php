@@ -9,6 +9,7 @@
 		</ul>
 		<!--/.widget-nav-->
 		<ul class="widget widget-menu unstyled">
+			<li><a href="/dashboard/stats"><i class="menu-icon icon-bar-chart"></i>Stats</a></li>
 			<li><a href="/dashboard/pages"><i class="menu-icon icon-edit"></i>CMS</a></li>
 			<li><a href="/dashboard/faq"><i class="menu-icon icon-question-sign"></i>FAQ</a></li>
 			<li><a href="/dashboard/coupons"><i class="menu-icon icon-barcode"></i>Coupons</a></li>

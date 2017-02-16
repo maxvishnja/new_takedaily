@@ -49,9 +49,14 @@ class SendHealthMail extends Command
 
             $mailEmail = $customer->getEmail();
             $mailName  = $customer->getName();
-
-            \Mail::queue( 'emails.control-health', [ 'locale' => $customer->getLocale(), 'name' => $customer->getFirstname() ], function ( Message $message ) use ( $mailEmail, $mailName )
+            if($customer->getLocale()== 'nl') {
+                $fromEmail = 'info@takedaily.nl';
+            } else{
+                $fromEmail = 'info@takedaily.dk';
+            }
+            \Mail::queue( 'emails.control-health', [ 'locale' => $customer->getLocale(), 'name' => $customer->getFirstname() ], function ( Message $message ) use ( $mailEmail, $mailName, $fromEmail )
             {
+                $message->from( $fromEmail, 'TakeDaily' );
                 $message->to( $mailEmail, $mailName );
                 $message->subject( trans( 'checkout.mail.control-health' ) );
             } );
