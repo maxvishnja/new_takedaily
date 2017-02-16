@@ -146,8 +146,7 @@
 		<p class="substep-explanation">{{ trans('flow.questions.3-5.text') }}</p>
 	</div>
 
-	<div data-sub-step="6" class="sub_step"
-		 v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }">
+	<div data-sub-step="6" class="sub_step" @if(App::getLocale() != 'nl')  v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }" @endif>
 		<div class="count-step">(6/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-6.title') }}</h3>
 		<div class="sub_step_answers">
@@ -172,7 +171,7 @@
 	</div>
 
 	<div data-sub-step="7" class="sub_step"
-		 v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }">
+		 @if(App::getLocale() != 'nl')  v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }" @endif>
 		<div class="count-step">(7/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-7.title') }}</h3>
 		<div class="sub_step_answers">

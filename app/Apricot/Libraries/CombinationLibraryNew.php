@@ -185,7 +185,9 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'd' ) && isset( $data->vegetarian ) && $data->vegetarian == '1' )
+		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'd' ) && isset( $data->vegetarian ) && (( $data->locale === 'da' && $data->vegetarian == '1' )
+				||
+				($data->locale === 'nl' && $data->vegetarian == '1' && $data->foods->meat == '1')))
 		{
 			$this->vitamins[] = '3d';
 			$this->groupThree = 'd';
