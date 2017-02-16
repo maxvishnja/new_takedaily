@@ -20,7 +20,6 @@ class Mollie implements PaymentInterface
 		}
 
 		$charge = [
-			"method"      => 'ideal',
 			"amount"      => MoneyLibrary::toMoneyFormat( $amount, true, 3, '.', '' ),
 			"description" => $description,
 			"redirectUrl" => \URL::route( 'checkout-verify-method', [ 'method' => 'mollie' ] )
@@ -55,6 +54,7 @@ class Mollie implements PaymentInterface
 	{
 		return $this->charge( $amount, 'Initial', [
 			'customerId'    => $customer->id,
+			"method"      => 'ideal',
 			'recurringType' => 'first'
 		] );
 	}
@@ -87,6 +87,7 @@ class Mollie implements PaymentInterface
 
 		return $this->charge( $amount, 'Rebill', [
 			'customerId'    => $customer->id,
+			"method"      => 'directdebit',
 			'recurringType' => 'recurring'
 		] );
 	}
