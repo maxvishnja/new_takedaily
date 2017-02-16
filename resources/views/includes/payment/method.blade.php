@@ -53,8 +53,8 @@
 			<div class="col-md-7">
 				<!-- Card Number -->
 				<label class="label label--full checkout--label" for="ccnumber">{{ trans('checkout.index.order.billing.card.number') }}</label>
-				<input type="tel" data-validate="false" class="input input--medium input--spacing input--semibold input--full" id="ccnumber" autocomplete="cc-number" size="20"
-					   maxlength="20" placeholder="{{ trans('checkout.index.order.billing.card.number-placeholder') }}" data-stripe="number" pattern="\d*" required="required"/>
+				<input type="text" data-validate="false" class="input input--medium input--spacing input--semibold input--full" id="ccnumber" autocomplete="cc-number" size="20"
+					   maxlength="20" placeholder="{{ trans('checkout.index.order.billing.card.number-placeholder') }}" data-stripe="number" pattern="[\d ]*" required="required"/>
 			</div>
 			<div class="col-md-5 hidden-xs hidden-sm">
 				<label class="label label--full checkout--label">&nbsp;</label>
