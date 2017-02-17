@@ -13,8 +13,9 @@
 					<th>#</th>
 					<th>Status</th>
 					<th>Total</th>
+					<th>Coupon</th>
 					<th>Oprettet d.</th>
-					<th>Opdateret d.</th>
+					{{--<th>Opdateret d.</th>--}}
 					<th></th>
 				</tr>
 				</thead>
@@ -26,8 +27,9 @@
 						</td>
 						<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
 						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true) }} {{ $order->currency }}</td>
+						<td>{{ $order->getCoupon() }}</td>
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
-						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->updated_at)->format('j. M Y H:i') }}</td>
+						{{--<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->updated_at)->format('j. M Y H:i') }}</td>--}}
 						<td>
 							<div class="btn-group">
 								<a class="btn btn-info" href="{{ URL::action('Dashboard\OrderController@edit', [ 'id' => $order->id ]) }}"><i class="icon-pencil"></i>

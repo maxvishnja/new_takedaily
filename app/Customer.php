@@ -90,6 +90,8 @@ class Customer extends Model
 		return $this->belongsTo( User::class );
 	}
 
+
+
 	public function getLocale()
 	{
 		return $this->locale;
@@ -118,6 +120,8 @@ class Customer extends Model
 	{
 		return $this->plan;
 	}
+
+
 
 	/**
 	 * @return User
@@ -324,6 +328,15 @@ class Customer extends Model
 	{
 		$taxing = new TaxLibrary( $this->getCustomerAttribute( 'address_country', 'denmark' ) );
 
+        if(!is_null($coupon)){
+
+			$coup = $coupon->code;
+
+		} else{
+
+			$coup = NULL;
+		}
+
 		$shipping = $shipping ?: $this->getPlan()->getShippingPrice();
 		$taxes    = $amount * $taxing->rate();
 
@@ -343,7 +356,8 @@ class Customer extends Model
 			'shipping_city'    => $this->getCustomerAttribute( 'address_city' ),
 			'shipping_country' => $this->getCustomerAttribute( 'address_country' ),
 			'shipping_zipcode' => $this->getCustomerAttribute( 'address_postal' ),
-			'shipping_company' => $this->getCustomerAttribute( 'company' )
+			'shipping_company' => $this->getCustomerAttribute( 'company' ),
+			'coupon' => $coup,
 		] );
 
 		$product      = Product::where( 'name', $product_name )->first();
