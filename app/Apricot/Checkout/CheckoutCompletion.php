@@ -251,7 +251,7 @@ class CheckoutCompletion
 			'name'          => $this->getUser()->getCustomer()->getFirstname(),
 			'locale'        => $locale
 		];
-
+		
 		if($data['locale']== 'nl') {
 			$fromEmail = 'info@takedaily.nl';
 		} else{
@@ -264,8 +264,6 @@ class CheckoutCompletion
 			$message->to( $mailEmail, $mailName );
 			$message->subject( trans( 'checkout.mail.subject' ) );
 		} );
-
-		return $this;
 	}
 
 	public function flush()

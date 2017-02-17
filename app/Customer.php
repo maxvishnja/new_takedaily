@@ -328,6 +328,15 @@ class Customer extends Model
 	{
 		$taxing = new TaxLibrary( $this->getCustomerAttribute( 'address_country', 'denmark' ) );
 
+        if(!is_null($coupon)){
+
+			$coup = $coupon->code;
+
+		} else{
+
+			$coup = NULL;
+		}
+
 		$shipping = $shipping ?: $this->getPlan()->getShippingPrice();
 		$taxes    = $amount * $taxing->rate();
 
@@ -348,7 +357,7 @@ class Customer extends Model
 			'shipping_country' => $this->getCustomerAttribute( 'address_country' ),
 			'shipping_zipcode' => $this->getCustomerAttribute( 'address_postal' ),
 			'shipping_company' => $this->getCustomerAttribute( 'company' ),
-			'coupon' => $coupon->code
+			'coupon' => $coup,
 		] );
 
 		$product      = Product::where( 'name', $product_name )->first();
