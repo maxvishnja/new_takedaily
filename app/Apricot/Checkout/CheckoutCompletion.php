@@ -252,9 +252,15 @@ class CheckoutCompletion
 			'locale'        => $locale
 		];
 
-		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName, $locale )
+		if($data['locale']== 'nl') {
+			$fromEmail = 'info@takedaily.nl';
+		} else{
+			$fromEmail = 'info@takedaily.dk';
+		}
+		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName, $locale, $fromEmail )
 		{
 			\App::setLocale( $locale );
+			$message->from( $fromEmail, 'TakeDaily' );
 			$message->to( $mailEmail, $mailName );
 			$message->subject( trans( 'checkout.mail.subject' ) );
 		} );

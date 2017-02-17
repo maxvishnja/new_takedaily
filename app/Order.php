@@ -87,7 +87,8 @@ class Order extends Model
 		'shipping_country',
 		'shipping_zipcode',
 		'shipping_company',
-		'is_shippable'
+		'is_shippable',
+		'coupon'
 	];
 
 	/**
@@ -123,6 +124,18 @@ class Order extends Model
 	public function getTotal()
 	{
 		return $this->total;
+	}
+
+	public function getCoupon()
+	{
+		if(!is_null($this->coupon)){
+
+			return $this->coupon;
+
+		} else{
+
+			return "No coupone";
+		}
 	}
 
 	public function getSubTotal()

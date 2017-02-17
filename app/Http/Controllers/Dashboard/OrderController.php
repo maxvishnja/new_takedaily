@@ -36,10 +36,13 @@ class OrderController extends Controller
 			return \Redirect::back()->withErrors("Ordren (#{$id}) kunne ikke findes!");
 		}
 
+		$coupon = $order->getCoupon();
+
 		$order->load('customer.customerAttributes');
 
 		return view('admin.orders.show', [
-			'order' => $order
+			'order' => $order,
+			'coupon' => $coupon,
 		]);
 	}
 

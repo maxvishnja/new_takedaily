@@ -90,6 +90,8 @@ class Customer extends Model
 		return $this->belongsTo( User::class );
 	}
 
+
+
 	public function getLocale()
 	{
 		return $this->locale;
@@ -118,6 +120,8 @@ class Customer extends Model
 	{
 		return $this->plan;
 	}
+
+
 
 	/**
 	 * @return User
@@ -343,7 +347,8 @@ class Customer extends Model
 			'shipping_city'    => $this->getCustomerAttribute( 'address_city' ),
 			'shipping_country' => $this->getCustomerAttribute( 'address_country' ),
 			'shipping_zipcode' => $this->getCustomerAttribute( 'address_postal' ),
-			'shipping_company' => $this->getCustomerAttribute( 'company' )
+			'shipping_company' => $this->getCustomerAttribute( 'company' ),
+			'coupon' => $coupon->code
 		] );
 
 		$product      = Product::where( 'name', $product_name )->first();
