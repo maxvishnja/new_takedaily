@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: adm
- * Date: 09.02.17
- * Time: 16:00
- */
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;

@@ -64,6 +64,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::resource( 'faq', 'Dashboard\FaqController' );
 	Route::get( 'stats', 'Dashboard\StatsController@index' );
 	Route::post('stats/post', ['as' => 'stats-post', 'uses' => 'Dashboard\StatsController@getData']);
+	Route::resource( 'feedback', 'Dashboard\FeedbackController' );
+	Route::get( 'feedback/delete/{id}', 'Dashboard\FeedbackController@destroy' );
 	Route::resource( 'faq-translations', 'Dashboard\FaqTranslationController' );
 	Route::get( 'faq-translations/{id}/delete', 'Dashboard\FaqTranslationController@delete' );
 

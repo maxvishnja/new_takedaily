@@ -99,6 +99,11 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		require_once 'Routers/account.php';
 
 		/*
+		 * Feedback routes
+		 */
+		require_once 'Routers/feedback.php';
+
+		/*
 		 * Extra ajax
 		 */
 		require_once 'Routers/ajax.php';
