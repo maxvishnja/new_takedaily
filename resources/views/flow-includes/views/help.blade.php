@@ -1,5 +1,10 @@
 <div class="flow-helper m-t-10" @if(isset($center)) style="text-align: center !important;" @endif>
-	<div class="m-b-10 hidden-xs"><strong>{{ trans('help.title') }}</strong></div>
+	<div class="m-b-10 hidden-xs">
+		@if( \App::getLocale() == "nl")
+			<strong>{{ trans('help.extra-text') }}</strong><br/>
+		@endif
+		<strong>{{ trans('help.title') }}</strong>
+	</div>
 
 		<div>
 			<a href="javascript:void(0);" onclick="Tawk_API.toggle();" class="flow-helper_button hidden-xs hidden-sm">{{ trans('help.chat') }}</a>
