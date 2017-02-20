@@ -51,8 +51,8 @@ class Kernel extends ConsoleKernel
 		$schedule->command('currencies:update')
 		         ->hourly();
 
-		$schedule->command('healthmail:send')
-			     ->dailyAt('13:00');
+//		$schedule->command('healthmail:send')
+//			     ->dailyAt('13:00');
 
 		$schedule->command('subscriptions:pending')
 		         ->name('notify-user-of-incoming-rebill')
