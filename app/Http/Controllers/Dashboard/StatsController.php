@@ -1,18 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: adm
- * Date: 09.02.17
- * Time: 16:00
- */
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use App\Http\Controllers\Controller;
 use App\Plan;
 use Illuminate\Http\Request;
+
 
 class StatsController extends Controller
 {
@@ -45,16 +40,16 @@ class StatsController extends Controller
                 case 2:
                     return Plan::whereNotNull('subscription_snoozed_until')->whereBetween('subscription_snoozed_until', [$data['start-date'], $data['end-date']])->count();
                 case 3:
-                    $ordercount=Plan::whereBetween('updated_at', [$data['start-date'], $data['end-date']])->whereNull('subscription_snoozed_until')->whereNull('subscription_cancelled_at')->get();
+                    $ordercount = Plan::whereBetween('updated_at', [$data['start-date'], $data['end-date']])->whereNull('subscription_snoozed_until')->whereNull('subscription_cancelled_at')->get();
                     $i = 0;
-                    foreach($ordercount as $order){
-                        $newdate = \Date::createFromFormat( 'Y-m-d H:i:s', $order->subscription_started_at )->addDays( 28 )->addWeekdays( 5 );
+                    foreach ($ordercount as $order) {
+                        $newdate = \Date::createFromFormat('Y-m-d H:i:s', $order->subscription_started_at)->addDays(28)->addWeekdays(5);
 
-                       if($newdate < \Date::createFromFormat( 'Y-m-d H:i:s', $order->subscription_rebill_at )){
+                        if ($newdate < \Date::createFromFormat('Y-m-d H:i:s', $order->subscription_rebill_at)) {
                             $i++;
-                       }
+                        }
                     }
-                return $i;
+                    return $i;
                 case 4:
                     return Plan::whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start-date'], $data['end-date']])->count();
                 default:
@@ -63,6 +58,71 @@ class StatsController extends Controller
         } else {
             return \Redirect::back()->withErrors("Access denied!");
         }
+    }
+
+
+    function exportCsv()
+    {
+
+        $customers = $this->repo->all();
+        $email_array = [];
+        $i = 0;
+        foreach ($customers as $customer) {
+            if ($customer->isSubscribed()) {
+                if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
+                    $email_array[$i]['Email Address'] = $customer->getEmail();
+                    $i++;
+                }
+
+            }
+        }
+
+        \Excel::create('all_active_mails', function ($excel) use ($email_array) {
+
+            $excel->sheet('All users', function ($sheet) use ($email_array) {
+
+                $sheet->fromArray($email_array, null, 'A1', true);
+
+            });
+
+        })->download('xls');
+
+        return \Redirect::back();
+
+    }
+
+
+    function exportCsvDate(Request $request)
+    {
+
+        $data = $request->all();
+        if ($data) {
+            $i = 0;
+            $customers = Customer::whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
+            foreach ($customers as $customer) {
+                if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
+                    $email_array[$i]['Email Address'] = $customer->getEmail();
+                    $i++;
+                }
+            }
+            if(isset($email_array)) {
+                \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date'], function ($excel) use ($email_array) {
+
+                    $excel->sheet('All users', function ($sheet) use ($email_array) {
+
+                        $sheet->fromArray($email_array, null, 'A1', true);
+
+                    });
+
+                })->download('xls');
+                return \Redirect::back();
+            }
+            return \Redirect::back()->withErrors("No data!");
+        } else {
+
+            return \Redirect::back()->withErrors("Access denied!");
+        }
+
     }
 
 }

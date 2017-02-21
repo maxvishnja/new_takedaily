@@ -9,6 +9,6 @@
     </p>
 
     <p>
-        {{ trans('mails.control-health.text2') }}
+        {!! str_replace('{id}', $id, nl2br(trans('mails.control-health.text2'))) !!}
     </p>
 @endsection
