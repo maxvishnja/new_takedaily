@@ -195,6 +195,7 @@ return [
 		Barryvdh\TranslationManager\ManagerServiceProvider::class,
 		Skovmand\Mailchimp\MailchimpServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
+		Maatwebsite\Excel\ExcelServiceProvider::class,
 
 		/*
 		 * App providers
@@ -255,6 +256,7 @@ return [
 		'Date'      => Jenssegers\Date\Date::class,
 		'Mollie'    => Mollie\Laravel\Facades\Mollie::class,
 		'Bugsnag'   => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
+		'Excel' 	=> Maatwebsite\Excel\Facades\Excel::class,
 
 	],
 

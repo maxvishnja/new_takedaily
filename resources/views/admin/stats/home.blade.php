@@ -49,19 +49,44 @@
             </form>
             <br/>
             <table cellpadding="0" cellspacing="0" border="0"
-                   class="datatable-1 table table-bordered table-striped	display" width="100%">
+                            class="datatable-1 table table-bordered table-striped	display" width="100%">
                 <tbody>
                 <tr>
                     <td>
-                        <h5>Aktive kunder</h5>
+                        <h5>All aktive kunder</h5>
                     </td>
 
                     <td>
-                        {{ $active_user  }}
+                        {{ $active_user  }}   <a style="float:right" class="btn btn-success" href="{{ URL::action('Dashboard\StatsController@exportCsv') }}">
+                            Download CSV</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
+                <br/>
+            <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportCsvDate') }}" method="POST">
+            {{ csrf_field() }}
+            <table cellpadding="0" cellspacing="0" border="0"
+                   class="datatable-1 table table-bordered table-striped	display" width="100%">
+                <tbody>
+                <tr>
+                    <td>
+                        <h5>Aktive kunder with time</h5>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control datepicker" name="start_date" id="start_picker"
+                               placeholder="Start date" value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
+                        <input type="text" class="form-control datepicker" name="end_date" id="end_picker"
+                               placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+                    </td>
+
+                    <td>
+                        <button style="float: right" class="btn btn-success">Download CSV</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            </form>
         </div>
     </div><!--/.module-->
 @stop
