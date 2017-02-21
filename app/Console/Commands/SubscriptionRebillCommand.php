@@ -47,6 +47,7 @@ class SubscriptionRebillCommand extends Command
 			\App::setLocale($customer->getLocale());
 			$mailEmail = $customer->getEmail();
 			$mailName  = $customer->getName();
+
 			if($customer->getLocale()== 'nl') {
 				$fromEmail = 'info@takedaily.nl';
 			} else{
