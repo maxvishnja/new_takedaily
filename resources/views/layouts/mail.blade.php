@@ -1222,7 +1222,7 @@
 					<tbody>
 					<tr>
 						<td class="emb-logo-padding-box"
-							style="padding: 0;vertical-align: top;padding-bottom: 24px;padding-top: 24px;text-align: right;width: 280px;letter-spacing: 0.01em;line-height: 17px;font-weight: 400;font-size: 11px;">
+							style="padding: 0;vertical-align: top;padding-bottom: 24px;padding-top: 24px;text-align: right;width: 280px;letter-spacing: 0.01em;line-height: 17px;font-weight: 400;font-size: 12px;">
 							<div class="spacer" style="font-size: 1px;line-height: 2px;width: 100%;">&nbsp;</div>
 							<div class="title"
 								 style="font-family:'Montserrat', sans-serif; color: #fff;">@yield('summary')</div>
