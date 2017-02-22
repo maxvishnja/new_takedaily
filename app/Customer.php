@@ -247,7 +247,8 @@ class Customer extends Model
         if (!$this->isSubscribed()) {
             return false;
         }
-
+//        if(count($this->getPlan()->getVitamins()) < 3){
+//        }
         if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '')) {
             return false;
         }
