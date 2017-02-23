@@ -155,6 +155,12 @@ class Customer extends Model
         return $this->getPlan()->getTotal();
     }
 
+
+    public function setSubscriptionPrice( $newamount )
+    {
+        return $this->getPlan()->setPrice( $newamount );
+    }
+
     public function getStripeToken()
     { // todo move to handler
         return $this->getPlan()->getStripeToken();
@@ -247,8 +253,21 @@ class Customer extends Model
         if (!$this->isSubscribed()) {
             return false;
         }
-//        if(count($this->getPlan()->getVitamins()) < 3){
-//        }
+
+
+
+        if(count($this->getPlan()->getVitamins()) < 3){
+
+            if($this->getSubscriptionPrice() == 1895) {
+
+                $this->setSubscriptionPrice(1595);
+
+            }elseif( $this->getSubscriptionPrice() == 14900){
+
+                $this->setSubscriptionPrice(12900);
+            }
+        }
+        
         if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '')) {
             return false;
         }

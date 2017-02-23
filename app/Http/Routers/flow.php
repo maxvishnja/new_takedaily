@@ -89,7 +89,7 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 		\App\Apricot\Checkout\Cart::addProduct( 'subscription_notfull' );
 
 	} else{
-		
+
 		\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
 	}
 

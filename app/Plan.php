@@ -280,6 +280,14 @@ class Plan extends Model
 		return $this->price;
 	}
 
+	public function setPrice( $newamount )
+	{
+		$this->price = $newamount;
+		$this->save();
+
+		return true;
+	}
+
 	public function getShippingPrice()
 	{
 		return $this->price_shipping;
