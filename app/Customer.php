@@ -267,7 +267,7 @@ class Customer extends Model
                 $this->setSubscriptionPrice(12900);
             }
         }
-        
+
         if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '')) {
             return false;
         }
