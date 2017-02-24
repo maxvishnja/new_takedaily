@@ -186,8 +186,19 @@ class Plan extends Model
 		return true;
 	}
 
+
+	public function setNewRebill( $date )
+	{
+		if(!empty($date)){
+			$this->subscription_rebill_at = Date::createFromFormat( 'Y-m-d', $date );
+			$this->save();
+		}
+		return true;
+	}
+
 	public function isSnoozeable()
 	{
+
 		return $this->isActive()
 		       && ! $this->isSnoozed()
 		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->created_at )->diffInDays() >= 1
@@ -232,6 +243,8 @@ class Plan extends Model
 
 		return true;
 	}
+
+
 
 
 

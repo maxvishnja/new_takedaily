@@ -177,6 +177,8 @@ class CustomerController extends Controller
 		}
 
 
+		$customer->plan->setNewRebill($request->get('rebill'));
+
 		return \Redirect::action('Dashboard\CustomerController@index')->with('success', 'Kunden er blevet ændret.');
 	}
 
