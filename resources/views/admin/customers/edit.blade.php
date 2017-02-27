@@ -41,7 +41,7 @@
                     </div>
                 </div>
 
-
+                @if(!is_null($customer->plan->getRebillAt()))
                 <div class="control-group">
                     <label for="page_title" class="control-label">Re-bill date</label>
                     <div class="controls">
@@ -50,7 +50,7 @@
                                placeholder="Re-bill date"/>
                     </div>
                 </div>
-
+                @endif
                 @if($customer->plan->isActive())
 
                     @foreach ( $customer->plan->getVitamiPlan() as $vitamin)
