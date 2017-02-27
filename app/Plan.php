@@ -352,8 +352,8 @@ class Plan extends Model
 		return $query->where( 'subscription_rebill_at', '<=', Date::now()->addDays( 5 ) )
 		             ->where( function ( $where )
 		             {
-			             $where->whereNull( 'subscription_snoozed_until' )
-			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now()->addDays( 5 ) );
+			             $where->whereNull( 'subscription_snoozed_until' );
+//			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now()->addDays( 5 ) );
 		             } )
 		             ->whereNull( 'subscription_cancelled_at' );
 
@@ -422,6 +422,14 @@ class Plan extends Model
 	public function getPackage()
 	{
 		// todo
+	}
+
+	public function setNullSnooze()
+	{
+		$this->subscription_snoozed_until = null;
+		$this->save();
+
+		return true;
 	}
 
 }

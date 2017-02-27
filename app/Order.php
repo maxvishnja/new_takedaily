@@ -193,6 +193,8 @@ class Order extends Model
 			} );
 
 			\App::setLocale($locale);
+
+			$this->customer->plan->setNullSnooze();
 		}
 
 		return true;
