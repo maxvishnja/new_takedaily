@@ -83,6 +83,15 @@
 							)
 						</td>
 					</tr>
+					<tr>
+						<td>Next delivery date</td>
+						<td>{{  \Jenssegers\Date\Date::createFromFormat('Y-m-d', $customer->plan->getNextDelivery())->format('j. M Y') }}
+
+						</td>
+					</tr>
+
+
+
 				@endif
 
 				@foreach($customer->customerAttributes as $attribute)
