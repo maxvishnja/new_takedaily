@@ -268,7 +268,7 @@ class Customer extends Model
             }
         }
 
-        if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '')) {
+        if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '', null)) {
             return false;
         }
 
@@ -332,8 +332,10 @@ class Customer extends Model
         return $this->orders()->where('id', $id)->first();
     }
 
-    public function makeOrder($amount = 100, $chargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null)
+    public function makeOrder($amount = 100, $chargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null, $gift = null)
     {
+
+
         $taxing = new TaxLibrary($this->getCustomerAttribute('address_country', 'denmark'));
 
         if (!is_null($coupon) and !empty($coupon)) {
@@ -342,7 +344,16 @@ class Customer extends Model
 
         } else {
 
-            $coup = NULL;
+            if(!is_null($gift) and !empty($gift)){
+
+                $coup = "Gift: ".$gift;
+
+            } else{
+
+                $coup = NULL;
+            }
+
+
         }
 
         $shipping = $shipping ?: $this->getPlan()->getShippingPrice();
@@ -438,7 +449,7 @@ class Customer extends Model
         $this->setBalance($this->balance += $amount);
     }
 
-    public function charge($amount, $makeOrder = true, $product = 'subscription', $coupon)
+    public function charge($amount, $makeOrder = true, $product = 'subscription', $coupon, $gift)
     {
         if (!$this->getPlan()) {
             return false;
@@ -484,7 +495,7 @@ class Customer extends Model
         if ($makeOrder) {
             try {
 
-                \Event::fire(new CustomerWasBilled($this->id, $amount, $chargeId, $product, $usedBalance, $prevAmount * -1, $coupon));
+                \Event::fire(new CustomerWasBilled($this->id, $amount, $chargeId, $product, $usedBalance, $prevAmount * -1, $coupon, $gift));
             } catch (\Exception $exception) {
                 \Log::error($exception->getFile() . " on line " . $exception->getLine());
             }

@@ -196,6 +196,7 @@ class CheckoutController extends Controller
 
 		$isSuccessful = $checkout->getPaymentHandler()->isChargeValid( $request->session()->get( 'charge_id' ) );
 
+
 		if ( ! $isSuccessful )
 		{
 			return \Redirect::action( 'CheckoutController@getCheckout' )
@@ -238,6 +239,12 @@ class CheckoutController extends Controller
 
 		$checkoutCompletion->createUser( $name, $email, $password );
 
+		if($request->session()->get('giftcard_id')){
+
+			$gift = $request->session()->get('giftcard_token');
+		} else {
+			$gift = null;
+		}
 		try
 		{
 			$checkoutCompletion->setCustomerAttributes( [
@@ -255,7 +262,7 @@ class CheckoutController extends Controller
 			                   ->handleProductActions()
 			                   ->deductCouponUsage()
 			                   ->markGiftcardUsed()
-			                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ) )
+			                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ), $gift )
 			                   ->queueEmail( $password )
 			                   ->flush()
 			                   ->initUpsell()
@@ -263,6 +270,7 @@ class CheckoutController extends Controller
 
 		} catch ( \Exception $exception )
 		{
+
 			$checkoutCompletion->user->delete(); // todo dont delete!?! what if is a returning user
 
 			return \Redirect::back()->withErrors( $exception->getMessage() ); // todo refund charge + withInput
