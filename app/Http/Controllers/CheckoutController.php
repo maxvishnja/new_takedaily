@@ -237,12 +237,23 @@ class CheckoutController extends Controller
 		$name  = $request->session()->get( 'name' );
 		$email = $request->session()->get( 'email' );
 
-		$checkoutCompletion->createUser( $name, $email, $password );
+		try{
+
+			$checkoutCompletion->createUser( $name, $email, $password );
+
+		} catch ( \Exception $exception ) {
+
+			\Log::error("User create error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
+
+		}
+
 
 		if($request->session()->get('giftcard_id')){
 
 			$gift = $request->session()->get('giftcard_token');
+
 		} else {
+
 			$gift = null;
 		}
 		try
@@ -270,6 +281,7 @@ class CheckoutController extends Controller
 
 		} catch ( \Exception $exception )
 		{
+			\Log::error("Checkout error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
 
 			$checkoutCompletion->user->delete(); // todo dont delete!?! what if is a returning user
 
