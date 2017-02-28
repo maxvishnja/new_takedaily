@@ -1222,10 +1222,10 @@
 					<tbody>
 					<tr>
 						<td class="emb-logo-padding-box"
-							style="padding: 0;vertical-align: top;padding-bottom: 24px;padding-top: 24px;text-align: right;width: 280px;letter-spacing: 0.01em;line-height: 17px;font-weight: 400;font-size: 11px;">
+							style="padding: 0;vertical-align: top;padding-bottom: 24px;padding-top: 24px;text-align: right;width: 280px;letter-spacing: 0.01em;line-height: 17px;font-weight: 400;font-size: 12px;">
 							<div class="spacer" style="font-size: 1px;line-height: 2px;width: 100%;">&nbsp;</div>
 							<div class="title"
-								 style='font-family: Montserrat, sans-serif;color: #fff;'>@yield('summary')</div>
+								 style="font-family:'Montserrat', sans-serif; color: #fff;">@yield('summary')</div>
 
 						</td>
 					</tr>
@@ -1324,13 +1324,13 @@
 					<tr>
 						<td style="padding: 0;vertical-align: top;color: #fff;font-size: 12px;line-height: 22px;text-align: left;width: 400px;">
 
-							<div class="address" style='font-family: Montserrat;Margin-bottom: 18px;'>
+							<div class="address" style="font-family: 'Montserrat', sans-serif; margin-bottom: 18px;">
 								<div>{{ trans('mails.general.company') }}</div>
 							</div>
-							<div class="permission" style='font-family: Montserrat;'>
+							<div class="permission" style="font-family: 'Montserrat', sans-serif;">
 								<div>{{ trans('mails.general.reason') }}</div>
 							</div>
-							<div class="campaign" style='font-family: "Open Sans",sans-serif;Margin-bottom: 18px;'>
+							<div class="campaign" style="font-family: 'Montserrat', sans-serif; margin-bottom: 18px;">
 								<unsubscribe>{{ trans('mails.general.unsubscribe') }}</unsubscribe>
 							</div>
 						</td>

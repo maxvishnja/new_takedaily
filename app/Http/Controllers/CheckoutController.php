@@ -176,6 +176,8 @@ class CheckoutController extends Controller
 	 */
 	function getVerify( $method, Request $request )
 	{
+		try {
+
 		$productName = $request->session()->get( 'product_name', 'subscription' );
 		$couponCode  = $request->session()->get( 'coupon', '' );
 		$userData    = $request->session()->get( 'user_data', $request->old( 'user_data', Cart::getInfoItem( 'user_data', null ) ) );
@@ -195,6 +197,7 @@ class CheckoutController extends Controller
 		         ->setTaxLibrary( $request->session()->get( 'address_country' ) );
 
 		$isSuccessful = $checkout->getPaymentHandler()->isChargeValid( $request->session()->get( 'charge_id' ) );
+
 
 		if ( ! $isSuccessful )
 		{
@@ -236,8 +239,25 @@ class CheckoutController extends Controller
 		$name  = $request->session()->get( 'name' );
 		$email = $request->session()->get( 'email' );
 
-		$checkoutCompletion->createUser( $name, $email, $password );
+		try{
 
+			$checkoutCompletion->createUser( $name, $email, $password );
+
+		} catch ( \Exception $exception ) {
+
+			\Log::error("User create error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
+
+		}
+
+
+		if($request->session()->get('giftcard_id')){
+
+			$gift = $request->session()->get('giftcard_token');
+
+		} else {
+
+			$gift = null;
+		}
 		try
 		{
 			$checkoutCompletion->setCustomerAttributes( [
@@ -255,7 +275,7 @@ class CheckoutController extends Controller
 			                   ->handleProductActions()
 			                   ->deductCouponUsage()
 			                   ->markGiftcardUsed()
-			                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ) )
+			                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ), $gift )
 			                   ->queueEmail( $password )
 			                   ->flush()
 			                   ->initUpsell()
@@ -263,6 +283,8 @@ class CheckoutController extends Controller
 
 		} catch ( \Exception $exception )
 		{
+			\Log::error("Checkout error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
+
 			$checkoutCompletion->user->delete(); // todo dont delete!?! what if is a returning user
 
 			return \Redirect::back()->withErrors( $exception->getMessage() ); // todo refund charge + withInput
@@ -285,7 +307,13 @@ class CheckoutController extends Controller
 
 		return \Redirect::action( 'CheckoutController@getSuccessNonSubscription', [ 'token' => $checkoutCompletion->getGiftcard()->token ] )
 		                ->with( [ 'order_created' => true ] );
+
+		} catch(\Exception $exception){
+
+			\Log::error("Method error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
+		}
 	}
+
 
 	/**
 	 * @param \Illuminate\Http\Request $request

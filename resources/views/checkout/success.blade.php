@@ -29,7 +29,7 @@
 					@foreach($vitamins as $vitamin)
 						<div class="print_label_line">
 							<div class="print_label_line_full">
-								{{ $vitamin->name }}
+								{{ \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)) }}
 							</div>
 						</div>
 					@endforeach

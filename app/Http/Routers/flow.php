@@ -83,7 +83,15 @@ Route::post( 'flow/recommendations', function ( \Illuminate\Http\Request $reques
 	$request->session()->set( 'flow-completion-token', $flowCompletion->token );
 
 	\App\Apricot\Checkout\Cart::clear();
-	\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
+
+	if(count($lib->getResult()) < 3){
+
+		\App\Apricot\Checkout\Cart::addProduct( 'subscription_notfull' );
+
+	} else{
+
+		\App\Apricot\Checkout\Cart::addProduct( 'subscription' );
+	}
 
 	$i = 1;
 	foreach ( $lib->getResult() as $vitamin )

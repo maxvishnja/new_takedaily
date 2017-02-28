@@ -41,6 +41,16 @@
                     </div>
                 </div>
 
+                @if(!is_null($customer->plan->getRebillAt()))
+                <div class="control-group">
+                    <label for="page_title" class="control-label">Re-bill date</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8 datepicker" name="rebill" id="rebill-picker"
+                               value="{{ Request::old('rebill', ( Date::createFromFormat( 'Y-m-d H:i:s',$customer->plan->getRebillAt())) ? Date::createFromFormat( 'Y-m-d H:i:s',$customer->plan->getRebillAt())->format('Y-m-d') : '' ) }}"
+                               placeholder="Re-bill date"/>
+                    </div>
+                </div>
+                @endif
                 @if($customer->plan->isActive())
 
                     @foreach ( $customer->plan->getVitamiPlan() as $vitamin)

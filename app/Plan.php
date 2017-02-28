@@ -186,8 +186,19 @@ class Plan extends Model
 		return true;
 	}
 
+
+	public function setNewRebill( $date )
+	{
+		if(!empty($date)){
+			$this->subscription_rebill_at = Date::createFromFormat( 'Y-m-d', $date );
+			$this->save();
+		}
+		return true;
+	}
+
 	public function isSnoozeable()
 	{
+
 		return $this->isActive()
 		       && ! $this->isSnoozed()
 		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->created_at )->diffInDays() >= 1
@@ -235,6 +246,8 @@ class Plan extends Model
 
 
 
+
+
 	public function startFromToday()
 	{
 		$this->subscription_snoozed_until = null;
@@ -278,6 +291,14 @@ class Plan extends Model
 	public function getPrice()
 	{
 		return $this->price;
+	}
+
+	public function setPrice( $newamount )
+	{
+		$this->price = $newamount;
+		$this->save();
+
+		return true;
 	}
 
 	public function getShippingPrice()
@@ -331,8 +352,8 @@ class Plan extends Model
 		return $query->where( 'subscription_rebill_at', '<=', Date::now()->addDays( 5 ) )
 		             ->where( function ( $where )
 		             {
-			             $where->whereNull( 'subscription_snoozed_until' )
-			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now()->addDays( 5 ) );
+			             $where->whereNull( 'subscription_snoozed_until' );
+//			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now()->addDays( 5 ) );
 		             } )
 		             ->whereNull( 'subscription_cancelled_at' );
 
@@ -365,11 +386,16 @@ class Plan extends Model
 		\App::setLocale($customer->getLocale());
 		if($customer->getLocale()== 'nl') {
 			$fromEmail = 'info@takedaily.nl';
+			$url = "http://takedaily.nl/account/transactions?already_open=1";
 		} else{
 			$fromEmail = 'info@takedaily.dk';
+			$url = "http://takedaily.dk/account/transactions?already_open=1";
 		}
-		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname() ], function ( Message $message ) use ( $customer, $fromEmail )
+
+		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url ], function ( Message $message ) use ( $customer, $fromEmail )
 		{
+			\Log::info("Message send to ".$customer->getName()."(id ".$customer->id.")");
+
 			$message->from($fromEmail, 'TakeDaily')
 					->to( $customer->getEmail(), $customer->getName() )
 			        ->subject( trans('mails.pending.subject') );
@@ -396,6 +422,14 @@ class Plan extends Model
 	public function getPackage()
 	{
 		// todo
+	}
+
+	public function setNullSnooze()
+	{
+		$this->subscription_snoozed_until = null;
+		$this->save();
+
+		return true;
 	}
 
 }

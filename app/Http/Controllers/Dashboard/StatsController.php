@@ -28,6 +28,10 @@ class StatsController extends Controller
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return int
+     */
     function getData(Request $request)
     {
 
@@ -61,10 +65,16 @@ class StatsController extends Controller
     }
 
 
-    function exportCsv()
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    function exportCsv(Request $request)
     {
+        $data = $request->all();
 
-        $customers = $this->repo->all();
+        $customers = $this->repo->allLocale($data['lang']);
+
         $email_array = [];
         $i = 0;
         foreach ($customers as $customer) {
@@ -77,7 +87,7 @@ class StatsController extends Controller
             }
         }
 
-        \Excel::create('all_active_mails', function ($excel) use ($email_array) {
+        \Excel::create('all_active_mails_'.$data['lang'], function ($excel) use ($email_array) {
 
             $excel->sheet('All users', function ($sheet) use ($email_array) {
 
@@ -92,13 +102,17 @@ class StatsController extends Controller
     }
 
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     function exportCsvDate(Request $request)
     {
 
         $data = $request->all();
         if ($data) {
             $i = 0;
-            $customers = Customer::whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
+            $customers = Customer::where('locale','like', $data['lang'])->whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
             foreach ($customers as $customer) {
                 if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
                     $email_array[$i]['Email Address'] = $customer->getEmail();
@@ -106,7 +120,7 @@ class StatsController extends Controller
                 }
             }
             if(isset($email_array)) {
-                \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date'], function ($excel) use ($email_array) {
+                \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
 
                     $excel->sheet('All users', function ($sheet) use ($email_array) {
 

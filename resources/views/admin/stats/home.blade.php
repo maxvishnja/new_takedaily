@@ -56,9 +56,19 @@
                         <h5>All aktive kunder</h5>
                     </td>
 
+                    <td style="width:50%; text-align: center">
+                        {{ $active_user  }}
+                    </td>
                     <td>
-                        {{ $active_user  }}   <a style="float:right" class="btn btn-success" href="{{ URL::action('Dashboard\StatsController@exportCsv') }}">
-                            Download CSV</a>
+                        <form style="float: right" class="csv-forms" action="{{ URL::action('Dashboard\StatsController@exportCsv') }}" method="POST">
+                            {{ csrf_field() }}
+                        <select name="lang" id="input_states" style="width: 100px; margin-right:20px">
+                            <option value="nl" selected="selected" >Dutch</option>
+                            <option value="da" >Denmark</option>
+                        </select>
+
+                            <button style="float: right" class="btn btn-success">Download CSV</button>
+                            </form>
                     </td>
                 </tr>
                 </tbody>
@@ -74,10 +84,16 @@
                         <h5>Aktive kunder with time</h5>
                     </td>
                     <td>
-                        <input type="text" class="form-control datepicker" name="start_date" id="start_picker"
+                        <input type="text" class="form-control datepicker" style="width:150px" name="start_date" id="start_picker"
                                placeholder="Start date" value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
-                        <input type="text" class="form-control datepicker" name="end_date" id="end_picker"
+                        <input type="text" style="width:150px" class="form-control datepicker" name="end_date" id="end_picker"
                                placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+                    </td>
+                    <td>
+                        <select name="lang" id="input_state" style="width:100px">
+                            <option value="nl" selected="selected" >Dutch</option>
+                            <option value="da" >Denmark</option>
+                        </select>
                     </td>
 
                     <td>
