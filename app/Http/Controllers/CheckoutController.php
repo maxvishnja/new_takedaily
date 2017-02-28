@@ -176,6 +176,8 @@ class CheckoutController extends Controller
 	 */
 	function getVerify( $method, Request $request )
 	{
+		try {
+
 		$productName = $request->session()->get( 'product_name', 'subscription' );
 		$couponCode  = $request->session()->get( 'coupon', '' );
 		$userData    = $request->session()->get( 'user_data', $request->old( 'user_data', Cart::getInfoItem( 'user_data', null ) ) );
@@ -305,7 +307,13 @@ class CheckoutController extends Controller
 
 		return \Redirect::action( 'CheckoutController@getSuccessNonSubscription', [ 'token' => $checkoutCompletion->getGiftcard()->token ] )
 		                ->with( [ 'order_created' => true ] );
+
+		} catch(\Exception $exception){
+
+			\Log::error("Method error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
+		}
 	}
+
 
 	/**
 	 * @param \Illuminate\Http\Request $request
