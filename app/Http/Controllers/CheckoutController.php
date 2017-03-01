@@ -198,7 +198,7 @@ class CheckoutController extends Controller
 
 			try {
 				$isSuccessful = $checkout->getPaymentHandler()->isChargeValid( $request->session()->get( 'charge_id' ) );
-				
+
 			} catch (\Exception $exception){
 
 				\Log::error("Payment create error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
