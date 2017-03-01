@@ -125,6 +125,8 @@ class CheckoutController extends Controller
 		         ->setTaxLibrary( $taxZone )
 		         ->createCustomer( $request->get( 'name' ), $request->get( 'email' ) );
 
+
+
 		if ( ! $checkout->getCustomer() )
 		{
 			return \Redirect::back()
@@ -132,7 +134,17 @@ class CheckoutController extends Controller
 			                ->withInput();
 		}
 
-		if ( ! $charge = $checkout->makeInitialPayment() )
+		try{
+
+			$charge = $checkout->makeInitialPayment();
+
+		} catch ( \Exception $exception ) {
+
+			\Log::error("Initial payment create error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
+
+		}
+
+		if ( ! $charge )
 		{
 			return \Redirect::back()
 			                ->withErrors( trans( 'checkout.errors.payment-error' ) )
@@ -203,7 +215,6 @@ class CheckoutController extends Controller
 
 				\Log::error("Payment create error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
 			}
-
 
 
 		if ( ! $isSuccessful )

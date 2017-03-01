@@ -57,12 +57,13 @@ class Stripe implements PaymentInterface
 			] );
 		} catch ( \Stripe\Error\Card $ex )
 		{
+			\Log::error("STRIPE card create error: ".$ex->getMessage().' in line '.$ex->getLine()." file ".$ex->getFile());
 			return false;
 		} catch ( \Exception $ex )
-		{
+		{  \Log::error("STRIPE card2 create error: ".$ex->getMessage().' in line '.$ex->getLine()." file ".$ex->getFile());
 			return false;
 		} catch ( \Error $ex )
-		{
+		{	\Log::error("STRIPE card3 create error: ".$ex->getMessage().' in line '.$ex->getLine()." file ".$ex->getFile());
 			return false;
 		}
 	}
@@ -153,6 +154,8 @@ class Stripe implements PaymentInterface
 	 */
 	public function validateCharge( $chargeId )
 	{
+
+
 		if ( $chargeId == 'giftcard-balance' )
 		{
 			return true;
@@ -162,7 +165,6 @@ class Stripe implements PaymentInterface
 		{
 			/** @var Charge $payment */
 			$payment = $this->findOrder( $chargeId );
-
 			return $payment->status == 'succeeded';
 		} catch ( \Exception $exception )
 		{
