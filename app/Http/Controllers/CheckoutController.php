@@ -315,8 +315,12 @@ class CheckoutController extends Controller
 
 		if ( $checkout->getProduct()->isSubscription() )
 		{
-			return \Redirect::action( 'CheckoutController@getSuccess' )
-			                ->with( [ 'order_created' => true, 'upsell' => true ] );
+			$code = str_random( 8 );
+
+			$newcoupon = \App\Coupon::newUpsellCoupon($code);
+
+			return \Redirect::to( 'http://takedaily.dev:8080/checkout/success' )
+			                ->with( [ 'order_created' => true, 'upsell' => true, 'code' => $code ] );
 		}
 
 		// Considering that theres only two products: subscription and giftcard, we can conclude that this is a giftcard.
@@ -346,6 +350,13 @@ class CheckoutController extends Controller
 			return \Redirect::route( 'home' );
 		}
 
+		$code = '';
+
+		if (  $request->session()->has( 'code' ) )
+		{
+			$code = $request->session()->get( 'code' );
+		}
+
 		$vitamins = \Auth::user()->getCustomer()->getVitaminModels();
 		$plans = \Auth::user()->getCustomer()->getOrders();
 		$email = \Auth::user()->email;
@@ -353,7 +364,7 @@ class CheckoutController extends Controller
 		foreach($plans as $plan){
 			$order_id = $plan->id;
 		}
-		return view( 'checkout.success', [ 'vitamins' => $vitamins, 'order_id' => $order_id, 'user_email' => $email ] );
+		return view( 'checkout.success', [ 'vitamins' => $vitamins, 'order_id' => $order_id, 'user_email' => $email, 'code' => $code ] );
 	}
 
 	/**

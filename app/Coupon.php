@@ -92,11 +92,11 @@ class Coupon extends Model
 		}
 	}
 
-	public static function newUpsellCoupon()
+	public static function newUpsellCoupon($code)
 	{
 		return self::create( [
 			'description'   => 'Upsell discount',
-			'code'          => str_random( 8 ),
+			'code'          => $code,
 			'currency'      => trans( 'general.currency' ),
 			'discount'      => 50,
 			'applies_to'    => 'order',
@@ -106,5 +106,7 @@ class Coupon extends Model
 			'valid_to'      => \Jenssegers\Date\Date::now()->addDay()
 		] );
 	}
+
+
 
 }

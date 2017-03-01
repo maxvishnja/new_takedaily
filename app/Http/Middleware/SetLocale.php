@@ -29,7 +29,8 @@ class SetLocale
 			'net'  => 'com',
 			'info' => 'com',
 			'org'  => 'com',
-			'com'  => 'dk'
+			'com'  => 'dk',
+
 		];
 
 		$tld = substr( strstr( $request->getHttpHost(), '.' ), 1 );
