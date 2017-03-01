@@ -50,6 +50,7 @@ elixir(function (mix) {
 		'/vendor/payment.jquery.js',
 		'/vendor/js.cookie.js',
 		'/vendor/tooltip.min.js',
+		'/vendor/clipboard.min.js',
 		'/app.js'
 	], 'public/js/app.js');
 
