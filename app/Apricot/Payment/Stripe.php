@@ -166,6 +166,7 @@ class Stripe implements PaymentInterface
 			return $payment->status == 'succeeded';
 		} catch ( \Exception $exception )
 		{
+			\Log::error("STRIPE create error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
 			return false;
 		}
 	}
