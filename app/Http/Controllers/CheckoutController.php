@@ -319,7 +319,7 @@ class CheckoutController extends Controller
 
 			$newcoupon = \App\Coupon::newUpsellCoupon($code);
 
-			return \Redirect::to( 'http://takedaily.dev:8080/checkout/success' )
+			return \Redirect::action( 'CheckoutController@getSuccess')
 			                ->with( [ 'order_created' => true, 'upsell' => true, 'code' => $code ] );
 		}
 
