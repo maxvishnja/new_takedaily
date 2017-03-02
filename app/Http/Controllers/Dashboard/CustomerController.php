@@ -152,26 +152,35 @@ class CustomerController extends Controller
 			}
 		}
 
-		$vitamins = '[';
+		if($request->get('new_vitamin')){
+
+			$vitamins_new = Vitamin::where('code', '=', $request->get('new_vitamin'))->value('id');
+
+		}
+
+		$vitamins = [];
 
 		if(isset($vitamins_one)) {
-			$vitamins .=  $vitamins_one . ',';
+			$vitamins [] =  $vitamins_one ;
 		}
 
 		if(isset($vitamins_two)) {
-			$vitamins .= $vitamins_two . ',';
+			$vitamins [] =  $vitamins_two ;
 		}
 
 		if(isset($vitamins_three[0])) {
-			$vitamins .= $vitamins_three[0];
+			$vitamins [] =  $vitamins_three[0];
 		}
 
 		if(isset($vitamins_three[1])) {
-			$vitamins .= ','.$vitamins_three[1];
+			$vitamins [] =  $vitamins_three[1];
 		}
-		$vitamins .= ']';
+		if(isset($vitamins_new)) {
+			$vitamins [] =  $vitamins_new;
+		}
 
-		if($vitamins!='[]'){
+		if(!empty($vitamins)){
+			$vitamins = json_encode($vitamins);
 			$customer->plan->vitamins = $vitamins;
 			$customer->plan->update();
 		}

@@ -665,7 +665,7 @@ class Customer extends Model
             ->whereNull('plans.deleted_at')
             ->whereNull('plans.subscription_cancelled_at')
             ->whereNotNull('plans.subscription_rebill_at')
-            ->where('plans.subscription_rebill_at', '<=', Date::now()->addDays(3));
+            ->where('plans.subscription_rebill_at', '<=', Date::now()->addDays(2));
     }
 
     public function getPaymentMethods()

@@ -67,6 +67,19 @@
                         </div>
 
                     @endforeach
+
+                        <div class="control-group">
+                            <label for="page_title" class="control-label">Add new vitamin</label>
+                            <div class="controls">
+                                <select name="new_vitamin" id="input_state">
+                                    <option value=""></option>
+                                    @foreach($allvit as $vitamins)
+                                        <option value="{{$vitamins->key }}">{{ ucfirst($vitamins->value) }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                 @endif
 
                 @foreach($customer->customerAttributes as $attribute)
