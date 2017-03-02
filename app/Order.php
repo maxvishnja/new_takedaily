@@ -88,7 +88,8 @@ class Order extends Model
 		'shipping_zipcode',
 		'shipping_company',
 		'is_shippable',
-		'coupon'
+		'coupon',
+		'vitamins'
 	];
 
 	/**
@@ -136,6 +137,17 @@ class Order extends Model
 
 			return "No coupone";
 		}
+	}
+
+	public function getVitamins(){
+
+		$vitamins = json_decode( $this->vitamins );
+
+		if ( is_null( $vitamins ) )
+		{
+			return false;
+		}
+		return $vitamins;
 	}
 
 	public function getSubTotal()

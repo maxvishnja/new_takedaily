@@ -289,11 +289,14 @@ class CheckoutController extends Controller
 			] )
 			                   ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
 			                   ->setUserData( json_encode( $userData ) )
-			                   ->updateCustomerPlan()
-			                   ->handleProductActions()
+			                   ->updateCustomerPlan();
+
+			$order_plan = json_encode($checkoutCompletion->getUser()->getCustomer()->getPlan()->getVitamins());
+
+			$checkoutCompletion->handleProductActions()
 			                   ->deductCouponUsage()
 			                   ->markGiftcardUsed()
-			                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ), $gift )
+			                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ), $gift, $order_plan )
 			                   ->queueEmail( $password )
 			                   ->flush()
 			                   ->initUpsell()

@@ -268,7 +268,9 @@ class Customer extends Model
             }
         }
 
-        if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '', null)) {
+        $order_plan = json_encode($this->getPlan()->getVitamins());
+
+        if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '', null, $order_plan )) {
             return false;
         }
 
@@ -332,7 +334,7 @@ class Customer extends Model
         return $this->orders()->where('id', $id)->first();
     }
 
-    public function makeOrder($amount = 100, $chargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null, $gift = null)
+    public function makeOrder($amount = 100, $chargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null, $gift = null, $order_plan)
     {
 
 
@@ -365,6 +367,7 @@ class Customer extends Model
             'payment_token' => $chargeToken ?: '',
             'payment_method' => $this->getPlan()->getPaymentMethod(),
             'state' => ($chargeToken ? 'paid' : 'new'),
+            'vitamins' => $order_plan,
             'currency' => $this->plan->currency,
             'total' => $amount,
             'total_shipping' => $shipping,
@@ -377,6 +380,7 @@ class Customer extends Model
             'shipping_zipcode' => $this->getCustomerAttribute('address_postal'),
             'shipping_company' => $this->getCustomerAttribute('company'),
             'coupon' => $coup,
+
         ]);
 
         $product = Product::where('name', $product_name)->first();
@@ -449,7 +453,7 @@ class Customer extends Model
         $this->setBalance($this->balance += $amount);
     }
 
-    public function charge($amount, $makeOrder = true, $product = 'subscription', $coupon, $gift)
+    public function charge($amount, $makeOrder = true, $product = 'subscription', $coupon, $gift, $order_plan)
     {
         if (!$this->getPlan()) {
             return false;
@@ -495,7 +499,7 @@ class Customer extends Model
         if ($makeOrder) {
             try {
 
-                \Event::fire(new CustomerWasBilled($this->id, $amount, $chargeId, $product, $usedBalance, $prevAmount * -1, $coupon, $gift));
+                \Event::fire(new CustomerWasBilled($this->id, $amount, $chargeId, $product, $usedBalance, $prevAmount * -1, $coupon, $gift, $order_plan));
             } catch (\Exception $exception) {
                 \Log::error($exception->getFile() . " on line " . $exception->getLine());
             }

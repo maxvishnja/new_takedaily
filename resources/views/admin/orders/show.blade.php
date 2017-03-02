@@ -96,7 +96,21 @@
 
 				<tfoot>
 				<tr>
-					<td colspan="3" style="border: none;"></td>
+					<td rowspan="4">@if($order->getVitamins())
+							@foreach($order->getVitamins() as $vitamin)
+
+								{{--· {{\DB::table('ltm_translations')->where([--}}
+								{{--['group', '=', 'pill-names'],--}}
+								{{--['locale', '=', App::getLocale()],--}}
+								{{--['key', '=', strtolower(\App\Vitamin::remember(60)->find($vitamin)->code)],--}}
+								{{--])->value('value')}}--}}
+								 {{ \App\Apricot\Helpers\PillName::get(strtolower(\App\Vitamin::remember(60)->find($vitamin)->code)) }}
+								<br/>
+							@endforeach
+						@else
+							Not found vitamins
+						@endif</td>
+					<td colspan="2" style="border: none;"></td>
 					<td style="border: none; text-align: right;">Subtotal</td>
 					<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->sub_total, true) }}
 						{{ $order->currency }}
@@ -104,7 +118,7 @@
 				</tr>
 
 				<tr>
-					<td colspan="3" style="border: none;"></td>
+					<td colspan="2" style="border: none;"></td>
 					<td style="border: none; text-align: right;">Shipping</td>
 					<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_shipping, true) }}
 						{{ $order->currency }}
@@ -112,7 +126,7 @@
 				</tr>
 
 				<tr>
-					<td colspan="3" style="border: none;"></td>
+					<td colspan="2" style="border: none;"></td>
 					<td style="border: none; text-align: right;">Taxes</td>
 					<td style="border: none;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total_taxes, true) }}
 						{{ $order->currency }}
@@ -120,7 +134,7 @@
 				</tr>
 
 				<tr>
-					<td colspan="3" style="border: none;"></td>
+					<td colspan="2" style="border: none;"></td>
 					<td style="border: none; text-align: right; font-weight: bold;">Total</td>
 					<td style="border: none; font-weight: bold;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total, true) }}
 						{{ $order->currency }}

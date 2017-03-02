@@ -221,7 +221,7 @@ class CheckoutCompletion
 		return $this;
 	}
 
-	public function fireCustomerWasBilled( $chargeId, $gift )
+	public function fireCustomerWasBilled( $chargeId, $gift, $order_plan )
 	{
 		\Event::fire( new CustomerWasBilled( $this->getUser()->getCustomer()->id,
 			$this->getCheckout()->getTotal(),
@@ -230,7 +230,8 @@ class CheckoutCompletion
 			false,
 			0,
 			$this->getCheckout()->getCoupon(),
-			$gift
+			$gift,
+			$order_plan
 		) );
 
 		return $this;
