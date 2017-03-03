@@ -131,7 +131,15 @@ Route::post( 'flow', function ( \Illuminate\Http\Request $request )
 		Auth::user()->getCustomer()->getPlan()->update( [ 'price' => \App\Apricot\Checkout\Cart::getTotal() ] );
 
 		$combinations = Auth::user()->getCustomer()->calculateCombinations();
+
 		$vitamins     = [];
+
+		if($request->get( 'new_vitamin' )){
+
+			$new_vitamin = $request->get( 'new_vitamin' );
+			$combinations[count($combinations)-1] = $new_vitamin;
+
+		}
 
 		foreach ( $combinations as $vitaminCode )
 		{
@@ -151,6 +159,8 @@ Route::post( 'flow', function ( \Illuminate\Http\Request $request )
 	}
 	else
 	{
+
+
 		if ( Auth::check() && Auth::user()->isUser() )
 		{
 			Auth::logout();
@@ -159,6 +169,13 @@ Route::post( 'flow', function ( \Illuminate\Http\Request $request )
 		Session::forget( 'vitamins' );
 		Session::forget( 'package' );
 		Session::put( 'user_data', $userData );
+		if($request->get( 'new_vitamin' )){
+
+			$new_vitamin = $request->get( 'new_vitamin' );
+			Session::put( 'new_vitamin', $new_vitamin );
+
+		}
+
 		Session::put( 'product_name', $request->get( 'product_name' ) );
 		Session::put( 'flow-completion-token', $request->get( 'flow-token' ) );
 

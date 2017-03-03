@@ -322,6 +322,7 @@
 							$("#advises-loader").hide();
 							$("#advises-block").fadeIn();
 							app.getCart();
+
 						}, delay - timeout);
 					}
 				});
@@ -512,10 +513,16 @@
 	});
 
 	$("#advises-label").on('click', '.customVitaminButton', function (e) {
+		if(app.user_data.replacements == undefined){
+			app.user_data.replacements =[];
+		}
 		e.preventDefault();
 		var vitamin = $(this).data('vitamin');
 		var old_vitamin = $(this).data('oldvitamin');
 		app.user_data.replacements.push({old_vitamin: old_vitamin, new_vitamin: vitamin});
+
+		$('#new_vitamin_field').val(vitamin);
+
 		app.getCombinations(false);
 	});
 
@@ -542,11 +549,20 @@
 	});
 
 	function forceUpdateAndSubmit() {
-		ga('send', 'event', 'flow', 'completed', 'all');
+
+		var newVitamin = $('#new_vitamin_field').val();
 		var form = $("#flow_form");
-
 		form.append('<input type="hidden" name="update_only" value="1" />');
+		form.append('<input name="new_vitamin" id="new_vitamin_field" type="hidden" value="'+newVitamin+'" style="display:none;">');
+		form.submit();
+	}
 
+
+	function updateNewVitamin(){
+		ga('send', 'event', 'flow', 'completed', 'all');
+		var newVitamin = $('#new_vitamin_field').val();
+		var form = $("#flow_form");
+		form.append('<input name="new_vitamin" id="new_vitamin_field" type="hidden" value="'+newVitamin+'" style="display:none;">');
 		form.submit();
 	}
 </script>

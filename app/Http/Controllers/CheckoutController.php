@@ -170,6 +170,9 @@ class CheckoutController extends Controller
 		$request->session()->put( 'price', $checkout->getSubscriptionPrice() );
 		$request->session()->put( 'order_price', $checkout->getTotal() );
 		$request->session()->put( 'coupon', $couponCode );
+		if(\Session::get( 'new_vitamin' )){
+			$request->session()->put( 'new_vitamin', \Session::get( 'new_vitamin' ) );
+		}
 
 		// Redirect
 		if ( isset( $charge->links ) && isset( $charge->links->paymentUrl ) )
@@ -291,6 +294,9 @@ class CheckoutController extends Controller
 			                   ->setUserData( json_encode( $userData ) )
 			                   ->updateCustomerPlan();
 
+			if($request->session()->get( 'new_vitamin' )){
+				$checkoutCompletion->updateCustomerPlan($request->session()->get( 'new_vitamin' ));
+			}
 			$order_plan = json_encode($checkoutCompletion->getUser()->getCustomer()->getPlan()->getVitamins());
 
 			$checkoutCompletion->handleProductActions()

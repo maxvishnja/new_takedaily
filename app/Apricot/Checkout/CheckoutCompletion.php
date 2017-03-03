@@ -128,7 +128,7 @@ class CheckoutCompletion
 		return $this;
 	}
 
-	public function updateCustomerPlan()
+	public function updateCustomerPlan($newvitamin=null)
 	{
 		if ( $this->getCheckout()->getProduct()->isSubscription() )
 		{
@@ -151,6 +151,10 @@ class CheckoutCompletion
 			else
 			{
 				$combinations = $this->getUser()->getCustomer()->calculateCombinations();
+
+				if($newvitamin){
+					$combinations[count($combinations)-1] = $newvitamin;
+				}
 				$vitamins     = [];
 
 				foreach ( $combinations as $pill )

@@ -39,8 +39,7 @@
 			</div>
 		@endif
 		<div class="text-center">
-			<button type="submit" onclick="ga('send', 'event', 'flow', 'completed', 'all');"
-					class="button @if(!Auth::check() ) button--green @else  button--light  @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
+			<button type="submit" onclick="updateNewVitamin();" class="button @if(!Auth::check() ) button--green @else  button--light  @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
 
 			@if(!$giftcard)
 				<div class="m-t-20 m-b-20">
