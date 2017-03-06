@@ -6,6 +6,7 @@ use App\Apricot\Checkout\CheckoutCompletion;
 use App\Apricot\Helpers\PaymentMethods;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
+use App\Coupon;
 use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
 use App\Jobs\GiftcardWasOrdered;
@@ -299,6 +300,14 @@ class CheckoutController extends Controller
 			}
 			$order_plan = json_encode($checkoutCompletion->getUser()->getCustomer()->getPlan()->getVitamins());
 
+			if($couponCode){
+				$coupon= Coupon::where('code','=',$couponCode)->first();
+				if($coupon->discount_type == "free_shipping"){
+					$count = $coupon->discount - 1;
+					$checkoutCompletion->getUser()->getCustomer()->getPlan()->setCouponCount($count);
+				}
+
+			}
 			$checkoutCompletion->handleProductActions()
 			                   ->deductCouponUsage()
 			                   ->markGiftcardUsed()

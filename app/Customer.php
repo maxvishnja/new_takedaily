@@ -458,7 +458,12 @@ class Customer extends Model
         if (!$this->getPlan()) {
             return false;
         }
+        $coupon_free = $this->getPlan()->getCouponCount();
 
+        if($coupon_free > 0){
+            $amount = 0;
+            $this->getPlan()->setCouponCount($coupon_free-1);
+        }
         /** @var PaymentHandler $paymentHandler */
         $paymentHandler = new PaymentHandler(PaymentDelegator::getMethod($this->getPlan()->getPaymentMethod()));
 

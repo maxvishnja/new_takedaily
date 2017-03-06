@@ -20,6 +20,7 @@
 				<td>
 					<div v-show="discount.type == 'amount'">-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</div>
 					<div v-show="discount.type == 'percentage'">-@{{ total_discount }}</div>
+					<div v-show="discount.type == 'free_shipping'">-100%</div>
 				</td>
 			</tr>
 			<tr>
@@ -74,7 +75,6 @@
 		<div class="m-b-40">
 			{!! trans('checkout.index.disclaimer') !!}
 		</div>
-
 		@include('includes.promo')
 	</div>
 </div>

@@ -311,6 +311,7 @@
 						<td>
 							<div v-show="discount.type == 'amount'">-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</div>
 							<div v-show="discount.type == 'percentage'">-@{{ total_discount }}</div>
+							<div v-show="discount.type == 'free_shipping'">-100%</div>
 						</td>
 					</tr>
 					<tr>
@@ -405,6 +406,7 @@
 					return total;
 				},
 				total: function () {
+
 					return this.total_sum + this.required_totals;
 				},
 				total_subscription: function () {
@@ -418,6 +420,9 @@
 							}
 							else if (this.discount.type == 'amount') {
 								discount = this.discount.amount;
+							}
+							else if (this.discount.type == 'free_shipping') {
+								discount = amount * (100 / 100);
 							}
 
 							amount -= discount;
@@ -441,6 +446,9 @@
 						}
 						else if (app.discount.type == 'percentage') {
 							sum *= (1 - (app.discount.amount / 100));
+						}
+						else if (app.discount.type == 'free_shipping') {
+							sum *= (1 - (100 / 100));
 						}
 					}
 

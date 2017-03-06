@@ -12,6 +12,7 @@ use App\Apricot\Repositories\CouponRepository;
 use App\Coupon;
 use App\Giftcard;
 use App\Product;
+use App\Plan;
 
 class Checkout
 {
@@ -32,7 +33,6 @@ class Checkout
 	{
 		$couponRepository = new CouponRepository();
 		$coupon           = $couponRepository->findByCoupon( $couponCode );
-
 		if ( $coupon && ! $this->getProduct()->isGiftcard() )
 		{
 			$this->coupon = $coupon;
@@ -41,13 +41,19 @@ class Checkout
 			{
 				$this->deductTotal( $coupon->discount / 100, true );
 			}
+
+			elseif ( $coupon->discount_type == 'free_shipping' )
+			{
+				$this->deductTotal(  $this->getTotal()  );
+			}
 			elseif ( $coupon->discount_type == 'amount' )
 			{
 				//$this->deductTotal( MoneyLibrary::toMoneyFormat( $coupon->discount ) );
 				$this->deductTotal( $coupon->discount  );
 			}
 
-			if ( $coupon->applies_to == 'plan' )
+
+			if ( $coupon->applies_to == 'plan' and $coupon->discount_type != 'free_shipping')
 			{
 				$this->setSubscriptionPrice( $this->getTotal() );
 			}
@@ -111,6 +117,7 @@ class Checkout
 	{
 		return $this->product;
 	}
+
 
 	public function deductTotal( $byAmount, $percentage = false )
 	{
@@ -205,6 +212,7 @@ class Checkout
 
 		return $this;
 	}
+
 
 	public function addToTotal( $byAmount )
 	{

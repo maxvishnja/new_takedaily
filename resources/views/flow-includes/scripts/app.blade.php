@@ -87,6 +87,9 @@
 					if (app.discount.type == 'amount') {
 						sum -= app.discount.amount;
 					}
+					else if (app.discount.type == 'free_shipping') {
+						sum *= (1 - (100 / 100));
+					}
 					else if (app.discount.type == 'percentage') {
 						sum *= (1 - (app.discount.amount / 100));
 					}
@@ -101,6 +104,9 @@
 
 				if (this.discount.type == 'amount') {
 					total = this.discount.amount;
+				}
+				else if (this.discount.type == 'free_shipping') {
+					total = '100%';
 				}
 				else if (this.discount.type == 'percentage') {
 					total = this.discount.amount + '%';
@@ -123,6 +129,9 @@
 						}
 						else if (this.discount.type == 'amount') {
 							discount = this.discount.amount;
+						}
+						else if (this.discount.type == 'free_shipping') {
+							discount = amount * (100 / 100);
 						}
 
 						amount -= discount;

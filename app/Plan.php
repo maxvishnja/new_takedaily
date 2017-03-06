@@ -65,6 +65,7 @@ class Plan extends Model
 		'payment_method',
 		'price',
 		'price_shipping',
+		'coupon_free',
 		'subscription_started_at',
 		'subscription_cancelled_at',
 		'subscription_snoozed_until',
@@ -140,6 +141,17 @@ class Plan extends Model
 		return $vitamins;
 	}
 
+	public function getCouponCount(){
+
+		return $this->coupon_free;
+	}
+
+
+	public function setCouponCount($count){
+
+		$this->coupon_free = $count;
+		$this->save();
+	}
 
 	public function hasChiaoil()
 	{
