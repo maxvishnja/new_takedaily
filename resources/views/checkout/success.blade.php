@@ -91,6 +91,11 @@
              style="width: 1px; height: 1px; border: 0px;">
     @endif
 
+    @if(App::getLocale() != 'nl')
+        <script src="https://online.adservicemedia.dk/cgi-bin/API/ConversionService/js?camp_id=6123" type="text/javascript"></script>
+        <noscript><img src="https://online.adservicemedia.dk/cgi-bin/API/ConversionService/p?camp_id=6123" width="1" height="1" border="0"></noscript>
+     @endif
+
     <script>
         $('.share-icon').on('click', function () {
             $('.social-icons').toggle(500);
