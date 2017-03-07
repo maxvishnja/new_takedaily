@@ -202,8 +202,8 @@ class CombinationLibraryNew
 		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'e' ) && isset( $data->foods, $data->locale, $data->foods->fish )
 		     && (
 			     ( $data->locale === 'da' && $data->foods->fish != '3' )
-			     ||
-			     ( $data->locale === 'nl' && $data->foods->fish == '1' )
+//			     ||
+//			     ( $data->locale === 'nl' && $data->foods->fish == '1' )
 		     )
 		)
 		{
