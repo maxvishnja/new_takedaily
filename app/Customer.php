@@ -463,6 +463,7 @@ class Customer extends Model
         if($coupon_free > 0){
             $amount = 0;
             $this->getPlan()->setCouponCount($coupon_free-1);
+            $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
         }
         /** @var PaymentHandler $paymentHandler */
         $paymentHandler = new PaymentHandler(PaymentDelegator::getMethod($this->getPlan()->getPaymentMethod()));
@@ -477,6 +478,7 @@ class Customer extends Model
             $this->deductBalance($this->balance > $prevAmount ? $prevAmount : $this->balance);
             $chargeId = 'balance';
             $usedBalance = true;
+            $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
         }
 
         if ($amount > 0) {

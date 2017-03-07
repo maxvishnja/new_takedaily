@@ -301,11 +301,17 @@ class CheckoutController extends Controller
 			$order_plan = json_encode($checkoutCompletion->getUser()->getCustomer()->getPlan()->getVitamins());
 
 			if($couponCode){
+
 				$coupon= Coupon::where('code','=',$couponCode)->first();
+
 				if($coupon->discount_type == "free_shipping"){
+
 					$count = $coupon->discount - 1;
+
 					$checkoutCompletion->getUser()->getCustomer()->getPlan()->setCouponCount($count);
 				}
+
+				$checkoutCompletion->getUser()->getCustomer()->getPlan()->setLastCoupon($couponCode);
 
 			}
 			$checkoutCompletion->handleProductActions()
