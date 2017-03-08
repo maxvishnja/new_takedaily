@@ -181,6 +181,15 @@
 				<span class="icon icon-portion-fish-1"></span>
 				<br/>{{ trans('flow.questions.3-7.options.1') }}
 			</label>
+			@if(App::getLocale() == 'nl')
+			<label>
+				<input type="radio" name="step[3][7]" value="4" v-model="user_data.foods.fish" data-model="foods.fish"
+					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-7');"/>
+				<span class="icon icon-portion-fish-1"></span>
+				<br/>{{ trans('flow.questions.3-7.options.5') }}
+			</label>
+			@endif
+
 			<label>
 				<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" data-model="foods.fish"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-7');"/>
