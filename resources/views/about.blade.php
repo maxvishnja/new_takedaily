@@ -54,11 +54,11 @@
 					<strong>{{ trans('about.people.marc.job') }}</strong>
 				</div>
 
-				<div class="col-sm-4 person text-center">
-					<img src="{{ asset('/images/about/people/erik.jpg') }}" alt="{{ trans('about.people.erik.name') }}">
-					<h3>{{ trans('about.people.erik.name') }}</h3>
-					<strong>{{ trans('about.people.erik.job') }}</strong>
-				</div>
+				{{--<div class="col-sm-4 person text-center">--}}
+					{{--<img src="{{ asset('/images/about/people/erik.jpg') }}" alt="{{ trans('about.people.erik.name') }}">--}}
+					{{--<h3>{{ trans('about.people.erik.name') }}</h3>--}}
+					{{--<strong>{{ trans('about.people.erik.job') }}</strong>--}}
+				{{--</div>--}}
 
 				<div class="col-sm-4 person text-center">
 					<img src="{{ asset('/images/about/people/lasse.jpg') }}" alt="{{ trans('about.people.lasse.name') }}">
