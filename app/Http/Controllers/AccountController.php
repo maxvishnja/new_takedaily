@@ -295,14 +295,15 @@ class AccountController extends Controller
 		$mailEmail = $this->customer->getUser()->getEmail();
 		$mailName  = $this->customer->getUser()->getName();
 		$locale    = \App::getLocale();
-
+		$data['name'] = $mailName;
+		
 		if($locale == 'nl') {
 			$fromEmail = 'info@takedaily.nl';
 		} else{
 			$fromEmail = 'info@takedaily.dk';
 		}
 
-		\Mail::queue( 'emails.cancel', $mailName, function ( $message ) use ( $mailEmail, $mailName, $locale, $fromEmail )
+		\Mail::queue( 'emails.cancel', $data, function ( $message ) use ( $mailEmail, $mailName, $locale, $fromEmail )
 		{
 			\App::setLocale( $locale );
 			$message->from( $fromEmail, 'TakeDaily' );
