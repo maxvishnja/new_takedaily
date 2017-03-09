@@ -33,7 +33,7 @@ class CustomerRepository
 
 	public function getNewCustomer(){
 		$date = new \DateTime();
-		$date->modify('-14 days');
+		$date->modify('-7 days');
 		return Customer::where('order_count','=',1)
 			->where('created_at','like','%'.$date->format('Y-m-d').'%')
 			->get();

@@ -8662,7 +8662,7 @@
 			 */
 			"fnFormatNumber": function (toFormat)
 			{
-				if (toFormat < 1000)
+				if (toFormat < 10000)
 				{
 					// A small optimisation for what is likely to be the majority of use cases
 					return toFormat;

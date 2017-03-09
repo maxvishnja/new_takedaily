@@ -32,6 +32,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			return view( 'home', compact( 'faqs' ) );
 		} )->name( 'home' );
 
+
 		Route::get( '/our-products', function ()
 		{
 			return view( 'quality');
@@ -67,6 +68,21 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 			return view( 'faq.view', compact( $faq ) );
 		} );
+
+
+
+			Route::get( '/campaign/eb', function ()
+			{   if(App::getLocale() != "nl"){
+				$faqs = ( new \App\Apricot\Repositories\FaqRepository() )->get();
+
+				return view( 'campaign', compact( 'faqs' ) );
+
+			} else{
+				abort( 404 );
+			}
+			} )->name( 'home' );
+
+
 
 		/*
 		 * Pick n mix

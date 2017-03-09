@@ -43,8 +43,8 @@
 				<div class="control-group">
 					<label for="type" class="control-label">Type</label>
 					<div class="controls">
-						<select name="type" id="type" onchange="if($(this).val() == 'free_shipping') { $('#discount_element').hide(); } else { $('#discount_element').show(); if( $(this).val() == 'percentage' ) { $('#discount_text').text('%') } else { $('#discount_text').text($('#currency').val()) } }">
-							@foreach(['percentage', 'amount'] as $option)
+						<select name="type" id="type" onchange="if( $(this).val() == 'percentage' ) { $('#discount_text').text('%') } else if($(this).val() == 'free_shipping') { $('#discount_text').text('order/month'); $('#applies_to').val('plan') } else { $('#discount_text').text($('#currency').val()) }">
+							@foreach(['percentage', 'amount', 'free_shipping'] as $option)
 								<option value="{{ $option }}" @if(isset($coupon) && $coupon->discount_type == $option) selected="selected" @endif>{{ trans("coupons.type.$option") }}</option>
 							@endforeach
 						</select>
@@ -54,7 +54,7 @@
 				<div class="control-group" id="discount_element">
 					<label for="discount" class="control-label">Worth</label>
 					<div class="controls">
-						<input type="text" class="form-control span8" name="discount" id="discount" value="{{ Request::old('discount', isset($coupon) ? ($coupon->discount_type == 'amount' ? \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($coupon->discount) : $coupon->discount_type) : '' ) }}" placeholder="Eks.: 80 for 80 DKK or percentage discount"/>
+						<input type="text" class="form-control span8" name="discount" id="discount" value="{{ Request::old('discount', isset($coupon) ? ($coupon->discount_type == 'amount' ? \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($coupon->discount) : $coupon->discount_type) : '' ) }}" placeholder="Eks.: 80 for 80 DKK or percentage discount or number of months"/>
 						<span id="discount_text">kr. / procent</span>
 					</div>
 				</div>

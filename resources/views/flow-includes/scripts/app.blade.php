@@ -87,6 +87,9 @@
 					if (app.discount.type == 'amount') {
 						sum -= app.discount.amount;
 					}
+					else if (app.discount.type == 'free_shipping') {
+						sum *= (1 - (100 / 100));
+					}
 					else if (app.discount.type == 'percentage') {
 						sum *= (1 - (app.discount.amount / 100));
 					}
@@ -101,6 +104,9 @@
 
 				if (this.discount.type == 'amount') {
 					total = this.discount.amount;
+				}
+				else if (this.discount.type == 'free_shipping') {
+					total = '100%';
 				}
 				else if (this.discount.type == 'percentage') {
 					total = this.discount.amount + '%';
@@ -123,6 +129,9 @@
 						}
 						else if (this.discount.type == 'amount') {
 							discount = this.discount.amount;
+						}
+						else if (this.discount.type == 'free_shipping') {
+							discount = amount * (100 / 100);
 						}
 
 						amount -= discount;
@@ -322,6 +331,7 @@
 							$("#advises-loader").hide();
 							$("#advises-block").fadeIn();
 							app.getCart();
+
 						}, delay - timeout);
 					}
 				});
@@ -512,10 +522,16 @@
 	});
 
 	$("#advises-label").on('click', '.customVitaminButton', function (e) {
+		if(app.user_data.replacements == undefined){
+			app.user_data.replacements =[];
+		}
 		e.preventDefault();
 		var vitamin = $(this).data('vitamin');
 		var old_vitamin = $(this).data('oldvitamin');
 		app.user_data.replacements.push({old_vitamin: old_vitamin, new_vitamin: vitamin});
+
+		$('#new_vitamin_field').val(vitamin);
+
 		app.getCombinations(false);
 	});
 
@@ -542,11 +558,20 @@
 	});
 
 	function forceUpdateAndSubmit() {
-		ga('send', 'event', 'flow', 'completed', 'all');
+
+		var newVitamin = $('#new_vitamin_field').val();
 		var form = $("#flow_form");
-
 		form.append('<input type="hidden" name="update_only" value="1" />');
+		form.append('<input name="new_vitamin" id="new_vitamin_field" type="hidden" value="'+newVitamin+'" style="display:none;">');
+		form.submit();
+	}
 
+
+	function updateNewVitamin(){
+		ga('send', 'event', 'flow', 'completed', 'all');
+		var newVitamin = $('#new_vitamin_field').val();
+		var form = $("#flow_form");
+		form.append('<input name="new_vitamin" id="new_vitamin_field" type="hidden" value="'+newVitamin+'" style="display:none;">');
 		form.submit();
 	}
 </script>

@@ -65,6 +65,8 @@ class Plan extends Model
 		'payment_method',
 		'price',
 		'price_shipping',
+		'coupon_free',
+		'last_coupon',
 		'subscription_started_at',
 		'subscription_cancelled_at',
 		'subscription_snoozed_until',
@@ -138,6 +140,31 @@ class Plan extends Model
 			return false;
 		}
 		return $vitamins;
+	}
+
+	public function getCouponCount(){
+
+		return $this->coupon_free;
+	}
+
+
+	public function setCouponCount($count){
+
+		$this->coupon_free = $count;
+		$this->save();
+	}
+
+
+	public function setLastCoupon($code){
+
+		$this->last_coupon = $code;
+		$this->save();
+	}
+
+	public function getLastCoupon(){
+
+		return $this->last_coupon;
+
 	}
 
 

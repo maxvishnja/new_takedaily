@@ -11,16 +11,17 @@
         {{--@if(session('upsell', false) && Session::has('upsell_token'))--}}
         <div class="text-center">
             <h2>{{ trans('success.upsell') }}</h2>
-            <div class="button  button--rounded button--medium coupon-button">{{ $code }}
-                <span class="share-icon"><img src="{{ asset('/images/icons/icon-share.png') }}" height="24"
-                                              alt=""></span>
-                <div class="social-icons">
-                    <img class="share-fb" data-url="{{ App::getLocale() != 'nl' ? 'https://takedaily.dk/' : 'https://takedaily.nl/'  }}" onclick="fbShare()" src="{{ asset('/images/icons/icon-fb.png') }}" height="24" alt="">
-                    <button  id="copy-button" aria-label = "{{ $code }}"  data-clipboard-action="copy">
-                        <img class="share-copy" src="{{ asset('/images/icons/icon-copy.png') }}" height="24" alt="">
-                    </button>
-                </div>
-            </div>
+            <h2>{{ $code }}</h2>
+            {{--<div class="button  button--rounded button--medium coupon-button">{{ $code }}--}}
+                {{--<span class="share-icon"><img src="{{ asset('/images/icons/icon-share.png') }}" height="24"--}}
+                                              {{--alt=""></span>--}}
+                {{--<div class="social-icons">--}}
+                    {{--<img class="share-fb" data-url="{{ App::getLocale() != 'nl' ? 'https://takedaily.dk/' : 'https://takedaily.nl/'  }}" onclick="fbShare()" src="{{ asset('/images/icons/icon-fb.png') }}" height="24" alt="">--}}
+                    {{--<button  id="copy-button" aria-label = "{{ $code }}"  data-clipboard-action="copy">--}}
+                        {{--<img class="share-copy" src="{{ asset('/images/icons/icon-copy.png') }}" height="24" alt="">--}}
+                    {{--</button>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             {{--<form method="post" action="{{ URL::route('flow-upsell') }}">--}}
             {{--<button type="submit" class="button button--green button--medium button--rounded">{{ trans('success.upsell-btn') }}</button>--}}
 
@@ -90,6 +91,11 @@
         <img src="http://oa1.nl/m/5824/19fa5023ff43b6545d455e24a6a475f880acd6a1/?transactie_id={{$user_email}}"
              style="width: 1px; height: 1px; border: 0px;">
     @endif
+
+    @if(App::getLocale() != 'nl')
+        <script src="https://online.adservicemedia.dk/cgi-bin/API/ConversionService/js?camp_id=6123" type="text/javascript"></script>
+        <noscript><img src="https://online.adservicemedia.dk/cgi-bin/API/ConversionService/p?camp_id=6123" width="1" height="1" border="0"></noscript>
+     @endif
 
     <script>
         $('.share-icon').on('click', function () {

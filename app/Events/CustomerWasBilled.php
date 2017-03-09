@@ -20,6 +20,7 @@ class CustomerWasBilled extends Event
 	public $balanceAmount;
 	public $coupon;
 	public $gift;
+	public $order_plan;
 
 	/**
 	 * CustomerWasBilled constructor.
@@ -32,8 +33,9 @@ class CustomerWasBilled extends Event
 	 * @param int $balanceAmount
 	 * @param mixed $coupon
 	 * @param $gift
+	 * @param $order_plan
 	 */
-	public function __construct( $customerId, $amount = 100, $chargeToken = '', $product = 'subscription', $balance = false, $balanceAmount = 0, $coupon, $gift )
+	public function __construct( $customerId, $amount = 100, $chargeToken = '', $product = 'subscription', $balance = false, $balanceAmount = 0, $coupon, $gift, $order_plan )
 	{
 		$this->customerId    = $customerId;
 		$this->orderAmount   = $amount;
@@ -43,6 +45,7 @@ class CustomerWasBilled extends Event
 		$this->balanceAmount = $balanceAmount;
 		$this->coupon        = $coupon;
 		$this->gift        	 = $gift;
+		$this->order_plan    = $order_plan;
 	}
 
 	/**

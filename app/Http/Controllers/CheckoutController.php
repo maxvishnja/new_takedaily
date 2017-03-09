@@ -6,6 +6,7 @@ use App\Apricot\Checkout\CheckoutCompletion;
 use App\Apricot\Helpers\PaymentMethods;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
+use App\Coupon;
 use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
 use App\Jobs\GiftcardWasOrdered;
@@ -170,6 +171,9 @@ class CheckoutController extends Controller
 		$request->session()->put( 'price', $checkout->getSubscriptionPrice() );
 		$request->session()->put( 'order_price', $checkout->getTotal() );
 		$request->session()->put( 'coupon', $couponCode );
+		if(\Session::get( 'new_vitamin' )){
+			$request->session()->put( 'new_vitamin', \Session::get( 'new_vitamin' ) );
+		}
 
 		// Redirect
 		if ( isset( $charge->links ) && isset( $charge->links->paymentUrl ) )
@@ -289,11 +293,31 @@ class CheckoutController extends Controller
 			] )
 			                   ->setPlanPayment( $request->session()->get( 'payment_customer_id' ), $method )
 			                   ->setUserData( json_encode( $userData ) )
-			                   ->updateCustomerPlan()
-			                   ->handleProductActions()
+			                   ->updateCustomerPlan();
+
+			if($request->session()->get( 'new_vitamin' )){
+				$checkoutCompletion->updateCustomerPlan($request->session()->get( 'new_vitamin' ));
+			}
+			$order_plan = json_encode($checkoutCompletion->getUser()->getCustomer()->getPlan()->getVitamins());
+
+			if($couponCode){
+
+				$coupon= Coupon::where('code','=',$couponCode)->first();
+
+				if($coupon->discount_type == "free_shipping"){
+
+					$count = $coupon->discount - 1;
+
+					$checkoutCompletion->getUser()->getCustomer()->getPlan()->setCouponCount($count);
+				}
+
+				$checkoutCompletion->getUser()->getCustomer()->getPlan()->setLastCoupon($couponCode);
+
+			}
+			$checkoutCompletion->handleProductActions()
 			                   ->deductCouponUsage()
 			                   ->markGiftcardUsed()
-			                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ), $gift )
+			                   ->fireCustomerWasBilled( $request->session()->get( 'charge_id' ), $gift, $order_plan )
 			                   ->queueEmail( $password )
 			                   ->flush()
 			                   ->initUpsell()

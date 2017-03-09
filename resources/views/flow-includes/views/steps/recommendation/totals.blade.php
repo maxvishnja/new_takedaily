@@ -20,6 +20,7 @@
 				<td>
 					<div v-show="discount.type == 'amount'">-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</div>
 					<div v-show="discount.type == 'percentage'">-@{{ total_discount }}</div>
+					<div v-show="discount.type == 'free_shipping'">-100%</div>
 				</td>
 			</tr>
 			<tr>
@@ -32,15 +33,14 @@
 			</tr>
 			</tbody>
 		</table>
-		@if(Auth::check() and App::getLocale() !='nl')
+		@if(Auth::check())
 			<div class="text-center">
 				<button type="button"
 						class="button button--green button--huge button--full-mobile m-t-30" onclick="forceUpdateAndSubmit();">{{ trans('flow.button-save-text') }}</button>
 			</div>
 		@endif
 		<div class="text-center">
-			<button type="submit" onclick="ga('send', 'event', 'flow', 'completed', 'all');"
-					class="button @if(!Auth::check() ) button--green @else @if(App::getLocale() !='nl') button--light @else button--green @endif @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
+			<button type="submit" onclick="updateNewVitamin();" class="button @if(!Auth::check() ) button--green @else  button--light  @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
 
 			@if(!$giftcard)
 				<div class="m-t-20 m-b-20">
@@ -75,7 +75,6 @@
 		<div class="m-b-40">
 			{!! trans('checkout.index.disclaimer') !!}
 		</div>
-
 		@include('includes.promo')
 	</div>
 </div>
