@@ -296,7 +296,7 @@ class AccountController extends Controller
 		$mailName  = $this->customer->getUser()->getName();
 		$locale    = \App::getLocale();
 		$data['name'] = $mailName;
-		
+
 		if($locale == 'nl') {
 			$fromEmail = 'info@takedaily.nl';
 		} else{
