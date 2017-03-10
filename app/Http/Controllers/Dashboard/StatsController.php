@@ -41,7 +41,7 @@ class StatsController extends Controller
                 case 1:
                     return Customer::whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
                 case 2:
-                    return Plan::whereNotNull('subscription_snoozed_until')->whereBetween('subscription_snoozed_until', [$data['start-date'], \Date::createFromFormat('Y-m-d', $data['end-date'])->addDays(28)])->count();
+                    return Plan::whereNotNull('subscription_snoozed_until')->whereBetween('subscription_snoozed_until', [$data['start-date'], $data['end-date']])->count();
                 case 3:
                     $ordercount = Plan::whereBetween('updated_at', [$data['start-date'], $data['end-date']])->whereNull('subscription_snoozed_until')->whereNull('subscription_cancelled_at')->get();
                     $i = 0;
