@@ -13,6 +13,7 @@
 			<li><a href="/dashboard/pages"><i class="menu-icon icon-edit"></i>CMS</a></li>
 			<li><a href="/dashboard/faq"><i class="menu-icon icon-question-sign"></i>FAQ</a></li>
 			<li><a href="/dashboard/coupons"><i class="menu-icon icon-barcode"></i>Coupons</a></li>
+			<li><a href="/dashboard/campaign"><i class="menu-icon icon-money"></i>Campaign</a></li>
 			<li><a href="/dashboard/feedback"><i class="menu-icon icon-comments"></i>Feedback</a></li>
 			<li><a href="/dashboard/rewrites"><i class="menu-icon icon-random"></i>Redirects (SEO)</a></li>
 			<li><a href="/dashboard/settings"><i class="menu-icon icon-cog"></i>Settings</a></li>

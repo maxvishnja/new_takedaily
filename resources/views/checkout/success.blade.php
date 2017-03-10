@@ -87,6 +87,23 @@
 
 @endsection
 @section('footer_scripts')
+        <!-- Adform Tracking Code BEGIN -->
+    <script type="text/javascript">
+        window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
+        window._adftrack.push({
+            pm: 788995,
+            divider: encodeURIComponent('|'),
+            pagename: encodeURIComponent('Take Daily conversion')
+        });
+        (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://track.adform.net/serving/scripts/trackpoint/async/'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
+
+    </script>
+    <noscript>
+        <p style="margin:0;padding:0;border:0;">
+            <img src="https://track.adform.net/Serving/TrackPoint/?pm=788995&ADFPageName=Take%20Daily%20conversion&ADFdivider=|" width="1" height="1" alt="" />
+        </p>
+    </noscript>
+    <!-- Adform Tracking Code END -->
     @if(App::getLocale() == 'nl')
         <img src="http://oa1.nl/m/5824/19fa5023ff43b6545d455e24a6a475f880acd6a1/?transactie_id={{$user_email}}"
              style="width: 1px; height: 1px; border: 0px;">
