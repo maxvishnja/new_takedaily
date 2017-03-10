@@ -1,6 +1,6 @@
 <div data-step="2" class="step">
 	<div data-sub-step="1" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--skip': temp_age > 50 || user_data.gender == 1 }">
-		<div class="count-step">(1/10)</div>
+		<div class="count-step">(1/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-1.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -21,7 +21,7 @@
 	</div>
 
 	<div data-sub-step="2" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
-		<div class="count-step">(2/10)</div>
+		<div class="count-step">(2/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-2.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -41,7 +41,7 @@
 	</div>
 
 	<div data-sub-step="3" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
-		<div class="count-step">(3/10)</div>
+		<div class="count-step">(3/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-3.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -74,7 +74,7 @@
 	</div>
 
 	<div data-sub-step="4" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
-		<div class="count-step">(4/10)</div>
+		<div class="count-step">(4/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-4.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -95,7 +95,7 @@
 	</div>
 
 	<div data-sub-step="5" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
-		<div class="count-step">(5/10)</div>
+		<div class="count-step">(5/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-5.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -124,7 +124,7 @@
 	</div>
 
 	<div data-sub-step="6" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
-		<div class="count-step">(6/10)</div>
+		<div class="count-step">(6/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-6.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -154,7 +154,7 @@
 	</div>
 
 	<div data-sub-step="7" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
-		<div class="count-step">(7/10)</div>
+		<div class="count-step">(7/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-7.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -175,7 +175,7 @@
 	</div>
 
 	<div data-sub-step="8" class="sub_step sub_step--active" v-bind:class="{ 'sub_step--skip': user_data.pregnant != 1 }">
-		<div class="count-step">(8/10)</div>
+		<div class="count-step">(8/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-8.title') }}</h3>
 		<div class="sub_step_answers">
 			<label class="text-center flow_label_noclick">
@@ -201,7 +201,7 @@
 	</div>
 
 	<div data-sub-step="9" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
-		<div class="count-step">(9/10)</div>
+		<div class="count-step">(9/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-10.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -222,7 +222,7 @@
 	</div>
 
 	<div data-sub-step="10" class="sub_step">
-		<div class="count-step">(10/10)</div>
+		<div class="count-step">(10/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-9.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -241,4 +241,37 @@
 
 		<p class="substep-explanation">{{ trans('flow.questions.2-9.text') }}</p>
 	</div>
+
+
+	@if(App::getLocale() == "nl")
+
+	<div data-sub-step="11" class="sub_step" v-bind:class="{ 'sub_step--skip': user_data.pregnant == 2 || user_data.diet == 1 || user_data.smokes == 1
+															|| user_data.sports == 4 || user_data.stressed == 2 || user_data.immune_system == 2  || user_data.lacks_energy == 2
+															|| user_data.joints == 2}">
+		<div class="count-step">(11/11)</div>
+		<h3 class="substep-title">{{ trans('flow.questions.2-11.title') }}</h3>
+		<div class="sub_step_answers">
+			<label>
+				<input type="radio" name="step[2][11]" value="1" v-model="user_data.priority" data-model="priority"
+					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
+				<span class="icon icon-immune-boost"></span>
+				<br/>{{ trans('flow.questions.2-11.options.1') }}
+			</label>
+			<label>
+				<input type="radio" name="step[2][11]" value="2" v-model="user_data.priority" data-model="priority"
+					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
+				<span class="icon icon-tired"></span>
+				<br/>{{ trans('flow.questions.2-11.options.2') }}
+			</label>
+			<label>
+				<input type="radio" name="step[2][11]" value="3" v-model="user_data.priority" data-model="priority"
+					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
+				<span class="icon icon-joint-yes"></span>
+				<br/>{{ trans('flow.questions.2-11.options.3') }}
+			</label>
+		</div>
+
+		<p class="substep-explanation">{{ trans('flow.questions.2-11.text') }}</p>
+	</div>
+		@endif
 </div>
