@@ -135,15 +135,9 @@ class CheckoutController extends Controller
 			                ->withInput();
 		}
 
-		try{
 
-			$charge = $checkout->makeInitialPayment();
+		$charge = $checkout->makeInitialPayment();
 
-		} catch ( \Exception $exception ) {
-
-			\Log::error("Initial payment create error: ".$exception->getMessage().' in line '.$exception->getLine()." file ".$exception->getFile());
-
-		}
 
 		if ( ! $charge )
 		{
@@ -212,8 +206,8 @@ class CheckoutController extends Controller
 		         ->appendGiftcard( $request->session()->get( 'giftcard_id' ), $request->session()->get( 'giftcard_token' ) )
 		         ->setTaxLibrary( $request->session()->get( 'address_country' ) );
 
-			
-				$isSuccessful = $checkout->getPaymentHandler()->isChargeValid( $request->session()->get( 'charge_id' ) );
+
+		$isSuccessful = $checkout->getPaymentHandler()->isChargeValid( $request->session()->get( 'charge_id' ) );
 
 
 		if ( ! $isSuccessful )
