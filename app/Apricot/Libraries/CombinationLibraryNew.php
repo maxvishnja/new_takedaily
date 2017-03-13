@@ -561,7 +561,7 @@ class CombinationLibraryNew
 		}
 
 		// New 2E
-		if (  isset( $data->priority ) && $data->priority == '2'  )
+		if (  isset( $data->priority ) && $data->priority == '3'  )
 		{
 			$this->groupTwo   = 'E';
 			$this->vitamins[] = '2E';

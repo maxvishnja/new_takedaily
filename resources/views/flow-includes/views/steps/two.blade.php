@@ -246,24 +246,26 @@
 	@if(App::getLocale() == "nl")
 
 	<div data-sub-step="11" class="sub_step" v-bind:class="{ 'sub_step--skip': user_data.pregnant == 1 || user_data.diet == 1 || user_data.smokes == 1
-															|| user_data.sports == 4 || user_data.stressed == 1 || user_data.immune_system == 2  || user_data.lacks_energy == 2
-															|| user_data.joints == 2}">
+															|| user_data.sports == 4 || user_data.stressed == 1 || (user_data.immune_system == 2  && user_data.lacks_energy == 2
+															&& user_data.joints == 1) || (user_data.immune_system == 1  && user_data.lacks_energy == 2
+															&& user_data.joints == 2) || (user_data.immune_system == 2  && user_data.lacks_energy == 1
+															&& user_data.joints == 2)}">
 		<div class="count-step">(11/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-11.title') }}</h3>
 		<div class="sub_step_answers">
-			<label>
+			<label  v-bind:class="{'hide-label': user_data.joints == 2}">
 				<input type="radio" name="step[2][11]" value="1" v-model="user_data.priority" data-model="priority"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
 				<span class="icon icon-immune-boost"></span>
 				<br/>{{ trans('flow.questions.2-11.options.1') }}
 			</label>
-			<label>
+			<label v-bind:class="{'hide-label': user_data.lacks_energy == 2}">
 				<input type="radio" name="step[2][11]" value="2" v-model="user_data.priority" data-model="priority"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
 				<span class="icon icon-tired"></span>
 				<br/>{{ trans('flow.questions.2-11.options.2') }}
 			</label>
-			<label>
+			<label v-bind:class="{'hide-label': user_data.immune_system == 2}">
 				<input type="radio" name="step[2][11]" value="3" v-model="user_data.priority" data-model="priority"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
 				<span class="icon icon-joint-yes"></span>
