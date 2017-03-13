@@ -38,8 +38,12 @@
                     <label for="description" class="control-label">Description</label>
                     <div class="controls">
                         <textarea name="description" id="description" class="form-control span8" rows="5" placeholder="This will be shown on the top!">{!! Request::old('description', isset($campaign) ? $campaign->description : '' ) !!}</textarea>
+
+
                     </div>
                 </div>
+
+
 
 
                 <div class="control-group">
@@ -73,6 +77,12 @@
         $(function() {
             $( ".datepicker" ).datepicker({
                 dateFormat: "yy-mm-dd"
+            });
+
+            CKEDITOR.replace('description', {
+                height: 300,
+                language: "en",
+                filebrowserImageUploadUrl: '/dashboard/upload/image'
             });
         });
     </script>
