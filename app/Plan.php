@@ -421,7 +421,7 @@ class Plan extends Model
 
 		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url ], function ( Message $message ) use ( $customer, $fromEmail )
 		{
-			\Log::info("Message send to ".$customer->getName()."(id ".$customer->id.")");
+			\Log::info("Message send to ".$customer->getName()."(id ".$customer->id.", mail ".$customer->getEmail().")");
 
 			$message->from($fromEmail, 'TakeDaily')
 					->to( $customer->getEmail(), $customer->getName() )
