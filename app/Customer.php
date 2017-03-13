@@ -229,6 +229,11 @@ class Customer extends Model
         return $this->getCustomerAttribute('user_data.birthdate', $this->birthday);
     }
 
+    public function getPhone()
+    {
+        return $this->getCustomerAttribute('phone', $this->phone);
+    }
+
     public function getAge()
     {
         if ($this->getBirthday() === '' || $this->getBirthday() === null) {
