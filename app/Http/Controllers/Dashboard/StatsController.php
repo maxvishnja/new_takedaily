@@ -37,7 +37,6 @@ class StatsController extends Controller
 
         if (\Request::ajax()) {
             $data = $request->all();
-
             switch ($data['stat_category']) {
                 case 1:
                     return Customer::whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();

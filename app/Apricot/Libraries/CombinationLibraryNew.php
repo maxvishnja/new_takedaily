@@ -461,17 +461,6 @@ class CombinationLibraryNew
 			return;
 		}
 
-		// E
-		if ( isset( $data->joints ) && $data->joints == '1' )
-		{
-			$this->groupTwo   = 'E';
-			$this->vitamins[] = '2E';
-
-			$this->setAdvise( '2E', $this->textGenerator->generate( '2E', [ 'joints' ], true ) );
-			$this->setAdviseInfo( '2E', trans( 'flow.combination_info.2.E' ) );
-
-			return;
-		}
 
 		// D
 		if ( isset( $data->smokes ) && $data->smokes == '1' )
@@ -509,6 +498,17 @@ class CombinationLibraryNew
 		}
 
 
+		// E
+		if ( isset( $data->joints ) && $data->joints == '1' )
+		{
+			$this->groupTwo   = 'E';
+			$this->vitamins[] = '2E';
+
+			$this->setAdvise( '2E', $this->textGenerator->generate( '2E', [ 'joints' ], true ) );
+			$this->setAdviseInfo( '2E', trans( 'flow.combination_info.2.E' ) );
+
+			return;
+		}
 
 		// D
 		if ( isset( $data->immune_system ) && $data->immune_system == '1' )
@@ -530,6 +530,44 @@ class CombinationLibraryNew
 
 			$this->setAdvise( '2C', $this->textGenerator->generate( '2C', [ 'lacks_energy_stressed' ], true ) );
 			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
+
+			return;
+		}
+
+
+		// New 2D
+		if (  isset( $data->priority ) && $data->priority == '1'  )
+		{
+			$this->groupTwo   = 'D';
+			$this->vitamins[] = '2D';
+
+			$this->setAdvise( '2D', $this->textGenerator->generate( '2D', [ 'immune_system' ], true ) );
+			$this->setAdviseInfo( '2D', trans( 'flow.combination_info.2.D' ) );
+
+			return;
+		}
+
+
+		// New 2C
+		if (  isset( $data->priority ) && $data->priority == '2'  )
+		{
+			$this->groupTwo   = 'C';
+			$this->vitamins[] = '2C';
+
+			$this->setAdvise( '2C', $this->textGenerator->generate( '2C', [ 'lacks_energy_stressed' ], true ) );
+			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
+
+			return;
+		}
+
+		// New 2E
+		if (  isset( $data->priority ) && $data->priority == '3'  )
+		{
+			$this->groupTwo   = 'E';
+			$this->vitamins[] = '2E';
+
+			$this->setAdvise( '2E', $this->textGenerator->generate( '2E', [ 'joints' ], true ) );
+			$this->setAdviseInfo( '2E', trans( 'flow.combination_info.2.E' ) );
 
 			return;
 		}

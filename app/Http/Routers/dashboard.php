@@ -37,6 +37,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	} );
 
 	Route::resource( 'customers', 'Dashboard\CustomerController' );
+	Route::resource( 'campaign', 'Dashboard\CampaignController' );
 	Route::get( 'customers/newpass/{id}', 'Dashboard\CustomerController@newPass' );
 	Route::get( 'customers/bill/{id}', 'Dashboard\CustomerController@bill' );
 	Route::get( 'customers/cancel/{id}', 'Dashboard\CustomerController@cancel' );

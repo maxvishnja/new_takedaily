@@ -71,16 +71,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 
 
-			Route::get( '/campaign/eb', function ()
-			{   if(App::getLocale() != "nl"){
-				$faqs = ( new \App\Apricot\Repositories\FaqRepository() )->get();
-
-				return view( 'campaign', compact( 'faqs' ) );
-
-			} else{
-				abort( 404 );
-			}
-			} )->name( 'home' );
+		Route::get( '/campaign/{code}', 'CampaignController@getCampaign')->name( 'campaign' );
 
 
 
