@@ -107,7 +107,7 @@
 				{{--@endforeach--}}
 					{{--"</select>" +--}}
 				"<input type=\"text\" name=\"days\" class=\"datepicker\" />" +
-				"<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
+				"<input type=\"hialreen\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
 				"</form>",
 				type: "",
 				html: true,
