@@ -132,12 +132,19 @@ class CheckoutCompletion
 	{
 		if ( $this->getCheckout()->getProduct()->isSubscription() )
 		{
+
+			if(\Date::now(config('app.timezone')) < \Date::parse(date("Y-m-d 14:00:00"))){
+				$newDate = \Date::now()->addDays( 28 );
+			} else{
+				$newDate = \Date::now()->addDays( 27 );
+			}
+
 			$this->getUser()->getCustomer()->getPlan()->update( [
 				'price'                     => $this->getCheckout()->getSubscriptionPrice(),
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
 				'subscription_started_at'   => \Date::now(),
 				'currency'                  => trans( 'general.currency' ),
-				'subscription_rebill_at'    => \Date::now()->addDays( 28 )->addWeekdays( 4 ),
+				'subscription_rebill_at'    => $newDate,
 				'subscription_cancelled_at' => null
 			] );
 
