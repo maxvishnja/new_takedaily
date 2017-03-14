@@ -193,10 +193,10 @@ class Plan extends Model
 		return ! is_null( $this->getSubscriptionSnoozedUntil() );
 	}
 
-	public function snooze( $days = 7 )
+	public function snooze( $days )
 	{
 		// consider checking if $this->isSnoozeable()
-		$newDate = Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->addDays( $days );
+		$newDate = Date::parse($days."14:01:00");
 
 		$this->subscription_snoozed_until = $newDate;
 		$this->subscription_rebill_at     = $newDate;
