@@ -196,7 +196,7 @@ class Plan extends Model
 	public function snooze( $days )
 	{
 		// consider checking if $this->isSnoozeable()
-		$newDate = Date::parse($days."14:01:00");
+		$newDate = Date::parse($days."14:10:00");
 
 		$this->subscription_snoozed_until = $newDate;
 		$this->subscription_rebill_at     = $newDate;
