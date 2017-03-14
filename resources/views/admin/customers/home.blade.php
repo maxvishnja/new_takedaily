@@ -14,7 +14,7 @@
 					<th>Navn</th>
 					<th>E-mail</th>
 					<th>Oprettet d.</th>
-					<th>Opdateret d.</th>
+					<th>Canceled</th>
 					<th></th>
 				</tr>
 				</thead>
@@ -27,7 +27,13 @@
 						<td>{{ $customer->getName() }}</td>
 						<td><a href="mailto:{{ $customer->getEmail() }}">{{ $customer->getEmail() }}</a></td>
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('j. M Y H:i') }}</td>
-						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->updated_at)->format('j. M Y H:i') }}</td>
+						<td>
+							@if($customer->plan->getSubscriptionCancelledAt())
+							{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('j. M Y H:i') }}
+							@else
+								No
+							@endif
+						</td>
 						<td>
 							<div class="btn-group">
 								<a class="btn btn-info" href="{{ URL::action('Dashboard\CustomerController@edit', [ 'id' => $customer->id ]) }}"><i class="icon-pencil"></i>

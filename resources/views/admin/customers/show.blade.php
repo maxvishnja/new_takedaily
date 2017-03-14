@@ -27,9 +27,12 @@
 					{{--Delete</a>--}}
 
 			</div>
-
 			<div class="clear"></div>
 			<hr/>
+			@if( $customer->plan->getReasonCancel())
+				<h5>Unsubscribe reason: {{ $customer->plan->getReasonCancel() }}</h5>
+				<hr/>
+			@endif
 
 			<table class="table table-striped">
 				<tbody>
