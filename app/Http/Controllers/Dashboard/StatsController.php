@@ -79,6 +79,9 @@ class StatsController extends Controller
         foreach ($customers as $customer) {
             if ($customer->isSubscribed()) {
                 if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
+                    $email_array[$i]['First Name'] = $customer->getFirstName();
+                    $email_array[$i]['Last Name'] = $customer->getLastName();
+                    $email_array[$i]['Phone'] = $customer->getPhone();
                     $email_array[$i]['Email Address'] = $customer->getEmail();
                     $i++;
                 }
@@ -114,6 +117,9 @@ class StatsController extends Controller
             $customers = Customer::where('locale','like', $data['lang'])->whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
             foreach ($customers as $customer) {
                 if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
+                    $email_array[$i]['First Name'] = $customer->getFirstName();
+                    $email_array[$i]['Last Name'] = $customer->getLastName();
+                    $email_array[$i]['Phone'] = $customer->getPhone();
                     $email_array[$i]['Email Address'] = $customer->getEmail();
                     $i++;
                 }

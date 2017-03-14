@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12 promocode">
                         <div class="promo-text">
-                            {{ $text }}
+                            {!! $text  !!}
                         </div>
                     </div>
                 </div>

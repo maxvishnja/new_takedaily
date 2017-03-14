@@ -253,7 +253,7 @@
 		<div class="count-step">(11/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-11.title') }}</h3>
 		<div class="sub_step_answers">
-			<label  v-bind:class="{'hide-label': user_data.joints == 2}">
+			<label  v-bind:class="{'hide-label': user_data.immune_system == 2}">
 				<input type="radio" name="step[2][11]" value="1" v-model="user_data.priority" data-model="priority"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
 				<span class="icon icon-immune-boost"></span>
@@ -265,7 +265,7 @@
 				<span class="icon icon-tired"></span>
 				<br/>{{ trans('flow.questions.2-11.options.2') }}
 			</label>
-			<label v-bind:class="{'hide-label': user_data.immune_system == 2}">
+			<label v-bind:class="{'hide-label': user_data.joints == 2}">
 				<input type="radio" name="step[2][11]" value="3" v-model="user_data.priority" data-model="priority"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
 				<span class="icon icon-joint-yes"></span>

@@ -295,6 +295,12 @@ class Plan extends Model
 		return $this->subscription_cancelled_at;
 	}
 
+	public function getReasonCancel()
+	{
+		return $this->unsubscribe_reason;
+	}
+
+
 	public function getSubscriptionStartedAt()
 	{
 		return $this->subscription_started_at;
