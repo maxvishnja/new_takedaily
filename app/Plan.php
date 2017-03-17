@@ -426,14 +426,21 @@ class Plan extends Model
 			$url = "http://takedaily.dk/account/transactions?already_open=1";
 		}
 
-		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url ], function ( Message $message ) use ( $customer, $fromEmail )
+		$image = 'http://takedaily.dev:8080/checksnooz/'.base64_encode($customer->getEmail()).'/'.  rand(1, 999).'/email.gif';
+
+		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url, 'image' => $image ], function ( Message $message ) use ( $customer, $fromEmail )
 		{
 			\Log::info("Message send to ".$customer->getName()."(id ".$customer->id.", mail ".$customer->getEmail().")");
 
 			$message->from($fromEmail, 'TakeDaily')
-					->to( $customer->getEmail(), $customer->getName() )
+					->to( 'maxadm8@gmail.com', $customer->getName() )
 			        ->subject( trans('mails.pending.subject') );
 		} );
+
+		$snoozing = new Snoozing();
+		$snoozing->customer_id = $customer->id;
+		$snoozing->email = $customer->getEmail();
+		$snoozing->save();
 
 		$this->markHasNotified();
 

@@ -63,6 +63,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'page-translations/{id}/delete', 'Dashboard\PageTranslationController@delete' );
 
 	Route::resource( 'faq', 'Dashboard\FaqController' );
+	Route::get( 'snoozing', 'Dashboard\SnoozingController@index' );
 	Route::get( 'stats', 'Dashboard\StatsController@index' );
 	Route::post('stats/post', ['as' => 'stats-post', 'uses' => 'Dashboard\StatsController@getData']);
 	Route::post('stats/exportdate', ['as' => 'csv-export', 'uses' => 'Dashboard\StatsController@exportCsvDate']);

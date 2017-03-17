@@ -73,6 +73,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 		Route::get( '/campaign/{code}', 'CampaignController@getCampaign')->name( 'campaign' );
 
+		Route::get('/checksnooz/{hash}/{id}/{email}','SnoozingController@checkSnooz')->name('check_snooz');
+
 
 
 		/*
