@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\ClearOldCarts;
+use App\Console\Commands\ClearSnoozing;
 use App\Console\Commands\ClearOldSavedFlows;
 use App\Console\Commands\GenerateSitemapCommand;
 use App\Console\Commands\MailFlowSender;
@@ -31,7 +32,8 @@ class Kernel extends ConsoleKernel
 	    SendHealthMail::class,
 		UpdatePregnancyWeeks::class,
 	    ClearOldCarts::class,
-	    ClearOldSavedFlows::class
+	    ClearOldSavedFlows::class,
+		ClearSnoozing::class
 	];
 
 	/**
