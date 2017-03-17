@@ -434,7 +434,7 @@ class Plan extends Model
 			\Log::info("Message send to ".$customer->getName()."(id ".$customer->id.", mail ".$customer->getEmail().")");
 
 			$message->from($fromEmail, 'TakeDaily')
-					->to( 'maxadm8@gmail.com', $customer->getName() )
+					->to( $customer->getEmail(), $customer->getName() )
 			        ->subject( trans('mails.pending.subject') );
 		} );
 
