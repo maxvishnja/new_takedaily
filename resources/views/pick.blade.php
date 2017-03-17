@@ -109,7 +109,7 @@
 						</div>
 
 						<form action="" method="post">
-							<div class="pick-n-mix-total" v-show="numSelectedVitamins > 0">{{ trans('general.money-vue', ['amount' => 'total_sum']) }}</div>
+							<div class="pick-n-mix-total" v-show="numSelectedVitamins > 1">{{ trans('general.money-vue', ['amount' => 'total_sum']) }}</div>
 							<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
 									class="button button--circular button--green button--large button--full m-t-20">
 								@if( !$isCustomer )

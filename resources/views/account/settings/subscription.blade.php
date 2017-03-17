@@ -101,12 +101,13 @@
 				title: "{{ trans('account.settings_subscription.snooze_popup.title') }}",
 				text: "{{ trans('account.settings_subscription.snooze_popup.text') }}" +
 				"<form method=\"post\" action=\"{{ URL::action('AccountController@postSettingsSubscriptionSnooze') }}\" id=\"snooze_form\">" +
-				"<select class=\"select select--regular m-t-10\" name=\"days\">" +
-				@foreach(range(1,28) as $days)
-					"<option value=\"{{ $days }}\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => $days ]) }}</option>" +
-				@endforeach
-					"</select>" +
-				"<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
+				{{--"<select class=\"select select--regular m-t-10\" name=\"days\">" +--}}
+				{{--@foreach(range(1,28) as $days)--}}
+					{{--"<option value=\"{{ $days }}\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => $days ]) }}</option>" +--}}
+				{{--@endforeach--}}
+					{{--"</select>" +--}}
+				"<input type=\"text\" name=\"days\" class=\"datepicker\" />" +
+				"<input type=\"hialreen\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
 				"</form>",
 				type: "",
 				html: true,
@@ -120,6 +121,12 @@
 				if (inputValue) {
 					return $("#snooze_form").submit();
 				}
+			});
+			$( ".datepicker" ).datepicker({
+				startDate: '+1d',
+				endDate: '+28d',
+				daysOfWeekDisabled: [0,6],
+				format: "dd-mm-yyyy"
 			});
 		});
 
@@ -144,5 +151,6 @@
 
 			$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
 		});
+
 	</script>
 @endsection

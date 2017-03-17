@@ -33,6 +33,7 @@ class CustomerController extends Controller
 
 	function show($id)
 	{
+
 		$customer = Customer::find($id);
 
 		if( ! $customer )
@@ -49,6 +50,8 @@ class CustomerController extends Controller
 
 	function edit($id)
 	{
+
+
 		$customer = Customer::find($id);
 
 		if( ! $customer )

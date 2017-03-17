@@ -193,10 +193,10 @@ class Plan extends Model
 		return ! is_null( $this->getSubscriptionSnoozedUntil() );
 	}
 
-	public function snooze( $days = 7 )
+	public function snooze( $days )
 	{
 		// consider checking if $this->isSnoozeable()
-		$newDate = Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->addDays( $days );
+		$newDate = Date::parse($days."14:10:00");
 
 		$this->subscription_snoozed_until = $newDate;
 		$this->subscription_rebill_at     = $newDate;
@@ -229,7 +229,7 @@ class Plan extends Model
 		return $this->isActive()
 		       && ! $this->isSnoozed()
 		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->created_at )->diffInDays() >= 1
-		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->diffInDays() >= 4;
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->diffInDays() >= 1;
 	}
 
 	public function isCancelable()
@@ -254,7 +254,7 @@ class Plan extends Model
 	{
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = null;
-		$this->subscription_rebill_at     = Date::now()->addDays( 28 )->addWeekdays(4);
+		$this->subscription_rebill_at     = Date::now()->addDays( 28 );
 		//$this->subscription_rebill_at     = Date::now()->addDays( 28 );
 		$this->save();
 
@@ -263,7 +263,8 @@ class Plan extends Model
 
 	public function rebilled()
 	{
-		$this->subscription_rebill_at = Date::now()->addDays( 28 )->addWeekdays(4);
+		$this->subscription_rebill_at = Date::now()->addDays( 28 );
+		$this->subscription_snoozed_until = null;
 		$this->save();
 
 		$this->markHasNotified( false );
@@ -382,7 +383,7 @@ class Plan extends Model
 	 */
 	public function scopeRebillPending( $query )
 	{
-		return $query->where( 'subscription_rebill_at', '<=', Date::now()->addDays( 5 ) )
+		return $query->where( 'subscription_rebill_at', '<=', Date::now()->addDays( 3 ) )
 		             ->where( function ( $where )
 		             {
 			             $where->whereNull( 'subscription_snoozed_until' );

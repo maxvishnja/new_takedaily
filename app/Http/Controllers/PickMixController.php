@@ -14,9 +14,14 @@ class PickMixController extends Controller
 	}
 
 	public function get( Request $request )
-{		if(\App::getLocale() == 'nl'){
-			return redirect('/');
+{
+		if(\App::getLocale()=="nl"){
+
+			return \Redirect::route( 'home' );
+
 		}
+
+
 		$vitamins         = Vitamin::all();
 		$isCustomer       = \Auth::check() && \Auth::user()->isUser();
 		$selectedVitamins = [];

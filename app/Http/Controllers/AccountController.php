@@ -238,16 +238,18 @@ class AccountController extends Controller
 			return redirect()->action( 'AccountController@getSettingsSubscription' )->withErrors( trans( 'messages.errors.subscription.not-snoozed' ) );
 		}
 
-		if ( $request->get( 'days', 7 ) > 28 )
-		{
-			return redirect()->back()->withErrors( trans( 'account.general.errors.max-snooze' ) );
-		}
+//		if ( $request->get( 'days', 7 ) > 28 )
+//		{
+//			return redirect()->back()->withErrors( trans( 'account.general.errors.max-snooze' ) );
+//		}
 
-		$this->customer->getPlan()->snooze( $request->get( 'days', 7 ) );
+
+
+		$this->customer->getPlan()->snooze( $request->get( 'days') );
 
 		return redirect()
 			->action( 'AccountController@getSettingsSubscription' )
-			->with( 'success', trans( 'messages.successes.subscription.snoozed', [ 'days' => $request->get( 'days', 7 ) ] ) );
+			->with( 'success', trans( 'messages.successes.subscription.snoozed', [ 'days' => $request->get( 'days' ) ] ) );
 	}
 
 	function getSettingsSubscriptionStart()

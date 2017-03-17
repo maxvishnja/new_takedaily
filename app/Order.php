@@ -185,8 +185,15 @@ class Order extends Model
 		$this->state = 'sent';
 		$this->save();
 
+
+
 		if ( $this->customer )
 		{
+
+			//Rebill on click Sent
+
+			$this->customer->plan->rebilled();
+
 			$receiverName  = $this->customer->getName();
 			$receiverEmail = $this->customer->getEmail();
 			$locale = \App::getLocale();

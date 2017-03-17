@@ -49,9 +49,9 @@
                                                 <strong>{!! trans('home.header.button-click-here') !!}</strong>
                                             </a>
                                             <div class="or-pick-mix-link-container">
-                                                @if(App::getLocale() != 'nl')
+
                                                     <a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a>
-                                                @endif
+
                                             </div>
                                         </div>
 

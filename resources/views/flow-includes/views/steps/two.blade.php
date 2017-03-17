@@ -249,6 +249,7 @@
 															|| user_data.sports == 4 || user_data.stressed == 1 || (user_data.immune_system == 2  && user_data.lacks_energy == 2
 															&& user_data.joints == 1) || (user_data.immune_system == 1  && user_data.lacks_energy == 2
 															&& user_data.joints == 2) || (user_data.immune_system == 2  && user_data.lacks_energy == 1
+															&& user_data.joints == 2) || (user_data.immune_system == 2  && user_data.lacks_energy == 2
 															&& user_data.joints == 2)}">
 		<div class="count-step">(11/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-11.title') }}</h3>
