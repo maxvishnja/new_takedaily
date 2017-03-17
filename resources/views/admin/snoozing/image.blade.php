@@ -1,0 +1,1 @@
+<img src="{{ asset('/images/mail-logo.png') }}" height="36" alt="Logo">

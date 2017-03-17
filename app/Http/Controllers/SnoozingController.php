@@ -11,10 +11,16 @@ class SnoozingController extends Controller
 
     public function checkSnooz($hash, $id, $email)
     {
-        \Log::info('hash '.$hash);
-        dd('11');
 
-        return view('feedback.main');
+        \Debugbar::disable();
+
+        \Log::info('hash '.$hash);
+
+        $contents = \View::make('admin.snoozing.image');
+        $response = \Response::make($contents, 200);
+//        $response->header('Content-Type', 'image/jpeg');
+
+        return $response;
 
 
     }

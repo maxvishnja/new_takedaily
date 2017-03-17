@@ -420,13 +420,14 @@ class Plan extends Model
 		\App::setLocale($customer->getLocale());
 		if($customer->getLocale()== 'nl') {
 			$fromEmail = 'info@takedaily.nl';
-			$url = "http://takedaily.nl/account/transactions?already_open=1";
+			$url = "https://takedaily.nl/account/transactions?already_open=1";
 		} else{
 			$fromEmail = 'info@takedaily.dk';
-			$url = "http://takedaily.dk/account/transactions?already_open=1";
+			$url = "https://takedaily.dk/account/transactions?already_open=1";
 		}
 
-		$image = 'https://dev.takedaily.nl/checksnooz/'.base64_encode($customer->getEmail()).'/'.  rand(1, 999).'/email.gif';
+		$image = 'https://takedaily.nl/checksnooz/'.base64_encode($customer->getEmail()).'/'.  rand(1, 999).'/email.png';
+
 
 		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url, 'image' => $image ], function ( Message $message ) use ( $customer, $fromEmail )
 		{
