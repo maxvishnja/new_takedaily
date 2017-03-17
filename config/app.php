@@ -257,6 +257,7 @@ return [
 		'Mollie'    => Mollie\Laravel\Facades\Mollie::class,
 		'Bugsnag'   => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
 		'Excel' 	=> Maatwebsite\Excel\Facades\Excel::class,
+		'Debugbar'  =>  Barryvdh\Debugbar\Facade::class,
 
 	],
 

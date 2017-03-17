@@ -11,8 +11,13 @@ class Snoozing extends Model
     protected $fillable = [
         'customer_id',
         'email',
-        'send',
         'open'
     ];
+
+
+    public function customer()
+    {
+        return $this->belongsTo( 'App\Customer', 'id', 'customer_id' );
+    }
 
 }

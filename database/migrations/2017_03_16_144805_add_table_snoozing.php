@@ -16,8 +16,8 @@ class AddTableSnoozing extends Migration
             $table->increments('id');
             $table->integer('customer_id')->index()->unsigned();
             $table->string('email', 50);
-            $table->timestamp('send')->nullable();
             $table->timestamp('open')->nullable();
+            $table->timestamps();
         });
     }
 
