@@ -426,7 +426,7 @@ class Plan extends Model
 			$url = "http://takedaily.dk/account/transactions?already_open=1";
 		}
 
-		$image = 'http://takedaily.dev:8080/checksnooz/'.base64_encode($customer->getEmail()).'/'.  rand(1, 999).'/email.gif';
+		$image = 'https://dev.takedaily.nl/checksnooz/'.base64_encode($customer->getEmail()).'/'.  rand(1, 999).'/email.gif';
 
 		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url, 'image' => $image ], function ( Message $message ) use ( $customer, $fromEmail )
 		{
