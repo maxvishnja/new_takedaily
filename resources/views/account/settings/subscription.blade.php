@@ -123,13 +123,12 @@
 				}
 			});
 			$( ".datepicker" ).datepicker({
-				startDate: '+1d',
-				endDate: '+28d',
+				startDate: '{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDay()->format('d-m-Y')}}',
+				endDate: '{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(28)->format('d-m-Y')}}',
 				daysOfWeekDisabled: [0,6],
 				format: "dd-mm-yyyy"
 			});
 		});
-
 		$('.readMoreBtn').click(function (e) {
 			e.preventDefault();
 
