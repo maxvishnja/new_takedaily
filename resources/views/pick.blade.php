@@ -359,14 +359,21 @@
 				removeVitamin: function (vitamin, event) {
 					event.preventDefault();
 
+					console.log(app.group);
+
 					if(vitamin.type == 'multi')
 					{
 						app.group.splice(0, 1);
 					}
 
-					if(vitamin.type == 'lifestyle')
+					if(vitamin.type == 'lifestyle' && this.hasMultivitamin)
 					{
 						app.group.splice(1, 1);
+					}
+
+					if(vitamin.type == 'lifestyle' && !this.hasMultivitamin)
+					{
+						app.group.splice(0, 1);
 					}
 
 					if(vitamin.type == 'diet'){
@@ -513,7 +520,7 @@
 					if(vitamin.type == 'diet' && !this.hasDietVitamin){
 						app.group.push(vitamin.code[1]);
 					}
-
+					console.log(app.group);
 
 					if(app.group.length > 2){
 						if(this.combinationChecker(app.group[0],app.group[1],app.group[2])){
