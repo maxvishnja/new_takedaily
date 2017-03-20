@@ -359,7 +359,6 @@
 				removeVitamin: function (vitamin, event) {
 					event.preventDefault();
 
-					console.log(app.group);
 
 					if(vitamin.type == 'multi')
 					{
@@ -520,7 +519,8 @@
 					if(vitamin.type == 'diet' && !this.hasDietVitamin){
 						app.group.push(vitamin.code[1]);
 					}
-					console.log(app.group);
+
+					@if(App::getLocale()=="nl")
 
 					if(app.group.length > 2){
 						if(this.combinationChecker(app.group[0],app.group[1],app.group[2])){
@@ -555,7 +555,7 @@
 
 					}
 
-
+					@endif
 
 
 					vitamin.isSelected = true;
