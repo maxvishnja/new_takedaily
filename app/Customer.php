@@ -734,7 +734,8 @@ class Customer extends Model
             'user_data.foods.dairy' => $userData->foods->dairy ?: '',
             'user_data.foods.meat' => $userData->foods->meat ?: '',
             'user_data.foods.fish' => $userData->foods->fish ?: '',
-            'user_data.foods.butter' => $userData->foods->butter ?: ''
+            'user_data.foods.butter' => $userData->foods->butter ?: '',
+            'user_data.priority' => $userData->priority ?: ''
         ];
 
         if (isset($userData->custom) && isset($userData->custom->three) && $userData->custom->three != '' && !empty($userData->custom->three)) {
