@@ -153,7 +153,7 @@
 			el: '#app',
 			data: {
 				show_popup: false,
-				maxVitamins: 4,
+				maxVitamins: 3,
 				minVitamins: 2,
 				group:[],
 				totals: [],
@@ -396,7 +396,7 @@
 
 					if (this.hasSelectedMaxVitamins) {
 						swal({
-							title: "{{ trans('message.warning-title') }}",
+							title: "",
 							text: "{!! trans('pick.errors.too-many') !!}",
 							type: "warning",
 							html: true,
@@ -411,7 +411,7 @@
 
 					if (this.hasMultivitamin && vitamin.type == 'multi') {
 						swal({
-							title: "{{ trans('message.warning-title') }}",
+							title: "",
 							text: "{!! trans('pick.errors.already-has-multi') !!}",
 							type: "warning",
 							html: true,
@@ -448,7 +448,7 @@
 					if(vitamin.type == 'multi' && this.hasLifestyleVitamin && app.group[0]=='A') {
 
 						swal({
-							title: "{{ trans('message.warning-title') }}",
+							title: "",
 							text: "{!! trans('pick.errors.combination') !!}",
 							type: "warning",
 							html: true,
@@ -540,7 +540,7 @@
 							}
 
 							swal({
-								title: "{{ trans('message.warning-title') }}",
+								title: "",
 								text: "{!! trans('pick.errors.combination') !!}",
 								type: "warning",
 								html: true,
