@@ -86,7 +86,7 @@
                 <div class="control-group">
                     <label for="page_title" class="control-label">Ambasador</label>
                     <div class="controls">
-                        <select name="ambas" id="input_state">
+                        <select name="ambas" id="input_state" onchange="if( $(this).val() == 1 ) { $('.ambas').show() } else { $('.ambas').hide() }">
                             @foreach([0 => 'No', 1=>'Yes' ] as $key=> $value)
                                 <option @if($customer->ambas == $key) selected   @endif value="{{$key }}">{{ $value }}</option>
                             @endforeach
@@ -94,17 +94,36 @@
                     </div>
                 </div>
 
-                <div class="control-group">
-                    <label for="page_title" class="control-label">Ambasador</label>
+                @if($customer->couponAmbassador())
+                <div class="control-group ambas" style="@if ($customer->ambas == 1) display:block @else display:none @endif">
+                    <label for="page_title" class="control-label">Ambasador coupone</label>
                     <div class="controls">
                         <select name="coupon" id="input_state">
+                            <option value="">---</option>
                             @foreach($customer->couponAmbassador() as $coupon)
                                 <option @if($customer->coupon == $coupon->code) selected   @endif value="{{$coupon->code }}">{{ $coupon->code }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
+                @endif
 
+                @if($customer->ambas == 1)
+                    <div class="control-group">
+                        <label for="page_title" class="control-label">Discount</label>
+                        <div class="controls">
+                            <input type="text" class="form-control span4" name="coupon_free" id="page_subtitle"
+                                   value="{{ Request::old($customer->plan->getCouponCount(), ($customer->plan->getCouponCount()) ? $customer->plan->getCouponCount() : '' ) }}"
+                                   placeholder="ex. 2 Month or 20 Percent"/>
+                            <select name="discount_type" id="input_state">
+                                @foreach(['month' => 'Month', 'percent' =>'Percent' ] as $key=>$value)
+                                    <option value="{{$key }}" @if($key==$customer->plan->getDiscountType()) selected @endif>{{ $value }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                @endif
 
                 @foreach($customer->customerAttributes as $attribute)
 

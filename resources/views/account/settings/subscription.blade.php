@@ -122,12 +122,14 @@
 					return $("#snooze_form").submit();
 				}
 			});
+			@if($plan->getRebillAt()!=null)
 			$( ".datepicker" ).datepicker({
 				startDate: '{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDay()->format('d-m-Y')}}',
 				endDate: '{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(28)->format('d-m-Y')}}',
 				daysOfWeekDisabled: [0,6],
 				format: "dd-mm-yyyy"
 			});
+			@endif
 		});
 		$('.readMoreBtn').click(function (e) {
 			e.preventDefault();

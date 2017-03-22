@@ -3,7 +3,7 @@
 @section('content')
 	<div class="module">
 		<div class="module-head">
-			<h3>Kunde (#{{ $customer->id }})</h3>
+			<h3>Kunde (#{{ $customer->id }}) @if($customer->ambas == 1)(is Ambassador)@endif</h3>
 		</div>
 
 		<div class="module-body">
@@ -55,6 +55,13 @@
 					<td>Gender</td>
 					<td>{{ ((string) $customer->getCustomerAttribute('user_data.gender', '1') === '1') ? 'Male' : 'Female' }}<br/></td>
 				</tr>
+
+				@if($customer->ambas == 1)
+					<tr>
+						<td>New customers in this month</td>
+						<td>{{ $newusers }}</td>
+					</tr>
+				@endif
 
 				@if($customer->hasBirthday())
 					<tr>

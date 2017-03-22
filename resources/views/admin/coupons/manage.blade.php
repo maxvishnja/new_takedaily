@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="control-group">
-					<label for="page_title" class="control-label">Ambasador</label>
+					<label for="page_title" class="control-label">For ambasador</label>
 					<div class="controls">
 						<select name="ambas" id="input_state">
 							@foreach([0 => 'No', 1=>'Yes' ] as $key=> $value)

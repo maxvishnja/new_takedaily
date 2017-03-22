@@ -154,6 +154,12 @@ class Plan extends Model
 		$this->save();
 	}
 
+	public function setDiscountType($type)
+	{
+		$this->discount_type = $type;
+		$this->save();
+	}
+
 
 	public function setLastCoupon($code){
 
@@ -167,6 +173,12 @@ class Plan extends Model
 
 	}
 
+
+	public function getDiscountType(){
+
+		return $this->discount_type;
+
+	}
 
 	public function hasChiaoil()
 	{
@@ -280,6 +292,7 @@ class Plan extends Model
 	{
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = null;
+		$this->unsubscribe_reason = '';
 		$this->subscription_rebill_at     = Date::now();
 		$this->save();
 
