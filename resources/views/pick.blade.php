@@ -31,7 +31,7 @@
 
 					<div class="pick-n-mix-flex">
 						<div v-for="vitamin in vitaminsInGroup(group)" class="flex-vitamin">
-							<div class="new_vitamin_item" v-bind:class="{ 'faded': ((vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) || (vitamin.type == 'oil' && hasOilVitamin && !vitamin.isSelected) || (vitamin.type == 'diet' && hasDietVitamin && !vitamin.isSelected) || (vitamin.type == 'lifestyle' && hasLifestyleVitamin && !vitamin.isSelected) ) }">
+							<div class="new_vitamin_item" v-bind:class="{ 'faded': ((vitamin.type == 'multi' && hasMultivitamin && !vitamin.isSelected) || (vitamin.type == 'oil' && hasOilVitamin && !vitamin.isSelected) || (vitamin.type == 'diet' && hasDietVitamin && !vitamin.isSelected) || (vitamin.type == 'lifestyle' && hasLifestyleVitamin && !vitamin.isSelected)    )  }">
 
 								<div class="pill_section">
 									<span class="icon pill-@{{ vitamin.code.toLowerCase() }}"></span>
@@ -100,7 +100,7 @@
 							</div>
 
 							<div class="cart-selection_item cart-selection_action">
-								<a href="#" style="display: inline-block"
+								<a href="#" style="display: inline-block" class="@{{ vitamin.type }}"
 								   v-on:click="removeVitamin(vitamin, $event)"><span
 										class="icon icon-cross-16-gray"></span></a>
 							</div>
@@ -153,8 +153,9 @@
 			el: '#app',
 			data: {
 				show_popup: false,
-				maxVitamins: 4,
+				maxVitamins: 3,
 				minVitamins: 2,
+				group:[],
 				totals: [],
 				groupTranslations: {
 					@foreach(trans('pick.groups') as $key => $group)
@@ -315,8 +316,70 @@
 						}
 					});
 				},
+				combinationChecker: function (one,two,three) {
+
+					var combination = [
+						'1Af',
+						'1Bf',
+						'1Cb',
+						'1Cd',
+						'1Df',
+						'2Aa',
+						'2Ab',
+						'2Ac',
+						'2Ad',
+						'2Ae',
+						'2Af',
+						'2Bf',
+						'2Cb',
+						'2Cd',
+						'2Df',
+						'2Ef',
+						'3Aa',
+						'3Ab',
+						'3Ac',
+						'3Ad',
+						'3Ae',
+						'3Af',
+						'3Bf',
+						'3Cb',
+						'3Cd',
+						'3Df',
+						'3Ef'
+					];
+
+					var pills = one+''+two+''+three;
+
+					for(var i=0; i<combination.length; i++){
+						if(pills == combination[i]) return true;
+					}
+					return false;
+
+				},
 				removeVitamin: function (vitamin, event) {
 					event.preventDefault();
+
+
+					if(vitamin.type == 'multi')
+					{
+						app.group.splice(0, 1);
+					}
+
+					if(vitamin.type == 'lifestyle' && this.hasMultivitamin)
+					{
+						app.group.splice(1, 1);
+					}
+
+					if(vitamin.type == 'lifestyle' && !this.hasMultivitamin)
+					{
+						app.group.splice(0, 1);
+					}
+
+					if(vitamin.type == 'diet'){
+						app.group.splice(2, 1);
+					}
+
+
 
 					vitamin.isSelected = false;
 
@@ -333,7 +396,7 @@
 
 					if (this.hasSelectedMaxVitamins) {
 						swal({
-							title: "{{ trans('message.warning-title') }}",
+							title: "",
 							text: "{!! trans('pick.errors.too-many') !!}",
 							type: "warning",
 							html: true,
@@ -348,7 +411,7 @@
 
 					if (this.hasMultivitamin && vitamin.type == 'multi') {
 						swal({
-							title: "{{ trans('message.warning-title') }}",
+							title: "",
 							text: "{!! trans('pick.errors.already-has-multi') !!}",
 							type: "warning",
 							html: true,
@@ -360,6 +423,9 @@
 
 						return false;
 					}
+
+
+
 
 					if(vitamin.type == 'oil' && this.hasOilVitamin)
 					{
@@ -376,7 +442,124 @@
 						return false;
 					}
 
+
+					@if(App::getLocale()=="nl")
+
+					if(vitamin.type == 'multi' && this.hasLifestyleVitamin && app.group[0]=='A') {
+
+						swal({
+							title: "",
+							text: "{!! trans('pick.errors.combination') !!}",
+							type: "warning",
+							html: true,
+							allowOutsideClick: true,
+							confirmButtonText: "{{ trans('popup.button-close') }}",
+							confirmButtonColor: "#3AAC87",
+							timer: 6000
+						});
+						return false;
+					}
+
+					@endif
+
+						if(vitamin.type == 'multi' && !this.hasMultivitamin)
+					{
+						if(vitamin.code[1] == 'a'){
+							app.group.unshift('1');
+						}
+
+						if(vitamin.code[1] == 'b'){
+							app.group.unshift('2');
+						}
+
+						if(vitamin.code[1] == 'c'){
+							app.group.unshift('3');
+						}
+
+					}
+
+
+
+					@if(App::getLocale()=="nl")
+
+					if(vitamin.code == '2A' && this.hasMultivitamin){
+						if(app.group[0]=='1'){
+							this.removeVitamin(app.vitamins[0],event);
+						}
+						if(app.group[0]=='2'){
+							this.removeVitamin(app.vitamins[1],event);
+						}
+						if(app.group[0]=='3'){
+							this.removeVitamin(app.vitamins[2],event);
+						}
+					}
+					@endif
+
+
+					if(vitamin.type == 'lifestyle' && !this.hasMultivitamin && !this.hasDietVitamin && !this.hasLifestyleVitamin)
+					{
+						app.group.push(vitamin.code[1]);
+					}
+
+					if(vitamin.type == 'lifestyle' && this.hasMultivitamin && !this.hasDietVitamin & !this.hasLifestyleVitamin)
+					{
+						app.group.push(vitamin.code[1]);
+					}
+
+					if(vitamin.type == 'lifestyle' && this.hasDietVitamin && !this.hasMultivitamin & !this.hasLifestyleVitamin)
+					{
+						app.group.unshift(vitamin.code[1]);
+					}
+
+					if(vitamin.type == 'lifestyle' && this.hasDietVitamin && this.hasMultivitamin & !this.hasLifestyleVitamin)
+					{
+						app.group.splice(1,0,vitamin.code[1]);
+					}
+
+					if(vitamin.type == 'diet' && !this.hasDietVitamin){
+						app.group.push(vitamin.code[1]);
+					}
+
+					@if(App::getLocale()=="nl")
+
+					if(app.group.length > 2){
+						if(this.combinationChecker(app.group[0],app.group[1],app.group[2])){
+
+							if(vitamin.type == 'multi')
+							{
+								app.group.splice(0, 1);
+							}
+
+							if(vitamin.type == 'lifestyle')
+							{
+								app.group.splice(1, 1);
+							}
+
+							if(vitamin.type == 'diet'){
+								app.group.splice(2, 1);
+							}
+
+							swal({
+								title: "",
+								text: "{!! trans('pick.errors.combination') !!}",
+								type: "warning",
+								html: true,
+								allowOutsideClick: true,
+								confirmButtonText: "{{ trans('popup.button-close') }}",
+								confirmButtonColor: "#3AAC87",
+								timer: 6000
+							});
+
+							return false;
+						}
+
+					}
+
+					@endif
+
+
 					vitamin.isSelected = true;
+
 
 					app.totals.push({
 						name: "temp",

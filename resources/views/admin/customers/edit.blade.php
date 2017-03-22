@@ -82,6 +82,30 @@
 
                 @endif
 
+
+                <div class="control-group">
+                    <label for="page_title" class="control-label">Ambasador</label>
+                    <div class="controls">
+                        <select name="ambas" id="input_state">
+                            @foreach([0 => 'No', 1=>'Yes' ] as $key=> $value)
+                                <option @if($customer->ambas == $key) selected   @endif value="{{$key }}">{{ $value }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="page_title" class="control-label">Ambasador</label>
+                    <div class="controls">
+                        <select name="coupon" id="input_state">
+                            @foreach($customer->couponAmbassador() as $coupon)
+                                <option @if($customer->coupon == $coupon->code) selected   @endif value="{{$coupon->code }}">{{ $coupon->code }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+
                 @foreach($customer->customerAttributes as $attribute)
 
                     @if($attribute->editable=='1' or $attribute->identifier=='phone')

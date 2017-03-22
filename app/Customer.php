@@ -129,6 +129,18 @@ class Customer extends Model
         return $this->user;
     }
 
+
+    /**
+     * @return Coupon ambassador
+     */
+    public function couponAmbassador()
+    {
+        $ambassador = Coupon::where('ambas','=',1)->get();
+
+
+        return $ambassador;
+    }
+
     public function cancelSubscription($force = false)
     {
         if ((!$this->getPlan()->isCancelable() && !$force) || $this->getPlan()->isCancelled()) {
@@ -739,6 +751,10 @@ class Customer extends Model
 
         if (isset($userData->custom) && isset($userData->custom->three) && $userData->custom->three != '' && !empty($userData->custom->three)) {
             $data['user_data.custom.three'] = $userData->custom->three;
+        }
+
+        if (isset($userData->priority)) {
+            $data['user_data.priority'] = $userData->priority;
         }
 
         return $this->setCustomerAttributes($data);
