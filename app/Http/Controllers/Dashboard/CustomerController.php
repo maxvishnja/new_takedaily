@@ -60,7 +60,7 @@ class CustomerController extends Controller
 		}
 
 		$allvitamins = \DB::table('ltm_translations')->where([['group', '=', 'pill-names'], ['locale', '=', 'nl']])->get();
-		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders' ]);
+		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders']);
 
 		return view('admin.customers.edit', [
 			'customer' => $customer,
@@ -136,6 +136,9 @@ class CustomerController extends Controller
 		$usernew['name'] = $request->get('cust_name');
 		$usernew['email'] = $request->get('cust_email');
 		$customer->user->update($usernew);
+		$customer->ambas = $request->get('ambas');
+		$customer->coupon = $request->get('coupon');
+		$customer->update();
 
 
 

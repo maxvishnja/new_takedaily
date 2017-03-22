@@ -129,6 +129,18 @@ class Customer extends Model
         return $this->user;
     }
 
+
+    /**
+     * @return Coupon ambassador
+     */
+    public function couponAmbassador()
+    {
+        $ambassador = Coupon::where('ambas','=',1)->get();
+
+
+        return $ambassador;
+    }
+
     public function cancelSubscription($force = false)
     {
         if ((!$this->getPlan()->isCancelable() && !$force) || $this->getPlan()->isCancelled()) {
@@ -734,12 +746,15 @@ class Customer extends Model
             'user_data.foods.dairy' => $userData->foods->dairy ?: '',
             'user_data.foods.meat' => $userData->foods->meat ?: '',
             'user_data.foods.fish' => $userData->foods->fish ?: '',
-            'user_data.foods.butter' => $userData->foods->butter ?: '',
-            'user_data.priority' => $userData->priority ?: ''
+            'user_data.foods.butter' => $userData->foods->butter ?: ''
         ];
 
         if (isset($userData->custom) && isset($userData->custom->three) && $userData->custom->three != '' && !empty($userData->custom->three)) {
             $data['user_data.custom.three'] = $userData->custom->three;
+        }
+
+        if (isset($userData->priority)) {
+            $data['user_data.priority'] = $userData->priority;
         }
 
         return $this->setCustomerAttributes($data);
