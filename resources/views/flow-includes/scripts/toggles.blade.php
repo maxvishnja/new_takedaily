@@ -71,7 +71,7 @@
 		defaultViewDate: {year: 1970, month: 1, day: 1},
 		language: "{{ App::getLocale() }}"
 	}).on("changeDate", function () {
-		app.user_data.birthdate = $('#openPicker').datepicker('getDate');
+		app.user_data.birthdate = $('#openPicker').datepicker('getUTCDate');
 	});
 
 	$("#openPicker").click(function (e) {

@@ -23,6 +23,7 @@ class PasswordController extends Controller
 	protected $redirectPath = '/account';
 	protected $subject = 'TakeDaily wachtwoord wijzigen';
 
+
     /**
      * Create a new password controller instance.
      *
@@ -32,4 +33,9 @@ class PasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+
+
+
+
 }

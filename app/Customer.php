@@ -135,7 +135,8 @@ class Customer extends Model
      */
     public function couponAmbassador()
     {
-        $ambassador = Coupon::where('ambas','=',1)->get();
+        $ambassador = Coupon::where('ambas', '=', 1)->where('valid_from', '<=', date('Y-m-d'))
+            ->where('valid_to', '>=', date('Y-m-d'))->get();
 
 
         return $ambassador;

@@ -41,10 +41,17 @@ class CustomerController extends Controller
 			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
+		$newusers = Order::where('coupon','=',$customer->coupon)
+					->whereBetween( 'created_at', [ \Date::now()->subMonth(), \Date::now() ] )
+					->count();
+
+
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders' ]);
 
 		return view('admin.customers.show', [
-			'customer' => $customer
+			'customer' => $customer,
+			'newusers' => $newusers
+
 		]);
 	}
 
@@ -59,12 +66,13 @@ class CustomerController extends Controller
 			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
+
 		$allvitamins = \DB::table('ltm_translations')->where([['group', '=', 'pill-names'], ['locale', '=', 'nl']])->get();
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders']);
 
 		return view('admin.customers.edit', [
 			'customer' => $customer,
-			'allvit' => $allvitamins
+			'allvit' => $allvitamins,
 		]);
 	}
 
@@ -139,6 +147,14 @@ class CustomerController extends Controller
 		$customer->ambas = $request->get('ambas');
 		$customer->coupon = $request->get('coupon');
 		$customer->update();
+
+		/*
+		 ** Add discount of ambassador
+		 */
+		if($request->get('ambas')==1){
+			$customer->plan->setCouponCount($request->get('coupon_free'));
+			$customer->plan->setDiscountType($request->get('discount_type'));
+		}
 
 
 

@@ -5,165 +5,175 @@ use App\Apricot\Libraries\MoneyLibrary;
 
 class Mollie implements PaymentInterface
 {
-	/**
-	 * @param int    $amount
-	 * @param string $description
-	 * @param array  $data
-	 *
-	 * @return \Mollie_API_Object_Payment
-	 */
-	public function charge( $amount, $description, $data = [] )
-	{
-		if ( $amount <= 0 )
-		{
-			$amount = config( 'app.minimum_orders.mollie' ) * 100;
-		}
+    /**
+     * @param int $amount
+     * @param string $description
+     * @param array $data
+     *
+     * @return \Mollie_API_Object_Payment
+     */
+    public function charge($amount, $description, $data = [])
+    {
+        if ($amount <= 0) {
+            $amount = config('app.minimum_orders.mollie') * 100;
+        }
 
-		$charge = [
-			"amount"      => MoneyLibrary::toMoneyFormat( $amount, true, 3, '.', '' ),
-			"description" => $description,
-			"redirectUrl" => \URL::route( 'checkout-verify-method', [ 'method' => 'mollie' ] )
-		];
+        $charge = [
+            "amount" => MoneyLibrary::toMoneyFormat($amount, true, 3, '.', ''),
+            "description" => $description,
+            "redirectUrl" => \URL::route('checkout-verify-method', ['method' => 'mollie'])
+        ];
 
-		$charge = array_merge( $charge, $data );
+        $charge = array_merge($charge, $data);
 
-		return \Mollie::api()->payments()->create( $charge );
-	}
+        try {
 
-	/**
-	 * @param string $name
-	 * @param string $email
-	 *
-	 * @return \Mollie_API_Object_Customer
-	 */
-	public function createCustomer( $name, $email )
-	{
-		return \Mollie::api()->customers()->create( [
-			"name"  => $name,
-			"email" => $email,
-		] );
-	}
+            return \Mollie::api()->payments()->create($charge);
 
-	/**
-	 * @param int                         $amount
-	 * @param \Mollie_API_Object_Customer $customer
-	 *
-	 * @return \Mollie_API_Object_Payment
-	 */
-	public function makeFirstPayment( $amount, $customer )
-	{
-		return $this->charge( $amount, 'Initial', [
-			'customerId'    => $customer->id,
-			"method"      => 'ideal',
-			'recurringType' => 'first'
-		] );
-	}
+        } catch (\Exception $exception) {
 
-	/**
-	 * @param int                         $amount
-	 * @param \Mollie_API_Object_Customer $customer
-	 *
-	 * @return bool|\Mollie_API_Object_Payment
-	 */
-	public function makeRebill( $amount, $customer )
-	{
-		$mandates = \Mollie::api()->customersMandates()->withParentId( $customer->id )->all();
+            \Log::error("Mollie payment charge create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+            return false;
+        }
 
-		$hasValidMandate = false;
+    }
 
-		/** @var \Mollie_API_Object_Customer_Mandate $mandate */
-		foreach ( $mandates as $mandate )
-		{
-			if ( $mandate->isValid() )
-			{
-				$hasValidMandate = true;
-			}
-		}
+    /**
+     * @param string $name
+     * @param string $email
+     *
+     * @return \Mollie_API_Object_Customer
+     */
+    public function createCustomer($name, $email)
+    {
 
-		if ( ! $hasValidMandate )
-		{
-			return false;
-		}
+        try {
 
-		return $this->charge( $amount, 'Rebill', [
-			'customerId'    => $customer->id,
-			"method"      => 'directdebit',
-			'recurringType' => 'recurring'
-		] );
-	}
+            return \Mollie::api()->customers()->create([
+                "name" => $name,
+                "email" => $email,
+            ]);
 
-	/**
-	 * @param $chargeId
-	 *
-	 * @return bool
-	 */
-	public function validateCharge( $chargeId )
-	{
-		/** @var \Mollie_API_Object_Payment $payment */
-		$payment = $this->findOrder( $chargeId );
+        } catch (\Exception $exception) {
 
-		return $payment->isPaid();
-	}
+            \Log::error("Mollie customer create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+            return false;
+        }
+    }
 
-	/**
-	 * @param $orderId
-	 *
-	 * @return \Mollie_API_Object_Payment
-	 */
-	public function findOrder( $orderId )
-	{
-		return \Mollie::api()->payments()->get( $orderId );
-	}
+    /**
+     * @param int $amount
+     * @param \Mollie_API_Object_Customer $customer
+     *
+     * @return \Mollie_API_Object_Payment
+     */
+    public function makeFirstPayment($amount, $customer)
+    {
+        return $this->charge($amount, 'Initial', [
+            'customerId' => $customer->id,
+            "method" => 'ideal',
+            'recurringType' => 'first'
+        ]);
+    }
 
-	/**
-	 * @param $customerId
-	 *
-	 * @return \Mollie_API_Object_Customer
-	 */
-	public function findCustomer( $customerId )
-	{
-		return \Mollie::api()->customers()->get( $customerId );
-	}
+    /**
+     * @param int $amount
+     * @param \Mollie_API_Object_Customer $customer
+     *
+     * @return bool|\Mollie_API_Object_Payment
+     */
+    public function makeRebill($amount, $customer)
+    {
+        $mandates = \Mollie::api()->customersMandates()->withParentId($customer->id)->all();
 
-	public function addMethod( $source, $customer )
-	{ // todo.. find a way to disable this for Mollie and instead require a new first transaction..
-		return \Mollie::api()->customersMandates()->withParentId( $customer->id )->create( [
+        $hasValidMandate = false;
 
-		] );
-	}
+        /** @var \Mollie_API_Object_Customer_Mandate $mandate */
+        foreach ($mandates as $mandate) {
+            if ($mandate->isValid()) {
+                $hasValidMandate = true;
+            }
+        }
 
-	public function getCustomerMethods( $customerId )
-	{
-		$validMandates = [];
+        if (!$hasValidMandate) {
+            return false;
+        }
 
-		try {
-			$mandates = \Mollie::api()->customersMandates()->withParentId( $customerId )->all();
-		}
-		catch(\Exception $exception)
-		{
-			return $validMandates;
-		}
+        return $this->charge($amount, 'Rebill', [
+            'customerId' => $customer->id,
+            "method" => 'directdebit',
+            'recurringType' => 'recurring'
+        ]);
+    }
 
-		/** @var \Mollie_API_Object_Customer_Mandate $mandate */
-		foreach ( $mandates as $mandate )
-		{
-			if ( $mandate->isValid() )
-			{
-				$validMandates[] = $mandate;
-			}
-		}
+    /**
+     * @param $chargeId
+     *
+     * @return bool
+     */
+    public function validateCharge($chargeId)
+    {
+        /** @var \Mollie_API_Object_Payment $payment */
+        $payment = $this->findOrder($chargeId);
 
-		return $validMandates;
-	}
+        return $payment->isPaid();
+    }
 
-	/**
-	 * @param $customerId
-	 *
-	 * @return array
-	 */
-	public function deleteMethodFor( $customerId )
-	{
-		// no implementation to do this.
-		return [ 'purge_plan' => true ];
-	}
+    /**
+     * @param $orderId
+     *
+     * @return \Mollie_API_Object_Payment
+     */
+    public function findOrder($orderId)
+    {
+        return \Mollie::api()->payments()->get($orderId);
+    }
+
+    /**
+     * @param $customerId
+     *
+     * @return \Mollie_API_Object_Customer
+     */
+    public function findCustomer($customerId)
+    {
+        return \Mollie::api()->customers()->get($customerId);
+    }
+
+    public function addMethod($source, $customer)
+    { // todo.. find a way to disable this for Mollie and instead require a new first transaction..
+        return \Mollie::api()->customersMandates()->withParentId($customer->id)->create([
+
+        ]);
+    }
+
+    public function getCustomerMethods($customerId)
+    {
+        $validMandates = [];
+
+        try {
+            $mandates = \Mollie::api()->customersMandates()->withParentId($customerId)->all();
+        } catch (\Exception $exception) {
+            return $validMandates;
+        }
+
+        /** @var \Mollie_API_Object_Customer_Mandate $mandate */
+        foreach ($mandates as $mandate) {
+            if ($mandate->isValid()) {
+                $validMandates[] = $mandate;
+            }
+        }
+
+        return $validMandates;
+    }
+
+    /**
+     * @param $customerId
+     *
+     * @return array
+     */
+    public function deleteMethodFor($customerId)
+    {
+        // no implementation to do this.
+        return ['purge_plan' => true];
+    }
 }
