@@ -85,6 +85,8 @@ class Stripe implements PaymentInterface
     public function makeRebill($amount, $customer)
     {
         try {
+
+
             return Charge::create([
                 'amount' => $amount,
                 'currency' => trans('general.currency'),

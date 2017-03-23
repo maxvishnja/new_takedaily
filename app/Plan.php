@@ -167,6 +167,13 @@ class Plan extends Model
 		$this->save();
 	}
 
+	public function clearDiscount(){
+
+		$this->coupon_free = 0;
+		$this->discount_type = '';
+		$this->save();
+	}
+
 	public function getLastCoupon(){
 
 		return $this->last_coupon;

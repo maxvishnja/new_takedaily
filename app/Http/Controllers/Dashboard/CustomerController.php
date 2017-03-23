@@ -66,6 +66,9 @@ class CustomerController extends Controller
 			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
+		$newusers = Order::where('coupon','=',$customer->coupon)
+			->whereBetween( 'created_at', [ \Date::now()->subMonth(), \Date::now() ] )
+			->count();
 
 		$allvitamins = \DB::table('ltm_translations')->where([['group', '=', 'pill-names'], ['locale', '=', 'nl']])->get();
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders']);
@@ -73,6 +76,7 @@ class CustomerController extends Controller
 		return view('admin.customers.edit', [
 			'customer' => $customer,
 			'allvit' => $allvitamins,
+			'newusers' => $newusers,
 		]);
 	}
 

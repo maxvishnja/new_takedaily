@@ -108,7 +108,7 @@
                 </div>
                 @endif
 
-                @if($customer->ambas == 1)
+                @if($customer->ambas == 1 && $newusers > 0)
                     <div class="control-group">
                         <label for="page_title" class="control-label">Discount</label>
                         <div class="controls">
