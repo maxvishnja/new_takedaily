@@ -9,6 +9,7 @@ use App\Console\Commands\GenerateSitemapCommand;
 use App\Console\Commands\MailFlowSender;
 use App\Console\Commands\NotifyPendingRebills;
 use App\Console\Commands\SendHealthMail;
+use App\Console\Commands\CheckGoalAmbassador;
 use App\Console\Commands\SubscriptionRebillCommand;
 use App\Console\Commands\UpdateAges;
 use App\Console\Commands\UpdateCurrencies;
@@ -30,6 +31,7 @@ class Kernel extends ConsoleKernel
 	    UpdateAges::class,
 	    MailFlowSender::class,
 	    SendHealthMail::class,
+		CheckGoalAmbassador::class,
 		UpdatePregnancyWeeks::class,
 	    ClearOldCarts::class,
 	    ClearOldSavedFlows::class,

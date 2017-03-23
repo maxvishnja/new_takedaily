@@ -31,6 +31,11 @@ class CustomerRepository
 		return Customer::today();
 	}
 
+	public function getAmbassador(){
+
+		return Customer::where('ambas','=', 1)->where('goal','!=',0)->where('coupon','!=','')->orderBy('created_at', 'DESC')->get();
+	}
+
 	public function getNewCustomer(){
 		$date = new \DateTime();
 		$date->modify('-7 days');

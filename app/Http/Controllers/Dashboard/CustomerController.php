@@ -45,12 +45,14 @@ class CustomerController extends Controller
 					->whereBetween( 'created_at', [ \Date::now()->subMonth(), \Date::now() ] )
 					->count();
 
+		$allnewusers = Order::where('coupon','=',$customer->coupon)->count();
 
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders' ]);
 
 		return view('admin.customers.show', [
 			'customer' => $customer,
-			'newusers' => $newusers
+			'newusers' => $newusers,
+			'allnewusers' => $allnewusers
 
 		]);
 	}
@@ -150,7 +152,7 @@ class CustomerController extends Controller
 		$customer->user->update($usernew);
 		$customer->ambas = $request->get('ambas');
 		$customer->coupon = $request->get('coupon');
-		$customer->update();
+
 
 		/*
 		 ** Add discount of ambassador
@@ -158,6 +160,7 @@ class CustomerController extends Controller
 		if($request->get('ambas')==1){
 			$customer->plan->setCouponCount($request->get('coupon_free'));
 			$customer->plan->setDiscountType($request->get('discount_type'));
+			$customer->goal = $request->get('goal');
 		}
 
 
@@ -214,6 +217,9 @@ class CustomerController extends Controller
 		if($request->get('rebill')){
 			$customer->plan->setNewRebill($request->get('rebill'));
 		}
+
+		$customer->update();
+
 		return \Redirect::action('Dashboard\CustomerController@index')->with('success', 'Kunden er blevet ændret.');
 	}
 

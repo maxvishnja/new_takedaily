@@ -116,12 +116,24 @@
                                    value="{{ Request::old($customer->plan->getCouponCount(), ($customer->plan->getCouponCount()) ? $customer->plan->getCouponCount() : '' ) }}"
                                    placeholder="ex. 2 Month or 20 Percent"/>
                             <select name="discount_type" id="input_state">
-                                @foreach(['month' => 'Month', 'percent' =>'Percent' ] as $key=>$value)
+                                <option value="">Choose type discount</option>
+                                @foreach(['month' => 'Free month', 'percent' =>'Percent on next rebill' ] as $key=>$value)
                                     <option value="{{$key }}" @if($key==$customer->plan->getDiscountType()) selected @endif>{{ $value }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
+
+                    <div class="control-group">
+                        <label for="page_title" class="control-label">Goal to target</label>
+                        <div class="controls">
+                            <input type="text" class="form-control span4" name="goal" id="page_subtitle"
+                                   value="{{ Request::old($customer->goal, ($customer->goal) ? $customer->goal : '' ) }}"
+                                   placeholder=""/>
+                        </div>
+                    </div>
+
+
 
                 @endif
 

@@ -151,6 +151,13 @@ class Customer extends Model
         return $this->getPlan()->cancel();
     }
 
+
+    public function setPrevGoal($count){
+
+        $this->prev_goal = $count;
+        $this->save();
+    }
+
     /**
      */
     public function getOrders()

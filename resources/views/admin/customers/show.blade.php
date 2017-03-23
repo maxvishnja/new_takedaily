@@ -61,6 +61,10 @@
 						<td>New customers in this month</td>
 						<td>{{ $newusers }}</td>
 					</tr>
+					<tr>
+						<td>All new customers from this customers</td>
+						<td>{{ $allnewusers }}</td>
+					</tr>
 				@endif
 
 				@if($customer->hasBirthday())
