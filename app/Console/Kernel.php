@@ -64,6 +64,7 @@ class Kernel extends ConsoleKernel
 		$schedule->command('subscriptions:pending')
 		         ->name('notify-user-of-incoming-rebill')
 		         ->dailyAt('06:00')
+			     ->everyThirtyMinutes()
 		         ->withoutOverlapping();
 
 		$schedule->command('customers:age-update')
