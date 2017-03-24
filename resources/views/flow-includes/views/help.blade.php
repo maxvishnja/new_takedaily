@@ -1,6 +1,6 @@
 <div class="flow-helper m-t-10" @if(isset($center)) style="text-align: center !important;" @endif>
 	<div class="m-b-10 hidden-xs">
-		@if( \App::getLocale() == "nl")
+		@if( \App::getLocale() == "nl" and $_SERVER['REQUEST_URI']!="/pick-n-mix")
 			<strong>{{ trans('help.extra-text') }}</strong><br/>
 		@endif
 		<strong>{{ trans('help.title') }}</strong>

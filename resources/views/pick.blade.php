@@ -143,7 +143,7 @@
 		</div>
 
 		<div class="clear"></div>
-		@include('flow-includes.views.help')
+			@include('flow-includes.views.help')
 	</div>
 @endsection
 

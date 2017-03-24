@@ -12,6 +12,14 @@ class Mollie implements PaymentInterface
      *
      * @return \Mollie_API_Object_Payment
      */
+
+
+    public static function checkConnection(){
+
+        return \Mollie::api()->methods()->all();
+    }
+
+
     public function charge($amount, $description, $data = [])
     {
         if ($amount <= 0) {
