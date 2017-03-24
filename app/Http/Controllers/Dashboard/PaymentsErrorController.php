@@ -20,4 +20,21 @@ class PaymentsErrorController extends Controller
     }
 
 
+
+    function check($id)
+    {
+        $perror = PaymentsError::find($id);
+
+        if( ! $perror )
+        {
+            return \Redirect::back()->withErrors("Payments Error (#{$id}) kunne ikke findes!");
+        }
+
+        $perror->check = 1;
+        $perror->update();
+
+        return \Redirect::action('Dashboard\PaymentsErrorController@index')->with('success', 'Payments checked');
+    }
+
+
 }

@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
                 @foreach($perrors as $perror)
-                    <tr>
+                    <tr @if($perror->check == 0) style="font-weight: bold; color: red" @endif>
                         <td>{{ $perror->id }}</td>
                         <td>{{ $perror->payment }}</td>
                         <td>{{ $perror->type }}</td>
@@ -42,8 +42,8 @@
                         <td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $perror->created_at)->format('j. M Y H:i') }}</td>
                         <td>
                             <div class="btn-group">
-                                {{--<a class="btn btn-info" href="{{ URL::action('Dashboard\CampaignController@edit', [ 'id' => $campaign->id ]) }}"><i class="icon-pencil"></i>--}}
-                                    {{--Rediger</a>--}}
+                                <a class="btn btn-info" href="{{ URL::action('Dashboard\PaymentsErrorController@check', [ 'id' => $perror->id ]) }}"><i class="icon-pencil"></i>
+                                    Check</a>
                             </div>
                         </td>
                     </tr>

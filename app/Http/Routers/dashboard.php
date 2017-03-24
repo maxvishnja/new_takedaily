@@ -67,6 +67,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 
 	Route::resource( 'faq', 'Dashboard\FaqController' );
 	Route::get( 'payments-error', 'Dashboard\PaymentsErrorController@index' );
+	Route::get( 'payments-error/check/{id}', 'Dashboard\PaymentsErrorController@check' );
 	Route::get( 'snoozing', 'Dashboard\SnoozingController@index' );
 	Route::get( 'stats', 'Dashboard\StatsController@index' );
 	Route::post('stats/post', ['as' => 'stats-post', 'uses' => 'Dashboard\StatsController@getData']);
