@@ -124,56 +124,55 @@
                         </div>
                     </div>
 
-                    <div class="control-group">
-                        <label for="page_title" class="control-label">Goal to target</label>
-                        <div class="controls">
-                            <input type="text" class="form-control span4" name="goal" id="page_subtitle"
-                                   value="{{ Request::old($customer->goal, ($customer->goal) ? $customer->goal : '' ) }}"
-                                   placeholder=""/>
-                        </div>
-                    </div>
-
-
-
                 @endif
 
-                @foreach($customer->customerAttributes as $attribute)
+                 @if($customer->ambas == 1)
+                   <div class="control-group">
+                       <label for="page_title" class="control-label">Goal to target</label>
+                       <div class="controls">
+                           <input type="text" class="form-control span4" name="goal" id="page_subtitle"
+                                  value="{{ Request::old($customer->goal, ($customer->goal) ? $customer->goal : '' ) }}"
+                                  placeholder=""/>
+                       </div>
+                     </div>
+                @endif
+                   @foreach($customer->customerAttributes as $attribute)
 
-                    @if($attribute->editable=='1' or $attribute->identifier=='phone')
-                    <div class="control-group">
-                        <label for="page_title" class="control-label">{{ trans("attributes.{$attribute->identifier}") }}</label>
-                        <div class="controls">
-                            <input type="text" class="form-control span8" name="{{$attribute->identifier}}" id="page_subtitle"
-                                   value="{{ Request::old($attribute->identifier, ($attribute->value) ? $attribute->value : '' ) }}"
-                                   placeholder="Sidens undertitel"/>
-                        </div>
-                    </div>
-                    @endif
-                @endforeach
-                <div class="clear"></div>
-                <div class="pull-right">
-                     <button class="btn btn-info"  type="submit"><i
-                                class="icon-pencil"></i>Update
-                        </button>
+                       @if($attribute->editable=='1' or $attribute->identifier=='phone')
+                       <div class="control-group">
+                           <label for="page_title" class="control-label">{{ trans("attributes.{$attribute->identifier}") }}</label>
+                           <div class="controls">
+                               <input type="text" class="form-control span8" name="{{$attribute->identifier}}" id="page_subtitle"
+                                      value="{{ Request::old($attribute->identifier, ($attribute->value) ? $attribute->value : '' ) }}"
+                                      placeholder="Sidens undertitel"/>
+                           </div>
+                       </div>
+                       @endif
+                   @endforeach
+                   <div class="clear"></div>
+                   <div class="pull-right">
+                        <button class="btn btn-info"  type="submit"><i
+                                   class="icon-pencil"></i>Update
+                           </button>
 
-                </div>
-                {{ csrf_field() }}
+                   </div>
+                   {{ csrf_field() }}
 
 
-                    {{ method_field('PUT') }}
+                       {{ method_field('PUT') }}
 
-                <div class="clear"></div>
+                   <div class="clear"></div>
 
-            </form>
-        </div>
-    </div><!--/.module-->
-@stop
-@section('scripts')
-    <script>
-        $(function() {
-            $('.datepicker').datepicker({
-                dateFormat: "yy-mm-dd"
-            });
-        });
-    </script>
-@endsection
+               </form>
+           </div>
+       </div><!--/.module-->
+   @stop
+   @section('scripts')
+       <script>
+           $(function() {
+               $('.datepicker').datepicker({
+                   dateFormat: "yy-mm-dd"
+               });
+           });
+       </script>
+   @endsection
