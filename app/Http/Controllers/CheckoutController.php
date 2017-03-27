@@ -138,12 +138,18 @@ class CheckoutController extends Controller
 
 		$charge = $checkout->makeInitialPayment();
 
-
 		if ( ! $charge )
 		{
 			return \Redirect::back()
 			                ->withErrors( trans( 'checkout.errors.payment-error' ) )
 			                ->withInput();
+		}
+
+		if($paymentMethod == 'mollie' and strpos($charge->id, 'tr_') !== 0){
+
+			return \Redirect::back()
+				->withErrors( trans( 'checkout.errors.payment-error' ) )
+				->withInput();
 		}
 
 		$request->session()->put( 'charge_id', $charge->id );
@@ -208,6 +214,8 @@ class CheckoutController extends Controller
 
 
 		$isSuccessful = $checkout->getPaymentHandler()->isChargeValid( $request->session()->get( 'charge_id' ) );
+
+
 
 
 		if ( ! $isSuccessful )
