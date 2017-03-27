@@ -495,7 +495,7 @@ class Customer extends Model
             $amount = $amount - ($amount * ($coupon_free/100));
             $this->getPlan()->clearDiscount();
 
-        }else{
+        }elseif($coupon_free > 0 and $discount_type==''){
             $amount = 0;
             $this->getPlan()->setCouponCount($coupon_free-1);
             $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
