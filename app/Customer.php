@@ -151,6 +151,13 @@ class Customer extends Model
         return $this->getPlan()->cancel();
     }
 
+
+    public function setPrevGoal($count){
+
+        $this->prev_goal = $count;
+        $this->save();
+    }
+
     /**
      */
     public function getOrders()
@@ -477,12 +484,25 @@ class Customer extends Model
             return false;
         }
         $coupon_free = $this->getPlan()->getCouponCount();
+        $discount_type = $this->getPlan()->getDiscountType();
 
-        if($coupon_free > 0){
+        if($coupon_free > 0 && $discount_type=='motnh') {
+            $amount = 0;
+            $this->getPlan()->setCouponCount($coupon_free - 1);
+
+        }elseif($coupon_free > 0 && $discount_type=='percent'){
+
+            $amount = $amount - ($amount * ($coupon_free/100));
+            $this->getPlan()->clearDiscount();
+
+        }else{
             $amount = 0;
             $this->getPlan()->setCouponCount($coupon_free-1);
             $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
         }
+
+
+
         /** @var PaymentHandler $paymentHandler */
         $paymentHandler = new PaymentHandler(PaymentDelegator::getMethod($this->getPlan()->getPaymentMethod()));
 

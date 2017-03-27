@@ -167,6 +167,13 @@ class Plan extends Model
 		$this->save();
 	}
 
+	public function clearDiscount(){
+
+		$this->coupon_free = 0;
+		$this->discount_type = '';
+		$this->save();
+	}
+
 	public function getLastCoupon(){
 
 		return $this->last_coupon;
@@ -399,8 +406,8 @@ class Plan extends Model
 		return $query->where( 'subscription_rebill_at', '<=', Date::now()->addDays( 3 ) )
 		             ->where( function ( $where )
 		             {
-			             $where->whereNull( 'subscription_snoozed_until' );
-//			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now()->addDays( 5 ) );
+			             $where->whereNull( 'subscription_snoozed_until' )
+			                   ->orWhere( 'subscription_snoozed_until', '<=', Date::now()->addDays( 3 ) );
 		             } )
 		             ->whereNull( 'subscription_cancelled_at' );
 
@@ -442,7 +449,7 @@ class Plan extends Model
 		$image = 'https://takedaily.nl/checksnooz/'.base64_encode($customer->getEmail()).'/'.  rand(1, 999).'/email.png';
 
 
-		\Mail::send( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url, 'image' => $image ], function ( Message $message ) use ( $customer, $fromEmail )
+		\Mail::queue( 'emails.pending-rebill', [ 'locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url, 'image' => $image ], function ( Message $message ) use ( $customer, $fromEmail )
 		{
 			\Log::info("Message send to ".$customer->getName()."(id ".$customer->id.", mail ".$customer->getEmail().")");
 

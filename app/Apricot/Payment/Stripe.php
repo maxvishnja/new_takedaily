@@ -28,6 +28,15 @@ class Stripe implements PaymentInterface
         return Customer::retrieve($customerId);
     }
 
+    public static function checkConnection(){
+
+        \Stripe\Stripe::setApiKey(env('STRIPE_API_SECRET_KEY', ''));
+
+        return \Stripe\CountrySpec::all(array("limit" => 1));;
+
+
+    }
+
     public function charge($amount, $description, $data)
     {
         $charge = [
@@ -85,6 +94,8 @@ class Stripe implements PaymentInterface
     public function makeRebill($amount, $customer)
     {
         try {
+
+
             return Charge::create([
                 'amount' => $amount,
                 'currency' => trans('general.currency'),

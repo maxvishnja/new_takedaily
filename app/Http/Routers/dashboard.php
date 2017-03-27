@@ -10,6 +10,9 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 		$callRepo = new \App\Apricot\Repositories\CallRepository();
 		$view->with( 'sidebar_numCalls', $callRepo->getRequests()
 		                                          ->count() );
+
+		$count_errors = \App\PaymentsError::where('check','=',0)->count();
+		$view->with( 'sidebar_payErrors', $count_errors );
 	} );
 
 	Route::get( 'login', 'Auth\DashboardAuthController@showLoginForm' );
@@ -63,6 +66,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'page-translations/{id}/delete', 'Dashboard\PageTranslationController@delete' );
 
 	Route::resource( 'faq', 'Dashboard\FaqController' );
+	Route::get( 'payments-error', 'Dashboard\PaymentsErrorController@index' );
+	Route::get( 'payments-error/check/{id}', 'Dashboard\PaymentsErrorController@check' );
 	Route::get( 'snoozing', 'Dashboard\SnoozingController@index' );
 	Route::get( 'stats', 'Dashboard\StatsController@index' );
 	Route::post('stats/post', ['as' => 'stats-post', 'uses' => 'Dashboard\StatsController@getData']);

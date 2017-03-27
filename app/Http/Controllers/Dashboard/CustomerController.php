@@ -45,12 +45,14 @@ class CustomerController extends Controller
 					->whereBetween( 'created_at', [ \Date::now()->subMonth(), \Date::now() ] )
 					->count();
 
+		$allnewusers = Order::where('coupon','=',$customer->coupon)->count();
 
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders' ]);
 
 		return view('admin.customers.show', [
 			'customer' => $customer,
-			'newusers' => $newusers
+			'newusers' => $newusers,
+			'allnewusers' => $allnewusers
 
 		]);
 	}
@@ -66,6 +68,9 @@ class CustomerController extends Controller
 			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
 		}
 
+		$newusers = Order::where('coupon','=',$customer->coupon)
+			->whereBetween( 'created_at', [ \Date::now()->subMonth(), \Date::now() ] )
+			->count();
 
 		$allvitamins = \DB::table('ltm_translations')->where([['group', '=', 'pill-names'], ['locale', '=', 'nl']])->get();
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders']);
@@ -73,6 +78,7 @@ class CustomerController extends Controller
 		return view('admin.customers.edit', [
 			'customer' => $customer,
 			'allvit' => $allvitamins,
+			'newusers' => $newusers,
 		]);
 	}
 
@@ -146,7 +152,7 @@ class CustomerController extends Controller
 		$customer->user->update($usernew);
 		$customer->ambas = $request->get('ambas');
 		$customer->coupon = $request->get('coupon');
-		$customer->update();
+
 
 		/*
 		 ** Add discount of ambassador
@@ -154,6 +160,7 @@ class CustomerController extends Controller
 		if($request->get('ambas')==1){
 			$customer->plan->setCouponCount($request->get('coupon_free'));
 			$customer->plan->setDiscountType($request->get('discount_type'));
+			$customer->goal = $request->get('goal');
 		}
 
 
@@ -210,6 +217,9 @@ class CustomerController extends Controller
 		if($request->get('rebill')){
 			$customer->plan->setNewRebill($request->get('rebill'));
 		}
+
+		$customer->update();
+
 		return \Redirect::action('Dashboard\CustomerController@index')->with('success', 'Kunden er blevet ændret.');
 	}
 

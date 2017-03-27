@@ -9,6 +9,8 @@ use App\Console\Commands\GenerateSitemapCommand;
 use App\Console\Commands\MailFlowSender;
 use App\Console\Commands\NotifyPendingRebills;
 use App\Console\Commands\SendHealthMail;
+use App\Console\Commands\CheckGoalAmbassador;
+use App\Console\Commands\CheckPayment;
 use App\Console\Commands\SubscriptionRebillCommand;
 use App\Console\Commands\UpdateAges;
 use App\Console\Commands\UpdateCurrencies;
@@ -30,7 +32,9 @@ class Kernel extends ConsoleKernel
 	    UpdateAges::class,
 	    MailFlowSender::class,
 	    SendHealthMail::class,
+		CheckGoalAmbassador::class,
 		UpdatePregnancyWeeks::class,
+		CheckPayment::class,
 	    ClearOldCarts::class,
 	    ClearOldSavedFlows::class,
 		ClearSnoozing::class
@@ -56,9 +60,13 @@ class Kernel extends ConsoleKernel
 		$schedule->command('healthmail:send')
 			     ->dailyAt('13:00');
 
+		$schedule->command('check:ambassador')
+			     ->dailyAt('09:00');
+
 		$schedule->command('subscriptions:pending')
 		         ->name('notify-user-of-incoming-rebill')
 		         ->dailyAt('06:00')
+			     ->everyThirtyMinutes()
 		         ->withoutOverlapping();
 
 		$schedule->command('customers:age-update')
@@ -69,6 +77,9 @@ class Kernel extends ConsoleKernel
 
 		$schedule->command('mailflow:send')
 		         ->everyTenMinutes();
+
+		$schedule->command('check:payment')
+			->everyThirtyMinutes();
 
 		$schedule->command('clear:flows')
 		         ->dailyAt('00:00');

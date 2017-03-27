@@ -139,6 +139,8 @@
 			$(this).parent().parent().find('.description').stop().slideToggle(200);
 		});
 
+
+
 		$('.readLessBtn').click(function (e) {
 			e.preventDefault();
 

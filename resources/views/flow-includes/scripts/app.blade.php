@@ -201,7 +201,6 @@
 
 				$("#advises-vitamins").find(".ingredient_item[data-vitamin='" + vitamin + "']").remove();
 				$("#advises-content").find(".advise-paragraph[data-vitamin='" + vitamin + "']").remove();
-
 				window.location.href = $("#link-to-change").attr('href').replace(vitamin, '');
 			},
 
