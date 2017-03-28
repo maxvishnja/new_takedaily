@@ -17,7 +17,7 @@
 				   class="button button--regular button--light button--rounded m-r-10">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
 			@else
 				<span
-					class="button button--regular button--light button--disabled button--rounded m-r-10"
+					class="button button--regular button--light not-snooz button--rounded m-r-10"
 					title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
 			@endif
 			@if($plan->isCancelable())
@@ -139,6 +139,21 @@
 			$(this).parent().parent().find('.description').stop().slideToggle(200);
 		});
 
+
+		$('.not-snooz').on('click', function (e) {
+			e.preventDefault();
+			swal({
+				title: "{{ trans('account.settings_subscription.snooze_popup.title-error') }}",
+				text: "{{ trans('account.settings_subscription.snooze_popup.text-error') }}",
+				type: "error",
+				html: true,
+				confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
+				confirmButtonColor: "#3AAC87",
+				allowOutsideClick: true,
+				showCancelButton: false,
+				closeOnConfirm: false,
+			});
+		});
 
 
 		$('.readLessBtn').click(function (e) {

@@ -28,7 +28,7 @@
 						   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
 					@else
 						<span
-							class="button button--regular button--light button--disabled button--rounded"
+							class="button button--regular button--light  button--rounded not-snooz"
 							title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
 					@endif
 				</div>
@@ -71,6 +71,24 @@
 
 @section('footer_scripts')
 	<script>
+
+
+		$('.not-snooz').on('click', function (e) {
+			e.preventDefault();
+			swal({
+				title: "{{ trans('account.settings_subscription.snooze_popup.title-error') }}",
+				text: "{{ trans('account.settings_subscription.snooze_popup.text-error') }}",
+				type: "error",
+				html: true,
+				confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
+				confirmButtonColor: "#3AAC87",
+				allowOutsideClick: true,
+				showCancelButton: false,
+				closeOnConfirm: false,
+			});
+		});
+
+
 		$("#snooze-toggle").click(function (e) {
 			e.preventDefault();
 
@@ -106,6 +124,8 @@
 				format: "dd-mm-yyyy"
 			});
 		});
+
+
 
 		@if((int) Request::get('already_open', 0) === 1)
 			$("#snooze-toggle").click();
