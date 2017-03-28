@@ -57,7 +57,7 @@
                     },
                     {
                         "targets": [2, 3],
-                        "searchable": false
+                        "searchable": true
                     }
                 ],
                 "aaSorting": [[3, 'desc']]
