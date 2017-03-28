@@ -274,6 +274,23 @@ class CombinationLibraryNew
 			return;
 		}
 
+
+		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'c' ) && isset( $data->age, $data->foods, $data->locale ) && (
+				( $data->locale === 'nl' && (  ( $data->age <= '50' && $data->foods->dairy < '3' )
+						|| ( $data->age > '50' && $data->foods->dairy < '4' ) ) )
+			)
+		)
+		{
+			$this->vitamins[] = '3c';
+			$this->groupThree = 'c';
+
+			$this->setAdvise( '3c', $this->textGenerator->generate( '3c', [ 'dairy' ], true ) );
+			$this->setAdviseInfo( '3c', trans( 'flow.combination_info.3.c' ) );
+
+			return;
+		}
+
+
 		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'b' ) && isset( $data->gender, $data->age, $data->foods, $data->locale ) &&
 		     (
 			     (
@@ -333,9 +350,6 @@ class CombinationLibraryNew
 
 
 		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'c' ) && isset( $data->age, $data->foods, $data->locale ) && (
-				( $data->locale === 'nl' && (  ( $data->age <= '50' && $data->foods->dairy < '3' )
-				                              || ( $data->age > '50' && $data->foods->dairy < '4' ) ) )
-				||
 				( $data->locale === 'da' && ( $data->foods->dairy == '1' || $data->foods->dairy == '2' ) )
 			)
 		)
@@ -348,6 +362,7 @@ class CombinationLibraryNew
 
 			return;
 		}
+		
 		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'f' ) && isset( $data->foods ) && ( $data->foods->butter != '1' ) )
 		{
 			$this->vitamins[] = '3f';
