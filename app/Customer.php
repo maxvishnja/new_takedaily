@@ -399,7 +399,7 @@ class Customer extends Model
             'sub_total' => $amount - $shipping - $taxes,
             'total_taxes' => $taxes,
             'shipping_name' => $this->getName(),
-            'shipping_street' => $this->getCustomerAttribute('address_line1'),
+            'shipping_street' => $this->getCustomerAttribute('address_line1')." ".$this->getCustomerAttribute('address_number'),
             'shipping_city' => $this->getCustomerAttribute('address_city'),
             'shipping_country' => $this->getCustomerAttribute('address_country'),
             'shipping_zipcode' => $this->getCustomerAttribute('address_postal'),
