@@ -148,6 +148,8 @@ class CheckoutController extends Controller
 
 		if($paymentMethod == 'mollie' and strpos($charge->id, 'tr_') !== 0){
 
+			\Log::error("Mollie charge create: ".$charge->id);
+
 			return \Redirect::back()
 				->withErrors( trans( 'checkout.errors.payment-error' ) )
 				->withInput();
