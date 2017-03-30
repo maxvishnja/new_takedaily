@@ -57,7 +57,7 @@ class CheckPayment extends Command
             \Mail::queue('emails.payment-error', ['locale' => 'nl', 'payment' => 'Stripe'], function (Message $message) {
 
                 $message->from('info@takedaily.com', 'TakeDaily');
-                $message->to('info@takedaily.com', 'Takedaily admin');
+                $message->to('info@takedaily.com,nick.maslii@albiondigitalaction.com', 'Takedaily admin');
                 $message->subject('Payments Stripe error');
             });
 
@@ -84,7 +84,7 @@ class CheckPayment extends Command
             \Mail::queue('emails.payment-error', ['locale' => 'nl', 'payment' => 'Mollie'], function (Message $message) {
 
                 $message->from('info@takedaily.com', 'TakeDaily');
-                $message->to('info@takedaily.com', 'Takedaily admin');
+                $message->to('info@takedaily.com,nick.maslii@albiondigitalaction.com', 'Takedaily admin');
                 $message->subject('Payments Mollie error');
             });
 
