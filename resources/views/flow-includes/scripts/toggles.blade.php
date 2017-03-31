@@ -79,6 +79,22 @@
 		$('#openPicker').datepicker('show');
 	});
 
+	$('.month').on('change',function(){
+		$(this).attr('id', $(this).val());
+		$('.days').show();
+	});
+
+	$('.days').keyup(function(){
+		$(this).attr('id', $(this).val());
+		$('.years').show();
+	});
+
+	$('.years').keyup(function(){
+		$(this).attr('id', $(this).val());
+
+		app.user_data.birthdate = Date.parse($(this).attr('id')+"-"+$('.month').attr('id')+"-"+$('.days').attr('id'));
+	});
+
 	$("#flow-toggler").click(function (e) {
 		$(".flow-progress").toggleClass('flow-progress--closed');
 		$(this).toggleClass('toggled');

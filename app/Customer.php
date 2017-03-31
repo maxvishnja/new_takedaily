@@ -742,7 +742,7 @@ class Customer extends Model
         $data = [
             'user_data.locale' => $userData->locale ?: \App::getLocale(),
             'user_data.gender' => $userData->gender ?: '',
-            'user_data.birthdate' => $userData->birthdate ? date('Y-m-d', strtotime($userData->birthdate)) : '',
+            'user_data.birthdate' => $userData->birthdate ? \Date::createFromTimeStamp($userData->birthdate/1000)->addDay()->format('Y-m-d') : '',
             'user_data.age' => $userData->age ?: '',
             'user_data.skin' => $userData->skin ?: '',
             'user_data.outside' => $userData->outside ?: '',
