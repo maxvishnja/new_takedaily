@@ -81,12 +81,15 @@
                 <tbody>
                 <tr>
                     <td>
-                        <h5>Aktive kunder with time</h5>
+                        <select name="csv-category">
+                            <option value="1">Aktive kunder with time</option>
+                            <option value="2">Unsubscribe with time</option>
+                        </select>
                     </td>
                     <td>
-                        <input type="text" class="form-control datepicker" style="width:150px" name="start_date" id="start_picker"
+                        <input type="text" class="form-control datepicker" style="width:120px" name="start_date" id="start_picker"
                                placeholder="Start date" value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
-                        <input type="text" style="width:150px" class="form-control datepicker" name="end_date" id="end_picker"
+                        <input type="text" style="width:120px" class="form-control datepicker" name="end_date" id="end_picker"
                                placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
                     </td>
                     <td>
