@@ -89,7 +89,7 @@
 		$('.years').show();
 	});
 
-	$('.years').keyup(function(){
+	$('.years').change(function(){
 		$(this).attr('id', $(this).val());
 
 		app.user_data.birthdate = Date.parse($(this).attr('id')+"-"+$('.month').attr('id')+"-"+$('.days').attr('id'));
