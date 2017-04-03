@@ -41,6 +41,8 @@ class NotifyPendingRebills extends Command
 
         $plans = Plan::rebillPending()->notNotifiedPending()->get();
 
+
+
 	    /** @var Plan $plan */
 	    foreach($plans as $plan)
 	    {
