@@ -191,7 +191,12 @@
 
 <script>
 
-
+	$(window).scroll(function () {
+		var hgt = $('.header-nav').height();
+		var top = $(document).scrollTop();
+		if (top > 2) $(".header-nav").css({position: 'fixed'});
+		else $(".header-nav").css({position: 'relative'});
+	});
 
 	$("#mailchimp_signup").submit(function(e)
 	{

@@ -12,6 +12,9 @@ class CampaignController extends Controller
 
     public function getCampaign($code){
 
+
+        \Session::forget('campaign');
+
         $campaign = Campaign::where('partner_name', '=', $code)->first();
 
         if(!$campaign){
@@ -23,6 +26,8 @@ class CampaignController extends Controller
 
             return \Redirect::route( 'home' );
         }
+
+        \Session::put('campaign', $code);
 
         $faqs =  (new \App\Apricot\Repositories\FaqRepository())->get();
 

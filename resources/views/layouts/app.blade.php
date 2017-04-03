@@ -3,6 +3,15 @@
 <header class="header--with-bg">
 	<div class="header-nav">
 		<div class="container-fluid">
+			@if(\Session::has('campaign'))
+				<div class="row">
+					<div class="col-md-12 promocode">
+						<div class="promo-text">
+								{!! \App\Apricot\Helpers\CampaignHelper::getPromoCampaign(\Session::get('campaign')) !!}
+						</div>
+					</div>
+				</div>
+			@endif
 			<div class="header_top_tb">
 				<div class="row">
 					<div class="col-md-3 col-xs-9">
