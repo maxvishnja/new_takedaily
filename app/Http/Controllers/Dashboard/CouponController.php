@@ -21,7 +21,8 @@ class CouponController extends Controller
 	function index()
 	{
 		return view('admin.coupons.home', [
-			'coupons' => $this->repo->all()
+			'coupons_active' => $this->repo->Active(),
+			'coupons_inactive' => $this->repo->Inactive(),
 		]);
 	}
 
