@@ -35,8 +35,8 @@
 			{{--</label>--}}
 			<select name="month" class="month" id="">
 				<option value="">{!! trans('flow.datepicker.pick-month') !!}</option>
-				@foreach(trans('flow.datepicker.months_long') as $month)
-					<option value="{{ $month }}">{{ $month }}</option>
+				@foreach(trans('flow.datepicker.months_long') as $key=>$month)
+					<option value="{{ $key }}">{{ $month }}</option>
 				@endforeach
 			</select>
 			<input class="birthday days" value="" name="day" id="" placeholder="{!! trans('flow.datepicker.pick-day') !!}">
