@@ -16,9 +16,9 @@
 					</div>
 					<div class="col-md-6 m-b-10">
 						@if(App::getLocale() == "da")
-						<span>{!! trans('account.transactions.next-date', ['date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) !!}</span></div>
+						<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', $plan->getStartNextDeliveryDk())->format('j. M Y'), 'date' => Date::createFromFormat('Y-m-d', $plan->getEndNextDeliveryDk())->format('j. M Y') ]) !!}</span></div>
 						@else
-						<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', date('Y-m-d',strtotime($plan->getNextDelivery().' - 3 days')))->format('j. M'), 'date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) !!}</span></div>
+						<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', $plan->getStartNextDeliveryNl())->format('j. M Y'), 'date' => Date::createFromFormat('Y-m-d', $plan->getEndNextDeliveryNl())->format('j. M Y') ]) !!}</span></div>
 						@endif
 				</div>
 
