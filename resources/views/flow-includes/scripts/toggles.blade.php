@@ -94,7 +94,6 @@
 		var today = new Date();
 		var birthDate = new Date(Date.parse($(this).attr('id')+"-"+$('.month').attr('id')+"-"+$('.days').attr('id')));
 		var age = today.getFullYear() - birthDate.getFullYear();
-		console.log(age);
 		if(age >= 18 && age < 80){
 			app.user_data.birthdate = Date.parse($(this).attr('id')+"-"+$('.month').attr('id')+"-"+$('.days').attr('id'));
 		} else{

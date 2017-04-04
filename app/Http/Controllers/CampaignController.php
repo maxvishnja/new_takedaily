@@ -13,7 +13,7 @@ class CampaignController extends Controller
     public function getCampaign($code){
 
 
-        \Session::forget('campaign');
+        \Cookie::forget('campaign');
 
         $campaign = Campaign::where('partner_name', '=', $code)->first();
 
@@ -27,12 +27,11 @@ class CampaignController extends Controller
             return \Redirect::route( 'home' );
         }
 
-        \Session::put('campaign', $code);
+        \Cookie::queue('campaign', $code);
 
         $faqs =  (new \App\Apricot\Repositories\FaqRepository())->get();
 
         $text = $campaign->description;
-
         return view('campaign', ['faqs' => $faqs, 'text' => $text]);
 
     }

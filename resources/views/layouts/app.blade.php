@@ -3,11 +3,11 @@
 <header class="header--with-bg">
 	<div class="header-nav">
 		<div class="container-fluid">
-			@if(\Session::has('campaign'))
+			@if(\Cookie::get('campaign')!= null)
 				<div class="row">
 					<div class="col-md-12 promocode">
 						<div class="promo-text">
-								{!! \App\Apricot\Helpers\CampaignHelper::getPromoCampaign(\Session::get('campaign')) !!}
+								{!! \App\Apricot\Helpers\CampaignHelper::getPromoCampaign(\Cookie::get('campaign')) !!}
 						</div>
 					</div>
 				</div>
