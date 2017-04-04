@@ -375,6 +375,8 @@ class Plan extends Model
 		return true;
 	}
 
+
+
 	public function getShippingPrice()
 	{
 		return $this->price_shipping;
