@@ -342,7 +342,7 @@ class Plan extends Model
 		return (new Date($this->getRebillAt()))->addWeekdays(2)->format('Y-m-d');
 	}
 
-	public function getEndtNextDeliveryNl()
+	public function getEndNextDeliveryNl()
 	{
 		return (new Date($this->getRebillAt()))->addWeekdays(5)->format('Y-m-d');
 	}

@@ -120,6 +120,7 @@
 			$( ".datepicker" ).datepicker({
 				startDate: '+1d',
 				endDate: '+28d',
+				weekStart: 1,
 				daysOfWeekDisabled: [0,6],
 				format: "dd-mm-yyyy"
 			});
