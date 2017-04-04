@@ -337,22 +337,22 @@ class Plan extends Model
 		return (new Date($this->getRebillAt()))->addDays(5)->format('Y-m-d');
 	}
 
-	public function getStartNextDeliveryDk()
+	public function getStartNextDeliveryNl()
 	{
 		return (new Date($this->getRebillAt()))->addWeekdays(2)->format('Y-m-d');
 	}
 
-	public function getEndtNextDeliveryDk()
+	public function getEndtNextDeliveryNl()
 	{
 		return (new Date($this->getRebillAt()))->addWeekdays(5)->format('Y-m-d');
 	}
 
-	public function getStartNextDeliveryNl()
+	public function getStartNextDeliveryDk()
 	{
 		return (new Date($this->getRebillAt()))->addWeekdays(3)->format('Y-m-d');
 	}
 
-	public function getEndNextDeliveryNl()
+	public function getEndNextDeliveryDk()
 	{
 		return (new Date($this->getRebillAt()))->addWeekdays(7)->format('Y-m-d');
 	}
