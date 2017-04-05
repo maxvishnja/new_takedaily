@@ -12,14 +12,16 @@
 			@if( $plan->isActive() )
 				<div class="row m-b-10">
 					<div class="col-md-6 m-b-10">
-						<span>{!! trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) !!}</span>
+						<span class="delivery">{!! trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) !!}</span>
 					</div>
 					<div class="col-md-6 m-b-10">
-						@if(App::getLocale() == "da")
-						<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', $plan->getStartNextDeliveryDk())->format('j. M Y'), 'date' => Date::createFromFormat('Y-m-d', $plan->getEndNextDeliveryDk())->format('j. M Y') ]) !!}</span></div>
-						@else
-						<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', $plan->getStartNextDeliveryNl())->format('j. M Y'), 'date' => Date::createFromFormat('Y-m-d', $plan->getEndNextDeliveryNl())->format('j. M Y') ]) !!}</span></div>
-						@endif
+						{{--@if(App::getLocale() == "da")--}}
+						{{--<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', $plan->getStartNextDeliveryDk())->format('j. M Y'), 'date' => Date::createFromFormat('Y-m-d', $plan->getEndNextDeliveryDk())->format('j. M Y') ]) !!}</span></div>--}}
+						{{--@else--}}
+						{{--<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', $plan->getStartNextDeliveryNl())->format('j. M Y'), 'date' => Date::createFromFormat('Y-m-d', $plan->getEndNextDeliveryNl())->format('j. M Y') ]) !!}</span></div>--}}
+						{{--@endif--}}
+						{{ trans('account.transactions.delivery.text') }}
+
 				</div>
 
 				<div class="">

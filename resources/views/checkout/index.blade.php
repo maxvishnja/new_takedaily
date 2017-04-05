@@ -210,7 +210,7 @@
 										<div class="col-md-3">
 											<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.number') }}
 												<span class="required">*</span></label>
-											<input  class="input input_info_address_number input--medium input--semibold input--full @if($errors->has('address_number')) input--error @endif"
+											<input  class="input input--medium input--semibold input--full @if($errors->has('address_number')) input--error @endif"
 												   id="input_info_address_number" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.number-placeholder') }}"
 												   name="address_number" required="required" type="text" aria-required="true"
 												   value="{{ Request::old('address_number', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_number') : '')) }}"/>
@@ -683,7 +683,7 @@
 			$.validator.addClassRules({
 				input_info_address_zip: {
 					required: true,
-					postalCode: true,
+					postalCode: true
 				}
 			});
 		@endif
