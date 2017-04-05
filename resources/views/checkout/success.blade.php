@@ -116,9 +116,7 @@
             <img src="https://online.adservicemedia.dk/cgi-bin/API/ConversionService/p?camp_id=6123" width="1" height="1"
                  border="0">
         </noscript>
-
         <img src="https://online.digital-advisor.com/aff_l?offer_id=1903" width="1" height="1" />
-
      @endif
 
     <script>

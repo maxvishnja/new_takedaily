@@ -31,8 +31,15 @@ class CampaignController extends Controller
 
         $faqs =  (new \App\Apricot\Repositories\FaqRepository())->get();
 
+        if($campaign->partner_name == 'oa') {
+            $color = "#FFFF66";
+            } else{
+            $color = "#88E2C4";
+        }
+
+
         $text = $campaign->description;
-        return view('campaign', ['faqs' => $faqs, 'text' => $text]);
+        return view('campaign', ['faqs' => $faqs, 'text' => $text, 'color'=> $color]);
 
     }
 

@@ -6,13 +6,13 @@
     <header class="header--landing header--front-slide-1">
         <div class="header-nav promo-nav">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12 promocode">
-                        <div class="promo-text">
-                            {!! $text  !!}
+                    <div class="row">
+                        <div class="col-md-12 promocode" style="background:{{$color}};" >
+                            <div class="promo-text">
+                                {!! $text  !!}
+                            </div>
                         </div>
                     </div>
-                </div>
                 <div class="header_top">
                     <div class="row">
                         <div class="col-md-3 col-xs-9">

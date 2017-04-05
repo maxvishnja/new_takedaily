@@ -5,7 +5,7 @@
 		<div class="container-fluid">
 			@if(\Cookie::get('campaign')!= null)
 				<div class="row">
-					<div class="col-md-12 promocode">
+					<div class="col-md-12 promocode" @if(\Cookie::get('campaign')=='oa') style="background: #FFFF66" @endif>
 						<div class="promo-text">
 								{!! \App\Apricot\Helpers\CampaignHelper::getPromoCampaign(\Cookie::get('campaign')) !!}
 						</div>
