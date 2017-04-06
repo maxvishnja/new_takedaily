@@ -3,7 +3,7 @@
  * Locale: NL (Dutch; Nederlands, Vlaams)
  */
 $.extend( $.validator.messages, {
-	required: "Ditsd is een verplicht veld.",
+	required: "Dit is een verplicht veld.",
 	remote: "Controleer dit veld.",
 	email: "Vul hier een geldig e-mailadres in.",
 	url: "Vul hier een geldige URL in.",
