@@ -81,15 +81,15 @@
 
 	$('.month').on('change',function(){
 		$(this).attr('id', $(this).val());
-		$('.days').show();
-	});
-
-	$('.days').keyup(function(){
-		$(this).attr('id', $(this).val());
 		$('.years').show();
 	});
 
-	$('.years').keyup(function(){
+	$('.days').on('change',function(){
+		$(this).attr('id', $(this).val());
+		$('.month').show();
+	});
+
+	$('.years').on('change',function(){
 		$(this).attr('id', $(this).val());
 		var today = new Date();
 		var birthDate = new Date(Date.parse($(this).attr('id')+"-"+$('.month').attr('id')+"-"+$('.days').attr('id')));
