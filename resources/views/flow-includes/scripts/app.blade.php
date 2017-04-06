@@ -74,6 +74,7 @@
 		},
 		computed: {
 			temp_age: function () {
+
 				return this.getAge();
 			},
 			total_sum: function () {
@@ -208,7 +209,10 @@
 
 				saveState = saveState !== undefined ? saveState : true;
 
-
+				if(app.user_data.birthdate == null){
+					$('.datepicker-container-block select').val('');
+					$('.birthday').hide();
+				}
 				setTimeout(function () {
 
 					var currentStep = $(".step[data-step='" + app.step + "']");
@@ -382,6 +386,7 @@
 					return false;
 				}
 
+
 				saveState = saveState !== undefined ? saveState : true;
 
 				setTimeout(function () {
@@ -445,7 +450,6 @@
 					if (saveState) {
 						app.updateSavedState();
 					}
-
 					return true;
 				}, 5);
 			},

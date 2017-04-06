@@ -79,6 +79,7 @@
 		$('#openPicker').datepicker('show');
 	});
 
+
 	$('.month').on('change',function(){
 		$(this).attr('id', $(this).val());
 		$('.years').show();
@@ -94,7 +95,7 @@
 		var today = new Date();
 		var birthDate = new Date(Date.parse($(this).attr('id')+"-"+$('.month').attr('id')+"-"+$('.days').attr('id')));
 		var age = today.getFullYear() - birthDate.getFullYear();
-		if(age >= 18 && age < 80){
+		if(age >= 18 && age < 81){
 			app.user_data.birthdate = Date.parse($(this).attr('id')+"-"+$('.month').attr('id')+"-"+$('.days').attr('id'));
 		} else{
 			app.user_data.birthdate = '';
