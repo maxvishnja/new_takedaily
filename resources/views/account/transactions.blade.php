@@ -12,7 +12,7 @@
 			@if( $plan->isActive() )
 				<div class="row m-b-10">
 					<div class="col-md-6 m-b-10">
-						<span class="delivery">{!! trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) !!}</span>
+						<span>{!! trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) !!}</span>
 					</div>
 					<div class="col-md-6 m-b-10">
 						{{--@if(App::getLocale() == "da")--}}
