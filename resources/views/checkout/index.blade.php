@@ -677,7 +677,7 @@
 
         @if(App::getLocale()=="nl")
 			$.validator.addMethod('postalCode', function (value) {
-				return /^[1-9][0-9]{3}\s?[A-Z]{2}$/.test(value);
+				return /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/.test(value);
 			}, '{{ trans('checkout.index.order.info.address.postal.error') }}' );
 
 			$.validator.addClassRules({
