@@ -363,7 +363,7 @@ class CombinationLibraryNew
 			return;
 		}
 
-		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'f' ) && isset( $data->foods ) && ( $data->foods->butter != '3' ) )
+		if ( CombinationChecker::isAllowed( $this->groupOne, $this->groupTwo, 'f' ) && isset( $data->foods ) && ( $data->foods->butter != '1' ) )
 		{
 			$this->vitamins[] = '3f';
 			$this->groupThree = 'f';
