@@ -39,7 +39,9 @@ class CampaignController extends Controller
 
 
         $text = $campaign->description;
-        return view('campaign', ['faqs' => $faqs, 'text' => $text, 'color'=> $color]);
+        $button_text = $campaign->button_text;
+
+        return view('campaign', ['faqs' => $faqs, 'text' => $text, 'color'=> $color, 'button' => $button_text]);
 
     }
 

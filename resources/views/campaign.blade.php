@@ -46,7 +46,13 @@
                                         <div class="pull-left">
                                             <a href="{{ url()->route('flow') }}"
                                                class="button button--rounded button--huge button--landing button--green m-b-10">
-                                                <strong>{!! trans('home.header.button-click-here') !!}</strong>
+                                                <strong>
+                                                    @if($button)
+                                                        {{ $button }}
+                                                    @else
+                                                        {!! trans('home.header.button-click-here') !!}
+                                                     @endif
+                                                </strong>
                                             </a>
                                             <div class="or-pick-mix-link-container">
 
