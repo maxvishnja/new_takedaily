@@ -11,7 +11,7 @@
         {{--@if(session('upsell', false) && Session::has('upsell_token'))--}}
         <div class="text-center">
             <h2>{{ trans('success.upsell') }}</h2>
-            <h2>{{ $code }}</h2>
+            <h2>{{ trans('success.upsell.code') }} {{ $code }}</h2>
             {{--<div class="button  button--rounded button--medium coupon-button">{{ $code }}--}}
                 {{--<span class="share-icon"><img src="{{ asset('/images/icons/icon-share.png') }}" height="24"--}}
                                               {{--alt=""></span>--}}
