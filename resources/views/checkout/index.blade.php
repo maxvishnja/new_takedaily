@@ -198,7 +198,7 @@
 									@if(App::getLocale() == "nl")
 									<h3 class="require-text">{{ trans('checkout.index.order.info.address.require') }}</h3>
 									@endif
-									<div class="col-md-5">
+									<div class="col-md-3">
 										<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}
 											<span class="required">*</span></label>
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_street')) input--error @endif"
@@ -207,17 +207,26 @@
 											   value="{{ Request::old('address_street', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_line1') : '')) }}"/>
 									</div>
 
+										<div class="col-md-3">
+											<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.number') }}
+												<span class="required">*</span></label>
+											<input  class="input input--medium input--semibold input--full @if($errors->has('address_number')) input--error @endif"
+												   id="input_info_address_number" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.number-placeholder') }}"
+												   name="address_number" required="required" type="text" aria-required="true"
+												   value="{{ Request::old('address_number', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_number') : '')) }}"/>
+										</div>
+
 										<div class="col-md-3 col-xs-6">
 											<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 											<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.zipcode') }}
 												<span class="required">*</span></label>
-											<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_zip')) input--error @endif"
+											<input class="input input_info_address_zip input--medium input--semibold input--full @if($errors->has('address_zip')) input--error @endif"
 												   id="input_info_address_zip" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
-												   name="address_zip" required="required" aria-required="true"
+												   name="address_zip" required="required" aria-required="true" @if(App::getLocale() != 'nl') type="number" data-pattern="[0-9]{4}" data-validation="number"  maxlength="4" minlength="4"  @else type="text" @endif
 												   value="{{ Request::old('address_zip', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 										</div>
 
-									<div class="col-md-4 col-xs-6">
+									<div class="col-md-3 col-xs-6">
 										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 										<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
 											<span class="required">*</span></label>
@@ -659,11 +668,25 @@
 	<script src="{{ asset('js/validation_messages_' . App::getLocale() . '.js') }}"></script>
 
 	<script>
+
 		$("#checkout-form").validate({
 			errorClass: 'input--error label--error',
 			validClass: 'input--success',
 			ignore: '[data-validate="false"]'
 		});
+
+        @if(App::getLocale()=="nl")
+			$.validator.addMethod('postalCode', function (value) {
+				return /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/.test(value);
+			}, '{{ trans('checkout.index.order.info.address.postal.error') }}' );
+
+			$.validator.addClassRules({
+				input_info_address_zip: {
+					required: true,
+					postalCode: true
+				}
+			});
+		@endif
 	</script>
 
 	<style>

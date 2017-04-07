@@ -98,6 +98,7 @@ class CheckoutController extends Controller
 
 		$taxZone  = $request->get( 'address_country', trans( 'general.tax_zone' ) );
 		$street   = $request->get( 'address_street' );
+		$number   = $request->get( 'address_number' );
 		$city     = $request->get( 'address_city' );
 		$zipcode  = $request->get( 'address_zip' );
 		$first_name  = $request->get( 'first_name' );
@@ -147,6 +148,8 @@ class CheckoutController extends Controller
 
 		if($paymentMethod == 'mollie' and strpos($charge->id, 'tr_') !== 0){
 
+			\Log::error("Mollie charge create: ".$charge->id);
+
 			return \Redirect::back()
 				->withErrors( trans( 'checkout.errors.payment-error' ) )
 				->withInput();
@@ -159,6 +162,7 @@ class CheckoutController extends Controller
 		$request->session()->put( 'last_name', $last_name );
 		$request->session()->put( 'email', $email );
 		$request->session()->put( 'address_street', $street );
+		$request->session()->put( 'address_number', $number );
 		$request->session()->put( 'address_city', $city );
 		$request->session()->put( 'address_zip', $zipcode );
 		$request->session()->put( 'address_country', $taxZone );
@@ -228,6 +232,7 @@ class CheckoutController extends Controller
 				                'last_name'       => $request->session()->get( 'last_name' ),
 				                'email'           => $request->session()->get( 'email' ),
 				                'address_street'  => $request->session()->get( 'address_street' ),
+				                'address_number'  => $request->session()->get( 'address_number' ),
 				                'address_city'    => $request->session()->get( 'address_city' ),
 				                'address_zip'     => $request->session()->get( 'address_zip' ),
 				                'address_country' => $request->session()->get( 'address_country' ),
@@ -282,6 +287,7 @@ class CheckoutController extends Controller
 			$checkoutCompletion->setCustomerAttributes( [
 				'address_city'    => $request->session()->get( 'address_city' ),
 				'address_line1'   => $request->session()->get( 'address_street' ),
+				'address_number'  => $request->session()->get( 'address_number' ),
 				'address_country' => $request->session()->get( 'address_country' ),
 				'address_postal'  => $request->session()->get( 'address_zip' ),
 				'company'         => $request->session()->get( 'company' ),

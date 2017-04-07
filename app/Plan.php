@@ -254,7 +254,7 @@ class Plan extends Model
 	public function isCancelable()
 	{
 		return Date::createFromFormat( 'Y-m-d H:i:s', $this->created_at )->diffInDays() >= 1
-		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->diffInDays() >= 5
+		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() )->diffInDays() >= 1
 		       && Date::createFromFormat( 'Y-m-d H:i:s', $this->getRebillAt() ) > Date::now();
 	}
 
@@ -337,6 +337,26 @@ class Plan extends Model
 		return (new Date($this->getRebillAt()))->addDays(5)->format('Y-m-d');
 	}
 
+	public function getStartNextDeliveryNl()
+	{
+		return (new Date($this->getRebillAt()))->addWeekdays(2)->format('Y-m-d');
+	}
+
+	public function getEndNextDeliveryNl()
+	{
+		return (new Date($this->getRebillAt()))->addWeekdays(5)->format('Y-m-d');
+	}
+
+	public function getStartNextDeliveryDk()
+	{
+		return (new Date($this->getRebillAt()))->addWeekdays(3)->format('Y-m-d');
+	}
+
+	public function getEndNextDeliveryDk()
+	{
+		return (new Date($this->getRebillAt()))->addWeekdays(7)->format('Y-m-d');
+	}
+
 	public function getTotal()
 	{
 		return $this->getPrice() + $this->getShippingPrice();
@@ -354,6 +374,8 @@ class Plan extends Model
 
 		return true;
 	}
+
+
 
 	public function getShippingPrice()
 	{

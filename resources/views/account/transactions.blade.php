@@ -15,11 +15,13 @@
 						<span>{!! trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]) !!}</span>
 					</div>
 					<div class="col-md-6 m-b-10">
-						@if(App::getLocale() == "da")
-						<span>{!! trans('account.transactions.next-date', ['date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) !!}</span></div>
-						@else
-						<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', date('Y-m-d',strtotime($plan->getNextDelivery().' - 3 days')))->format('j. M'), 'date' => Date::createFromFormat('Y-m-d', $plan->getNextDelivery())->format('j. M Y') ]) !!}</span></div>
-						@endif
+						{{--@if(App::getLocale() == "da")--}}
+						{{--<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', $plan->getStartNextDeliveryDk())->format('j. M Y'), 'date' => Date::createFromFormat('Y-m-d', $plan->getEndNextDeliveryDk())->format('j. M Y') ]) !!}</span></div>--}}
+						{{--@else--}}
+						{{--<span>{!! trans('account.transactions.next-date', ['date1' => Date::createFromFormat('Y-m-d', $plan->getStartNextDeliveryNl())->format('j. M Y'), 'date' => Date::createFromFormat('Y-m-d', $plan->getEndNextDeliveryNl())->format('j. M Y') ]) !!}</span></div>--}}
+						{{--@endif--}}
+						{{ trans('account.transactions.delivery.text') }}
+
 				</div>
 
 				<div class="">
@@ -28,7 +30,7 @@
 						   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-snooze-text') }}</a>
 					@else
 						<span
-							class="button button--regular button--light button--disabled button--rounded"
+							class="button button--regular button--light  button--rounded not-snooz"
 							title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
 					@endif
 				</div>
@@ -71,6 +73,24 @@
 
 @section('footer_scripts')
 	<script>
+
+
+		$('.not-snooz').on('click', function (e) {
+			e.preventDefault();
+			swal({
+				title: "{{ trans('account.settings_subscription.snooze_popup.title-error') }}",
+				text: "{{ trans('account.settings_subscription.snooze_popup.text-error') }}",
+				type: "error",
+				html: true,
+				confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
+				confirmButtonColor: "#3AAC87",
+				allowOutsideClick: true,
+				showCancelButton: false,
+				closeOnConfirm: false,
+			});
+		});
+
+
 		$("#snooze-toggle").click(function (e) {
 			e.preventDefault();
 
@@ -99,13 +119,18 @@
 					return $("#snooze_form").submit();
 				}
 			});
-			$( ".datepicker" ).datepicker({
-				startDate: '+1d',
-				endDate: '+28d',
+			@if($plan->getRebillAt()!=null)
+    			$( ".datepicker" ).datepicker({
+				startDate: '{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDay()->format('d-m-Y')}}',
+				endDate: '{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(28)->format('d-m-Y')}}',
 				daysOfWeekDisabled: [0,6],
+				weekStart: 1,
 				format: "dd-mm-yyyy"
 			});
+			@endif
 		});
+
+
 
 		@if((int) Request::get('already_open', 0) === 1)
 			$("#snooze-toggle").click();

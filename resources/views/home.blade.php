@@ -6,6 +6,15 @@
 	<header class="header--landing header--front-slide-1">
 		<div class="header-nav">
 			<div class="container-fluid">
+				@if(\Cookie::get('campaign')!= null)
+					<div class="row">
+						<div class="col-md-12 promocode" @if(\Cookie::get('campaign')=='oa') style="background: #FFFF66" @endif>
+							<div class="promo-text">
+								{!! \App\Apricot\Helpers\CampaignHelper::getPromoCampaign(\Cookie::get('campaign')) !!}
+							</div>
+						</div>
+					</div>
+				@endif
 				<div class="header_top">
 					<div class="row">
 						<div class="col-md-3 col-xs-9">

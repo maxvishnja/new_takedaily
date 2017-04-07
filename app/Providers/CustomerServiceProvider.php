@@ -20,6 +20,7 @@ class CustomerServiceProvider extends ServiceProvider
 			$customer->customerAttributes()->saveMany([
 				new CustomerAttribute([ 'identifier' => 'address_city', 'value' => '', 'editable' => 1 ]),
 				new CustomerAttribute([ 'identifier' => 'address_line1', 'value' => '', 'editable' => 1 ]),
+				new CustomerAttribute([ 'identifier' => 'address_number', 'value' => '', 'editable' => 1 ]),
 				new CustomerAttribute([ 'identifier' => 'address_country', 'value' => '', 'editable' => 1 ]),
 				new CustomerAttribute([ 'identifier' => 'address_postal', 'value' => '', 'editable' => 1 ])
 			]);

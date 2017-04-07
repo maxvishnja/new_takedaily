@@ -113,35 +113,125 @@ class StatsController extends Controller
 
         $data = $request->all();
         if ($data) {
-            $i = 0;
-            $customers = Customer::where('locale','like', $data['lang'])->whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
-            foreach ($customers as $customer) {
-                if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
-                    $email_array[$i]['First Name'] = $customer->getFirstName();
-                    $email_array[$i]['Last Name'] = $customer->getLastName();
-                    $email_array[$i]['Phone'] = $customer->getPhone();
-                    $email_array[$i]['Email Address'] = $customer->getEmail();
-                    $i++;
-                }
+
+            switch ($data['csv-category']) {
+
+                case 1:
+                    $i = 0;
+                    $customers = Customer::where('locale','like', $data['lang'])->whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
+                    foreach ($customers as $customer) {
+                        if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
+                            $email_array[$i]['First Name'] = $customer->getFirstName();
+                            $email_array[$i]['Last Name'] = $customer->getLastName();
+                            $email_array[$i]['Phone'] = $customer->getPhone();
+                            $email_array[$i]['Email Address'] = $customer->getEmail();
+                            $i++;
+                        }
+                    }
+                    if(isset($email_array)) {
+                        \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
+
+                            $excel->sheet('All users', function ($sheet) use ($email_array) {
+
+                                $sheet->fromArray($email_array, null, 'A1', true);
+
+                            });
+
+                        })->download('xls');
+                        return \Redirect::back();
+                    }
+
+                case 2:
+                    $i = 0;
+                    if($data['lang']=='nl'){
+                        $currency = "EUR";
+                    } else{
+                        $currency = "DKK";
+                    }
+                    $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->get();
+                    foreach ($plans as $plan) {
+                        if (!empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")) {
+                            $email_array[$i]['First Name'] = $plan->customer->getFirstName();
+                            $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                            $email_array[$i]['Phone'] = $plan->customer->getPhone();
+                            $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                            $email_array[$i]['Age'] = $plan->customer->getAge();
+                            $email_array[$i]['Supplements'] = '';
+                            foreach ($plan->getVitamiPlan() as $vitamin){
+                                $email_array[$i]['Supplements'] .= \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)).", ";
+                             }
+                            $email_array[$i]['Last coupon'] = $plan->getLastCoupon();
+                            $i++;
+                        }
+                    }
+                    if(isset($email_array)) {
+                        \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
+
+                            $excel->sheet('Unsubscribed users', function ($sheet) use ($email_array) {
+
+                                $sheet->fromArray($email_array, null, 'A1', true);
+
+                            });
+
+                        })->download('xls');
+                        return \Redirect::back();
+                    }
+
+                default:
+                    return \Redirect::back()->withErrors("No data!");
             }
-            if(isset($email_array)) {
-                \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
 
-                    $excel->sheet('All users', function ($sheet) use ($email_array) {
 
-                        $sheet->fromArray($email_array, null, 'A1', true);
-
-                    });
-
-                })->download('xls');
-                return \Redirect::back();
-            }
-            return \Redirect::back()->withErrors("No data!");
         } else {
 
             return \Redirect::back()->withErrors("Access denied!");
         }
 
+    }
+
+
+
+    public function getUnsubscribeReason(Request $request){
+
+        $data = $request->all();
+
+        if($data) {
+
+            if ($data['lang'] == 'EUR') {
+                \App::setLocale('nl');
+            } else {
+                \App::setLocale('da');
+            }
+
+            $count = 0;
+            $reasons = array();
+            $all = Plan::whereNotNull('subscription_cancelled_at')
+                ->whereBetween('subscription_cancelled_at', [$data['start_dates'], $data['end_dates']])
+                ->where('currency','=', $data['lang'])
+                ->count();
+
+            for($i=0; $i < 6; $i++){
+
+                $count_res = Plan::whereNotNull('subscription_cancelled_at')
+                    ->whereBetween('subscription_cancelled_at', [$data['start_dates'], $data['end_dates']])
+                    ->where('unsubscribe_reason','like',trans('account.settings_cancel.reasons.'.$i.''))
+                    ->where('currency','like',$data['lang'])
+                    ->count();
+
+
+
+                $reasons[]= ["name" => trans('account.settings_cancel.reasons.'.$i.''), "y"=>$count_res ];
+
+
+                $count = $count + $count_res;
+            }
+            $reasons[6]= ["name" => 'Other reason', "y"=>$all - $count ];
+
+          return $reasons;
+
+        }
+
+        return false;
     }
 
 }

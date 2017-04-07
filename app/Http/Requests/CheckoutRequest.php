@@ -29,6 +29,7 @@ class CheckoutRequest extends Request
 			];
 		}
 
+
 		return [
 			'email'           => 'email|required|unique:users,email',
 			'first_name'      => 'required',
@@ -37,6 +38,7 @@ class CheckoutRequest extends Request
 			'address_zip'	  => 'required',
 			'address_city'    => 'required',
 			'address_country' => 'required',
+			'address_number'  => 'required',
 			'payment_method'  => 'required',
 			'password'        => 'required',
 			'terms_accept'    => 'required',

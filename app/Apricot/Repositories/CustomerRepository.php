@@ -38,9 +38,9 @@ class CustomerRepository
 
 	public function getNewCustomer(){
 		$date = new \DateTime();
-		$date->modify('-7 days');
-		return Customer::where('order_count','=',1)
-			->where('created_at','like','%'.$date->format('Y-m-d').'%')
+		$date->modify('-21 days');
+		return Plan::whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')
+			->where('subscription_started_at','like','%'.$date->format('Y-m-d').'%')
 			->get();
 	}
 

@@ -34,6 +34,15 @@
                     </div>
                 </div>
 
+
+                <div class="control-group">
+                    <label for="code" class="control-label">Text on button instead "Doe de test"</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="button_text" id="code" value="{{ Request::old('button_text', isset($campaign) ? $campaign->button_text : '' ) }}" placeholder="Button text (example.: SALE!SALE!)"/>
+                    </div>
+                </div>
+
+
                 <div class="control-group">
                     <label for="description" class="control-label">Description</label>
                     <div class="controls">

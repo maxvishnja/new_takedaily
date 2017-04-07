@@ -81,12 +81,15 @@
                 <tbody>
                 <tr>
                     <td>
-                        <h5>Aktive kunder with time</h5>
+                        <select name="csv-category">
+                            <option value="1">Aktive kunder with time</option>
+                            <option value="2">Unsubscribe with time</option>
+                        </select>
                     </td>
                     <td>
-                        <input type="text" class="form-control datepicker" style="width:150px" name="start_date" id="start_picker"
+                        <input type="text" class="form-control datepicker" style="width:120px" name="start_date" id="start_picker"
                                placeholder="Start date" value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
-                        <input type="text" style="width:150px" class="form-control datepicker" name="end_date" id="end_picker"
+                        <input type="text" style="width:120px" class="form-control datepicker" name="end_date" id="end_picker"
                                placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
                     </td>
                     <td>
@@ -103,15 +106,100 @@
                 </tbody>
             </table>
             </form>
+
+            <br/>
+            <form class="reason-form" action="" method="POST">
+                {{ csrf_field() }}
+                <table cellpadding="0" cellspacing="0" border="0"
+                       class="datatable-1 table table-bordered table-striped	display" width="100%">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <h5>Unsubscribe reason with time</h5>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control datepicker" style="width:150px" name="start_dates" id="start_pickers"
+                                   placeholder="Start date" value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
+                            <input type="text" style="width:150px" class="form-control datepicker" name="end_dates" id="end_pickers"
+                                   placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+                        </td>
+                        <td>
+                            <select name="lang" id="input_state" style="width:100px">
+                                <option value="EUR" selected="selected" >Dutch</option>
+                                <option value="DKK" >Denmark</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            <button style="float: right" class="btn btn-success pie-reason">Show me</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <div class="pie-chart" id="piechart" style="height:400px">
+
+            </div>
         </div>
     </div><!--/.module-->
 @stop
 
 @section('scripts')
     <script>
+        $('.pie-chart').hide();
+        function Charts(reason){
+            Highcharts.chart('piechart', {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Unsubscribe reason'
+                },
+                tooltip: {
+                    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        showInLegend: true
+                    }
+                },
+                series: [{
+                    name: 'Percent',
+                    colorByPoint: true,
+                    data: reason
+                }]
+            });
+        }
+
+
         $(function () {
             $('.datepicker').datepicker({
                 dateFormat: "yy-mm-dd"
+            });
+
+            $('.pie-reason').on('click', function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    data: $('form.reason-form').serialize(),
+                    url: '{{ route("reason") }}',
+                    success: function (data) {
+                        console.log(data);
+                        $('.pie-chart').show();
+                        Charts(data);
+
+                    }
+
+                });
             });
 
             $('.stats-ok').on('click', function(e){
@@ -126,6 +214,10 @@
 
                 });
             });
+
+
         });
+
+
     </script>
 @endsection

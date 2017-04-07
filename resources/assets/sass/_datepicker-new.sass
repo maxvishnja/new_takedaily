@@ -48,7 +48,7 @@
 
 .datepicker table tr td
 	&.old
-		color: #777
+		color: #333
 	&.new
 		color: #333
 	&.day:hover
@@ -705,3 +705,5 @@ fieldset[disabled] .datepicker table tr td span.active
 	&.dropdown-menu
 		td, th
 			padding: 0 5px
+		td:not(.disabled)
+			font-size: 16px

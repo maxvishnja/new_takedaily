@@ -79,6 +79,29 @@
 		$('#openPicker').datepicker('show');
 	});
 
+
+	$('.month').on('change',function(){
+		$(this).attr('id', $(this).val());
+		$('.years').show();
+	});
+
+	$('.days').on('change',function(){
+		$(this).attr('id', $(this).val());
+		$('.month').show();
+	});
+
+	$('.years').on('change',function(){
+		$(this).attr('id', $(this).val());
+		var today = new Date();
+		var birthDate = new Date(Date.parse($(this).attr('id')+"-"+$('.month').attr('id')+"-"+$('.days').attr('id')));
+		var age = today.getFullYear() - birthDate.getFullYear();
+		if(age >= 18 && age < 91){
+			app.user_data.birthdate = Date.parse($(this).attr('id')+"-"+$('.month').attr('id')+"-"+$('.days').attr('id'));
+		} else{
+			app.user_data.birthdate = '';
+		}
+	});
+
 	$("#flow-toggler").click(function (e) {
 		$(".flow-progress").toggleClass('flow-progress--closed');
 		$(this).toggleClass('toggled');

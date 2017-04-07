@@ -12,6 +12,9 @@ class CampaignController extends Controller
 
     public function getCampaign($code){
 
+
+        \Cookie::forget('campaign');
+
         $campaign = Campaign::where('partner_name', '=', $code)->first();
 
         if(!$campaign){
@@ -24,11 +27,21 @@ class CampaignController extends Controller
             return \Redirect::route( 'home' );
         }
 
+        \Cookie::queue('campaign', $code);
+
         $faqs =  (new \App\Apricot\Repositories\FaqRepository())->get();
 
-        $text = $campaign->description;
+        if($campaign->partner_name == 'oa') {
+            $color = "#FFFF66";
+            } else{
+            $color = "#88E2C4";
+        }
 
-        return view('campaign', ['faqs' => $faqs, 'text' => $text]);
+
+        $text = $campaign->description;
+        $button_text = $campaign->button_text;
+
+        return view('campaign', ['faqs' => $faqs, 'text' => $text, 'color'=> $color, 'button' => $button_text]);
 
     }
 

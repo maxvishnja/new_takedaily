@@ -6,13 +6,13 @@
     <header class="header--landing header--front-slide-1">
         <div class="header-nav promo-nav">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12 promocode">
-                        <div class="promo-text">
-                            {!! $text  !!}
+                    <div class="row">
+                        <div class="col-md-12 promocode" style="background:{{$color}};" >
+                            <div class="promo-text">
+                                {!! $text  !!}
+                            </div>
                         </div>
                     </div>
-                </div>
                 <div class="header_top">
                     <div class="row">
                         <div class="col-md-3 col-xs-9">
@@ -46,7 +46,13 @@
                                         <div class="pull-left">
                                             <a href="{{ url()->route('flow') }}"
                                                class="button button--rounded button--huge button--landing button--green m-b-10">
-                                                <strong>{!! trans('home.header.button-click-here') !!}</strong>
+                                                <strong>
+                                                    @if($button)
+                                                        {{ $button }}
+                                                    @else
+                                                        {!! trans('home.header.button-click-here') !!}
+                                                     @endif
+                                                </strong>
                                             </a>
                                             <div class="or-pick-mix-link-container">
 

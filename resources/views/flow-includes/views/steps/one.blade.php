@@ -28,12 +28,37 @@
 			v-show="user_data.gender == 2">{{ trans('flow.questions.1-2.title-alt') }}</h3>
 
 		<div class="datepicker-container-block">
-			<label for="birthdate-picker" class="text-center flow_label_noclick" id="openPicker">
-								<span class="icon calendar-icon"
-									  style="vertical-align: middle; margin-right: 6px;"></span>
-				<span>{{ trans('flow.questions.1-2.button-text') }}</span>
-			</label>
+			{{--<label for="birthdate-picker" class="text-center flow_label_noclick" id="openPicker">--}}
+								{{--<span class="icon calendar-icon"--}}
+									  {{--style="vertical-align: middle; margin-right: 6px;"></span>--}}
+				{{--<span>{{ trans('flow.questions.1-2.button-text') }}</span>--}}
+			{{--</label>--}}
 
+			<select name="day" class=" days" id="">
+				<option value="">{!! trans('flow.datepicker.pick-day') !!}</option>
+				@foreach(range(1,31) as $i)
+					<option value="{{ $i }}">{{ $i }}</option>
+				@endforeach
+			</select>
+
+			<select name="month" class="birthday month" id="">
+				<option value="">{!! trans('flow.datepicker.pick-month') !!}</option>
+				@foreach(trans('flow.datepicker.months_long') as $key=>$month)
+					<option value="{{ $key }}">{{ $month }}</option>
+				@endforeach
+			</select>
+
+
+
+			<select name="year" class="birthday years" id="">
+				<option value="">{!! trans('flow.datepicker.pick-year') !!}</option>
+				@foreach(range(1929,1999) as $y)
+					<option value="{{ $y }}">{{ $y }}</option>
+				@endforeach
+			</select>
+
+			{{--<input class="birthday days" value="" name="day" id="" placeholder="{!! trans('flow.datepicker.pick-day') !!}">--}}
+			{{--<input class="birthday years" value="" name="year" id="" placeholder="{!! trans('flow.datepicker.pick-year') !!}">--}}
 			<input type="text" name="step[1][2]" v-model="user_data.birthdate" id="birthdate-picker"  data-model="birthdate"
 				   style="display: none;"/>
 		</div>

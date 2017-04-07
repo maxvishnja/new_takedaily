@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: adm
- * Date: 03.02.17
- * Time: 15:41
- */
 
 namespace app\Apricot\Helpers;
 

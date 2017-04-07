@@ -9,6 +9,19 @@ class CouponRepository
 		return Coupon::orderBy( 'created_at', 'DESC' )->get();
 	}
 
+
+	public function Active()
+	{
+		return Coupon::orderBy( 'created_at', 'DESC' )->where( 'valid_to', '>=', date( 'Y-m-d' ) )->get();
+	}
+
+
+	public function Inactive()
+	{
+		return Coupon::orderBy( 'created_at', 'DESC' )->where( 'valid_to', '<=', date( 'Y-m-d' ) )->get();
+	}
+
+
 	public function findByCoupon( $coupon )
 	{
 		$coupon = strtoupper( $coupon );

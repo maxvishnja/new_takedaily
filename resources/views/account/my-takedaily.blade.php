@@ -6,15 +6,15 @@
 
 @section('content')
 	@if(Auth::user()->getCustomer()->hasNewRecommendations())
-		<div class="card m-b-50">
-			<div class="card-body">
-				<h2 class="card_title">{{ trans('account.settings_subscription.new-recommendation.title') }}</h2>
-				<hr>
-				<p>{{ trans('account.settings_subscription.new-recommendation.text') }}</p>
-				<a href="{{ URL::action('AccountController@updateVitamins') }}"
-				   class="button button--green button--large">{{ trans('account.settings_subscription.new-recommendation.btn') }}</a>
-			</div>
-		</div>
+		{{--<div class="card m-b-50">--}}
+			{{--<div class="card-body">--}}
+				{{--<h2 class="card_title">{{ trans('account.settings_subscription.new-recommendation.title') }}</h2>--}}
+				{{--<hr>--}}
+				{{--<p>{{ trans('account.settings_subscription.new-recommendation.text') }}</p>--}}
+				{{--<a href="{{ URL::action('AccountController@updateVitamins') }}"--}}
+				   {{--class="button button--green button--large">{{ trans('account.settings_subscription.new-recommendation.btn') }}</a>--}}
+			{{--</div>--}}
+		{{--</div>--}}
 	@endif
 
 	<h1>{{ trans('account.home.header') }} - {{ trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) }}</h1>
