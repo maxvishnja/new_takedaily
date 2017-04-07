@@ -564,7 +564,11 @@ class CombinationLibraryNew
 		}
 
 		// D
-		if ( isset( $data->immune_system ) && $data->immune_system == '1' )
+		if ( isset( $data->immune_system ) && (
+			($data->locale === 'nl' && $data->immune_system == '1') || ($data->locale === 'da' && $data->immune_system != '1')
+
+			)
+		)
 		{
 			$this->groupTwo   = 'D';
 			$this->vitamins[] = '2D';
