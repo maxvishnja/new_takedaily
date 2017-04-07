@@ -23,8 +23,8 @@
 						Opsig</a>
 				@endif
 
-				{{--<a class="btn btn-danger" href="{{ URL::action('Dashboard\CustomerController@destroy', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du ønsker at opsige kundens abonnent?');"><i class="icon-remove"></i>--}}
-					{{--Delete</a>--}}
+				<a class="btn btn-danger" href="{{ URL::action('Dashboard\CustomerController@destroy', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du ønsker at opsige kundens abonnent?');"><i class="icon-remove"></i>
+					Delete</a>
 
 			</div>
 			<div class="clear"></div>
