@@ -91,7 +91,7 @@
 
 				@if( $customer->plan->isActive() )
 					<tr>
-						<td>Næste ordre/trækning</td>
+						<td>Next re-bill/shipment date</td>
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('j. M Y H:i') }}
 							({{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->diffForHumans() }}
 							)
