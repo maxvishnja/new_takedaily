@@ -74,7 +74,6 @@
 		},
 		computed: {
 			temp_age: function () {
-
 				return this.getAge();
 			},
 			total_sum: function () {
@@ -463,6 +462,7 @@
 				if (this.user_data.birthdate === null) {
 					return null;
 				}
+
 
 				var today = new Date();
 				var birthDate = new Date(this.user_data.birthdate);

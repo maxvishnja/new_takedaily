@@ -23,8 +23,8 @@
 						Opsig</a>
 				@endif
 
-				{{--<a class="btn btn-danger" href="{{ URL::action('Dashboard\CustomerController@destroy', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du ønsker at opsige kundens abonnent?');"><i class="icon-remove"></i>--}}
-					{{--Delete</a>--}}
+				<a class="btn btn-danger" href="{{ URL::action('Dashboard\CustomerController@destroy', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du ønsker at opsige kundens abonnent?');"><i class="icon-remove"></i>
+					Delete</a>
 
 			</div>
 			<div class="clear"></div>
@@ -91,7 +91,7 @@
 
 				@if( $customer->plan->isActive() )
 					<tr>
-						<td>Næste ordre/trækning</td>
+						<td>Next re-bill/shipment date</td>
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('j. M Y H:i') }}
 							({{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->diffForHumans() }}
 							)

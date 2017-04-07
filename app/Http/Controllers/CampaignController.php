@@ -27,7 +27,7 @@ class CampaignController extends Controller
             return \Redirect::route( 'home' );
         }
 
-        \Cookie::queue('campaign', $code);
+
 
         $faqs =  (new \App\Apricot\Repositories\FaqRepository())->get();
 
@@ -37,7 +37,7 @@ class CampaignController extends Controller
             $color = "#88E2C4";
         }
 
-
+        \Cookie::queue('campaign', $code);
         $text = $campaign->description;
         $button_text = $campaign->button_text;
 
