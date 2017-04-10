@@ -36,7 +36,25 @@
 @section('footer_scripts')
 	<script>
 		$("#form").submit(function (e) {
+			if($('#reason').val() === '-1'){
+				if($('#other_reason input').val() === ''){
+						swal({
+						title: "{{ trans('account.settings_cancel.cancel_popup.title-error') }}",
+						text: "{{ trans('account.settings_cancel.cancel_popup.text-error') }}",
+						type: "error",
+						html: true,
+						confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
+						confirmButtonColor: "#3AAC87",
+						allowOutsideClick: true,
+						showCancelButton: false,
+						closeOnConfirm: false,
+					});
+					return false;
+				}
+				return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
+			}
 			return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
+
 		});
 
 		$("#reason").change(function()
