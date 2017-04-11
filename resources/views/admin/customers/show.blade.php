@@ -8,6 +8,7 @@
 
 		<div class="module-body">
 			<div class="pull-right">
+				<a class="btn btn-default" onclick="javascript:history.back();">Back</a>
 				<a class="btn btn-info" href="{{ URL::action('Dashboard\CustomerController@edit', [ 'id' => $customer->id ]) }}"><i class="icon-pencil"></i>
 					Rediger</a>
 

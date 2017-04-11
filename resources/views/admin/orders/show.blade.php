@@ -23,6 +23,7 @@
 				  class="label pull-left label-{{ $order->stateToColor() }}">{{ $order->state }}</span>
 
 			<div class="btn-group pull-right">
+				<a class="btn btn-default" onclick="javascript:history.back();">Back</a>
 				<a class="btn btn-info"
 				   href="{{ URL::action('Dashboard\OrderController@edit', [ 'id' => $order->id ]) }}"><i
 						class="icon-pencil"></i>
