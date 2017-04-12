@@ -551,18 +551,7 @@ class CombinationLibraryNew
 			return;
 		}
 
-		//D for DA
 
-		if ( isset( $data->immune_system ) && $data->immune_system != '1' && $data->locale == 'da')
-		{
-			$this->groupTwo   = 'D';
-			$this->vitamins[] = '2D';
-
-			$this->setAdvise( '2D', $this->textGenerator->generate( '2D', [ 'smokes' ], true ) );
-			$this->setAdviseInfo( '2D', trans( 'flow.combination_info.2.D' ) );
-
-			return;
-		}
 
     // C
 		if ( isset( $data->stressed ) && $data->stressed == '1' )
@@ -578,7 +567,7 @@ class CombinationLibraryNew
 
 		// C for DA
 
-		if ( isset( $data->lacks_energy ) && $data->lacks_energy != '3' && $data->locale == 'da')
+		if ( isset( $data->lacks_energy ) && $data->lacks_energy == '1' && $data->locale == 'da')
 		{
 			$this->groupTwo   = 'C';
 			$this->vitamins[] = '2C';
@@ -589,6 +578,47 @@ class CombinationLibraryNew
 			return;
 		}
 
+		//D for DA
+
+		if ( isset( $data->immune_system ) && $data->immune_system == '3' && $data->locale == 'da')
+		{
+			$this->groupTwo   = 'D';
+			$this->vitamins[] = '2D';
+
+			$this->setAdvise( '2D', $this->textGenerator->generate( '2D', [ 'smokes' ], true ) );
+			$this->setAdviseInfo( '2D', trans( 'flow.combination_info.2.D' ) );
+
+			return;
+		}
+
+
+		// C for DA
+
+		if ( isset( $data->lacks_energy ) && $data->lacks_energy == '2' && $data->locale == 'da')
+		{
+			$this->groupTwo   = 'C';
+			$this->vitamins[] = '2C';
+
+			$this->setAdvise( '2C', $this->textGenerator->generate( '2C', [ 'lacks_energy_stressed' ], true ) );
+			$this->setAdviseInfo( '2C', trans( 'flow.combination_info.2.C' ) );
+
+			return;
+		}
+
+
+
+		//D for DA
+
+		if ( isset( $data->immune_system ) && $data->immune_system == '2' && $data->locale == 'da')
+		{
+			$this->groupTwo   = 'D';
+			$this->vitamins[] = '2D';
+
+			$this->setAdvise( '2D', $this->textGenerator->generate( '2D', [ 'smokes' ], true ) );
+			$this->setAdviseInfo( '2D', trans( 'flow.combination_info.2.D' ) );
+
+			return;
+		}
 
 		// E
 		if ( isset( $data->joints ) && $data->joints == '1' && $data->locale == 'nl')
