@@ -79,7 +79,7 @@
 
 	<div class="m-t-10">
 		<a href="/flow" class="button button--green">{{ trans('account.home.button-change') }}</a>
-		<a href="{{ url()->action('AccountController@getSeeRecommendation') }}" class="button button--green">{{ trans('account.home.button-see_recommendation') }}</a>
+		{{--<a href="{{ url()->action('AccountController@getSeeRecommendation') }}" class="button button--green">{{ trans('account.home.button-see_recommendation') }}</a>--}}
 	</div>
 
 	@if($orders->count() > 0 )
