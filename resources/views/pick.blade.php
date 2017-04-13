@@ -317,7 +317,7 @@
 					});
 				},
 				combinationChecker: function (one,two,three) {
-
+				@if(App::getLocale()=="nl")
 					var combination = [
 						'1Af',
 						'1Bf',
@@ -347,7 +347,32 @@
 						'3Df',
 						'3Ef'
 					];
-
+				@else
+					var combination = [
+						'1Af',
+						'1Bf',
+						'1Cb',
+						'1Cd',
+						'1Df',
+						'2Af',
+						'2Bf',
+						'2Cb',
+						'2Cd',
+						'2Df',
+						'2Ef',
+						'3Aa',
+						'3Ab',
+						'3Ac',
+						'3Ad',
+						'3Ae',
+						'3Af',
+						'3Bf',
+						'3Cb',
+						'3Cd',
+						'3Df',
+						'3Ef'
+							];
+				@endif
 					var pills = one+''+two+''+three;
 
 					for(var i=0; i<combination.length; i++){
@@ -520,7 +545,7 @@
 						app.group.push(vitamin.code[1]);
 					}
 
-					@if(App::getLocale()=="nl")
+
 
 					if(app.group.length > 2){
 						if(this.combinationChecker(app.group[0],app.group[1],app.group[2])){
@@ -555,7 +580,7 @@
 
 					}
 
-					@endif
+
 
 
 					vitamin.isSelected = true;
