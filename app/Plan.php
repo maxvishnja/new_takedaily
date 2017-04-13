@@ -71,6 +71,7 @@ class Plan extends Model
 		'subscription_cancelled_at',
 		'subscription_snoozed_until',
 		'subscription_rebill_at',
+		'old_rebill_at',
 		'unsubscribe_reason',
 		'currency',
 		'vitamins',
@@ -262,6 +263,7 @@ class Plan extends Model
 	{
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = Date::now();
+		$this->old_rebill_at  = $this->subscription_rebill_at;
 		$this->subscription_rebill_at     = null;
 		$this->unsubscribe_reason     = $reason;
 		$this->save();
@@ -300,7 +302,12 @@ class Plan extends Model
 		$this->subscription_snoozed_until = null;
 		$this->subscription_cancelled_at  = null;
 		$this->unsubscribe_reason = '';
-		$this->subscription_rebill_at     = Date::now();
+		if($this->old_rebill_at > Date::now()){
+			$this->subscription_rebill_at  = $this->old_rebill_at;
+		} else {
+			$this->subscription_rebill_at  = Date::now();
+		}
+		$this->old_rebill_at = null;
 		$this->save();
 
 		return true;

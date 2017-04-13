@@ -37,7 +37,8 @@ class CampaignController extends Controller
             $color = "#88E2C4";
         }
 
-        \Cookie::queue('campaign', $code);
+        \Cookie::queue('campaign', $code, 60);
+
         $text = $campaign->description;
         $button_text = $campaign->button_text;
 

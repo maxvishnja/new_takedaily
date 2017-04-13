@@ -3,7 +3,7 @@
 @section('pageClass', 'index')
 
 @section('content')
-	<header class="header--landing header--front-slide-1">
+	<header class="header--landing header--front-slide-1" @if(App::getLocale()=='nl') style="background: #fff url(/images/block-two-bg-nl.jpg) no-repeat center center;" @endif>
 		<div class="header-nav">
 			<div class="container-fluid">
 				@if(\Cookie::get('campaign')!= null)

@@ -56,6 +56,7 @@
 		if ($('.datatable-1').length > 0)
 		{
 			$('.datatable-1').dataTable({
+				stateSave: true,
 				"columnDefs": [
 					{
 						"targets": [5],
