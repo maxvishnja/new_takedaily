@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 @endif
-                @if($customer->plan->isActive())
+
 
                     @foreach ( $customer->plan->getVitamiPlan() as $vitamin)
                         <div class="control-group">
@@ -80,7 +80,7 @@
                             </div>
                         </div>
 
-                @endif
+
 
 
                 <div class="control-group">
