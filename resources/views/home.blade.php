@@ -83,6 +83,14 @@
 												<strong>{{ trans('home.header.what-is') }}</strong>
 											</div>
 										</div>
+
+										<div class="pull-left m-l-35">
+											<a href="{{ url()->route('pick-n-mix') }}"
+											   class="button button--rounded button--huge button--landing button--green m-b-10">
+												<strong>{!! trans('pick.button-main') !!}</strong>
+											</a>
+
+										</div>
 										<div class="clear"></div>
 									</div>
 
