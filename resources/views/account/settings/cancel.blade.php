@@ -43,7 +43,7 @@
 						text: "{{ trans('account.settings_cancel.cancel_popup.text-error') }}",
 						type: "error",
 						html: true,
-						confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
+						confirmButtonText: "{{ trans('account.settings_subscription.cancel_popup.button-cancel-text') }}",
 						confirmButtonColor: "#3AAC87",
 						allowOutsideClick: true,
 						showCancelButton: false,
