@@ -206,6 +206,28 @@ class CheckoutController extends Controller
 		{
 			$userData = json_decode( $userData );
 		}
+			
+			if($method == 'mollie' and strpos($request->session()->get( 'charge_id' ), 'tr_') !== 0){
+
+				\Log::error("Mollie charge create: ".$request->session()->get( 'charge_id' ));
+
+				return \Redirect::action( 'CheckoutController@getCheckout' )
+					->withErrors( trans( 'checkout.errors.payment-error' ) )
+					->withInput( [
+						'name'            => $request->session()->get( 'name' ),
+						'first_name'      => $request->session()->get( 'first_name' ),
+						'last_name'       => $request->session()->get( 'last_name' ),
+						'email'           => $request->session()->get( 'email' ),
+						'address_street'  => $request->session()->get( 'address_street' ),
+						'address_number'  => $request->session()->get( 'address_number' ),
+						'address_city'    => $request->session()->get( 'address_city' ),
+						'address_zip'     => $request->session()->get( 'address_zip' ),
+						'address_country' => $request->session()->get( 'address_country' ),
+						'company'         => $request->session()->get( 'company' ),
+						'cvr'             => $request->session()->get( 'cvr' ),
+						'phone'           => $request->session()->get( 'phone' ),
+					] );
+			}
 
 		$checkout = new Checkout();
 		$checkout->setPaymentMethod( $method )
