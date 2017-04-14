@@ -26,19 +26,33 @@
 						</td>
 						<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
 						<td>
-							@if($order->getCustomer() && $order->getCustomer()->getPlan() && $vitamins = json_decode($order->getCustomer()->getPlan()->vitamins))
-								@foreach($vitamins as $vitamin)
+							{{--@if($order->getCustomer() && $order->getCustomer()->getPlan() && $vitamins = json_decode($order->getCustomer()->getPlan()->vitamins))--}}
+								{{--@foreach($vitamins as $vitamin)--}}
 
 									{{--· {{\DB::table('ltm_translations')->where([--}}
 																		{{--['group', '=', 'pill-names'],--}}
 																		{{--['locale', '=', App::getLocale()],--}}
 																		{{--['key', '=', strtolower(\App\Vitamin::remember(60)->find($vitamin)->code)],--}}
 																	{{--])->value('value')}}--}}
-									· {{ \App\Apricot\Helpers\PillName::get(strtolower(\App\Vitamin::remember(60)->find($vitamin)->code)) }}
+									{{--· {{ \App\Apricot\Helpers\PillName::get(strtolower(\App\Vitamin::remember(60)->find($vitamin)->code)) }}--}}
+									{{--<br/>--}}
+								{{--@endforeach--}}
+							{{--@else--}}
+								{{--No vitamins selected--}}
+							{{--@endif--}}
+							@if($order->getVitamins())
+								@foreach($order->getVitamins() as $vitamin)
+
+									{{--· {{\DB::table('ltm_translations')->where([--}}
+									{{--['group', '=', 'pill-names'],--}}
+									{{--['locale', '=', App::getLocale()],--}}
+									{{--['key', '=', strtolower(\App\Vitamin::remember(60)->find($vitamin)->code)],--}}
+									{{--])->value('value')}}--}}
+									{{ \App\Apricot\Helpers\PillName::get(strtolower(\App\Vitamin::remember(60)->find($vitamin)->code)) }}
 									<br/>
 								@endforeach
 							@else
-								No vitamins selected
+								Not found vitamins
 							@endif
 						</td>
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
