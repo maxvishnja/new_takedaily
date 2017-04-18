@@ -15,6 +15,7 @@
 					<th>E-mail</th>
 					<th>Oprettet d.</th>
 					<th>Canceled</th>
+					<th>Rebill</th>
 					<th></th>
 				</tr>
 				</thead>
@@ -26,7 +27,9 @@
 						</td>
 						<td>{{ $customer->getName() }}</td>
 						<td><a href="mailto:{{ $customer->getEmail() }}">{{ $customer->getEmail() }}</a></td>
-						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('j. M Y H:i') }}</td>
+						<td>
+							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('Y/m/d H:i')}}
+						</td>
 						<td>
 							@if($customer->plan->getSubscriptionCancelledAt())
 							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}
@@ -34,6 +37,7 @@
 								No
 							@endif
 						</td>
+						<td>{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('Y/m/d H:i')}}</td>
 						<td>
 							<div class="btn-group">
 								<a class="btn btn-info" href="{{ URL::action('Dashboard\CustomerController@edit', [ 'id' => $customer->id ]) }}"><i class="icon-pencil"></i>
@@ -59,7 +63,7 @@
 				stateSave: true,
 				"columnDefs": [
 					{
-						"targets": [5],
+						"targets": [6],
 						"sortable": false,
 						"searchable": false
 					},
