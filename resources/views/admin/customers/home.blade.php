@@ -29,7 +29,7 @@
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('j. M Y H:i') }}</td>
 						<td>
 							@if($customer->plan->getSubscriptionCancelledAt())
-							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d') }}
+							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}
 							@else
 								No
 							@endif
