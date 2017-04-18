@@ -38,7 +38,10 @@
 							@endif
 						</td>
 						<td>
-							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('Y/m/d H:i')}}</td>
+							@if($customer->plan->getRebillAt())
+							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('Y/m/d H:i')}}
+							@endif
+						</td>
 						<td>
 							<div class="btn-group">
 								<a class="btn btn-info" href="{{ URL::action('Dashboard\CustomerController@edit', [ 'id' => $customer->id ]) }}"><i class="icon-pencil"></i>
