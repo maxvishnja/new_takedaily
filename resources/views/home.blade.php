@@ -16,21 +16,6 @@
 						</div>
 					</div>
 				@endif
-					@if(\Date::now(config('app.timezone')) > \Date::parse(date("Y-04-14 00:00:00")) && \Date::now(config('app.timezone')) < \Date::parse(date("Y-04-18 00:00:00")))
-
-						<div class="row">
-							<div class="col-md-12 promocode">
-								<div class="promo-text">
-									@if(\App::getLocale()=='nl')
-									{!! \App\Apricot\Helpers\CampaignHelper::getPromoCampaign('campagne_pasen_2017') !!}
-									@else
-									{!! \App\Apricot\Helpers\CampaignHelper::getPromoCampaign('easterapri_17') !!}
-									@endif
-								</div>
-							</div>
-						</div>
-
-					@endif
 				<div class="header_top">
 					<div class="row">
 						<div class="col-md-3 col-xs-9">

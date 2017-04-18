@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Notes;
 use App\Order;
 use App\Vitamin;
 use Illuminate\Mail\Message;
@@ -248,6 +249,22 @@ class CustomerController extends Controller
 
 		return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', 'Kunden har fået tilsendt en ny adgangskode!');
 	}
+
+
+
+	function addNote(Request $request, $id)
+	{
+		$note = new Notes();
+
+		$note->customer_id = $id;
+		$note->author = $request->get('author') == '' ? 'admin' : $request->get('author');
+		$note->note = $request->get('note');
+		$note->save();
+
+		return \Redirect::back();
+
+	}
+
 
 	function cancel($id)
 	{

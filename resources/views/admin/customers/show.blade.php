@@ -146,6 +146,90 @@
 					</tbody>
 				</table>
 			@endif
+
+
+			@if(count($customer->getNotes())>0)
+				<h3>Note</h3>
+				<table class="table table-striped">
+					<thead>
+					<tr>
+					<tr>
+						<th>#</th>
+						<th>Author</th>
+						<th>Note</th>
+						<th>Oprettet d.</th>
+					</tr>
+					</thead>
+					<tbody>
+					@foreach($customer->getNotes() as $note)
+						<tr>
+							<td>
+								{{ $note->id }}
+							</td>
+							<td>{{ $note->getAuthor() }}</td>
+							<td>{!! $note->note  !!} </td>
+							<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
+
+						</tr>
+					@endforeach
+					</tbody>
+				</table>
+			@endif
+
+				<div class="clearfix"></div>
+				<br/>
+
+				<div style="display: none" class="add-note">
+						<form method="post" action="{{ URL::action('Dashboard\CustomerController@addNote', [ 'id' => $customer->id ]) }}" class="form-horizontal row-fluid">
+							<div class="control-group">
+								<label for="code" class="control-label">Author </label>
+								<div class="controls">
+									<input type="text" class="form-control span8" name="author" id="code" value="" placeholder="(ex. Marie or Kirsten)"/>
+								</div>
+							</div>
+
+							<div class="control-group">
+								<label for="description" class="control-label">Note</label>
+								<div class="controls">
+									<textarea name="note" id="note" class="form-control span8" rows="5" placeholder=""></textarea>
+
+
+								</div>
+							</div>
+							<div class="control-group">
+								<div class="controls clearfix">
+									<button type="submit" class="btn btn-primary btn-large pull-left">Add</button>
+								</div>
+							</div>
+							{{ csrf_field() }}
+						</form>
+						<br/>
+				</div>
+
+
+				<div class="text-center" style="text-align: center">
+					<a class="btn btn-info adds" href="#">
+						Show note form</a>
+				</div>
+
+
+
+
 		</div>
 	</div><!--/.module-->
 @stop
+@section('scripts')
+	<script>
+		$(function() {
+			$('.adds').on('click', function(e){
+				e.preventDefault();
+				$('.add-note').toggle(500);
+			})
+			CKEDITOR.replace('note', {
+				height: 300,
+				language: "en",
+				filebrowserImageUploadUrl: '/dashboard/upload/image'
+			});
+		});
+	</script>
+@endsection

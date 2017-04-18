@@ -104,6 +104,12 @@ class Customer extends Model
         return $this->hasMany('App\Order', 'customer_id', 'id');
     }
 
+
+    public function notes()
+    {
+        return $this->hasMany('App\Notes', 'customer_id', 'id');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -127,6 +133,12 @@ class Customer extends Model
     public function getUser()
     {
         return $this->user;
+    }
+
+
+    public function getNotes()
+    {
+        return $this->notes;
     }
 
 
