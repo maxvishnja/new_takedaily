@@ -59,7 +59,7 @@
 										<div class="clear visible-xs"></div>
 
 										<div class="pull-left pull-left-n-mobile">
-											<div class="headervideo-block m-l-35">
+											<div class="headervideo-block m-l-15">
 												<div class="video_circle" id="video-toggle-two">
 													<div class="video_circle_content">
 														<span class="icon icon-play"></span>
@@ -69,7 +69,7 @@
 											</div>
 										</div>
 
-										<div class="pull-left m-l-35">
+										<div class="pull-left m-l-15">
 											<a href="{{ url()->route('pick-n-mix') }}"
 											   class="button button--rounded button--huge button--landing button--green m-b-10">
 												<strong>{!! trans('pick.button-main') !!}</strong>
