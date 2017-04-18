@@ -448,7 +448,7 @@
 
 						return false;
 					}
-			
+
 			app.selectedVitamins.forEach(function(item){
 
 						if(item.type == 'multi'){
