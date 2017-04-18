@@ -45,7 +45,7 @@
 
 			<div class="content_section">
 				<strong class="title">
-					{{ $vitamin->name }}
+					{{ \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)) }}
 				</strong>
 
 				<p>{!! $vitamin->getInfo() !!}</p>
