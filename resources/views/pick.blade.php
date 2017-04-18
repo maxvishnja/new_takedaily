@@ -450,8 +450,6 @@
 					}
 
 
-
-
 					if(vitamin.type == 'oil' && this.hasOilVitamin)
 					{
 						return false;
@@ -486,6 +484,9 @@
 					}
 
 					@endif
+
+
+
 
 						if(vitamin.type == 'multi' && !this.hasMultivitamin)
 					{
@@ -544,8 +545,6 @@
 					if(vitamin.type == 'diet' && !this.hasDietVitamin){
 						app.group.push(vitamin.code[1]);
 					}
-
-
 
 					if(app.group.length > 2){
 						if(this.combinationChecker(app.group[0],app.group[1],app.group[2])){
@@ -621,6 +620,32 @@
 			}
 		});
 
+		if(app.selectedVitamins){
+			app.selectedVitamins.forEach(function(item){
+
+				if(item.type == 'multi'){
+					if(item.code[1] == 'a'){
+						app.group.unshift('1');
+					}
+
+					if(item.code[1] == 'b'){
+						app.group.unshift('2');
+					}
+
+					if(item.code[1] == 'c'){
+						app.group.unshift('3');
+					}
+				}
+
+				if(item.type == 'lifestyle'){
+					app.group.push(item.code[1]);
+				}
+
+				if(item.type == 'diet'){
+					app.group.push(item.code[1]);
+				}
+			});
+		}
 		app.setCart();
 		app.getCart();
 		app.loadAllDescriptions();

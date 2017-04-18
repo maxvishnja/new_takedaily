@@ -29,7 +29,7 @@
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('j. M Y H:i') }}</td>
 						<td>
 							@if($customer->plan->getSubscriptionCancelledAt())
-							{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('j. M Y H:i') }}
+							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}
 							@else
 								No
 							@endif
@@ -68,7 +68,7 @@
 						"searchable": false
 					}
 				],
-				"aaSorting": [[3, 'desc']]
+				"aaSorting": [[3, 'desc'],[4, 'desc']]
 			});
 			$('.dataTables_paginate').addClass('btn-group datatable-pagination');
 			$('.dataTables_paginate > a').wrapInner('<span />');

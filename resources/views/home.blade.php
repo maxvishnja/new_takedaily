@@ -16,21 +16,6 @@
 						</div>
 					</div>
 				@endif
-					@if(\Date::now(config('app.timezone')) > \Date::parse(date("Y-04-14 00:00:00")) && \Date::now(config('app.timezone')) < \Date::parse(date("Y-04-18 00:00:00")))
-
-						<div class="row">
-							<div class="col-md-12 promocode">
-								<div class="promo-text">
-									@if(\App::getLocale()=='nl')
-									{!! \App\Apricot\Helpers\CampaignHelper::getPromoCampaign('campagne_pasen_2017') !!}
-									@else
-									{!! \App\Apricot\Helpers\CampaignHelper::getPromoCampaign('easterapri_17') !!}
-									@endif
-								</div>
-							</div>
-						</div>
-
-					@endif
 				<div class="header_top">
 					<div class="row">
 						<div class="col-md-3 col-xs-9">
@@ -74,7 +59,7 @@
 										<div class="clear visible-xs"></div>
 
 										<div class="pull-left pull-left-n-mobile">
-											<div class="headervideo-block m-l-35">
+											<div class="headervideo-block m-l-15">
 												<div class="video_circle" id="video-toggle-two">
 													<div class="video_circle_content">
 														<span class="icon icon-play"></span>
@@ -82,6 +67,14 @@
 												</div>
 												<strong>{{ trans('home.header.what-is') }}</strong>
 											</div>
+										</div>
+
+										<div class="pull-left m-l-15">
+											<a href="{{ url()->route('pick-n-mix') }}"
+											   class="button button--rounded button--huge button--landing button--green m-b-10">
+												<strong>{!! trans('pick.button-main') !!}</strong>
+											</a>
+
 										</div>
 										<div class="clear"></div>
 									</div>
