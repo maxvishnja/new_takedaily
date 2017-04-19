@@ -52,7 +52,7 @@
 												<strong>{!! trans('home.header.button-click-here') !!}</strong>
 											</a>
 											<div class="or-pick-mix-link-container">
-												<a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a>
+												{{--<a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a>--}}
 											</div>
 										</div>
 
