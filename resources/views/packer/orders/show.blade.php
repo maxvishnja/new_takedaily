@@ -31,7 +31,7 @@
 					@else
 						{{ $order->shipping_name }}<br/>
 					@endif
-					{{ $order->shipping_street }}, {{$order->customer->getCustomerAttribute('address_number')}}<br/>
+					{{ $order->shipping_street }}<br/>
 					{{ $order->shipping_city }}, {{ $order->shipping_zipcode }}<br/>
 					{{ trans('countries.' . $order->shipping_country) }}<br/>
 				</div>

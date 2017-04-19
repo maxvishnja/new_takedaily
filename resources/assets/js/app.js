@@ -6,7 +6,12 @@ $(".toggle-mobile-nav").click(function (e)
 });
 
 $('.video_circle_content').on('click', function(){
-	ga('send', 'event', 'video', 'click');
+	ga('send', {
+		hitType: 'event',
+		eventCategory: 'Videos',
+		eventAction: 'play',
+		eventLabel: 'Video_name'
+	});
 });
 
 
