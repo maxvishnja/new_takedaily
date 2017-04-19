@@ -71,7 +71,7 @@
 
 										<div class="pull-left m-l-15">
 											<a href="{{ url()->route('pick-n-mix') }}"
-											   class="button button--rounded button--huge button--landing button--green m-b-10">
+											   class="button button--rounded button--huge button--landing button--green m-b-10 picks">
 												<strong>{!! trans('pick.button-main') !!}</strong>
 											</a>
 
