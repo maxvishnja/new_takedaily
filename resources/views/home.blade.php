@@ -36,7 +36,7 @@
 					<div class="header_slide" data-slide="2">
 						<div class="container">
 							<div class="row">
-								<div class="col-md-9">
+								<div class="col-md-10">
 									<h1>{!! trans('home.header.title-1') !!}</h1>
 									<p style="font-size: 18px;"><strong>{{ trans('home.header.subtitle') }}</strong></p>
 
