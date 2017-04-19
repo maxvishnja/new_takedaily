@@ -259,6 +259,7 @@ class CustomerController extends Controller
 		$note->customer_id = $id;
 		$note->author = $request->get('author') == '' ? 'admin' : $request->get('author');
 		$note->note = $request->get('note');
+		$note->date = $request->get('date');
 		$note->save();
 
 		return \Redirect::back();

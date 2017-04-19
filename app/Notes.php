@@ -27,6 +27,7 @@ class Notes extends Model
     protected $fillable = [
         'customer_id',
         'author',
+        'date',
         'note'
     ];
 

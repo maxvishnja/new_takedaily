@@ -157,7 +157,7 @@
 						<th>#</th>
 						<th>Author</th>
 						<th>Note</th>
-						<th>Oprettet d.</th>
+						<th>Date</th>
 					</tr>
 					</thead>
 					<tbody>
@@ -168,7 +168,7 @@
 							</td>
 							<td>{{ $note->getAuthor() }}</td>
 							<td>{!! $note->note  !!} </td>
-							<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
+							<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d', $note->date)->format('j. M Y H:i') }}</td>
 
 						</tr>
 					@endforeach
@@ -185,6 +185,16 @@
 								<label for="code" class="control-label">Author </label>
 								<div class="controls">
 									<input type="text" class="form-control span8" name="author" id="code" value="" placeholder="(ex. Marie or Kirsten)"/>
+								</div>
+							</div>
+
+
+							<div class="control-group">
+								<label for="page_title" class="control-label">Date</label>
+								<div class="controls">
+									<input type="text" class="form-control span8 datepicker" name="date" id="birthdate-picker"
+										   value=""
+										   placeholder="Date"/>
 								</div>
 							</div>
 
@@ -224,11 +234,15 @@
 			$('.adds').on('click', function(e){
 				e.preventDefault();
 				$('.add-note').toggle(500);
-			})
+			});
 			CKEDITOR.replace('note', {
 				height: 300,
 				language: "en",
 				filebrowserImageUploadUrl: '/dashboard/upload/image'
+			});
+
+			$('.datepicker').datepicker({
+				dateFormat: "yy-mm-dd"
 			});
 		});
 	</script>
