@@ -11,7 +11,7 @@
         {{--@if(session('upsell', false) && Session::has('upsell_token'))--}}
         <div class="text-center">
             <h2>{{ trans('success.upsell') }}</h2>
-            <h2>{!! $code !!}</h2>
+            <h2>{{ trans('success.upsell_code') }} {{ $code }}</h2>
             {{--<div class="button  button--rounded button--medium coupon-button">{{ $code }}--}}
                 {{--<span class="share-icon"><img src="{{ asset('/images/icons/icon-share.png') }}" height="24"--}}
                                               {{--alt=""></span>--}}
@@ -128,6 +128,17 @@
                 return document.getElementById('copy-button').getAttribute('aria-label');
             }
         });
+
+
+        function fbShare() {
+            var shareText = encodeURIComponent($('#copy-button').attr('aria-label'));
+            var shareUrl = encodeURIComponent($('.share-fb').data('url'));
+            var winWidth = 520;
+            var winHeight = 350;
+            var winTop = (screen.height / 2) - (winHeight / 2);
+            var winLeft = (screen.width / 2) - (winWidth / 2);
+            window.open('https://www.facebook.com/dialog/share?%20app_id={{ env('FACEBOOK_APP_ID') }}&&href='+shareUrl+'flow&display=iframe&quote='+shareText+'', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight)
+        }
 
     </script>
 @endsection
