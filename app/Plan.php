@@ -294,6 +294,14 @@ class Plan extends Model
 	}
 
 
+	public function setSnoozingDate(){
+
+		$this->snoozing_at = Date::now();
+		$this->save();
+
+		return true;
+	}
+
 
 
 
@@ -491,7 +499,7 @@ class Plan extends Model
 		$snoozing->customer_id = $customer->id;
 		$snoozing->email = $customer->getEmail();
 		$snoozing->save();
-
+		$this->setSnoozingDate();
 		$this->markHasNotified();
 
 		return true;
