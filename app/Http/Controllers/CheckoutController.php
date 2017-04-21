@@ -146,8 +146,7 @@ class CheckoutController extends Controller
 			                ->withInput();
 		}
 
-		\Log::info("New charge:");
-		\Log::info($charge);
+		\Log::info((array)$charge);
 
 		if($paymentMethod == 'mollie' and strpos($charge->id, 'tr_') !== 0){
 
