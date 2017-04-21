@@ -154,6 +154,12 @@ class StatsController extends Controller
                             $email_array[$i]['First Name'] = $plan->customer->getFirstName();
                             $email_array[$i]['Last Name'] = $plan->customer->getLastName();
                             $email_array[$i]['Phone'] = $plan->customer->getPhone();
+                            if($plan->snoozing_at) {
+                                $email_array[$i]['Sent postponing mail'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->snoozing_at)->format('j. M Y');
+                            } else{
+                                $email_array[$i]['Sent postponing mail'] = 'No data';
+                            }
+                            $email_array[$i]['Cancel date'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->subscription_cancelled_at)->format('j. M Y');
                             $email_array[$i]['Email Address'] = $plan->customer->getEmail();
                             $email_array[$i]['Age'] = $plan->customer->getAge();
                             $email_array[$i]['Supplements'] = '';
