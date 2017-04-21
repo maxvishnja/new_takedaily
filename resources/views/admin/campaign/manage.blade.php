@@ -36,6 +36,15 @@
 
 
                 <div class="control-group">
+                    <label for="code" class="control-label">Background color</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="color" id="color" value="{{ Request::old('color', isset($campaign) ? $campaign->color : '' ) }}" placeholder="If we dont use default color"/>
+                    </div>
+                </div>
+
+
+
+                <div class="control-group">
                     <label for="code" class="control-label">Text on button instead "Doe de test"</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="button_text" id="code" value="{{ Request::old('button_text', isset($campaign) ? $campaign->button_text : '' ) }}" placeholder="Button text (example.: SALE!SALE!)"/>
@@ -93,6 +102,20 @@
                 language: "en",
                 filebrowserImageUploadUrl: '/dashboard/upload/image'
             });
+
+            $('#color').ColorPicker({
+                        onSubmit: function(hsb, hex, rgb, el) {
+                            $(el).val(hex);
+                            $(el).ColorPickerHide();
+                        },
+                        onBeforeShow: function () {
+                            $(this).ColorPickerSetColor(this.value);
+                        }
+                    })
+                    .bind('keyup', function(){
+                        $(this).ColorPickerSetColor(this.value);
+                    });
+
         });
     </script>
 @endsection

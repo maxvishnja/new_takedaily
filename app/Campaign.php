@@ -11,6 +11,7 @@ class Campaign extends Model
     protected $fillable = [
         'partner_name',
         'button_text',
+        'color',
         'country'
     ];
 

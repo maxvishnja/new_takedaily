@@ -20,9 +20,14 @@ class CampaignHelper
             return false;
         }
 
-        $text = $campaign->description;
+        $camp['text'] = $campaign->description;
 
-        return $text;
+        if($campaign->color == ''){
+            $camp['color'] = "88E2C4";
+        } else{
+            $camp['color'] = $campaign->color;
+        }
+        return $camp;
 
     }
 

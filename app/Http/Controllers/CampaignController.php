@@ -31,17 +31,22 @@ class CampaignController extends Controller
 
         $faqs =  (new \App\Apricot\Repositories\FaqRepository())->get();
 
-        if($campaign->partner_name == 'oa') {
-            $color = "#FFFF66";
-            } else{
-            $color = "#88E2C4";
-        }
+//        if($campaign->partner_name == 'oa') {
+//            $color = "#FFFF66";
+//            } else{
+//            $color = "#88E2C4";
+//        }
 
         \Cookie::queue('campaign', $code, 60);
 
         $text = $campaign->description;
         $button_text = $campaign->button_text;
 
+        if($campaign->color == ''){
+            $color = "88E2C4";
+        } else{
+            $color = $campaign->color;
+        }
         return view('campaign', ['faqs' => $faqs, 'text' => $text, 'color'=> $color, 'button' => $button_text]);
 
     }
