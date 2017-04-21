@@ -145,6 +145,8 @@ class CheckoutController extends Controller
 			                ->withErrors( trans( 'checkout.errors.payment-error' ) )
 			                ->withInput();
 		}
+		
+		\Log::info("Charde ID: ".$charge->id.", customer ID: ".$checkout->getCustomer()->id);
 
 		if($paymentMethod == 'mollie' and strpos($charge->id, 'tr_') !== 0){
 
