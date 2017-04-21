@@ -148,7 +148,7 @@ class CheckoutController extends Controller
 
 		if($paymentMethod == 'mollie' and strpos($charge->id, 'tr_') !== 0){
 
-			\Log::error("Mollie charge create: ".$charge->id);
+			\Log::error("Mollie charge create in post: ".$charge->id);
 
 			return \Redirect::back()
 				->withErrors( trans( 'checkout.errors.payment-error' ) )
@@ -209,7 +209,7 @@ class CheckoutController extends Controller
 
 			if($method == 'mollie' and strpos($request->session()->get( 'charge_id' ), 'tr_') !== 0){
 
-				\Log::error("Mollie charge create: ".$request->session()->get( 'charge_id' ));
+				\Log::error("Mollie charge create in verify: ".$request->session()->get( 'payment_customer_id' ));
 
 				return \Redirect::action( 'CheckoutController@getCheckout' )
 					->withErrors( trans( 'checkout.errors.payment-error' ) )
