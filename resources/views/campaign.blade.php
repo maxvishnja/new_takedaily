@@ -8,7 +8,7 @@
         <div class="header-nav promo-nav">
             <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-12 promocode" style="background:{{$color}};" >
+                        <div class="col-md-12 promocode" style="background:#{{$color}};" >
                             <div class="promo-text">
                                 {!! $text  !!}
                             </div>

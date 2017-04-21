@@ -31,6 +31,7 @@ class CampaignController extends Controller
         $campaign->partner_name = strtolower($request->get('partner_name'));
         $campaign->description = $request->get('description');
         $campaign->button_text = $request->get('button_text');
+        $campaign->color = $request->get('color');
         $campaign->country = $request->get('country');
 
 
@@ -68,6 +69,7 @@ class CampaignController extends Controller
         $campaign->partner_name = strtolower($request->get('partner_name'));
         $campaign->description = $request->get('description');
         $campaign->button_text = $request->get('button_text');
+        $campaign->color = $request->get('color');
         $campaign->country = $request->get('country');
 
 
