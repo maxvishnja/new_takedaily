@@ -35,7 +35,7 @@ class Mollie implements PaymentInterface
         $charge = array_merge($charge, $data);
 
         try {
-
+            \Log::info("Mollie payment charge create success: ".$charge['customerId']);
             return \Mollie::api()->payments()->create($charge);
 
         } catch (\Exception $exception) {
