@@ -316,7 +316,10 @@
 						}
 					});
 				},
-				combinationChecker: function (one,two,three) {
+				combinationChecker: function (one='',two='',three='') {
+//					console.log('One: '+one);
+//					console.log('Two: '+two);
+//					console.log('Three: '+three);
 				@if(App::getLocale()=="nl")
 					var combination = [
 						'1Af',
@@ -345,7 +348,11 @@
 						'3Cb',
 						'3Cd',
 						'3Df',
-						'3Ef'
+						'3Ef',
+						'Cb',
+						'Cd',
+						'Bf',
+						'Df'
 					];
 				@else
 					var combination = [
@@ -370,7 +377,11 @@
 						'3Cb',
 						'3Cd',
 						'3Df',
-						'3Ef'
+						'3Ef',
+						'Cb',
+						'Cd',
+						'Bf',
+						'Df'
 							];
 				@endif
 					var pills = one+''+two+''+three;
@@ -404,7 +415,9 @@
 						app.group.splice(2, 1);
 					}
 
-
+					if(vitamin.type == 'diet'  && !this.hasMultivitamin && !this.hasLifestyleVitamin){
+						app.group.splice(0, 1);
+					}
 
 					vitamin.isSelected = false;
 
@@ -546,7 +559,7 @@
 						app.group.push(vitamin.code[1]);
 					}
 
-					if(app.group.length > 2){
+					if(app.group.length > 1){
 						if(this.combinationChecker(app.group[0],app.group[1],app.group[2])){
 
 							if(vitamin.type == 'multi')
@@ -554,13 +567,22 @@
 								app.group.splice(0, 1);
 							}
 
-							if(vitamin.type == 'lifestyle')
+							if(vitamin.type == 'lifestyle' && this.hasMultivitamin)
 							{
 								app.group.splice(1, 1);
 							}
 
-							if(vitamin.type == 'diet'){
+							if(vitamin.type == 'lifestyle' && !this.hasMultivitamin)
+							{
+								app.group.splice(0, 1);
+							}
+
+							if(vitamin.type == 'diet' && this.hasMultivitamin){
 								app.group.splice(2, 1);
+							}
+
+							if(vitamin.type == 'diet' && !this.hasMultivitamin){
+								app.group.splice(1, 1);
 							}
 
 							swal({
