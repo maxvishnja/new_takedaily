@@ -155,7 +155,12 @@
 				show_popup: false,
 				maxVitamins: 3,
 				minVitamins: 2,
-				group:[],
+				group:{
+						multi : '',
+						lifestyle : '',
+						diet : ''
+
+				},
 				totals: [],
 				groupTranslations: {
 					@foreach(trans('pick.groups') as $key => $group)
@@ -317,9 +322,9 @@
 					});
 				},
 				combinationChecker: function (one='',two='',three='') {
-//					console.log('One: '+one);
-//					console.log('Two: '+two);
-//					console.log('Three: '+three);
+					console.log('One: '+one);
+					console.log('Two: '+two);
+					console.log('Three: '+three);
 				@if(App::getLocale()=="nl")
 					var combination = [
 						'1Af',
@@ -398,25 +403,16 @@
 
 					if(vitamin.type == 'multi')
 					{
-						app.group.splice(0, 1);
+						app.group['multi']='';
 					}
 
-					if(vitamin.type == 'lifestyle' && this.hasMultivitamin)
+					if(vitamin.type == 'lifestyle')
 					{
-						app.group.splice(1, 1);
-					}
-
-					if(vitamin.type == 'lifestyle' && !this.hasMultivitamin)
-					{
-						app.group.splice(0, 1);
+						app.group['lifestyle']='';
 					}
 
 					if(vitamin.type == 'diet'){
-						app.group.splice(2, 1);
-					}
-
-					if(vitamin.type == 'diet'  && !this.hasMultivitamin && !this.hasLifestyleVitamin){
-						app.group.splice(0, 1);
+						app.group['diet']='';
 					}
 
 					vitamin.isSelected = false;
@@ -481,7 +477,7 @@
 
 					@if(App::getLocale()=="nl")
 
-					if(vitamin.type == 'multi' && this.hasLifestyleVitamin && app.group[0]=='A') {
+					if(vitamin.type == 'multi' && this.hasLifestyleVitamin && app.group['lifestyle']=='A') {
 
 						swal({
 							title: "",
@@ -501,88 +497,69 @@
 
 
 
+
+
 						if(vitamin.type == 'multi' && !this.hasMultivitamin)
 					{
 						if(vitamin.code[1] == 'a'){
-							app.group.unshift('1');
+							app.group['multi']='1';
 						}
 
 						if(vitamin.code[1] == 'b'){
-							app.group.unshift('2');
+							app.group['multi']='2';
 						}
 
 						if(vitamin.code[1] == 'c'){
-							app.group.unshift('3');
+							app.group['multi']= '3';
 						}
 
 					}
+
 
 
 
 					@if(App::getLocale()=="nl")
 
 					if(vitamin.code == '2A' && this.hasMultivitamin){
-						if(app.group[0]=='1'){
+						if(app.group['multi']=='1'){
 							this.removeVitamin(app.vitamins[0],event);
 						}
-						if(app.group[0]=='2'){
+						if(app.group['multi']=='2'){
 							this.removeVitamin(app.vitamins[1],event);
 						}
-						if(app.group[0]=='3'){
+						if(app.group['multi']=='3'){
 							this.removeVitamin(app.vitamins[2],event);
 						}
 					}
 					@endif
 
 
-					if(vitamin.type == 'lifestyle' && !this.hasMultivitamin && !this.hasDietVitamin && !this.hasLifestyleVitamin)
+					if(vitamin.type == 'lifestyle')
 					{
-						app.group.push(vitamin.code[1]);
+						app.group['lifestyle']=vitamin.code[1];
 					}
 
-					if(vitamin.type == 'lifestyle' && this.hasMultivitamin && !this.hasDietVitamin & !this.hasLifestyleVitamin)
-					{
-						app.group.push(vitamin.code[1]);
+
+					if(vitamin.type == 'diet'){
+						app.group['diet']=vitamin.code[1];
 					}
 
-					if(vitamin.type == 'lifestyle' && this.hasDietVitamin && !this.hasMultivitamin & !this.hasLifestyleVitamin)
-					{
-						app.group.unshift(vitamin.code[1]);
-					}
 
-					if(vitamin.type == 'lifestyle' && this.hasDietVitamin && this.hasMultivitamin & !this.hasLifestyleVitamin)
-					{
-						app.group.splice(1,0,vitamin.code[1]);
-					}
-
-					if(vitamin.type == 'diet' && !this.hasDietVitamin){
-						app.group.push(vitamin.code[1]);
-					}
-
-					if(app.group.length > 1){
-						if(this.combinationChecker(app.group[0],app.group[1],app.group[2])){
+					//console.log(app.group);
+						if(this.combinationChecker(app.group['multi'],app.group['lifestyle'],app.group['diet'])){
 
 							if(vitamin.type == 'multi')
 							{
-								app.group.splice(0, 1);
+								app.group['multi'] = '';
 							}
 
-							if(vitamin.type == 'lifestyle' && this.hasMultivitamin)
+							if(vitamin.type == 'lifestyle')
 							{
-								app.group.splice(1, 1);
+								app.group['lifestyle'] = '';
 							}
 
-							if(vitamin.type == 'lifestyle' && !this.hasMultivitamin)
-							{
-								app.group.splice(0, 1);
-							}
-
-							if(vitamin.type == 'diet' && this.hasMultivitamin){
-								app.group.splice(2, 1);
-							}
-
-							if(vitamin.type == 'diet' && !this.hasMultivitamin){
-								app.group.splice(1, 1);
+							if(vitamin.type == 'diet'){
+								app.group['diet'] = '';
 							}
 
 							swal({
@@ -599,7 +576,7 @@
 							return false;
 						}
 
-					}
+
 
 
 
@@ -647,24 +624,24 @@
 
 				if(item.type == 'multi'){
 					if(item.code[1] == 'a'){
-						app.group.unshift('1');
+						app.group['multi']='1';
 					}
 
 					if(item.code[1] == 'b'){
-						app.group.unshift('2');
+						app.group['multi']='2';
 					}
 
 					if(item.code[1] == 'c'){
-						app.group.unshift('3');
+						app.group['multi']='3';
 					}
 				}
 
 				if(item.type == 'lifestyle'){
-					app.group.push(item.code[1]);
+					app.group['lifestyle']=item.code[1];
 				}
 
 				if(item.type == 'diet'){
-					app.group.push(item.code[1]);
+					app.group['diet']=item.code[1];
 				}
 			});
 		}
