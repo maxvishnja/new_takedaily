@@ -286,8 +286,9 @@ class AccountController extends Controller
 		if( $request->get('reason') === '-1')
 		{
 			$reason = $request->get('other_reason');
-		}
-		else
+		} elseif ($request->get('reason') == trans('account.settings_cancel.reasons.5')){
+			$reason = $request->get('reason').": ".$request->get('why_reason');
+		} else
 		{
 			$reason = $request->get('reason');
 		}
