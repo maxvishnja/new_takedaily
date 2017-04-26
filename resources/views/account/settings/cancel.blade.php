@@ -41,6 +41,20 @@
 @section('footer_scripts')
 	<script>
 		$("#form").submit(function (e) {
+			if($('#reason').val() === ''){
+				swal({
+					title: "{{ trans('account.settings_cancel.cancel_popup.title-error') }}",
+					text: "{{ trans('account.settings_cancel.cancel_popup.text-error') }}",
+					type: "error",
+					html: true,
+					confirmButtonText: "{{ trans('account.settings_subscription.cancel_popup.button-cancel-text') }}",
+					confirmButtonColor: "#3AAC87",
+					allowOutsideClick: true,
+					showCancelButton: false,
+					closeOnConfirm: false,
+				});
+				return false;
+			}
 			if($('#reason').val() === '-1'){
 				if($('#other_reason input').val() === ''){
 						swal({
