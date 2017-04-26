@@ -135,7 +135,7 @@ class CheckoutController extends Controller
                 ->withErrors(trans('checkout.errors.payment-error'))
                 ->withInput();
         }
-        
+
         if ($paymentMethod == 'mollie'){
             \Log::info((array)$charge);
         }
