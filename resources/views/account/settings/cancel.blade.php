@@ -30,6 +30,13 @@
 				<label>{{ trans('account.settings_cancel.why_reason_text') }}</label><br/>
 				<input type="text" name="why_reason" placeholder="{{ trans('account.settings_cancel.why_reason_text') }}" class="input input--regular input--full m-t-10">
 			</div>
+
+
+			<div style="display: none;" id="other_firm" class="m-t-15 m-b-15">
+				<label>{{ trans('account.settings_cancel.other_firm_text') }}</label><br/>
+				<input type="text" name="other_firm" placeholder="{{ trans('account.settings_cancel.other_firm_text') }}" class="input input--regular input--full m-t-10">
+			</div>
+
 		</div>
 		<a href="{{ url()->action('AccountController@getSettingsSubscription') }}" class="button button--green button--large">{{ trans('account.settings_cancel.cancel') }}</a>
 		<button type="submit" class="button button--white button--text-green button--large">{{ trans('account.settings_cancel.submit') }}</button>
@@ -90,6 +97,24 @@
 				}
 				return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
 			}
+
+			if($('#reason').val() == '{{ trans('account.settings_cancel.reasons.0') }}'){
+				if($('#why_reason input').val() === ''){
+					swal({
+						title: "{{ trans('account.settings_cancel.cancel_popup.title-error') }}",
+						text: "{{ trans('account.settings_cancel.cancel_popup.text-error') }}",
+						type: "error",
+						html: true,
+						confirmButtonText: "{{ trans('account.settings_subscription.cancel_popup.button-cancel-text') }}",
+						confirmButtonColor: "#3AAC87",
+						allowOutsideClick: true,
+						showCancelButton: false,
+						closeOnConfirm: false,
+					});
+					return false;
+				}
+				return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
+			}
 			return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
 
 		});
@@ -112,6 +137,15 @@
 			else
 			{
 				$("#why_reason").hide();
+			}
+
+			if( $(this).val() == '{{ trans('account.settings_cancel.reasons.0') }}')
+			{
+				$("#other_firm").show();
+			}
+			else
+			{
+				$("#other_firm").hide();
 			}
 		});
 	</script>
