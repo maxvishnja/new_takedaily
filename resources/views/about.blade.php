@@ -85,7 +85,7 @@
 			<div class="text-center m-t-20">
 
 				<a href="{{ url()->route('pick-n-mix') }}"
-				   class="button button--rounded button--huge button--landing button--green m-b-10 picks">
+				   class="button button--rounded button--huge button--landing button--green m-b-10 picks-not-main">
 					<strong>{!! trans('pick.button-main') !!}</strong>
 				</a>
 			</div>
