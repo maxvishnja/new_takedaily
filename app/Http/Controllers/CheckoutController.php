@@ -135,8 +135,11 @@ class CheckoutController extends Controller
                 ->withErrors(trans('checkout.errors.payment-error'))
                 ->withInput();
         }
+        
+        if ($paymentMethod == 'mollie'){
+            \Log::info((array)$charge);
+        }
 
-        \Log::info((array)$charge);
 
         if ($paymentMethod == 'mollie' and strpos($charge->id, 'tr_') !== 0) {
 
@@ -256,10 +259,12 @@ class CheckoutController extends Controller
             }
 
             $checkoutCompletion = new CheckoutCompletion($checkout);
+            if ($method == 'mollie'){
 
             \Log::info("Session:");
             \Log::info((array)$request->session()->all());
 
+            }
             $password = $request->session()->get('password', null);
 
             if (!$password) {
