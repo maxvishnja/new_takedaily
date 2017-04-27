@@ -35,7 +35,6 @@ class Mollie implements PaymentInterface
         $charge = array_merge($charge, $data);
 
         try {
-            \Log::info("Mollie payment charge create success: ".$charge['customerId']);
             return \Mollie::api()->payments()->create($charge);
 
         } catch (\Exception $exception) {
@@ -77,6 +76,8 @@ class Mollie implements PaymentInterface
      */
     public function makeFirstPayment($amount, $customer)
     {
+        \Log::info("Mollie first payment OK: " .  $customer->id);
+
         return $this->charge($amount, 'Initial', [
             'customerId' => $customer->id,
             "method" => 'ideal',
@@ -106,7 +107,8 @@ class Mollie implements PaymentInterface
         if (!$hasValidMandate) {
             return false;
         }
-
+        \Log::info("Mollie rebill OK: " .  $customer->id);
+        
         return $this->charge($amount, 'Rebill', [
             'customerId' => $customer->id,
             "method" => 'directdebit',
