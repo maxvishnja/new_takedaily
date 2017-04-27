@@ -163,8 +163,10 @@ class StatsController extends Controller
                             $email_array[$i]['Email Address'] = $plan->customer->getEmail();
                             $email_array[$i]['Age'] = $plan->customer->getAge();
                             $email_array[$i]['Supplements'] = '';
-                            foreach ($plan->getVitamiPlan() as $vitamin){
-                                $email_array[$i]['Supplements'] .= \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)).", ";
+                            if($plan->getVitamiPlan()){
+                                foreach ($plan->getVitamiPlan() as $vitamin){
+                                    $email_array[$i]['Supplements'] .= \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)).", ";
+                                 }
                              }
                             $email_array[$i]['Last coupon'] = $plan->getLastCoupon();
                             $i++;

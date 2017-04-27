@@ -128,7 +128,12 @@ class Plan extends Model
 		foreach($vitamins as $vitamin){
 			$allvitamins[] = Vitamin::find($vitamin);
 		}
-		return $allvitamins;
+		if($allvitamins){
+			return $allvitamins;
+		} else {
+			return false;
+		}
+
 	}
 
 
