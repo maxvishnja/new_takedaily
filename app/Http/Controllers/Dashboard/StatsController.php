@@ -191,12 +191,15 @@ class StatsController extends Controller
                     $i = 0;
                     if($data['lang']=='nl'){
                         $currency = "EUR";
+                        \App::setLocale('nl');
                     } else{
                         $currency = "DKK";
+                        \App::setLocale('da');
                     }
                     $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->get();
                     foreach ($plans as $plan) {
                         if (!empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")
+                            and $plan->unsubscribe_reason != ''
                             and !strstr($plan->unsubscribe_reason, trans('account.settings_cancel.reasons.0'))
                             and !strstr($plan->unsubscribe_reason, trans('account.settings_cancel.reasons.1'))
                             and !strstr($plan->unsubscribe_reason, trans('account.settings_cancel.reasons.2'))
