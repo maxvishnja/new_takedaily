@@ -48,6 +48,7 @@
                         <input type="text" class="form-control span8 datepicker" name="rebill" id="rebill-picker"
                                value="{{ Request::old('rebill', ( Date::createFromFormat( 'Y-m-d H:i:s',$customer->plan->getRebillAt())) ? Date::createFromFormat( 'Y-m-d H:i:s',$customer->plan->getRebillAt())->format('Y-m-d') : '' ) }}"
                                placeholder="Re-bill date"/>
+                        <input type="hidden" value="0" name="change-rebill" class="changes">
                     </div>
                 </div>
                 @endif
@@ -170,8 +171,23 @@
    @section('scripts')
        <script>
            $(function() {
-               $('.datepicker').datepicker({
+               $('#birthdate-picker').datepicker({
                    dateFormat: "yy-mm-dd"
+               });
+               $('#rebill-picker').datepicker({
+                   dateFormat: "yy-mm-dd",
+                   minDate: '{{Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->subDays(7)->format('Y-m-d')}}',
+                   maxDate: '{{Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->addDays(7)->format('Y-m-d')}}',
+                   firstDay: 1,
+                   beforeShowDay: function(date) {
+                       var day = date.getDay();
+                       return [(day != 6 && day != 0), ''];
+                   }
+
+               });
+
+               $('#rebill-picker').on('change',function(){
+                   $('.changes').val(1);
                });
            });
        </script>
