@@ -83,7 +83,8 @@
                     <td>
                         <select name="csv-category">
                             <option value="1">Aktive kunder with time</option>
-                            <option value="2">Unsubscribe with time</option>
+                            <option value="2">All unsubscribe with time</option>
+                            <option value="3">Unsubscribe with other reason</option>
                         </select>
                     </td>
                     <td>
