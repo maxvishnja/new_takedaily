@@ -77,12 +77,15 @@ class Stripe implements PaymentInterface
 
     public function makeFirstPayment($amount, $customer)
     {
+
         if ($amount == 0) {
             $charge = new \stdClass();
             $charge->id = 'giftcard-balance';
 
             return $charge;
         }
+
+        \Log::info("Stripe first payment OK: " .  $customer->id);
 
         return $this->charge($amount, 'Initial', [
             'customer' => $customer->id,
@@ -95,6 +98,7 @@ class Stripe implements PaymentInterface
     {
         try {
 
+            \Log::info("Stripe rebill OK: " .  $customer->id);
 
             return Charge::create([
                 'amount' => $amount,
