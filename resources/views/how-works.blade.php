@@ -81,10 +81,12 @@
 		   class="button button--rounded button--huge button--landing button--green">
 			<strong>{!! trans('home.header.button-click-here') !!}</strong>
 		</a>
-		<div class="or-pick-mix-link-container m-t-10">
+		<div class="text-center m-t-20">
 
-			<a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a>
-
+			<a href="{{ url()->route('pick-n-mix') }}"
+			   class="button button--rounded button--huge button--landing button--green m-b-10 picks-not-main">
+				<strong>{!! trans('pick.button-main') !!}</strong>
+			</a>
 		</div>
 	</div>
 

@@ -55,11 +55,6 @@
                                                      @endif
                                                 </strong>
                                             </a>
-                                            <div class="or-pick-mix-link-container">
-
-                                                    <a href="{{ url()->route('pick-n-mix') }}">{{ trans('pick.cta_for_other_pages') }}</a>
-
-                                            </div>
                                         </div>
 
                                         <div class="clear visible-xs"></div>
@@ -73,6 +68,13 @@
                                                 </div>
                                                 <strong>{{ trans('home.header.what-is') }}</strong>
                                             </div>
+                                        </div>
+                                        <div class="pull-left m-l-15">
+                                            <a href="{{ url()->route('pick-n-mix') }}"
+                                               class="button button--rounded button--huge button--landing button--green m-b-10 picks">
+                                                <strong>{!! trans('pick.button-main') !!}</strong>
+                                            </a>
+
                                         </div>
                                         <div class="clear"></div>
                                     </div>

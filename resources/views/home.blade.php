@@ -48,7 +48,7 @@
 									<div class="m-t-10">
 										<div class="pull-left">
 											<a href="{{ url()->route('flow') }}"
-											   class="button button--rounded button--huge button--landing button--green m-b-10">
+											   class="button button--rounded button--huge button--landing button--green m-b-10 home-flow">
 												<strong>{!! trans('home.header.button-click-here') !!}</strong>
 											</a>
 											<div class="or-pick-mix-link-container">

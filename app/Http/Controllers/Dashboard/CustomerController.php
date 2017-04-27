@@ -216,7 +216,9 @@ class CustomerController extends Controller
 		}
 
 		if($request->get('rebill')){
-			\Log::info("Manually change rebill date of Customer id-".$customer->id);
+			if($request->get('change-rebill') == 1) {
+				\Log::info("Manually change rebill date of Customer id-" . $customer->id);
+			}
 			$customer->plan->setNewRebill($request->get('rebill'));
 		}
 
