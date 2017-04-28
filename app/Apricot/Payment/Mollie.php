@@ -108,7 +108,7 @@ class Mollie implements PaymentInterface
             return false;
         }
         \Log::info("Mollie rebill OK: " .  $customer->id);
-        
+
         return $this->charge($amount, 'Rebill', [
             'customerId' => $customer->id,
             "method" => 'directdebit',

@@ -555,7 +555,7 @@ class Customer extends Model
 
         if ($makeOrder) {
             try {
-
+                \Log::info('Success rebill order create: '.$this->id);
                 \Event::fire(new CustomerWasBilled($this->id, $amount, $chargeId, $product, $usedBalance, $prevAmount * -1, $coupon, $gift, $order_plan));
             } catch (\Exception $exception) {
                 \Log::error($exception->getFile() . " on line " . $exception->getLine());
