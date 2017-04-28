@@ -176,8 +176,8 @@
                });
                $('#rebill-picker').datepicker({
                    dateFormat: "yy-mm-dd",
-                   minDate: '{{Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->subDays(7)->format('Y-m-d')}}',
-                   maxDate: '{{Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->addDays(7)->format('Y-m-d')}}',
+                   {{--minDate: '{{Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->subDays(7)->format('Y-m-d')}}',--}}
+                   {{--maxDate: '{{Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->addDays(7)->format('Y-m-d')}}',--}}
                    firstDay: 1,
                    beforeShowDay: function(date) {
                        var day = date.getDay();
