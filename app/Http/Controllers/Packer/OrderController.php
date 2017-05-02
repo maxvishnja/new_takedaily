@@ -81,6 +81,13 @@ class OrderController extends Controller
 			return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
 		}
 
+
+		//Rebill on click Sent
+
+		$order->customer->plan->rebilled();
+
+		\Log::info('Customer '.$order->customer->id.' rebilled to '.\Date::now()->addDays( 28 ));
+
 		$order->markSent();
 
 		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The order was marked as sent!' );
