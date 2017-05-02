@@ -54,6 +54,8 @@ class SendHealthMail extends Command
             } else{
                 $fromEmail = 'info@takedaily.dk';
             }
+            
+            \Log::info('Health mail send to Customer ID '.$customer->id);
 
             \Mail::queue( 'emails.control-health', [ 'locale' => $customer->getLocale(), 'name' => $customer->getFirstname(), 'id' =>$customer->id ], function ( Message $message ) use ( $mailEmail, $mailName, $fromEmail )
             {
