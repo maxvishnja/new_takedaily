@@ -59,6 +59,7 @@
                             <label for="page_title" class="control-label">Vitamin {{substr($vitamin->code,0,1)}}</label>
                             <div class="controls">
                                 <select name="vitamin-{{substr($vitamin->code,0,1)}}[]" id="input_state">
+                                    <option value=""></option>
                                     @foreach($allvit as $vitamins)
                                         <option value="{{$vitamins->key }}"
                                                 @if($vitamins->key == strtolower($vitamin->code)) selected="selected" @endif>{{ ucfirst($vitamins->value) }}</option>
