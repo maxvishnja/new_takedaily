@@ -180,8 +180,8 @@
 		 @if(App::getLocale() != 'nl')  v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }" @endif>
 		<div class="count-step">(7/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-7.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
-			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 			@if(App::getLocale() == 'nl')
 				<label>
 					<input type="radio" name="step[3][7]" value="4" v-model="user_data.foods.fish" data-model="foods.fish"
@@ -218,8 +218,9 @@
 	<div data-sub-step="8" class="sub_step">
 		<div class="count-step">(8/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-8.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
-			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
+
 			<label>
 				<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy" data-model="foods.dairy"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-8');"/>
