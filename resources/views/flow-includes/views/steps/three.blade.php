@@ -2,8 +2,9 @@
 	<div data-sub-step="1" class="sub_step sub_step--active" >
 		<div class="count-step">(1/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-1.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
-			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
+
 			<label>
 				<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables" data-model="foods.vegetables"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-1');"/>
@@ -32,8 +33,9 @@
 	<div data-sub-step="2" class="sub_step">
 		<div class="count-step">(2/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-2.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
-			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
+
 			<label>
 				<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" data-model="foods.fruits" value="1"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-2');"/>
@@ -57,8 +59,9 @@
 	<div data-sub-step="3" class="sub_step">
 		<div class="count-step">(3/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-3.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
-			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
+
 			<label>
 				<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread" data-model="foods.bread"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-3');"/>
@@ -96,8 +99,9 @@
 	<div data-sub-step="4" class="sub_step">
 		<div class="count-step">(4/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-4.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
-			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
+
 			<label>
 				<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" data-model="foods.butter"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-4');"/>
@@ -124,8 +128,9 @@
 	<div data-sub-step="5" class="sub_step">
 		<div class="count-step">(5/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-5.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
-			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
+
 			<label>
 				<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat" data-model="foods.wheat"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-5');"/>
@@ -154,8 +159,9 @@
 	<div data-sub-step="6" class="sub_step" @if(App::getLocale() != 'nl')  v-bind:class="{'sub_step--skip': user_data.vegetarian == 1 }" @endif>
 		<div class="count-step">(6/8)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.3-6.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
-			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
+
 			<label>
 				<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat" data-model="foods.meat"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-6');"/>

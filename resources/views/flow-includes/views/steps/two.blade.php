@@ -43,8 +43,8 @@
 	<div data-sub-step="3" class="sub_step" v-bind:class="{'sub_step--skip': user_data.pregnant == 1}">
 		<div class="count-step">(3/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-3.title') }}</h3>
+		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
-			<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 			<label>
 				<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" data-model="sports"
 					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-3' );"/>
