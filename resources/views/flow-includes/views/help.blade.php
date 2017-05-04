@@ -14,7 +14,7 @@
 				<div>{{ trans('help.openings') }}</div>
 			</div>--}}
 
-			<a href="tel:12345678" class="flow-helper_button flow-helper_button--mobile">
+			<a href="tel:{{ trans('help.call-mobile') }}" class="flow-helper_button flow-helper_button--mobile">
 				<span class="visible-xs visible-sm icon icon-phone m-t-5"></span>
 				<span class="hidden-xs hidden-sm">{{ trans('help.call') }}</span>
 			</a>
