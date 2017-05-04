@@ -81,17 +81,20 @@
                 <tbody>
                 <tr>
                     <td>
-                        <select name="csv-category">
+                        <select name="csv-category" class="csv-category">
                             <option value="1">Aktive kunder with time</option>
                             <option value="2">All unsubscribe with time</option>
                             <option value="3">Unsubscribe with other reason</option>
+                            <option value="4">Users of weeks</option>
                         </select>
                     </td>
-                    <td>
+                    <td class="visib">
                         <input type="text" class="form-control datepicker" style="width:120px" name="start_date" id="start_picker"
-                               placeholder="Start date" value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
+                               placeholder="Start date" value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/>
                         <input type="text" style="width:120px" class="form-control datepicker" name="end_date" id="end_picker"
                                placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+
+                        <input type="text" required name="weeks" class="form-control weeks" style="display: none"  placeholder="Enter X weeks, ex. 10 or 12">
                     </td>
                     <td>
                         <select name="lang" id="input_state" style="width:100px">
@@ -107,6 +110,7 @@
                 </tbody>
             </table>
             </form>
+
 
             <br/>
             <form class="reason-form" action="" method="POST">
@@ -215,6 +219,21 @@
 
                 });
             });
+
+            $('.csv-category').on('change',function(){
+                if($('.csv-category').val() == 4){
+
+                   $('.visib .datepicker').hide();
+                   $('.visib .weeks').show();
+
+                }  else{
+
+                    $('.visib .datepicker').show();
+                    $('.visib .weeks').hide();
+                }
+            });
+
+
 
 
         });

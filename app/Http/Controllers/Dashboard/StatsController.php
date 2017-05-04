@@ -243,6 +243,44 @@ class StatsController extends Controller
                         return \Redirect::back();
                     }
 
+
+
+                case 4:
+                    $i = 0;
+                    if($data['lang']=='nl'){
+                        $currency = "EUR";
+                        \App::setLocale('nl');
+                    } else{
+                        $currency = "DKK";
+                        \App::setLocale('da');
+                    }
+                    $newdate = \Date::now()->subWeeks($data['weeks']);
+                    $plans = Plan::where('currency','like', $currency)->whereNull('subscription_cancelled_at')->whereBetween('subscription_started_at',
+                        [\Date::createFromFormat('Y-m-d H:i:s', $newdate->subDay())->format('Y-m-d'), \Date::createFromFormat('Y-m-d H:i:s', $newdate->addDay())->format('Y-m-d')])->get();
+                    foreach ($plans as $plan) {
+                        if (!empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")
+
+                        ) {
+                            $email_array[$i]['First Name'] = $plan->customer->getFirstName();
+                            $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                            $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                            $email_array[$i]['Amount weeks'] = \Date::createFromFormat( 'Y-m-d H:i:s', $plan->subscription_started_at )->diffInDays();
+                            $i++;
+                        }
+                    }
+                    if(isset($email_array)) {
+                        \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
+
+                            $excel->sheet('Amount of weeks', function ($sheet) use ($email_array) {
+
+                                $sheet->fromArray($email_array, null, 'A1', true);
+
+                            });
+
+                        })->download('xls');
+                        return \Redirect::back();
+                    }
+
                 default:
                     return \Redirect::back()->withErrors("No data!");
             }
