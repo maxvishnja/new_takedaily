@@ -61,15 +61,12 @@ class OrderController extends Controller
 
 	function shipAll()
 	{
-		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->shippable()->select('id')->get();
+		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->shippable()->get();
 
 		/** @var Order $order */
 		foreach($printableOrders as $order)
 		{
-			$order->customer->plan->rebilled();
 
-			\Log::info('Customer '.$order->customer->id.' rebilled to '.\Date::now()->addDays( 28 ));
-			
 			$order->markSent();
 		}
 
@@ -85,12 +82,6 @@ class OrderController extends Controller
 			return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
 		}
 
-
-		//Rebill on click Sent
-
-		$order->customer->plan->rebilled();
-
-		\Log::info('Customer '.$order->customer->id.' rebilled to '.\Date::now()->addDays( 28 ));
 
 		$order->markSent();
 
