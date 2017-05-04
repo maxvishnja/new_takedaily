@@ -20,7 +20,7 @@
 						Træk penge
 						({{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($customer->plan->price, true) }} kr.)</a>
 
-					<a class="btn btn-danger" href="{{ URL::action('Dashboard\CustomerController@cancel', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du ønsker at opsige kundens abonnent?');"><i class="icon-remove"></i>
+					<a class="btn btn-danger opsig" href="#"><i class="icon-remove"></i>
 						Opsig</a>
 				@endif
 
@@ -222,15 +222,48 @@
 						Show note form</a>
 				</div>
 
-
-
-
 		</div>
 	</div><!--/.module-->
+	<div class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Reason for unsubscribing</h4>
+				</div>
+				<form action="{{ URL::action('Dashboard\CustomerController@cancel') }}" id="form" method="post">
+				<div class="modal-body">
+						<div  id="other_reason" class="m-t-15 m-b-15">
+							<input type="hidden" name="id" value="{{$customer->id }}">
+							<input style="width: 99%; height: 50px;" required type="text" name="reason" placeholder="Text input here" class="input input--regular input--full m-t-10">
+						</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">Unsubcribe</button>
+				</div>
+					{{csrf_field()}}
+				</form>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 @stop
 @section('scripts')
 	<script>
 		$(function() {
+
+			$(".opsig").click(function (e) {
+				e.preventDefault();
+				$('.modal').modal('show');
+
+			});
+
+
+
+
+
+
 			$('.adds').on('click', function(e){
 				e.preventDefault();
 				$('.add-note').toggle(500);

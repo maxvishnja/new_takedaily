@@ -154,13 +154,13 @@ class Customer extends Model
         return $ambassador;
     }
 
-    public function cancelSubscription($force = false)
+    public function cancelSubscription($force = false, $reason = '')
     {
         if ((!$this->getPlan()->isCancelable() && !$force) || $this->getPlan()->isCancelled()) {
             return false;
         }
 
-        return $this->getPlan()->cancel();
+        return $this->getPlan()->cancel($reason);
     }
 
 
