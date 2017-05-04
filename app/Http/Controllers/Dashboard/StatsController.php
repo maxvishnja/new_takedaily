@@ -150,7 +150,7 @@ class StatsController extends Controller
                     }
                     $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->get();
                     foreach ($plans as $plan) {
-                        if (!empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")) {
+                        if (!empty($plan->customer) and !empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")) {
                             $email_array[$i]['First Name'] = $plan->customer->getFirstName();
                             $email_array[$i]['Last Name'] = $plan->customer->getLastName();
                             $email_array[$i]['Phone'] = $plan->customer->getPhone();
@@ -198,7 +198,7 @@ class StatsController extends Controller
                     }
                     $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->get();
                     foreach ($plans as $plan) {
-                        if (!empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")
+                        if (!empty($plan->customer) and !empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")
                             and $plan->unsubscribe_reason != ''
                             and !strstr($plan->unsubscribe_reason, trans('account.settings_cancel.reasons.0'))
                             and !strstr($plan->unsubscribe_reason, trans('account.settings_cancel.reasons.1'))
@@ -255,16 +255,18 @@ class StatsController extends Controller
                         \App::setLocale('da');
                     }
                     $newdate = \Date::now()->subWeeks($data['weeks']);
-                    $plans = Plan::where('currency','like', $currency)->whereNull('subscription_cancelled_at')->whereBetween('subscription_started_at',
-                        [\Date::createFromFormat('Y-m-d H:i:s', $newdate->subDay())->format('Y-m-d'), \Date::createFromFormat('Y-m-d H:i:s', $newdate->addDay())->format('Y-m-d')])->get();
+                    $plans = Plan::where('currency','like', $currency)->whereNull('subscription_cancelled_at')->where('subscription_started_at', '<',
+                        \Date::createFromFormat('Y-m-d H:i:s', $newdate->addDay())->format('Y-m-d'))->get();
+
+
                     foreach ($plans as $plan) {
-                        if (!empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")
+                        if (!empty($plan->customer) and !empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")
 
                         ) {
                             $email_array[$i]['First Name'] = $plan->customer->getFirstName();
                             $email_array[$i]['Last Name'] = $plan->customer->getLastName();
                             $email_array[$i]['Email Address'] = $plan->customer->getEmail();
-                            $email_array[$i]['Amount weeks'] = \Date::createFromFormat( 'Y-m-d H:i:s', $plan->subscription_started_at )->diffInDays();
+                            $email_array[$i]['Amount weeks'] = \Date::createFromFormat( 'Y-m-d H:i:s', $plan->subscription_started_at )->diffInWeeks();
                             $i++;
                         }
                     }
