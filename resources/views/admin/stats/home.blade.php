@@ -85,7 +85,7 @@
                             <option value="1">Aktive kunder with time</option>
                             <option value="2">All unsubscribe with time</option>
                             <option value="3">Unsubscribe with other reason</option>
-                            <option value="4">Users of weeks</option>
+                            <option value="4">Client for X amount of weeks</option>
                         </select>
                     </td>
                     <td class="visib">
