@@ -66,6 +66,10 @@ class OrderController extends Controller
 		/** @var Order $order */
 		foreach($printableOrders as $order)
 		{
+			$order->customer->plan->rebilled();
+
+			\Log::info('Customer '.$order->customer->id.' rebilled to '.\Date::now()->addDays( 28 ));
+			
 			$order->markSent();
 		}
 

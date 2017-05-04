@@ -191,9 +191,6 @@ class Order extends Model
 		{
 
 
-			$this->customer->plan->rebilled();
-
-			\Log::info('Customer '.$this->customer->id.' rebilled to '.\Date::now()->addDays( 28 ));
 
 			$receiverName  = $this->customer->getName();
 			$receiverEmail = $this->customer->getEmail();
