@@ -174,6 +174,10 @@ class CheckoutController extends Controller
             $request->session()->put('new_vitamin', \Session::get('new_vitamin'));
         }
 
+        //Add duplicate session to cookie
+        \Cookie::forget('payment_data');
+        \Cookie::queue('payment_data', $request->session()->all(), 3);
+
         // Redirect
         if (isset($charge->links) && isset($charge->links->paymentUrl)) {
             return \Redirect::to($charge->links->paymentUrl);
@@ -199,29 +203,37 @@ class CheckoutController extends Controller
             while (is_string($userData) && json_decode($userData)) {
                 $userData = json_decode($userData);
             }
-            
+
+
             if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
 
-                \Log::error("Mollie charge create in verify: " . $request->session()->get('payment_customer_id'));
-                \Log::info("Session:");
-                \Log::info((array)$request->session()->all());
+                \Log::error("Mollie charge create in verify: " . $request->session()->get('charge_id'));
 
-                return \Redirect::action('CheckoutController@getCheckout')
-                    ->withErrors(trans('checkout.errors.payment-error'))
-                    ->withInput([
-                        'name' => $request->session()->get('name'),
-                        'first_name' => $request->session()->get('first_name'),
-                        'last_name' => $request->session()->get('last_name'),
-                        'email' => $request->session()->get('email'),
-                        'address_street' => $request->session()->get('address_street'),
-                        'address_number' => $request->session()->get('address_number'),
-                        'address_city' => $request->session()->get('address_city'),
-                        'address_zip' => $request->session()->get('address_zip'),
-                        'address_country' => $request->session()->get('address_country'),
-                        'company' => $request->session()->get('company'),
-                        'cvr' => $request->session()->get('cvr'),
-                        'phone' => $request->session()->get('phone'),
-                    ]);
+                //If session is empty when we put from Cookie
+                if(\Cookie::get('payment_data')!= null){
+                    foreach(\Cookie::get('payment_data') as $key => $value){
+                        $request->session()->put($key, $value);
+                    }
+                }
+
+                \Log::info("Session:");
+                \Log::info($request->session()->all());
+//                return \Redirect::action('CheckoutController@getCheckout')
+//                    ->withErrors(trans('checkout.errors.payment-error'))
+//                    ->withInput([
+//                        'name' => $request->session()->get('name'),
+//                        'first_name' => $request->session()->get('first_name'),
+//                        'last_name' => $request->session()->get('last_name'),
+//                        'email' => $request->session()->get('email'),
+//                        'address_street' => $request->session()->get('address_street'),
+//                        'address_number' => $request->session()->get('address_number'),
+//                        'address_city' => $request->session()->get('address_city'),
+//                        'address_zip' => $request->session()->get('address_zip'),
+//                        'address_country' => $request->session()->get('address_country'),
+//                        'company' => $request->session()->get('company'),
+//                        'cvr' => $request->session()->get('cvr'),
+//                        'phone' => $request->session()->get('phone'),
+//                    ]);
             }
             try {
                 $checkout = new Checkout();
