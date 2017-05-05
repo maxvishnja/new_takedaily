@@ -269,21 +269,25 @@ class CustomerController extends Controller
 	}
 
 
-	function cancel($id)
+	function cancel(Request $request)
 	{
-		$customer = Customer::find($id);
+		$data = $request->all();
+
+		$customer = Customer::find($data['id']);
 
 		if( ! $customer )
 		{
-			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
+			return \Redirect::back()->withErrors("Kunden (#{$data['id']}) kunne ikke findes!");
 		}
 
-		if( ! $customer->cancelSubscription(true) )
+		if( ! $customer->cancelSubscription(true, $data['reason']) )
 		{
-			return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->withErrors('Kundens abonnent kunne ikke opsiges, fordi det allerede er opsagt.');
+			return \Redirect::action('Dashboard\CustomerController@show', [ $data['id'] ])->withErrors('Kundens abonnent kunne ikke opsiges, fordi det allerede er opsagt.');
 		}
 
-		return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', 'Kundens abonnent er blevet opsagt.');
+
+
+		return \Redirect::action('Dashboard\CustomerController@show', [ $data['id'] ])->with('success', 'Kundens abonnent er blevet opsagt.');
 	}
 
 	function bill($id)
