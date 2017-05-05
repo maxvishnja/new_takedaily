@@ -199,17 +199,12 @@ class CheckoutController extends Controller
             while (is_string($userData) && json_decode($userData)) {
                 $userData = json_decode($userData);
             }
-
-            if ($method == 'mollie'){
-
-                \Log::info("Session:");
-                \Log::info((array)$request->session()->all());
-
-            }
-
+            
             if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
 
                 \Log::error("Mollie charge create in verify: " . $request->session()->get('payment_customer_id'));
+                \Log::info("Session:");
+                \Log::info((array)$request->session()->all());
 
                 return \Redirect::action('CheckoutController@getCheckout')
                     ->withErrors(trans('checkout.errors.payment-error'))
