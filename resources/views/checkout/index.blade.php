@@ -255,7 +255,11 @@
 					<div class="m-b-20 terms_container_box">
 						<label class="terms-label">
 							<input name="terms_accept" type="checkbox" aria-required="true" data-validate="true" required="required" id="terms_checkbox"  />
+							@if ( !$product->isSubscription() && App::getLocale() == 'nl')
+								<div>{!! trans('checkout.terms-agree-gift') !!}</div>
+							@else
 							<div>{!! trans('checkout.terms-agree') !!}</div>
+							@endif
 						</label>
 					</div>
 
