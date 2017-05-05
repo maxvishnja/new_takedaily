@@ -200,6 +200,13 @@ class CheckoutController extends Controller
                 $userData = json_decode($userData);
             }
 
+            if ($method == 'mollie'){
+
+                \Log::info("Session:");
+                \Log::info((array)$request->session()->all());
+
+            }
+
             if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
 
                 \Log::error("Mollie charge create in verify: " . $request->session()->get('payment_customer_id'));
@@ -259,12 +266,6 @@ class CheckoutController extends Controller
             }
 
             $checkoutCompletion = new CheckoutCompletion($checkout);
-            if ($method == 'mollie'){
-
-            \Log::info("Session:");
-            \Log::info((array)$request->session()->all());
-
-            }
             $password = $request->session()->get('password', null);
 
             if (!$password) {
