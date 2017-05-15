@@ -209,6 +209,8 @@ class CheckoutController extends Controller
 
                 \Log::error("Mollie charge create in verify: " . $request->session()->get('charge_id'));
 
+                \Log::info("Cookie:");
+                \Log::info(\Cookie::get('payment_data'));
                 //If session is empty when we put from Cookie
                 if(\Cookie::get('payment_data')!= null){
                     foreach(\Cookie::get('payment_data') as $key => $value){
