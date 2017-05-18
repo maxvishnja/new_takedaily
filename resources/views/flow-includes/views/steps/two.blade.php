@@ -249,11 +249,11 @@
 	@if(App::getLocale() == "nl")
 
 	<div data-sub-step="11" class="sub_step" v-bind:class="{ 'sub_step--skip': user_data.pregnant == 1 || user_data.diet == 1 || user_data.smokes == 1
-															|| user_data.sports == 4 || user_data.stressed == 1 || (user_data.immune_system == 2  && user_data.lacks_energy == 2
-															&& user_data.joints == 1) || (user_data.immune_system == 1  && user_data.lacks_energy == 2
-															&& user_data.joints == 2) || (user_data.immune_system == 2  && user_data.lacks_energy == 1
-															&& user_data.joints == 2) || (user_data.immune_system == 2  && user_data.lacks_energy == 2
-															&& user_data.joints == 2)}">
+															|| user_data.sports == 4 || user_data.stressed == 1 ||
+															(user_data.immune_system == 2  && user_data.lacks_energy == 2 && user_data.joints == 1) ||
+															(user_data.immune_system == 1  && user_data.lacks_energy == 2 && user_data.joints == 2) ||
+															(user_data.immune_system == 2  && user_data.lacks_energy == 1 && user_data.joints == 2) ||
+															(user_data.immune_system == 2  && user_data.lacks_energy == 2 && user_data.joints == 2)}">
 		<div class="count-step">(11/11)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.2-11.title') }}</h3>
 		<div class="sub_step_answers">
