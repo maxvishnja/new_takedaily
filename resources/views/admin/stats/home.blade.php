@@ -94,7 +94,7 @@
                         <input type="text" style="width:120px" class="form-control datepicker" name="end_date" id="end_picker"
                                placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
 
-                        <input type="text" required name="weeks" class="form-control weeks" style="display: none"  placeholder="Enter X weeks, ex. 10 or 12">
+                        <input type="text" value="10" name="weeks" class="form-control weeks" style="display: none"  placeholder="Enter X weeks, ex. 10 or 12">
                     </td>
                     <td>
                         <select name="lang" id="input_state" style="width:100px">
