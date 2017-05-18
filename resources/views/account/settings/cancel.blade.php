@@ -81,7 +81,7 @@
 			}
 
 			if($('#reason').val() == '{{ trans('account.settings_cancel.reasons.5') }}'){
-				if($('#why_reason input').val() === ''){
+				if($('#why_reason input').val().length < 5){
 					swal({
 						title: "{{ trans('account.settings_cancel.cancel_popup.title-error') }}",
 						text: "{{ trans('account.settings_cancel.cancel_popup.text-error') }}",
@@ -99,7 +99,7 @@
 			}
 
 			if($('#reason').val() == '{{ trans('account.settings_cancel.reasons.0') }}'){
-				if($('#why_reason input').val() === ''){
+				if($('#other_firm input').val().length < 5){
 					swal({
 						title: "{{ trans('account.settings_cancel.cancel_popup.title-error') }}",
 						text: "{{ trans('account.settings_cancel.cancel_popup.text-error') }}",
