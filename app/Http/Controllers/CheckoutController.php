@@ -233,7 +233,7 @@ class CheckoutController extends Controller
                         $request->session()->put($key, $value);
                     }
                 }
-                
+
                 \Log::info("Session:");
                 \Log::info($request->session()->all());
 
