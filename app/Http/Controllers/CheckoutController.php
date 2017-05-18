@@ -137,6 +137,7 @@ class CheckoutController extends Controller
         }
 
         if ($paymentMethod == 'mollie'){
+            \Log::info("Charge:");
             \Log::info((array)$charge);
         }
 
@@ -174,9 +175,9 @@ class CheckoutController extends Controller
             $request->session()->put('new_vitamin', \Session::get('new_vitamin'));
         }
 
-        //Add duplicate session to cookie
-        \Cookie::forget('payment_data');
+        //Add duplicate session to cookie and Cache
         \Cookie::queue('payment_data', $request->session()->all(), 3);
+        \Cache::add('payment_data', $request->session()->all(), 5);
 
         // Redirect
         if (isset($charge->links) && isset($charge->links->paymentUrl)) {
@@ -211,15 +212,31 @@ class CheckoutController extends Controller
 
                 \Log::info("Cookie:");
                 \Log::info(\Cookie::get('payment_data'));
-                //If session is empty when we put from Cookie
+
+
+
+                \Log::info("Cache:");
+                \Log::info(\Cache::get('payment_data'));
+
+                //If session is empty when we put from Cookie or Cache
                 if(\Cookie::get('payment_data')!= null){
+
                     foreach(\Cookie::get('payment_data') as $key => $value){
                         $request->session()->put($key, $value);
                     }
+
                 }
 
+                if (\Cache::has('payment_data'))
+                {
+                    foreach(\Cache::get('payment_data') as $key => $value){
+                        $request->session()->put($key, $value);
+                    }
+                }
+                
                 \Log::info("Session:");
                 \Log::info($request->session()->all());
+
 //                return \Redirect::action('CheckoutController@getCheckout')
 //                    ->withErrors(trans('checkout.errors.payment-error'))
 //                    ->withInput([
