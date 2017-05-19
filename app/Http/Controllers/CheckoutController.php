@@ -176,9 +176,9 @@ class CheckoutController extends Controller
         }
 
         //Add duplicate session to cookie and Cache
-        \Cookie::queue('payment_data', $request->session()->all(), 3);
-        \Cache::add($request->session()->get('_token'), $request->session()->all(), 5);
-
+        if ($paymentMethod == 'mollie'){
+            \Cache::add($request->session()->get('_token'), $request->session()->all(), 5);
+        }
         // Redirect
         if (isset($charge->links) && isset($charge->links->paymentUrl)) {
             return \Redirect::to($charge->links->paymentUrl);
@@ -205,17 +205,13 @@ class CheckoutController extends Controller
                 $userData = json_decode($userData);
             }
 
+
             if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
 
                 \Log::error("Mollie charge create in verify: " . $request->session()->get('charge_id'));
 
-                \Log::info("Cookie:");
-                \Log::info(\Cookie::get('payment_data'));
-
-
-
                 \Log::info("Cache:");
-                \Log::info(\Cache::get('payment_data'));
+                \Log::info(\Cache::get($request->session()->get('_token')));
 
                 //If session is empty when we put from Cookie or Cache
 
