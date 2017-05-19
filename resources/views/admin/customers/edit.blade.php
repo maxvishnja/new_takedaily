@@ -140,7 +140,7 @@
                 @endif
                    @foreach($customer->customerAttributes as $attribute)
 
-                       @if($attribute->editable=='1' or $attribute->identifier=='phone')
+                       @if($attribute->editable=='1' or $attribute->identifier=='phone' or $attribute->identifier=='company')
                        <div class="control-group">
                            <label for="page_title" class="control-label">{{ trans("attributes.{$attribute->identifier}") }}</label>
                            <div class="controls">
