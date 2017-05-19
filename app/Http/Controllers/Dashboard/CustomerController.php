@@ -104,6 +104,11 @@ class CustomerController extends Controller
 				$ident->value = $request->get('phone');
 				$ident->update();
 			}
+
+			if($ident->identifier == 'company'){
+				$ident->value = $request->get('company');
+				$ident->update();
+			}
 			if($ident->identifier == 'address_line1'){
 				$ident->value = $request->get('address_line1');
 				if($order){
