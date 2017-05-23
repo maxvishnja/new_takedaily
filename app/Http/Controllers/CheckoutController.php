@@ -177,6 +177,9 @@ class CheckoutController extends Controller
 
         //Add duplicate session to cookie and Cache
         if ($paymentMethod == 'mollie'){
+            \Log::info("Session in POST:");
+            \Log::info($request->session()->get('_token'));
+            \Log::info($request->session()->all());
             \Cache::add($request->session()->get('_token'), $request->session()->all(), 5);
         }
         // Redirect
