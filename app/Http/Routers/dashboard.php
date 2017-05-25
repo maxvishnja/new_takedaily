@@ -25,15 +25,22 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 
 		$salesYear     = $orderRepo->getMonthlySales();
 		$customersYear = $customerRepo->getMonthlyNew();
+		$money_today_dk = $orderRepo->getToday()
+			->whereNotIn( 'state', [ 'new', 'cancelled' ] )
+			->where( 'currency', 'DKK' )
+			->sum( 'total' ) ?: 0;
+		$money_today_nl = $orderRepo->getToday()
+			->whereNotIn( 'state', [ 'new', 'cancelled' ] )
+			->where( 'currency', 'EUR' )
+			->sum( 'total' ) ?: 0;
 
+		$money_today = $money_today_nl + $money_today_dk/7.5;
 		return view( 'admin.home', [
 			'orders_today'    => $orderRepo->getToday()
 			                               ->count() ?: 0,
 			'customers_today' => $customerRepo->getToday()
 			                                  ->count() ?: 0,
-			'money_today'     => $orderRepo->getToday()
-			                               ->whereNotIn( 'state', [ 'new', 'cancelled' ] )
-			                               ->sum( 'total' ) ?: 0,
+			'money_today'     => $money_today,
 			'sales_year'      => $salesYear ?: [],
 			'customers_year'  => $customersYear ?: []
 		] );
