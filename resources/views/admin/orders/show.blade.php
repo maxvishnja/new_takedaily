@@ -54,7 +54,8 @@
 					@else
 						{{ $order->shipping_name }}<br/>
 					@endif
-					{{ $order->shipping_street }}<br/>
+					{{ $order->customer->getCustomerAttribute('address_line1') }}
+					<br/>
 					{{ $order->shipping_city }}, {{ $order->shipping_zipcode }}<br/>
 					{{ trans('countries.' . $order->shipping_country) }}<br/>
 				</div>
