@@ -53,7 +53,7 @@
 
 <body>
 <div class="content">
-	<span>DIT GAVEKORT</span>
+	<span>{{ trans('giftcard.your-giftcard') }}</span>
 	<h1>{{ $token }}</h1>
 </div>
 <img class="logo" src="{{ asset('/images/giftcardpdf-logo.png') }}"/>
