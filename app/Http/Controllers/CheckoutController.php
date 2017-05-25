@@ -208,7 +208,6 @@ class CheckoutController extends Controller
                 $userData = json_decode($userData);
             }
 
-
             if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
 
                 \Log::error("Mollie charge create in verify: " . $request->session()->get('charge_id'));
