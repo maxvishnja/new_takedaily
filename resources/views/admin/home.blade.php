@@ -12,7 +12,7 @@
 			</a>
 
 			<a href="#" class="btn-box big span4"><i class="icon-money"></i><b>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($money_today, 2) }}</b>
-				<p class="text-muted">DKK i dag</p>
+				<p class="text-muted">EUR i dag</p>
 			</a>
 		</div>
 	</div>
