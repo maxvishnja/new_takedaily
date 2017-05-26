@@ -14,6 +14,10 @@ $('.video_circle_content').on('click', function(){
 	});
 });
 
+$('.dropdown-toggle').on('click',function(e){
+	e.preventDefault();
+	$('.center-dropdown').toggle(500);
+});
 
 function validateFormInput(form, addClasses)
 {
