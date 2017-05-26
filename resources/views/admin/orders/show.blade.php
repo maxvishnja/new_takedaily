@@ -56,7 +56,7 @@
 					@endif
 					{{ $order->customer->getCustomerAttribute('address_line1') }}
 					@if($order->customer->getCustomerAttribute('address_number') !=='')
-						,{{$order->customer->getCustomerAttribute('address_number')}}
+						{{$order->customer->getCustomerAttribute('address_number')}}
 						@endif
 					<br/>
 					{{ $order->shipping_city }}, {{ $order->shipping_zipcode }}<br/>
