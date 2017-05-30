@@ -224,6 +224,26 @@ class AccountController extends Controller
 
         $this->customer->getPlan()->snooze($request->get('days'));
 
+
+        $mailEmail = $this->customer->getUser()->getEmail();
+        $mailName = $this->customer->getUser()->getName();
+        $locale = \App::getLocale();
+        $data['name'] = $mailName;
+        $data['days'] = $request->get('days');
+
+        if ($locale == 'nl') {
+            $fromEmail = 'info@takedaily.nl';
+        } else {
+            $fromEmail = 'info@takedaily.dk';
+        }
+
+        \Mail::queue('emails.snoozing', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
+            \App::setLocale($locale);
+            $message->from($fromEmail, 'TakeDaily');
+            $message->to($mailEmail, $mailName);
+            $message->subject(trans('mails.snoozing.subject'));
+        });
+
         return redirect()
             ->action('AccountController@getSettingsSubscription')
             ->with('success', trans('messages.successes.subscription.snoozed', ['days' => $request->get('days')]));
