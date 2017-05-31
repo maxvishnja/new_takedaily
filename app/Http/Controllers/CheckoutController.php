@@ -178,9 +178,9 @@ class CheckoutController extends Controller
         //Add duplicate session to cookie and Cache
         if ($paymentMethod == 'mollie'){
             \Log::info("Session in POST:");
-            \Log::info($request->session()->get('_token'));
             \Log::info($request->session()->all());
-            \Cache::add($request->session()->get('_token'), $request->session()->all(), 5);
+            \Cookie::queue('code', hash('md5',$request->session()->get('_token')), 5);
+            \Cache::add(hash('md5',$request->session()->get('_token')), $request->session()->all(), 5);
         }
         // Redirect
         if (isset($charge->links) && isset($charge->links->paymentUrl)) {
@@ -199,7 +199,6 @@ class CheckoutController extends Controller
     function getVerify($method, Request $request)
     {
         try {
-
             $productName = $request->session()->get('product_name', 'subscription');
             $couponCode = $request->session()->get('coupon', '');
             $userData = $request->session()->get('user_data', $request->old('user_data', Cart::getInfoItem('user_data', null)));
@@ -210,16 +209,16 @@ class CheckoutController extends Controller
 
             if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
 
-                \Log::error("Mollie charge create in verify: " . $request->session()->get('charge_id'));
+                \Log::error("Mollie charge create in verify: " . \Cookie::get('code'));
 
                 \Log::info("Cache:");
-                \Log::info(\Cache::get($request->session()->get('_token')));
+                \Log::info(\Cache::get(\Cookie::get('code')));
 
                 //If session is empty when we put from Cookie or Cache
 
-                if (\Cache::has($request->session()->get('_token')))
+                if (\Cache::has(\Cookie::get('code')))
                 {
-                    foreach(\Cache::get($request->session()->get('_token')) as $key => $value){
+                    foreach(\Cache::get(\Cookie::get('code')) as $key => $value){
                         $request->session()->put($key, $value);
                     }
                 }
