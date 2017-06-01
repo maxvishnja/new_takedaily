@@ -41,9 +41,7 @@
 						Refund</a>
 
 				@endif
-				<a class="btn btn-default opsig"
-				   href="#"><i class="icon-list"></i>
-					Receipt</a>
+				<a class="btn btn-default opsig" href="#"><i class="icon-list"></i>Receipt</a>
 			</div>
 			<div class="clear"></div>
 		</div>
