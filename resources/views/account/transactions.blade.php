@@ -79,6 +79,7 @@
 		</table>
 	@endif
 
+		
 @endsection
 
 @section('footer_scripts')
