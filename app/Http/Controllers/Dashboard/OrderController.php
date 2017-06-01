@@ -140,4 +140,12 @@ class OrderController extends Controller
 
 		return \Redirect::action('Dashboard\OrderController@index')->with('success', 'Ordren blev slettet!');
 	}
+
+
+
+
+
+
+
+
 }

@@ -39,7 +39,11 @@
 					   href="{{ URL::action('Dashboard\OrderController@refund', [ 'id' => $order->id ]) }}"><i
 							class="icon-money"></i>
 						Refund</a>
+
 				@endif
+				<a class="btn btn-default opsig"
+				   href="#"><i class="icon-list"></i>
+					Receipt</a>
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -149,4 +153,51 @@
 			</table>
 		</div>{{-- todo format currency using trans general --}}
 	</div><!--/.module-->
+<div class="modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Send a receipt to email or download</h4>
+			</div>
+			<form action="{{ URL::action('RecieptController@sendReciept') }}" id="form" method="post">
+				<div class="modal-body">
+					<div  id="other_reason" class="m-t-15 m-b-15">
+						<input type="hidden" name="id" value="{{$order->id }}">
+						<input type="hidden" name="mailcus" class="mailcus" value="{{$order->customer->getEmail() }}">
+						<input style="width: 99%;" required type="email" name="email" placeholder="E-mail" class="email-cus input input--regular input--full m-t-10">
+						<input type="checkbox" style="float:left;" class="input input--regular input--full m-t-10 cus-mail"><div style="float:left; margin:0px 0 0 5px">Send to customers mail</div>
+					</div>
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<a type="button" href="{{ URL::action('RecieptController@downloadReciept', [ 'id' => $order->id ]) }}" class="btn btn-default">Download PDF</a>
+					<button type="submit" class="btn btn-primary">Send</button>
+				</div>
+				{{csrf_field()}}
+			</form>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 @stop
+@section('scripts')
+	<script>
+		$(function() {
+
+			$(".opsig").click(function (e) {
+				e.preventDefault();
+				$('.modal').modal('show');
+
+			});
+
+			$('.cus-mail').on('click',function(){
+ 				if($(".cus-mail").prop("checked")){
+					$('.email-cus').val($('.mailcus').val());
+				} else{
+					$('.email-cus').val('');
+				}
+			});
+		});
+	</script>
+@endsection
