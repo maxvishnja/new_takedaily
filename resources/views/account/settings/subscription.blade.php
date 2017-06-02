@@ -22,7 +22,7 @@
 			@endif
 			@if($plan->isCancelable())
 				<a href="{{ URL::action('AccountController@getCancelPage') }}"
-				   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
+				   class="button button--regular button--light button--rounded cancel-button">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
 			@else
 				<span
 					class="button button--regular button--white button--text-grey button--disabled button--rounded"
@@ -162,10 +162,30 @@
 				confirmButtonColor: "#3AAC87",
 				allowOutsideClick: true,
 				showCancelButton: false,
-				closeOnConfirm: false,
+				closeOnConfirm: false
 			});
 		});
 
+		$('.cancel-button').on('click',function(e){
+			e.preventDefault();
+			var href = $(this).attr('href');
+			swal({
+				title: "",
+				text: "{{ trans('account.settings_subscription.cancel-agree-text') }}",
+				type: "",
+				html: true,
+				confirmButtonText: "{{ trans('account.settings_subscription.cancel-agree') }}",
+				cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
+				confirmButtonColor: "#3AAC87",
+				allowOutsideClick: true,
+				showCancelButton: true,
+				closeOnConfirm: false
+			}, function (isConfirm) {
+				if (isConfirm) {
+					window.location = href;
+				}
+			});
+		});
 
 		$('.readLessBtn').click(function (e) {
 			e.preventDefault();
