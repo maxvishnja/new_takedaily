@@ -27,7 +27,7 @@
 					<h3>Delivery address</h3>
 					@if($order->shipping_company != '')
 						{{ $order->shipping_company }}<br/>
-						c/o: {{ $order->shipping_name }}<br/>
+						 {{ $order->shipping_name }}<br/>
 					@else
 						{{ $order->shipping_name }}<br/>
 					@endif
