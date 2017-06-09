@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTableAlmostCustomers extends Migration
+class AddFieldToAlmost extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,9 @@ class AddTableAlmostCustomers extends Migration
      */
     public function up()
     {
-        Schema::create('almost_customers', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('email');
-            $table->integer('sent')->default(0);
-            $table->timestamps();
+        Schema::table('almost_customers', function (Blueprint $table) {
+            $table->string('location')->after('email');
+
         });
     }
 
@@ -27,6 +25,9 @@ class AddTableAlmostCustomers extends Migration
      */
     public function down()
     {
-        Schema::drop('almost_customers');
+        Schema::table('almost_customers', function (Blueprint $table) {
+            $table->dropColumn('location');
+
+        });
     }
 }
