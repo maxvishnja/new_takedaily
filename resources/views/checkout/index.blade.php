@@ -667,6 +667,20 @@
 				app.tax_rate = response.rate;
 			}
 		});
+
+		$("#input_info_email").on('change', function(){
+			$.ajax({
+				url: '{{ URL::action('CheckoutController@setAlmostCustomer') }}',
+				method: 'POST',
+				data: {email: $(this).val()},
+				headers: {
+					'X-CSRF-TOKEN': $("#coupon-form").find('[name="_token"]').val()
+				},
+				success: function (response) {
+					console.log(response);
+				}
+			});
+		});
 	</script>
 
 	<script src="{{ asset('js/validation_messages_' . App::getLocale() . '.js') }}"></script>

@@ -168,21 +168,23 @@
 
 		$('.cancel-button').on('click',function(e){
 			e.preventDefault();
-			var href = $(this).attr('href');
+			var href = $('.cancel-button').attr('href');
 			swal({
 				title: "",
 				text: "{{ trans('account.settings_subscription.cancel-agree-text') }}",
 				type: "",
 				html: true,
-				confirmButtonText: "{{ trans('account.settings_subscription.cancel-agree') }}",
-				cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
+				cancelButtonText: "{{ trans('account.settings_subscription.cancel-agree') }}",
+				confirmButtonText: "{{ trans('account.settings_subscription.cancel-success') }}",
 				confirmButtonColor: "#3AAC87",
 				allowOutsideClick: true,
 				showCancelButton: true,
 				closeOnConfirm: false
 			}, function (isConfirm) {
-				if (isConfirm) {
+				if (!isConfirm) {
 					window.location = href;
+				} else{
+					$("#snooze-toggle").click();
 				}
 			});
 		});

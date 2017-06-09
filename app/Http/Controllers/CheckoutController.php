@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\AlmostCustomers;
 use App\Apricot\Checkout\Cart;
 use App\Apricot\Checkout\Checkout;
 use App\Apricot\Checkout\CheckoutCompletion;
@@ -11,6 +12,7 @@ use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
 use App\Jobs\GiftcardWasOrdered;
 use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -213,6 +215,9 @@ class CheckoutController extends Controller
 
                 \Log::info("Cache:");
                 \Log::info(\Cache::get(\Cookie::get('code')));
+
+                \Log::info("Cookie:");
+                \Log::info(\Cookie::get('code'));
 
                 //If session is empty when we put from Cookie or Cache
 
@@ -477,6 +482,28 @@ class CheckoutController extends Controller
                 'code' => $coupon->code
             ]
         ], 200);
+    }
+
+
+
+    function setAlmostCustomer(Request $request){
+
+        if ($request->isMethod('get')){
+            return \Response::json(['message' => 'Bad method!'], 400);
+        }
+
+        $user = User::whereEmail($request->get('email'))->count();
+        $customer = AlmostCustomers::where('email', '=', $request->get('email'))->count();
+
+        if($user == 0 and $customer == 0){
+
+            $almost = new AlmostCustomers();
+            $almost->email = $request->get('email');
+            $almost->save();
+
+        }
+
+        return 'Success';
     }
 
 }

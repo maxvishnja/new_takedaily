@@ -5,6 +5,7 @@ Route::group( [ 'middleware' => [ 'secure' ], 'prefix' => 'checkout' ], function
 	Route::post( '', 'CheckoutController@postCheckout' );
 	Route::post( 'apply-coupon', 'CheckoutController@applyCoupon' );
 	Route::get( 'get-taxrate', 'CheckoutController@getTaxRate' );
+	Route::post( 'almost-customer', 'CheckoutController@setAlmostCustomer' );
 
 	// Charge verify
 	Route::get( 'verify/{method}', 'CheckoutController@getVerify' )->name( 'checkout-verify-method' );
