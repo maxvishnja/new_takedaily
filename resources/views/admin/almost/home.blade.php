@@ -3,15 +3,21 @@
 @section('content')
     <div class="module">
         <div class="module-head">
-            <h3>Almost customers</h3>
+            <h3 style="display: inline-block">Almost customers</h3>
+            <div class="pull-right" style="margin-top: -5px;">
+                <a class="btn btn-success" href="{{ URL::action('Dashboard\AlmostCustomersController@sendAll') }}"><i class="icon-envelope"></i>
+                    Send all mail</a>
+            </div>
         </div>
 
         <div class="module-body table">
+
             <table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	display" width="100%">
                 <thead>
                 <tr>
                     <th>#</th>
                     <th>E-mail</th>
+                    <th>Country</th>
                     <th>Status</th>
                     <th>Oprettet d.</th>
                     <th></th>
@@ -24,6 +30,13 @@
                            {{ $almost->id }}
                         </td>
                         <td><b>{{ $almost->email }}</b></td>
+                        <td>
+                            @if($almost->email == 'nl')
+                                Dutch
+                            @else
+                                Danish
+                            @endif
+                        </td>
                         <td>
                             @if($almost->sent == 0)
                                 <span class="label label-important">Not send coupon</span>
@@ -53,7 +66,7 @@
         if ($('.datatable-1').length > 0)
         {
             $('.datatable-1').dataTable({
-                stateSave: true,
+
                 "columnDefs": [
                     {
                         "targets": [3],
@@ -65,7 +78,7 @@
                         "searchable": false
                     }
                 ],
-                "aaSorting": [[3, 'desc'],[4, 'desc']]
+                "aaSorting": [[3, 'asc'],[3, 'desc']]
             });
             $('.dataTables_paginate').addClass('btn-group datatable-pagination');
             $('.dataTables_paginate > a').wrapInner('<span />');

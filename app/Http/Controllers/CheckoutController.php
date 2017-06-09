@@ -491,7 +491,6 @@ class CheckoutController extends Controller
         if ($request->isMethod('get')){
             return \Response::json(['message' => 'Bad method!'], 400);
         }
-
         $user = User::whereEmail($request->get('email'))->count();
         $customer = AlmostCustomers::where('email', '=', $request->get('email'))->count();
 
@@ -499,6 +498,7 @@ class CheckoutController extends Controller
 
             $almost = new AlmostCustomers();
             $almost->email = $request->get('email');
+            $almost->location = $request->get('location');
             $almost->save();
 
         }

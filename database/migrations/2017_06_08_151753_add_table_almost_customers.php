@@ -15,6 +15,7 @@ class AddTableAlmostCustomers extends Migration
         Schema::create('almost_customers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
+            $table->string('location');
             $table->integer('sent')->default(0);
             $table->timestamps();
         });

@@ -26,6 +26,7 @@ class AlmostCustomers extends Model
      */
     protected $fillable = [
         'email',
+        'location',
     ];
 
     /**

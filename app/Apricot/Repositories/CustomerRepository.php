@@ -50,4 +50,16 @@ class CustomerRepository
 					->groupBy(\DB::raw("YEAR(created_at), MONTH(created_at)"))
 					->get();
 	}
+
+
+
+	public function getAlmostCustomer()
+	{
+		return \DB::select('select * from almost_customers where email not in (select users.email from users inner join almost_customers on almost_customers.email=users.email)');
+	}
+
+	public function getAlmostCustomerNotSend()
+	{
+		return \DB::select('select * from almost_customers where email not in (select users.email from users inner join almost_customers on almost_customers.email=users.email) and sent = 0');
+	}
 }
