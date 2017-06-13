@@ -66,10 +66,10 @@
 							class="state-label state-label--{{ $order->state  }}">{{ trans("order.state.{$order->state}") }}</span></td>
 
 					<td data-id="{{$order->id}}"><a
-											class="button button--small button--rounded button--green reciept">{{ trans('account.transactions.button-receipt-short') }}</a></td>
+											class="button button--small button--rounded button--green reciept"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></td>
 
 					<td data-th="&nbsp;"><a href='{{ URL::action('RecieptController@downloadReciept', [ 'id' => $order->id ]) }}'
-								class="button button--small button--rounded button--blue">{{ trans('account.transactions.receipt-donwload-short') }} </a></td>
+								class="button button--small button--rounded button--blue"><i class="fa fa-download" aria-hidden="true"></i> </a></td>
 
 					<td data-th="&nbsp;"><a href="{{URL::action('AccountController@getTransaction', [ 'id' => $order->id ]) }}"
 											class="button button--small button--rounded button--grey">{{ trans('account.transactions.button-show-text') }}</a></td>

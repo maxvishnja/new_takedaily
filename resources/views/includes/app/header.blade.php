@@ -32,6 +32,7 @@
 	<script src="/js/html5shiv.min.js"></script>
     <script src="/js/modernizr-custom.min.js"></script>
 	<![endif]-->
+	<script src="https://use.fontawesome.com/a0fbf8c496.js"></script>
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

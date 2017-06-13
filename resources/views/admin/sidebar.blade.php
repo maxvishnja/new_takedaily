@@ -9,6 +9,7 @@
 		</ul>
 		<!--/.widget-nav-->
 		<ul class="widget widget-menu unstyled">
+			<li><a href="/dashboard/almost"><i class="menu-icon icon-group"></i>Almost customers</a></li>
 			<li><a href="/dashboard/payments-error"><i class="menu-icon icon-cog"></i>Payments Error @if($sidebar_payErrors > 0)<b class="label green pull-right">{{ $sidebar_payErrors }}</b>@endif</a></li>
 			<li><a href="/dashboard/stats"><i class="menu-icon icon-bar-chart"></i>Stats</a></li>
 			<li><a href="/dashboard/pages"><i class="menu-icon icon-edit"></i>CMS</a></li>
@@ -18,7 +19,6 @@
 			<li><a href="/dashboard/feedback"><i class="menu-icon icon-comments"></i>Feedback</a></li>
 			<li><a href="/dashboard/snoozing"><i class="menu-icon icon-envelope"></i>Snoozing mails</a></li>
 			<li><a href="/dashboard/rewrites"><i class="menu-icon icon-random"></i>Redirects (SEO)</a></li>
-			<li><a href="/dashboard/almost"><i class="menu-icon icon-group"></i>Almost customers</a></li>
 			<li><a href="/dashboard/settings"><i class="menu-icon icon-cog"></i>Settings</a></li>
 
 		</ul>

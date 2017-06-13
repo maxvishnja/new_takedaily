@@ -171,7 +171,7 @@
 			var href = $('.cancel-button').attr('href');
 			swal({
 				title: "",
-				text: "{{ trans('account.settings_subscription.cancel-agree-text') }}",
+				text: "<i class='fa fa-times close-but' aria-hidden='true'></i>{{ trans('account.settings_subscription.cancel-agree-text') }}",
 				type: "",
 				html: true,
 				cancelButtonText: "{{ trans('account.settings_subscription.cancel-agree') }}",
@@ -186,6 +186,9 @@
 				} else{
 					$("#snooze-toggle").click();
 				}
+			});
+			$('.close-but').on('click',function(){
+				swal.close();
 			});
 		});
 

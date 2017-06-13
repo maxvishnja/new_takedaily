@@ -49,6 +49,8 @@
                         </td>
                         <td>
                             <div class="btn-group">
+                                <a class="btn btn-success" href="{{ URL::action('Dashboard\AlmostCustomersController@sendOne', ['id' => $almost->id]) }}"><i class="icon-envelope"></i>
+                                    Send coupon</a>
                                 <a class="btn btn-danger" href="{{ URL::action('Dashboard\AlmostCustomersController@destroy', [ 'id' => $almost->id ]) }}" onclick="return confirm('Er du sikker på at du ønsker at opsige kundens abonnent?');"><i class="icon-remove"></i>
                                     Delete</a>
                             </div>
