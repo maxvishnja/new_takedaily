@@ -227,6 +227,13 @@ class Checkout
 		            ->makeInitialPayment( $this->getTotal(), $this->getCustomer() );
 	}
 
+
+//	public function finishedPayment($amount, $sourcecode)
+//	{
+//		return $this->getPaymentHandler()
+//			->finishedPayment( $amount, $sourcecode, $this->getCustomer() );
+//	}
+
 	public function getCoupon()
 	{
 		return $this->coupon;

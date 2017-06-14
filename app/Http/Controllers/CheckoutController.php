@@ -1,5 +1,4 @@
 <?php namespace App\Http\Controllers;
-
 use App\AlmostCustomers;
 use App\Apricot\Checkout\Cart;
 use App\Apricot\Checkout\Checkout;
@@ -14,29 +13,22 @@ use App\Jobs\GiftcardWasOrdered;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
-
 class CheckoutController extends Controller
 {
-
     function __construct()
     {
     }
-
     function getCheckout(Request $request)
     {
         if (!Cart::exists()) {
             return \Redirect::back()->withErrors([trans('checkout.errors.no-cart-session')]);
         }
         $request->session()->set('product_name', $request->get('product_name', $request->session()->get('product_name', 'subscription')));
-
         $userData = \Session::get('user_data', \Request::old('user_data', Cart::getInfoItem('user_data', null)));
-
         if ($request->session()->get('product_name') == 'subscription' && ((!$userData || count($userData) == 0) && !\Session::has('vitamins'))) {
             return \Redirect::route('flow')->withErrors([trans('checkout.messages.vitamins-not-selected')]);
         }
-
         $giftcard = null;
-
         if (\Session::has('giftcard_id') && \Session::has('giftcard_token') && $request->session()->get('product_name') == 'subscription') {
             $giftcard = Giftcard::where('id', \Session::get('giftcard_id'))
                 ->where('token', \Session::get('giftcard_token'))
@@ -44,21 +36,16 @@ class CheckoutController extends Controller
                 ->where('currency', trans('general.currency'))
                 ->first();
         }
-
         $product = Product::where('name', $request->session()->get('product_name', 'subscription'))->first();
-
         if (!$product) {
             return \Redirect::route('home');
         }
-
         if (!$userData) {
             $userData = json_decode('{}');
         }
-
         while (is_string($userData) && json_decode($userData)) {
             $userData = json_decode($userData);
         }
-
         return view('checkout.index', [
             'user_data' => json_encode($userData),
             'product' => $product,
@@ -66,7 +53,6 @@ class CheckoutController extends Controller
             'paymentMethods' => PaymentMethods::getAcceptedMethodsForCountry(\App::getLocale())
         ]);
     }
-
     /**
      * @param \Illuminate\Http\Request $request
      *
@@ -75,10 +61,8 @@ class CheckoutController extends Controller
     function getTaxRate(Request $request)
     {
         $zone = new TaxLibrary($request->get('zone'));
-
         return \Response::json(['rate' => $zone->rate()]);
     }
-
     /**
      * @param CheckoutRequest $request
      *
@@ -89,9 +73,7 @@ class CheckoutController extends Controller
         $productName = $request->get('product_name', 'subscription');
         $paymentMethod = $request->get('payment_method');
         $couponCode = $request->get('coupon', '');
-
         $checkout = new Checkout();
-
         $taxZone = $request->get('address_country', trans('general.tax_zone'));
         $street = $request->get('address_street');
         $number = $request->get('address_number');
@@ -103,7 +85,6 @@ class CheckoutController extends Controller
         $userData = $request->get('user_data');
         $name = sprintf('%s %s', $request->get('first_name'), $request->get('last_name'));
         $email = $request->get('email');
-
         if (\Auth::check() && \Auth::user()->isUser()) {
             $taxZone = \Auth::user()->customer->getCustomerAttribute('address_country', $request->get('address_country', trans('general.tax_zone')));
             $street = \Auth::user()->customer->getCustomerAttribute('address_street', $request->get('address_street'));
@@ -112,6 +93,7 @@ class CheckoutController extends Controller
             $name = \Auth::user()->getCustomer()->getName();
             $email = \Auth::user()->getEmail();
         }
+
 
         $checkout->setProductByName($productName)
             ->setPaymentMethod($paymentMethod)
@@ -122,16 +104,16 @@ class CheckoutController extends Controller
             ->setTaxLibrary($taxZone)
             ->createCustomer($request->get('name'), $request->get('email'));
 
-
         if (!$checkout->getCustomer()) {
+
             return \Redirect::back()
                 ->withErrors(trans('checkout.errors.payment-error'))
                 ->withInput();
         }
 
 
-        $charge = $checkout->makeInitialPayment();
 
+        $charge = $checkout->makeInitialPayment();
         if (!$charge) {
             return \Redirect::back()
                 ->withErrors(trans('checkout.errors.payment-error'))
@@ -143,16 +125,12 @@ class CheckoutController extends Controller
             \Log::info((array)$charge);
         }
 
-
         if ($paymentMethod == 'mollie' and strpos($charge->id, 'tr_') !== 0) {
-
             \Log::error("Mollie charge create in post: " . $charge->id);
-
             return \Redirect::back()
                 ->withErrors(trans('checkout.errors.payment-error'))
                 ->withInput();
         }
-
         $request->session()->put('charge_id', $charge->id);
         $request->session()->put('payment_customer_id', $checkout->getCustomer()->id);
         $request->session()->put('name', $name);
@@ -176,7 +154,6 @@ class CheckoutController extends Controller
         if (\Session::get('new_vitamin')) {
             $request->session()->put('new_vitamin', \Session::get('new_vitamin'));
         }
-
         //Add duplicate session to cookie and Cache
         if ($paymentMethod == 'mollie'){
             \Log::info("Session in POST:");
@@ -188,10 +165,8 @@ class CheckoutController extends Controller
         if (isset($charge->links) && isset($charge->links->paymentUrl)) {
             return \Redirect::to($charge->links->paymentUrl);
         }
-
         return \Redirect::action('CheckoutController@getVerify', ['method' => $request->get('payment_method')]);
     }
-
     /**
      * @param                          $method
      * @param \Illuminate\Http\Request $request
@@ -200,37 +175,29 @@ class CheckoutController extends Controller
      */
     function getVerify($method, Request $request)
     {
+
         try {
             $productName = $request->session()->get('product_name', 'subscription');
             $couponCode = $request->session()->get('coupon', '');
             $userData = $request->session()->get('user_data', $request->old('user_data', Cart::getInfoItem('user_data', null)));
-
             while (is_string($userData) && json_decode($userData)) {
                 $userData = json_decode($userData);
             }
-
             if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
-
                 \Log::error("Mollie charge create in verify: " . \Cookie::get('code'));
-
                 \Log::info("Cache:");
                 \Log::info(\Cache::get(\Cookie::get('code')));
-
                 \Log::info("Cookie:");
                 \Log::info(\Cookie::get('code'));
-
                 //If session is empty when we put from Cookie or Cache
-
                 if (\Cache::has(\Cookie::get('code')))
                 {
                     foreach(\Cache::get(\Cookie::get('code')) as $key => $value){
                         $request->session()->put($key, $value);
                     }
                 }
-
                 \Log::info("Session:");
                 \Log::info($request->session()->all());
-
 //                return \Redirect::action('CheckoutController@getCheckout')
 //                    ->withErrors(trans('checkout.errors.payment-error'))
 //                    ->withInput([
@@ -257,15 +224,10 @@ class CheckoutController extends Controller
                     ->appendCoupon($couponCode)
                     ->appendGiftcard($request->session()->get('giftcard_id'), $request->session()->get('giftcard_token'))
                     ->setTaxLibrary($request->session()->get('address_country'));
-
             } catch (\Exception $exception) {
-
                 \Log::error("Checkout create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
             }
-
             $isSuccessful = $checkout->getPaymentHandler()->isChargeValid($request->session()->get('charge_id'));
-
             if (!$isSuccessful) {
                 return \Redirect::action('CheckoutController@getCheckout')
                     ->withErrors(trans('checkout.errors.payment-error'))
@@ -284,40 +246,26 @@ class CheckoutController extends Controller
                         'phone' => $request->session()->get('phone'),
                     ]);
             }
-
             $checkoutCompletion = new CheckoutCompletion($checkout);
             $password = $request->session()->get('password', null);
-
             if (!$password) {
                 if ($userData && isset($userData->birthdate)) {
                     $password = date('Y-m-d', strtotime($userData->birthdate));
                 } else {
                     $password = str_random(8);
                 }
-
                 $password = bcrypt($password);
             }
-
             $name = $request->session()->get('name');
             $email = $request->session()->get('email');
-
             try {
-
                 $checkoutCompletion->createUser($name, $email, $password);
-
             } catch (\Exception $exception) {
-
                 \Log::error("User create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
             }
-
-
             if ($request->session()->get('giftcard_id')) {
-
                 $gift = $request->session()->get('giftcard_token');
-
             } else {
-
                 $gift = null;
             }
             try {
@@ -334,25 +282,17 @@ class CheckoutController extends Controller
                     ->setPlanPayment($request->session()->get('payment_customer_id'), $method)
                     ->setUserData(json_encode($userData))
                     ->updateCustomerPlan();
-
                 if ($request->session()->get('new_vitamin')) {
                     $checkoutCompletion->updateCustomerPlan($request->session()->get('new_vitamin'));
                 }
                 $order_plan = json_encode($checkoutCompletion->getUser()->getCustomer()->getPlan()->getVitamins());
-
                 if ($couponCode) {
-
                     $coupon = Coupon::where('code', '=', $couponCode)->first();
-
                     if ($coupon->discount_type == "free_shipping") {
-
                         $count = $coupon->discount - 1;
-
                         $checkoutCompletion->getUser()->getCustomer()->getPlan()->setCouponCount($count);
                     }
-
                     $checkoutCompletion->getUser()->getCustomer()->getPlan()->setLastCoupon($couponCode);
-
                 }
                 $checkoutCompletion->handleProductActions()
                     ->deductCouponUsage()
@@ -362,43 +302,28 @@ class CheckoutController extends Controller
                     ->flush()
                     ->initUpsell()
                     ->loginUser();
-
             } catch (\Exception $exception) {
                 \Log::error("Checkout error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
                 //$checkoutCompletion->user->delete(); // todo dont delete!?! what if is a returning user
-
                 return \Redirect::back()->withErrors($exception->getMessage()); // todo refund charge + withInput
             }
-
             $request->session()->flash('order_price', $checkout->getTotal());
             $request->session()->flash('order_currency', trans('general.currency'));
-
             Cart::clear();
-
             if ($checkout->getProduct()->isSubscription()) {
                 $code = str_random(8);
-
                 $newcoupon = \App\Coupon::newUpsellCoupon($code);
-
                 return \Redirect::action('CheckoutController@getSuccess')
                     ->with(['order_created' => true, 'upsell' => true, 'code' => $code]);
             }
-
             // Considering that theres only two products: subscription and giftcard, we can conclude that this is a giftcard.
-
             $this->dispatch(new GiftcardWasOrdered($checkoutCompletion->getGiftcard(), $checkoutCompletion->getUser()->getCustomer()));
-
             return \Redirect::action('CheckoutController@getSuccessNonSubscription', ['token' => $checkoutCompletion->getGiftcard()->token])
                 ->with(['order_created' => true]);
-
         } catch (\Exception $exception) {
-
             \Log::error("Method error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
         }
     }
-
-
     /**
      * @param \Illuminate\Http\Request $request
      *
@@ -406,27 +331,21 @@ class CheckoutController extends Controller
      */
     function getSuccess(Request $request)
     {
-
         if (!$request->session()->has('order_created')) {
             return \Redirect::route('home');
         }
-
         $code = '';
-
         if ($request->session()->has('code')) {
             $code = $request->session()->get('code');
         }
-
         $vitamins = \Auth::user()->getCustomer()->getVitaminModels();
         $plans = \Auth::user()->getCustomer()->getOrders();
         $email = \Auth::user()->email;
-
         foreach ($plans as $plan) {
             $order_id = $plan->id;
         }
         return view('checkout.success', ['vitamins' => $vitamins, 'order_id' => $order_id, 'user_email' => $email, 'code' => $code]);
     }
-
     /**
      * @param                          $token
      * @param \Illuminate\Http\Request $request
@@ -438,12 +357,10 @@ class CheckoutController extends Controller
         if (!$request->session()->has('order_created')) {
             return \Redirect::route('home');
         }
-
         return view('checkout.success', [
             'giftcardToken' => $token
         ]);
     }
-
     /**
      * @param \App\Apricot\Repositories\CouponRepository $couponRepository
      * @param \Illuminate\Http\Request $request
@@ -455,23 +372,17 @@ class CheckoutController extends Controller
         if (is_null($request->get('coupon')) || $request->get('coupon') == '') {
             return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
         }
-
         $coupon = $couponRepository->findByCoupon($request->get('coupon'));
-
         if (!$coupon) {
             \Session::forget('applied_coupon');
             return \Response::json(['message' => trans('checkout.messages.no-such-coupon')], 400);
         }
-
         /** @var Product $product */
         $product = Product::where('name', \Session::get('product_name', 'subscription'))->first();
-
         if (!$product || $product->isGiftcard()) {
             return \Response::json(['message' => trans('checkout.messages.no-such-coupon')], 400);
         }
-
         \Session::put('applied_coupon', $coupon->code);
-
         return \Response::json([
             'message' => trans('checkout.messages.coupon-added'),
             'coupon' => [
@@ -483,27 +394,18 @@ class CheckoutController extends Controller
             ]
         ], 200);
     }
-
-
-
     function setAlmostCustomer(Request $request){
-
         if ($request->isMethod('get')){
             return \Response::json(['message' => 'Bad method!'], 400);
         }
         $user = User::whereEmail($request->get('email'))->count();
         $customer = AlmostCustomers::where('email', '=', $request->get('email'))->count();
-
         if($user == 0 and $customer == 0){
-
             $almost = new AlmostCustomers();
             $almost->email = $request->get('email');
             $almost->location = $request->get('location');
             $almost->save();
-
         }
-
         return 'Success';
     }
-
 }

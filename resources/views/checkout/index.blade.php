@@ -236,16 +236,27 @@
 											   value="{{ Request::old('address_city', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
 									</div>
 								</div>
-								<select style="display: none !important" name="address_country" id="country-selector" class="select select--medium select--semibold select--full"
-										required="required"
-										readonly="readonly"
-										aria-required="true" data-validate="true">
-									@foreach(\App\TaxZone::all() as $zone)
-										<option
-											@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', trans('general.tax_zone')) : trans('general.tax_zone'))) == $zone->name ) selected="selected"
-											@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
-									@endforeach
-								</select>
+								@if(App::getLocale() == "nl")
+									<div class="row m-t-20 m-sm-t-20 m-b-20 m-sm-b-20">
+										<div class="col-md-3 col-xs-6">
+											<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+											<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.country') }}
+												<span class="required">*</span></label>
+											<select  name="address_country" id="country-selector" class="select select--medium select--semibold select--full"
+													required="required"
+													readonly="readonly"
+													aria-required="true" data-validate="true">
+												{{--@foreach(\App\TaxZone::all() as $zone)--}}
+													{{--<option--}}
+														{{--@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', trans('general.tax_zone')) : trans('general.tax_zone'))) == $zone->name ) selected="selected"--}}
+														{{--@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>--}}
+												{{--@endforeach--}}
+												<option selected="selected" value="netherlands">{{ trans("countries.netherlands") }}</option>
+												<option value="belgium">{{ trans("countries.belgium") }}</option>
+											</select>
+										</div>
+									</div>
+									@endif
 							</fieldset>
 						</div>
 					@endif
@@ -644,19 +655,19 @@
 	@endif
 
 	<script>
-		$("#country-selector").change(function () {
-			var country = $(this).val();
+		{{--$("#country-selector").change(function () {--}}
+			{{--var country = $(this).val();--}}
 
-			$.ajax({
-				url: '{{ URL::action('CheckoutController@getTaxRate') }}',
-				method: 'GET',
-				dataType: 'JSON',
-				data: {'zone': country},
-				success: function (response) {
-					app.tax_rate = response.rate;
-				}
-			});
-		});
+			{{--$.ajax({--}}
+				{{--url: '{{ URL::action('CheckoutController@getTaxRate') }}',--}}
+				{{--method: 'GET',--}}
+				{{--dataType: 'JSON',--}}
+				{{--data: {'zone': country},--}}
+				{{--success: function (response) {--}}
+					{{--app.tax_rate = response.rate;--}}
+				{{--}--}}
+			{{--});--}}
+		{{--});--}}
 
 		$.ajax({
 			url: '{{ URL::action('CheckoutController@getTaxRate') }}',
