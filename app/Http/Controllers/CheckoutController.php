@@ -226,6 +226,7 @@ class CheckoutController extends Controller
                     ->setTaxLibrary($request->session()->get('address_country'));
             } catch (\Exception $exception) {
                 \Log::error("Checkout create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+                return false;
             }
             $isSuccessful = $checkout->getPaymentHandler()->isChargeValid($request->session()->get('charge_id'));
             if (!$isSuccessful) {
@@ -259,9 +260,13 @@ class CheckoutController extends Controller
             $name = $request->session()->get('name');
             $email = $request->session()->get('email');
             try {
+
                 $checkoutCompletion->createUser($name, $email, $password);
+                
             } catch (\Exception $exception) {
+
                 \Log::error("User create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+                return false;
             }
             if ($request->session()->get('giftcard_id')) {
                 $gift = $request->session()->get('giftcard_token');
