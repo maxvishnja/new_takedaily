@@ -184,11 +184,15 @@ class CheckoutController extends Controller
                 $userData = json_decode($userData);
             }
             if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
+
                 \Log::error("Mollie charge create in verify: " . \Cookie::get('code'));
+
                 \Log::info("Cache:");
                 \Log::info(\Cache::get(\Cookie::get('code')));
+
                 \Log::info("Cookie:");
                 \Log::info(\Cookie::get('code'));
+
                 //If session is empty when we put from Cookie or Cache
                 if (\Cache::has(\Cookie::get('code')))
                 {
@@ -262,7 +266,7 @@ class CheckoutController extends Controller
             try {
 
                 $checkoutCompletion->createUser($name, $email, $password);
-                
+
             } catch (\Exception $exception) {
 
                 \Log::error("User create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
