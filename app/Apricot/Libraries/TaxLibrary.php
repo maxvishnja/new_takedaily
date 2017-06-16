@@ -31,8 +31,8 @@ class TaxLibrary
 				return 'netherlands';
 
 
-//			case 'belgium':
-//				return 'belgium';
+			case 'belgium':
+				return 'belgium';
 
 			default:
 				return $zone;
