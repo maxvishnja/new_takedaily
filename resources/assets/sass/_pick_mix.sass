@@ -1,13 +1,16 @@
 body.page-pick
 	.cart-bubble
 		display: none
-
+	.mobile-vision
+		display: none
 	.pick-n-mix-total
 		text-align: center
 		font-size: 20px
 		font-weight: $weight-semibold
 
 	@media all and (max-width: 991px)
+		.mobile-vision
+			display: block
 		.cart-bubble
 			display: block
 			height: 60px

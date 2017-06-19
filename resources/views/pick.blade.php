@@ -24,6 +24,58 @@
 
 		<div class="col-md-9">
 			<div class="row" v-cloak="">
+				<div class="mobile-vision">
+					<div class="card ">
+						<div v-cloak="">
+							<div class="cart-selection" v-for="vitamin in selectedVitamins | orderBy vitamin.id">
+								<div class="cart-selection_item cart-selection_code">
+									<span class="icon pill-@{{ vitamin.code.toLowerCase() }}"></span>
+								</div>
+
+								<div class="cart-selection_item cart-selection_name">
+									@{{ vitamin.name }}
+								</div>
+
+								<div class="cart-selection_item cart-selection_action">
+									<a href="#" style="display: inline-block" class="@{{ vitamin.type }}"
+									   v-on:click="removeVitamin(vitamin, $event)"><span
+												class="icon icon-cross-16-gray"></span></a>
+								</div>
+
+								<div class="clear"></div>
+							</div>
+
+							<form action="" method="post">
+								<div class="pick-n-mix-total" v-show="numSelectedVitamins > 1">{{ trans('general.money-vue', ['amount' => 'total_sum']) }}</div>
+								<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
+										class="button button--circular button--green button--large button--full m-t-20">
+									@if( !$isCustomer )
+										{{ trans('pick.btn-order')}}
+									@else
+										{{ trans('pick.btn-save') }}
+									@endif
+								</button>
+
+								<input type="hidden" value="@{{ vitamin.id }}" name="vitamins[]" v-for="vitamin in selectedVitamins"/>
+
+								{{ csrf_field() }}
+							</form>
+
+							<div v-show="!hasSelectedEnoughVitamins" v-bind:class="{ 'm-t-10': numSelectedVitamins > 0 }" class="text-center notice">
+								{!! trans('pick.min-vitamins') !!}
+							</div>
+
+						</div>
+					</div>
+
+					<div class="card card--no-style" style="margin: 0">
+						<p class="m-b-10"><strong>{!! trans('pick.below_cart') !!}</strong></p>
+						<div class="m-b-40" v-show="numSelectedVitamins !== 0">
+							{!! trans('checkout.index.disclaimer') !!}
+						</div>
+					</div>
+				</div>
+
 				<div v-for="group in groups">
 					<div class="clear"></div>
 					<h2 class="text-center">@{{ groupTranslations[group] }}</h2>
