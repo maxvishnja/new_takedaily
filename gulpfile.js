@@ -51,6 +51,7 @@ elixir(function (mix) {
 		'/vendor/js.cookie.js',
 		'/vendor/tooltip.min.js',
 		'/vendor/clipboard.min.js',
+		'/vendor/he.js',
 		'/app.js'
 	], 'public/js/app.js');
 
