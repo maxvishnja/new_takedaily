@@ -246,11 +246,11 @@
 													required="required"
 													readonly="readonly"
 													aria-required="true" data-validate="true">
-												@foreach(\App\TaxZone::all() as $zone)
-													<option
-														@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', trans('general.tax_zone')) : trans('general.tax_zone'))) == $zone->name ) selected="selected"
-														@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>
-												@endforeach
+												{{--@foreach(\App\TaxZone::all() as $zone)--}}
+													{{--<option--}}
+														{{--@if( Request::old('address_country', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_country', trans('general.tax_zone')) : trans('general.tax_zone'))) == $zone->name ) selected="selected"--}}
+														{{--@endif value="{{ $zone->name }}">{{ trans("countries.{$zone->name}") }}</option>--}}
+												{{--@endforeach--}}
 												<option selected="selected" value="netherlands">{{ trans("countries.netherlands") }}</option>
 												<option value="belgium">{{ trans("countries.belgium") }}</option>
 											</select>
