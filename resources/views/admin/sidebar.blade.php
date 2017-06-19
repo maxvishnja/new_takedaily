@@ -9,6 +9,7 @@
 		</ul>
 		<!--/.widget-nav-->
 		<ul class="widget widget-menu unstyled">
+			<li><a href="/dashboard/almost"><i class="menu-icon icon-group"></i>Almost customers</a></li>
 			<li><a href="/dashboard/payments-error"><i class="menu-icon icon-cog"></i>Payments Error @if($sidebar_payErrors > 0)<b class="label green pull-right">{{ $sidebar_payErrors }}</b>@endif</a></li>
 			<li><a href="/dashboard/stats"><i class="menu-icon icon-bar-chart"></i>Stats</a></li>
 			<li><a href="/dashboard/pages"><i class="menu-icon icon-edit"></i>CMS</a></li>

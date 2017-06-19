@@ -22,7 +22,7 @@
 			@endif
 			@if($plan->isCancelable())
 				<a href="{{ URL::action('AccountController@getCancelPage') }}"
-				   class="button button--regular button--light button--rounded">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
+				   class="button button--regular button--light button--rounded cancel-button">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
 			@else
 				<span
 					class="button button--regular button--white button--text-grey button--disabled button--rounded"
@@ -108,6 +108,8 @@
 					{{--"</select>" +--}}
 				"<input type=\"text\" name=\"days\" class=\"datepicker\" />" +
 				"<input type=\"hialreen\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
+				"<a data-month='2' class='snooz-month button button--small button--rounded button--green' style='margin-right:20px'>{{ trans('account.settings_subscription.snooze2month') }}</a>" +
+				"<a data-month='3' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze3month') }}</a>" +
 				"</form>",
 				type: "",
 				html: true,
@@ -129,6 +131,14 @@
 				daysOfWeekDisabled: [0,6],
 				weekStart: 1,
 				format: "dd-mm-yyyy"
+			});
+			$('.snooz-month').on('click',function(){
+				if($(this).data('month') == 2){
+					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(2)->format('d-m-Y')}}');
+				} else{
+					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(3)->format('d-m-Y')}}');
+				}
+				$("#snooze_form").submit();
 			});
 			@endif
 		});
@@ -152,10 +162,35 @@
 				confirmButtonColor: "#3AAC87",
 				allowOutsideClick: true,
 				showCancelButton: false,
-				closeOnConfirm: false,
+				closeOnConfirm: false
 			});
 		});
 
+		$('.cancel-button').on('click',function(e){
+			e.preventDefault();
+			var href = $('.cancel-button').attr('href');
+			swal({
+				title: "",
+				text: "<i class='fa fa-times close-but' aria-hidden='true'></i>{{ trans('account.settings_subscription.cancel-agree-text') }}",
+				type: "",
+				html: true,
+				cancelButtonText: "{{ trans('account.settings_subscription.cancel-agree') }}",
+				confirmButtonText: "{{ trans('account.settings_subscription.cancel-success') }}",
+				confirmButtonColor: "#3AAC87",
+				allowOutsideClick: true,
+				showCancelButton: true,
+				closeOnConfirm: false
+			}, function (isConfirm) {
+				if (!isConfirm) {
+					window.location = href;
+				} else{
+					$("#snooze-toggle").click();
+				}
+			});
+			$('.close-but').on('click',function(){
+				swal.close();
+			});
+		});
 
 		$('.readLessBtn').click(function (e) {
 			e.preventDefault();

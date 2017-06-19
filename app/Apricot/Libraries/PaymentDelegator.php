@@ -7,7 +7,8 @@ class PaymentDelegator
 {
 	protected static $methods = [
 		'stripe' => \App\Apricot\Payment\Stripe::class,
-		'mollie' => \App\Apricot\Payment\Mollie::class
+		'mollie' => \App\Apricot\Payment\Mollie::class,
+		//'mollie' => \App\Apricot\Payment\Ideal::class
 	];
 
 	/**

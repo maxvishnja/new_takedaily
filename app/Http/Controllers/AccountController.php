@@ -330,4 +330,5 @@ class AccountController extends Controller
         return redirect()->route('flow', ['token' => $flowCompletion->token]);
     }
 
+
 }

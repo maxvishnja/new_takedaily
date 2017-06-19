@@ -11,6 +11,7 @@ use App\Console\Commands\NotifyPendingRebills;
 use App\Console\Commands\SendHealthMail;
 use App\Console\Commands\CheckGoalAmbassador;
 use App\Console\Commands\CheckPayment;
+use App\Console\Commands\SendToAlmost;
 use App\Console\Commands\SubscriptionRebillCommand;
 use App\Console\Commands\UpdateAges;
 use App\Console\Commands\UpdateCurrencies;
@@ -33,6 +34,7 @@ class Kernel extends ConsoleKernel
 	    MailFlowSender::class,
 	    SendHealthMail::class,
 		CheckGoalAmbassador::class,
+		SendToAlmost::class,
 		UpdatePregnancyWeeks::class,
 		CheckPayment::class,
 	    ClearOldCarts::class,
@@ -56,6 +58,10 @@ class Kernel extends ConsoleKernel
 
 		$schedule->command('currencies:update')
 		         ->hourly();
+
+		$schedule->command('almost:send')
+					->weekly()->wednesdays()->at('09:00')
+					->withoutOverlapping();
 
 		$schedule->command('healthmail:send')
 			     ->dailyAt('13:00');

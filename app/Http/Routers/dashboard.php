@@ -58,6 +58,10 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'calls/mark-done/{id}', 'Dashboard\CallController@markDone' );
 
 	Route::resource( 'rewrites', 'Dashboard\RewriteController' );
+	Route::get( 'almost', 'Dashboard\AlmostCustomersController@index' );
+	Route::get( 'almost/delete/{id}', 'Dashboard\AlmostCustomersController@destroy' );
+	Route::get( 'almost/send-all', 'Dashboard\AlmostCustomersController@sendAll' );
+	Route::get( 'almost/send/{id}', 'Dashboard\AlmostCustomersController@sendOne' );
 	Route::get( 'rewrites/remove/{id}', 'Dashboard\RewriteController@remove' );
 
 	Route::resource( 'orders', 'Dashboard\OrderController' );

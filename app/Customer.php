@@ -305,6 +305,29 @@ class Customer extends Model
             }
         }
 
+
+        $pills = $this->getPlan()->getVitamins();
+
+        if($this->getAge() >70 and $this->getGender() == 1){
+            foreach($pills as $key=>$value){
+              if($value == 1 or $value == 2){
+                  $pills[$key] = 3;
+              }
+            }
+        }
+
+        if($this->getAge() > 50 and $this->getGender() == 2){
+            foreach($pills as $key=>$value){
+                if($value == 1){
+                    $pills[$key] = 2;
+                }
+            }
+        }
+
+        $this->getPlan()->update( [
+            'vitamins' => json_encode( $pills )
+        ]);
+
         $order_plan = json_encode($this->getPlan()->getVitamins());
 
         if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '', null, $order_plan )) {

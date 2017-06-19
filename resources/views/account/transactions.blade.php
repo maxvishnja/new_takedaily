@@ -49,6 +49,8 @@
 				<th>{{ trans('account.transactions.table.date') }}</th>
 				<th>{{ trans('account.transactions.table.amount') }}</th>
 				<th>{{ trans('account.transactions.table.status') }}</th>
+				<th>{{ trans('account.transactions.button-receipt') }}</th>
+				<th>{{ trans('account.transactions.receipt-donwload') }}</th>
 				<th></th>
 			</tr>
 			</thead>
@@ -62,6 +64,13 @@
 					</td>
 					<td data-th="{{ trans('account.transactions.table.status') }}"><span
 							class="state-label state-label--{{ $order->state  }}">{{ trans("order.state.{$order->state}") }}</span></td>
+
+					<td data-id="{{$order->id}}"><a
+											class="button button--small button--rounded button--green reciept"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></td>
+
+					<td data-th="&nbsp;"><a href='{{ URL::action('RecieptController@downloadReciept', [ 'id' => $order->id ]) }}'
+								class="button button--small button--rounded button--blue"><i class="fa fa-download" aria-hidden="true"></i> </a></td>
+
 					<td data-th="&nbsp;"><a href="{{URL::action('AccountController@getTransaction', [ 'id' => $order->id ]) }}"
 											class="button button--small button--rounded button--grey">{{ trans('account.transactions.button-show-text') }}</a></td>
 				</tr>
@@ -69,10 +78,42 @@
 			</tbody>
 		</table>
 	@endif
+
+
 @endsection
 
 @section('footer_scripts')
 	<script>
+
+
+		$('.reciept').on('click', function (e) {
+			var id = $(this).parent().data('id');
+			console.log(id);
+			e.preventDefault();
+			swal({
+				title: "{{ trans('mails.order.receipt-title')}}",
+				text: "{{ trans('account.transaction.receipt-text') }}" +
+				"<form method=\"post\" action=\"{{ URL::action('RecieptController@sendReciept') }}\" id='reciept-form'>" +
+						"<input type=\"email\" name=\"email\" required class=\"datepicker\" value='{{$plan->customer->getEmail()}}' placeholder=\"E-mail\" />" +
+				"<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
+				"<input type=\"hidden\" name=\"id\" class='hid-id' value=\"{{ csrf_token() }}\" />" +
+				"</form>",
+				type: "",
+				html: true,
+				confirmButtonText: "{{ trans('account.transaction.receipt-send') }}",
+				cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
+				confirmButtonColor: "#3AAC87",
+				allowOutsideClick: true,
+				showCancelButton: true,
+				closeOnConfirm: false
+			}, function (inputValue) {
+				if (inputValue) {
+					return $("#reciept-form").submit();
+				}
+			});
+
+			$('.hid-id').val(id);
+		});
 
 
 		$('.not-snooz').on('click', function (e) {
@@ -90,7 +131,6 @@
 			});
 		});
 
-
 		$("#snooze-toggle").click(function (e) {
 			e.preventDefault();
 
@@ -105,6 +145,8 @@
 					{{--"</select>" +--}}
 				"<input type=\"text\" name=\"days\" class=\"datepicker\" />" +
 				"<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
+				"<a data-month='2' class='snooz-month button button--small button--rounded button--green' style='margin-right:20px'>{{ trans('account.settings_subscription.snooze2month') }}</a>" +
+				"<a data-month='3' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze3month') }}</a>" +
 				"</form>",
 				type: "",
 				html: true,
@@ -127,10 +169,30 @@
 				weekStart: 1,
 				format: "dd-mm-yyyy"
 			});
+			$('.snooz-month').on('click',function(){
+				if($(this).data('month') == 2){
+					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(2)->format('d-m-Y')}}');
+				} else{
+					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(3)->format('d-m-Y')}}');
+				}
+				$("#snooze_form").submit();
+			});
 			@endif
 		});
 
+		$(".opsig").click(function (e) {
+			e.preventDefault();
+			$('.modal').modal('show');
 
+		});
+
+		$('.cus-mail').on('click',function(){
+			if($(".cus-mail").prop("checked")){
+				$('.email-cus').val($('.mailcus').val());
+			} else{
+				$('.email-cus').val('');
+			}
+		});
 
 		@if((int) Request::get('already_open', 0) === 1)
 			$("#snooze-toggle").click();
