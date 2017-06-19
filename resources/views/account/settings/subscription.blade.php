@@ -175,7 +175,7 @@
 				type: "",
 				html: true,
 				cancelButtonText: "{{ trans('account.settings_subscription.cancel-agree') }}",
-				confirmButtonText: "{{ trans('account.settings_subscription.cancel-success') }}",
+				confirmButtonText: he.decode("{{ trans('account.settings_subscription.cancel-success') }}"),
 				confirmButtonColor: "#3AAC87",
 				allowOutsideClick: true,
 				showCancelButton: true,
