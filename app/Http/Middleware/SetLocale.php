@@ -21,7 +21,7 @@ class SetLocale
 			'com'   => 'en',
 			'co.uk' => 'en',
 			'nl'    => 'nl',
-			'dev:8080'    => 'da',
+			'dev:8080'    => 'nl',
 		];
 
 		$domainRedirects = [
