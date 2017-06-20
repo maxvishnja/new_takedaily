@@ -22,7 +22,7 @@
 				<tbody>
 
 				@foreach($customers as $customer)
-					@if($customer)
+					@if(!is_null($customer))
 					<tr>
 						<td>
 							<a href="{{ URL::action('Dashboard\CustomerController@show', [ 'id' => $customer->id ]) }}">{{ $customer->id }}</a>
