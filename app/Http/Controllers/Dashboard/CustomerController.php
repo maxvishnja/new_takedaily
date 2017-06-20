@@ -26,7 +26,7 @@ class CustomerController extends Controller
 	{
 		$customers = $this->repo->all();
 		$customers->load('user');
-		dd($customers);
+
 		return view('admin.customers.home', [
 			'customers' => $customers
 		]);
