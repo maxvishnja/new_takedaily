@@ -33,12 +33,12 @@
 							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('Y/m/d H:i')}}
 						</td>
 						<td>
-							{{ $customer->plan }}
-							{{--@if(!is_null($customer->plan->getSubscriptionCancelledAt()))--}}
-							{{--{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}--}}
-							{{--@else--}}
-								{{--No--}}
-							{{--@endif--}}
+							
+							@if($customer->plan->getSubscriptionCancelledAt())
+							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}
+							@else
+								No
+							@endif
 						</td>
 						<td>
 							{{--@if(!is_null($customer->plan->getRebillAt()))--}}
