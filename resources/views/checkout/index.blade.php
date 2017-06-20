@@ -655,30 +655,31 @@
 	@endif
 
 	<script>
-		{{--$("#country-selector").change(function () {--}}
-			{{--var country = $(this).val();--}}
+		@if(App::getLocale()=="da")
+			   $("#country-selector").change(function () {
+					var country = $(this).val();
 
-			{{--$.ajax({--}}
-				{{--url: '{{ URL::action('CheckoutController@getTaxRate') }}',--}}
-				{{--method: 'GET',--}}
-				{{--dataType: 'JSON',--}}
-				{{--data: {'zone': country},--}}
-				{{--success: function (response) {--}}
-					{{--app.tax_rate = response.rate;--}}
-				{{--}--}}
-			{{--});--}}
-		{{--});--}}
+					$.ajax({
+						url: '{{ URL::action('CheckoutController@getTaxRate') }}',
+						method: 'GET',
+						dataType: 'JSON',
+						data: {'zone': country},
+						success: function (response) {
+							app.tax_rate = response.rate;
+						}
+					});
+				});
 
-		{{--$.ajax({--}}
-			{{--url: '{{ URL::action('CheckoutController@getTaxRate') }}',--}}
-			{{--method: 'GET',--}}
-			{{--dataType: 'JSON',--}}
-			{{--data: {'zone': $("#country-selector").val()},--}}
-			{{--success: function (response) {--}}
-				{{--app.tax_rate = response.rate;--}}
-			{{--}--}}
-		{{--});--}}
-
+				$.ajax({
+					url: '{{ URL::action('CheckoutController@getTaxRate') }}',
+					method: 'GET',
+					dataType: 'JSON',
+					data: {'zone': $("#country-selector").val()},
+					success: function (response) {
+						app.tax_rate = response.rate;
+					}
+				});
+		@endif
 		$("#input_info_email").on('change', function(){
 			$.ajax({
 				url: '{{ URL::action('CheckoutController@setAlmostCustomer') }}',
