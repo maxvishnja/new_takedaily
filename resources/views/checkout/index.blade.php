@@ -669,15 +669,15 @@
 			{{--});--}}
 		{{--});--}}
 
-		$.ajax({
-			url: '{{ URL::action('CheckoutController@getTaxRate') }}',
-			method: 'GET',
-			dataType: 'JSON',
-			data: {'zone': $("#country-selector").val()},
-			success: function (response) {
-				app.tax_rate = response.rate;
-			}
-		});
+		{{--$.ajax({--}}
+			{{--url: '{{ URL::action('CheckoutController@getTaxRate') }}',--}}
+			{{--method: 'GET',--}}
+			{{--dataType: 'JSON',--}}
+			{{--data: {'zone': $("#country-selector").val()},--}}
+			{{--success: function (response) {--}}
+				{{--app.tax_rate = response.rate;--}}
+			{{--}--}}
+		{{--});--}}
 
 		$("#input_info_email").on('change', function(){
 			$.ajax({
