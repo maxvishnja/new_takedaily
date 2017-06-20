@@ -23,6 +23,7 @@
 
 				@foreach($customers as $customer)
 					@if(!is_null($customer))
+						{{  $customer->id}}
 					<tr>
 						<td>
 							<a href="{{ URL::action('Dashboard\CustomerController@show', [ 'id' => $customer->id ]) }}">{{ $customer->id }}</a>
