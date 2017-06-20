@@ -224,6 +224,7 @@ class AccountController extends Controller
 
         $this->customer->getPlan()->snooze($request->get('days'));
 
+        \Log::info("Customer ID ".$this->customer->id." snoozed to " . $request->get('days'));
 
         $mailEmail = $this->customer->getUser()->getEmail();
         $mailName = $this->customer->getUser()->getName();
