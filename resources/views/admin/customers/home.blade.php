@@ -33,16 +33,17 @@
 							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('Y/m/d H:i')}}
 						</td>
 						<td>
-							@if(!is_null($customer->plan->getSubscriptionCancelledAt()))
-							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}
-							@else
-								No
-							@endif
+							{{ $customer->plan->getSubscriptionCancelledAt() }}
+							{{--@if(!is_null($customer->plan->getSubscriptionCancelledAt()))--}}
+							{{--{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}--}}
+							{{--@else--}}
+								{{--No--}}
+							{{--@endif--}}
 						</td>
 						<td>
-							@if(!is_null($customer->plan->getRebillAt()))
-							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('Y/m/d H:i')}}
-							@endif
+							{{--@if(!is_null($customer->plan->getRebillAt()))--}}
+							{{--{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('Y/m/d H:i')}}--}}
+							{{--@endif--}}
 						</td>
 						<td>
 							<div class="btn-group">
