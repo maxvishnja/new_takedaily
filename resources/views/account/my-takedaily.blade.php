@@ -23,7 +23,10 @@
 	@if( $plan->isActive() )
 		<p>{!! strip_tags(trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]), '<strong>') !!}</p>
 	@endif
-
+	<div class="m-t-10 m-b-10">
+		<a href="/flow" class="button button--green">{{ trans('account.home.button-change') }}</a>
+		<a href="/pick-n-mix" class="button button--green">{{ trans('account.home.button-pick-n-mix') }}</a>
+	</div>
 	@foreach(Auth::user()->getCustomer()->getVitaminModels() as $vitamin)
 		<div class="new_vitamin_item">
 
@@ -77,10 +80,7 @@
 		</div>
 	@endforeach
 
-	<div class="m-t-10">
-		<a href="/flow" class="button button--green">{{ trans('account.home.button-change') }}</a>
-		<a href="/pick-n-mix" class="button button--green">{{ trans('account.home.button-pick-n-mix') }}</a>
-	</div>
+
 
 	@if($orders->count() > 0 )
 		<hr>
