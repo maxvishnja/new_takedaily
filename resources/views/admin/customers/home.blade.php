@@ -20,6 +20,7 @@
 				</tr>
 				</thead>
 				<tbody>
+
 				@foreach($customers as $customer)
 					<tr>
 						<td>
