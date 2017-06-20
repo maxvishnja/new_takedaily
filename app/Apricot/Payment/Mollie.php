@@ -29,7 +29,7 @@ class Mollie implements PaymentInterface
         $charge = [
             "amount" => MoneyLibrary::toMoneyFormat($amount, true, 3, '.', ''),
             "description" => $description,
-            "redirectUrl" => \URL::route('checkout-verify-method', ['method' => 'mollie'])
+            "redirectUrl" => \URL::route('checkout-verify-method', ['method' => 'mollie','id' => $data['customerId']])
         ];
 
         $charge = array_merge($charge, $data);
@@ -128,6 +128,28 @@ class Mollie implements PaymentInterface
 
         return $payment->isPaid();
     }
+
+
+    public function refundPayment ($chargeId) {
+
+        try{
+
+            $payments = \Mollie::api()->customersPayments()->withParentId($chargeId)->all();
+
+                    $order = $this->findOrder($payments['0']->id);
+
+                    return \Mollie::api()->payments()->refund($order);
+
+
+        } catch (\Exception $exception) {
+
+            \Log::error("Mollie refund error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+            return false;
+        }
+
+    }
+
+
 
     /**
      * @param $orderId

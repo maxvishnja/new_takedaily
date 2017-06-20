@@ -669,15 +669,15 @@
 			{{--});--}}
 		{{--});--}}
 
-		$.ajax({
-			url: '{{ URL::action('CheckoutController@getTaxRate') }}',
-			method: 'GET',
-			dataType: 'JSON',
-			data: {'zone': $("#country-selector").val()},
-			success: function (response) {
-				app.tax_rate = response.rate;
-			}
-		});
+		{{--$.ajax({--}}
+			{{--url: '{{ URL::action('CheckoutController@getTaxRate') }}',--}}
+			{{--method: 'GET',--}}
+			{{--dataType: 'JSON',--}}
+			{{--data: {'zone': $("#country-selector").val()},--}}
+			{{--success: function (response) {--}}
+				{{--app.tax_rate = response.rate;--}}
+			{{--}--}}
+		{{--});--}}
 
 		$("#input_info_email").on('change', function(){
 			$.ajax({
@@ -704,7 +704,43 @@
 			ignore: '[data-validate="false"]'
 		});
 
+
+
+
+
         @if(App::getLocale()=="nl")
+
+
+			$("#country-selector").on('change', function(){
+			if($("#country-selector").val() == "netherlands"){
+				$.validator.addMethod('postalCode', function (value) {
+					return /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/.test(value);
+				}, '{{ trans('checkout.index.order.info.address.postal.error') }}' );
+
+				$.validator.addClassRules({
+					input_info_address_zip: {
+						required: true,
+						postalCode: true
+					}
+				});
+			} else{
+				$('#input_info_address_zip-error').hide();
+				$('.input_info_address_zip').removeClass('input--error label--error');
+				$.validator.addMethod('postalCode', function (value) {
+					return /^[1-9][0-9]{3}$/.test(value);
+				}, '{{ trans('checkout.index.order.info.address.postal.error') }}' );
+
+				$.validator.addClassRules({
+					input_info_address_zip: {
+						required: true,
+						postalCode: true
+					}
+				});
+			}
+		});
+
+
+
 			$.validator.addMethod('postalCode', function (value) {
 				return /^[1-9][0-9]{3}\s?[a-zA-Z]{2}$/.test(value);
 			}, '{{ trans('checkout.index.order.info.address.postal.error') }}' );

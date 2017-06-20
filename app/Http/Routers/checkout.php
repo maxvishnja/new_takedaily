@@ -8,7 +8,7 @@ Route::group( [ 'middleware' => [ 'secure' ], 'prefix' => 'checkout' ], function
 	Route::post( 'almost-customer', 'CheckoutController@setAlmostCustomer' );
 
 	// Charge verify
-	Route::get( 'verify/{method}', 'CheckoutController@getVerify' )->name( 'checkout-verify-method' );
+	Route::get( 'verify/{method}/{id}', 'CheckoutController@getVerify' )->name( 'checkout-verify-method' );
 
 	// Mollie webhook
 	Route::post( 'mollie', function ( $paymentId = 0 )

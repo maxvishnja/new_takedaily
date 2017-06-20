@@ -20,7 +20,9 @@
 				</tr>
 				</thead>
 				<tbody>
+
 				@foreach($customers as $customer)
+
 					<tr>
 						<td>
 							<a href="{{ URL::action('Dashboard\CustomerController@show', [ 'id' => $customer->id ]) }}">{{ $customer->id }}</a>
@@ -31,6 +33,7 @@
 							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('Y/m/d H:i')}}
 						</td>
 						<td>
+
 							@if($customer->plan->getSubscriptionCancelledAt())
 							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}
 							@else
@@ -52,6 +55,7 @@
 							</div>
 						</td>
 					</tr>
+
 				@endforeach
 				</tbody>
 			</table>

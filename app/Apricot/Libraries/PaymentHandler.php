@@ -31,6 +31,12 @@ class PaymentHandler
 		return $this->provider->validateCharge($chargeId);
 	}
 
+
+	public function refundPayment($chargeId)
+	{
+		return $this->provider->refundPayment($chargeId);
+	}
+
 	public function getCustomer($customerId)
 	{
 		return $this->provider->findCustomer($customerId);
