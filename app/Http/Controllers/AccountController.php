@@ -221,7 +221,9 @@ class AccountController extends Controller
 //			return redirect()->back()->withErrors( trans( 'account.general.errors.max-snooze' ) );
 //		}
 
-
+        if($request->get('days') == ''){
+            return redirect()->action('AccountController@getSettingsSubscription')->withErrors(trans('messages.errors.subscription.not-snoozed'));
+        }
         $this->customer->getPlan()->snooze($request->get('days'));
 
         \Log::info("Customer ID ".$this->customer->id." snoozed to " . $request->get('days'));
