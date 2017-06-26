@@ -134,9 +134,23 @@
 			</div>
 		</div>
 		<div class="col-md-3" style="margin-top: 56px;">
-			<div class="cart-bubble" v-on:click="show_popup = !show_popup">
-				<div class="icon icon-cart">
-					<span class="cart-bubble_count">@{{ selectedVitamins.length }}</span>
+			<div class="cart-bubble">
+				<div class="icon">
+					<form action="" method="post">
+						{{--<div class="pick-n-mix-total" v-show="numSelectedVitamins > 1">{{ trans('general.money-vue', ['amount' => 'total_sum']) }}</div>--}}
+						<button type="submit" v-show="numSelectedVitamins > 0" v-bind:class="{ 'button--disabled': !hasSelectedEnoughVitamins }"
+								class="button button--circular button--green button--large button--full m-t-20">
+							@if( !$isCustomer )
+								{{ trans('pick.btn-order')}}
+							@else
+								{{ trans('pick.btn-save') }}
+							@endif
+						</button>
+
+						<input type="hidden" value="@{{ vitamin.id }}" name="vitamins[]" v-for="vitamin in selectedVitamins"/>
+
+						{{ csrf_field() }}
+					</form>
 				</div>
 			</div>
 			<aside id="sticky" v-bind:class="{'enabled': show_popup}">
