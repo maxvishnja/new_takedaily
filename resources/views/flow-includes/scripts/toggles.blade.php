@@ -82,7 +82,7 @@
 
 	$('.month').on('change',function(){
 		$(this).attr('id', $(this).val());
-		$('.years').show();
+		$('.years').val('1970').show();
 	});
 
 	$('.days').on('change',function(){

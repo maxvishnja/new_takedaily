@@ -51,7 +51,7 @@
 
 
 			<select name="year" class="birthday years" id="">
-				{{--<option value="">{!! trans('flow.datepicker.pick-year') !!}</option>--}}
+				<option value="">{!! trans('flow.datepicker.pick-year') !!}</option>
 				@foreach(range(1929,1999) as $y)
 					<option value="{{ $y }}" @if($y == 1970) selected @endif>{{ $y }}</option>
 				@endforeach
