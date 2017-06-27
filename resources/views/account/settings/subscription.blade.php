@@ -108,9 +108,9 @@
 					{{--"</select>" +--}}
 				"<input type=\"text\" name=\"days\" class=\"datepicker\" placeholder='{{ trans('account.settings_subscription.snooze_popup.placeholder') }}' />" +
 				"<input type=\"hialreen\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
-				"<a data-month='1' class='snooz-month button button--small button--rounded button--green' style='margin-right:10px;  padding: 8px 5px;'>{{ trans('account.settings_subscription.snooze14days') }}</a>" +
-				"<a data-month='2' class='snooz-month button button--small button--rounded button--green' style='margin-right:10px; padding: 8px 5px;'>{{ trans('account.settings_subscription.snooze2month') }}</a>" +
-				"<a data-month='3' class='snooz-month button button--small button--rounded button--green' style='padding: 8px 5px;'>{{ trans('account.settings_subscription.snooze3month') }}</a>" +
+				"<a data-month='1' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze14days') }}</a>" +
+				"<a data-month='2' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze2month') }}</a>" +
+				"<a data-month='3' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze3month') }}</a>" +
 				"</form>",
 				type: "",
 				html: true,
