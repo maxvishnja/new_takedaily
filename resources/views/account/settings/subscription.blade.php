@@ -106,9 +106,10 @@
 					{{--"<option value=\"{{ $days }}\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => $days ]) }}</option>" +--}}
 				{{--@endforeach--}}
 					{{--"</select>" +--}}
-				"<input type=\"text\" name=\"days\" class=\"datepicker\" />" +
+				"<input type=\"text\" name=\"days\" class=\"datepicker\" placeholder='{{ trans('account.settings_subscription.snooze_popup.placeholder') }}' />" +
 				"<input type=\"hialreen\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
-				"<a data-month='2' class='snooz-month button button--small button--rounded button--green' style='margin-right:20px'>{{ trans('account.settings_subscription.snooze2month') }}</a>" +
+				"<a data-month='1' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze14days') }}</a>" +
+				"<a data-month='2' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze2month') }}</a>" +
 				"<a data-month='3' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze3month') }}</a>" +
 				"</form>",
 				type: "",
@@ -135,8 +136,10 @@
 			$('.snooz-month').on('click',function(){
 				if($(this).data('month') == 2){
 					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(2)->format('d-m-Y')}}');
-				} else{
+				} else if($(this).data('month') == 3){
 					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(3)->format('d-m-Y')}}');
+				} else{
+					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(14)->format('d-m-Y')}}');
 				}
 				$("#snooze_form").submit();
 			});

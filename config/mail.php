@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'info@takedaily.com', 'name' => 'TakeDaily'],
+    'from' => ['address' => 'info@takedaily.nl', 'name' => 'TakeDaily'],
 
     /*
     |--------------------------------------------------------------------------

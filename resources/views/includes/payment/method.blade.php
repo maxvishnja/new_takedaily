@@ -204,6 +204,7 @@
 			$form.removeClass('form--loading');
 
 			if (response.error) {
+				swal.close();
 				// Show the errors on the form
 				$form.find('#payment-errors').text(response.error.message);
 				$form.find('button#button-submit').prop('disabled', false);
@@ -221,6 +222,12 @@
 		jQuery(function ($) {
 			$("#checkout-form").submit(function (event) {
 				if (usesStripe) {
+					swal({
+						title: "{{ trans('checkout.index.wait-text') }}",
+						showCancelButton: false,
+						showConfirmButton: false,
+						imageUrl: "/images/35.gif"
+					});
 					var $form = $(this);
 
 					if (!validateFormInput($form)) {

@@ -34,7 +34,7 @@
 				{{--<span>{{ trans('flow.questions.1-2.button-text') }}</span>--}}
 			{{--</label>--}}
 
-			<select name="day" class=" days" id="">
+			<select name="day" class="days" id="">
 				<option value="">{!! trans('flow.datepicker.pick-day') !!}</option>
 				@foreach(range(1,31) as $i)
 					<option value="{{ $i }}">{{ $i }}</option>
