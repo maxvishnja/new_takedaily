@@ -160,11 +160,6 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
-						<script>
-							window['friendbuy'] = window['friendbuy'] || [];
-							window['friendbuy'].push(['widget', "dhX-kV0"]);
-						</script>
-						<div class="friendbuy-dhX-kV0"></div>
 						<h2>{!! trans('home.blocks.two.title') !!}</h2>
 						{!! trans('home.blocks.two.body') !!}
 						{!! trans('home.blocks.two.button') !!}
