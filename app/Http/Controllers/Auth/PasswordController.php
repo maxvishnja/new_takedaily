@@ -21,7 +21,6 @@ class PasswordController extends Controller
     use ResetsPasswords;
 
 	protected $redirectPath = '/account';
-	protected $subject = 'TakeDaily wachtwoord wijzigen';
 
 
     /**
@@ -32,6 +31,7 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware(['guest','setLocale']);
+        $this->subject = trans('mails.password.subject');
 
     }
 
