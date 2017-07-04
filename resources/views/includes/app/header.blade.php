@@ -43,6 +43,22 @@
 		ga('send', 'pageview');
 
 	</script>
+	<script>
+		window['friendbuy'] = window['friendbuy'] || [];
+		window['friendbuy'].push(['site', 'site-784e2487-www.takedaily.nl']);
+		window['friendbuy'].push(['track', 'customer',
+			{
+				id: '', //INSERT CUSTOMER ID PARAMETER
+				email: '', //INSERT CUSTOMER EMAIL PARAMETER
+				first_name: '', //INSERT CUSTOMER FIRST NAME PARAMETER
+				last_name: '' //INSERT CUSTOMER LAST NAME PARAMETER
+			}
+		]);
+		(function (f, r, n, d, b, y) {
+			b = f.createElement(r), y = f.getElementsByTagName(r)[0];b.async = 1;b.src = n;y.parentNode.insertBefore(b, y);
+		})(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');
+	</script>
+
 
 </head>
 
