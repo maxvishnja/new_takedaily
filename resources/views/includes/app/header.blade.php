@@ -45,7 +45,7 @@
 	</script>
 	<script>
 		window['friendbuy'] = window['friendbuy'] || [];
-		window['friendbuy'].push(['site', 'site-784e2487-www.takedaily.nl']);
+		window['friendbuy'].push(['site', 'site-9d10006d-takedaily.dev:8080']);
 		window['friendbuy'].push(['track', 'customer',
 			{
 				id: '', //INSERT CUSTOMER ID PARAMETER
@@ -59,7 +59,7 @@
 		})(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');
 	</script>
 
-
 </head>
 
 <body class="@yield('pageClass', 'index')">
+
