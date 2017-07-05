@@ -222,7 +222,7 @@ class AccountController extends Controller
 //		}
 
         if($request->get('days') == ''){
-            return redirect()->action('AccountController@getSettingsSubscription')->withErrors(trans('messages.errors.subscription.not-snoozed'));
+            return redirect()->back()->withErrors( trans('messages.errors.subscription.not-snoozed'));
         }
         $this->customer->getPlan()->snooze($request->get('days'));
 
