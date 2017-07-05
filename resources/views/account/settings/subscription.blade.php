@@ -141,6 +141,7 @@
 				} else{
 					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(14)->format('d-m-Y')}}');
 				}
+				$('.confirm').attr('disabled',true);
 				$("#snooze_form").submit();
 			});
 			@endif
