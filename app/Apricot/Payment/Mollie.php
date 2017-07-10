@@ -138,7 +138,15 @@ class Mollie implements PaymentInterface
 
                     $order = $this->findOrder($payments['0']->id);
 
-                    return \Mollie::api()->payments()->refund($order);
+            if($order->isPaid()){
+
+                return \Mollie::api()->payments()->refund($order);
+
+            } else{
+
+                return false;
+            }
+
 
 
         } catch (\Exception $exception) {
