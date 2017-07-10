@@ -146,6 +146,12 @@ class CustomerController extends Controller
 				$ident->value = $customer->getAge();
 				$ident->update();
 			}
+			if($ident->identifier == 'address_number'){
+				$ident->value = $request->get('address_number');
+				$ident->update();
+
+			}
+
 		}
 
 
