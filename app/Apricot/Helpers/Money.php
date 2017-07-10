@@ -12,7 +12,7 @@ class Money
 
 	public function toCurrency($to)
 	{
-		return \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(config('app.base_currency'), $to, $this->amount);
+		return \App\Apricot\Libraries\MoneyLibrary::convertCurrenciesByString(trans('general.currency'), $to, $this->amount);
 	}
 
 	function __toString()

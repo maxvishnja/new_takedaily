@@ -265,6 +265,7 @@ class CheckoutCompletion
 			'locale'        => $locale
 		];
 
+
 		if($data['locale'] == 'nl') {
 			$fromEmail = 'info@takedaily.nl';
 		} else{
