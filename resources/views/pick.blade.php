@@ -387,10 +387,10 @@
 						}
 					});
 				},
-				combinationChecker: function (one='',two='',three='') {
-					console.log('One: '+one);
-					console.log('Two: '+two);
-					console.log('Three: '+three);
+				combinationChecker: function (one,two,three) {
+//					console.log('One: '+one);
+//					console.log('Two: '+two);
+//					console.log('Three: '+three);
 				@if(App::getLocale()=="nl")
 					var combination = [
 						'1Af',
