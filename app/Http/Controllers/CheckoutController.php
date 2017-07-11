@@ -197,7 +197,7 @@ class CheckoutController extends Controller
                     ->appendGiftcard($request->session()->get('giftcard_id'), $request->session()->get('giftcard_token'))
                     ->setTaxLibrary($request->session()->get('address_country'));
 
-             if($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0){
+           // if($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0){
 
                  \Log::error("Mollie charge create user : " . $id);
 
@@ -223,7 +223,7 @@ class CheckoutController extends Controller
                          'cvr' => $request->session()->get('cvr'),
                          'phone' => $request->session()->get('phone'),
                      ]);
-             }
+             //}
 //                if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
 //
 //                    \Log::error("Mollie charge create in verify: " . \Cookie::get('code'));
