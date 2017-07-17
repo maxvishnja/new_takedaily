@@ -223,7 +223,7 @@
 			$("#checkout-form").submit(function (event) {
 				if (usesStripe) {
 					swal({
-						title: "{{ trans('checkout.index.wait-text') }}",
+						title: he.decode("{{ trans('checkout.index.wait-text') }}"),
 						showCancelButton: false,
 						showConfirmButton: false,
 						imageUrl: "/images/35.gif"
