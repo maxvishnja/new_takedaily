@@ -6,6 +6,7 @@ use App\Apricot\Checkout\CheckoutCompletion;
 use App\Apricot\Helpers\PaymentMethods;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
+use App\Checkouts;
 use App\Coupon;
 use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
@@ -13,6 +14,7 @@ use App\Jobs\GiftcardWasOrdered;
 use App\Product;
 use App\User;
 use Illuminate\Http\Request;
+
 class CheckoutController extends Controller
 {
     function __construct()
@@ -155,15 +157,17 @@ class CheckoutController extends Controller
         if (\Session::get('new_vitamin')) {
             $request->session()->put('new_vitamin', \Session::get('new_vitamin'));
         }
-        //Add duplicate session to cookie and Cache
-//        if ($paymentMethod == 'mollie'){
-//            \Log::info("Session in POST:");
-//            \Log::info($request->session()->all());
-//            \Cookie::queue('code', hash('md5',$request->session()->get('_token')), 5);
-//            \Cache::add(hash('md5',$request->session()->get('_token')), $request->session()->all(), 5);
-//        }
-//       $link = explode('ideal/',$charge->links->paymentUrl);
-//        \Log::info( $link['1']);
+
+
+        //Add duplicate session to DB
+        if ($paymentMethod == 'mollie'){
+
+            $mollieCheckout = new Checkouts();
+            $mollieCheckout->charge_id = $checkout->getCustomer()->id;
+            $mollieCheckout->data = json_encode($request->session()->all());
+            $mollieCheckout->save();
+        }
+
 
         // Redirect
         if (isset($charge->links) && isset($charge->links->paymentUrl)) {
@@ -180,6 +184,34 @@ class CheckoutController extends Controller
     function getVerify($method, $id, Request $request)
     {
         try {
+
+            if($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0){
+
+                \Log::error("Mollie charge create user : " . $id);
+//
+//                $refund = $checkout->getPaymentHandler()->refundPayment($id);
+//
+//                if($refund){
+//                    \Log::info("Payment refunded to : " . $id);
+//                }
+
+                $checkoutData = Checkouts::where('charge_id','=',$id)->get();
+
+                if(count($checkoutData) == 0){
+
+                    return \Redirect::route('home');
+                }
+
+                foreach(json_decode($checkoutData[0]->data) as $key => $value){
+
+                    $request->session()->put($key, $value);
+
+                }
+
+                Checkouts::find($checkoutData[0]->id)->delete();
+
+            }
+
             $productName = $request->session()->get('product_name', 'subscription');
             $couponCode = $request->session()->get('coupon', '');
             $userData = $request->session()->get('user_data', $request->old('user_data', Cart::getInfoItem('user_data', null)));
@@ -196,56 +228,6 @@ class CheckoutController extends Controller
                     ->appendCoupon($couponCode)
                     ->appendGiftcard($request->session()->get('giftcard_id'), $request->session()->get('giftcard_token'))
                     ->setTaxLibrary($request->session()->get('address_country'));
-
-            if($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0){
-
-                 \Log::error("Mollie charge create user : " . $id);
-                \Log::info("Session:");
-                \Log::info($request->session()->all());
-                 $refund = $checkout->getPaymentHandler()->refundPayment($id);
-
-                 if($refund){
-                     \Log::info("Payment refunded to : " . $id);
-                 }
-
-                 return \Redirect::action('CheckoutController@getCheckout')
-                     ->withErrors(trans('checkout.errors.payment-error'))
-                     ->withInput([
-                         'name' => $request->session()->get('name'),
-                         'first_name' => $request->session()->get('first_name'),
-                         'last_name' => $request->session()->get('last_name'),
-                         'email' => $request->session()->get('email'),
-                         'address_street' => $request->session()->get('address_street'),
-                         'address_number' => $request->session()->get('address_number'),
-                         'address_city' => $request->session()->get('address_city'),
-                         'address_zip' => $request->session()->get('address_zip'),
-                         'address_country' => $request->session()->get('address_country'),
-                         'company' => $request->session()->get('company'),
-                         'cvr' => $request->session()->get('cvr'),
-                         'phone' => $request->session()->get('phone'),
-                     ]);
-             }
-//                if ($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0) {
-//
-//                    \Log::error("Mollie charge create in verify: " . \Cookie::get('code'));
-//
-//                    \Log::info("Cache:");
-//                    \Log::info(\Cache::get(\Cookie::get('code')));
-//
-//                    \Log::info("Cookie:");
-//                    \Log::info(\Cookie::get('code'));
-//
-//                    //If session is empty when we put from Cookie or Cache
-//                    if (\Cache::has(\Cookie::get('code')))
-//                    {
-//                        foreach(\Cache::get(\Cookie::get('code')) as $key => $value){
-//                            $request->session()->put($key, $value);
-//                        }
-//                    }
-//                    \Log::info("Session:");
-//                    \Log::info($request->session()->all());
-//
-//                }
 
             } catch (\Exception $exception) {
                 \Log::error("Checkout create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
@@ -270,8 +252,10 @@ class CheckoutController extends Controller
                         'phone' => $request->session()->get('phone'),
                     ]);
             }
+
             $checkoutCompletion = new CheckoutCompletion($checkout);
             $password = $request->session()->get('password', null);
+
             if (!$password) {
                 if ($userData && isset($userData->birthdate)) {
                     $password = date('Y-m-d', strtotime($userData->birthdate));
@@ -280,8 +264,10 @@ class CheckoutController extends Controller
                 }
                 $password = bcrypt($password);
             }
+
             $name = $request->session()->get('name');
             $email = $request->session()->get('email');
+
             try {
 
                 $checkoutCompletion->createUser($name, $email, $password);
