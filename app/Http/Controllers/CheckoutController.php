@@ -187,7 +187,7 @@ class CheckoutController extends Controller
 
             if($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0){
 
-                \Log::error("Mollie charge create user : " . $id);
+                \Log::error("Mollie error create user : " . $id);
 //
 //                $refund = $checkout->getPaymentHandler()->refundPayment($id);
 //
@@ -207,6 +207,9 @@ class CheckoutController extends Controller
                     $request->session()->put($key, $value);
 
                 }
+
+                \Log::info("New session:");
+                \Log::info($request->session()->all());
 
                 Checkouts::find($checkoutData[0]->id)->delete();
 
