@@ -215,6 +215,19 @@ class CheckoutController extends Controller
 
             }
 
+
+            if($method == 'mollie'){
+
+                $checkoutsData = Checkouts::where('charge_id','=',$id)->get();
+
+                if(count($checkoutsData) == 0){
+
+                    return \Redirect::route('home');
+                }
+
+                Checkouts::find($checkoutDatas[0]->id)->delete();
+            }
+
             $productName = $request->session()->get('product_name', 'subscription');
             $couponCode = $request->session()->get('coupon', '');
             $userData = $request->session()->get('user_data', $request->old('user_data', Cart::getInfoItem('user_data', null)));
