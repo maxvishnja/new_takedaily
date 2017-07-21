@@ -218,9 +218,9 @@ class CheckoutController extends Controller
 
             if($method == 'mollie'){
 
-                $checkoutsDatas = Checkouts::where('charge_id','=',$id)->get();
+                $checkoutDatas = Checkouts::where('charge_id','=',$id)->get();
 
-                if(count($checkoutsDatas) == 0){
+                if(count($checkoutDatas) == 0){
 
                     return \Redirect::route('home');
                 }
