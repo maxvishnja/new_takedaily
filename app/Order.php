@@ -89,7 +89,9 @@ class Order extends Model
 		'shipping_company',
 		'is_shippable',
 		'coupon',
-		'vitamins'
+		'vitamins',
+		'repeat'
+
 	];
 
 	/**
