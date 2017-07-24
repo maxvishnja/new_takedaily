@@ -242,7 +242,8 @@ class CheckoutCompletion
 			0,
 			$this->getCheckout()->getCoupon(),
 			$gift,
-			$order_plan
+			$order_plan,
+			false
 		) );
 
 		return $this;
