@@ -273,18 +273,22 @@ class Plan extends Model
 		$this->save();
 
 		$customer = $this->customer;
-		
+
 		\App::setLocale($customer->getLocale());
+
 		if($customer->getLocale()== 'nl') {
 			$fromEmail = 'info@takedaily.nl';
 		} else{
 			$fromEmail = 'info@takedaily.dk';
 		}
 
-		\Mail::queue( 'emails.cancel', [ 'locale' => $customer->getLocale(), 'reason' => $reason, 'name' => $customer->getFirstname()], function ( Message $message ) use ( $customer, $fromEmail )
+		$mailEmail = $customer->getUser()->getEmail();
+		$mailName = $customer->getUser()->getName();
+
+		\Mail::queue( 'emails.cancel', [ 'locale' => $customer->getLocale(), 'reason' => $reason, 'name' => $customer->getFirstname()], function ( Message $message ) use ( $mailEmail, $mailName, $customer, $fromEmail )
 		{
 			$message->from($fromEmail, 'TakeDaily')
-				->to( 'info@takedaily.nl', 'TakeDaily' )
+				->to($mailEmail, $mailName)
 				->subject(trans('mails.cancel.subject') );
 		} );
 

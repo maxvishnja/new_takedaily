@@ -21,6 +21,7 @@ class CustomerWasBilled extends Event
 	public $coupon;
 	public $gift;
 	public $order_plan;
+	public $repeat;
 
 	/**
 	 * CustomerWasBilled constructor.
@@ -35,8 +36,9 @@ class CustomerWasBilled extends Event
 	 * @param $gift
 	 * @param $order_plan
 	 */
-	public function __construct( $customerId, $amount = 100, $chargeToken = '', $product = 'subscription', $balance = false, $balanceAmount = 0, $coupon, $gift, $order_plan )
+	public function __construct( $customerId, $amount = 100, $chargeToken = '', $product = 'subscription', $balance = false, $balanceAmount = 0, $coupon, $gift, $order_plan, $repeat)
 	{
+
 		$this->customerId    = $customerId;
 		$this->orderAmount   = $amount;
 		$this->chargeToken   = $chargeToken;
@@ -46,6 +48,7 @@ class CustomerWasBilled extends Event
 		$this->coupon        = $coupon;
 		$this->gift        	 = $gift;
 		$this->order_plan    = $order_plan;
+		$this->repeat    	 = $repeat;
 	}
 
 	/**

@@ -320,6 +320,26 @@ class CustomerController extends Controller
 		return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', "Der blev trukket penge fra kundens konto, og en ny ordre (#{$lastOrder->id}) blev oprettet. <a href=\"" . \URL::action('Dashboard\OrderController@show', [ $lastOrder->id ]) . "\">Vis ordre</a>");
 	}
 
+
+	function repeat($id)
+	{
+		$customer = Customer::find($id);
+
+		if( ! $customer )
+		{
+			return \Redirect::back()->withErrors("Kunden (#{$id}) kunne ikke findes!");
+		}
+
+		if ( ! $charge = $customer->repeat() )
+		{
+			return \Redirect::back()->withErrors("Der kunne ikke trækkes penge fra kunden!");
+		}
+
+		$lastOrder = $customer->orders()->latest()->first();
+
+		return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', "Der blev trukket penge fra kundens konto, og en ny ordre (#{$lastOrder->id}) blev oprettet. <a href=\"" . \URL::action('Dashboard\OrderController@show', [ $lastOrder->id ]) . "\">Vis ordre</a>");
+	}
+
 	function destroy($id)
 	{
 		$customer = Customer::find($id);

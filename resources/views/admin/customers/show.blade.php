@@ -16,10 +16,11 @@
 					Send ny adgangskode</a>
 
 				@if( $customer->plan && $customer->plan->isActive() )
+					<a class="btn btn-success" href="{{ URL::action('Dashboard\CustomerController@repeat', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du vil oprette en ny ordre?');"><i class="icon-truck"></i>
+						Resend order</a>
 					<a class="btn btn-success" href="{{ URL::action('Dashboard\CustomerController@bill', [ 'id' => $customer->id ]) }}" onclick="return confirm('Er du sikker på at du vil trække penge og oprette en ny ordre?');"><i class="icon-credit-card"></i>
 						Træk penge
 						({{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($customer->plan->price, true) }} kr.)</a>
-
 					<a class="btn btn-danger opsig" href="#"><i class="icon-remove"></i>
 						Opsig</a>
 				@endif

@@ -29,6 +29,7 @@
                                 <option value="2">Postponed users</option>
                                 <option value="3">Billed second time</option>
                                 <option value="4">Churned users</option>
+                                <option value="5">Free TD</option>
                             </select>
                         </td>
 
@@ -36,7 +37,7 @@
                             <input type="text" class="form-control datepicker" name="start-date" id="start-picker"
                                    placeholder="Start date" value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
                             <input type="text" class="form-control datepicker" name="end-date" id="end-picker"
-                                   placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+                                   placeholder="End date" value="{{\Date::now()->addDay()->format('Y-m-d')}}"/>
                             <button class="btn btn-success stats-ok">Go</button>
                             {{ csrf_field() }}
                         </td>

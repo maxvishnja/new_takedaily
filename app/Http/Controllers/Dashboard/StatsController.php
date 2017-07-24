@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use App\Http\Controllers\Controller;
+use App\Order;
 use App\Plan;
 use Illuminate\Http\Request;
 
@@ -55,6 +56,8 @@ class StatsController extends Controller
                     return $i;
                 case 4:
                     return Plan::whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start-date'], $data['end-date']])->count();
+                case 5:
+                    return Order::whereNotNull('repeat')->whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
                 default:
                     return 0;
             }

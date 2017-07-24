@@ -285,6 +285,34 @@ class Customer extends Model
         return $this->order_count;
     }
 
+
+    public function repeat($amount = null) {
+
+        if (!$this->isSubscribed()) {
+            return false;
+        }
+
+        $order_plan = json_encode($this->getPlan()->getVitamins());
+
+        $chargeId = 'free';
+        $usedBalance = false;
+        $prevAmount = 0;
+        $repeat = true;
+        try {
+            \Event::fire(new CustomerWasBilled($this->id, MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), $chargeId, 'subscription', $usedBalance, $prevAmount * -1, '', null, $order_plan, $repeat));
+        } catch (\Exception $exception) {
+            \Log::error($exception->getFile() . " on line " . $exception->getLine());
+        }
+
+
+       // $this->getPlan()->rebilled();
+
+        return true;
+
+    }
+
+
+
     public function rebill($amount = null)
     {
         if (!$this->isSubscribed()) {
@@ -394,7 +422,7 @@ class Customer extends Model
         return $this->orders()->where('id', $id)->first();
     }
 
-    public function makeOrder($amount = 100, $chargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null, $gift = null, $order_plan)
+    public function makeOrder($amount = 100, $chargeToken = null, $shipping = null, $product_name = 'subscription', $usedBalance = false, $balanceAmount = 0, $coupon = null, $gift = null, $order_plan, $repeat = false)
     {
 
 
@@ -416,6 +444,12 @@ class Customer extends Model
             }
 
 
+        }
+
+        if($repeat){
+            $setRepeat = 1;
+        } else{
+            $setRepeat = null;
         }
 
         $shipping = $shipping ?: $this->getPlan()->getShippingPrice();
@@ -440,6 +474,7 @@ class Customer extends Model
             'shipping_zipcode' => $this->getCustomerAttribute('address_postal'),
             'shipping_company' => $this->getCustomerAttribute('company'),
             'coupon' => $coup,
+            'repeat' => $setRepeat,
 
         ]);
 
@@ -579,7 +614,7 @@ class Customer extends Model
         if ($makeOrder) {
             try {
                 \Log::info('Success rebill order create: '.$this->id);
-                \Event::fire(new CustomerWasBilled($this->id, $amount, $chargeId, $product, $usedBalance, $prevAmount * -1, $coupon, $gift, $order_plan));
+                \Event::fire(new CustomerWasBilled($this->id, $amount, $chargeId, $product, $usedBalance, $prevAmount * -1, $coupon, $gift, $order_plan, false));
             } catch (\Exception $exception) {
                 \Log::error($exception->getFile() . " on line " . $exception->getLine());
             }

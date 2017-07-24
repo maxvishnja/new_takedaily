@@ -27,6 +27,6 @@ class OrderCreateCustomer
 		\Log::info( $event->customerId );
 		$customer = Customer::find( $event->customerId );
 
-		$customer->makeOrder( $event->orderAmount, $event->chargeToken, null, $event->product, $event->balance, $event->balanceAmount, $event->coupon, $event->gift, $event->order_plan );
+		$customer->makeOrder( $event->orderAmount, $event->chargeToken, null, $event->product, $event->balance, $event->balanceAmount, $event->coupon, $event->gift, $event->order_plan, $event->repeat );
 	}
 }
