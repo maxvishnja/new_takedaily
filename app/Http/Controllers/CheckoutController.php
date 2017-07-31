@@ -184,7 +184,6 @@ class CheckoutController extends Controller
     function getVerify($method, $id, Request $request)
     {
         try {
-
             if($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0){
 
                 \Log::error("Mollie error create user : " . $id);
@@ -216,7 +215,7 @@ class CheckoutController extends Controller
             }
 
 
-            if($method == 'mollie'){
+            if($method == 'mollie' and !isset($checkoutData)){
 
                 $checkoutDatas = Checkouts::where('charge_id','=',$id)->get();
 

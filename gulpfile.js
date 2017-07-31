@@ -44,6 +44,7 @@ elixir(function (mix) {
 		'/vendor/vue.min.js',
 		'/vendor/bootstrap-datepicker.min.js',
 		'/vendor/datepicker/*.*',
+		'/vendor/popup/*.*',
 		'/vendor/sweetalert.min.js',
 		'/vendor/slider.js',
 		'/vendor/jquery.sticky.js',
