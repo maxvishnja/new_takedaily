@@ -11,6 +11,8 @@ Route::group( [ 'middleware' => [ 'auth', 'user' ], 'prefix' => 'account' ], fun
 
 	Route::post( '/update-preferences', 'AccountController@updatePreferences' );
 
+	Route::post( '/shared-email', 'AccountController@postSharedEmail' )->name( 'shared-email' );
+
 	Route::get( 'transactions', 'AccountController@getTransactions' );
 	Route::get( 'transactions/{id}', 'AccountController@getTransaction' );
 

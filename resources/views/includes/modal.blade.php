@@ -26,7 +26,7 @@
             </div>
             <div class="md-body tab-content">
                 <div role="tabpanel" class="tab-pane active" id="email">
-                    <form method="POST" class="form-horizontal row-fluid"
+                    <form method="POST" class="form-horizontal row-fluid sharedEmail"
                           action=""
                           enctype="multipart/form-data">
                         <div class="control-group">
@@ -43,10 +43,12 @@
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <textarea class="form-control"
-                                          name="form-message"/>{!! str_replace('{link}', \App\Apricot\Helpers\ShareLink::get(Auth::user()->id), nl2br(trans('general.popup.form.message'))) !!}</textarea>
+                                <textarea class="form-control "
+                                          name="formMessage"/>{!! trans('general.popup.form.message') !!}</textarea>
                             </div>
                         </div>
+                        <input type="hidden" name="sharedLink" value="{!! \App\Apricot\Helpers\ShareLink::get(Auth::user()->id) !!}">
+
                         <button class="btn btn-info submit" type="submit"><i class='fa fa-envelope'
                                                                              aria-hidden='true'></i>
                             | {!! trans('general.popup.form.send') !!}</button>
@@ -57,7 +59,7 @@
 
                     <div class="control-group">
                         <div class="controls">
-                            <textarea class="form-control"
+                            <textarea class="form-control" id="myFbMes"
                                       placeholder="{!! trans('general.popup.form.facebook-message') !!}"
                                       name="form-message"/></textarea>
                         </div>
@@ -67,12 +69,12 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-5"><img src="{{ asset('images/popup.jpeg') }}"></div>
-                                <div class="col-sm-7">{!! str_replace('{link}', \App\Apricot\Helpers\ShareLink::get(Auth::user()->id), nl2br(trans('general.popup.form.message'))) !!}</div>
+                                <div class="col-sm-7 fbMes">{!! trans('general.popup.form.message') !!}</div>
                             </div>
                         </div>
                     </div>
                     <div class="control-group">
-                        <button class="btn btn-info submit"><i class='fa fa-facebook' aria-hidden='true'></i>
+                        <button class="btn btn-info submit shareFb"><i class='fa fa-facebook' aria-hidden='true'></i>
                             | {!! trans('general.popup.form.share') !!}</button>
                     </div>
                 </div>
@@ -85,9 +87,15 @@
 
                     </div>
                     <div class="control-group">
-                        <button class="btn btn-info submit"><i class='fa fa-twitter' aria-hidden='true'></i>
+                        <button class="btn btn-info submit shareTw"><i class='fa fa-twitter' aria-hidden='true'></i>
                             | {!! trans('general.popup.form.twit') !!}</button>
                     </div>
+                </div>
+
+
+
+                <div role="tabpanel" class="tab-pane" id="thanks">
+                  <h1 class="text-center">{!! trans('general.popup.form.thanks') !!}</h1>
                 </div>
             </div>
 
@@ -97,3 +105,4 @@
 
 </div>
 <div class="md-overlay"></div><!-- the overlay element -->
+
