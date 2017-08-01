@@ -155,6 +155,7 @@
 </script>
 
 @yield('footer_scripts')
+@if(Auth::user() && Auth::user()->isUser())
 <script>
     $(function () {
         $('#twitters').on('keyup', function () {
@@ -278,6 +279,7 @@
         });
     });
 </script>
+@endif
 @if(isset($errors))
     @if($errors->has())
         <script>
