@@ -133,14 +133,17 @@
     $(function () {
         $('.kn_3').liKnopik();
         $('.kn_2').liKnopik({
-            topPos: '50px', //'center' или целое число в пикселях
-            sidePos: 'left', //'left' или 'right'
-            startVisible: true //если "true" - содержание кнопки по умолчанию открыто
+            topPos: '50px',
+            sidePos: 'left',
+            startVisible: true
         });
         $('.kn_1').liKnopik({
-            topPos: '300px', //'center' или целое число в пикселях
-            sidePos: 'right' //'left' или 'right'
+            topPos: '300px',
+            sidePos: 'right'
         });
+
+
+
     });
 </script>
 <script>
@@ -152,12 +155,126 @@
 </script>
 
 @yield('footer_scripts')
-
 <script>
     $(function () {
         $('#twitters').on('keyup', function () {
             $newLength = 110 - $(this).val().length;
-            $('.twit-count').html($newLength);
+            if($(this).val().length > 110){
+                $(this).val($(this).val().substring(0, (110)));
+            } else{
+                $('.twit-count').html($newLength);
+            }
+
+
+        });
+        $('.sharedEmail').on('submit', function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                data: $('form.sharedEmail').serialize(),
+                url: '{{ route("shared-email") }}',
+                success: function (data) {
+                    $('.tab-pane').removeClass('active');
+                    $('.nav-tabs li').removeClass('active');
+                    $('#thanks').addClass('active');
+
+                }
+
+            });
+
+
+        });
+
+            window.fbAsyncInit = function() {
+            // init the FB JS SDK
+            FB.init({
+                appId: '{{ env('FACEBOOK_APP_ID') }}',
+                xfbml: true,
+                status     : true
+            });
+
+        };
+
+            // Load the SDK asynchronously
+            (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+             }(document, 'script', 'facebook-jssdk'));
+
+            function FBShareOp(){
+            var description	   = $('#myFbMes').val() + '\r\n' +
+                                 $('.fbMes').html();
+            var share_url	   =	'{!! \App\Apricot\Helpers\ShareLink::get(Auth::user()->id) !!}';
+            FB.ui({
+            method: 'share',
+            mobile_iframe: true,
+            href: share_url,
+            quote: description
+
+        }, function(response) {
+            if(response){
+                console.log('111');
+                $('.tab-pane').removeClass('active');
+                $('.nav-tabs li').removeClass('active');
+                $('#thanks').addClass('active');
+
+            }
+            else{}
+        });
+
+        }
+
+        $(document).on('click', '.shareFb', function(){
+            FBShareOp();
+
+        });
+
+        var popupSize = {
+            width: 580,
+            height: 360
+        };
+
+        window.twttr = (function (d, s, id) {
+            var t, js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return; js = d.createElement(s); js.id = id;
+            js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+            return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+        }(document, "script", "twitter-wjs"));
+
+
+
+        $(document).on('click', '.shareTw', function(e){
+
+
+            var
+                    verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
+                    horisontalPos = Math.floor(($(window).height() - popupSize.height) / 2);
+
+            var url = "https://twitter.com/intent/tweet?text=" + $('#twitters').val() + "&url={{ \App\Apricot\Helpers\ShareLink::get(Auth::user()->id) }}";
+
+            var popup = window.open(url, 'twitter',
+                    'width='+popupSize.width+',height='+popupSize.height+
+                    ',left='+verticalPos+',top='+horisontalPos+
+                    ',location=0,menubar=0,toolbar=0,status=0,scrollbars=1,resizable=1');
+
+            if (popup) {
+                popup.focus();
+                e.preventDefault();
+            }
+
+
+
+        });
+
+        twttr.ready(function (twttr) {
+            console.log('Twitter Ready');
+            twttr.events.bind('tweet', function (event) {
+                console.log(event);
+            });
         });
     });
 </script>

@@ -334,4 +334,30 @@ class AccountController extends Controller
     }
 
 
+    public function postSharedEmail(Request $request){
+
+
+        if (\Request::ajax()) {
+
+            $data = $request->all();
+
+            $mailEmail = $data['to'];
+            $fromEmail = $data['from'];
+            $data['layout'] = 'layouts.pdf';
+            $mailName = 'TakeDaily';
+            $locale = \App::getLocale();
+
+            \Mail::queue('emails.shared', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
+                \App::setLocale($locale);
+                $message->from($fromEmail, 'TakeDaily');
+                $message->to($mailEmail, $mailName);
+                $message->subject($fromEmail.' shared with you');
+            });
+
+        }
+
+
+    }
+
+
 }
