@@ -559,10 +559,14 @@ class Customer extends Model
         if($coupon_free > 0 && $discount_type=='motnh') {
             $amount = 0;
             $this->getPlan()->setCouponCount($coupon_free - 1);
+            $coupon = new Coupon();
+            $coupon->code = "SHAREMONTH";
 
         }elseif($coupon_free > 0 && $discount_type=='percent'){
 
             $amount = $amount - ($amount * ($coupon_free/100));
+            $coupon = new Coupon();
+            $coupon->code = "SHAREPERCENT";
             $this->getPlan()->clearDiscount();
 
         }elseif($coupon_free > 0 && $discount_type==''){

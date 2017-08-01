@@ -87,7 +87,8 @@
 
                     </div>
                     <div class="control-group">
-                        <button class="btn btn-info submit shareTw"><i class='fa fa-twitter' aria-hidden='true'></i>
+                        <button class="btn btn-info submit shareTw">
+                            <i class='fa fa-twitter' aria-hidden='true'></i>
                             | {!! trans('general.popup.form.twit') !!}</button>
                     </div>
                 </div>
