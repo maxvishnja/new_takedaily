@@ -12,6 +12,7 @@ use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
 use App\Jobs\GiftcardWasOrdered;
 use App\Product;
+use App\Setting;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class CheckoutController extends Controller
     }
     function getCheckout(Request $request)
     {
+
         if (!Cart::exists()) {
             return \Redirect::back()->withErrors([trans('checkout.errors.no-cart-session')]);
         }
@@ -30,6 +32,7 @@ class CheckoutController extends Controller
         if ($request->session()->get('product_name') == 'subscription' && ((!$userData || count($userData) == 0) && !\Session::has('vitamins'))) {
             return \Redirect::route('flow')->withErrors([trans('checkout.messages.vitamins-not-selected')]);
         }
+
         $giftcard = null;
         if (\Session::has('giftcard_id') && \Session::has('giftcard_token') && $request->session()->get('product_name') == 'subscription') {
             $giftcard = Giftcard::where('id', \Session::get('giftcard_id'))
@@ -96,7 +99,6 @@ class CheckoutController extends Controller
             $email = \Auth::user()->getEmail();
         }
 
-
         $checkout->setProductByName($productName)
             ->setPaymentMethod($paymentMethod)
             ->setTotal(Cart::getTotal())
@@ -159,6 +161,10 @@ class CheckoutController extends Controller
         }
 
 
+        if ( \Session::has( 'share' )){
+            $request->session()->put('share', \Session::get('share'));
+        }
+
         //Add duplicate session to DB
         if ($paymentMethod == 'mollie'){
 
@@ -198,6 +204,8 @@ class CheckoutController extends Controller
 
                 if(count($checkoutData) == 0){
 
+                    \Log::info("Redirect to home user from error : " . $id);
+                    
                     return \Redirect::route('home');
                 }
 
@@ -223,10 +231,13 @@ class CheckoutController extends Controller
 
                     \Log::info("Redirect to home user : " . $id);
 
-                    return \Redirect::route('home');
+                    //return \Redirect::route('home');
+                } else{
+
+                    Checkouts::find($checkoutDatas[0]->id)->delete();
                 }
 
-                Checkouts::find($checkoutDatas[0]->id)->delete();
+
             }
 
             $productName = $request->session()->get('product_name', 'subscription');
@@ -313,10 +324,18 @@ class CheckoutController extends Controller
                     ->setPlanPayment($request->session()->get('payment_customer_id'), $method)
                     ->setUserData(json_encode($userData))
                     ->updateCustomerPlan();
+
+
+                if ($request->session()->get('share')) {
+                    $checkoutCompletion->setSales($request->session()->get('share'));
+                }
+
                 if ($request->session()->get('new_vitamin')) {
                     $checkoutCompletion->updateCustomerPlan($request->session()->get('new_vitamin'));
                 }
+
                 $order_plan = json_encode($checkoutCompletion->getUser()->getCustomer()->getPlan()->getVitamins());
+
                 if ($couponCode) {
                     $coupon = Coupon::where('code', '=', $couponCode)->first();
                     if ($coupon->discount_type == "free_shipping") {
@@ -325,6 +344,7 @@ class CheckoutController extends Controller
                     }
                     $checkoutCompletion->getUser()->getCustomer()->getPlan()->setLastCoupon($couponCode);
                 }
+
                 $checkoutCompletion->handleProductActions()
                     ->deductCouponUsage()
                     ->markGiftcardUsed()

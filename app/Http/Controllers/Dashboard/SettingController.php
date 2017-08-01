@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Apricot\Repositories\SettingsRepository;
+use App\Setting;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -32,6 +33,17 @@ class SettingController extends Controller
 
 	function update($id, Request $request)
 	{
+		$setting = Setting::find($id);
 
+		if( ! $setting )
+		{
+			return \Redirect::back()->withErrors("Setting not found!");
+		}
+
+		$data = $request->all();
+
+		$setting->update($data);
+
+		return \Redirect::action('Dashboard\SettingController@index')->with('success', 'Settings blev opdateret!');
 	}
 }

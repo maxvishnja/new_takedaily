@@ -1,5 +1,6 @@
 <?php namespace App\Apricot\Checkout;
 
+use App\Customer;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
 use App\Setting;
@@ -109,6 +110,22 @@ class CheckoutCompletion
 	public function hasUserData()
 	{
 		return $this->getUserData() && is_object( $this->getUserData() ) && count( get_object_vars( $this->getUserData() ) ) > 0;
+	}
+
+
+	public function setSales ($id){
+
+
+		$sale = Setting::find(17);
+		$plan = User::find($id)->getCustomer()->getPlan();
+
+		$plan->setDiscountType($sale->identifier);
+		$plan->setCouponCount($sale->value);
+
+
+
+		return true;
+
 	}
 
 	public function updateCustomerWithUserData()

@@ -137,6 +137,8 @@ class Plan extends Model
 	}
 
 
+
+
 	public function getVitamins (){
 
 		$vitamins = json_decode( $this->vitamins );

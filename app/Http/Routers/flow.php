@@ -1,6 +1,10 @@
 <?php
 Route::get( '/flow', function ( \Illuminate\Http\Request $request )
 {
+	if(isset($_GET['share'])){
+		\Session::set( 'share', base64_decode($_GET['share']));
+	}
+
 	$giftcard = null;
 
 	if ( \Session::has( 'giftcard_id' ) && \Session::has( 'giftcard_token' ) && \Session::get( 'product_name', 'subscription' ) == 'subscription' )

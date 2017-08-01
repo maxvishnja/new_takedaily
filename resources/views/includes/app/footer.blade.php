@@ -218,7 +218,6 @@
 
         }, function(response) {
             if(response){
-                console.log('111');
                 $('.tab-pane').removeClass('active');
                 $('.nav-tabs li').removeClass('active');
                 $('#thanks').addClass('active');
@@ -239,17 +238,9 @@
             height: 360
         };
 
-        window.twttr = (function (d, s, id) {
-            var t, js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return; js = d.createElement(s); js.id = id;
-            js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-            return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
-        }(document, "script", "twitter-wjs"));
-
-
-
         $(document).on('click', '.shareTw', function(e){
 
+            e.preventDefault();
 
             var
                     verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
@@ -265,18 +256,18 @@
             if (popup) {
                 popup.focus();
                 e.preventDefault();
+
             }
 
-
+            setTimeout(function() {
+                $('.tab-pane').removeClass('active');
+                $('.nav-tabs li').removeClass('active');
+                $('#thanks').addClass('active');
+            }, 2000);
 
         });
 
-        twttr.ready(function (twttr) {
-            console.log('Twitter Ready');
-            twttr.events.bind('tweet', function (event) {
-                console.log(event);
-            });
-        });
+
     });
 </script>
 @endif
