@@ -205,7 +205,7 @@ class CheckoutController extends Controller
                 if(count($checkoutData) == 0){
 
                     \Log::info("Redirect to home user from error : " . $id);
-                    
+
                     return \Redirect::route('home');
                 }
 
