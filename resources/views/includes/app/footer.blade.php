@@ -116,6 +116,11 @@
         }
     })(document, window, "yandex_metrika_callbacks");
 </script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6BSGJG"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <noscript>
     <div><img src="https://mc.yandex.ru/watch/44444929" style="position:absolute; left:-9999px;" alt=""/></div>
 </noscript>

@@ -33,31 +33,15 @@
     <script src="/js/modernizr-custom.min.js"></script>
 	<![endif]-->
 	<script src="https://use.fontawesome.com/a0fbf8c496.js"></script>
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-		ga('create', '{{ trans('general.google_analytics_property') }}', 'auto');
-		ga('send', 'pageview');
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-T6BSGJG');</script>
+	<!-- End Google Tag Manager -->
 
-	</script>
-	{{--<script>--}}
-		{{--window['friendbuy'] = window['friendbuy'] || [];--}}
-		{{--window['friendbuy'].push(['site', 'site-9d10006d-takedaily.dev:8080']);--}}
-		{{--window['friendbuy'].push(['track', 'customer',--}}
-			{{--{--}}
-				{{--id: '', //INSERT CUSTOMER ID PARAMETER--}}
-				{{--email: '', //INSERT CUSTOMER EMAIL PARAMETER--}}
-				{{--first_name: '', //INSERT CUSTOMER FIRST NAME PARAMETER--}}
-				{{--last_name: '' //INSERT CUSTOMER LAST NAME PARAMETER--}}
-			{{--}--}}
-		{{--]);--}}
-		{{--(function (f, r, n, d, b, y) {--}}
-			{{--b = f.createElement(r), y = f.getElementsByTagName(r)[0];b.async = 1;b.src = n;y.parentNode.insertBefore(b, y);--}}
-		{{--})(document, 'script', '//djnf6e5yyirys.cloudfront.net/js/friendbuy.min.js');--}}
-	{{--</script>--}}
 
 </head>
 

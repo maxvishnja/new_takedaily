@@ -219,7 +219,11 @@
 					var currentSubStep = currentStep.find(".sub_step[data-sub-step='" + app.sub_step + "']");
 					var nextSubStep = currentStep.find(".sub_step[data-sub-step='" + (app.sub_step + 1) + "']");
 					if(app.sub_step+1 == 11){
-						ga('send', 'event', 'flow' , 'started', 'question.3-1');
+						dataLayer.push({
+							'event':'flow',
+							'action':'started', //event action
+							'label':'question.3-1' //event label
+						});
 					}
 					if (nextSubStep[0]) {
 						app.sub_step = nextSubStep.attr("data-sub-step") * 1;
@@ -233,7 +237,11 @@
 						var step = currentStep.find('.sub_step--active').not('.sub_step--skip').data('sub-step');
 
 						if(step && step != "undefined"){
-							ga('send', 'event', 'flow' , 'started', 'question.'+app.step+'-'+step);
+							dataLayer.push({
+								'event':'flow',
+								'action':'started', //event action
+								'label':'question.'+app.step+'-'+step //event label
+							});
 						}
 						if (saveState) {
 							app.updateSavedState();
@@ -498,7 +506,12 @@
 	});
 
 	if(app.step == 1 && app.sub_step == 1){
-		ga('send', 'event', 'flow' , 'started', 'question.1-1');
+		dataLayer.push({
+			'event':'flow',
+			'action':'started', //event action
+			'label':'question.1-1' //event label
+		});
+
 	}
 
 	@if(count($userData) > 0)
@@ -571,7 +584,11 @@
 
 
 	function updateNewVitamin(){
-		ga('send', 'event', 'flow', 'completed', 'all');
+		dataLayer.push({
+			'event':'flow',
+			'action':'completed', //event action
+			'label':'all' //event label
+		});
 		var newVitamin = $('#new_vitamin_field').val();
 		var form = $("#flow_form");
 		form.append('<input name="new_vitamin" id="new_vitamin_field" type="hidden" value="'+newVitamin+'" style="display:none;">');
