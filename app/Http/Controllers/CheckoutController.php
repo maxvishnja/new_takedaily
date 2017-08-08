@@ -171,6 +171,8 @@ class CheckoutController extends Controller
             $mollieCheckout = new Checkouts();
             $mollieCheckout->charge_id = $checkout->getCustomer()->id;
             $mollieCheckout->data = json_encode($request->session()->all());
+            \Log::info("New session in post:");
+            \Log::info(json_encode($request->session()->all()));
             $mollieCheckout->save();
         }
 
@@ -201,6 +203,9 @@ class CheckoutController extends Controller
 //                }
 
                 $checkoutData = Checkouts::where('charge_id','=',$id)->get();
+
+                \Log::info("Cehckout data:");
+                \Log::info($checkoutData);
 
                 if(count($checkoutData) == 0){
 
