@@ -3,7 +3,7 @@
 @section('content')
     <div class="module">
         <div class="module-head">
-            <h3>Indstillinger</h3>
+            <h3>Refferral Reward</h3>
         </div>
 
         <div class="module-body table">
@@ -44,6 +44,9 @@
                 </tr>
                 </tbody>
             </table>
+            <br/>
+            <br/>
+            <br/>
             <br/>
             <table cellpadding="0" cellspacing="0" border="0" class="table table-bordered table-striped	display"
                    width="100%">

@@ -65,6 +65,7 @@ class Plan extends Model
 		'payment_method',
 		'price',
 		'price_shipping',
+		'referal',
 		'coupon_free',
 		'last_coupon',
 		'subscription_started_at',
@@ -168,6 +169,21 @@ class Plan extends Model
 		$this->save();
 	}
 
+
+	public function getReferalCount(){
+
+		return $this->referal;
+	}
+
+
+	public function setReferalCount(){
+
+		$this->referal = $this->getReferalCount() + 1;
+		$this->save();
+
+		return true;
+
+	}
 
 	public function setLastCoupon($code){
 
