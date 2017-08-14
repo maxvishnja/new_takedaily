@@ -1,6 +1,6 @@
 <div class="kn_1">
     <div class="knopikBut md-trigger" data-modal="modal-1">
-        Button for share
+        {!! trans('general.share.button') !!}
     </div>
     <div class="knopikCont">
         {!! trans('general.popup.title') !!}

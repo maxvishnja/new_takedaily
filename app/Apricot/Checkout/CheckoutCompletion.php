@@ -120,8 +120,10 @@ class CheckoutCompletion
 		$plan = User::find($id)->getCustomer()->getPlan();
 
 		$plan->setDiscountType($sale->identifier);
+
 		$plan->setCouponCount($sale->value);
 
+		$plan->setReferalCount();
 
 
 		return true;
