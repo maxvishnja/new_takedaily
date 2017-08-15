@@ -296,9 +296,7 @@ class CustomerController extends Controller
 			return \Redirect::action('Dashboard\CustomerController@show', [ $data['id'] ])->withErrors('Kundens abonnent kunne ikke opsiges, fordi det allerede er opsagt.');
 		}
 
-
-
-		return \Redirect::action('Dashboard\CustomerController@show', [ $data['id'] ])->with('success', 'Kundens abonnent er blevet opsagt.');
+		return \Redirect::back()->with('success', 'Kundens abonnent er blevet opsagt.');
 	}
 
 	function bill($id)
