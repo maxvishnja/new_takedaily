@@ -268,6 +268,7 @@ class CheckoutController extends Controller
             }
             $isSuccessful = $checkout->getPaymentHandler()->isChargeValid($request->session()->get('charge_id'));
             if (!$isSuccessful) {
+                \Log::error("Checkout isSuccessful error iD: ".$request->session()->get('charge_id'));
                 return \Redirect::action('CheckoutController@getCheckout')
                     ->withErrors(trans('checkout.errors.payment-error'))
                     ->withInput([
