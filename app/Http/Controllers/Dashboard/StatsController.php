@@ -25,7 +25,7 @@ class StatsController extends Controller
         $active_user = $this->repo->allActive();
 
         return view('admin.stats.home', [
-            'active_user' => $active_user
+            'active_user' => $active_user,
         ]);
     }
 
@@ -105,6 +105,78 @@ class StatsController extends Controller
         return \Redirect::back();
 
     }
+
+
+
+    function cohortsToCsv(Request $request)
+    {
+
+        $data = $request->all();
+        if($data){
+
+            switch ($data['rate']) {
+
+                case 4:
+
+                    $users_array = [];
+                    foreach(trans('flow.datepicker.months_long') as $key=>$month) {
+
+                        $users_array[$month]['Month'] = $month;
+                        $users_array[$month]['Signups'] = Plan::getSignups(sprintf('%02d', $key));
+                        foreach (range(01, 12) as $y){
+                            if($y >= $key and $y <= (int)date('m') ){
+                                $users_array[$month][$y] = Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))."%";
+                            }
+
+                          }
+
+                    }
+                    \Excel::create('cohorts_month', function ($excel) use ($users_array) {
+
+                        $excel->sheet('All users', function ($sheet) use ($users_array) {
+
+                            $sheet->fromArray($users_array, null, 'A1', true);
+
+                        });
+
+                    })->download('xls');
+                    return \Redirect::back();
+                case 5:
+
+                    $users_array = [];
+                    foreach(range(0,date('W')-1) as $week) {
+
+                        $users_array[$week]['Week'] = $week + 1;
+                        $users_array[$week]['Signups'] = Plan::getSignupsWeek(sprintf('%02d', $week));
+                        foreach (range(01, 12) as $y){
+                            if($week * 7 <= $y*30 and $y <= (int)date('m')){
+                                $users_array[$week][$y] = Plan::getCohortsWeek(sprintf('%02d', $week),sprintf('%02d', $y))."%";
+                            }
+
+                        }
+
+                    }
+                    \Excel::create('cohorts_week', function ($excel) use ($users_array) {
+
+                        $excel->sheet('All users', function ($sheet) use ($users_array) {
+
+                            $sheet->fromArray($users_array, null, 'A1', true);
+
+                        });
+
+                    })->download('xls');
+                    return \Redirect::back();
+
+                default:
+                    return \Redirect::back()->withErrors("No data!");
+
+            }
+
+        }
+
+    }
+
+
 
 
     /**

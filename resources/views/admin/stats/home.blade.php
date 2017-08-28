@@ -15,6 +15,85 @@
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="cohorts">
                 <div class="module-body table">
+                    <table cellpadding="0" cellspacing="0" border="0"
+                           class="datatable-1 table table-bordered table-striped display" width="100%">
+                        <thead>
+                        <form action="{{ URL::action('Dashboard\StatsController@cohortsToCsv') }}" method="post">
+                        <tr>
+                            <td>Week/Month</td>
+                            <td>Sign.</td>
+                            <td colspan="11">
+                                <select name="rate" class="change-cohorts">
+                                    <option value="4" >Month</option>
+                                    <option value="5">Week</option>
+                                </select>
+                            </td>
+                            <td>
+                                {{ csrf_field() }}
+                                <button type="submit" style="float:right" class="btn btn-success">CSV</button>
+                            </td>
+                        </tr>
+
+                        </form>
+                        <tr>
+                            <td></td>
+                            <td></td>
+
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                        </tr>
+                        </thead>
+                        <tbody id="4" class="cohorts">
+                        @foreach(trans('flow.datepicker.months_long') as $key=>$month)
+
+                                <tr>
+                                    <td>{{$month}} 2017</td>
+                                    <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
+                                    @foreach(range(01,12) as $y)
+                                        <td>
+                                            @if($y >= $key and $y <= (int)date('m') )
+                                               {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y)) }}%
+                                            @endif
+                                        </td>
+                                    @endforeach
+                                </tr>
+
+                            @endforeach
+                        </tbody>
+
+                        <tbody id="5" class="cohorts hidden">
+                        <tr>
+                            <td></td>
+                        </tr>
+                        @foreach(range(0,date('W')-1) as $week)
+
+                            <tr>
+                                <td>Week {{$week+1}} 2017</td>
+                                <td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>
+                                @foreach(range(01,12) as $y)
+                                    <td>
+                                        @if($week * 7 <= $y*30 and $y <= (int)date('m'))
+                                            {{ \App\Plan::getCohortsWeek(sprintf('%02d', $week),sprintf('%02d', $y)) }}%
+                                        @endif
+                                    </td>
+                                @endforeach
+                            </tr>
+
+                        @endforeach
+                        </tbody>
+
+                        </table>
+
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane " id="stats">
@@ -176,6 +255,13 @@
 
 @section('scripts')
     <script>
+
+        $('.change-cohorts').on('change', function(){
+
+            $('.cohorts').addClass('hidden');
+           $('#'+$(this).val()).removeClass('hidden');
+        });
+
         $('.pie-chart').hide();
         function Charts(reason) {
             Highcharts.chart('piechart', {
