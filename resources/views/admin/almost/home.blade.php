@@ -31,7 +31,7 @@
                         </td>
                         <td><b>{{ $almost->email }}</b></td>
                         <td>
-                            @if($almost->email == 'nl')
+                            @if($almost->location == 'nl')
                                 Dutch
                             @else
                                 Danish
