@@ -6,6 +6,6 @@
 @section('content')
 
     <p>
-        {{ trans('mails.almost-text') }}
-    </p>
+    {!! trans('mails.almost-text') !!}
+</p>
 @endsection
