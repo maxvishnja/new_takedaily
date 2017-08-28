@@ -74,10 +74,6 @@
                         "targets": [3],
                         "sortable": false,
                         "searchable": false
-                    },
-                    {
-                        "targets": [1, 3],
-                        "searchable": false
                     }
                 ],
                 "aaSorting": [[3, 'asc'],[3, 'desc']]
