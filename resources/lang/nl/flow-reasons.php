@@ -12,7 +12,7 @@ return array (
       'wheat' => 'Je eet onvoldoende aardappelen, rijst, pasta, e.d. Deze voedingsmiddelen zijn een belangrijke bron van B-vitamines en mineralen. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
       'bread' => 'Brood is een belangrijke bron van B-vitamines, ijzer en vezels. Brood is de belangrijkste bron van jodium in Nederland. De B-vitamines, ijzer en jodium zijn belangrijk voor jouw energiestofwisseling. Je eet onvoldoende brood(producten), waardoor het mogelijk is dat jouw voeding deze vitamines en mineralen onvoldoende bevat. TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
     ),
-    'main' => 'TakeDaily adviseert jou het I Don\'t Eat Carbs supplement.',
+    'main' => 'TakeDaily adviseert jou I Don\'t Eat Carbs.',
   ),
   '3a' => 
   array (
@@ -44,7 +44,7 @@ return array (
     'reasons' => 
     array (
       'pregnant' => 'Dit supplement is een aanvulling op Mom & Baby. Het bevat B-vitamines (B1, B6, B12) en ijzer. Als je zwanger bent neemt de hoeveelheid bloed in het lichaam toe, waardoor er tijdens de zwangerschap een extra behoefte aan ijzer ontstaat. IJzer helpt bij de normale vorming van rode bloedcellen en hemoglobine, Het hemoglobine aanwezig in de rode bloedcellen transporteert het zuurstof door het lichaam en naar jouw kindje.',
-      'not_vegetarian_meat' => 'Vlees bevat ijzer, vitamine B1, B6 en B12. Als je geen vlees eet is het belangrijk dat je deze voedingsstoffen voldoende binnenkrijgt, daar zij onder andere een belangrijke rol spelen in de energiestofwisseling van ons lichaam.',
+      'not_vegetarian_meat' => 'Vlees bevat ijzer, vitamine B1, B6 en B12. Als je geen vlees eet en geen gebruik maakt van volwaardige vleesvervangers, is het belangrijk dat je deze voedingsstoffen voldoende binnenkrijgt. De voedingsstoffen spelen onder andere een belangrijke rol in de energiestofwisseling van ons lichaam.',
       'vegetarian' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en ijzer. Je eet geen vlees(producten). TakeDaily zorgt ervoor dat je deze vitamines en mineralen als aanvulling op jouw dagelijkse voeding voldoende binnenkrijgt.',
     ),
   ),
@@ -72,12 +72,11 @@ return array (
   array (
     'pregnant' => 
     array (
-      'main' => 'Gefeliciteerd met jouw zwangerschap! Take Daily heeft voor jou en jouw baby de vitamines geselecteerd die je als aanvulling op jouw dagelijkse voeding kunt gebruiken.',
+      'main' => 'Gefeliciteerd met jouw zwangerschap! TakeDaily heeft voor jou en jouw baby de vitamines geselecteerd die je als aanvulling op jouw dagelijkse voeding kunt gebruiken.',
     ),
     'wish' => 
     array (
-      'main' => 'Je hebt een zwangerschapswens. Take Daily heeft voor jou de vitamines geselecteerd die je als aanvulling op jouw dagelijkse voeding kunt gebruiken.
-',
+      'main' => 'Je hebt een zwangerschapswens. TakeDaily heeft voor jou de vitamines geselecteerd die je als aanvulling op jouw dagelijkse voeding kunt gebruiken.',
     ),
   ),
   '1c' => 

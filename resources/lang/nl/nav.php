@@ -61,4 +61,9 @@ return array (
     ),
   ),
   'cta' => 'Get started',
+  'submenu' => 
+  array (
+    'gifting-use' => 'Cadeaubon verzilveren',
+    'gifting-buy' => 'Cadeaubon kopen',
+  ),
 );

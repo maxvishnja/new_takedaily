@@ -106,7 +106,7 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     ),
     '2-5' => 
     array (
-      'title' => 'WIl je je energieniveau ondersteunen?',
+      'title' => 'Wil je je energieniveau ondersteunen?',
       'text' => 'B-vitamines spelen een belangrijke rol in het ondersteunen van het energieniveau van jouw lichaam. Vitamine B2, B3, B5, B6 en B12, ijzer en magnesium helpen vermoeidheid en moeheid te verminderen.',
       'options' => 
       array (
@@ -150,7 +150,7 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     ),
     '2-9' => 
     array (
-      'title' => 'Ben je vegetariër of veganist?',
+      'title' => 'Ben je vegetariër?',
       'text' => 'Vlees bevat veel ijzer, vitamine B1 en B12. Deze vitamines spelen een belangrijke rol in het in het bevorderen van jouw energiestofwisseling.',
       'options' => 
       array (
@@ -194,7 +194,7 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     '3-3' => 
     array (
       'title' => 'Hoeveel boterhammen eet je gemiddeld per dag?',
-      'text' => 'Een portie havermout telt als één snee brood. Brood is een belangrijke bron van B-vitamines, ijzer en voedingsvezels. Brood is de belangrijkste bron van jodium in Nederland. Kies bij voorkeur volkoren varianten. Het verzadigd goed en zorgt ervoor dat u minder snel weer trek hebt en maakt het gemakkelijker om op gewicht te blijven.',
+      'text' => 'Brood is een belangrijke bron van B-vitamines, ijzer, jodium en voedingsvezels. Brood kan worden afgewisseld met bijvoorbeeld havermout, knäckebröd, muesli en andere (volkoren) ontbijtgranen. Een portie havermout telt bijvoorbeeld als één snee brood. Volkoren varianten verzadigen goed, zorgen ervoor dat je minder snel weer trek hebt en maken het gemakkelijker om op gewicht te blijven.',
       'options' => 
       array (
         1 => 'Geen',
@@ -217,7 +217,7 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     ),
     '3-5' => 
     array (
-      'title' => 'Hoeveel porties aardappelen, rijst, pasta, couscous, quinoa, e.d. eet je gemiddeld per dag?',
+      'title' => 'Hoeveel gram aardappelen, rijst, pasta, couscous, quinoa, e.d. eet je gemiddeld per dag?',
       'text' => 'Pasta, rijst, aardappelen, couscous e.d. zijn een belangrijke bron van B-vitamines en mineralen. Kies bij voorkeur volkoren varianten.',
       'options' => 
       array (
@@ -229,8 +229,8 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
     ),
     '3-6' => 
     array (
-      'title' => 'Hoe vaak eet jij vlees(waren)?',
-      'text' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en de mineralen ijzer.',
+      'title' => 'Hoe vaak eet jij vlees(waren) of vleesvervangers?',
+      'text' => 'Vlees is rijk aan bepaalde B-vitamines (B1, B6 en B12) en het mineraal ijzer. Vleesvervangers kunnen dienen als alternatief voor vlees. Belangrijk bij het beantwoorden van deze vraag is dat je vleesvervangers mag meerekenen als deze wat betreft hun voedingswaarde een goede vervanging zijn van vlees.',
       'options' => 
       array (
         1 => 'Geen',
@@ -247,6 +247,8 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
         1 => 'Minder dan 1 portie vette vis (100 gram)',
         2 => '1 portie vette vis (100 gram)',
         3 => '2 keer porties vette vis of meer (200+ gram)',
+        5 => 'Geen, ik ben vegetarier',
+        4 => 'Geen, ik ben vegetarier',
       ),
     ),
     '3-8' => 
@@ -257,8 +259,8 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
       array (
         1 => 'Zelden',
         2 => '1 portie (150 ml/gram)',
-        3 => '2-3 porties (300-450 ml/gram)',
-        4 => '3-4 porties (450-600 ml/gram)',
+        3 => '2 porties (300 ml/gram)',
+        4 => '3 porties of meer (450+ ml/gram)',
       ),
     ),
     '3-9' => 
@@ -272,20 +274,31 @@ Vis(olie) bevat goede omega-3 vetzuren waaronder DHA (docosahexaeenzuur). De inn
         3 => 'Geen olie',
       ),
     ),
+    '2-11' => 
+    array (
+      'title' => 'Wat is voor jou op dit moment het belangrijkste? (één antwoord mogelijk)',
+      'options' => 
+      array (
+        1 => 'Weerstand ondersteunen',
+        2 => 'Energieniveau ondersteunen',
+        3 => 'Botten en spieren ondersteunen',
+      ),
+      'text' => '.',
+    ),
   ),
   'combinations' => 
   array (
     1 => 
     array (
-      'basic' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering',
-      'basic-10-d' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering.
+      'basic' => 'Met TakeDaily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering',
+      'basic-10-d' => 'Met TakeDaily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering.
 							Je hebt extra vitamine D nodig <span v-show="( user_data.age >= \'50\' && user_data.age <= \'70\' )">in verband met jouw leeftijd</span>
 								<span v-show="( user_data.age >= \'50\'&& user_data.age <= \'70\') && user_data.skin > \'1\'">of</span>
 								<span v-show="user_data.skin > \'1\'">jouw getinte of donkere huidskleur</span>.
 								 Met de Multi Vitamine D+ zorgen wij dat je tenminste de hoeveelheid vitamine D binnenkrijgt die de Gezondheidsraad adviseert.',
-      'basic-10-d-alt' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering.
+      'basic-10-d-alt' => 'Met TakeDaily krijg je precies de vitamines en mineralen binnen die jij nodig hebt - in de juiste dosering.
 			  Je komt dagelijks onvoldoende buiten, waardoor jouw huid niet in staat is om voldoende vitamine D aan te maken. TakeDaily heeft de Multi Vitamine D+ toegevoegd om zorg te dragen dat jij dagelijks de hoeveelheid vitamine D binnenkrijgt die je nodig hebt.',
-      'basic-20-d' => 'Met Take Daily krijg je precies de vitamines en mineralen binnen die je nodig hebt - in de juiste dosering. 
+      'basic-20-d' => 'Met TakeDaily krijg je precies de vitamines en mineralen binnen die je nodig hebt - in de juiste dosering. 
 
 De Multi Vitamine D+ Extra bevat extra vitamine D. Voor mannen en vrouwen vanaf 70 jaar zijn er namelijk overtuigende aanwijzingen uit onderzoek dat extra vitamine D per dag het risico op botbreuken kan verlagen en het advies van de Gezondheidsraad is om extra vitamine D te gebruiken.',
     ),
@@ -358,7 +371,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
 <br/> <br/>
 Als je dagelijkse consumptie van smeer- en bereidingsvetten wijzigt, vergeet dan niet om jouw account aan te passen via <a href="/account" target="_blank"> Mijn TakeDaily</a>.
 TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mineralen binnenkrijgt die je op dat moment nodig hebt.',
-      'g' => 'Je hebt Chiazaadolie gekozen! Chiazaadolie is een plantaardige olie en bevat gezonde omega 3-vetzuren.Voor mensen die geen visolie willen gebruiken is Chiazaadolie met betrekking tot de omega-3 vetzuren een plantaardig alternatief.',
+      'g' => 'Je hebt Chiazaadolie gekozen! Chiazaadolie is een plantaardige olie en bevat gezonde omega-3 vetzuren. Voor mensen die geen visolie willen gebruiken is Chiazaadolie met betrekking tot de omega-3 vetzuren een plantaardig alternatief.',
     ),
     'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.',
@@ -378,16 +391,16 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
       'B' => 'Shape Me Up is een voedingssupplement speciaal voor mensen die gewicht proberen te verliezen. In de periode dat je gewicht probeert te verliezen is het belangrijk dat je lichaam voldoende vitamines en mineralen binnenkrijgt. TakeDaily zorgt dat jij in deze periode als aanvulling op je dagelijkse voeding voldoende vitamines en mineralen binnenkrijgt. De B-vitamines (B1, B6 en B12) spelen een belangrijke rol in de energiestofwisseling van het lichaam. Vitamine A en C zorgen mede voor een goede weerstand. Vitamine C is daarnaast van belang voor de vorming van collageen die helpt de huid te verstevigen en vitamine K ondersteunt een normale bloedstolling. Daarnaast is het natuurlijk belangrijk dat je stress vermijdt, goed slaapt en beweegt.',
       'C' => 'Energy Support bevat vitamines en mineralen die jouw energieniveau ondersteunen, helpen vermoeidheid en moeheid te verminderen en bijdragen aan een heldere geest en normale weerstand tegen stress.',
       'D' => 'Immune Booster is rijk aan vitamines en mineralen die jouw weerstand ondersteunen (vitamine A, B6, B11 (foliumzuur), B12, C, D en de mineralen seleen en zink).',
-      'E' => 'Bepaalde voedingsstoffen ondersteunen jouw botten, spieren en kraakbeen (in de gewrichten). Joint, Bone & Muscle bevat vitamine C, D, magnesium en mangaan. Vitamine D en magnesium zijn belangrijk voor een normale spierwerking. Vitamine C en mangaan zijn goed voor het kraakbeen.',
+      'E' => 'Joint, Bone & Muscle bevat voedingsstoffen die jouw botten, spieren en kraakbeen (in de gewrichten) ondersteunen. Het bevat vitamine C, D, magnesium en mangaan. Vitamine D en magnesium zijn belangrijk voor een normale spierwerking. Vitamine C en mangaan zijn goed voor het kraakbeen.',
     ),
     3 => 
     array (
-      'a' => 'No Veggie or Fruit Fan bevat belangrijke voedingsstoffen aanwezig in groente en fruit (beta-caroteen, vitamine B11 (foliumzuur), vitamine C en kalium). Het supplement dient ter aanvulling op de multivitamine.',
-      'b' => 'I\'m Don\'t Eat Carbs is rijk aan B-vitamines (B1, B2, B3, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op de multivitamine.',
-      'c' => 'The Dairy Portion bevat vitamine B2, B12 en calcium. Het zijn voedingsstoffen die van nature voorkomen in melk(producten). Het supplement dient ter aanvulling op de multivitamine.',
-      'd' => 'I Don\'t Eat Meat is speciaal voor personen die geen vlees eten. Het supplement bevat vitamine B1, B6, B12 en ijzer; voedingsstoffen die van nature aanwezig zijn in vlees. Het supplement dient ter aanvulling op de multivitamine.',
-      'e' => 'Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega 3-vetzuren EPA en DHA. De Gezondheidsraad adviseert volwassenen om minimaal één keer per week vis te eten, bij voorkeur vette vis. Premium Omega-3 visolie wordt gewonnen uit kleine vette vissoorten als ansjovis en sardines met een hoog gehalte aan omega-3 vetzuren. Premium Omega-3 visolie bevat 456 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
-      'f' => 'Not a Butter Lover bevat vitamine A, D en E. Halvarine en margarine zijn belangrijke bronnen van vitamine A en D. Boter is een belangrijke bron van vitamine A. Oliën bevatten vitamine E. Het supplement dient ter aanvulling op de multivitamine.',
+      'a' => 'No Veggie or Fruit Fan bevat belangrijke voedingsstoffen aanwezig in groente en fruit (beta-caroteen, vitamine B11 (foliumzuur), vitamine C en kalium). Eet jij dagelijks niet voldoende groente en/of fruit, dan is dit supplement een goede aanvulling op de Multii.',
+      'b' => 'I Don\'t Eat Carbs is rijk aan B-vitamines (B1, B2, B3, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Eet jij dagelijks onvoldoende brood en/of graanproducten, dan is dit supplement een goede aanvulling op de Multi.',
+      'c' => 'The Dairy Portion bevat vitamine B2, B12 en calcium. Het zijn voedingsstoffen die van nature voorkomen in melk(producten). Gebruik je weinig tot geen melk(producten), dan is The Dairy Portion een goede aanvulling op de Multi.',
+      'd' => 'I Don\'t Eat Meat is speciaal voor personen die geen vlees eten en als alternatief onvoldoende vleesvervangers gebruiken. Het supplement bevat vitamine B1, B6, B12 en ijzer; voedingsstoffen die van nature aanwezig zijn in vlees. Het supplement is een goede aanvulling op de Multi.',
+      'e' => 'Vis en voornamelijk vette vis (zoals sardines, ansjovis, makreel, zalm) is rijk aan de gezonde omega-3 vetzuren EPA en DHA. De Gezondheidsraad adviseert volwassenen om minimaal één keer per week vis te eten, bij voorkeur vette vis. Premium Omega-3 visolie wordt gewonnen uit kleine vette vissoorten als ansjovis en sardines met een hoog gehalte aan omega-3 vetzuren. Premium Omega-3 visolie bevat 500 mg visvetzuren (EPA en DHA). EPA en DHA zijn goed voor het hart* en DHA voor de hersenen en de ogen.**',
+      'f' => 'Not a Butter Lover bevat vitamine A, D en E. Halvarine en margarine zijn belangrijke bronnen van vitamine A en D. Boter is een belangrijke bron van vitamine A. Oliën bevatten vitamine E. Gebruik jij niet of nauwelijks halvarine/margarine, (room)boter en oliën, dan is dit supplement een goede aanvulling op de Multi. ',
       'g' => 'Premium Omega-3 Chiazaadolie is een plantaardige olie, verkregen door een koude persing van de zaden. Het bevat gezonde omega-3 vetzuren!',
     ),
   ),
@@ -495,7 +508,9 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
   array (
     'wait' => 'Even geduld a.u.b.',
     'wait-text' => 'Even geduld a.u.b. TakeDaily stelt nu jouw persoonlijke pakket samen',
-    'your-recommendations' => 'Jouw persoonlijk pakket',
+    'your-recommendations' => 'Jouw persoonlijke advies
+
+<p>Op basis van jouw test-antwoorden heeft TakeDaily voor jouw de volgende supplementen geselecteerd. Deze producten sluiten aan bij jouw persoonlijke levensstijl en zijn een aanvulling op jouw voedingspatroon. Bij elk supplement staat omschreven waarom wij dit specificieke supplement voor je geselecteerd hebben. Heb je vragen over de samenstelling van jouw persoonlijke pakket? Neem dan vrijblijvend contact met ons op. Wij helpen je graag!</p>',
     'send-them' => 'Stuur mijn persoonlijke advies naar mijn email.',
     'send' => 
     array (
@@ -505,7 +520,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
       'cancel' => 'Annuleren',
       'placeholder' => 'navn@email.nl',
       'error' => 'Zou je je e-mailadres kunnen invullen?',
-      'success' => 'Jouw persoonlijk advies is verstuurd',
+      'success' => 'Jouw persoonlijk advies is verstuurd naar je email',
     ),
   ),
   'coupon' => 
@@ -513,7 +528,7 @@ TakeDaily kan er op deze manier voor zorgen dat jij precies de vitamines en mine
     'wait' => 'Wacht...',
     'apply' => 'Toepassen',
   ),
-  'button-save-text' => 'Pas jouw pakket aan',
+  'button-save-text' => 'Pas jouw pakket aan ',
   'package-updated' => 'Jouw TakeDaily pakket is aangepast!',
   'switch-to-chia' => 'Verander visolie in het plantaardige chia-olie',
   'switch-to-fish' => 'Verander het plantaardige chia-olie in visolie',

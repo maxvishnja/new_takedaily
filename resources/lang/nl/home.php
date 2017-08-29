@@ -5,7 +5,7 @@ return array (
   array (
     'title-1' => 'Vitamines & Mineralen<br/>op maat | Gratis bezorgd ',
     'title-2' => 'TakeDaily udvælger vitaminer og mineraler i præcis den koncentration, du har brug for.',
-    'button-click-here' => 'Doe de test <small class="button-line2">Duurt slechts enkele minuten</small>',
+    'button-click-here' => 'Doe nu de test <small class="button-line2">Duurt slechts enkele minuten</small>',
     'button-gift-text' => 'Geef TakeDaily cadeau',
     'splash' => 
     array (
@@ -13,10 +13,10 @@ return array (
       'price' => '<small>Jouw gepersonaliseerde pakket voedingssupplementen voor</small> €18,95<small> per 4 weken</small>',
       'info' => 'Ieder moment opzegbaar',
     ),
-    'what-is' => 'Wat is TakeDaily?',
+    'what-is' => 'Hoe werkt TakeDaily?',
     'pick' => 'Of stel je liever je eigen pakket samen?',
     'cta' => '<a href="/flow">Start selv</a> i dag eller giv TakeDaily <a href="/gifting">i gave</a>',
-    'subtitle' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte! Wil jij weten welke voedingssupplementen aansluiten bij jouw persoonlijke behoefte? Doe dan snel de test!',
+    'subtitle' => 'Met TakeDaily kan je jouw voeding dagelijks aanvullen met de vitamines en mineralen die aansluiten op jouw persoonlijke behoefte! Wil jij weten welke voedingssupplementen aansluiten bij jouw persoonlijke behoefte? Doe dan nu vrijblijvend onze korte test!',
   ),
   'blocks' => 
   array (
@@ -24,11 +24,11 @@ return array (
     array (
       'title' => 'Wat TakeDaily belooft!',
       'promise-1' => 'Ons deskundig team staat geheel tot jouw beschikking om inhoudelijke vragen over onze producten te beantwoorden.',
-      'promise-2' => 'De hoge kwaliteit vitamines, mineralen en vetzuren worden omsloten door plantaardige capsules, met uitzondering van ons visolie-supplement* .
+      'promise-2' => 'De hoge kwaliteit vitamines, mineralen en vetzuren worden omsloten door plantaardige capsules, met uitzondering van ons visolie-supplement*.
 
 </p><p><small>*capsule vervaardigd van gelatine</small></p>',
       'promise-3' => 'We houden onze prijzen zo laag mogelijk door zonder tussenpersonen te werken. Wij verzenden direct naar jouw adres.',
-      'promise-4' => 'Een test speciaal ontwikkeld door voedingsprofessionals en volgens de laatste wetenschappelijke inzichten. Hierdoor kunnen wij voor jou een pakket voedingssupplementen samenstellen dat aansluit op de behoefte van jouw lichaam én levensstijl.  ',
+      'promise-4' => 'Een test speciaal ontwikkeld door voedingsprofessionals en volgens de laatste wetenschappelijke inzichten. ',
       'read-more' => 'Lees hier meer',
       'get-started' => 'Doe de test hier',
     ),
@@ -38,7 +38,7 @@ return array (
       'description' => '',
       'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Doe de test<small class="button-line2">Duurt slechts enkele minuten</small></strong>
+								<strong>Doe nu de test<small class="button-line2">Duurt slechts enkele minuten</small></strong>
 							</a>',
       'steps' => 
       array (
@@ -55,18 +55,18 @@ return array (
         'three' => 
         array (
           'title' => 'Ontvang jouw TakeDaily',
-          'text' => 'Na bestelling worden jouw voedingssupplementen per vier weken gratis bij je bezorgd. Het pakketje past door de brievenbus, je hoeft dus niet thuis te zijn om het in ontvangst te nemen.',
+          'text' => 'Na bestelling worden jouw voedingssupplementen elke vier weken bij je bezorgd. Het pakketje past door de brievenbus, je hoeft dus niet thuis te zijn om het in ontvangst te nemen.',
         ),
       ),
     ),
     'two' => 
     array (
       'title' => 'Wil jij weten welke voedingssupplementen aansluiten bij jouw persoonlijke behoefte?<br/>TakeDaily helpt je daarbij!',
-      'body' => '<P>Naast dat je snel verdwaald in het enorme aanbod aan voedingssupplementen, is het lastig te bepalen welke voedingsstoffen je extra als aanvulling op de voeding kunt gebruiken. TakeDaily kan je een helpende hand bieden! Wij houden rekening met geslacht, leeftijd en speciale omstandigheden in jouw leven zoals zwangerschap, sport, stress-situaties en je voedingspatroon. Wij stellen jouw voedingssupplementen daar helemaal op samen zodat ze goed aansluiten op de behoefte van jouw lichaam én levensstijl.</ P>
+      'body' => '<P>Naast dat je snel verdwaalt in het enorme aanbod aan voedingssupplementen, is het lastig te bepalen welke voedingsstoffen je extra als aanvulling op de voeding kunt gebruiken. TakeDaily kan je een helpende hand bieden! Wij houden rekening met geslacht, leeftijd en speciale omstandigheden in jouw leven zoals zwangerschap, sport, stress-situaties en je voedingspatroon. Wij stellen jouw pakket voedingssupplementen daar helemaal op samen zodat ze goed aansluiten op de behoefte van jouw lichaam én levensstijl.</ P>
 <P>Jouw TakeDaily pakket ontvang je iedere vier weken via de post. Gratis bezorgd!</ P>',
       'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--white button--text-green m-t-30">
-								<strong>Doe de test<small class="button-line2">Duurt slects enkele minuten</small></strong>
+								<strong>Doe nu de test<small class="button-line2">Duurt slechts enkele minuten</small></strong>
 							</a>',
     ),
     'six' => 
@@ -79,7 +79,7 @@ return array (
           'text' => 'Als je rookt wordt er in het lichaam meer vitamine C afgebroken. Rokers hebben daarom een hogere behoefte aan vitamine C dan niet-rokers.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong> Doe de test<small class="button-line2">Duurt slechts enkele minuten</small></strong>
+								<strong> Doe nu de test<small class="button-line2">Duurt slechts enkele minuten</small></strong>
 							</a>',
         ),
         'two' => 
@@ -88,7 +88,7 @@ return array (
           'text' => 'Als vegetariër eet je geen vlees, vis of gevogelte. Een dagelijkse aanvulling van de belangrijke voedingsstoffen vitamine B12 en ijzer kan voor jou gewenst zijn.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Doe de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>
+								<strong>Doe nu de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>
 							</a>',
         ),
         'three' => 
@@ -97,7 +97,7 @@ return array (
           'text' => 'Zorg dan extra goed voor jezelf. B-vitamines kunnen bijdragen aan het verminderen van vermoeidheid. B5 kan in het bijzonder ook bijdragen aan een heldere geest.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Doe de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>
+								<strong>Doe nu de test <small class="button-line2">Duurt slechts enkele minuten</small></strong>
 							</a>',
         ),
         'four' => 
@@ -106,7 +106,7 @@ return array (
           'text' => 'Je levensstijl, voedingspatroon, leeftijd en geslacht geven inzicht in wat je lichaam ter aanvulling kan gebruiken.',
           'button' => '<a href="/flow"
 							   class="button button--rounded button--landing button--huge button--green m-t-30">
-								<strong>Doe de test<small class="button-line2">duurt slechts enkele minuten</small></strong>
+								<strong>Doe nu de test<small class="button-line2">duurt slechts enkele minuten</small></strong>
 							</a>',
         ),
       ),
@@ -114,9 +114,9 @@ return array (
   ),
   'promos' => 
   array (
-    'two' => 'Afgestemd op jouw persoonlijke behoefte',
+    'two' => 'Afgestemd op jouw behoefte',
     'one' => 'Past door de brievenbus',
-    'three' => 'Team met diëtisten en voedingsdeskundigen',
+    'three' => 'Team met diëtisten',
     'four' => 'Gratis bezorgd',
   ),
   'new_blocks' => 
@@ -138,5 +138,6 @@ return array (
       'below_image' => 'Jouw supplementen verpakt in handige dagelijkse porties',
     ),
   ),
-  'play_video' => 'Play',
+  'play_video' => 'Afspelen',
+  'page-what-is' => 'Ontdek wat TakeDaily voor jou kan betekenen?',
 );

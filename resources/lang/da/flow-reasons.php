@@ -127,6 +127,6 @@ Mom & Baby er et kosttilskud specialfremstillet til kvinder, der er gravide, ell
   ),
   '3g' => 
   array (
-    'main' => 'Chiaolie mangler beskrivelse..',
+    'main' => 'Chiafrøolie er afledt af Salvia hispanica, en plante, der tilhører mint familien. Chiafrøolien opnås ved koldpresning af frøene i Chia. Chiafrøolie er en vegetabilsk olie, der indeholder det højeste indhold af omega 3-fedtsyrer i forhold til andre vegetabilske olier.',
   ),
 );

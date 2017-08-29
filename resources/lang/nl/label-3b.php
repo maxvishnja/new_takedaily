@@ -65,6 +65,7 @@ return array (
   'above_claims' => 'I Don\'t Eat Carbs is rijk aan B-vitamines (B1, B2, B3, B6 en B11 (foliumzuur)) en bevat de mineralen jodium en ijzer. Het supplement dient ter aanvulling op de multivitamine.',
   'web_advantage_list' => '<ul>
 <li>Plantaardige capsule</li>
+<li>Glutenvrij en lactosevrij</li>
 <li>Zonder conserveermiddelen</li>
 <li>Zonder geur- en smaakstoffen</li>
 </ul>',

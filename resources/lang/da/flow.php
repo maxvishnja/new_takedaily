@@ -35,8 +35,8 @@ return array (
     ),
     '1-2' => 
     array (
-      'title' => 'Hvor gammel er du?',
-      'title-alt' => 'Vi ved det godt - man spørger ikke en kvinde om hendes alder, men vi lover, at vi ikke siger det til nogen.',
+      'title' => 'Hvad er din fødselsdato?',
+      'title-alt' => 'Vi ved det godt - man spørger ikke en kvinde om hendes alder, men vi lover, at vi ikke siger det til nogen. Vælg fødselsdato.',
       'age' => 'Din fødselsdag',
       'text' => 'Når du bliver ældre, vil din krops behov for vitaminer og mineraler ændre sig. Eksempelvis får du brug for mere D-vitamin til at holde dine knogler stærke og muskler smidige.',
       'button-text' => 'Vælg din fødselsdagsdato',
@@ -122,7 +122,7 @@ return array (
     ),
     '2-6' => 
     array (
-      'title' => 'Hvordan fungerer dit immunforsvar er i øjeblikket?',
+      'title' => 'Hvordan fungerer dit immunforsvar i øjeblikket?',
       'text' => 'De rette vitaminer kan styrke dit immunforsvar. C-vitamin er en antioxidant og vigtigt for dit
 							immunforsvar, fordi det hjælper kroppen med at producere hvide blodlegemer. Men også A- og D-vitamin er gavnlige, hvis du gerne vil
 							undgå at blive syg.',
@@ -403,7 +403,8 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
 					<br/><br/>
 					Begynder du at spise mere fedtstof, skal du huske at ændre din profil på <a href="/account" target="_blank">Mit TakeDaily</a>.
 					Så er du sikker på, at de mineraler og vitaminer vi sender til dig, indeholder lige præcis de doser, du har brug for.',
-      'g' => '<span class="icon icon-chiaoil-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>',
+      'g' => '<span class="icon icon-chiaoil-flow flow-promise-icon"></span> <div class="flow-promise-text">Selvvalgt Chiaoile</div>
+',
     ),
     'none' => 'Du har en sund livsstil og passer godt på din krop. TakeDaily giver dig det mest basale, så din krop også får, hvad den har brug
 							for de dage, hvor du slapper af og synder lidt.',
@@ -549,7 +550,7 @@ Kød er en vigtig kilde til B-vitaminer  og mineraler som zink, selen og jern. T
     array (
       'title' => 'Send anbefaling',
       'email' => 'Indtast din e-mail adresse:',
-      'send' => 'Tilmeld',
+      'send' => 'Send',
       'cancel' => 'Annuller',
       'placeholder' => 'navn@email.dk',
       'error' => 'Du skal indtaste din e-mail!',

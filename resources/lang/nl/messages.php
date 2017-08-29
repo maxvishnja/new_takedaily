@@ -16,7 +16,7 @@ return array (
     ),
     'subscription' => 
     array (
-      'snoozed' => 'De eerstevolgende levering is uitgesteld met :days dage!',
+      'snoozed' => 'Jouw volgende TakeDaily wordt verstuurd op :days',
       'not-snoozed' => 'Abonnement kan niet worden gepauzeerd!',
       'started' => 'Jouw TakeDaily abonnement is weer actief!',
       'cancelled' => 'Jouw TakeDaily abonnement is opgezegd!',

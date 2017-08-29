@@ -15,7 +15,7 @@ return array (
   '2C' => 
   array (
     'energy' => 'Vitamine B1, B2, B3, B5, B6 en B12, ijzer en magnesium ondersteunen het energieniveau',
-    'lightning' => 'Vitamine B2, B3, B5, B6 en B12, ijzer en magnesium helpen vermoeidheid en moeheid te verminderen',
+    'lightning' => 'Vitamine B2, B3, B5, B6 en B12, ijzer en magnesium helpen om vermoeidheid en moeheid te verminderen',
     'muscle' => 'Magnesium draagt bij tot een normale eiwitsynthese en helpt het normale werken van de spieren',
     'stress' => 'Vitamine B5 draagt bij aan een normale weerstand tegen stress',
   ),
@@ -71,19 +71,19 @@ return array (
   ),
   '1a' => 
   array (
-    'shield' => 'Vitamine A, B11 (Foliumzuur), C en D, seleen en zink ondersteunen de afweer van het lichaam',
+    'shield' => 'Vitamine A, B11 (Foliumzuur), C, D, seleen en zink ondersteunen de afweer van het lichaam',
     'energy' => 'Vitamine B1, B2, B3, B5, B6, B12, ijzer en jodium activeren je natuurlijke energie in het lichaam',
     'muscle' => 'Vitamine D en calcium spelen een rol bij het behouden van sterke botten en soepele spieren',
   ),
   '1b' => 
   array (
-    'shield' => 'Vitamine A, B11 (Foliumzuur), C en D, seleen en zink ondersteunen de afweer van het lichaam',
+    'shield' => 'Vitamine A, B11 (Foliumzuur), C, D, seleen en zink ondersteunen de afweer van het lichaam',
     'energy' => 'Vitamine B1, B2, B3, B5, B6, B12, ijzer en jodium activeren je natuurlijke energie in het lichaam',
     'muscle' => 'Vitamine D en calcium spelen een rol bij het behouden van sterke botten en soepele spieren',
   ),
   '1c' => 
   array (
-    'shield' => 'Vitamine A, B11 (Foliumzuur), C en D, seleen en zink ondersteunen de afweer van het lichaam',
+    'shield' => 'Vitamine A, B11 (Foliumzuur), C, D, seleen en zink ondersteunen de afweer van het lichaam',
     'energy' => 'Vitamine B1, B2, B3, B5, B6, B12, ijzer en jodium activeren je natuurlijke energie in het lichaam',
     'muscle' => 'Vitamine D en calcium spelen een rol bij het behouden van sterke botten en soepele spieren',
   ),

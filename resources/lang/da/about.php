@@ -20,7 +20,7 @@ return array (
     'marie-louise' => 
     array (
       'name' => 'Marie-Louise',
-      'job' => 'Ernæringsekspert, Prof. Bach. Ernæring & Sundhed',
+      'job' => 'Ernæringsekspert, BA i Ernæring & Sundhed, Projektleder',
     ),
     'louise' => 
     array (

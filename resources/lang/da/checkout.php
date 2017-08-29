@@ -23,12 +23,16 @@ return array (
   array (
     'page-title' => 'Din ordre blev godkendt! - TakeDaily',
     'title' => 'Din ordre er blevet oprettet!',
-    'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Vi forventer at levere din skræddersyet TakeDaily i din postkasse indenfor 4-5 hverdage. Har du købt et gavekort, vil du modtage dette i en separat mail. Tak for dit køb!',
+    'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring levering og din ordre generelt. Vi forventer at levere din skræddersyet TakeDaily i din postkasse indenfor 4-5 hverdage. Har du købt et gavekort, vil du modtage dette i en separat mail. Tak for dit køb! Tjek altid dit spamfilter. Det kan være, at din ordrebekræftelse er endt deri. Hvis dette ikke er tilfældet, kan du kontakte os om status på din ordre.',
     'button-text' => 'Gå til dit TakeDaily',
     'giftcard' => 
     array (
       'title' => 'Gavekort koden er:',
       'text' => 'Du vil indenfor 5 minutter modtage en ordrebekræftelse, med information omkring gavekortet, indløsning og din ordre generelt. Tak for dit køb!',
+    ),
+    'upsell' => 
+    array (
+      'code' => 'Kopier din rabatkode:',
     ),
   ),
   'errors' => 
@@ -53,20 +57,27 @@ return array (
         'email-placeholder' => 'lars-jensen@gmail.com',
         'address' => 
         array (
-          'street' => 'Vejnavn og nummer',
-          'street-placeholder' => 'Søndre Skovvej 123',
+          'street' => 'Vejnavn',
+          'street-placeholder' => 'Søndre Skovvej',
           'zipcode' => 'Postnummer',
           'zipcode-placeholder' => '9940',
           'city' => 'By',
           'city-placeholder' => 'Aalborg',
           'country' => 'Land',
+          'number' => 'Husnummer/Etage',
+          'number-placeholder' => '123, 4 TV.',
+          'postal' => 
+          array (
+            'error' => 'Du mangler at udfylde postnummer!',
+          ),
+          'number-error' => 'Du mangler at udfylde husnummer!',
         ),
         'optional' => 'valgfrit',
-        'is-company' => 'Evt. firmanavn',
-        'company' => 'Firmanavn',
+        'is-company' => 'Evt. c/o navn/firmanavn',
+        'company' => 'C/o Navn/Firmanavn',
         'cvr' => 'CVR',
         'cvr-placeholder' => 'DK-12345678',
-        'company-placeholder' => 'Virksomhedens navn',
+        'company-placeholder' => 'c/o Peter Eriksen',
         'password' => 'Ønsket kodeord',
         'password_confirmation' => 'Gentag kodeord',
         'password_confirmation-placeholder' => 'Gentagelse af kodeord',
@@ -119,10 +130,12 @@ return array (
         'no-method' => 'Du har ikke valgt en betalingsmetode! Prøv igen.',
       ),
     ),
+    'wait-text' => 'Vent et øjeblik',
   ),
   'fb-login' => 'Log ind med Facebook',
   'cvv-information' => 'Kontrolnummeret står typisk bag på kortet',
   'back-pick' => '‹ Gå tilbage til dine valg',
-  'terms-agree' => 'Ved at klikke "Bestil nu" accepterer du vores <a href="/page/terms">handelsbetingelser</a> samt bekræfter, at du er over 18.',
+  'terms-agree' => 'Ved at klikke "Bestil nu" accepterer du vores <a class="terms" href="/page/terms">handelsbetingelser</a> samt bekræfter, at du er over 18 år.',
   'facebook_disclaimer' => '(Vi slår ingenting op på din Facebook profil)',
+  'success-upsell' => 'Kopier din rabatkode:',
 );

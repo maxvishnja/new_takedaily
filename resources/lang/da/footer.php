@@ -30,5 +30,5 @@ return array (
   'links' => '<li class="hidden-sm hidden-md"><a href="/about-us">Om TakeDaily</a></li>
 					<li><a href="/faq">FAQ</a></li>
 					<li><a href="/use-giftcard">Indløs gavekort</a></li>
-					<li><a href="/page/terms">Handelsbetingelser</a></li>',
+					<li><a class="terms" href="/page/terms">Handelsbetingelser</a></li>',
 );

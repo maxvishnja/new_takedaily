@@ -21,7 +21,7 @@ return array (
     'three' => 
     array (
       'title' => 'Contact',
-      'text' => 'Heb je vragen of behoefte aan extra informatie? Ons team staat voor jou klaar om telefonisch of per e-mail jouw vragen te beantwoorden. Wij zijn geopend op werkdagen van 09:00-17:00 uur.',
+      'text' => 'Heb je vragen of behoefte aan extra informatie? Ons team staat voor jou klaar om telefonisch of per e-mail jouw vragen te beantwoorden. Wij zijn op werkdagen geopend van 09:00-17:00 uur.',
       'info' => 'Bel: 020-2382580<br/><a href="mailto:info@takedaily.nl">Email: info@takedaily.nl</a>',
     ),
   ),
@@ -30,5 +30,5 @@ return array (
   'links' => '<li class="hidden-sm hidden-md"><a href="/about-us">Over TakeDaily</a></li>
 					<li><a href="/faq">FAQ</a></li>
 					<li class="hidden-sm hidden-md"><a href="/use-giftcard">Verzilver cadeaubon</a></li>
-					<li><a href="/page/terms">Algemene voorwaarden</a></li>',
+					<li><a  class="terms"  href="/page/terms">Algemene voorwaarden</a></li>',
 );
