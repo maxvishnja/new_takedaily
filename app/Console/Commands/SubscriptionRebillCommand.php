@@ -38,7 +38,7 @@ class SubscriptionRebillCommand extends Command
 	 */
 	public function handle()
 	{
-		if(\Date::now(config('app.timezone')) > \Date::parse(date("Y-m-d 14:01:00"))) {
+//		if(\Date::now(config('app.timezone')) > \Date::parse(date("Y-m-d 14:01:00"))) {
 
 			$repo = new CustomerRepository();
 
@@ -73,5 +73,5 @@ class SubscriptionRebillCommand extends Command
 
 			}
 		}
-	}
+	//}
 }
