@@ -34,7 +34,7 @@ class OrderCreateCustomer
 		} catch (\Exception $exception) {
 
 			\Log::error($exception->getFile() . " on line " . $exception->getLine());
-			
+
 			\Log::error($exception->getTraceAsString());
 
 		}
