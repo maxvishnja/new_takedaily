@@ -698,7 +698,7 @@
 			$.ajax({
 				url: '{{ URL::action('CheckoutController@setAlmostCustomer') }}',
 				method: 'POST',
-				data: {email: $(this).val(), location: '{{App::getLocale()}}'},
+				data: {email: $(this).val(), location: '{{App::getLocale()}}', name: $('#input_info_f_name').val()},
 				headers: {
 					'X-CSRF-TOKEN': $("#coupon-form").find('[name="_token"]').val()
 				},
