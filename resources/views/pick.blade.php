@@ -219,7 +219,7 @@
 			el: '#app',
 			data: {
 				show_popup: false,
-				maxVitamins: 3,
+				maxVitamins: 4,
 				minVitamins: 2,
 				group:{
 						multi : '',
