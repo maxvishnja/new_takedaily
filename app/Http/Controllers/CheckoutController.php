@@ -455,12 +455,18 @@ class CheckoutController extends Controller
         if ($request->isMethod('get')){
             return \Response::json(['message' => 'Bad method!'], 400);
         }
+        if($request->get('name')!=''){
+            $name = $request->get('name');
+        } else{
+            $name = trans('checkout.almost_name');
+        }
         $user = User::whereEmail($request->get('email'))->count();
         $customer = AlmostCustomers::where('email', '=', $request->get('email'))->count();
         if($user == 0 and $customer == 0){
             $almost = new AlmostCustomers();
             $almost->email = $request->get('email');
             $almost->location = $request->get('location');
+            $almost->name = $name;
             $almost->save();
         }
         return 'Success';
