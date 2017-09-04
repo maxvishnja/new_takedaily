@@ -53,6 +53,7 @@ elixir(function (mix) {
 		'/vendor/tooltip.min.js',
 		'/vendor/clipboard.min.js',
 		'/vendor/he.js',
+		'/vendor/jquery.history.js',
 		'/app.js'
 	], 'public/js/app.js');
 

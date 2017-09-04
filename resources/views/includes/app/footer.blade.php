@@ -135,6 +135,8 @@
 <script src="/js/placeholders.min.js"></script>
 <![endif]-->
 <script>
+
+
     $(function () {
         $('.kn_3').liKnopik();
         $('.kn_2').liKnopik({

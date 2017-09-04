@@ -60,7 +60,7 @@
 		</script>
 	@endif
 
-	<div class="container m-t-20">
+	<div class="container m-t-20 checkout-step-back">
 		@if(Request::session()->has('flow-completion-token'))
 			<a href="{{ url()->route('flow',['token' => Request::session()->get('flow-completion-token') ]) }}">{{ trans('checkout.back') }}</a>
 		@endif
@@ -712,6 +712,24 @@
 	<script src="{{ asset('js/validation_messages_' . App::getLocale() . '.js') }}"></script>
 
 	<script>
+		history.pushState(null, null, 'checkout');
+
+		window.onload=function(){
+			window.setTimeout(
+					function()
+					{
+						window.addEventListener(
+								"popstate",
+								function(e) {
+									var years=confirm('Are you sure you want to leave the page?',"");
+									if(years){
+										window.history.back();
+									}
+								}
+						);
+					},
+					1);
+		}
 
 		$("#checkout-form").validate({
 			errorClass: 'input--error label--error',
