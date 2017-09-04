@@ -205,7 +205,6 @@
 			},
 
 			nextStep: function (saveState) {
-
 				saveState = saveState !== undefined ? saveState : true;
 
 				if(app.user_data.birthdate == null){
@@ -572,6 +571,30 @@
 
 		$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
 	});
+
+
+	var History = window.History;
+	if ( !History.enabled ) {
+		console.log('History not enabled');
+	}
+	history.pushState(null, null, 'flow');
+
+	window.onload=function(){
+		window.setTimeout(
+				function()
+				{
+					window.addEventListener(
+							"popstate",
+							function(e) {
+								var years=confirm('Are you sure you want to leave the page?',"");
+								if(years){
+									window.history.back();
+								}
+							}
+					);
+				},
+				1);
+	}
 
 	function forceUpdateAndSubmit() {
 

@@ -42,7 +42,6 @@
 		})(window,document,'script','dataLayer','GTM-T6BSGJG');</script>
 	<!-- End Google Tag Manager -->
 
-
 </head>
 
 <body class="@yield('pageClass', 'index')">
