@@ -458,7 +458,7 @@ class CheckoutController extends Controller
         if($request->get('name')!=''){
             $name = $request->get('name');
         } else{
-            $name = trans('checkout.almost_name');
+            $name = '';
         }
         $user = User::whereEmail($request->get('email'))->count();
         $customer = AlmostCustomers::where('email', '=', $request->get('email'))->count();

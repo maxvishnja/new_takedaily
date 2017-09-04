@@ -42,6 +42,7 @@ class AlmostCustomersController extends Controller
 
             $mailEmail = $almost->email;
             $mailName = 'TakeDaily';
+            $name = $almost->name;
 
             if ($almost->location == 'nl') {
 
@@ -58,7 +59,7 @@ class AlmostCustomersController extends Controller
             $newalmost->sent = 1;
             $newalmost->save();
 
-            \Mail::queue('emails.almost-customers', ['locale' => $almost->location], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
+            \Mail::queue('emails.almost-customers', ['locale' => $almost->location, 'name' => $name], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
                 $message->from($fromEmail, 'TakeDaily');
                 $message->to($mailEmail, $mailName);
                 $message->subject(trans('mails.almost-subject'));
@@ -79,6 +80,7 @@ class AlmostCustomersController extends Controller
 
             $mailEmail = $almost->email;
             $mailName = 'TakeDaily';
+            $name = $almost->name;
 
             if ($almost->location == 'nl') {
 
@@ -92,7 +94,7 @@ class AlmostCustomersController extends Controller
             $almost->sent = 1;
             $almost->save();
 
-            \Mail::queue('emails.almost-customers', ['locale' => $almost->location], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
+            \Mail::queue('emails.almost-customers', ['locale' => $almost->location, 'name' => $name], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
                 $message->from($fromEmail, 'TakeDaily');
                 $message->to($mailEmail, $mailName);
                 $message->subject(trans('mails.almost-subject'));
