@@ -6,6 +6,6 @@
 @section('content')
 
     <p>
-    {!! trans('mails.almost-text') !!}
+        {!! str_replace('{name}', $name, nl2br(trans('mails.almost-text'))) !!}
 </p>
 @endsection
