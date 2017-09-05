@@ -291,7 +291,9 @@ class CustomerController extends Controller
 			return \Redirect::back()->withErrors("Kunden (#{$data['id']}) kunne ikke findes!");
 		}
 
-		if( ! $customer->cancelSubscription(true, $data['reason']) )
+		$reason = "(from Dashboard) ".$data['reason'];
+
+		if( ! $customer->cancelSubscription(true, $reason) )
 		{
 			return \Redirect::action('Dashboard\CustomerController@show', [ $data['id'] ])->withErrors('Kundens abonnent kunne ikke opsiges, fordi det allerede er opsagt.');
 		}
