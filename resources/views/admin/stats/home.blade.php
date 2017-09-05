@@ -39,6 +39,7 @@
                             <td></td>
                             <td></td>
 
+                            <td>0</td>
                             <td>1</td>
                             <td>2</td>
                             <td>3</td>
@@ -59,7 +60,8 @@
                                 <tr>
                                     <td>{{$month}} 2017</td>
                                     <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
-                                    @foreach(range(01,12) as $y)
+                                    <td>100%</td>
+                                    @foreach(range($key,12) as $y)
                                         <td>
                                             @if($y >= $key and $y <= (int)date('m') )
                                                {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y)) }}%
@@ -76,10 +78,10 @@
                             <td></td>
                         </tr>
                         @foreach(range(0,date('W')-1) as $week)
-
                             <tr>
                                 <td>Week {{$week+1}} 2017</td>
                                 <td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>
+                                <td>100%</td>
                                 @foreach(range(01,12) as $y)
                                     <td>
                                         @if($week * 7 <= $y*30 and $y <= (int)date('m'))
@@ -88,7 +90,6 @@
                                     </td>
                                 @endforeach
                             </tr>
-
                         @endforeach
                         </tbody>
 
@@ -100,7 +101,7 @@
                 <div class="module-body table">
                     <form class="stat-form" method="POST">
                         <table cellpadding="0" cellspacing="0" border="0"
-                               class="datatable-1 table table-bordered table-striped	display" width="100%">
+                           class="datatable-1 table table-bordered table-striped display" width="100%">
                             <thead>
                             <tr>
                                 <td>Please choose category</td>
