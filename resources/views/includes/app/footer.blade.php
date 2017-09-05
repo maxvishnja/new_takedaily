@@ -417,7 +417,7 @@
         });
     </script>
     @if(App::environment() != 'local')
-            
+
     @yield('tracking-scripts')
     @endif
     </body>

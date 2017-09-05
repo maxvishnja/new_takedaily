@@ -207,7 +207,29 @@
                             </tbody>
                         </table>
                     </form>
+                    <br/>
+                    <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportDateCoupon') }}"
+                          method="POST">
+                        {{ csrf_field() }}
+                        <table cellpadding="0" cellspacing="0" border="0"
+                               class="datatable-1 table table-bordered table-striped	display" width="100%">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <h5>Please choose title of coupon</h5>
+                                </td>
+                                <td class="visib">
+                                    <input type="text" value="" name="coupon" class="form-control"
+                                            placeholder="ex. GOODIEBOX">
+                                </td>
 
+                                <td>
+                                    <button style="float: right" class="btn btn-success">Download CSV</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
 
                     <br/>
                     <form class="reason-form" action="" method="POST">

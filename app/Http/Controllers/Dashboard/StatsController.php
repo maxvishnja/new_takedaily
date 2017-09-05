@@ -179,6 +179,52 @@ class StatsController extends Controller
     }
 
 
+    function exportDateCoupon (Request $request){
+
+        $data = $request->all();
+         if ($data) {
+
+                $orders = Order::where('coupon','=',$data['coupon'])->get();
+
+             if(count($orders) > 1){
+                 $email_array = [];
+                 $i = 0;
+                        foreach ($orders as $order) {
+
+                                    $email_array[$i]['First Name'] = $order->customer->getFirstName();
+                                    $email_array[$i]['Last Name'] = $order->customer->getLastName();
+                                    $email_array[$i]['Email Address'] = $order->customer->getEmail();
+                                    $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $order->customer->created_at)->format('d/m/Y H:i');
+                                    $i++;
+
+
+                        }
+
+
+                 \Excel::create('users_coupon', function ($excel) use ($email_array) {
+
+                     $excel->sheet('All users with coupon', function ($sheet) use ($email_array) {
+
+                         $sheet->fromArray($email_array, null, 'A1', true);
+
+                     });
+
+                 })->download('xls');
+                 return \Redirect::back();
+
+
+             }
+
+             return \Redirect::back()->withErrors("No items!");
+
+         }
+
+        return \Redirect::back()->withErrors("No data!");
+
+
+    }
+
+
 
 
     /**
