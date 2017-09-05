@@ -219,8 +219,12 @@
                                     <h5>Please choose title of coupon</h5>
                                 </td>
                                 <td class="visib">
-                                    <input type="text" value="" name="coupon" class="form-control"
-                                            placeholder="ex. GOODIEBOX">
+
+                                    <select name="coupon" id="input_state" >
+                                      @foreach ($active_coupon as $coupon)
+                                          <option value="{{$coupon->code}}">{{$coupon->code}}</option>
+                                      @endforeach
+                                    </select>
                                 </td>
 
                                 <td>

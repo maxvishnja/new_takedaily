@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Apricot\Repositories\CustomerRepository;
+use App\Coupon;
 use App\Customer;
 use App\Http\Controllers\Controller;
 use App\Order;
@@ -23,9 +24,11 @@ class StatsController extends Controller
     function index()
     {
         $active_user = $this->repo->allActive();
+        $active_coupon = Coupon::orderBy( 'created_at', 'DESC' )->where( 'valid_to', '>=', date( 'Y-m-d' ) )->where('description','!=','Upsell discount')->get();
 
         return view('admin.stats.home', [
             'active_user' => $active_user,
+            'active_coupon' => $active_coupon,
         ]);
     }
 
