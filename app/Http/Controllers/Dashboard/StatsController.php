@@ -89,6 +89,18 @@ class StatsController extends Controller
                     $email_array[$i]['Last Name'] = $customer->getLastName();
                     $email_array[$i]['Phone'] = $customer->getPhone();
                     $email_array[$i]['Email Address'] = $customer->getEmail();
+                    if($customer->getGender() == 1){
+                        $email_array[$i]['Gender'] = 'female';
+                    } else{
+                        $email_array[$i]['Gender'] = 'male';
+                    }
+
+
+                    $email_array[$i]['Birth'] = $customer->getBirthday();
+                    $email_array[$i]['Signup date'] = $customer->created_at;
+                    $email_array[$i]['Next payment date'] = $customer->plan->subscription_rebill_at;
+                    $email_array[$i]['Voucher used'] = $customer->plan->getLastCoupon();
+                    $email_array[$i]['Amount of payments'] = ($customer->order_count * $customer->plan->price/100)." ".$customer->plan->currency;
                     $i++;
                 }
 
