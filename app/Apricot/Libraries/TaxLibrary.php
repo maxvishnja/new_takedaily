@@ -26,6 +26,7 @@ class TaxLibrary
 
 			case 'nederland':
 			case 'nederlands':
+			case 'Holland':
 			case 'dutch':
 			case 'nl':
 				return 'netherlands';
