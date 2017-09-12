@@ -11,10 +11,12 @@ use App\Coupon;
 use App\Giftcard;
 use App\Http\Requests\CheckoutRequest;
 use App\Jobs\GiftcardWasOrdered;
+use App\Marketing;
 use App\Product;
 use App\Setting;
 use App\User;
 use Illuminate\Http\Request;
+
 
 class CheckoutController extends Controller
 {
@@ -23,6 +25,7 @@ class CheckoutController extends Controller
     }
     function getCheckout(Request $request)
     {
+
 
         if (!Cart::exists()) {
             return \Redirect::back()->withErrors([trans('checkout.errors.no-cart-session')]);
@@ -370,13 +373,16 @@ class CheckoutController extends Controller
             if ($checkout->getProduct()->isSubscription()) {
                 $code = str_random(8);
                 $newcoupon = \App\Coupon::newUpsellCoupon($code);
-                return \Redirect::action('CheckoutController@getSuccess')
-                    ->with(['order_created' => true, 'upsell' => true, 'code' => $code]);
+
+                return \Redirect::action('CheckoutController@getSuccess')->with(['order_created' => true, 'upsell' => true, 'code' => $code]);
             }
             // Considering that theres only two products: subscription and giftcard, we can conclude that this is a giftcard.
             $this->dispatch(new GiftcardWasOrdered($checkoutCompletion->getGiftcard(), $checkoutCompletion->getUser()->getCustomer()));
+
+
             return \Redirect::action('CheckoutController@getSuccessNonSubscription', ['token' => $checkoutCompletion->getGiftcard()->token])
                 ->with(['order_created' => true]);
+
         } catch (\Exception $exception) {
             \Log::error("Method error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
         }
@@ -391,10 +397,29 @@ class CheckoutController extends Controller
         if (!$request->session()->has('order_created')) {
             return \Redirect::route('home');
         }
+
         $code = '';
         if ($request->session()->has('code')) {
             $code = $request->session()->get('code');
         }
+
+        if(\Cookie::get('utm_source') != null){
+
+            $marketing = new Marketing();
+
+            $marketing->customer_id = \Auth::user()->getCustomer()->id;
+            $marketing->source = \Cookie::get('utm_source');
+            $marketing->medium = \Cookie::get('utm_medium');
+            $marketing->campaign = \Cookie::get('utm_campaign');
+
+            $ga = explode('GA1.2.',$_COOKIE['_ga']);
+
+
+            $marketing->clientId = $ga['1'];
+
+            $marketing->save();
+        }
+
         $vitamins = \Auth::user()->getCustomer()->getVitaminModels();
         $plans = \Auth::user()->getCustomer()->getOrders();
         $email = \Auth::user()->email;

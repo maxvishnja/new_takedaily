@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Cookie;
 
 class SetLocale
 {
@@ -50,6 +51,21 @@ class SetLocale
 		{
 			$locale = $domainEndings[ $locale ];
 		}
+
+		if(isset($_GET['utm_source'])){
+			Cookie::queue('utm_source', urlencode($_GET['utm_source']), 30);
+		}
+
+		if(isset($_GET['utm_medium'])){
+			Cookie::queue('utm_medium', $_GET['utm_medium'], 30);
+		}
+
+		if(isset($_GET['utm_campaign'])){
+			Cookie::queue('utm_campaign', $_GET['utm_campaign'], 30);
+		}
+
+
+
 
 		\App::setLocale( $locale );
 

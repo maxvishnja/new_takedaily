@@ -11,6 +11,8 @@ use App\Events\CustomerWasBilled;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Jenssegers\Date\Date;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 /**
  * Class Customer
@@ -110,12 +112,28 @@ class Customer extends Model
         return $this->hasMany('App\Notes', 'customer_id', 'id');
     }
 
+
+
+    public function marketing()
+    {
+        return $this->hasMany('App\Marketing', 'customer_id', 'id');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function customerAttributes()
     {
         return $this->hasMany('App\CustomerAttribute', 'customer_id', 'id');
+    }
+
+
+
+
+
+    public function getMarketing()
+    {
+        return $this->marketing;
     }
 
     /**
@@ -360,6 +378,41 @@ class Customer extends Model
 
         if (!$this->charge(MoneyLibrary::toCents($amount) ?: $this->getSubscriptionPrice(), true, 'subscription', '', null, $order_plan )) {
             return false;
+        }
+
+        if(count($this->getMarketing()) > 0){
+
+            $client = new Client;
+            foreach ($this->getMarketing() as $market){
+
+                $response = $client->post(
+                    'https://www.google-analytics.com/collect',
+                    [
+                        'form_params' => [
+                            'v' => 1,
+                            'tid' => 'UA-88694785-1',
+                            'cid' => $market->clientId,
+                            'cd1' => $market->clientId,
+                            't' => 'event',
+                            'ni' => 1,
+                            'cs' => $market->source,
+                            'cm' => $market->medium,
+                            'cn' => $market->campaign,
+                            'pa' => 'purchase',
+                            'ec' => 'ecommerce',
+                            'ea' => 'purchase',
+                            'z' =>  rand(),
+                            'ti' => $this->getOrders()->last()->id,
+                            'tr' => $this->getPlan()->getPrice()/100,
+                            'pr1id' => 'subscription',
+                            'pr1nm' => 'subscription',
+                            'pr1pr' => $this->getPlan()->getPrice()/100
+
+                        ]
+                    ]
+                );
+
+            }
         }
 
         $this->getPlan()->rebilled();

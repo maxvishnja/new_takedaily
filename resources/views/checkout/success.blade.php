@@ -140,6 +140,51 @@
             window.open('https://www.facebook.com/dialog/share?%20app_id={{ env('FACEBOOK_APP_ID') }}&&href='+shareUrl+'flow&display=iframe&quote='+shareText+'', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight)
         }
 
+        @if(\Cookie::get('utm_source')!=null)
+
+                dataLayer.push({
+                    'event': 'p_source',
+                    'source': '{!! \Cookie::get('utm_source') !!}',    //source from cookie first_source
+                    'medium': '{!! \Cookie::get('utm_medium') !!}',      //medium from cookie first_source
+                    'campaign': '{!! \Cookie::get('utm_campaign') !!}'   //campaign from cookie first_source
+                    });
+
+                dataLayer.push({
+                    "event": "purchase",
+                    "ecommerce": {
+                        "purchase": {
+                            "actionField": {
+                                "id": "{{$order_id}}", //transaction ID
+                                "affiliation": "Online Store",     //affiliate store
+                                "revenue": '{{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }}',                       //revenue
+                                "tax": '{{ Auth::user()->getCustomer()->getPlan()->getPrice()/100 }}',                                //tax
+                                "shipping": '{{ Auth::user()->getCustomer()->getPlan()->getShippingPrice()/100 }}',                         //shipping
+                                "coupon": '{{ Auth::user()->getCustomer()->getPlan()->getLastCoupon() }}'         // If user added a coupon code at checkout.
+                            },
+                            "products": [{
+                                "id": "subscription",                   //ID product
+                                "name": "subscription",   //product name
+                                "price": "{{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }}",              //price
+                                "category": "Pills",        //category
+                                "variant": "full",              //variant
+                                "quantity": 1                  //quantity, example: 2
+                            }]
+                        }
+                    }
+                });
+
+        @endif
+
+
+
+
+
+
+
+
+
+
+
     </script>
 @endsection
 
