@@ -83,7 +83,7 @@ class StatsController extends Controller
         $email_array = [];
         $i = 0;
         foreach ($customers as $customer) {
-            if ($customer->isSubscribed()) {
+
                 if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
                     $email_array[$i]['First Name'] = $customer->getFirstName();
                     $email_array[$i]['Last Name'] = $customer->getLastName();
@@ -95,6 +95,11 @@ class StatsController extends Controller
                         $email_array[$i]['Gender'] = 'male';
                     }
 
+                    if($customer->isSubscribed()){
+                        $email_array[$i]['Active'] = "Active";
+                    } else{
+                        $email_array[$i]['Active'] = "Not active";
+                    }
 
                     $email_array[$i]['Birth'] = $customer->getBirthday();
                     $email_array[$i]['Signup date'] = $customer->created_at;
@@ -104,7 +109,7 @@ class StatsController extends Controller
                     $i++;
                 }
 
-            }
+
         }
 
         \Excel::create('all_active_mails_'.$data['lang'], function ($excel) use ($email_array) {
