@@ -144,7 +144,7 @@
                         <tbody>
                         <tr>
                             <td>
-                                <h5>All aktive kunder</h5>
+                                <h5>All customers</h5>
                             </td>
 
                             <td style="width:50%; text-align: center">
