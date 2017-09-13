@@ -85,27 +85,31 @@ class StatsController extends Controller
         foreach ($customers as $customer) {
 
                 if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
-                    $email_array[$i]['First Name'] = $customer->getFirstName();
-                    $email_array[$i]['Last Name'] = $customer->getLastName();
+                    $email_array[$i]['Email'] = $customer->getEmail();
+                    $email_array[$i]['Firstname'] = $customer->getFirstName();
+                    $email_array[$i]['Lastname'] = $customer->getLastName();
                     $email_array[$i]['Phone'] = $customer->getPhone();
-                    $email_array[$i]['Email Address'] = $customer->getEmail();
-                    if($customer->getGender() == 1){
-                        $email_array[$i]['Gender'] = 'female';
-                    } else{
-                        $email_array[$i]['Gender'] = 'male';
-                    }
 
-                    if($customer->isSubscribed()){
-                        $email_array[$i]['Active'] = "Active";
-                    } else{
-                        $email_array[$i]['Active'] = "Not active";
+                    if ($customer->getGender() == 1) {
+                        $email_array[$i]['Gender'] = 'male';
+                    } else {
+                        $email_array[$i]['Gender'] = 'female';
                     }
 
                     $email_array[$i]['Birth'] = $customer->getBirthday();
-                    $email_array[$i]['Signup date'] = $customer->created_at;
-                    $email_array[$i]['Next payment date'] = $customer->plan->subscription_rebill_at;
-                    $email_array[$i]['Voucher used'] = $customer->plan->getLastCoupon();
-                    $email_array[$i]['Amount of payments'] = ($customer->order_count * $customer->plan->price/100)." ".$customer->plan->currency;
+
+                    if ($customer->isSubscribed()) {
+                        $email_array[$i]['Active'] = "Active";
+                    } else {
+                        $email_array[$i]['Active'] = "Not active";
+                    }
+
+                    $email_array[$i]['Signupdate'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
+                    if ($customer->plan->subscription_rebill_at != null){
+                        $email_array[$i]['Nextpayment'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d-m-Y');
+                     }
+                    $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
+                    $email_array[$i]['Amount'] = $customer->order_count;
                     $i++;
                 }
 
