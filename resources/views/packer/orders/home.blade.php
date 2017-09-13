@@ -14,9 +14,9 @@
 						<a target="_blank" href="{{ url()->action('Packer\OrderController@printAll') }}" type="button" class="btn btn-primary">
 							Print all
 						</a>
-						<a href="{{ url()->action('Packer\OrderController@shipAll') }}" type="button" class="btn btn-default">
-							Mark all as shipped
-						</a>
+						{{--<a href="{{ url()->action('Packer\OrderController@shipAll') }}" type="button" class="btn btn-default">--}}
+							{{--Mark all as shipped--}}
+						{{--</a>--}}
 					</div>
 				</div>
 

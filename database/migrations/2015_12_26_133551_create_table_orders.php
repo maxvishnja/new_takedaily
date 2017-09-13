@@ -17,7 +17,7 @@ class CreateTableOrders extends Migration
 			$table->increments('id');
 			$table->integer('customer_id')->index()->unsigned();
 			$table->string('reference', 16);
-			$table->enum('state', [ 'new', 'paid', 'sent', 'completed', 'cancelled' ]);
+			$table->enum('state', [ 'new', 'paid', 'sent', 'printed', 'completed', 'cancelled' ]);
 			$table->integer('total')->default(0);
 			$table->integer('sub_total')->default(0);
 			$table->integer('total_shipping')->default(0);

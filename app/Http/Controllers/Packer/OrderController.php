@@ -36,6 +36,18 @@ class OrderController extends Controller
 		] );
 	}
 
+
+
+	function printed()
+	{
+		$orders = $this->repo->getPrinted()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
+
+		return view( 'packer.orders.printed', [
+			'orders' => $orders
+		] );
+	}
+
+
 	function show( $id )
 	{
 		$order = Order::find( $id );
@@ -61,7 +73,7 @@ class OrderController extends Controller
 
 	function shipAll()
 	{
-		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->shippable()->get();
+		$printableOrders = $this->repo->getPrinted()->orderBy( 'created_at', 'DESC' )->shippable()->get();
 
 		/** @var Order $order */
 		foreach($printableOrders as $order)
@@ -120,6 +132,8 @@ class OrderController extends Controller
 
 		foreach ( Order::whereIn( 'id', $ids )->get() as $order )
 		{
+			$order->markPrint();
+
 			$printables[] = [
 				'label'   => $order->loadLabel(),
 				'sticker' => $order->loadSticker(),
