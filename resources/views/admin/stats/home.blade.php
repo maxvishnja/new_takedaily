@@ -222,6 +222,7 @@
                                 <td class="visib">
 
                                     <select name="coupon" id="input_state" >
+                                        <option value="1">Free order</option>
                                       @foreach ($active_coupon as $coupon)
                                           <option value="{{$coupon->code}}">{{$coupon->code}}</option>
                                       @endforeach

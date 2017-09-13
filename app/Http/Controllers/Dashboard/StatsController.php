@@ -220,9 +220,17 @@ class StatsController extends Controller
         $data = $request->all();
          if ($data) {
 
-                $orders = Order::where('coupon','=',$data['coupon'])->get();
+             if($data['coupon'] == 1){
 
-             if(count($orders) > 1){
+                 $orders = Order::where('repeat','=',$data['coupon'])->get();
+
+             } else{
+                 $orders = Order::where('coupon','=',$data['coupon'])->get();
+             }
+
+
+
+             if(count($orders) > 0){
                  $email_array = [];
                  $i = 0;
                         foreach ($orders as $order) {
