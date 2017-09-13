@@ -110,7 +110,9 @@ class StatsController extends Controller
                      }
                     $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
                     $email_array[$i]['Amount'] = $customer->order_count;
-
+                    $email_array[$i]['Source'] = '';
+                    $email_array[$i]['Medium'] = '';
+                    $email_array[$i]['Campaign'] = '';
 
                     if(count($customer->getMarketing()) > 0){
                         foreach ($customer->getMarketing() as $market) {
