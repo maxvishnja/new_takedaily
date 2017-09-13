@@ -182,6 +182,46 @@ class Order extends Model
 		return $query->whereBetween( 'created_at', [ Date::today()->setTime( 0, 0, 0 ), Date::today()->setTime( 23, 59, 59 ) ] );
 	}
 
+
+
+	public function markPrint()
+	{
+
+
+		$this->state = 'printed';
+		$this->save();
+
+		if ( $this->customer )
+		{
+
+			$receiverName  = $this->customer->getName();
+			$receiverEmail = $this->customer->getEmail();
+			$locale = \App::getLocale();
+//
+			\App::setLocale( $this->customer->getLocale() );
+			if($locale == 'nl') {
+				$fromEmail = 'info@takedaily.nl';
+			} else{
+				$fromEmail = 'info@takedaily.dk';
+			}
+			\Mail::send( 'emails.order-print', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
+			{
+				$message->from( $fromEmail, 'TakeDaily' );
+				$message->to( $receiverEmail, $receiverName );
+				$message->subject( trans( 'mails.order-print.subject' ) );
+			} );
+
+			\App::setLocale($locale);
+
+		}
+
+		return true;
+	}
+
+
+
+
+
 	public function markSent()
 	{
 

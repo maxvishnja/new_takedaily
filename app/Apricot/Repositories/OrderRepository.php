@@ -29,6 +29,12 @@ class OrderRepository
 		return Order::where('state', 'sent');
 	}
 
+	public function getPrinted()
+	{
+		return Order::where('state', 'printed');
+	}
+
+
 	public function getToday()
 	{
 		return Order::today();
