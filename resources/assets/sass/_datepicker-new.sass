@@ -680,7 +680,6 @@ fieldset[disabled] .datepicker table tr td span.active
 	&.dropdown-menu
 		position: absolute
 		top: 100%
-		left: 0!important
 		z-index: 1000
 		display: none
 		float: left
@@ -707,3 +706,8 @@ fieldset[disabled] .datepicker table tr td span.active
 			padding: 0 5px
 		td:not(.disabled)
 			font-size: 16px
+
+@media all and (max-width: 768px)
+	.datepicker
+		&.dropdown-menu
+			left: 0!important
