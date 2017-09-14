@@ -191,29 +191,29 @@ class Order extends Model
 		$this->state = 'printed';
 		$this->save();
 
-		if ( $this->customer )
-		{
-
-			$receiverName  = $this->customer->getName();
-			$receiverEmail = $this->customer->getEmail();
-			$locale = \App::getLocale();
+//		if ( $this->customer )
+//		{
 //
-			\App::setLocale( $this->customer->getLocale() );
-			if($locale == 'nl') {
-				$fromEmail = 'info@takedaily.nl';
-			} else{
-				$fromEmail = 'info@takedaily.dk';
-			}
-			\Mail::send( 'emails.order-print', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
-			{
-				$message->from( $fromEmail, 'TakeDaily' );
-				$message->to( $receiverEmail, $receiverName );
-				$message->subject( trans( 'mails.order-print.subject' ) );
-			} );
-
-			\App::setLocale($locale);
-
-		}
+//			$receiverName  = $this->customer->getName();
+//			$receiverEmail = $this->customer->getEmail();
+//			$locale = \App::getLocale();
+//
+//			\App::setLocale( $this->customer->getLocale() );
+//			if($locale == 'nl') {
+//				$fromEmail = 'info@takedaily.nl';
+//			} else{
+//				$fromEmail = 'info@takedaily.dk';
+//			}
+//			\Mail::send( 'emails.order-print', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
+//			{
+//				$message->from( $fromEmail, 'TakeDaily' );
+//				$message->to( $receiverEmail, $receiverName );
+//				$message->subject( trans( 'mails.order-print.subject' ) );
+//			} );
+//
+//			\App::setLocale($locale);
+//
+//		}
 
 		return true;
 	}
