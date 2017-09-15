@@ -222,17 +222,19 @@
 		jQuery(function ($) {
 			$("#checkout-form").submit(function (event) {
 				if (usesStripe) {
+
+					var $form = $(this);
+
+					if (!validateFormInput($form)) {
+						return false;
+					}
+
 					swal({
 						title: he.decode("{{ trans('checkout.index.wait-text') }}"),
 						showCancelButton: false,
 						showConfirmButton: false,
 						imageUrl: "/images/35.gif"
 					});
-					var $form = $(this);
-
-					if (!validateFormInput($form)) {
-						return false;
-					}
 
 					// Disable the submit button to prevent repeated clicks
 					$form.find('button#button-submit').prop('disabled', true);
