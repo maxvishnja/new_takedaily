@@ -175,6 +175,19 @@
 
 									<div class="col-md-6">
 										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+										<label class="label label--full checkout--label" for="input_info_email">{{ trans('checkout.index.order.info.repeat-email') }}
+											<span class="required">*</span></label>
+										<input type="email" class="input input--medium input--semibold input--full @if($errors->has('repeat-email')) input--error @endif"
+											   id="input_info_repeat_email"
+											   data-validate="false" placeholder="{{ trans('checkout.index.order.info.email-placeholder') }}" name="repeat-email" required="required"
+											   aria-required="false"/>
+										<label id="input_info_repeat_email-error" class="input--error label--error" for="input_info_repeat_email"></label>
+									</div>
+								</div>
+
+								<div class="row m-b-50 m-sm-b-20">
+									<div class="col-md-6">
+										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 										<label class="label label--full checkout--label" for="input_info_password">{{ trans('checkout.index.order.info.password') }}
 											<span class="required">*</span></label>
 										<input type="password" class="input input--medium input--semibold input--full @if($errors->has('password')) input--error @endif"
@@ -182,9 +195,6 @@
 											   data-validate="true" placeholder="{{ App::getLocale() != 'nl' ? trans('checkout.index.order.info.password-placeholder') : '' }}" name="password" required="required"
 											   aria-required="true"/>
 									</div>
-								</div>
-
-								<div class="row m-b-50 m-sm-b-20">
 									<div class="col-md-6">
 										<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone') }}</label>
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif"
@@ -192,6 +202,9 @@
 											   placeholder="{{ trans('checkout.index.order.info.phone-placeholder') }}" name="phone"
 											   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
 									</div>
+
+
+
 								</div>
 
 								<div class="row">
@@ -694,7 +707,29 @@
 					}
 				});
 		@endif
+
+
+		function validateEmail(){
+
+			if($("#input_info_email").val() != $("#input_info_repeat_email").val()) {
+				console.log($("#input_info_repeat_email").val());
+				$('#input_info_repeat_email').addClass('input--error label--error');
+				$('#input_info_repeat_email-error').html('{{trans('checkout.index.order.info.email-check')}}').show();
+			} else {
+				$('#input_info_repeat_email').removeClass('input--error label--error');
+				$('#input_info_repeat_email-error').hide();
+
+			}
+		}
+
+		$('#input_info_repeat_email-error').hide();
+
+		$("#input_info_repeat_email").on('change', function() {
+			validateEmail();
+		});
+
 		$("#input_info_email").on('change', function(){
+			validateEmail();
 			$.ajax({
 				url: '{{ URL::action('CheckoutController@setAlmostCustomer') }}',
 				method: 'POST',
