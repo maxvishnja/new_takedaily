@@ -123,7 +123,7 @@ class AlmostCustomersController extends Controller
                 } else {
                     $email_array[$i]['Country'] = 'Denmark';
                 }
-                $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
+                $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y H:i');
 
 
                 $i++;
