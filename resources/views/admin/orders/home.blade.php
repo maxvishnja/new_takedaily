@@ -26,7 +26,13 @@
 							<a href="{{ URL::action('Dashboard\OrderController@show', [ 'id' => $order->id ]) }}">{{ $order->getPaddedId() }}</a>
 						</td>
 						<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
-						<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true) }} {{ $order->currency }}</td>
+						<td>
+							@if($order->repeat == 1)
+								0 {{ $order->currency }}
+							@else
+								{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true) }} {{ $order->currency }}
+							@endif
+						</td>
 						<td>{{ $order->getCoupon() }}</td>
 						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
 						{{--<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->updated_at)->format('j. M Y H:i') }}</td>--}}

@@ -143,8 +143,13 @@
 				<tr>
 					<td colspan="2" style="border: none;"></td>
 					<td style="border: none; text-align: right; font-weight: bold;">Total</td>
-					<td style="border: none; font-weight: bold;">{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total, true) }}
+					<td style="border: none; font-weight: bold;">
+						@if($order->repeat == 1)
+							0 {{ $order->currency }}
+						@else
+						{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total, true) }}
 						{{ $order->currency }}
+						@endif
 					</td>
 				</tr>
 				</tfoot>

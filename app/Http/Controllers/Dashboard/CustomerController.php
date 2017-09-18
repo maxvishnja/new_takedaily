@@ -337,7 +337,7 @@ class CustomerController extends Controller
 
 		$lastOrder = $customer->orders()->latest()->first();
 
-		return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', "Der blev trukket penge fra kundens konto, og en ny ordre (#{$lastOrder->id}) blev oprettet. <a href=\"" . \URL::action('Dashboard\OrderController@show', [ $lastOrder->id ]) . "\">Vis ordre</a>");
+		return \Redirect::action('Dashboard\CustomerController@show', [ $id ])->with('success', "A new order (#{$lastOrder->id}) has been created!");
 	}
 
 	function destroy($id)
