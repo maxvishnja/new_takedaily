@@ -35,6 +35,9 @@
                         </tr>
 
                         </form>
+
+                        </thead>
+                        <tbody id="4" class="cohorts">
                         <tr>
                             <td></td>
                             <td></td>
@@ -53,8 +56,6 @@
                             <td>11</td>
                             <td>12</td>
                         </tr>
-                        </thead>
-                        <tbody id="4" class="cohorts">
                         @foreach(trans('flow.datepicker.months_long') as $key=>$month)
 
                                 <tr>
@@ -76,17 +77,22 @@
                         <tbody id="5" class="cohorts hidden">
                         <tr>
                             <td></td>
+                            <td></td>
+                            @foreach(range(0,date('W')) as $val)
+                            <td>{{$val}}</td>
+                           @endforeach
                         </tr>
+
                         @foreach(range(0,date('W')-1) as $week)
                             <tr>
-                                <td>Week {{$week+1}} 2017</td>
+                                <td>Week {{$week+1}}</td>
                                 <td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>
                                 <td>100%</td>
-                                @foreach(range(01,12) as $y)
+                                @foreach(range(01,date('W')) as $y)
                                     <td>
 
-                                        @if(((int)date('m') - floor(($week-1)/4)) >= $y and $y <= (int)date('m') )
-                                          {{ \App\Plan::getCohortsWeek(sprintf('%02d', $week),sprintf('%02d', $y)) }}%
+                                        @if(date('W')-$week >= $y)
+                                          {{ \App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y) }}%
 
 
                                         @endif
