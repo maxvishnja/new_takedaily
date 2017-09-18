@@ -188,9 +188,9 @@ class StatsController extends Controller
                         $users_array[$week]['Week'] = $week + 1;
                         $users_array[$week]['Signups'] = Plan::getSignupsWeek(sprintf('%02d', $week));
                         $users_array[$week]['0'] = '100%';
-                        foreach (range(01, 12) as $y){
-                            if($week * 7 <= $y*30 and $y <= (int)date('m')){
-                                $users_array[$week][$y] = Plan::getCohortsWeek(sprintf('%02d', $week),sprintf('%02d', $y))."%";
+                        foreach (range(01, date('W')) as $y){
+                            if(date('W')-$week >= $y){
+                                $users_array[$week][$y] = Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)."%";
                             }
 
                         }
