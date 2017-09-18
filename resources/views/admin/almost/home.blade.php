@@ -7,6 +7,9 @@
             <div class="pull-right" style="margin-top: -5px;">
                 <a class="btn btn-success" href="{{ URL::action('Dashboard\AlmostCustomersController@sendAll') }}"><i class="icon-envelope"></i>
                     Send all mail</a>
+
+                <a class="btn btn-info" href="{{ URL::action('Dashboard\AlmostCustomersController@getCsv') }}"><i class="icon-edit"></i>
+                   Download CSV</a>
             </div>
         </div>
 

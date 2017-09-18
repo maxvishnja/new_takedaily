@@ -107,6 +107,44 @@ class AlmostCustomersController extends Controller
     }
 
 
+    function getCsv(){
+
+        $almostAll = $this->repo->getAlmostCustomer();
+
+        $email_array = [];
+        $i = 0;
+
+        foreach ($almostAll as $customer) {
+
+                $email_array[$i]['Name'] = $customer->name;
+                $email_array[$i]['E-mail'] = $customer->email;
+                if ($customer->location == 'nl') {
+                    $email_array[$i]['Country'] = 'Netherlands';
+                } else {
+                    $email_array[$i]['Country'] = 'Denmark';
+                }
+                $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
+
+
+                $i++;
+
+
+        }
+
+        \Excel::create('almost_customers', function ($excel) use ($email_array) {
+
+            $excel->sheet('Almost users', function ($sheet) use ($email_array) {
+
+                $sheet->fromArray($email_array, null, 'A1', true);
+
+            });
+
+        })->download('xls');
+
+        return \Redirect::back();
+    }
+
+
     function destroy($id)
     {
         $almost = AlmostCustomers::find($id);
