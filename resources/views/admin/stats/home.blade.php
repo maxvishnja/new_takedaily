@@ -84,8 +84,11 @@
                                 <td>100%</td>
                                 @foreach(range(01,12) as $y)
                                     <td>
-                                        @if($week * 7 <= $y*30 and $y <= (int)date('m'))
-                                            {{ \App\Plan::getCohortsWeek(sprintf('%02d', $week),sprintf('%02d', $y)) }}%
+
+                                        @if(((int)date('m') - floor(($week-1)/4)) >= $y and $y <= (int)date('m') )
+                                          {{ \App\Plan::getCohortsWeek(sprintf('%02d', $week),sprintf('%02d', $y)) }}%
+
+
                                         @endif
                                     </td>
                                 @endforeach
