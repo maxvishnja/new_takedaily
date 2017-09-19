@@ -164,7 +164,7 @@ class StatsController extends Controller
                         $users_array[$month]['0'] = '100%';
                         foreach (range($key, 12) as $y){
                             if($y >= $key and $y <= (int)date('m') ){
-                                $users_array[$month][$y] = Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))."%";
+                                $users_array[$month][$y] = Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))['count']." (".Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))['percent']."%)";
                             }
 
                           }
@@ -190,7 +190,7 @@ class StatsController extends Controller
                         $users_array[$week]['0'] = '100%';
                         foreach (range(01, date('W')) as $y){
                             if(date('W')-$week >= $y){
-                                $users_array[$week][$y] = Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)."%";
+                                $users_array[$week][$y] = Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)['count']." (".Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)['percent']."%)";
                             }
 
                         }
