@@ -61,11 +61,11 @@
                                 <tr>
                                     <td>{{$month}} 2017</td>
                                     <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
-                                    <td>100%</td>
+                                    <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>
                                     @foreach(range($key,12) as $y)
-                                        <td>
+                                        <td class="text-center">
                                             @if($y >= $key and $y <= (int)date('m') )
-                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))['count']}}<br/> ({{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))['percent']}}%)
+                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}
 
                                             @endif
                                         </td>
@@ -88,12 +88,12 @@
                             <tr>
                                 <td>Week {{$week+1}}</td>
                                 <td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>
-                                <td>100%</td>
+                                <td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>
                                 @foreach(range(01,date('W')) as $y)
-                                    <td>
+                                    <td class="text-center">
 
                                         @if(date('W')-$week >= $y)
-                                          {{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)['count']}} <br/>({{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)['percent'] }})%
+                                          {{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}
                                         @endif
                                     </td>
                                 @endforeach

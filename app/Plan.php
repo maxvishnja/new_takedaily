@@ -179,12 +179,12 @@ class Plan extends Model
 
 
         if ($allCustomers == 0) {
-            $cohorts['percent'] = 0;
+            $cohorts = 100;
         } else {
-            $cohorts['percent'] = round(($customers / $allCustomers) * 100, 2);
+            $cohorts = round(($customers / $allCustomers) * 100, 2);
         }
-        $cohorts['count'] = $customers;
-        return $cohorts;
+
+        return $customers." (".$cohorts."%)";
 
     }
 
@@ -208,13 +208,12 @@ class Plan extends Model
 
 
         if ($allCustomers == 0) {
-            $cohorts['percent'] = 100;
+            $cohorts = 100;
         } else {
-            $cohorts['percent'] = round(($customers / $allCustomers) * 100, 2);
+            $cohorts = round(($customers / $allCustomers) * 100, 2);
         }
-        $cohorts['count'] = $customers;
 
-        return $cohorts;
+        return $customers." (".$cohorts."%)";
 
     }
 
