@@ -67,6 +67,15 @@ class CustomerRepository
 	}
 
 
+	public function getDailyUnsub()
+	{
+		return Plan::selectRaw("YEAR(subscription_cancelled_at) as year, MONTH(subscription_cancelled_at) as month, DAY(subscription_cancelled_at) as day, COUNT(DISTINCT id) as total")
+			->whereNotNull('subscription_cancelled_at')
+			->groupBy(\DB::raw("YEAR(subscription_cancelled_at), MONTH(subscription_cancelled_at), DAY(subscription_cancelled_at)"))
+			->get();
+	}
+
+
 	public function getAlmostCustomer()
 	{
 		return \DB::select('select * from almost_customers where email not in (select users.email from users inner join almost_customers on almost_customers.email=users.email)');
