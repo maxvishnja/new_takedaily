@@ -26,6 +26,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 		$salesYear     = $orderRepo->getMonthlySales();
 		$customersYear = $customerRepo->getMonthlyNew();
 		$customersDay = $customerRepo->getDailyNew();
+		$customersUnsub = $customerRepo->getDailyUnsub();
 
 		$churnDay = $customerRepo->churnDay();
 
@@ -48,6 +49,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 			'sales_year'      => $salesYear ?: [],
 			'customers_year'  => $customersYear ?: [],
 			'customers_day'  => $customersDay ?: [],
+			'customers_unsub'  => $customersUnsub ?: [],
 			'churnDay' => $churnDay
 		] );
 	} );

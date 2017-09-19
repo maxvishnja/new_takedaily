@@ -28,6 +28,7 @@
 	<div class="module">
 		<div class="module-head">
 			<h3>
+
 				Customers of month  {{ \Jenssegers\Date\Date::now()->format('M Y') }}</h3>
 		</div>
 		<div class="module-body">
@@ -89,13 +90,29 @@
 			@endforeach
 		];
 
+		var d4 = [
+				@foreach(range(0,date('t')-1) as $i)
+			[ {{  $i+1 }} , {{ $customers_unsub->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->addDays($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->addDays($i)->format('n') * 1)->where('day', \Jenssegers\Date\Date::now()->firstOfMonth()->addDays($i)->format('d') * 1)->first() != null ? $customers_unsub->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->addDays($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->addDays($i)->format('n') * 1)->where('day', \Jenssegers\Date\Date::now()->firstOfMonth()->addDays($i)->format('d') * 1)->first()->total * -1: 0 }} ],
+			@endforeach
+		];
 
 		var plot = $.plot($('#placeholder4'),
-				[{data: d3, label: 'Customers'}], {
+				[
+					{
+						data: d3,
+						label: 'New customers'
+					},
+					{
+						data: d4,
+						label: 'Unsubscribed customers',
+						color: "#ff0000"
+					}
+				],
+				{
 					xaxis: {ticks:
 							[
-									@for($i = 0; $i <= date('t'); $i++)
-								[{{  $i+1 }}, "{{ \Jenssegers\Date\Date::now()->firstOfMonth()->addDays($i)->format('d') }}"],
+								@for($i = 0; $i <= date('t'); $i++)
+									[{{  $i+1 }}, "{{ \Jenssegers\Date\Date::now()->firstOfMonth()->addDays($i)->format('d') }}"],
 								@endfor
 							]
 					},
@@ -116,7 +133,7 @@
 						aboveData: true,
 						backgroundColor: '#fff',
 						borderWidth: 0,
-						minBorderMargin: 25,
+						minBorderMargin: 25
 					},
 					colors: ['#55f3c0', '#0db37e', '#b4fae3', '#e0d1cb'],
 					shadowSize: 0
