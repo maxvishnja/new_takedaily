@@ -19,7 +19,7 @@ class CustomerRepository
 
 	public function allActive()
 	{
-		return Plan::whereNull('subscription_cancelled_at')->count();
+		return Plan::whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->count();
 	}
 
 

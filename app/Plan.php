@@ -144,7 +144,7 @@ class Plan extends Model
         $multiple = DatesSubscribe::whereMonth('subscription_started_at', '=', $date)->whereYear('subscription_started_at', '=', '2017')
             ->count();
 
-        return $customers + $multiple;
+        return $customers;
     }
 
 
@@ -161,7 +161,7 @@ class Plan extends Model
         $multiple = DatesSubscribe::whereBetween('subscription_started_at', [$first_day, $last_day])->count();
 
 
-        return $customers + $multiple;
+        return $customers;
 
     }
 
@@ -175,7 +175,7 @@ class Plan extends Model
 
         $allCustomers = Plan::getSignups($signDate);
 
-        $customers = $allCustomers - Plan::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count() + DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count();
+        $customers = $allCustomers - Plan::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
 
 
         if ($allCustomers == 0) {
