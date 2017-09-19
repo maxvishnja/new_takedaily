@@ -65,7 +65,8 @@
                                     @foreach(range($key,12) as $y)
                                         <td>
                                             @if($y >= $key and $y <= (int)date('m') )
-                                               {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y)) }}%
+                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))['count']}}<br/> ({{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))['percent']}}%)
+
                                             @endif
                                         </td>
                                     @endforeach
@@ -92,9 +93,7 @@
                                     <td>
 
                                         @if(date('W')-$week >= $y)
-                                          {{ \App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y) }}%
-
-
+                                          {{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)['count']}} <br/>({{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)['percent'] }})%
                                         @endif
                                     </td>
                                 @endforeach
