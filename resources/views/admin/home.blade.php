@@ -71,13 +71,13 @@
 @section('scripts')
 	<script>
 		var d1 = [
-			@foreach(range(1,12) as $i)
+			@foreach(range(0,12) as $i)
 				[ {{ 12 - $i }} , {{ $sales_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1)->first() != null ? number_format($sales_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1)->first()->total / 100, 2, '.', '') : 0 }} ],
 			@endforeach
 		];
 
 		var d2 = [
-			@foreach(range(1,12) as $i)
+			@foreach(range(0,12) as $i)
 				[ {{ 12 - $i }} , {{ $customers_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1)->first() != null ? $customers_year->where('year', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1)->where('month', \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1)->first()->total : 0 }} ],
 			@endforeach
 		];
