@@ -3,17 +3,24 @@
 @section('content')
 	<div class="btn-controls">
 		<div class="btn-box-row row-fluid">
-			<a href="#" class="btn-box big span4"><i class=" icon-shopping-cart"></i><b>{{ $orders_today }}</b>
+			<a href="#" class="btn-box big span3"><i class=" icon-shopping-cart"></i><b>{{ $orders_today }}</b>
 				<p class="text-muted">Ordre i dag</p>
 			</a>
 
-			<a href="#" class="btn-box big span4"><i class="icon-group"></i><b>{{ $customers_today }}</b>
+			<a href="#" class="btn-box big span3"><i class="icon-group"></i><b>{{ $customers_today }}</b>
 				<p class="text-muted">Nye kunder i dag</p>
 			</a>
 
-			<a href="#" class="btn-box big span4"><i class="icon-money"></i><b>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($money_today, 2) }}</b>
+
+			<a href="#" class="btn-box big span3"><i class="icon-thumbs-down"></i><b>{{ $churnDay }}</b>
+				<p class="text-muted">kunder i dag</p>
+			</a>
+
+			<a href="#" class="btn-box big span3"><i class="icon-money"></i><b>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($money_today, 2) }}</b>
 				<p class="text-muted">EUR i dag</p>
 			</a>
+
+
 		</div>
 	</div>
 	<!--/#btn-controls-->
