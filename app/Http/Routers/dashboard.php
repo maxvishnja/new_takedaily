@@ -25,6 +25,9 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 
 		$salesYear     = $orderRepo->getMonthlySales();
 		$customersYear = $customerRepo->getMonthlyNew();
+
+		$churnDay = $customerRepo->churnDay();
+
 		$money_today_dk = $orderRepo->getToday()
 			->whereNotIn( 'state', [ 'new', 'cancelled' ] )
 			->where( 'currency', 'DKK' )
@@ -42,7 +45,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 			                                  ->count() ?: 0,
 			'money_today'     => $money_today,
 			'sales_year'      => $salesYear ?: [],
-			'customers_year'  => $customersYear ?: []
+			'customers_year'  => $customersYear ?: [],
+			'churnDay' => $churnDay
 		] );
 	} );
 
