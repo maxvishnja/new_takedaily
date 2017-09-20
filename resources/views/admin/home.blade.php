@@ -20,6 +20,20 @@
 				<p class="text-muted">EUR i dag</p>
 			</a>
 
+		</div>
+
+		<div class="btn-box-row row-fluid">
+			<a href="#" class="btn-box big span3">
+				<img src="/images/holland.png" style="height:50px">
+				<b>{{ $activeNL }}</b>
+				<p class="text-muted">Active customers</p>
+			</a>
+
+			<a href="#" class="btn-box big span3">
+				<img src="/images/denmark.gif" style="height:50px">
+				<b>{{ $activeDK }}</b>
+				<p class="text-muted">Active customers</p>
+			</a>
 
 		</div>
 	</div>

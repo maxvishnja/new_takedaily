@@ -23,6 +23,12 @@ class CustomerRepository
 	}
 
 
+	public function allActiveLocale($locale)
+	{
+		return Plan::where('currency','like', $locale)->whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->count();
+	}
+
+
 	public function churnDay()
 	{
 		return Plan::whereNotNull('subscription_cancelled_at')->whereBetween( 'subscription_cancelled_at', [ Date::today()->setTime( 0, 0, 0 ), Date::today()->setTime( 23, 59, 59 ) ] )->count();

@@ -28,6 +28,11 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 		$customersDay = $customerRepo->getDailyNew();
 		$customersUnsub = $customerRepo->getDailyUnsub();
 
+
+		$activeNL = $customerRepo->allActiveLocale('EUR');
+		$activeDK = $customerRepo->allActiveLocale('DKK');
+
+
 		$churnDay = $customerRepo->churnDay();
 
 		$money_today_dk = $orderRepo->getToday()
@@ -50,7 +55,9 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 			'customers_year'  => $customersYear ?: [],
 			'customers_day'  => $customersDay ?: [],
 			'customers_unsub'  => $customersUnsub ?: [],
-			'churnDay' => $churnDay
+			'churnDay' => $churnDay,
+			'activeNL' => $activeNL,
+			'activeDK' => $activeDK,
 		] );
 	} );
 
