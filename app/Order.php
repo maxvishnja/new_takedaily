@@ -205,12 +205,23 @@ class Order extends Model
 			} else{
 				$fromEmail = 'info@takedaily.dk';
 			}
-			\Mail::queue( 'emails.order-print', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
-			{
-				$message->from( $fromEmail, 'TakeDaily' );
-				$message->to( $receiverEmail, $receiverName );
-				$message->subject( trans( 'mails.order-print.subject' ) );
-			} );
+
+
+            try {
+                \Mail::queue( 'emails.order-print', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
+                {
+                    $message->from( $fromEmail, 'TakeDaily' );
+                    $message->to( $receiverEmail, $receiverName );
+                    $message->subject( trans( 'mails.order-print.subject' ) );
+                } );
+
+            } catch (\Exception $exception) {
+                \Log::error("Mail print error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+            }
+
+
+
 
 			\App::setLocale($locale);
 
@@ -249,13 +260,19 @@ class Order extends Model
 				$fromEmail = 'info@takedaily.dk';
 			}
 
-			\Mail::queue( 'emails.order-sent', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
 
-			{
-				$message->from( $fromEmail, 'TakeDaily' );
-				$message->to( $receiverEmail, $receiverName );
-				$message->subject( trans( 'mails.order-sent.subject' ) );
-			} );
+            try {
+                \Mail::queue( 'emails.order-sent', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
+
+                {
+                    $message->from( $fromEmail, 'TakeDaily' );
+                    $message->to( $receiverEmail, $receiverName );
+                    $message->subject( trans( 'mails.order-sent.subject' ) );
+                } );
+            } catch (\Exception $exception) {
+                \Log::error("Mail print error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+            }
 
 			\App::setLocale($locale);
 

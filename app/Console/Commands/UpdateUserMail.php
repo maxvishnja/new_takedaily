@@ -39,7 +39,7 @@ class UpdateUserMail extends Command
      */
     public function handle()
     {
-        $users = User::orderBy('created_at', 'DESC')->get();
+        $users = User::where('id','>',1)->orderBy('created_at', 'DESC')->get();
 
 
 
