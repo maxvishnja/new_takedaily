@@ -15,7 +15,10 @@ use App\Console\Commands\SendToAlmost;
 use App\Console\Commands\SubscriptionRebillCommand;
 use App\Console\Commands\UpdateAges;
 use App\Console\Commands\UpdateCurrencies;
+<<<<<<< HEAD
 use App\Console\Commands\UpdateUserMail;
+=======
+>>>>>>> f51bb047acd5df25eb98d6a8c7dad33b09e62070
 use App\Console\Commands\UpdatePregnancyWeeks;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -40,8 +43,12 @@ class Kernel extends ConsoleKernel
 		CheckPayment::class,
 	    ClearOldCarts::class,
 	    ClearOldSavedFlows::class,
+<<<<<<< HEAD
 		ClearSnoozing::class,
 		UpdateUserMail::class
+=======
+		ClearSnoozing::class
+>>>>>>> f51bb047acd5df25eb98d6a8c7dad33b09e62070
 	];
 
 	/**

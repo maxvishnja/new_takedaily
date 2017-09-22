@@ -191,6 +191,7 @@ class Order extends Model
 		$this->state = 'printed';
 		$this->save();
 
+<<<<<<< HEAD
 		if ( $this->customer )
 		{
 
@@ -214,6 +215,31 @@ class Order extends Model
 			\App::setLocale($locale);
 
 		}
+=======
+//		if ( $this->customer )
+//		{
+//
+//			$receiverName  = $this->customer->getName();
+//			$receiverEmail = $this->customer->getEmail();
+//			$locale = \App::getLocale();
+//
+//			\App::setLocale( $this->customer->getLocale() );
+//			if($locale == 'nl') {
+//				$fromEmail = 'info@takedaily.nl';
+//			} else{
+//				$fromEmail = 'info@takedaily.dk';
+//			}
+//			\Mail::send( 'emails.order-print', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
+//			{
+//				$message->from( $fromEmail, 'TakeDaily' );
+//				$message->to( $receiverEmail, $receiverName );
+//				$message->subject( trans( 'mails.order-print.subject' ) );
+//			} );
+//
+//			\App::setLocale($locale);
+//
+//		}
+>>>>>>> f51bb047acd5df25eb98d6a8c7dad33b09e62070
 
 		return true;
 	}
@@ -246,7 +272,11 @@ class Order extends Model
 			} else{
 				$fromEmail = 'info@takedaily.dk';
 			}
+<<<<<<< HEAD
 			\Mail::queue( 'emails.order-sent', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
+=======
+			\Mail::send( 'emails.order-sent', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
+>>>>>>> f51bb047acd5df25eb98d6a8c7dad33b09e62070
 			{
 				$message->from( $fromEmail, 'TakeDaily' );
 				$message->to( $receiverEmail, $receiverName );
