@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\CustomerWasBilled' => [
             'App\Listeners\OrderCreateCustomer',
         ],
+        'App\Events\SentMail' => [
+            'App\Listeners\OrderSentEmail',
+        ],
     ];
 
     /**

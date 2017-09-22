@@ -6,6 +6,7 @@ use Illuminate\Mail\Message;
 use Jenssegers\Date\Date;
 use Stripe\Refund;
 use Stripe\Stripe;
+use App\Events\SentMail;
 
 /**
  * App\Order
@@ -195,33 +196,10 @@ class Order extends Model
 		if ( $this->customer )
 		{
 
-			$receiverName  = $this->customer->getName();
-			$receiverEmail = $this->customer->getEmail();
-			$locale = \App::getLocale();
 
-			\App::setLocale( $this->customer->getLocale() );
-			if($locale == 'nl') {
-				$fromEmail = 'info@takedaily.nl';
-			} else{
-				$fromEmail = 'info@takedaily.dk';
-			}
+            $locale = \App::getLocale();
 
-
-            try {
-                \Mail::queue( 'emails.order-print', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
-                {
-                    $message->from( $fromEmail, 'TakeDaily' );
-                    $message->to( $receiverEmail, $receiverName );
-                    $message->subject( trans( 'mails.order-print.subject' ) );
-                } );
-
-            } catch (\Exception $exception) {
-                \Log::error("Mail print error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
-            }
-
-
-
+            \Event::fire(new SentMail($this, 'print'));
 
 			\App::setLocale($locale);
 
@@ -249,38 +227,60 @@ class Order extends Model
 
 			\Log::info('Customer '.$this->customer->id.' rebilled to '.\Date::now()->addDays( 28 ));
 
-			$receiverName  = $this->customer->getName();
-			$receiverEmail = $this->customer->getEmail();
-			$locale = \App::getLocale();
-//
-			\App::setLocale( $this->customer->getLocale() );
-			if($locale == 'nl') {
-				$fromEmail = 'info@takedaily.nl';
-			} else{
-				$fromEmail = 'info@takedaily.dk';
-			}
+            $locale = \App::getLocale();
+
+            \Event::fire(new SentMail($this, 'sent'));
 
 
-            try {
-                \Mail::queue( 'emails.order-sent', [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail )
 
-                {
-                    $message->from( $fromEmail, 'TakeDaily' );
-                    $message->to( $receiverEmail, $receiverName );
-                    $message->subject( trans( 'mails.order-sent.subject' ) );
-                } );
-            } catch (\Exception $exception) {
-                \Log::error("Mail print error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
-            }
-
-			\App::setLocale($locale);
+            \App::setLocale($locale);
 
 			$this->customer->plan->setNullSnooze();
 		}
 
 		return true;
 	}
+
+
+	public function sendEmail($status){
+
+
+	    $locale = $this->customer->getLocale();
+        $receiverName  = $this->customer->getName();
+        $receiverEmail = $this->customer->getEmail();
+
+        \App::setLocale( $this->customer->getLocale() );
+
+        if($locale == 'nl') {
+            $fromEmail = 'info@takedaily.nl';
+        } else{
+            $fromEmail = 'info@takedaily.dk';
+        }
+
+        if($status == 'sent'){
+            $trans =  trans( 'mails.order-sent.subject' );
+            $template = 'emails.order-sent';
+        } else{
+            $trans = trans( 'mails.order-print.subject' );
+            $template = 'emails.order-print';
+        }
+
+        try {
+            \Mail::queue( $template, [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail, $trans )
+
+            {
+                $message->from( $fromEmail, 'TakeDaily' );
+                $message->to( $receiverEmail, $receiverName );
+                $message->subject( $trans );
+            } );
+        } catch (\Exception $exception) {
+            \Log::error("Mail error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+        }
+
+    }
+
+
 
 	public function refund() // todo convert to paymentHandler
 	{
