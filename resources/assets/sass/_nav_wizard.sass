@@ -1,0 +1,59 @@
+.nav-wizard
+  overflow: hidden
+  > li
+    display: inline-block
+    position: relative
+    z-index: 2
+
+  > li.active
+    z-index: 1
+
+  >li:not(:last-child):after
+    position: absolute
+    content: ""
+    top: -4px
+    z-index: 1
+    display: block
+    right: -20px
+    border-top: 38px inset transparent
+    border-bottom: 38px inset transparent
+    border-left: 20px solid #f3f6f8
+
+  >li:not(:last-child):before
+    position: absolute
+    content: ""
+    top: -4px
+    z-index: 1
+    display: block
+    right: -23px
+    border-top: 38px inset transparent
+    border-bottom: 38px inset transparent
+    border-left: 20px solid $pale-grey-border
+
+  > li.active:not(:last-child):after
+    position: absolute
+    content: ""
+    top: -4px
+    z-index: 0
+    display: block
+    right: -23px
+    border-top: 38px inset transparent
+    border-bottom: 38px inset transparent
+    border-left: 20px solid $pale-grey-border
+
+  > li.active:not(:last-child):before
+    position: absolute
+    content: ""
+    top: -4px
+    z-index: 1
+    display: block
+    right: -20px
+    border-top: 38px inset transparent
+    border-bottom: 38px inset transparent
+    border-left: 20px solid #ffffff
+
+  >li:last-child
+    border-right: 1px solid $pale-grey-border
+
+  >li:first-child
+    border-left: 1px solid $pale-grey-border

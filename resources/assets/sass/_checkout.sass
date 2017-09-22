@@ -1,0 +1,250 @@
+body.page-checkout
+	background: #fafafa
+
+	nav[role="navigation"],
+	footer .main
+		display: none
+
+	.required
+		color: $error-color
+
+	.optional
+		font-size: 13px
+
+	.label.checkout--label
+		font-weight: $weight-semibold
+		font-size: 14px
+		color: $warm-grey
+		margin: 0 0 10px
+
+	.secured_server
+		color: $main-green-dark
+		font-weight: $weight-semibold
+		font-size: 14px
+		text-align: right
+
+		span.icon
+			margin-right: 2px
+			vertical-align: baseline
+
+	table
+		width: 100%
+
+		tbody
+			tr
+				td
+					color: $main-green-dark
+					font-size: 16px
+					padding: 20px 0
+					border-bottom: 1px solid $lighter-grey
+
+					&:last-child
+						text-align: right
+						font-weight: $weight-semibold
+						color: $main-green-dark
+
+				&.row--total
+					font-weight: $weight-semibold
+
+					td
+						border-bottom: 3px double $lighter-grey
+						font-size: 20px
+
+	.checkout_description
+		font-size: 13px
+		color: #999
+		margin: 30px 0 0
+
+.require-text
+	margin: 0 0 20px 15px
+
+.checkout-step-back a
+		font-size: 16px
+		background: #fff
+		border: 1px solid #eee
+		border-radius: 2px
+		padding: 8px 14px
+		font-weight: bold
+		display: inline-block
+		margin-right: 10px
+		text-decoration: none !important
+
+.payment-method-icon
+	background: #EDEFEF
+	border-radius: 4px
+	background-position: center center
+	background-repeat: no-repeat
+	width: 84px
+	height: 61px
+	border: 2px solid #EDEFEF
+	display: inline-block
+	cursor: pointer
+
+	input
+		display: none
+
+	&:hover
+		border-color: $greyish
+
+	&.payment-method-icon--selected
+		border-color: $main-green
+
+	&.payment-method-icon-visa
+		background-image: url(/images/checkout/method_visa.png)
+
+	&.payment-method-icon-mastercard
+		background-image: url(/images/checkout/method_mastercard.png)
+
+	&.payment-method-icon-ideal
+		background-image: url(/images/checkout/method_ideal.png)
+
+#terms_checkbox
+	margin-right: 20px
+	display: block
+	float: left
+	height: 70px
+
+
+.terms-label
+	padding: 8px 12px
+	background: #f7f7f7
+	border: 1px solid #ddd
+	line-height: 1.3
+	min-height: 64px
+	display: block
+	justify-content: center
+	align-items: center
+
+.page-checkout-success
+	h1
+		margin: 0 0 30px
+		font-weight: $weight-semibold
+		font-size: 34px
+		color: $main-green-dark
+
+	p
+		width: 700px
+		margin: 0 auto 70px
+		font-size: 18px
+		line-height: 1.6
+
+.coupon-button
+	border: 1px solid #3bae8a
+	cursor: default
+	font-size: 20px!important
+	padding: 10px 10px 10px 15px!important
+.share-icon
+	margin: 0 0 0 15px
+
+.social-icons
+	display: none
+
+	img
+		margin: 0 5px
+
+#copy-button
+	background: none!important
+	border: none!important
+	&:active
+		background: none!important
+		border: none!important
+
+.print_label
+	width: 570px
+	max-width: 570px
+	height: 262px
+
+	&.print_label--shadow
+		-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .25)
+		-moz-box-shadow: 0 0 20px rgba(0, 0, 0, .25)
+		box-shadow: 0 0 20px rgba(0, 0, 0, .25)
+		margin: 0 auto 50px
+
+	.print_label_left
+		float: left
+		width: 310px
+		height: 262px
+		padding: 50px 30px
+		background: $white url(/images/label-logo-bg.jpg) no-repeat center center
+		background-size: cover
+
+		.print_label_line
+			margin-bottom: 10px
+
+			.print_label_line_full
+				font-size: 15px
+				color: $greyish-brown
+
+			.print_label_line_left
+				width: 100px
+				float: left
+				font-size: 15px
+				color: $greyish-brown
+
+			.print_label_line_right
+				width: 140px
+				float: right
+				text-align: right
+				color: $greyish
+				font-size: 14px
+				letter-spacing: 3px
+
+			&:last-of-type
+				margin-bottom: 0
+
+	.print_label_right
+		float: left
+		width: 260px
+		height: 262px
+		padding: 50px 30px
+		color: $dark-grey
+
+		.print_label_info_line
+			margin-bottom: 10px
+			font-size: 15px
+
+			strong
+				font-weight: $weight-semibold
+				font-size: 18px
+
+			&:last-of-type
+				margin-bottom: 0
+
+@media all and (max-width: 991px)
+	body.page-checkout
+		main
+			margin: 20px 0 50px !important
+
+		.mobile-total
+			color: $main-green-dark
+			font-weight: $weight-bold
+			font-size: 32px
+
+		.mobile-total-text
+			font-size: 16px
+			margin-bottom: 6px
+			font-weight: $weight-semibold
+
+@media all and (max-width: 767px)
+	body.page-checkout
+		.payment-method-icon
+			width: 100%
+
+		.input.input--medium,
+		.select.select--medium
+			padding: 8px 10px
+			height: 40px
+
+		.card.card--large
+			padding: 0 !important
+			border: none
+			box-shadow: none
+			background: transparent
+			border-radius: 0
+
+		.hr--dashed.hr--small-margin
+			display: none
+
+		.label.checkout--label
+			margin-bottom: 6px
+			font-size: 14px

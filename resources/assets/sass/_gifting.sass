@@ -1,0 +1,62 @@
+body.gifting
+	.header_image
+		background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/gifting/bg.jpg)
+		background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/gifting/bg.jpg)
+
+	.gifting-selectors .gifting-selector input[type="radio"]
+		display: none
+
+	.gifting-block
+		border-bottom: 1px solid #eee
+		padding-bottom: 30px
+		margin-bottom: 50px
+
+	.gifting-selector
+		margin: 20px
+		display: inline-block
+		-webkit-user-select: none
+		user-select: none
+		cursor: pointer
+		text-align: right
+		background: transparent url(/images/giftcard-bg.png) no-repeat center center
+		width: 260px
+		height: 160px
+		padding: 20px
+		position: relative
+		border-radius: 4px
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
+		transition: box-shadow 300ms
+
+		&:hover
+			z-index: 2
+			box-shadow: 0 0 50px rgba(0, 0, 0, 0.2)
+
+		.button
+			position: absolute
+			width: 100%
+			width: calc(100% - 90px)
+			left: 70px
+			bottom: 10px
+
+
+		strong.gifting-price
+			width: 230px
+			display: block
+			font-size: 36px
+			font-weight: 700
+			color: $main-green-dark
+			float: right
+
+		span.gifting-months
+			width: 230px
+			display: block
+			font-weight: normal
+			font-size: 20px
+			color: $greyish-brown
+			float: right
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+	body.gifting
+		.gifting-selector
+			background-image: url(/images/giftcard-bg@2x.png)
+			background-size: 260px 160px

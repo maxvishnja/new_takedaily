@@ -1,0 +1,143 @@
+body.cms
+	.block--gray
+		background: lighten($lightest-grey, 3%)
+		padding: 50px 0
+
+	.block--arrow
+		position: relative
+
+		&:before,
+		&:after
+			display: block
+			position: absolute
+			left: 50%
+			margin-left: -35px
+			width: 0
+			height: 0
+			border-style: solid
+			border-width: 15px 35px 0
+			border-color: transparent
+			content: ''
+
+		&.block--arrow-from-top
+			&:before
+				top: -1px
+				border-color: #fff transparent transparent
+
+	.line-height-large,
+	.line-height-large *
+		line-height: 2
+
+	@media all and (min-width: 992px)
+		.flexbox-center-large
+			display: flex
+			align-items: center
+
+	h1.cms-title
+		font-size: 50px
+		font-weight: $weight-semibold
+		margin: 0 0 10px
+		text-align: center
+
+	h2.cms-title
+		font-weight: $weight-default
+		font-size: 30px
+		margin: 0
+		text-align: center
+
+	.cms-title-separator
+		margin-bottom: 50px
+
+	.img-responsive
+		max-width: 100%
+		border-radius: 100px
+		height: auto !important
+		display: block
+
+		&.pull-left
+			margin-right: 30px
+			margin-bottom: 30px
+
+		&.pull-right
+			margin-left: 30px
+			margin-bottom: 30px
+
+	article
+		.row
+			padding: 50px 0
+
+			&.row--gray
+				background: #f7f7f7
+
+			&.row--no-padding
+				padding: 0 !important
+
+		.img-block-with-title
+			position: relative
+			text-align: center
+
+			img
+				border-radius: 4px
+				height: auto !important
+
+			h1
+				position: relative
+				top: -54px
+				background: #fff
+				padding: 16px 40px 10px
+				font-size: 30px
+				margin: 0
+				line-height: 1
+				display: inline-block
+
+		ul
+			line-height: 1.6
+			list-style: disc
+			padding-left: 20px
+			
+			&.ul--checkmarks
+				list-style: none
+				margin: 0
+				padding: 0
+				line-height: 2
+
+				li
+					background: url(/images/icons/icon-check-circle-smaller@2x.png) no-repeat left 8px
+					background-size: 14px 14px
+					padding-left: 20px
+					min-height: 14px
+
+		ol
+			line-height: 1.6
+			list-style: decimal
+			padding-left: 30px
+
+		h2
+			margin-top: 0 !important
+
+@media all and (max-width: 991px)
+	.no-top-margin-mobile
+		margin-top: 20px !important
+
+	body.cms
+		article
+			.block_item
+				margin-bottom: 50px
+
+			.img-block-with-title
+				h1
+					padding: 12px 30px 8px
+					position: absolute
+					top: auto
+					bottom: 0
+					width: 90%
+					left: 5%
+					display: block
+					text-align: center
+					font-size: 26px
+
+@media all and (max-width: 991px)
+	body.cms
+		article
+			h2
+				margin-top: 20px !important

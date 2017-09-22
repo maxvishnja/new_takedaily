@@ -1,0 +1,1 @@
+Du er >= 70 år gammel! Og dit navn er: {{ $customer->getName() }}
