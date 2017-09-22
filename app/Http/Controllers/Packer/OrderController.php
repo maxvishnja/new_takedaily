@@ -75,10 +75,6 @@ class OrderController extends Controller
 	{
 		$printableOrders = $this->repo->getPrinted()->orderBy( 'created_at', 'DESC' )->shippable()->get();
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f51bb047acd5df25eb98d6a8c7dad33b09e62070
 		/** @var Order $order */
 		foreach($printableOrders as $order)
 		{

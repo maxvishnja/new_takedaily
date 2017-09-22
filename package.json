@@ -1,19 +1,11 @@
 {
   "private": true,
   "devDependencies": {
-<<<<<<< HEAD
-    "gulp": "^3.9.1",
-    "laravel-elixir-spritesmith": "^0.3.2"
-  },
-  "dependencies": {
-    "gulp-install": "^1.1.0",
-=======
     "gulp": "^3.8.8",
     "laravel-elixir-spritesmith": "^0.3.2"
   },
   "dependencies": {
     "gulp": "^3.9.1",
->>>>>>> f51bb047acd5df25eb98d6a8c7dad33b09e62070
     "laravel-elixir": "^4.0.0",
     "laravel-elixir-imagemin": "^0.2.3",
     "laravel-elixir-spritesmith": "^0.4.0",
