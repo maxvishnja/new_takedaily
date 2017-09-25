@@ -10,8 +10,8 @@ class ShareLink
     {
         $hash = base64_encode($id);
 
-        $link = "https://takedaily.".\App::getLocale()."/flow?share=".$hash;
-
+        $link = url('/')."/flow?share=".$hash;
+dd($link);
         return $link;
     }
 }
