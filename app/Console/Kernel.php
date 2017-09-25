@@ -71,11 +71,11 @@ class Kernel extends ConsoleKernel
 		$schedule->command('check:ambassador')
 			     ->dailyAt('09:00');
 
-		$schedule->command('subscriptions:pending')
+		/*$schedule->command('subscriptions:pending')
 		         ->name('notify-user-of-incoming-rebill')
 		         ->dailyAt('06:00')
 			     ->everyThirtyMinutes()
-		         ->withoutOverlapping();
+		         ->withoutOverlapping(); */
 
 		$schedule->command('customers:age-update')
 		         ->daily();
