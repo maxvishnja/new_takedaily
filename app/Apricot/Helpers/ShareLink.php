@@ -11,7 +11,7 @@ class ShareLink
         $hash = base64_encode($id);
 
         $link = url('/')."/flow?share=".$hash;
-dd($link);
+
         return $link;
     }
 }
