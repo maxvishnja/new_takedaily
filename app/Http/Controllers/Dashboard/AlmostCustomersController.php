@@ -47,10 +47,12 @@ class AlmostCustomersController extends Controller
             if ($almost->location == 'nl') {
 
                 $fromEmail = 'info@takedaily.nl';
+                $link = 'https://takedaily.nl/flow?token='.$almost->token;
 
             } else {
 
                 $fromEmail = 'info@takedaily.dk';
+                $link = 'https://takedaily.dk/flow?token='.$almost->token;
             }
 
             $almost->sent = 1;
@@ -59,7 +61,7 @@ class AlmostCustomersController extends Controller
             $newalmost->sent = 1;
             $newalmost->save();
 
-            \Mail::queue('emails.almost-customers', ['locale' => $almost->location, 'name' => $name], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
+            \Mail::queue('emails.almost-customers', ['locale' => $almost->location, 'name' => $name, 'link' => $link], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
                 $message->from($fromEmail, 'TakeDaily');
                 $message->to($mailEmail, $mailName);
                 $message->subject(trans('mails.almost-subject'));
@@ -85,16 +87,17 @@ class AlmostCustomersController extends Controller
             if ($almost->location == 'nl') {
 
                 $fromEmail = 'info@takedaily.nl';
-
+                $link = 'https://takedaily.nl/flow?token='.$almost->token;
             } else {
 
                 $fromEmail = 'info@takedaily.dk';
+                $link = 'https://takedaily.dk/flow?token='.$almost->token;
             }
 
             $almost->sent = 1;
             $almost->save();
 
-            \Mail::queue('emails.almost-customers', ['locale' => $almost->location, 'name' => $name], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
+            \Mail::queue('emails.almost-customers', ['locale' => $almost->location, 'name' => $name, 'link' => $link], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
                 $message->from($fromEmail, 'TakeDaily');
                 $message->to($mailEmail, $mailName);
                 $message->subject(trans('mails.almost-subject'));

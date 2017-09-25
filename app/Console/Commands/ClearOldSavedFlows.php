@@ -39,6 +39,6 @@ class ClearOldSavedFlows extends Command
      */
     public function handle()
     {
-	    SavedFlowState::where('updated_at', '<=', Date::now()->subDays(2))->delete();
+	    SavedFlowState::where('updated_at', '<=', Date::now()->subDays(14))->delete();
     }
 }

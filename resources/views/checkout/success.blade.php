@@ -10,8 +10,10 @@
 
         {{--@if(session('upsell', false) && Session::has('upsell_token'))--}}
         <div class="text-center">
+            @if( isset($code) )
             <h2>{{ trans('success.upsell') }}</h2>
             <h2>{{ trans('success.upsell_code') }} {{ $code }}</h2>
+            @endif
             {{--<div class="button  button--rounded button--medium coupon-button">{{ $code }}--}}
                 {{--<span class="share-icon"><img src="{{ asset('/images/icons/icon-share.png') }}" height="24"--}}
                                               {{--alt=""></span>--}}
@@ -98,6 +100,7 @@
         (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://track.adform.net/serving/scripts/trackpoint/async/'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
 
     </script>
+        @if(!isset($giftcardToken))
     <noscript>
         <p style="margin:0;padding:0;border:0;">
             <img src="https://track.adform.net/Serving/TrackPoint/?pm=788995&ADFPageName=Take%20Daily%20conversion&ADFdivider=|" width="1" height="1" alt="" />
@@ -118,7 +121,7 @@
         </noscript>
         <img src="https://online.digital-advisor.com/aff_l?offer_id=1903" width="1" height="1" />
      @endif
-
+    @endif
     <script>
         $('.share-icon').on('click', function () {
             $('.social-icons').toggle(500);
