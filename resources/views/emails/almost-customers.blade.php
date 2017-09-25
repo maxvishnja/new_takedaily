@@ -8,4 +8,5 @@
     <p>
         {!! str_replace('{name}', $name, nl2br(trans('mails.almost-text'))) !!}
 </p>
+    <p> {!! str_replace('{link}', $link, nl2br(trans('mails.almost-link'))) !!}</p>
 @endsection

@@ -1,6 +1,6 @@
-<?php App::setLocale( $locale ); ?>
+<?php \App::setLocale( $locale ); ?>
 	<!DOCTYPE html>
-<html lang="{{ App::getLocale() }}">
+<html lang="{{ \App::getLocale() }}">
 <head>
 	<title>Giftcard</title>
 	<meta charset="UTF-8"/>
@@ -19,6 +19,7 @@
 			background: #88E2C4;
 			margin: 0;
 			padding: 0;
+
 		}
 
 		.content {

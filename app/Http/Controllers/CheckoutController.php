@@ -195,6 +195,7 @@ class CheckoutController extends Controller
     function getVerify($method, $id, Request $request)
     {
         try {
+
             if($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0){
 
                 \Log::error("Mollie error create user : " . $id);
@@ -249,8 +250,10 @@ class CheckoutController extends Controller
             }
 
             $productName = $request->session()->get('product_name', 'subscription');
+
             $couponCode = $request->session()->get('coupon', '');
             $userData = $request->session()->get('user_data', $request->old('user_data', Cart::getInfoItem('user_data', null)));
+
             while (is_string($userData) && json_decode($userData)) {
                 $userData = json_decode($userData);
             }
@@ -265,13 +268,18 @@ class CheckoutController extends Controller
                     ->appendGiftcard($request->session()->get('giftcard_id'), $request->session()->get('giftcard_token'))
                     ->setTaxLibrary($request->session()->get('address_country'));
 
+
             } catch (\Exception $exception) {
                 \Log::error("Checkout create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-                return false;
+                return \Redirect::action('CheckoutController@getCheckout')->withErrors($exception->getMessage());
             }
+
             $isSuccessful = $checkout->getPaymentHandler()->isChargeValid($request->session()->get('charge_id'));
+
             if (!$isSuccessful) {
+
                 \Log::error("Checkout isSuccessful error iD: ".$request->session()->get('charge_id'));
+
                 return \Redirect::action('CheckoutController@getCheckout')
                     ->withErrors(trans('checkout.errors.payment-error'))
                     ->withInput([
@@ -312,8 +320,9 @@ class CheckoutController extends Controller
             } catch (\Exception $exception) {
 
                 \Log::error("User create error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-                return false;
+                return \Redirect::action('CheckoutController@getCheckout')->withErrors($exception->getMessage());
             }
+
             if ($request->session()->get('giftcard_id')) {
                 $gift = $request->session()->get('giftcard_token');
             } else {
@@ -376,6 +385,10 @@ class CheckoutController extends Controller
 
                 return \Redirect::action('CheckoutController@getSuccess')->with(['order_created' => true, 'upsell' => true, 'code' => $code]);
             }
+
+
+
+
             // Considering that theres only two products: subscription and giftcard, we can conclude that this is a giftcard.
             $this->dispatch(new GiftcardWasOrdered($checkoutCompletion->getGiftcard(), $checkoutCompletion->getUser()->getCustomer()));
 
@@ -491,6 +504,7 @@ class CheckoutController extends Controller
             $almost = new AlmostCustomers();
             $almost->email = $request->get('email');
             $almost->location = $request->get('location');
+            $almost->token = $request->get('token');
             $almost->name = $name;
             $almost->save();
         }

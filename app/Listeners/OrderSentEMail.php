@@ -26,7 +26,7 @@ class OrderSentEMail
 
         try {
 
-           
+
 
             $order = $event->order;
             $order->sendEmail($event->status );
