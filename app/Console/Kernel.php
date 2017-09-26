@@ -90,7 +90,7 @@ class Kernel extends ConsoleKernel
 			->everyThirtyMinutes();
 
 		$schedule->command('clear:flows')
-		         ->dailyAt('00:00');
+		         ->monthly();
 
 		$schedule->command('clear:carts')
 		         ->dailyAt('00:20');
