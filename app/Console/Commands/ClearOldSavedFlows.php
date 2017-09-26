@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\AlmostCustomers;
 use App\SavedFlowState;
+use App\User;
 use Illuminate\Console\Command;
 use Jenssegers\Date\Date;
 
@@ -40,7 +41,17 @@ class ClearOldSavedFlows extends Command
      */
     public function handle()
     {
-	    SavedFlowState::where('updated_at', '<=', Date::now()->subDays(28))->delete();
-	    AlmostCustomers::where('updated_at', '<=', Date::now()->subDays(28))->delete();
+	    //SavedFlowState::where('updated_at', '<=', Date::now()->subDays(28))->delete();
+
+	    $almosts = AlmostCustomers::orderBy('created_at', 'DESC')->get();
+	    $customers = User::orderBy('created_at', 'DESC')->get();
+
+	    foreach ($almosts as $almost){
+	        foreach($customers as $customer){
+	            if($almost['email'] == $customer['email']){
+                    $almost->delete();
+                }
+            }
+        }
     }
 }
