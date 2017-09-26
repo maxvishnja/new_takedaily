@@ -143,6 +143,14 @@
             window.open('https://www.facebook.com/dialog/share?%20app_id={{ env('FACEBOOK_APP_ID') }}&&href='+shareUrl+'flow&display=iframe&quote='+shareText+'', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight)
         }
 
+        dataLayer.push({
+
+            'event': 'orderComplete',
+
+            'orderId': '{{$order_id}}'
+
+            });
+
         @if(\Cookie::get('utm_source')!=null)
 
                 dataLayer.push({
