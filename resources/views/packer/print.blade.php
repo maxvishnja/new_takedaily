@@ -69,10 +69,10 @@
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
-		height: 200mm;
+		height: 205mm;
 		width: 173mm;
 		position: relative;
-		padding: 5pt 5pt 0 12pt;
+		padding: 1pt 5pt 0 12pt;
 
 	}
 
