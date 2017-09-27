@@ -20,14 +20,7 @@
 					class="button button--regular button--light not-snooz button--rounded m-r-10"
 					title="{{ trans('account.settings_subscription.cant-snooze') }}">{{ trans('account.settings_subscription.button-snooze-text') }}</span>
 			@endif
-			@if($plan->isCancelable())
-				<a href="{{ URL::action('AccountController@getCancelPage') }}"
-				   class="button button--regular button--light button--rounded cancel-button">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
-			@else
-				<span
-					class="button button--regular button--white button--text-grey button--disabled button--rounded"
-					title="{{ trans('account.settings_subscription.cant-cancel') }}">{{ trans('account.settings_subscription.button-cancel-text') }}</span>
-			@endif
+
 		</div>
 	@else
 		<div class="m-t-20 m-b-30">
@@ -88,43 +81,68 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
 	@endforeach
+	<div class="text-center">
+		@if($plan->isCancelable())
+			<a href="{{ URL::action('AccountController@getCancelPage') }}"
+			   class="cancel-button">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
+		@else
+			<span
+					class="button button--regular button--white button--text-grey button--disabled button--rounded"
+					title="{{ trans('account.settings_subscription.cant-cancel') }}">{{ trans('account.settings_subscription.button-cancel-text') }}</span>
+		@endif
+	</div>
 @endsection
 
 @section('footer_scripts')
 	<script>
 		$("#snooze-toggle").click(function (e) {
 			e.preventDefault();
+			@if($plan->getRebillAt()!=null)
+				swal({
+					title: "{{ trans('account.settings_subscription.snooze_popup.title') }}",
+					text: "{{ trans('account.settings_subscription.snooze_popup.text') }}" +
+					"<form method=\"post\" action=\"{{ URL::action('AccountController@postSettingsSubscriptionSnooze') }}\" id=\"snooze_form\">" +
+					{{--"<select class=\"select select--regular m-t-10\" name=\"days\">" +--}}
+					{{--@foreach(range(1,28) as $days)--}}
+						{{--"<option value=\"{{ $days }}\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => $days ]) }}</option>" +--}}
+					{{--@endforeach--}}
+						{{--"</select>" +--}}
 
-			swal({
-				title: "{{ trans('account.settings_subscription.snooze_popup.title') }}",
-				text: "{{ trans('account.settings_subscription.snooze_popup.text') }}" +
-				"<form method=\"post\" action=\"{{ URL::action('AccountController@postSettingsSubscriptionSnooze') }}\" id=\"snooze_form\">" +
-				{{--"<select class=\"select select--regular m-t-10\" name=\"days\">" +--}}
-				{{--@foreach(range(1,28) as $days)--}}
-					{{--"<option value=\"{{ $days }}\">{{ trans('account.settings_subscription.snooze_popup.option', ['days' => $days ]) }}</option>" +--}}
-				{{--@endforeach--}}
-					{{--"</select>" +--}}
-				"<input type=\"text\" name=\"days\" class=\"datepicker\" placeholder='{{ trans('account.settings_subscription.snooze_popup.placeholder') }}' />" +
-				"<input type=\"hialreen\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
-				"<a data-month='1' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze14days') }}</a>" +
-				"<a data-month='2' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze2month') }}</a>" +
-				"<a data-month='3' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze3month') }}</a>" +
-				"</form>",
-				type: "",
-				html: true,
-				confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
-				cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
-				confirmButtonColor: "#3AAC87",
-				allowOutsideClick: true,
-				showCancelButton: true,
-				closeOnConfirm: false,
-			}, function (inputValue) {
-				if (inputValue) {
-					return $("#snooze_form").submit();
-				}
-			});
+					"<input type=\"text\" name=\"days\" class=\"datepicker\" placeholder='{{ trans('account.settings_subscription.snooze_popup.placeholder') }}' />" +
+					"<input type=\"hialreen\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
+					"<div class='m-b-10'>" +
+					"<a data-days='{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(1)->format('d-m-Y')}}' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze1day') }}</a>" +
+					"<a data-days='{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(2)->format('d-m-Y')}}' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze2day') }}</a>" +
+					"<a data-days='{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(3)->format('d-m-Y')}}' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze3day') }}</a>" +
+					"</div>" +
+					"<div class='m-b-10'>" +
+					"<a data-days='{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(7)->format('d-m-Y')}}' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze1week') }}</a>" +
+					"<a data-days='{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(14)->format('d-m-Y')}}' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze14days') }}</a>" +
+					"<a data-days='{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(21)->format('d-m-Y')}}' class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze3week') }}</a>" +
+					"</div>" +
+					"<div class='m-b-10'>" +
+					"<a data-days='{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(1)->format('d-m-Y')}}'  class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze1month') }}</a>" +
+					"<a data-days='{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(2)->format('d-m-Y')}}'  class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze2month') }}</a>" +
+					"<a data-days='{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(3)->format('d-m-Y')}}'  class='snooz-month button button--small button--rounded button--green'>{{ trans('account.settings_subscription.snooze3month') }}</a>" +
+					"</div>" +
+					"</form>",
+					type: "",
+					html: true,
+					confirmButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-snooze-text') }}",
+					cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
+					confirmButtonColor: "#3AAC87",
+					allowOutsideClick: true,
+					showCancelButton: true,
+					closeOnConfirm: false,
+				}, function (inputValue) {
+					if (inputValue) {
+						return $("#snooze_form").submit();
+					}
+				});
+			@endif
 			@if($plan->getRebillAt()!=null)
 			$( ".datepicker" ).datepicker({
 				startDate: '{{Date::now()->addDay()->format('d-m-Y')}}',
@@ -134,13 +152,8 @@
 				format: "dd-mm-yyyy"
 			});
 			$('.snooz-month').on('click',function(){
-				if($(this).data('month') == 2){
-					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(2)->format('d-m-Y')}}');
-				} else if($(this).data('month') == 3){
-					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addMonths(3)->format('d-m-Y')}}');
-				} else{
-					$('input.datepicker').val('{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(14)->format('d-m-Y')}}');
-				}
+
+				$('input.datepicker').val($(this).data('days'));
 				$('.confirm').attr('disabled',true);
 				$("#snooze_form").submit();
 			});

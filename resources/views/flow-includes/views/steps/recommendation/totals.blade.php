@@ -40,15 +40,13 @@
 			</div>
 		@endif
 		<div class="text-center">
-			<button type="submit" onclick="updateNewVitamin();" class="button @if(!Auth::check() ) button--green @else  button--light  @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
-
 			@if(!$giftcard)
-				<div class="m-t-20 m-b-20">
-					<a href="#coupon-field"
-					   id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
-				</div>
+				{{--<div class="m-t-20 m-b-20">--}}
+				{{--<a href="#coupon-field"--}}
+				{{--id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>--}}
+				{{--</div>--}}
 
-				<div id="coupon-field" style="display: none;" class="m-t-20">
+				<div id="coupon-field"  class="m-t-20">
 					<div class="row">
 						<div class="col-md-8">
 							<input type="text" id="coupon-input" maxlength="20"
@@ -68,6 +66,9 @@
 					<div id="coupon-form-errors" class="m-t-10"></div>
 				</div>
 			@endif
+			<button type="submit" onclick="updateNewVitamin();" class="button @if(!Auth::check() ) button--green @else  button--light  @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
+
+
 		</div>
 	</div>
 
