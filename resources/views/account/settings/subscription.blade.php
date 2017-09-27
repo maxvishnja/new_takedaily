@@ -84,23 +84,25 @@
 
 		</div>
 	@endforeach
-	<div class="text-center">
-		@if($plan->isCancelable())
-			<a href="{{ URL::action('AccountController@getCancelPage') }}"
-			   class="cancel-button">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
-		@else
-			<span
-					class="button button--regular button--white button--text-grey button--disabled button--rounded"
-					title="{{ trans('account.settings_subscription.cant-cancel') }}">{{ trans('account.settings_subscription.button-cancel-text') }}</span>
-		@endif
-	</div>
+	@if( $plan->isActive() )
+		<div class="text-center">
+			@if($plan->isCancelable())
+				<a href="{{ URL::action('AccountController@getCancelPage') }}"
+				   class="cancel-button">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
+			@else
+				<span
+						class="button button--regular button--white button--text-grey button--disabled button--rounded"
+						title="{{ trans('account.settings_subscription.cant-cancel') }}">{{ trans('account.settings_subscription.button-cancel-text') }}</span>
+			@endif
+		</div>
+	@endif
 @endsection
 
 @section('footer_scripts')
 	<script>
 		$("#snooze-toggle").click(function (e) {
 			e.preventDefault();
-			@if($plan->getRebillAt()!=null)
+			@if( $plan->isActive() )
 				swal({
 					title: "{{ trans('account.settings_subscription.snooze_popup.title') }}",
 					text: "{{ trans('account.settings_subscription.snooze_popup.text') }}" +
@@ -136,14 +138,12 @@
 					confirmButtonColor: "#3AAC87",
 					allowOutsideClick: true,
 					showCancelButton: true,
-					closeOnConfirm: false,
+					closeOnConfirm: false
 				}, function (inputValue) {
 					if (inputValue) {
 						return $("#snooze_form").submit();
 					}
 				});
-			@endif
-			@if($plan->getRebillAt()!=null)
 			$( ".datepicker" ).datepicker({
 				startDate: '{{Date::now()->addDay()->format('d-m-Y')}}',
 				endDate: '{{Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->addDays(28)->format('d-m-Y')}}',
