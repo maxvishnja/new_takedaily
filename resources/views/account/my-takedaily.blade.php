@@ -179,7 +179,7 @@
             var button = $(this);
 
             $.ajax({
-                url: "{{ URL::action('CheckoutController@applyCoupon') }}",
+                url: "{{ URL::action('AccountController@applyCoupon') }}",
                 method: "POST",
                 data: {"coupon": $("#coupon-input").val()},
                 headers: {
@@ -195,6 +195,7 @@
                 success: function (response) {
                     $("#coupon-form-successes").text(response.message);
                     $("#coupon-form-errors").text('');
+                    window.location.reload();
 
                 },
                 error: function (response) {

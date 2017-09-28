@@ -346,12 +346,25 @@ class AccountController extends Controller
             \Session::forget('applied_coupon');
             return \Response::json(['message' => trans('checkout.messages.no-such-coupon')], 400);
         }
-        /** @var Product $product */
-        $product = Product::where('name', \Session::get('product_name', 'subscription'))->first();
-        if (!$product || $product->isGiftcard()) {
-            return \Response::json(['message' => trans('checkout.messages.no-such-coupon')], 400);
+
+        $plan = $this->customer->getPlan();
+
+        if($plan->last_coupon == $coupon->code){
+            return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
         }
-        \Session::put('applied_coupon', $coupon->code);
+
+        $plan->last_coupon = $coupon->code;
+        if($coupon->discount_type == 'percentage'){
+            $plan->discount_type = 'percent';
+        } else{
+            $plan->discount_type = 'month';
+        }
+
+        $plan->coupon_free = $coupon->discount;
+
+        $plan->update();
+
+
         return \Response::json([
             'message' => trans('checkout.messages.coupon-added'),
             'coupon' => [
