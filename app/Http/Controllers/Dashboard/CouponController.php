@@ -6,6 +6,7 @@ use App\Apricot\Libraries\MoneyLibrary;
 use App\Apricot\Repositories\CouponRepository;
 use App\Coupon;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CouponRequest;
 use Illuminate\Http\Request;
 use Jenssegers\Date\Date;
 
@@ -30,7 +31,7 @@ class CouponController extends Controller
 		return view('admin.coupons.manage');
 	}
 
-	function store(Request $request) {
+	function store(CouponRequest $request) {
 		$coupon = new Coupon();
 
 		$coupon->code = strtoupper($request->get('code'));
