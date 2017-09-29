@@ -76,17 +76,17 @@
 
 	}
 
-	.vitamins:after {
-		content: "";
-		display: block;
-		border-right: 1px solid #CCE9E0;
-		left: 50%;
-		margin-left: -1px;
-		position: absolute;
-		top: 0;
-		height: 100%;
-		width: 1px;
-	}
+	/*.vitamins:after {*/
+		/*content: "";*/
+		/*display: block;*/
+		/*border-right: 1px solid #CCE9E0;*/
+		/*left: 50%;*/
+		/*margin-left: -1px;*/
+		/*position: absolute;*/
+		/*top: 0;*/
+		/*height: 100%;*/
+		/*width: 1px;*/
+	/*}*/
 
 	.vitamins .vitamin {
 		width: 50%;
