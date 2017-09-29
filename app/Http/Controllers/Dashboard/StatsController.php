@@ -107,8 +107,17 @@ class StatsController extends Controller
                     $email_array[$i]['Signupdate'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
                     if ($customer->plan->subscription_rebill_at != null){
                         $email_array[$i]['Nextpayment'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d-m-Y');
+                        if($customer->plan->attempt > 0 ){
+                            $email_array[$i]['Real Nextpayment'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->subWeekday($customer->plan->attempt)->format('d-m-Y');
+                        } else{
+                            $email_array[$i]['Real Nextpayment'] = '';
+                        }
+
                      } else{
+
+                        $email_array[$i]['Real Nextpayment'] = '';
                         $email_array[$i]['Nextpayment'] = '';
+
                     }
                     $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
                     $email_array[$i]['Amount'] = $customer->order_count;
