@@ -134,7 +134,7 @@ $cur = 0;
 			</div>
 
 			<div style="width: 100%; height: 40mm; position: relative;  left: 0;  overflow: hidden;">
-				<div style="padding: 0pt  0 0 20pt; position: relative; margin-top:25pt">
+				<div style="padding: 0pt  0 0 20pt; position: relative; margin-top:20pt">
 					{!! $printable['label'] !!}
 				</div>
 			</div>
