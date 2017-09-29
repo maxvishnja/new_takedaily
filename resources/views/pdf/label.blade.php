@@ -6,7 +6,7 @@
 		<address>
 			<img style="width: 100pt; height: 19pt; margin-bottom: 1pt; " src="{{ asset('/images/pdf-logo.png') }}"/>
 
-			<div style="margin-bottom: 4pt; font-size:11pt"><strong>{{ $customer->getName() }}</strong>@if($customer->getCustomerAttribute('company') != '') @if($customer->getLocale() == 'da'), C/o @else - @endif {{ $customer->getCustomerAttribute('company') }}@endif</div>
+			<div style="margin-bottom: 4pt; font-size:9pt"><strong>{{ $customer->getName() }}</strong>@if($customer->getCustomerAttribute('company') != '') @if($customer->getLocale() == 'da'), C/o @else - @endif {{ $customer->getCustomerAttribute('company') }}@endif</div>
 			<p style="font-size:10pt">{{ $customer->getCustomerAttribute('address_line1') }}, {{ $customer->getCustomerAttribute('address_number') }}<br/>
 			@if($customer->getCustomerAttribute('address_line2') != '')
 				{{ $customer->getCustomerAttribute('address_line2') }}<br/>
@@ -15,5 +15,5 @@
 			{{ ucfirst($customer->getCustomerAttribute('address_country')) }}</p>
 		</address>
 
-		<div style="font-size: 10pt; font-weight: 200; margin-left:5pt"><small>{{ trans('label-product.return') }}</small></div>
+		<div style="font-size: 8pt; font-weight: 200; margin-left:5pt"><small>{{ trans('label-product.return') }}</small></div>
 </div>
