@@ -277,8 +277,9 @@ class AccountController extends Controller
 
     function getSettingsSubscriptionCancel(Request $request)
     {
+
         if (!$this->customer->getPlan()->isCancelable()) {
-            return \Redirect::back();
+            return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.cancelled'));
         }
 
         if ($request->get('reason') === '-1') {

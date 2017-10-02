@@ -369,6 +369,10 @@ class Plan extends Model
 
     public function isCancelable()
     {
+        if(!$this->getRebillAt()){
+            return false;
+        }
+
         return Date::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffInDays() >= 1
         && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 1
         && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt()) > Date::now();
