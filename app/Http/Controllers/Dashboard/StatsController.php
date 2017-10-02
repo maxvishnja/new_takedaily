@@ -84,7 +84,7 @@ class StatsController extends Controller
         $i = 0;
         foreach ($customers as $customer) {
 
-                if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
+                if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@") and $customer->plan->subscription_started_at != null) {
                     $email_array[$i]['Email'] = $customer->getEmail();
                     $email_array[$i]['Firstname'] = $customer->getFirstName();
                     $email_array[$i]['Lastname'] = $customer->getLastName();

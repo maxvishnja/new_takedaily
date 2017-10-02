@@ -142,8 +142,6 @@ class Plan extends Model
     {
         $customers = Plan::whereMonth('subscription_started_at', '=', $date)->whereYear('subscription_started_at', '=', '2017')
             ->count();
-        $multiple = DatesSubscribe::whereMonth('subscription_started_at', '=', $date)->whereYear('subscription_started_at', '=', '2017')
-            ->count();
 
         return $customers;
     }
