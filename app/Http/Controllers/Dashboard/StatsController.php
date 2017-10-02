@@ -119,6 +119,14 @@ class StatsController extends Controller
                         $email_array[$i]['Nextpayment'] = '';
 
                     }
+
+                    $email_array[$i]['Last PaymentDate'] = '';
+
+                    if ($customer->plan->last_rebill_date != null){
+                        $email_array[$i]['Last PaymentDate'] = $customer->plan->last_rebill_date;
+                    }
+
+
                     $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
                     $email_array[$i]['Amount'] = $customer->order_count;
                     $email_array[$i]['Source'] = '';

@@ -72,6 +72,7 @@ class Plan extends Model
         'subscription_cancelled_at',
         'subscription_snoozed_until',
         'subscription_rebill_at',
+        'last_rebill_date',
         'old_rebill_at',
         'unsubscribe_reason',
         'currency',
@@ -451,6 +452,7 @@ class Plan extends Model
     public function rebilled()
     {
         $this->attempt = 0;
+        $this->last_rebill_date = $this->subscription_rebill_at;
         $this->subscription_rebill_at = Date::now()->addDays(28);
         $this->subscription_snoozed_until = null;
         $this->save();
