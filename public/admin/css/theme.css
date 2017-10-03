@@ -1719,3 +1719,8 @@ table.ui-datepicker-calendar {
 .stats-ok{
 	margin-bottom: 11px
 }
+
+.col-6{
+	width: 49%;
+	display: inline-block;
+}

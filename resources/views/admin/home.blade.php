@@ -3,17 +3,46 @@
 @section('content')
 	<div class="btn-controls">
 		<div class="btn-box-row row-fluid">
-			<a href="#" class="btn-box big span3"><i class=" icon-shopping-cart"></i><b>{{ $orders_today }}</b>
+			<a href="#" class="btn-box big span3"><i class="icon-shopping-cart"></i><b>{{ $orders_today }}</b>
 				<p class="text-muted">Ordre i dag</p>
+
+				<div class="col-6">
+					<p class="text-muted">Test</p>
+					<b>{{$orders_today - $orders_pick_today}}</b>
+				</div>
+				<div class="col-6">
+					<p class="text-muted">PicknMix</p>
+					<b>{{$orders_pick_today}}</b>
+				</div>
+
 			</a>
+
+
 
 			<a href="#" class="btn-box big span3"><i class="icon-group"></i><b>{{ $customers_today }}</b>
 				<p class="text-muted">Nye kunder i dag</p>
+				<div class="col-6">
+					<p class="text-muted">Test</p>
+					<b>{{$customers_today - $customers_pick_today}}</b>
+				</div>
+				<div class="col-6">
+					<p class="text-muted">PicknMix</p>
+					<b>{{$customers_pick_today}}</b>
+				</div>
+
 			</a>
 
 
 			<a href="#" class="btn-box big span3"><i class="icon-thumbs-down"></i><b>{{ $churnDay }}</b>
 				<p class="text-muted">kunder i dag</p>
+				<div class="col-6">
+					<p class="text-muted">Test</p>
+					<b>{{$churnDay - $churnPickDay}}</b>
+				</div>
+				<div class="col-6">
+					<p class="text-muted">PicknMix</p>
+					<b>{{$churnPickDay}}</b>
+				</div>
 			</a>
 
 			<a href="#" class="btn-box big span3"><i class="icon-money"></i><b>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($money_today, 2) }}</b>
@@ -27,12 +56,28 @@
 				<img src="/images/holland.png" style="height:50px">
 				<b>{{ $activeNL }}</b>
 				<p class="text-muted">Active customers</p>
+				<div class="col-6">
+					<p class="text-muted">Test</p>
+					<b>{{$activeNL - $activePickNL}}</b>
+				</div>
+				<div class="col-6">
+					<p class="text-muted">PicknMix</p>
+					<b>{{$activePickNL}}</b>
+				</div>
 			</a>
 
 			<a href="#" class="btn-box big span3">
 				<img src="/images/denmark.gif" style="height:50px">
 				<b>{{ $activeDK }}</b>
 				<p class="text-muted">Active customers</p>
+				<div class="col-6">
+					<p class="text-muted">Test</p>
+					<b>{{$activeDK - $activePickDK}}</b>
+				</div>
+				<div class="col-6">
+					<p class="text-muted">PicknMix</p>
+					<b>{{$activePickDK}}</b>
+				</div>
 			</a>
 
 		</div>
@@ -70,7 +115,7 @@
 	<div class="module">
 		<div class="module-head">
 			<h3>
-				Salg: De sidste 12 måneder</h3>
+				Sendt: De sidste 12 måneder</h3>
 		</div>
 		<div class="module-body">
 			<div class="chart inline-legend grid">

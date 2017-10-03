@@ -40,6 +40,25 @@ class OrderRepository
 		return Order::today();
 	}
 
+    public function getPickToday()
+    {
+        $orders = Order::today()->get();
+
+        $count = 0;
+
+        if(count($orders) > 0){
+           foreach ($orders as $order) {
+              if($order->getCustomer()->getPlan()->is_custom == 1){
+                  $count++;
+              }
+           }
+        }
+
+        return $count;
+
+
+    }
+
 	public function getMonthlySales()
 	{
 		return Order::selectRaw("YEAR(created_at) as year, MONTH(created_at) as month, sum(total) as total")

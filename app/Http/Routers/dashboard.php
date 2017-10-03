@@ -30,10 +30,13 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 
 
 		$activeNL = $customerRepo->allActiveLocale('EUR');
+		$activePickNL = $customerRepo->allActivePickLocale('EUR');
 		$activeDK = $customerRepo->allActiveLocale('DKK');
+		$activePickDK = $customerRepo->allActivePickLocale('DKK');
 
 
 		$churnDay = $customerRepo->churnDay();
+		$churnPickDay = $customerRepo->churnPickDay();
 
 		$money_today_dk = $orderRepo->getToday()
 			->whereNotIn( 'state', [ 'new', 'cancelled' ] )
@@ -48,16 +51,21 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 		return view( 'admin.home', [
 			'orders_today'    => $orderRepo->getToday()
 			                               ->count() ?: 0,
+            'orders_pick_today'    => $orderRepo->getPickToday(),
 			'customers_today' => $customerRepo->getToday()
 			                                  ->count() ?: 0,
+            'customers_pick_today' => $customerRepo->getPickToday(),
 			'money_today'     => $money_today,
 			'sales_year'      => $salesYear ?: [],
 			'customers_year'  => $customersYear ?: [],
 			'customers_day'  => $customersDay ?: [],
 			'customers_unsub'  => $customersUnsub ?: [],
 			'churnDay' => $churnDay,
+			'churnPickDay' => $churnPickDay,
 			'activeNL' => $activeNL,
+			'activePickNL' => $activePickNL,
 			'activeDK' => $activeDK,
+			'activePickDK' => $activePickDK,
 		] );
 	} );
 

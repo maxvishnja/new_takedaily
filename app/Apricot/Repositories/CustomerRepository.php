@@ -29,10 +29,26 @@ class CustomerRepository
 	}
 
 
+    public function allActivePickLocale($locale)
+    {
+        return Plan::where('currency','like', $locale)->where('is_custom','=', 1)->whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->count();
+    }
+
+
 	public function churnDay()
 	{
 		return Plan::whereNotNull('subscription_cancelled_at')->whereBetween( 'subscription_cancelled_at', [ Date::today()->setTime( 0, 0, 0 ), Date::today()->setTime( 23, 59, 59 ) ] )->count();
 	}
+
+
+    public function churnPickDay()
+    {
+        return Plan::whereNotNull('subscription_cancelled_at')->where('is_custom','=', 1)->whereBetween( 'subscription_cancelled_at', [ Date::today()->setTime( 0, 0, 0 ), Date::today()->setTime( 23, 59, 59 ) ] )->count();
+
+
+
+
+    }
 
 	public function rebillAble()
 	{
@@ -44,6 +60,24 @@ class CustomerRepository
 		return Customer::today();
 	}
 
+
+
+    public function getPickToday()
+    {
+        $customers = Customer::today()->get();
+
+        $count = 0;
+
+        if(count($customers) > 0){
+            foreach ($customers as $customer) {
+                if($customer->getPlan()->is_custom == 1){
+                    $count++;
+                }
+            }
+        }
+
+        return $count;
+    }
 	public function getAmbassador(){
 
 		return Customer::where('ambas','=', 1)->where('goal','!=',0)->where('coupon','!=','')->orderBy('created_at', 'DESC')->get();
