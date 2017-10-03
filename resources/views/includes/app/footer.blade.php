@@ -418,7 +418,7 @@
     </script>
     @if(App::environment() != 'local')
 
-    @yield('tracking-scripts')
+        @yield('tracking-scripts')
     @endif
     </body>
     </html>

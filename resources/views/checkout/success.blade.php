@@ -107,20 +107,10 @@
         </p>
     </noscript>
     <!-- Adform Tracking Code END -->
-    @if(App::getLocale() == 'nl')
-        <img src="http://oa1.nl/m/5824/19fa5023ff43b6545d455e24a6a475f880acd6a1/?transactie_id={{$user_email}}"
-             style="width: 1px; height: 1px; border: 0px;">
-    @endif
-
-    @if(App::getLocale() != 'nl')
-        <script src="https://online.adservicemedia.dk/cgi-bin/API/ConversionService/js?camp_id=6123&order_id={{$order_id}}"
-                type="text/javascript"></script>
-        <noscript>
-            <img src="https://online.adservicemedia.dk/cgi-bin/API/ConversionService/p?camp_id=6123" width="1" height="1"
-                 border="0">
-        </noscript>
-        <img src="https://online.digital-advisor.com/aff_l?offer_id=1903" width="1" height="1" />
-     @endif
+    {{--@if(App::getLocale() == 'nl')--}}
+        {{--<img src="http://oa1.nl/m/5824/19fa5023ff43b6545d455e24a6a475f880acd6a1/?transactie_id={{$user_email}}"--}}
+             {{--style="width: 1px; height: 1px; border: 0px;">--}}
+    {{--@endif--}}
     @endif
     <script>
         $('.share-icon').on('click', function () {
