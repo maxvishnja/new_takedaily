@@ -25,7 +25,7 @@ class CustomerRepository
 
 	public function allActiveLocale($locale)
 	{
-		return Plan::where('currency','like', $locale)->whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->count();
+		return Plan::where('currency','like', $locale)->whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->whereNull('deleted_at')->count();
 	}
 
 
@@ -98,8 +98,18 @@ class CustomerRepository
 					->get();
 	}
 
+    public static function getMonthlyFinish($year, $month)
+    {
+        return Plan::whereNull('subscription_cancelled_at')
+            ->whereNotNull('subscription_rebill_at')
+            ->whereYear('created_at', '<=', $year)
+            ->whereMonth('created_at','<=', $month)
+            ->count();
+    }
 
-	public function getDailyNew()
+
+
+    public function getDailyNew()
 	{
 		return Customer::selectRaw("YEAR(created_at) as year, MONTH(created_at) as month, DAY(created_at) as day, COUNT(DISTINCT id) as total")
 			->groupBy(\DB::raw("YEAR(created_at), MONTH(created_at), DAY(created_at)"))
@@ -114,6 +124,8 @@ class CustomerRepository
 			->groupBy(\DB::raw("YEAR(subscription_cancelled_at), MONTH(subscription_cancelled_at), DAY(subscription_cancelled_at)"))
 			->get();
 	}
+
+
 
 
 	public function getAlmostCustomer()

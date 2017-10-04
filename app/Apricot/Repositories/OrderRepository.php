@@ -65,4 +65,11 @@ class OrderRepository
 					->groupBy(\DB::raw("YEAR(created_at), MONTH(created_at)"))
 					->get();
 	}
+
+    public function getMonthlyOrder()
+    {
+        return Order::selectRaw("YEAR(created_at) as year, MONTH(created_at) as month, COUNT(DISTINCT id) as total")
+            ->groupBy(\DB::raw("YEAR(created_at), MONTH(created_at)"))
+            ->get();
+    }
 }

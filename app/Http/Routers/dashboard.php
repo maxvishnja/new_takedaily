@@ -24,6 +24,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 		$customerRepo = new \App\Apricot\Repositories\CustomerRepository();
 
 		$salesYear     = $orderRepo->getMonthlySales();
+		$orderYear     = $orderRepo->getMonthlyOrder();
 		$customersYear = $customerRepo->getMonthlyNew();
 		$customersDay = $customerRepo->getDailyNew();
 		$customersUnsub = $customerRepo->getDailyUnsub();
@@ -57,6 +58,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
             'customers_pick_today' => $customerRepo->getPickToday(),
 			'money_today'     => $money_today,
 			'sales_year'      => $salesYear ?: [],
+			'orderYear'      => $orderYear ?: [],
 			'customers_year'  => $customersYear ?: [],
 			'customers_day'  => $customersDay ?: [],
 			'customers_unsub'  => $customersUnsub ?: [],
