@@ -102,8 +102,8 @@ class CustomerRepository
     {
         return Plan::whereNull('subscription_cancelled_at')
             ->whereNotNull('subscription_rebill_at')
-            ->whereYear('created_at', '<=', $year)
-            ->whereMonth('created_at','<=', $month)
+            ->whereDate('created_at', '<', $year)
+            //->whereMonth('created_at','<=', $month)
             ->count();
     }
 

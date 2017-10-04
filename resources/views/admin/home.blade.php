@@ -189,7 +189,7 @@
 
         var d6 = [
 			@foreach(range(0,12) as $i)
-            [ {{ 12 - $i }} , {{ \App\Apricot\Repositories\CustomerRepository::getMonthlyFinish(\Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') * 1, \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n')) }} ],
+            [ {{ 12 - $i }} , {{ \App\Apricot\Repositories\CustomerRepository::getMonthlyFinish(\Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i-1)->format('Y-n-d') , \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1) }} ],
 			@endforeach
         ];
 
