@@ -198,7 +198,7 @@ class StatsController extends Controller
 
 
                     $attributes = $customer->customerAttributes()->where('identifier', 'LIKE', 'user_data.%')->get();
-                    
+
                     foreach($attributes as $attribute) {
                         if($attribute->identifier != 'user_data.locale' and $attribute->identifier != 'user_data.gender' and $attribute->identifier != 'user_data.birthdate' and $attribute->identifier != ''){
                             $email_array[$i][trans("attributes.{$attribute->identifier}")]  =   $attribute->value;

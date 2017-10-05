@@ -24,6 +24,11 @@ class OrderRepository
 		return Order::where('state', '!=', 'sent');
 	}
 
+    public function getOpenOrder()
+    {
+        return Order::where('state', '=', 'paid')->orWhere('state', '=', 'printed');
+    }
+
 	public function getShipped()
 	{
 		return Order::where('state', 'sent');

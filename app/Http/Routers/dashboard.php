@@ -4,7 +4,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	view()->composer( 'admin.sidebar', function ( $view )
 	{
 		$orderRepo = new \App\Apricot\Repositories\OrderRepository();
-		$view->with( 'sidebar_numOrders', $orderRepo->getNotShipped()
+		$view->with( 'sidebar_numOrders', $orderRepo->getOpenOrder()
 		                                            ->count() );
 
 		$callRepo = new \App\Apricot\Repositories\CallRepository();
