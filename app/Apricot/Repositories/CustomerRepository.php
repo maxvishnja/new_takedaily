@@ -30,7 +30,14 @@ class CustomerRepository
 
     public function allActiveLocaleTime($locale, $start, $end)
     {
-        return Plan::whereBetween('created_at', [$start, $end])->where('currency','like', $locale)->whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->whereNull('deleted_at');
+        return Plan::whereDate('created_at', '<', $end)->where('currency','like', $locale)
+            ->where( function ( $query ) use ( $start )
+            {
+                $query->whereNull( 'subscription_cancelled_at' )
+                    ->orWhereDate( 'subscription_cancelled_at', '<', $start );
+            } )
+            ->whereNotNull('subscription_rebill_at')
+            ->whereNull('deleted_at');
     }
 
 

@@ -468,27 +468,46 @@ class CheckoutController extends Controller
             return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
         }
         $coupon = $couponRepository->findByCoupon($request->get('coupon'));
-        if (!$coupon) {
+
+        $giftcard = \App\Giftcard::whereToken( $request->get( 'coupon' ) )->whereIsUsed( 0 )->whereCurrency( trans( 'general.currency' ) )->first();
+
+
+        if (!$coupon and !$giftcard) {
             \Session::forget('applied_coupon');
             return \Response::json(['message' => trans('checkout.messages.no-such-coupon')], 400);
         }
+
         /** @var Product $product */
         $product = Product::where('name', \Session::get('product_name', 'subscription'))->first();
+
         if (!$product || $product->isGiftcard()) {
             return \Response::json(['message' => trans('checkout.messages.no-such-coupon')], 400);
         }
-        \Session::put('applied_coupon', $coupon->code);
-        return \Response::json([
-            'message' => trans('checkout.messages.coupon-added'),
-            'coupon' => [
-                'description' => $coupon->description,
-                'applies_to' => $coupon->applies_to,
-                'discount_type' => $coupon->discount_type,
-                'discount' => $coupon->discount,
-                'code' => $coupon->code
-            ]
-        ], 200);
+
+        if($coupon){
+            \Session::put('applied_coupon', $coupon->code);
+            return \Response::json([
+                'message' => trans('checkout.messages.coupon-added'),
+                'coupon' => [
+                    'description' => $coupon->description,
+                    'applies_to' => $coupon->applies_to,
+                    'discount_type' => $coupon->discount_type,
+                    'discount' => $coupon->discount,
+                    'code' => $coupon->code
+                ]
+            ], 200);
+        }
+
+        if($giftcard){
+            \Session::put( 'giftcard_id', $giftcard->id );
+            \Session::put( 'giftcard_token', $giftcard->token );
+            return \Response::json([
+                'message' => trans('use-gifting.success')
+            ], 200);
+        }
+
     }
+
     function setAlmostCustomer(Request $request){
         if ($request->isMethod('get')){
             return \Response::json(['message' => 'Bad method!'], 400);
