@@ -198,25 +198,33 @@
 			var href = $('.cancel-button').attr('href');
 			swal({
 				title: "",
-				text: "<i class='fa fa-times close-but' aria-hidden='true'></i>{{ trans('account.settings_subscription.cancel-agree-text') }}",
+				text: "<i class='fa fa-times close-but' aria-hidden='true'></i>{{ trans('account.settings_subscription.cancel-agree-text') }}"+
+                "<div class='m-t-30'>" +
+                "<a class='button button--light' href='{{ URL::action('AccountController@getCancelPage') }}'>{{ trans('account.settings_subscription.cancel-agree') }}</a>" +
+				"<div style='width:20px; display:inline-block'></div>"+
+                "<a class='button button--green confirm-snooz'>"+he.decode("{{ trans('account.settings_subscription.cancel-success') }}")+"</a>" +
+                "</div>",
 				type: "",
 				html: true,
-				cancelButtonText: "{{ trans('account.settings_subscription.cancel-agree') }}",
-				confirmButtonText: he.decode("{{ trans('account.settings_subscription.cancel-success') }}"),
-				confirmButtonColor: "#3AAC87",
+				cancelButtonText: "",
+				confirmButtonText: "",
+                showConfirmButton:false,
 				allowOutsideClick: true,
-				showCancelButton: true,
-				closeOnConfirm: false
+				showCancelButton: false,
+				closeOnConfirm: true
 			}, function (isConfirm) {
 				if (!isConfirm) {
-					window.location = href;
+                    swal.close();
 				} else{
-					$("#snooze-toggle").click();
+                    swal.close();
 				}
 			});
 			$('.close-but').on('click',function(){
 				swal.close();
 			});
+            $('.confirm-snooz').on('click',function(){
+                $('#snooze-toggle').click();
+            });
 		});
 
 		$('.readLessBtn').click(function (e) {
