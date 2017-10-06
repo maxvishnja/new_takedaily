@@ -199,9 +199,9 @@
 			swal({
 				title: "",
 				text: "<i class='fa fa-times close-but' aria-hidden='true'></i>{{ trans('account.settings_subscription.cancel-agree-text') }}"+
-                "<div class='m-t-30'>" +
+                "<div class='m-t-30 m-center'>" +
                 "<a class='button button--light' href='{{ URL::action('AccountController@getCancelPage') }}'>{{ trans('account.settings_subscription.cancel-agree') }}</a>" +
-				"<div style='width:20px; display:inline-block'></div>"+
+				"<div class='spaced'></div>"+
                 "<a class='button button--green confirm-snooz'>"+he.decode("{{ trans('account.settings_subscription.cancel-success') }}")+"</a>" +
                 "</div>",
 				type: "",
