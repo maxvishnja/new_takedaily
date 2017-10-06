@@ -28,6 +28,16 @@ class CustomerRepository
 		return Plan::where('currency','like', $locale)->whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->whereNull('deleted_at')->count();
 	}
 
+    public function allActiveLocaleTime($locale, $start, $end)
+    {
+        return Plan::whereBetween('created_at', [$start, $end])->where('currency','like', $locale)->whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->whereNull('deleted_at');
+    }
+
+
+    public function allNewLocaleTime($locale, $start, $end)
+    {
+        return Plan::whereBetween('created_at', [$start, $end])->where('currency','like', $locale);
+    }
 
     public function allActivePickLocale($locale)
     {

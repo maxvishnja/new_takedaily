@@ -119,13 +119,51 @@ class AlmostCustomersController extends Controller
 
         foreach ($almostAll as $customer) {
 
-                $email_array[$i]['Name'] = $customer->name;
-                $email_array[$i]['E-mail'] = $customer->email;
-                if ($customer->location == 'nl') {
-                    $email_array[$i]['Country'] = 'Netherlands';
-                } else {
-                    $email_array[$i]['Country'] = 'Denmark';
+            $email_array[$i]['Name'] = $customer->name;
+            $email_array[$i]['E-mail'] = $customer->email;
+            if ($customer->location == 'nl') {
+                $email_array[$i]['Country'] = 'Netherlands';
+            } else {
+                $email_array[$i]['Country'] = 'Denmark';
+            }
+
+            $email_array[$i]['Vitamin 1'] = '';
+            $email_array[$i]['Vitamin 2'] = '';
+            $email_array[$i]['Vitamin 3'] = '';
+            $email_array[$i]['Vitamin 4'] = '';
+
+            $flowCompletion = \App\FlowCompletion::whereToken( $customer->token )->first();
+
+            if($flowCompletion){
+
+                $userData = $flowCompletion->user_data;
+
+                $combinations = \App\Customer::calculateAlmostCombinations($userData);
+
+                foreach ($combinations as $key=>$vitamin){
+                    $s = $key+1;
+                    $email_array[$i]['Vitamin '.$s] .= \App\Apricot\Helpers\PillName::get(strtolower($vitamin));
                 }
+
+
+            }
+
+
+            if($customer->token != ''){
+                if ($customer->location == 'nl') {
+                    $link = 'https://takedaily.nl/flow?token='.$customer->token;
+                } else {
+
+                    $link = 'https://takedaily.dk/flow?token='.$customer->token;
+                }
+            } else{
+                $link = '';
+            }
+
+            $email_array[$i]['Test link'] = $link;
+
+
+
                 $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y H:i');
 
 

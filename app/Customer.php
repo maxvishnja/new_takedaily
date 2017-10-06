@@ -764,6 +764,19 @@ class Customer extends Model
         return $combinationLibrary->getResult();
     }
 
+
+    public static function calculateAlmostCombinations ($data)
+    {
+        $combinationLibrary = new CombinationLibraryNew;
+
+        $combinationLibrary->generateResult(  $data  );
+
+        $codes = $combinationLibrary->getResult();
+
+        return $codes;
+    }
+
+
     public function scopeMailFlowable($query)
     {
         return $query->where('is_mailflowable', 1)->where('accept_newletters', 1);

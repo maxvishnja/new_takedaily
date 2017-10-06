@@ -56,49 +56,49 @@
                             <td>11</td>
                             <td>12</td>
                         </tr>
-                        @foreach(trans('flow.datepicker.months_long') as $key=>$month)
+                        {{--@foreach(trans('flow.datepicker.months_long') as $key=>$month)--}}
 
-                                <tr>
-                                    <td>{{$month}} 2017</td>
-                                    <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
-                                    <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>
-                                    @foreach(range($key,12) as $y)
-                                        <td class="text-center">
-                                            @if($y >= $key and $y <= (int)date('m') )
-                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}
+                                {{--<tr>--}}
+                                    {{--<td>{{$month}} 2017</td>--}}
+                                    {{--<td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>--}}
+                                    {{--<td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>--}}
+                                    {{--@foreach(range($key,12) as $y)--}}
+                                        {{--<td class="text-center">--}}
+                                            {{--@if($y >= $key and $y <= (int)date('m') )--}}
+                                            {{--{{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}--}}
 
-                                            @endif
-                                        </td>
-                                    @endforeach
-                                </tr>
+                                            {{--@endif--}}
+                                        {{--</td>--}}
+                                    {{--@endforeach--}}
+                                {{--</tr>--}}
 
-                            @endforeach
-                        </tbody>
+                            {{--@endforeach--}}
+                        {{--</tbody>--}}
 
-                        <tbody id="5" class="cohorts hidden">
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            @foreach(range(0,date('W')) as $val)
-                            <td>{{$val}}</td>
-                           @endforeach
-                        </tr>
+                        {{--<tbody id="5" class="cohorts hidden">--}}
+                        {{--<tr>--}}
+                            {{--<td></td>--}}
+                            {{--<td></td>--}}
+                            {{--@foreach(range(0,date('W')) as $val)--}}
+                            {{--<td>{{$val}}</td>--}}
+                           {{--@endforeach--}}
+                        {{--</tr>--}}
 
-                        @foreach(range(0,date('W')-1) as $week)
-                            <tr>
-                                <td>Week {{$week+1}}</td>
-                                <td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>
-                                <td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>
-                                @foreach(range(01,date('W')) as $y)
-                                    <td class="text-center">
+                        {{--@foreach(range(0,date('W')-1) as $week)--}}
+                            {{--<tr>--}}
+                                {{--<td>Week {{$week+1}}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>--}}
+                                {{--@foreach(range(01,date('W')) as $y)--}}
+                                    {{--<td class="text-center">--}}
 
-                                        @if(date('W')-$week >= $y)
-                                          {{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}
-                                        @endif
-                                    </td>
-                                @endforeach
-                            </tr>
-                        @endforeach
+                                        {{--@if(date('W')-$week >= $y)--}}
+                                          {{--{{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}--}}
+                                        {{--@endif--}}
+                                    {{--</td>--}}
+                                {{--@endforeach--}}
+                            {{--</tr>--}}
+                        {{--@endforeach--}}
                         </tbody>
 
                         </table>
@@ -107,46 +107,107 @@
             </div>
             <div role="tabpanel" class="tab-pane " id="stats">
                 <div class="module-body table">
-                    <form class="stat-form" method="POST">
+                    {{--<form class="stat-form" method="POST">--}}
+                        {{--<table cellpadding="0" cellspacing="0" border="0"--}}
+                           {{--class="datatable-1 table table-bordered table-striped display" width="100%">--}}
+                            {{--<thead>--}}
+                            {{--<tr>--}}
+                                {{--<td>Please choose category</td>--}}
+                                {{--<td>Please choose date</td>--}}
+                                {{--<td>Amount</td>--}}
+                            {{--</tr>--}}
+                            {{--</thead>--}}
+                            {{--<tbody>--}}
+                            {{--<tr>--}}
+                                {{--<td>--}}
+                                    {{--<select name="stat_category">--}}
+                                        {{--<option value="1">New signups</option>--}}
+                                        {{--<option value="2">Postponed users</option>--}}
+                                        {{--<option value="3">Billed second time</option>--}}
+                                        {{--<option value="4">Churned users</option>--}}
+                                        {{--<option value="5">Free TD</option>--}}
+                                    {{--</select>--}}
+                                {{--</td>--}}
+
+                                {{--<td>--}}
+                                    {{--<input type="text" class="form-control datepicker" name="start-date"--}}
+                                           {{--id="start-picker"--}}
+                                           {{--placeholder="Start date"--}}
+                                           {{--value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> ---}}
+                                    {{--<input type="text" class="form-control datepicker" name="end-date" id="end-picker"--}}
+                                           {{--placeholder="End date" value="{{\Date::now()->addDay()->format('Y-m-d')}}"/>--}}
+                                    {{--<button class="btn btn-success stats-ok">Go</button>--}}
+                                    {{--{{ csrf_field() }}--}}
+                                {{--</td>--}}
+                                {{--<td>--}}
+                                    {{--<div class="result"></div>--}}
+                                {{--</td>--}}
+                            {{--</tr>--}}
+                            {{--</tbody>--}}
+                        {{--</table>--}}
+                    {{--</form>--}}
+                    {{--<br/>--}}
+
+                    <form class="csv-form stat-form" action="{{ URL::action('Dashboard\StatsController@exportCsvDate') }}"
+                          method="POST">
+                        {{ csrf_field() }}
                         <table cellpadding="0" cellspacing="0" border="0"
-                           class="datatable-1 table table-bordered table-striped display" width="100%">
+                               class="datatable-1 table table-bordered table-striped	display" width="100%">
                             <thead>
                             <tr>
-                                <td>Please choose category</td>
-                                <td>Please choose date</td>
-                                <td>Amount</td>
+                            <td>Choose category</td>
+                            <td>Choose date</td>
+                            <td>Choose language</td>
+                            <td>Amount</td>
+                            <td></td>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
-                                <td>
-                                    <select name="stat_category">
-                                        <option value="1">New signups</option>
-                                        <option value="2">Postponed users</option>
-                                        <option value="3">Billed second time</option>
-                                        <option value="4">Churned users</option>
-                                        <option value="5">Free TD</option>
+                                <td class="text-center">
+                                    <select name="csv-category" class="csv-category">
+                                        <option value="1">Active cusomers with time</option>
+                                        <option value="6">New customers with time</option>
+                                        {{--<option value="2">All unsubscribe with time</option>--}}
+                                        {{--<option value="3">Unsubscribe with other reason</option>--}}
+                                        {{--<option value="5">Unsubscribe from dashboard</option>--}}
+                                        {{--<option value="4">Client for X amount of weeks</option>--}}
                                     </select>
                                 </td>
-
-                                <td>
-                                    <input type="text" class="form-control datepicker" name="start-date"
-                                           id="start-picker"
+                                <td class="visib text-center">
+                                    <input type="text" class="form-control datepicker" style="width:120px"
+                                           name="start_date" id="start_picker"
                                            placeholder="Start date"
-                                           value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
-                                    <input type="text" class="form-control datepicker" name="end-date" id="end-picker"
-                                           placeholder="End date" value="{{\Date::now()->addDay()->format('Y-m-d')}}"/>
-                                    <button class="btn btn-success stats-ok">Go</button>
-                                    {{ csrf_field() }}
+                                           value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/>
+                                    <br/>
+                                    <input type="text" style="width:120px" class="form-control datepicker"
+                                           name="end_date" id="end_picker"
+                                           placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+
+                                    <input type="text" value="10" name="weeks" class="form-control weeks"
+                                           style="display: none" placeholder="Enter X weeks, ex. 10 or 12">
                                 </td>
-                                <td>
-                                    <div class="result"></div>
+                                <td class="text-center">
+                                    <select name="lang" id="input_state" style="width:100px">
+                                        <option value="nl" selected="selected">Dutch</option>
+                                        <option value="da">Denmark</option>
+                                    </select>
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-success stats-ok">Get amount</button>
+                                    <br/>
+                                    <div class="result" style="margin-top:20px"></div>
+                                </td>
+                                <td class="text-center">
+                                    <button  class="btn btn-success">Download CSV</button>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
                     </form>
                     <br/>
+
+
                     <table cellpadding="0" cellspacing="0" border="0"
                            class="datatable-1 table table-bordered table-striped	display" width="100%">
                         <tbody>
@@ -174,49 +235,7 @@
                         </tbody>
                     </table>
                     <br/>
-                    <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportCsvDate') }}"
-                          method="POST">
-                        {{ csrf_field() }}
-                        <table cellpadding="0" cellspacing="0" border="0"
-                               class="datatable-1 table table-bordered table-striped	display" width="100%">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <select name="csv-category" class="csv-category">
-                                        <option value="1">Aktive kunder with time</option>
-                                        <option value="2">All unsubscribe with time</option>
-                                        <option value="3">Unsubscribe with other reason</option>
-                                        <option value="5">Unsubscribe from dashboard</option>
-                                        <option value="4">Client for X amount of weeks</option>
-                                    </select>
-                                </td>
-                                <td class="visib">
-                                    <input type="text" class="form-control datepicker" style="width:120px"
-                                           name="start_date" id="start_picker"
-                                           placeholder="Start date"
-                                           value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/>
-                                    <input type="text" style="width:120px" class="form-control datepicker"
-                                           name="end_date" id="end_picker"
-                                           placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
 
-                                    <input type="text" value="10" name="weeks" class="form-control weeks"
-                                           style="display: none" placeholder="Enter X weeks, ex. 10 or 12">
-                                </td>
-                                <td>
-                                    <select name="lang" id="input_state" style="width:100px">
-                                        <option value="nl" selected="selected">Dutch</option>
-                                        <option value="da">Denmark</option>
-                                    </select>
-                                </td>
-
-                                <td>
-                                    <button style="float: right" class="btn btn-success">Download CSV</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </form>
-                    <br/>
                     <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportDateCoupon') }}"
                           method="POST">
                         {{ csrf_field() }}

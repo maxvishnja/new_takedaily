@@ -1724,3 +1724,7 @@ table.ui-datepicker-calendar {
 	width: 49%;
 	display: inline-block;
 }
+
+.text-center{
+	text-align: center!important;
+}

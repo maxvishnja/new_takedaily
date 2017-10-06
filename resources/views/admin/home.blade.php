@@ -139,17 +139,18 @@
 		</div>
 	</div>
 
+	<div class="module">
 	<!--/.module-->
-		<div class="module-head">
-			<h3>
-				Kundebase: De sidste 12 måneder</h3>
-		</div>
-		<div class="module-body">
-			<div class="chart inline-legend grid">
-				<div id="placeholder6" class="graph" style="height: 300px">
-				</div>
+	<div class="module-head">
+		<h3>
+			Kundebase: De sidste 12 måneder</h3>
+	</div>
+	<div class="module-body">
+		<div class="chart inline-legend grid">
+			<div id="placeholder6" class="graph" style="height: 300px">
 			</div>
 		</div>
+	</div>
 	</div>
 	<!--/.module-->
 @stop
