@@ -40,10 +40,10 @@ class Stripe implements PaymentInterface
     public function charge($amount, $description, $data)
     {
         $charge = [
-            "amount" => $amount,
+            "amount" => round($amount),
             "description" => $description,
         ];
-
+        \Log::info("Charge: " . $amount);
         $charge = array_merge($charge, $data);
 
         try {
