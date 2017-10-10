@@ -105,43 +105,6 @@ class CreateCsvAllCustomers
 
                 }
 
-                $email_array[$i][trans("attributes.user_data.age")] = '';
-                $email_array[$i][trans("attributes.user_data.skin")] = '';
-                $email_array[$i][trans("attributes.user_data.outside")] = '';
-                $email_array[$i][trans("attributes.user_data.pregnant")] = '';
-                $email_array[$i][trans("attributes.user_data.pregnancy.date")] = '';
-                $email_array[$i][trans("attributes.user_data.pregnancy.week")] = '';
-                $email_array[$i][trans("attributes.user_data.pregnancy.wish")] = '';
-                $email_array[$i][trans("attributes.user_data.diet")] = '';
-                $email_array[$i][trans("attributes.user_data.sports")] = '';
-                $email_array[$i][trans("attributes.user_data.lacks_energy")] = '';
-                $email_array[$i][trans("attributes.user_data.smokes")] = '';
-                $email_array[$i][trans("attributes.user_data.immune_system")] = '';
-                $email_array[$i][trans("attributes.user_data.vegetarian")] = '';
-                $email_array[$i][trans("attributes.user_data.joints")] = '';
-                $email_array[$i][trans("attributes.user_data.stressed")] = '';
-                $email_array[$i][trans("attributes.user_data.foods.fruits")] = '';
-                $email_array[$i][trans("attributes.user_data.foods.vegetables")] = '';
-                $email_array[$i][trans("attributes.user_data.foods.bread")] = '';
-                $email_array[$i][trans("attributes.user_data.foods.wheat")] = '';
-                $email_array[$i][trans("attributes.user_data.foods.dairy")] = '';
-                $email_array[$i][trans("attributes.user_data.foods.meat")] = '';
-                $email_array[$i][trans("attributes.user_data.foods.fish")] = '';
-                $email_array[$i][trans("attributes.user_data.foods.butter")] = '';
-                $email_array[$i][trans("attributes.user_data.priority")] = '';
-
-
-
-                $attributes = $customer->customerAttributes()->where('identifier', 'LIKE', 'user_data.%')->get();
-
-                foreach($attributes as $attribute) {
-                    if($attribute->identifier != 'user_data.locale' and $attribute->identifier != 'user_data.gender' and $attribute->identifier != 'user_data.birthdate' and $attribute->identifier != ''){
-                        $email_array[$i][trans("attributes.{$attribute->identifier}")]  =   $attribute->value;
-                    }
-
-
-                }
-
                 $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
                 $email_array[$i]['Amount'] = $customer->order_count;
                 $email_array[$i]['Source'] = '';

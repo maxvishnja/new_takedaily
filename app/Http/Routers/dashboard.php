@@ -114,6 +114,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::post('stats/chortscsv', ['as' => 'cohorts-export', 'uses' => 'Dashboard\StatsController@cohortsToCsv']);
 	Route::post('stats/export-coupon', ['as' => 'export-coupon', 'uses' => 'Dashboard\StatsController@exportDateCoupon']);
 	Route::post('stats/export', ['as' => 'export', 'uses' => 'Dashboard\StatsController@exportCsv']);
+	Route::post('stats/check-csv', ['as' => 'check', 'uses' => 'Dashboard\StatsController@checkCsv']);
+	Route::post('stats/download', ['as' => 'check', 'uses' => 'Dashboard\StatsController@downloadCsv']);
 	Route::post('stats/reason', ['as' => 'reason', 'uses' => 'Dashboard\StatsController@getUnsubscribeReason']);
 	Route::resource( 'feedback', 'Dashboard\FeedbackController' );
 	Route::get( 'feedback/delete/{id}', 'Dashboard\FeedbackController@destroy' );

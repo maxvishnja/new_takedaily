@@ -130,14 +130,15 @@
                             </td>
                             <td>
                                 <form style="float: right" class="csv-forms"
-                                      action="{{ URL::action('Dashboard\StatsController@exportCsv') }}" method="POST">
+                                      action="{{ URL::action('Dashboard\StatsController@downloadCsv') }}" method="POST">
                                     {{ csrf_field() }}
                                     <select name="lang" id="input_states" style="width: 100px; margin-right:20px">
                                         <option value="nl" selected="selected">Dutch</option>
                                         <option value="da">Denmark</option>
                                     </select>
 
-                                    <button style="float: right" class="btn btn-success">Download CSV</button>
+                                    <button  class="btn btn-info" id="createCsv">Create CSV</button>
+                                    <button  class="btn btn-success" id="downloadCsv">Download CSV</button>
                                 </form>
                             </td>
                         </tr>
@@ -388,6 +389,23 @@
                 });
             });
 
+
+            $('#createCsv').on('click', function(e){
+               e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    data: $('form.csv-forms').serialize(),
+                    url: '{{  URL::action('Dashboard\StatsController@exportCsv')}}',
+                    success: function (data) {
+
+                    }
+
+                });
+
+                $(this).prop('disabled', true);
+
+            });
+
             $('.csv-category').on('change', function () {
                 if ($('.csv-category').val() == 4) {
 
@@ -400,6 +418,39 @@
                     $('.visib .weeks').hide();
                 }
             });
+
+            checkCsv($('#input_states').val());
+
+            setInterval(function() {
+                checkCsv($('#input_states').val());
+            }, 20000);
+
+
+            $('#input_states').on('change', function(){
+                checkCsv($(this).val());
+            });
+
+            function checkCsv(lang) {
+
+                $.ajax({
+                    url: '{{  URL::action('Dashboard\StatsController@checkCsv')}}',
+                    type: 'POST',
+                    data: {lang: lang},
+                    headers: {
+                        'X-CSRF-TOKEN': $('form.csv-forms').find('[name="_token"]').val()
+                    },
+                    success: function (response) {
+                        $('#createCsv').prop('disabled', true);
+                        $('#downloadCsv').prop('disabled', false);
+                    },
+                    error: function (response) {
+                        $('#createCsv').prop('disabled', false);
+                        $('#downloadCsv').prop('disabled', true);
+                    }
+
+                });
+
+            }
 
 
         });

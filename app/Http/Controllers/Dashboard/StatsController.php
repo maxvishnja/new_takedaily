@@ -91,10 +91,55 @@ class StatsController extends Controller
         \Event::fire(new CreateCsv($customers, $data['lang']));
 
 
-        return \Redirect::back();
+        return \Response::json([
+            'message' => 'Csv start create'
+        ], 200);
 
     }
 
+
+
+    function downloadCsv(Request $request)
+
+    {
+        $data = $request->all();
+
+
+        $filename = storage_path('excel/exports/all_active_mails_'.$data['lang'].'.xls');
+
+
+        if(file_exists($filename)){
+
+            return \Response::download($filename)->deleteFileAfterSend(true);
+
+        } else{
+            return \Redirect::back()->withErrors("No file! Please create it");
+
+        }
+
+
+    }
+
+
+    function checkCsv(Request $request){
+
+        $data = $request->all();
+
+        $filename = storage_path('excel/exports/all_active_mails_'.$data['lang'].'.xls');
+
+        if(file_exists($filename)) {
+
+            return \Response::json([
+                'message' => 'Success'
+            ], 200);
+
+        }else{
+
+            return \Response::json([
+                'message' => 'Error'
+            ], 400);
+        }
+    }
 
 
     function cohortsToCsv(Request $request)
