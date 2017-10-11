@@ -35,4 +35,6 @@ Route::group( [ 'middleware' => [ 'auth', 'user' ], 'prefix' => 'account' ], fun
 	Route::post( 'settings/billing/change', 'AccountController@updatePaymentMethod' );
 
 	Route::get( '/see-recommendation', 'AccountController@getSeeRecommendation' );
+
+    Route::post( 'apply-coupon', 'AccountController@applyCoupon' );
 } );

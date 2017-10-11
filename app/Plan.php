@@ -72,6 +72,7 @@ class Plan extends Model
         'subscription_cancelled_at',
         'subscription_snoozed_until',
         'subscription_rebill_at',
+        'last_rebill_date',
         'old_rebill_at',
         'unsubscribe_reason',
         'currency',
@@ -140,8 +141,6 @@ class Plan extends Model
     public static function getSignups($date)
     {
         $customers = Plan::whereMonth('subscription_started_at', '=', $date)->whereYear('subscription_started_at', '=', '2017')
-            ->count();
-        $multiple = DatesSubscribe::whereMonth('subscription_started_at', '=', $date)->whereYear('subscription_started_at', '=', '2017')
             ->count();
 
         return $customers;
@@ -368,6 +367,10 @@ class Plan extends Model
 
     public function isCancelable()
     {
+        if(!$this->getRebillAt()){
+            return false;
+        }
+
         return Date::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffInDays() >= 1
         && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 1
         && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt()) > Date::now();
@@ -445,6 +448,14 @@ class Plan extends Model
         //$this->subscription_rebill_at     = Date::now()->addDays( 28 );
         $this->save();
 
+        return true;
+    }
+
+
+    public function setLastPaymentDate(){
+
+        $this->last_rebill_date = $this->subscription_rebill_at;
+        $this->save();
         return true;
     }
 

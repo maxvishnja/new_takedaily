@@ -107,7 +107,7 @@
 					({{ trans('checkout.index.order.billing.card.cvc-title') }})</label>
 				<div class="input-with-positioned-icon">
 					<div class="positioned-icon cvr-info-icon hidden-xs">?</div>
-					<input data-validate="false" type="tel" class="input input--medium input--spacing input--semibold input--full" id="cc-csc" autocomplete="cc-csc" size="4"
+					<input data-validate="false" type="password" class="input input--medium input--spacing input--semibold input--full" id="cc-csc" autocomplete="cc-csc" size="4"
 						   maxlength="4" placeholder="{{ trans('checkout.index.order.billing.card.cvc-placeholder') }}" data-stripe="cvc" required="required" pattern="\d*"/>
 				</div>
 			</div>

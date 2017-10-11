@@ -194,6 +194,12 @@ class CheckoutCompletion
 				}
 			}
 
+            if (count($vitamins) == 0){
+
+                $vitamins = ['2','5','13'];
+            }
+
+
 			$this->getUser()->getCustomer()->getPlan()->update( [
 				'vitamins' => json_encode( $vitamins )
 			] );

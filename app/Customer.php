@@ -415,6 +415,7 @@ class Customer extends Model
             }
         }
 
+        $this->getPlan()->setLastPaymentDate();
         $this->getPlan()->rebilled();
 
         return true;
@@ -763,6 +764,19 @@ class Customer extends Model
 
         return $combinationLibrary->getResult();
     }
+
+
+    public static function calculateAlmostCombinations ($data)
+    {
+        $combinationLibrary = new CombinationLibraryNew;
+
+        $combinationLibrary->generateResult(  $data  );
+
+        $codes = $combinationLibrary->getResult();
+
+        return $codes;
+    }
+
 
     public function scopeMailFlowable($query)
     {

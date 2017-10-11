@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Coupon;
 use App\Customer;
+use App\Events\CreateCsv;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Plan;
@@ -41,13 +42,18 @@ class StatsController extends Controller
 
         if (\Request::ajax()) {
             $data = $request->all();
-            switch ($data['stat_category']) {
+            if($data['lang']=='nl'){
+                $currency = "EUR";
+            } else{
+                $currency = "DKK";
+            }
+            switch ($data['csv-category']) {
                 case 1:
-                    return Customer::whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
+                    return $this->repo->allActiveLocaleTime($currency, $data['start_date'], $data['end_date'] )->count();
                 case 2:
-                    return Plan::whereNotNull('subscription_snoozed_until')->whereBetween('subscription_snoozed_until', [$data['start-date'], $data['end-date']])->count();
+                    return Plan::where('currency','like', $currency)->whereNotNull('subscription_snoozed_until')->whereBetween('subscription_snoozed_until', [$data['start_date'], $data['end_date']])->count();
                 case 3:
-                    $ordercount = Plan::whereBetween('updated_at', [$data['start-date'], $data['end-date']])->whereNull('subscription_snoozed_until')->whereNull('subscription_cancelled_at')->get();
+                    $ordercount = Plan::whereBetween('updated_at', [$data['start_date'], $data['end_date']])->whereNull('subscription_snoozed_until')->whereNull('subscription_cancelled_at')->get();
                     $i = 0;
                     foreach ($ordercount as $order) {
                         $newdate = \Date::createFromFormat('Y-m-d H:i:s', $order->subscription_started_at)->addDays(28)->addWeekdays(5);
@@ -61,6 +67,8 @@ class StatsController extends Controller
                     return Plan::whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start-date'], $data['end-date']])->count();
                 case 5:
                     return Order::whereNotNull('repeat')->whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
+                case 6:
+                    return $this->repo->allNewLocaleTime($currency, $data['start_date'], $data['end_date'] )->count();
                 default:
                     return 0;
             }
@@ -80,70 +88,58 @@ class StatsController extends Controller
 
         $customers = $this->repo->allLocale($data['lang']);
 
-        $email_array = [];
-        $i = 0;
-        foreach ($customers as $customer) {
-
-                if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
-                    $email_array[$i]['Email'] = $customer->getEmail();
-                    $email_array[$i]['Firstname'] = $customer->getFirstName();
-                    $email_array[$i]['Lastname'] = $customer->getLastName();
-                    $email_array[$i]['Phone'] = $customer->getPhone();
-
-                    if ($customer->getGender() == 1) {
-                        $email_array[$i]['Gender'] = 'male';
-                    } else {
-                        $email_array[$i]['Gender'] = 'female';
-                    }
-
-                    $email_array[$i]['Birth'] = $customer->getBirthday();
-
-                    if ($customer->isSubscribed()) {
-                        $email_array[$i]['Active'] = "Active";
-                    } else {
-                        $email_array[$i]['Active'] = "Not active";
-                    }
-
-                    $email_array[$i]['Signupdate'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
-                    if ($customer->plan->subscription_rebill_at != null){
-                        $email_array[$i]['Nextpayment'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d-m-Y');
-                     } else{
-                        $email_array[$i]['Nextpayment'] = '';
-                    }
-                    $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
-                    $email_array[$i]['Amount'] = $customer->order_count;
-                    $email_array[$i]['Source'] = '';
-                    $email_array[$i]['Medium'] = '';
-                    $email_array[$i]['Campaign'] = '';
-
-                    if(count($customer->getMarketing()) > 0){
-                        foreach ($customer->getMarketing() as $market) {
-                            $email_array[$i]['Source'] = $market->source;
-                            $email_array[$i]['Medium'] = $market->medium;
-                            $email_array[$i]['Campaign'] = $market->campaign;
-                        }
-                    }
-
-                    $i++;
-                }
+        \Event::fire(new CreateCsv($customers, $data['lang']));
 
 
-        }
-
-        \Excel::create('all_active_mails_'.$data['lang'], function ($excel) use ($email_array) {
-
-            $excel->sheet('All users', function ($sheet) use ($email_array) {
-
-                $sheet->fromArray($email_array, null, 'A1', true);
-
-            });
-
-        })->download('xls');
-
-        return \Redirect::back();
+        return \Response::json([
+            'message' => 'Csv start create'
+        ], 200);
 
     }
 
+
+
+    function downloadCsv(Request $request)
+
+    {
+        $data = $request->all();
+
+
+        $filename = storage_path('excel/exports/all_active_mails_'.$data['lang'].'.xls');
+
+
+        if(file_exists($filename)){
+
+            return \Response::download($filename)->deleteFileAfterSend(true);
+
+        } else{
+            return \Redirect::back()->withErrors("No file! Please create it");
+
+        }
+
+
+    }
+
+
+    function checkCsv(Request $request){
+
+        $data = $request->all();
+
+        $filename = storage_path('excel/exports/all_active_mails_'.$data['lang'].'.xls');
+
+        if(file_exists($filename)) {
+
+            return \Response::json([
+                'message' => 'Success'
+            ], 200);
+
+        }else{
+
+            return \Response::json([
+                'message' => 'Error'
+            ], 400);
+        }
+    }
 
 
     function cohortsToCsv(Request $request)
@@ -282,23 +278,27 @@ class StatsController extends Controller
 
         $data = $request->all();
         if ($data) {
-
+            if($data['lang']=='nl'){
+                $currency = "EUR";
+            } else{
+                $currency = "DKK";
+            }
             switch ($data['csv-category']) {
 
                 case 1:
                     $i = 0;
-                    $customers = Customer::where('locale','like', $data['lang'])->whereBetween('created_at', [$data['start_date'], $data['end_date']])->get();
-                    foreach ($customers as $customer) {
-                        if (!empty($customer->getEmail()) and strstr($customer->getEmail(), "@")) {
-                            $email_array[$i]['First Name'] = $customer->getFirstName();
-                            $email_array[$i]['Last Name'] = $customer->getLastName();
-                            $email_array[$i]['Phone'] = $customer->getPhone();
-                            $email_array[$i]['Email Address'] = $customer->getEmail();
+                    $plans = $this->repo->allActiveLocaleTime($currency, $data['start_date'], $data['end_date'] )->get();
+                    foreach ($plans as $plan) {
+                        if (!empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")) {
+                            $email_array[$i]['First Name'] = $plan->customer->getFirstName();
+                            $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                            $email_array[$i]['Phone'] = $plan->customer->getPhone();
+                            $email_array[$i]['Email Address'] = $plan->customer->getEmail();
                             $i++;
                         }
                     }
                     if(isset($email_array)) {
-                        \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
+                        \Excel::create('active_user_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
 
                             $excel->sheet('All users', function ($sheet) use ($email_array) {
 
@@ -309,7 +309,30 @@ class StatsController extends Controller
                         })->download('xls');
                         return \Redirect::back();
                     }
+                case 6:
+                    $i = 0;
+                    $plans = $this->repo->allNewLocaleTime($currency, $data['start_date'], $data['end_date'] )->get();
+                    foreach ($plans as $plan) {
+                        if (!empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")) {
+                            $email_array[$i]['First Name'] = $plan->customer->getFirstName();
+                            $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                            $email_array[$i]['Phone'] = $plan->customer->getPhone();
+                            $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                            $i++;
+                        }
+                    }
+                    if(isset($email_array)) {
+                        \Excel::create('new_user_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
 
+                            $excel->sheet('All users', function ($sheet) use ($email_array) {
+
+                                $sheet->fromArray($email_array, null, 'A1', true);
+
+                            });
+
+                        })->download('xls');
+                        return \Redirect::back();
+                    }
                 case 2:
                     $i = 0;
                     if($data['lang']=='nl'){

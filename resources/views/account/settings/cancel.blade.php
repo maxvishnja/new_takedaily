@@ -47,7 +47,10 @@
 
 @section('footer_scripts')
 	<script>
+
+
 		$("#form").submit(function (e) {
+		  var my_form = this;
 			if($('#reason').val() === ''){
 				swal({
 					title: "{{ trans('account.settings_cancel.cancel_popup.title-error') }}",
@@ -73,11 +76,11 @@
 						confirmButtonColor: "#3AAC87",
 						allowOutsideClick: true,
 						showCancelButton: false,
-						closeOnConfirm: false,
+						closeOnConfirm: false
 					});
 					return false;
 				}
-				return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
+				return getConfirm(my_form, '{{ trans('account.settings_cancel.are_you_sure') }}');
 			}
 
 			if($('#reason').val() == '{{ trans('account.settings_cancel.reasons.5') }}'){
@@ -91,11 +94,11 @@
 						confirmButtonColor: "#3AAC87",
 						allowOutsideClick: true,
 						showCancelButton: false,
-						closeOnConfirm: false,
+						closeOnConfirm: false
 					});
 					return false;
 				}
-				return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
+				return getConfirm(my_form, '{{ trans('account.settings_cancel.are_you_sure') }}');
 			}
 
 			if($('#reason').val() == '{{ trans('account.settings_cancel.reasons.0') }}'){
@@ -109,17 +112,40 @@
 						confirmButtonColor: "#3AAC87",
 						allowOutsideClick: true,
 						showCancelButton: false,
-						closeOnConfirm: false,
+						closeOnConfirm: false
 					});
 					return false;
 				}
-				return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
+				return getConfirm(my_form, '{{ trans('account.settings_cancel.are_you_sure') }}');
 			}
-			return confirm('{{ trans('account.settings_cancel.are_you_sure') }}');
+			return getConfirm(my_form, '{{ trans('account.settings_cancel.are_you_sure') }}');
 
 		});
 
-		$("#reason").change(function()
+
+        function getConfirm (form, reason){
+            swal({
+                    title: reason,
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: '#3AAC87',
+                    confirmButtonText: "{{ trans('account.settings_cancel.submit') }}",
+                    cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function(isConfirm) {
+                    if (isConfirm) {
+                        form.submit();
+                    } else {
+                        swal.close() ;
+                    }
+                });
+            return false;
+        }
+
+
+        $("#reason").change(function()
 		{
 			if( $(this).val() === '-1')
 			{

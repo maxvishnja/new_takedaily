@@ -24,6 +24,11 @@ class OrderRepository
 		return Order::where('state', '!=', 'sent');
 	}
 
+    public function getOpenOrder()
+    {
+        return Order::where('state', '=', 'paid')->orWhere('state', '=', 'printed');
+    }
+
 	public function getShipped()
 	{
 		return Order::where('state', 'sent');
@@ -40,10 +45,36 @@ class OrderRepository
 		return Order::today();
 	}
 
+    public function getPickToday()
+    {
+        $orders = Order::today()->get();
+
+        $count = 0;
+
+        if(count($orders) > 0){
+           foreach ($orders as $order) {
+              if($order->getCustomer()->getPlan()->is_custom == 1){
+                  $count++;
+              }
+           }
+        }
+
+        return $count;
+
+
+    }
+
 	public function getMonthlySales()
 	{
 		return Order::selectRaw("YEAR(created_at) as year, MONTH(created_at) as month, sum(total) as total")
 					->groupBy(\DB::raw("YEAR(created_at), MONTH(created_at)"))
 					->get();
 	}
+
+    public function getMonthlyOrder()
+    {
+        return Order::selectRaw("YEAR(created_at) as year, MONTH(created_at) as month, COUNT(DISTINCT id) as total")
+            ->groupBy(\DB::raw("YEAR(created_at), MONTH(created_at)"))
+            ->get();
+    }
 }

@@ -6,6 +6,7 @@ use App\User;
 use App\Vitamin;
 use Illuminate\Http\Request;
 use Stripe\Error\Card;
+use App\Apricot\Repositories\CouponRepository;
 
 class AccountController extends Controller
 {
@@ -276,8 +277,9 @@ class AccountController extends Controller
 
     function getSettingsSubscriptionCancel(Request $request)
     {
+
         if (!$this->customer->getPlan()->isCancelable()) {
-            return \Redirect::back();
+            return redirect()->action('AccountController@getSettingsSubscription')->with('success', trans('messages.successes.subscription.cancelled'));
         }
 
         if ($request->get('reason') === '-1') {
@@ -332,6 +334,50 @@ class AccountController extends Controller
 
         return redirect()->route('flow', ['token' => $flowCompletion->token]);
     }
+
+
+
+    function applyCoupon(CouponRepository $couponRepository, Request $request)
+    { // todo use a checkout model
+        if (is_null($request->get('coupon')) || $request->get('coupon') == '') {
+            return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
+        }
+        $coupon = $couponRepository->findByCoupon($request->get('coupon'));
+        if (!$coupon) {
+            \Session::forget('applied_coupon');
+            return \Response::json(['message' => trans('checkout.messages.no-such-coupon')], 400);
+        }
+
+        $plan = $this->customer->getPlan();
+
+        if($plan->last_coupon == $coupon->code or  $plan->coupon_free != ''){
+            return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
+        }
+
+        $plan->last_coupon = $coupon->code;
+        if($coupon->discount_type == 'percentage'){
+            $plan->discount_type = 'percent';
+        } else{
+            $plan->discount_type = 'month';
+        }
+
+        $plan->coupon_free = $coupon->discount;
+        $coupon->reduceUsagesLeft();
+        $plan->update();
+
+
+        return \Response::json([
+            'message' => trans('checkout.messages.coupon-added'),
+            'coupon' => [
+                'description' => $coupon->description,
+                'applies_to' => $coupon->applies_to,
+                'discount_type' => $coupon->discount_type,
+                'discount' => $coupon->discount,
+                'code' => $coupon->code
+            ]
+        ], 200);
+    }
+
 
 
     public function postSharedEmail(Request $request){

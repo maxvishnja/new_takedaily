@@ -18,14 +18,46 @@
 	@endif
 
 	<h1>{{ trans('account.home.header') }} - {{ trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) }}</h1>
-	<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true), 'currency' => $plan->currency])]) !!}</h2>
+
+	@if($customer->getPlan()->getCouponCount() > 0 and ($customer->getPlan()->getDiscountType() == 'month' or $customer->getPlan()->getDiscountType() == '' ))
+
+		<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => 0, 'currency' => $plan->currency])]) !!}</h2>
+
+	@elseif($customer->getPlan()->getCouponCount() > 0 and $customer->getPlan()->getDiscountType() == 'percent')
+
+		<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal() - ($plan->getTotal() * ($customer->getPlan()->getCouponCount()/100)), true), 'currency' => $plan->currency])]) !!}</h2>
+		@else
+		<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true), 'currency' => $plan->currency])]) !!}</h2>
+		@endif
+
 
 	@if( $plan->isActive() )
 		<p>{!! strip_tags(trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]), '<strong>') !!}</p>
 	@endif
-	<div class="m-t-10 m-b-10">
+	<div class="m-t-10 m-b-10 m-center">
 		<a href="/flow" class="button button--green">{{ trans('account.home.button-change') }}</a>
 		<a href="/pick-n-mix" class="button button--green">{{ trans('account.home.button-pick-n-mix') }}</a>
+		<a href="#coupon-field" class="button button--green"
+		id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
+	</div>
+	<div id="coupon-field" style="display: none" class="m-t-20">
+		<div class="row">
+			<div class="col-md-8">
+				<input type="text" id="coupon-input" maxlength="20"
+					   placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}"
+					   class="input input--regular input--uppercase input--spacing input--full input--semibold"
+					   value="{{ Request::old('coupon', Session::get('applied_coupon')) }}"/>
+			</div>
+
+			<div class="col-md-4">
+				<button type="button"
+						class="button button--regular button--green button--full"
+						id="coupon-button">{{ trans('checkout.index.coupon.button-text') }}</button>
+			</div>
+		</div>
+
+		<div id="coupon-form-successes" class="m-t-10"></div>
+		<div id="coupon-form-errors" class="m-t-10"></div>
 	</div>
 	@foreach(Auth::user()->getCustomer()->getVitaminModels() as $vitamin)
 		<div class="new_vitamin_item">
@@ -138,5 +170,44 @@
 
 			$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
 		});
+        $("#toggle-coupon-form").click(function (e) {
+            e.preventDefault();
+
+            $("#coupon-field").toggle();
+        });
+        $("#coupon-button").click(function () {
+            var button = $(this);
+
+            $.ajax({
+                url: "{{ URL::action('AccountController@applyCoupon') }}",
+                method: "POST",
+                data: {"coupon": $("#coupon-input").val()},
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                dataType: 'JSON',
+                beforeSend: function () {
+                    button.text('{{ trans('flow.coupon.wait') }}').prop('disabled', true);
+                },
+                complete: function () {
+                    button.text('{{ trans('flow.coupon.apply') }}').prop('disabled', false);
+                },
+                success: function (response) {
+                    $("#coupon-form-successes").text(response.message);
+                    $("#coupon-form-errors").text('');
+                    window.location.reload();
+
+                },
+                error: function (response) {
+                    $("#coupon-form-errors").text(response.responseJSON.message);
+                    $("#coupon-form-successes").text('');
+
+                }
+            });
+        });
+
+        if ($("#coupon-input").val().length > 0) {
+            $("#coupon-button").click();
+        }
 	</script>
 @endsection

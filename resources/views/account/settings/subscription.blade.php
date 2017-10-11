@@ -6,7 +6,17 @@
 
 @section('content')
 	<h1>{!! trans('account.settings_subscription.header', ['status' => trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) ]) !!}</h1>
-	<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true), 'currency' => $plan->currency])]) !!}</h2>
+
+	@if($customer->getPlan()->getCouponCount() > 0 and ($customer->getPlan()->getDiscountType() == 'month' or $customer->getPlan()->getDiscountType() == '' ))
+
+		<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => 0, 'currency' => $plan->currency])]) !!}</h2>
+
+	@elseif($customer->getPlan()->getCouponCount() > 0 and $customer->getPlan()->getDiscountType() == 'percent')
+
+		<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal() - ($plan->getTotal() * ($customer->getPlan()->getCouponCount()/100)), true), 'currency' => $plan->currency])]) !!}</h2>
+	@else
+		<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true), 'currency' => $plan->currency])]) !!}</h2>
+	@endif
 
 	@if( $plan->isActive() )
 		<p>{!! strip_tags(trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]), '<strong>') !!}</p>
@@ -188,25 +198,33 @@
 			var href = $('.cancel-button').attr('href');
 			swal({
 				title: "",
-				text: "<i class='fa fa-times close-but' aria-hidden='true'></i>{{ trans('account.settings_subscription.cancel-agree-text') }}",
+				text: "<i class='fa fa-times close-but' aria-hidden='true'></i>{{ trans('account.settings_subscription.cancel-agree-text') }}"+
+                "<div class='m-t-30 m-center'>" +
+                "<a class='button button--light' href='{{ URL::action('AccountController@getCancelPage') }}'>{{ trans('account.settings_subscription.cancel-agree') }}</a>" +
+				"<div class='spaced'></div>"+
+                "<a class='button button--green confirm-snooz'>"+he.decode("{{ trans('account.settings_subscription.cancel-success') }}")+"</a>" +
+                "</div>",
 				type: "",
 				html: true,
-				cancelButtonText: "{{ trans('account.settings_subscription.cancel-agree') }}",
-				confirmButtonText: he.decode("{{ trans('account.settings_subscription.cancel-success') }}"),
-				confirmButtonColor: "#3AAC87",
+				cancelButtonText: "",
+				confirmButtonText: "",
+                showConfirmButton:false,
 				allowOutsideClick: true,
-				showCancelButton: true,
-				closeOnConfirm: false
+				showCancelButton: false,
+				closeOnConfirm: true
 			}, function (isConfirm) {
 				if (!isConfirm) {
-					window.location = href;
+                    swal.close();
 				} else{
-					$("#snooze-toggle").click();
+                    swal.close();
 				}
 			});
 			$('.close-but').on('click',function(){
 				swal.close();
 			});
+            $('.confirm-snooz').on('click',function(){
+                $('#snooze-toggle').click();
+            });
 		});
 
 		$('.readLessBtn').click(function (e) {

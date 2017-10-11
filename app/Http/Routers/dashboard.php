@@ -4,7 +4,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	view()->composer( 'admin.sidebar', function ( $view )
 	{
 		$orderRepo = new \App\Apricot\Repositories\OrderRepository();
-		$view->with( 'sidebar_numOrders', $orderRepo->getNotShipped()
+		$view->with( 'sidebar_numOrders', $orderRepo->getOpenOrder()
 		                                            ->count() );
 
 		$callRepo = new \App\Apricot\Repositories\CallRepository();
@@ -24,16 +24,20 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 		$customerRepo = new \App\Apricot\Repositories\CustomerRepository();
 
 		$salesYear     = $orderRepo->getMonthlySales();
+		$orderYear     = $orderRepo->getMonthlyOrder();
 		$customersYear = $customerRepo->getMonthlyNew();
 		$customersDay = $customerRepo->getDailyNew();
 		$customersUnsub = $customerRepo->getDailyUnsub();
 
 
 		$activeNL = $customerRepo->allActiveLocale('EUR');
+		$activePickNL = $customerRepo->allActivePickLocale('EUR');
 		$activeDK = $customerRepo->allActiveLocale('DKK');
+		$activePickDK = $customerRepo->allActivePickLocale('DKK');
 
 
 		$churnDay = $customerRepo->churnDay();
+		$churnPickDay = $customerRepo->churnPickDay();
 
 		$money_today_dk = $orderRepo->getToday()
 			->whereNotIn( 'state', [ 'new', 'cancelled' ] )
@@ -48,16 +52,22 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 		return view( 'admin.home', [
 			'orders_today'    => $orderRepo->getToday()
 			                               ->count() ?: 0,
+            'orders_pick_today'    => $orderRepo->getPickToday(),
 			'customers_today' => $customerRepo->getToday()
 			                                  ->count() ?: 0,
+            'customers_pick_today' => $customerRepo->getPickToday(),
 			'money_today'     => $money_today,
 			'sales_year'      => $salesYear ?: [],
+			'orderYear'      => $orderYear ?: [],
 			'customers_year'  => $customersYear ?: [],
 			'customers_day'  => $customersDay ?: [],
 			'customers_unsub'  => $customersUnsub ?: [],
 			'churnDay' => $churnDay,
+			'churnPickDay' => $churnPickDay,
 			'activeNL' => $activeNL,
+			'activePickNL' => $activePickNL,
 			'activeDK' => $activeDK,
+			'activePickDK' => $activePickDK,
 		] );
 	} );
 
@@ -104,6 +114,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::post('stats/chortscsv', ['as' => 'cohorts-export', 'uses' => 'Dashboard\StatsController@cohortsToCsv']);
 	Route::post('stats/export-coupon', ['as' => 'export-coupon', 'uses' => 'Dashboard\StatsController@exportDateCoupon']);
 	Route::post('stats/export', ['as' => 'export', 'uses' => 'Dashboard\StatsController@exportCsv']);
+	Route::post('stats/check-csv', ['as' => 'check', 'uses' => 'Dashboard\StatsController@checkCsv']);
+	Route::post('stats/download', ['as' => 'check', 'uses' => 'Dashboard\StatsController@downloadCsv']);
 	Route::post('stats/reason', ['as' => 'reason', 'uses' => 'Dashboard\StatsController@getUnsubscribeReason']);
 	Route::resource( 'feedback', 'Dashboard\FeedbackController' );
 	Route::get( 'feedback/delete/{id}', 'Dashboard\FeedbackController@destroy' );

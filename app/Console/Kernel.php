@@ -15,6 +15,7 @@ use App\Console\Commands\SendToAlmost;
 use App\Console\Commands\SubscriptionRebillCommand;
 use App\Console\Commands\UpdateAges;
 use App\Console\Commands\UpdateCurrencies;
+use App\Console\Commands\ClearOldCoupons;
 use App\Console\Commands\UpdateUserMail;
 use App\Console\Commands\UpdatePregnancyWeeks;
 use Illuminate\Console\Scheduling\Schedule;
@@ -40,6 +41,7 @@ class Kernel extends ConsoleKernel
 		CheckPayment::class,
 	    ClearOldCarts::class,
 	    ClearOldSavedFlows::class,
+        ClearOldCoupons::class,
 		ClearSnoozing::class,
 		UpdateUserMail::class
 	];
@@ -79,6 +81,9 @@ class Kernel extends ConsoleKernel
 
 		$schedule->command('customers:age-update')
 		         ->daily();
+
+        $schedule->command('clear:coupons')
+            ->daily();
 
 		$schedule->command('customers:pregnancy-update')
 		         ->daily();

@@ -7,13 +7,213 @@
 
         </div>
         <ul class="nav nav-tabs" role="tablist">
-            <li class="active"><a href="#cohorts" data-toggle="tab">Cohorts</a></li>
-            <li class=""><a href="#stats" data-toggle="tab">Other stat</a></li>
+            <li class="active"><a href="#stats" data-toggle="tab">Other stat</a></li>
+            <li class=""><a href="#cohorts" data-toggle="tab">Cohorts</a></li>
+
         </ul>
 
 
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="cohorts">
+            <div role="tabpanel" class="tab-pane active " id="stats">
+                <div class="module-body table">
+                    {{--<form class="stat-form" method="POST">--}}
+                    {{--<table cellpadding="0" cellspacing="0" border="0"--}}
+                    {{--class="datatable-1 table table-bordered table-striped display" width="100%">--}}
+                    {{--<thead>--}}
+                    {{--<tr>--}}
+                    {{--<td>Please choose category</td>--}}
+                    {{--<td>Please choose date</td>--}}
+                    {{--<td>Amount</td>--}}
+                    {{--</tr>--}}
+                    {{--</thead>--}}
+                    {{--<tbody>--}}
+                    {{--<tr>--}}
+                    {{--<td>--}}
+                    {{--<select name="stat_category">--}}
+                    {{--<option value="1">New signups</option>--}}
+                    {{--<option value="2">Postponed users</option>--}}
+                    {{--<option value="3">Billed second time</option>--}}
+                    {{--<option value="4">Churned users</option>--}}
+                    {{--<option value="5">Free TD</option>--}}
+                    {{--</select>--}}
+                    {{--</td>--}}
+
+                    {{--<td>--}}
+                    {{--<input type="text" class="form-control datepicker" name="start-date"--}}
+                    {{--id="start-picker"--}}
+                    {{--placeholder="Start date"--}}
+                    {{--value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> ---}}
+                    {{--<input type="text" class="form-control datepicker" name="end-date" id="end-picker"--}}
+                    {{--placeholder="End date" value="{{\Date::now()->addDay()->format('Y-m-d')}}"/>--}}
+                    {{--<button class="btn btn-success stats-ok">Go</button>--}}
+                    {{--{{ csrf_field() }}--}}
+                    {{--</td>--}}
+                    {{--<td>--}}
+                    {{--<div class="result"></div>--}}
+                    {{--</td>--}}
+                    {{--</tr>--}}
+                    {{--</tbody>--}}
+                    {{--</table>--}}
+                    {{--</form>--}}
+                    {{--<br/>--}}
+
+                    <form class="csv-form stat-form" action="{{ URL::action('Dashboard\StatsController@exportCsvDate') }}"
+                          method="POST">
+                        {{ csrf_field() }}
+                        <table cellpadding="0" cellspacing="0" border="0"
+                               class="datatable-1 table table-bordered table-striped	display" width="100%">
+                            <thead>
+                            <tr>
+                                <td>Choose category</td>
+                                <td>Choose date</td>
+                                <td>Choose language</td>
+                                <td>Amount</td>
+                                <td></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <select name="csv-category" class="csv-category">
+                                        <option value="1">Active cusomers with time</option>
+                                        <option value="6">New customers with time</option>
+                                        {{--<option value="2">All unsubscribe with time</option>--}}
+                                        {{--<option value="3">Unsubscribe with other reason</option>--}}
+                                        {{--<option value="5">Unsubscribe from dashboard</option>--}}
+                                        {{--<option value="4">Client for X amount of weeks</option>--}}
+                                    </select>
+                                </td>
+                                <td class="visib text-center">
+                                    <input type="text" class="form-control datepicker" style="width:120px"
+                                           name="start_date" id="start_picker"
+                                           placeholder="Start date"
+                                           value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/>
+                                    <br/>
+                                    <input type="text" style="width:120px" class="form-control datepicker"
+                                           name="end_date" id="end_picker"
+                                           placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+
+                                    <input type="text" value="10" name="weeks" class="form-control weeks"
+                                           style="display: none" placeholder="Enter X weeks, ex. 10 or 12">
+                                </td>
+                                <td class="text-center">
+                                    <select name="lang" id="input_state" style="width:100px">
+                                        <option value="nl" selected="selected">Dutch</option>
+                                        <option value="da">Denmark</option>
+                                    </select>
+                                </td>
+                                <td class="text-center">
+                                    <button class="btn btn-success stats-ok">Get amount</button>
+                                    <br/>
+                                    <div class="result" style="margin-top:20px"></div>
+                                </td>
+                                <td class="text-center">
+                                    <button  class="btn btn-success">Download CSV</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                    <br/>
+
+
+                    <table cellpadding="0" cellspacing="0" border="0"
+                           class="datatable-1 table table-bordered table-striped	display" width="100%">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <h5>All customers</h5>
+                            </td>
+
+                            <td style="width:50%; text-align: center">
+                                {{ $active_user  }}
+                            </td>
+                            <td>
+                                <form style="float: right" class="csv-forms"
+                                      action="{{ URL::action('Dashboard\StatsController@downloadCsv') }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <select name="lang" id="input_states" style="width: 100px; margin-right:20px">
+                                        <option value="nl" selected="selected">Dutch</option>
+                                        <option value="da">Denmark</option>
+                                    </select>
+
+                                    <button  class="btn btn-info" id="createCsv">Create CSV</button>
+                                    <button  class="btn btn-success" id="downloadCsv">Download CSV</button>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+
+                    <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportDateCoupon') }}"
+                          method="POST">
+                        {{ csrf_field() }}
+                        <table cellpadding="0" cellspacing="0" border="0"
+                               class="datatable-1 table table-bordered table-striped	display" width="100%">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <h5>Please choose title of coupon</h5>
+                                </td>
+                                <td class="visib">
+
+                                    <select name="coupon" id="input_state" >
+                                        <option value="1">Free order</option>
+                                        @foreach ($active_coupon as $coupon)
+                                            <option value="{{$coupon->code}}">{{$coupon->code}}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+
+                                <td>
+                                    <button style="float: right" class="btn btn-success">Download CSV</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+
+                    <br/>
+                    <form class="reason-form" action="" method="POST">
+                        {{ csrf_field() }}
+                        <table cellpadding="0" cellspacing="0" border="0"
+                               class="datatable-1 table table-bordered table-striped	display" width="100%">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <h5>Unsubscribe reason with time</h5>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control datepicker" style="width:150px"
+                                           name="start_dates" id="start_pickers"
+                                           placeholder="Start date"
+                                           value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
+                                    <input type="text" style="width:150px" class="form-control datepicker"
+                                           name="end_dates" id="end_pickers"
+                                           placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+                                </td>
+                                <td>
+                                    <select name="lang" id="input_state" style="width:100px">
+                                        <option value="EUR" selected="selected">Dutch</option>
+                                        <option value="DKK">Denmark</option>
+                                    </select>
+                                </td>
+
+                                <td>
+                                    <button style="float: right" class="btn btn-success pie-reason">Show me</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+
+                    <div class="pie-chart" id="piechart" style="height:400px">
+
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="cohorts">
                 <div class="module-body table">
                     <table cellpadding="0" cellspacing="0" border="0"
                            class="datatable-1 table table-bordered table-striped display" width="100%">
@@ -105,185 +305,7 @@
 
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane " id="stats">
-                <div class="module-body table">
-                    <form class="stat-form" method="POST">
-                        <table cellpadding="0" cellspacing="0" border="0"
-                           class="datatable-1 table table-bordered table-striped display" width="100%">
-                            <thead>
-                            <tr>
-                                <td>Please choose category</td>
-                                <td>Please choose date</td>
-                                <td>Amount</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <select name="stat_category">
-                                        <option value="1">New signups</option>
-                                        <option value="2">Postponed users</option>
-                                        <option value="3">Billed second time</option>
-                                        <option value="4">Churned users</option>
-                                        <option value="5">Free TD</option>
-                                    </select>
-                                </td>
 
-                                <td>
-                                    <input type="text" class="form-control datepicker" name="start-date"
-                                           id="start-picker"
-                                           placeholder="Start date"
-                                           value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
-                                    <input type="text" class="form-control datepicker" name="end-date" id="end-picker"
-                                           placeholder="End date" value="{{\Date::now()->addDay()->format('Y-m-d')}}"/>
-                                    <button class="btn btn-success stats-ok">Go</button>
-                                    {{ csrf_field() }}
-                                </td>
-                                <td>
-                                    <div class="result"></div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </form>
-                    <br/>
-                    <table cellpadding="0" cellspacing="0" border="0"
-                           class="datatable-1 table table-bordered table-striped	display" width="100%">
-                        <tbody>
-                        <tr>
-                            <td>
-                                <h5>All customers</h5>
-                            </td>
-
-                            <td style="width:50%; text-align: center">
-                                {{ $active_user  }}
-                            </td>
-                            <td>
-                                <form style="float: right" class="csv-forms"
-                                      action="{{ URL::action('Dashboard\StatsController@exportCsv') }}" method="POST">
-                                    {{ csrf_field() }}
-                                    <select name="lang" id="input_states" style="width: 100px; margin-right:20px">
-                                        <option value="nl" selected="selected">Dutch</option>
-                                        <option value="da">Denmark</option>
-                                    </select>
-
-                                    <button style="float: right" class="btn btn-success">Download CSV</button>
-                                </form>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <br/>
-                    <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportCsvDate') }}"
-                          method="POST">
-                        {{ csrf_field() }}
-                        <table cellpadding="0" cellspacing="0" border="0"
-                               class="datatable-1 table table-bordered table-striped	display" width="100%">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <select name="csv-category" class="csv-category">
-                                        <option value="1">Aktive kunder with time</option>
-                                        <option value="2">All unsubscribe with time</option>
-                                        <option value="3">Unsubscribe with other reason</option>
-                                        <option value="5">Unsubscribe from dashboard</option>
-                                        <option value="4">Client for X amount of weeks</option>
-                                    </select>
-                                </td>
-                                <td class="visib">
-                                    <input type="text" class="form-control datepicker" style="width:120px"
-                                           name="start_date" id="start_picker"
-                                           placeholder="Start date"
-                                           value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/>
-                                    <input type="text" style="width:120px" class="form-control datepicker"
-                                           name="end_date" id="end_picker"
-                                           placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
-
-                                    <input type="text" value="10" name="weeks" class="form-control weeks"
-                                           style="display: none" placeholder="Enter X weeks, ex. 10 or 12">
-                                </td>
-                                <td>
-                                    <select name="lang" id="input_state" style="width:100px">
-                                        <option value="nl" selected="selected">Dutch</option>
-                                        <option value="da">Denmark</option>
-                                    </select>
-                                </td>
-
-                                <td>
-                                    <button style="float: right" class="btn btn-success">Download CSV</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </form>
-                    <br/>
-                    <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportDateCoupon') }}"
-                          method="POST">
-                        {{ csrf_field() }}
-                        <table cellpadding="0" cellspacing="0" border="0"
-                               class="datatable-1 table table-bordered table-striped	display" width="100%">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <h5>Please choose title of coupon</h5>
-                                </td>
-                                <td class="visib">
-
-                                    <select name="coupon" id="input_state" >
-                                        <option value="1">Free order</option>
-                                      @foreach ($active_coupon as $coupon)
-                                          <option value="{{$coupon->code}}">{{$coupon->code}}</option>
-                                      @endforeach
-                                    </select>
-                                </td>
-
-                                <td>
-                                    <button style="float: right" class="btn btn-success">Download CSV</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </form>
-
-                    <br/>
-                    <form class="reason-form" action="" method="POST">
-                        {{ csrf_field() }}
-                        <table cellpadding="0" cellspacing="0" border="0"
-                               class="datatable-1 table table-bordered table-striped	display" width="100%">
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <h5>Unsubscribe reason with time</h5>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control datepicker" style="width:150px"
-                                           name="start_dates" id="start_pickers"
-                                           placeholder="Start date"
-                                           value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/> -
-                                    <input type="text" style="width:150px" class="form-control datepicker"
-                                           name="end_dates" id="end_pickers"
-                                           placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
-                                </td>
-                                <td>
-                                    <select name="lang" id="input_state" style="width:100px">
-                                        <option value="EUR" selected="selected">Dutch</option>
-                                        <option value="DKK">Denmark</option>
-                                    </select>
-                                </td>
-
-                                <td>
-                                    <button style="float: right" class="btn btn-success pie-reason">Show me</button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </form>
-
-                    <div class="pie-chart" id="piechart" style="height:400px">
-
-                    </div>
-                </div>
-            </div>
         </div>
 
 
@@ -367,6 +389,23 @@
                 });
             });
 
+
+            $('#createCsv').on('click', function(e){
+               e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    data: $('form.csv-forms').serialize(),
+                    url: '{{  URL::action('Dashboard\StatsController@exportCsv')}}',
+                    success: function (data) {
+
+                    }
+
+                });
+
+                $(this).prop('disabled', true);
+
+            });
+
             $('.csv-category').on('change', function () {
                 if ($('.csv-category').val() == 4) {
 
@@ -379,6 +418,39 @@
                     $('.visib .weeks').hide();
                 }
             });
+
+            checkCsv($('#input_states').val());
+
+            setInterval(function() {
+                checkCsv($('#input_states').val());
+            }, 20000);
+
+
+            $('#input_states').on('change', function(){
+                checkCsv($(this).val());
+            });
+
+            function checkCsv(lang) {
+
+                $.ajax({
+                    url: '{{  URL::action('Dashboard\StatsController@checkCsv')}}',
+                    type: 'POST',
+                    data: {lang: lang},
+                    headers: {
+                        'X-CSRF-TOKEN': $('form.csv-forms').find('[name="_token"]').val()
+                    },
+                    success: function (response) {
+                        $('#createCsv').prop('disabled', true);
+                        $('#downloadCsv').prop('disabled', false);
+                    },
+                    error: function (response) {
+                        $('#createCsv').prop('disabled', false);
+                        $('#downloadCsv').prop('disabled', true);
+                    }
+
+                });
+
+            }
 
 
         });
