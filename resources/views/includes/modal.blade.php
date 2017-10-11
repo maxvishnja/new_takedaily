@@ -16,7 +16,7 @@
         <div class="md-form">
             <div class="mb-btn">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#email" aria-controls="email" role="tab"
+                    <li role="presentation" class="active"><a href="#pemail" aria-controls="email" role="tab"
                                                               data-toggle="tab">Email</a></li>
                     <li role="presentation"><a href="#facebook" aria-controls="facebook" role="tab" data-toggle="tab">Facebook</a>
                     </li>
@@ -25,19 +25,19 @@
                 </ul>
             </div>
             <div class="md-body tab-content">
-                <div role="tabpanel" class="tab-pane active" id="email">
+                <div role="tabpanel" class="tab-pane active" id="pemail">
                     <form method="POST" class="form-horizontal row-fluid sharedEmail"
                           action=""
                           enctype="multipart/form-data">
                         <div class="control-group">
                             <div class="controls">
-                                <input type="text" class="form-control" name="to" id="page_subtitle"
+                                <input type="email" class="form-control" name="to" id="page_subtitle"
                                        placeholder="{!! trans('general.popup.form.to') !!}"/>
                             </div>
                         </div>
                         <div class="control-group">
                             <div class="controls">
-                                <input type="text" class="form-control" name="from" id="page_subtitle"
+                                <input type="email" class="form-control" name="from" id="page_subtitle"
                                        placeholder="{!! trans('general.popup.form.from') !!}"/>
                             </div>
                         </div>
