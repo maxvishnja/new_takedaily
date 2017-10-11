@@ -252,8 +252,8 @@
             var
                     verticalPos = Math.floor(($(window).width() - popupSize.width) / 2),
                     horisontalPos = Math.floor(($(window).height() - popupSize.height) / 2);
-
-            var url = "https://twitter.com/intent/tweet?text=" + $('#twitters').val() + "&url={{ \App\Apricot\Helpers\ShareLink::get(Auth::user()->id) }}";
+            var txt = $('#twitters').val();
+            var url = "https://twitter.com/intent/tweet?text=" + txt.replace(/#/g,'') + "&url={{ \App\Apricot\Helpers\ShareLink::get(Auth::user()->id) }}";
 
             var popup = window.open(url, 'twitter',
                     'width='+popupSize.width+',height='+popupSize.height+

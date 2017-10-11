@@ -63,8 +63,6 @@ class CustomerRepository
         return Plan::whereNotNull('subscription_cancelled_at')->where('is_custom','=', 1)->whereBetween( 'subscription_cancelled_at', [ Date::today()->setTime( 0, 0, 0 ), Date::today()->setTime( 23, 59, 59 ) ] )->count();
 
 
-
-
     }
 
 	public function rebillAble()
