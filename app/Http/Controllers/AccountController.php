@@ -350,7 +350,7 @@ class AccountController extends Controller
 
         $plan = $this->customer->getPlan();
 
-        if($plan->last_coupon == $coupon->code){
+        if($plan->last_coupon == $coupon->code or  $plan->coupon_free != ''){
             return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
         }
 
@@ -362,7 +362,7 @@ class AccountController extends Controller
         }
 
         $plan->coupon_free = $coupon->discount;
-
+        $coupon->reduceUsagesLeft();
         $plan->update();
 
 
