@@ -415,6 +415,7 @@ class Customer extends Model
             }
         }
 
+        $this->getPlan()->setLastPaymentDate();
         $this->getPlan()->rebilled();
 
         return true;

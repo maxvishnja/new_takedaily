@@ -451,10 +451,17 @@ class Plan extends Model
         return true;
     }
 
+
+    public function setLastPaymentDate(){
+
+        $this->last_rebill_date = $this->subscription_rebill_at;
+        $this->save();
+        return true;
+    }
+
     public function rebilled()
     {
         $this->attempt = 0;
-        $this->last_rebill_date = $this->subscription_rebill_at;
         $this->subscription_rebill_at = Date::now()->addDays(28);
         $this->subscription_snoozed_until = null;
         $this->save();
