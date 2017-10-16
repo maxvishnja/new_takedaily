@@ -121,6 +121,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'feedback/delete/{id}', 'Dashboard\FeedbackController@destroy' );
 	Route::resource( 'faq-translations', 'Dashboard\FaqTranslationController' );
 	Route::get( 'faq-translations/{id}/delete', 'Dashboard\FaqTranslationController@delete' );
+    Route::resource( 'nutritionist', 'Dashboard\NutritionistController' );
+    Route::get( 'nutritionist/delete/{id}', 'Dashboard\NutritionistController@destroy' );
 
 	Route::any( 'upload/image', function ( \Illuminate\Http\Request $request )
 	{

@@ -3,6 +3,7 @@
 use App\Customer;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
+use App\Nutritionist;
 use App\Setting;
 use App\User;
 use App\Vitamin;
@@ -158,13 +159,38 @@ class CheckoutCompletion
 				$newDate = \Date::now()->addDays( 27 );
 			}
 
+			$dietologs = Nutritionist::where('locale',\App::getLocale())->where('active',1)->get();
+            $dietolog_ids = [];
+
+			if(count($dietologs) == 1){
+                $dietolog_ids[] = $dietologs->id;
+            } else{
+			    /** @var Nutritionist $dietolog */
+                foreach($dietologs as $dietolog){
+			        if($dietolog->order == 0){
+                        $dietolog_ids[] = $dietolog->id;
+
+                        $dietolog->order = 1;
+                        $dietolog->save();
+                    }
+                }
+            }
+
+            if (sizeof($dietolog_ids)) {
+                Nutritionist::whereIn('id', array_slice($dietolog_ids, 0, sizeof($dietolog_ids) - 1))
+                    ->update([
+                        'order' => 0
+                    ]);
+            }
+
 			$this->getUser()->getCustomer()->getPlan()->update( [
 				'price'                     => $this->getCheckout()->getSubscriptionPrice(),
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
 				'subscription_started_at'   => \Date::now(),
 				'currency'                  => trans( 'general.currency' ),
 				'subscription_rebill_at'    => $newDate,
-				'subscription_cancelled_at' => null
+				'subscription_cancelled_at' => null,
+                'nutritionist_id'           => sizeof($dietolog_ids) ? $dietolog_ids[sizeof($dietolog_ids) - 1] : 0
 			] );
 
 			if ( session( 'vitamins', false ) )

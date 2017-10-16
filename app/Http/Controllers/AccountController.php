@@ -2,6 +2,7 @@
 
 use App\Apricot\Libraries\PillLibrary;
 use App\Customer;
+use App\Nutritionist;
 use App\User;
 use App\Vitamin;
 use Illuminate\Http\Request;
@@ -32,12 +33,60 @@ class AccountController extends Controller
 
     }
 
+
     function getHome()
     {
         $orders = $this->customer->getOrders();
         $plan = $this->customer->getPlan();
 
         return view('account.my-takedaily', compact('orders', 'plan'));
+    }
+
+    public function getNutritionist()
+    {
+
+        $plan = $this->customer->getPlan();
+
+        $nutritionist = Nutritionist::where('id', $plan->nutritionist_id)
+            ->where('active', 1)
+            ->where('active', 1)
+            ->first();
+
+        return view('account.nutritionist', compact('nutritionist'));
+
+
+    }
+
+    public function postNutritionistEmail(Request $request){
+
+        if (\Request::ajax()) {
+
+            $data = $request->all();
+
+            $nutritionist = Nutritionist::where('id', $data['customer_id'])
+                ->where('active', 1)
+                ->first();
+
+            $mailEmail = $nutritionist->email;
+            $fromEmail = $this->customer->getUser()->getEmail();
+            $data['CustomerName']  = $this->customer->getUser()->getName();
+            $data['layout'] = 'layouts.nutritionist-mail';
+            $mailName = 'TakeDaily';
+            $locale = \App::getLocale();
+
+            \Mail::queue('emails.nutritionist', $data,
+                function ($message)
+                    use ($mailEmail, $mailName, $locale, $fromEmail) {
+                        \App::setLocale($locale);
+                        $message->from($fromEmail, 'TakeDaily');
+                        $message->to($mailEmail, $mailName);
+                        //$message->subject($fromEmail);
+                        $message->subject(trans('mails.nutritionist.subject'));
+            });
+
+        }
+
+
     }
 
     function updatePreferences(Request $request)
