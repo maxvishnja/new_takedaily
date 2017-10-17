@@ -86,9 +86,10 @@ class StatsController extends Controller
     {
         $data = $request->all();
 
-        $customers = $this->repo->allLocale($data['lang']);
+//        $customers = $this->repo->allLocale($data['lang']);
+        $customers = $this->repo->allLocaleTime($data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']);
 
-        \Event::fire(new CreateCsv($customers, $data['lang']));
+        \Event::fire(new CreateCsv($customers, $data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']));
 
 
         return \Response::json([

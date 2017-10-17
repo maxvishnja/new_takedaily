@@ -49,7 +49,7 @@
                 url: '{{ route("nutritionist-email") }}',
                 complete: function () {
                     swal({
-                        title: "{{ trans('message.success-title') }}",
+                        title: "{{ trans('message.success-nutritionist-title') }}",
                         type: "success",
                         html: true,
                         allowOutsideClick: true,

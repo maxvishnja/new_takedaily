@@ -121,25 +121,41 @@
                            class="datatable-1 table table-bordered table-striped	display" width="100%">
                         <tbody>
                         <tr>
-                            <td>
+                            <td style="width:10%;">
                                 <h5>All customers</h5>
                             </td>
 
-                            <td style="width:50%; text-align: center">
+                            <td style="width:10%; text-align: center">
                                 {{ $active_user  }}
                             </td>
-                            <td>
-                                <form style="float: right" class="csv-forms"
-                                      action="{{ URL::action('Dashboard\StatsController@downloadCsv') }}" method="POST">
-                                    {{ csrf_field() }}
-                                    <select name="lang" id="input_states" style="width: 100px; margin-right:20px">
-                                        <option value="nl" selected="selected">Dutch</option>
-                                        <option value="da">Denmark</option>
-                                    </select>
 
-                                    <button  class="btn btn-info" id="createCsv">Create CSV</button>
-                                    <button  class="btn btn-success" id="downloadCsv">Download CSV</button>
-                                </form>
+                            <td style="width:25%;">
+                                <div class="text-center">
+                                    <form style="float: right" class="csv-forms"
+                                          action="{{ URL::action('Dashboard\StatsController@downloadCsv') }}" method="POST">
+                                        {{ csrf_field() }}
+
+                                        <input type="text" class="form-control datepicker" style="width:120px"
+                                               name="start_date_all_customers" id="start_picker_all_customers"
+                                               placeholder="Start date"
+                                               value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/>
+
+                                        <input type="text" style="width:120px" class="form-control datepicker"
+                                               name="end_date_all_customers" id="end_picker_all_customers"
+                                               placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+
+                                        <input type="text" value="10" name="weeks" class="form-control weeks"
+                                               style="display: none" placeholder="Enter X weeks, ex. 10 or 12">
+
+                                        <select name="lang" id="input_states" style="width: 100px; margin-right:20px">
+                                            <option value="nl" selected="selected">Dutch</option>
+                                            <option value="da">Denmark</option>
+                                        </select>
+
+                                        <button  class="btn btn-info" id="createCsv">Create CSV</button>
+                                        <button  class="btn btn-success" id="downloadCsv">Download CSV</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         </tbody>

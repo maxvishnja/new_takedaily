@@ -17,6 +17,13 @@ class CustomerRepository
 		return Customer::where('locale','like', $locale)->orderBy('created_at', 'DESC')->get();
 	}
 
+    public function allLocaleTime($locale, $start_date, $end_date)
+    {
+        return Customer::where('locale','like', $locale)
+            ->whereBetween('created_at', [$start_date, $end_date])
+            ->orderBy('created_at', 'DESC')->get();
+    }
+
 	public function allActive()
 	{
 		return Plan::whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->count();
