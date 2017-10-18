@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Apricot\Helpers;
 
 use App\Customer;
@@ -8,13 +7,14 @@ use App\Order;
 use App\Plan;
 
 
-
-class CreateCsvAllCustomers
+class CreateCsvMonths
 {
 
-
-    public static function storeAllCustomerToCsv($customers, $lang)
+    public static function storeAllCustomerMonthsToCsv($customers, $lang)
     {
+
+//        ini_set('memory_limit', '200m');
+//        ini_set('max_execution_time', 90);
 
         $email_array = [];
         $i = 0;
@@ -43,11 +43,11 @@ class CreateCsvAllCustomers
                     $email_array[$i]['Active'] = "Not active";
                 }
 
-//                if ($customer->plan->is_custom == 1) {
-//                    $email_array[$i]['Subscription type'] = 'PicknMix';
-//                } else {
-//                    $email_array[$i]['Subscription type'] = 'Test';
-//                }
+                if ($customer->plan->is_custom == 1) {
+                    $email_array[$i]['Subscription type'] = 'PicknMix';
+                } else {
+                    $email_array[$i]['Subscription type'] = 'Test';
+                }
 
 
                 $email_array[$i]['Signupdate'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
@@ -72,40 +72,40 @@ class CreateCsvAllCustomers
                     $email_array[$i]['Last PaymentDate'] = $customer->plan->last_rebill_date;
                 }
 
-//                $email_array[$i]['Vitamin 1'] = '';
-//                $email_array[$i]['Vitamin 2'] = '';
-//                $email_array[$i]['Vitamin 3'] = '';
-//                $email_array[$i]['Vitamin 4'] = '';
-//
-//                if ($customer->plan->getVitamiPlan()) {
-//                    foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
-//                        $s = $key + 1;
-//                        $email_array[$i]['Vitamin ' . $s] .= \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)) . ", ";
-//                    }
-//                }
+                $email_array[$i]['Vitamin 1'] = '';
+                $email_array[$i]['Vitamin 2'] = '';
+                $email_array[$i]['Vitamin 3'] = '';
+                $email_array[$i]['Vitamin 4'] = '';
+
+                if ($customer->plan->getVitamiPlan()) {
+                    foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
+                        $s = $key + 1;
+                        $email_array[$i]['Vitamin ' . $s] .= \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)) . ", ";
+                    }
+                }
 
 
-//                $email_array[$i]['Unsubscribe reason'] = '';
-//
-//                if ($customer->plan->unsubscribe_reason != '') {
-//
-//                    if (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.0'))) {
-//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.0';
-//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.1'))) {
-//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.1';
-//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.2'))) {
-//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.2';
-//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.3'))) {
-//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.3';
-//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.4'))) {
-//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.4';
-//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.5'))) {
-//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.5';
-//                    } else {
-//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.other';
-//                    }
-//
-//                }
+                $email_array[$i]['Unsubscribe reason'] = '';
+
+                if ($customer->plan->unsubscribe_reason != '') {
+
+                    if (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.0'))) {
+                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.0';
+                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.1'))) {
+                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.1';
+                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.2'))) {
+                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.2';
+                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.3'))) {
+                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.3';
+                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.4'))) {
+                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.4';
+                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.5'))) {
+                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.5';
+                    } else {
+                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.other';
+                    }
+
+                }
 
                 $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
                 $email_array[$i]['Amount'] = $customer->order_count;
@@ -127,7 +127,7 @@ class CreateCsvAllCustomers
 
         }
 
-        \Excel::create('all_active_mails_'.$lang, function ($excel) use ($email_array) {
+        \Excel::create('all_active_mails_months_'.$lang, function ($excel) use ($email_array) {
 
             $excel->sheet('All users', function ($sheet) use ($email_array) {
 

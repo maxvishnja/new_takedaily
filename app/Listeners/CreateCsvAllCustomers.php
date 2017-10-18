@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Listeners;
-
-use App\Events\CreateCsv;
+use App\Events\CreateAllCsv;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class CreateCsvCustomers implements ShouldQueue
+class CreateCsvAllCustomers implements ShouldQueue
 {
 
     use InteractsWithQueue;
@@ -24,19 +23,20 @@ class CreateCsvCustomers implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  CreateCsv  $event
+     * @param  CreateAllCsv  $event
      * @return void
      */
-    public function handle(CreateCsv $event)
+    public function handle(CreateAllCsv $event)
     {
 
         \Log::info('Start');
         $customers = $event->customers;
         $lang = $event->lang;
 
-        \App\Apricot\Helpers\CreateCsvMonths::storeAllCustomerMonthsToCsv($customers,$lang);
+        \App\Apricot\Helpers\CreateCsvAllCustomers::storeAllCustomerToCsv($customers,$lang);
 
         return false;
 
     }
+
 }

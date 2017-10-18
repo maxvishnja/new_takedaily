@@ -121,14 +121,13 @@
                            class="datatable-1 table table-bordered table-striped	display" width="100%">
                         <tbody>
                         <tr>
-                            <td style="width:10%;">
+                            <td rowspan="2" style="width:10%;">
                                 <h5>All customers</h5>
                             </td>
 
-                            <td style="width:10%; text-align: center">
+                            <td rowspan="2"  style="width:10%; text-align: center">
                                 {{ $active_user  }}
                             </td>
-
                             <td style="width:25%;">
                                 <div class="text-center">
                                     <form style="float: right" class="csv-forms"
@@ -158,8 +157,27 @@
                                 </div>
                             </td>
                         </tr>
+                        <tr>
+                            <td style="width:25%;">
+                                <div class="text-center">
+                                    <form class="csv-forms-all"
+                                          action="{{ URL::action('Dashboard\StatsController@downloadCsvAllCustomers') }}" method="POST">
+                                        {{ csrf_field() }}
+
+                                        <select name="lang" id="input_states2" style="width: 100px; margin-right:20px">
+                                            <option value="nl" selected="selected">Dutch</option>
+                                            <option value="da">Denmark</option>
+                                        </select><br/>
+
+                                        <button  class="btn btn-info" id="createCsv2">Create CSV</button>
+                                        <button  class="btn btn-success" id="downloadCsv2">Download CSV</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
+                    
                     <br/>
 
                     <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportDateCoupon') }}"
@@ -422,6 +440,23 @@
 
             });
 
+            $('#createCsv2').on('click', function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    data: $('form.csv-forms-all').serialize(),
+                    url: '{{  URL::action('Dashboard\StatsController@exportCsvAllCustomers')}}',
+                    success: function (data) {
+
+                    }
+
+                });
+
+                $(this).prop('disabled', true);
+
+            });
+
+
             $('.csv-category').on('change', function () {
                 if ($('.csv-category').val() == 4) {
 
@@ -435,12 +470,13 @@
                 }
             });
 
+            checkCsv2($('#input_states2').val());
             checkCsv($('#input_states').val());
 
             setInterval(function() {
+                checkCsv2($('#input_states2').val());
                 checkCsv($('#input_states').val());
             }, 20000);
-
 
             $('#input_states').on('change', function(){
                 checkCsv($(this).val());
@@ -462,6 +498,32 @@
                     error: function (response) {
                         $('#createCsv').prop('disabled', false);
                         $('#downloadCsv').prop('disabled', true);
+                    }
+
+                });
+
+            }
+
+            $('#input_states2').on('change', function(){
+                checkCsv2($(this).val());
+            });
+
+            function checkCsv2(lang) {
+
+                $.ajax({
+                    url: '{{  URL::action('Dashboard\StatsController@checkCsvAllCustomers')}}',
+                    type: 'POST',
+                    data: {lang: lang},
+                    headers: {
+                        'X-CSRF-TOKEN': $('form.csv-forms-all').find('[name="_token"]').val()
+                    },
+                    success: function (response) {
+                        $('#createCsv2').prop('disabled', true);
+                        $('#downloadCsv2').prop('disabled', false);
+                    },
+                    error: function (response) {
+                        $('#createCsv2').prop('disabled', false);
+                        $('#downloadCsv2').prop('disabled', true);
                     }
 
                 });
