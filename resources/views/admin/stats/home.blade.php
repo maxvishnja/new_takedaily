@@ -177,7 +177,7 @@
                         </tr>
                         </tbody>
                     </table>
-                    
+
                     <br/>
 
                     <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportDateCoupon') }}"
