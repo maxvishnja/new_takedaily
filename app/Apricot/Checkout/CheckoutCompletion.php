@@ -159,29 +159,32 @@ class CheckoutCompletion
 				$newDate = \Date::now()->addDays( 27 );
 			}
 
-			$dietologs = Nutritionist::where('locale',\App::getLocale())->where('active',1)->get();
-            $dietolog_ids = [];
+//			$dietologs = Nutritionist::where('locale', '=', 'nl')->where('active', '=', '1')->get();
+//            $dietolog_ids = [];
+//
+//			if(count($dietologs) == 1){
+//                $dietolog_ids = $dietologs[0]['id'];
+//            }elseif(count($dietologs) == 0){
+//                $dietolog_ids = 0;
+//            }
+//            else{
+//			    /** @var Nutritionist $dietolog */
+//                foreach($dietologs as $dietolog){
+//			        if($dietolog->order == 0){
+//                        $dietolog_ids = $dietolog->id;
+//                        $dietolog->order = 1;
+//                        $dietolog->save();
+//                    }
+//                }
+//
+//            }
 
-			if(count($dietologs) == 1){
-                $dietolog_ids[] = $dietologs->id;
-            } else{
-			    /** @var Nutritionist $dietolog */
-                foreach($dietologs as $dietolog){
-			        if($dietolog->order == 0){
-                        $dietolog_ids[] = $dietolog->id;
-
-                        $dietolog->order = 1;
-                        $dietolog->save();
-                    }
-                }
-            }
-
-            if (sizeof($dietolog_ids)) {
-                Nutritionist::whereIn('id', array_slice($dietolog_ids, 0, sizeof($dietolog_ids) - 1))
-                    ->update([
-                        'order' => 0
-                    ]);
-            }
+//            if (sizeof($dietolog_ids)) {
+//                Nutritionist::whereIn('id', array_slice($dietolog_ids, 0, sizeof($dietolog_ids) - 1))
+//                    ->update([
+//                        'order' => 0
+//                    ]);
+//            }
 
 			$this->getUser()->getCustomer()->getPlan()->update( [
 				'price'                     => $this->getCheckout()->getSubscriptionPrice(),
@@ -190,7 +193,8 @@ class CheckoutCompletion
 				'currency'                  => trans( 'general.currency' ),
 				'subscription_rebill_at'    => $newDate,
 				'subscription_cancelled_at' => null,
-                'nutritionist_id'           => sizeof($dietolog_ids) ? $dietolog_ids[sizeof($dietolog_ids) - 1] : 0
+//              'nutritionist_id'           =>  1,
+//              'nutritionist_id'           => sizeof($dietolog_ids) ? $dietolog_ids[sizeof($dietolog_ids) - 1] : 0
 			] );
 
 			if ( session( 'vitamins', false ) )

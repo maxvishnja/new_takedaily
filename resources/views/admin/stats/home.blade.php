@@ -9,6 +9,7 @@
         <ul class="nav nav-tabs" role="tablist">
             <li class="active"><a href="#stats" data-toggle="tab">Other stat</a></li>
             <li class=""><a href="#cohorts" data-toggle="tab">Cohorts</a></li>
+            <li class=""><a href="#cohorts-coupon" data-toggle="tab">Cohorts Coupon</a></li>
 
         </ul>
 
@@ -340,6 +341,87 @@
                 </div>
             </div>
 
+            <div role="tabpanel" class="tab-pane" id="cohorts-coupon">
+                <div class="module-body table">
+                    <table cellpadding="0" cellspacing="0" border="0"
+                           class="datatable-1 table table-bordered table-striped display" width="100%">
+                        <thead>
+                        <form class="csv-form coupon-form" action="{{ URL::route('coupon-post') }}">
+                            {{ csrf_field() }}
+                        <input  name="coupon_name" type="text" value="">
+                        <button class="btn btn-success stats-coupon" style="float:right">Create Table</button>
+                        </form>
+
+                        </thead>
+                        <tbody id="4" class="cohorts">
+                        <tr>
+                            <td></td>
+                            <td></td>
+
+                            <td>0</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                        </tr>
+                        @foreach(trans('flow.datepicker.months_long') as $key=>$month)
+
+                            <tr>
+                                <td>{{$month}} 2017</td>
+                                <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
+                                <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>
+                                @foreach(range($key,12) as $y)
+                                    <td class="text-center">
+                                        @if($y >= $key and $y <= (int)date('m') )
+                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}
+
+                                        @endif
+                                    </td>
+                                @endforeach
+                            </tr>
+
+                        @endforeach
+                        </tbody>
+
+                        {{--<tbody id="5" class="cohorts hidden">--}}
+                        {{--<tr>--}}
+                            {{--<td></td>--}}
+                            {{--<td></td>--}}
+                            {{--@foreach(range(0,date('W')) as $val)--}}
+                                {{--<td>{{$val}}</td>--}}
+                            {{--@endforeach--}}
+                        {{--</tr>--}}
+
+                        {{--@foreach(range(0,date('W')-1) as $week)--}}
+                            {{--<tr>--}}
+                                {{--<td>Week {{$week+1}}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>--}}
+                                {{--@foreach(range(01,date('W')) as $y)--}}
+                                    {{--<td class="text-center">--}}
+
+                                        {{--@if(date('W')-$week >= $y)--}}
+                                            {{--{{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}--}}
+                                        {{--@endif--}}
+                                    {{--</td>--}}
+                                {{--@endforeach--}}
+                            {{--</tr>--}}
+                        {{--@endforeach--}}
+                        {{--</tbody>--}}
+
+                    </table>
+
+                </div>
+            </div>
+
         </div>
 
 
@@ -348,6 +430,58 @@
 
 @section('scripts')
     <script>
+
+
+        {{--$('.stats-ok').on('click', function (e) {--}}
+            {{--e.preventDefault();--}}
+            {{--$.ajax({--}}
+                {{--type: 'POST',--}}
+                {{--data: $('form.stat-form').serialize(),--}}
+                {{--url: '{{ route("stats-post") }}',--}}
+                {{--success: function (data) {--}}
+                    {{--$('.result').html(data);--}}
+                {{--}--}}
+
+            {{--});--}}
+        {{--});--}}
+
+        $('.stats-coupon').on('click', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                data: $('form.coupon-form').serialize(),
+                url: '{{ route("coupon-post") }}',
+                success: function (data) {
+                    $('.result').html(data);
+                }
+
+            });
+        });
+
+
+        {{--$('#post-coupon').on('click', function(){--}}
+            {{--var coupon = ($('#data-coupon').val());--}}
+            {{--console.log(coupon);--}}
+
+            {{--$.ajax({--}}
+                {{--url: '{{  URL::action('Dashboard\StatsController@getStatsCustomersFromCoupon')}}',--}}
+                {{--type: 'POST',--}}
+                {{--data: {coupon: coupon},--}}
+                {{--headers: {--}}
+                    {{--'X-CSRF-TOKEN': $('form.form-coupon').find('[name="_token"]').val()--}}
+                {{--},--}}
+                {{--success: function (response) {--}}
+                    {{--console.log(response);--}}
+
+                {{--},--}}
+                {{--error: function (response) {--}}
+
+                {{--}--}}
+
+            {{--});--}}
+
+
+        {{--});--}}
 
         $('.change-cohorts').on('change', function(){
 
@@ -529,7 +663,6 @@
                 });
 
             }
-
 
         });
 

@@ -110,6 +110,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'snoozing', 'Dashboard\SnoozingController@index' );
 	Route::get( 'stats', 'Dashboard\StatsController@index' );
 	Route::post('stats/post', ['as' => 'stats-post', 'uses' => 'Dashboard\StatsController@getData']);
+    Route::post('stats/coupon-post', ['as' => 'coupon-post', 'uses' => 'Dashboard\StatsController@getStatsCustomersFromCoupon']);
 	Route::post('stats/exportdate', ['as' => 'csv-export', 'uses' => 'Dashboard\StatsController@exportCsvDate']);
 	Route::post('stats/chortscsv', ['as' => 'cohorts-export', 'uses' => 'Dashboard\StatsController@cohortsToCsv']);
 	Route::post('stats/export-coupon', ['as' => 'export-coupon', 'uses' => 'Dashboard\StatsController@exportDateCoupon']);

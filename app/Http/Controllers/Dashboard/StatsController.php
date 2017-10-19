@@ -80,6 +80,23 @@ class StatsController extends Controller
     }
 
 
+    public function getStatsCustomersFromCoupon(Request $request)
+    {
+        $data = $request->all();
+
+        $customers_coupon_count = Order::where('coupon', '!=', '')
+            ->count();
+
+        $customers_coupon_count_name = Order::where('coupon', '==', 'KIRSTENTEST1')
+            ->count();
+
+        return \Response::json([
+            'message' => $data,
+            'count' => $customers_coupon_count,
+            'count coupon from name' => $customers_coupon_count_name
+        ], 200);
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
