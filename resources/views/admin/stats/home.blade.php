@@ -9,7 +9,7 @@
         <ul class="nav nav-tabs" role="tablist">
             <li class="active"><a href="#stats" data-toggle="tab">Other stat</a></li>
             <li class=""><a href="#cohorts" data-toggle="tab">Cohorts</a></li>
-            <li class=""><a href="#cohorts-coupon" data-toggle="tab">Cohorts Coupon</a></li>
+            <li class=""><a href="#cohorts-coupon" style="display:none" data-toggle="tab">Cohorts Coupon</a></li>
 
         </ul>
 
