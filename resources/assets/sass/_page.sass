@@ -1,0 +1,203 @@
+//----- Hero Block
+.b-hero
+    position: relative
+    text-align: center
+    font-weight: $fw-bold
+    color: $color-white
+
+    &__media
+        background-color: $color-black
+        img
+            opacity: .7
+
+
+    &__txt
+        @include absolute(center)
+        max-width: 45rem
+
+    &__title
+        @include font-size(48px ,48px)
+        margin-bottom: 2rem
+
+    &__intro
+        @include font-size(16px ,16px)
+        @include line-height(24px, 24px)
+        margin-bottom: 2rem
+        span
+            display: block
+            margin-bottom: 2rem
+
+//----- Block 7
+.b-7
+    position: relative
+    color: $white
+    font-weight: $weight-bold
+
+    &__wrap
+        position: relative
+
+    &__txt
+        @include absolute(center-vertical)
+        left: 0
+        width: 100%
+
+    &__title
+        @include font-size(28px, 28px)
+        @include line-height(34px, 34px)
+        text-transform: uppercase
+        margin-bottom: 2.5rem
+        max-width: 30rem
+
+//----- Block 6
+.b-6
+    @include clearfix
+    padding: 4rem 0 2rem
+    text-align: center
+    background-color: rgba(255,255,255,1)
+
+    &__title
+        margin-bottom: 1rem
+
+    &__article
+        @include font-size(16px, 16px)
+        height: 16.6rem
+        font-style: italic
+        text-align: center
+        color: rgb(105, 105, 105)
+        padding: 3.5rem 1rem
+        border: 1px solid rgb(105, 105, 105)
+
+        @include breakpoint(overPhone)
+            @include grid(3, 3%)
+
+
+        &s
+            @include clearfix
+
+        &__desc
+            @include line-height(26px, 26px)
+            margin-bottom: 2rem
+
+//----- Block 5
+.b-5
+    position: relative
+    color: $color-white
+    text-align: center
+
+    &__wrap
+        // @include clearfix;
+        position: relative
+
+    &__txt
+        @include absolute(center)
+        max-width: 50rem
+
+    &__title
+        overflow: hidden
+        display: inline
+        @include font-size(28px, 28px)
+        @include line-height(30px, 30px)
+        font-weight: $fw-bold
+        text-transform: uppercase
+        background-color: $color-black
+        margin-bottom: 2.5rem
+
+    &__intro
+        display: block
+        @include font-size(14px, 14px)
+        @include line-height(20px, 20px)
+        margin: 2.5rem 0
+
+//----- Block 4
+.b-4
+    @include clearfix
+    background-color: rgba(245,245,245,1)
+    text-align: center
+    padding: 2rem 0 3rem
+
+    &__title
+        @extend .c-line
+        margin-bottom: 3rem
+
+
+    &__article
+        @include font-size(14px, 14px)
+        @include line-height(20px, 20px)
+        color: rgb(128, 128, 128)
+        @include breakpoint(overPhone)
+            @include grid(2, 10%)
+            margin-bottom: 0
+
+        &s
+            @include clearfix
+            padding: 0 5%
+
+        &__ico
+            @include center-block
+            width: 10rem
+            height: 10rem
+            background-color: $color-white
+            @include vendor-prefixes(border-radius, 50%)
+            margin-bottom: 2rem
+
+        &__title
+            font-weight: $fw-bold
+            margin-bottom: .3rem
+
+
+//----- Block 3
+.b-3
+    position: relative
+    background-color: rgba(240,240,240,1)
+    text-align: center
+    padding: 4rem 0
+
+    &__txt
+        max-width: 53rem
+        margin: 0 auto
+
+    &__title
+        margin-bottom: 2.5rem
+        @extend .c-line
+
+    &__intro
+        @include font-size(14px, 14px)
+        @include line-height(23px, 23px)
+        color: rgb(128, 128, 128)
+
+
+//----- Block 2
+.b-2
+    @include clearfix
+    text-align: center
+    background-color: rgba(231,231,231,1)
+    padding: 3rem 0 5rem
+
+    &__article
+        @include breakpoint(overPhone)
+            @include grid(4, 4%)
+            margin-bottom: 0
+
+
+        &s
+            @include clearfix
+
+        &__ico
+            @include center-block
+            width: 8rem
+            height: 8rem
+            background-color: $color-white
+            @include vendor-prefixes(border-radius, 50%)
+            margin-bottom: 1rem
+
+        &__title
+            @include font-size(16px, 16px)
+            margin-bottom: 1.5rem
+
+        &__desc
+            @include font-size(14px, 14px)
+            @include line-height(20px, 20px)
+
+
+
+

@@ -1,0 +1,31 @@
+//----- Block 5
+.b-5 {
+  position: relative;
+  color: $color-white;
+  text-align: center;
+
+  &__wrap {
+    // @include clearfix;
+    position: relative;
+  }
+  &__txt {
+    @include absolute(center);
+    max-width: 50rem;
+  }
+  &__title {
+    overflow: hidden;
+    display: inline;
+    @include font-size(28px, 28px);
+    @include line-height(30px, 30px);
+    font-weight: $fw-bold;
+    text-transform: uppercase;
+    background-color: $color-black;
+    margin-bottom: 2.5rem;
+  }
+  &__intro {
+    display: block;
+    @include font-size(14px, 14px);
+    @include line-height(20px, 20px);
+    margin: 2.5rem 0;
+  }
+}
