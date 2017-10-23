@@ -1,0 +1,33 @@
+//----- Block 6
+.b-6 {
+  @include clearfix;
+  padding: 4rem 0 2rem;
+  text-align: center;
+  background-color: rgba(255,255,255,1);
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+  &__article {
+    @include font-size(16px, 16px);
+    height: 16.6rem;
+    font-style: italic;
+    text-align: center;
+    color: rgb(105, 105, 105);
+    padding: 3.5rem 1rem;
+    border: 1px solid rgb(105, 105, 105);
+
+    @include breakpoint(overPhone) {
+        @include grid(3, 3%);
+    }
+
+    &s {
+      @include clearfix;
+    }
+    &__desc {
+      @include line-height(26px, 26px);
+      margin-bottom: 2rem;
+    }
+    &__author {}
+  }
+}

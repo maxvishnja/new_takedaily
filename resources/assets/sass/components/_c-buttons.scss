@@ -1,0 +1,16 @@
+//----- Buttons
+.c-btn  {
+  //reset
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  border: none;
+
+  @include font-size(17px, 17px);
+  font-weight: $fw-regular;
+  text-transform: uppercase;
+  color: $color-white;
+  background-color: #87e2c3;
+  padding: 1.8rem 3rem;
+}

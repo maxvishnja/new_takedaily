@@ -1,0 +1,40 @@
+//----- Block 4
+.b-4 {
+  @include clearfix;
+  background-color: rgba(245,245,245,1);
+  text-align: center;
+  padding: 2rem 0 3rem;
+
+  &__title {
+    @extend .c-line;
+    margin-bottom: 3rem;
+  }
+
+  &__article {
+    @include font-size(14px, 14px);
+    @include line-height(20px, 20px);
+    color: rgb(128, 128, 128);
+    @include breakpoint(overPhone) {
+      @include grid(2, 10%);
+      margin-bottom: 0;
+    }
+
+    &s {
+      @include clearfix;
+      padding: 0 5%;
+    }
+    &__ico {
+      @include center-block;
+      width: 10rem;
+      height: 10rem;
+      background-color: $color-white;
+      @include vendor-prefixes(border-radius, 50%);
+      margin-bottom: 2rem;
+    }
+    &__title {
+      font-weight: $fw-bold;
+      margin-bottom: .3rem;
+    }
+    &__desc {}
+  }
+}

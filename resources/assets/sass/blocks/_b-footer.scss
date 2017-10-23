@@ -1,0 +1,12 @@
+//----- Footer
+.b-footer {
+  overflow: hidden;
+  padding: 1rem 0;
+
+  &__copy {
+    @include font-size(9px, 9px);
+    float: right;
+    margin-top: 2rem;
+    text-transform: uppercase;
+  }
+}
