@@ -54,7 +54,7 @@ return array (
           'city' => 'Woonplaats',
           'city-placeholder' => 'Houtdam',
           'country' => 'Land',
-          'require' => 'Jouw bestelling kan alleen in Nederland bezorgd worden (voor klanten van de Healthbox by Arie Boomsma versturen wij ook naar België)',
+          'require' => 'Adres',
           'number' => 'Huisnummer/Toev.',
           'number-placeholder' => '123A',
           'postal' => 
@@ -80,6 +80,8 @@ return array (
         'first_name' => 'Voornaam',
         'first-name-placeholder' => 'Amy',
         'last-name-placeholder' => 'Visser',
+        'repeat-email' => 'Herhaal jouw mailadres',
+        'email-check' => 'E-mailadres',
       ),
       'billing' => 
       array (

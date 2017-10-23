@@ -156,4 +156,28 @@ Bedankt voor jouw medewerking! We waarderen het zeer.',
     'subject' => 'De verzending van jouw volgende TakeDaily is uitgesteld.',
     'text' => 'Je hebt de verzending van jouw volgende TakeDaily uitgesteld tot {days}.',
   ),
+  'almost-text' => '<strong>Hi,</strong>
+Wij zijn blij dat je onze test wilt proberen. Je bent toch niet helemaal klaar met je bestelling voor je eigen op maat gemaakte TakeDaily!
+ 
+Dat vinden wij jammer en daarom willen wij graag jou de kans geven om TakeDaily gratis te proberen.
+
+<strong>Ontvang je eerste TakeDaily GRATIS</strong>
+
+Gebruik de code: <strong>ABAN17NL</strong>',
+  'almost-subject' => 'Jouw eerste pakket - Probeer gratis -',
+  'order-print' => 
+  array (
+    'subject' => 'Jouw bestelling wordt verwerkt',
+    'title' => 'Jouw TakeDaily vitaminen worden binnenkort geleverd!',
+    'text' => '<strong>Beste {name}</strong>
+
+Jouw TakeDaily pakket wordt voor jouw persoonlijk verpakt.
+
+Je ontvangt een email zodra het uit ons magazijn wordt verzonden.
+
+Het pakket wordt in jouw brievenbus afgeleverd dus je hoeft voor ontvangst niet thuis te blijven.
+
+Als je nog vragen hebt kan je vrijblijvend schrijven naar info@takedaily.dk of bellen met (Ned.tel.nummer)op weekdagen van 9 - 17 uur.',
+  ),
+  'almost-link' => '{link} Bestel nu - Klik hier',
 );

@@ -86,6 +86,8 @@ return array (
         'first-name-placeholder' => 'John',
         'last_name' => 'Efternavn',
         'last-name-placeholder' => 'Madsen',
+        'repeat-email' => 'Gentag e-mail adresse',
+        'email-check' => 'Din e-mail adresse',
       ),
       'billing' => 
       array (
