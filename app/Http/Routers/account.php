@@ -37,4 +37,7 @@ Route::group( [ 'middleware' => [ 'auth', 'user' ], 'prefix' => 'account' ], fun
 	Route::get( '/see-recommendation', 'AccountController@getSeeRecommendation' );
 
     Route::post( 'apply-coupon', 'AccountController@applyCoupon' );
+
+    Route::get( 'nutritionist', 'AccountController@getNutritionist' );
+    Route::post( '/nutritionist-email', 'AccountController@postNutritionistEmail' )->name( 'nutritionist-email' );
 } );

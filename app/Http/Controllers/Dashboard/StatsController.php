@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Apricot\Helpers\CreateCsvAllCustomers;
 use App\Apricot\Repositories\CustomerRepository;
 use App\Coupon;
 use App\Customer;
+use App\Events\CreateAllCsv;
 use App\Events\CreateCsv;
 use App\Http\Controllers\Controller;
 use App\Order;
@@ -78,6 +80,23 @@ class StatsController extends Controller
     }
 
 
+    public function getStatsCustomersFromCoupon(Request $request)
+    {
+        $data = $request->all();
+
+        $customers_coupon_count = Order::where('coupon', '!=', '')
+            ->count();
+
+        $customers_coupon_count_name = Order::where('coupon', '==', 'KIRSTENTEST1')
+            ->count();
+
+        return \Response::json([
+            'message' => $data,
+            'count' => $customers_coupon_count,
+            'count coupon from name' => $customers_coupon_count_name
+        ], 200);
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
@@ -86,9 +105,11 @@ class StatsController extends Controller
     {
         $data = $request->all();
 
-        $customers = $this->repo->allLocale($data['lang']);
+        //$customers = $this->repo->allLocaleTime($data['lang']);
+        $customers = $this->repo->allLocaleTime($data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']);
 
-        \Event::fire(new CreateCsv($customers, $data['lang']));
+        //\Event::fire(new CreateCsv($customers, $data['lang']));
+        \Event::fire(new CreateCsv($customers, $data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']));
 
 
         return \Response::json([
@@ -97,9 +118,48 @@ class StatsController extends Controller
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    function exportCsvAllCustomers(Request $request)
+    {
+        $data = $request->all();
+
+        $customers = $this->repo->allLocale($data['lang']);
+
+        \Event::fire(new CreateAllCsv($customers, $data['lang']));
+
+
+        return \Response::json([
+            'message' => 'Csv start create for all customers '. $data['lang']
+        ], 200);
+
+    }
 
 
     function downloadCsv(Request $request)
+
+    {
+        $data = $request->all();
+
+
+        $filename = storage_path('excel/exports/all_active_mails_months_'.$data['lang'].'.xls');
+
+
+        if(file_exists($filename)){
+
+            return \Response::download($filename)->deleteFileAfterSend(true);
+
+        } else{
+            return \Redirect::back()->withErrors("No file! Please create it");
+
+        }
+
+
+    }
+
+    function downloadCsvAllCustomers(Request $request)
 
     {
         $data = $request->all();
@@ -125,7 +185,7 @@ class StatsController extends Controller
 
         $data = $request->all();
 
-        $filename = storage_path('excel/exports/all_active_mails_'.$data['lang'].'.xls');
+        $filename = storage_path('excel/exports/all_active_mails_months_'.$data['lang'].'.xls');
 
         if(file_exists($filename)) {
 
@@ -141,6 +201,26 @@ class StatsController extends Controller
         }
     }
 
+
+    function checkCsvAllCustomers(Request $request){
+
+        $data = $request->all();
+
+        $filename = storage_path('excel/exports/all_active_mails_'.$data['lang'].'.xls');
+
+        if(file_exists($filename)) {
+
+            return \Response::json([
+                'message' => 'Success'
+            ], 200);
+
+        }else{
+
+            return \Response::json([
+                'message' => 'Error'
+            ], 400);
+        }
+    }
 
     function cohortsToCsv(Request $request)
     {

@@ -5,6 +5,7 @@ namespace App\Console;
 use App\Console\Commands\ClearOldCarts;
 use App\Console\Commands\ClearSnoozing;
 use App\Console\Commands\ClearOldSavedFlows;
+use App\Console\Commands\DebugCommand;
 use App\Console\Commands\GenerateSitemapCommand;
 use App\Console\Commands\MailFlowSender;
 use App\Console\Commands\NotifyPendingRebills;
@@ -43,7 +44,8 @@ class Kernel extends ConsoleKernel
 	    ClearOldSavedFlows::class,
         ClearOldCoupons::class,
 		ClearSnoozing::class,
-		UpdateUserMail::class
+		UpdateUserMail::class,
+		DebugCommand::class,
 	];
 
 	/**

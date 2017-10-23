@@ -3,6 +3,7 @@
 use App\Customer;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
+use App\Nutritionist;
 use App\Setting;
 use App\User;
 use App\Vitamin;
@@ -158,13 +159,61 @@ class CheckoutCompletion
 				$newDate = \Date::now()->addDays( 27 );
 			}
 
+//            $dietologs = Nutritionist::where('locale', \App::getLocale())
+//                ->where('order', 0)
+//                ->where('active', 1)
+//                ->get();
+//
+//			if($dietologs->isEmpty()){
+//                $dietologs = Nutritionist::where('locale', \App::getLocale())
+//                    ->get();
+//                foreach($dietologs as $dietolog){
+//                    $dietolog->order = 0;
+//                    $dietolog->save();
+//                }
+//                $dietologs = Nutritionist::where('locale', \App::getLocale())
+//                    ->where('order', 0)
+//                    ->where('active', 1)
+//                    ->get();
+//            }
+//            $dietolog_ids = [];
+//
+//			if(count($dietologs) == 1){
+//                $dietolog_ids = $dietologs[0]['id'];
+//                $dietolog_order->order = 1;
+//                $dietolog_order->save();
+//            }elseif(count($dietologs) == 0){
+//                $dietolog_ids = 0;
+//            }
+//            else{
+//			    /** @var Nutritionist $dietolog */
+//                foreach($dietologs as $dietolog){
+//			        if($dietolog->order == 0){
+//                        $dietolog_ids = $dietolog->id;
+//                    }
+//                }
+//                $dietolog_order =  Nutritionist::where('id', $dietolog_ids)->first();
+//                $dietolog_order->order = 1;
+//                $dietolog_order->save();
+//
+//                if (sizeof($dietolog_ids)>1) {
+//                    Nutritionist::whereIn('id', array_slice($dietolog_ids, 0, sizeof($dietolog_ids) - 1))
+//                        ->update([
+//                            'order' => 0
+//                        ]);
+//                }
+//
+//            }
+
 			$this->getUser()->getCustomer()->getPlan()->update( [
 				'price'                     => $this->getCheckout()->getSubscriptionPrice(),
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
 				'subscription_started_at'   => \Date::now(),
 				'currency'                  => trans( 'general.currency' ),
 				'subscription_rebill_at'    => $newDate,
-				'subscription_cancelled_at' => null
+				'subscription_cancelled_at' => null,
+//                'nutritionist_id'           => $dietolog_ids,
+//                  'nutritionist_id'           => sizeof($dietolog_ids) ? $dietolog_ids[sizeof($dietolog_ids) - 1] : 0
 			] );
 
 			if ( session( 'vitamins', false ) )

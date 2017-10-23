@@ -9,6 +9,7 @@
         <ul class="nav nav-tabs" role="tablist">
             <li class="active"><a href="#stats" data-toggle="tab">Other stat</a></li>
             <li class=""><a href="#cohorts" data-toggle="tab">Cohorts</a></li>
+            <li class=""><a href="#cohorts-coupon" style="display:none" data-toggle="tab">Cohorts Coupon</a></li>
 
         </ul>
 
@@ -121,29 +122,63 @@
                            class="datatable-1 table table-bordered table-striped	display" width="100%">
                         <tbody>
                         <tr>
-                            <td>
+                            <td rowspan="2" style="width:10%;">
                                 <h5>All customers</h5>
                             </td>
 
-                            <td style="width:50%; text-align: center">
+                            <td rowspan="2"  style="width:10%; text-align: center">
                                 {{ $active_user  }}
                             </td>
-                            <td>
-                                <form style="float: right" class="csv-forms"
-                                      action="{{ URL::action('Dashboard\StatsController@downloadCsv') }}" method="POST">
-                                    {{ csrf_field() }}
-                                    <select name="lang" id="input_states" style="width: 100px; margin-right:20px">
-                                        <option value="nl" selected="selected">Dutch</option>
-                                        <option value="da">Denmark</option>
-                                    </select>
+                            <td style="width:25%;">
+                                <div class="text-center">
+                                    <form style="float: right" class="csv-forms"
+                                          action="{{ URL::action('Dashboard\StatsController@downloadCsv') }}" method="POST">
+                                        {{ csrf_field() }}
 
-                                    <button  class="btn btn-info" id="createCsv">Create CSV</button>
-                                    <button  class="btn btn-success" id="downloadCsv">Download CSV</button>
-                                </form>
+                                        <input type="text" class="form-control datepicker" style="width:120px"
+                                               name="start_date_all_customers" id="start_picker_all_customers"
+                                               placeholder="Start date"
+                                               value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/>
+
+                                        <input type="text" style="width:120px" class="form-control datepicker"
+                                               name="end_date_all_customers" id="end_picker_all_customers"
+                                               placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
+
+                                        <input type="text" value="10" name="weeks" class="form-control weeks"
+                                               style="display: none" placeholder="Enter X weeks, ex. 10 or 12">
+
+                                        <select name="lang" id="input_states" style="width: 100px; margin-right:20px">
+                                            <option value="nl" selected="selected">Dutch</option>
+                                            <option value="da">Denmark</option>
+                                        </select>
+
+                                        <button  class="btn btn-info" id="createCsv">Create CSV</button>
+                                        <button  class="btn btn-success" id="downloadCsv">Download CSV</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:25%;">
+                                <div class="text-center">
+                                    <form class="csv-forms-all"
+                                          action="{{ URL::action('Dashboard\StatsController@downloadCsvAllCustomers') }}" method="POST">
+                                        {{ csrf_field() }}
+
+                                        <select name="lang" id="input_states2" style="width: 100px; margin-right:20px">
+                                            <option value="nl" selected="selected">Dutch</option>
+                                            <option value="da">Denmark</option>
+                                        </select><br/>
+
+                                        <button  class="btn btn-info" id="createCsv2">Create CSV</button>
+                                        <button  class="btn btn-success" id="downloadCsv2">Download CSV</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                         </tbody>
                     </table>
+
                     <br/>
 
                     <form class="csv-form" action="{{ URL::action('Dashboard\StatsController@exportDateCoupon') }}"
@@ -306,6 +341,87 @@
                 </div>
             </div>
 
+            <div role="tabpanel" class="tab-pane" id="cohorts-coupon">
+                <div class="module-body table">
+                    <table cellpadding="0" cellspacing="0" border="0"
+                           class="datatable-1 table table-bordered table-striped display" width="100%">
+                        <thead>
+                        <form class="csv-form coupon-form" action="{{ URL::route('coupon-post') }}">
+                            {{ csrf_field() }}
+                        <input  name="coupon_name" type="text" value="">
+                        <button class="btn btn-success stats-coupon" style="float:right">Create Table</button>
+                        </form>
+
+                        </thead>
+                        <tbody id="4" class="cohorts">
+                        <tr>
+                            <td></td>
+                            <td></td>
+
+                            <td>0</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>11</td>
+                            <td>12</td>
+                        </tr>
+                        @foreach(trans('flow.datepicker.months_long') as $key=>$month)
+
+                            <tr>
+                                <td>{{$month}} 2017</td>
+                                <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
+                                <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>
+                                @foreach(range($key,12) as $y)
+                                    <td class="text-center">
+                                        @if($y >= $key and $y <= (int)date('m') )
+                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}
+
+                                        @endif
+                                    </td>
+                                @endforeach
+                            </tr>
+
+                        @endforeach
+                        </tbody>
+
+                        {{--<tbody id="5" class="cohorts hidden">--}}
+                        {{--<tr>--}}
+                            {{--<td></td>--}}
+                            {{--<td></td>--}}
+                            {{--@foreach(range(0,date('W')) as $val)--}}
+                                {{--<td>{{$val}}</td>--}}
+                            {{--@endforeach--}}
+                        {{--</tr>--}}
+
+                        {{--@foreach(range(0,date('W')-1) as $week)--}}
+                            {{--<tr>--}}
+                                {{--<td>Week {{$week+1}}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>--}}
+                                {{--@foreach(range(01,date('W')) as $y)--}}
+                                    {{--<td class="text-center">--}}
+
+                                        {{--@if(date('W')-$week >= $y)--}}
+                                            {{--{{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}--}}
+                                        {{--@endif--}}
+                                    {{--</td>--}}
+                                {{--@endforeach--}}
+                            {{--</tr>--}}
+                        {{--@endforeach--}}
+                        {{--</tbody>--}}
+
+                    </table>
+
+                </div>
+            </div>
+
         </div>
 
 
@@ -314,6 +430,58 @@
 
 @section('scripts')
     <script>
+
+
+        {{--$('.stats-ok').on('click', function (e) {--}}
+            {{--e.preventDefault();--}}
+            {{--$.ajax({--}}
+                {{--type: 'POST',--}}
+                {{--data: $('form.stat-form').serialize(),--}}
+                {{--url: '{{ route("stats-post") }}',--}}
+                {{--success: function (data) {--}}
+                    {{--$('.result').html(data);--}}
+                {{--}--}}
+
+            {{--});--}}
+        {{--});--}}
+
+        $('.stats-coupon').on('click', function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                data: $('form.coupon-form').serialize(),
+                url: '{{ route("coupon-post") }}',
+                success: function (data) {
+                    $('.result').html(data);
+                }
+
+            });
+        });
+
+
+        {{--$('#post-coupon').on('click', function(){--}}
+            {{--var coupon = ($('#data-coupon').val());--}}
+            {{--console.log(coupon);--}}
+
+            {{--$.ajax({--}}
+                {{--url: '{{  URL::action('Dashboard\StatsController@getStatsCustomersFromCoupon')}}',--}}
+                {{--type: 'POST',--}}
+                {{--data: {coupon: coupon},--}}
+                {{--headers: {--}}
+                    {{--'X-CSRF-TOKEN': $('form.form-coupon').find('[name="_token"]').val()--}}
+                {{--},--}}
+                {{--success: function (response) {--}}
+                    {{--console.log(response);--}}
+
+                {{--},--}}
+                {{--error: function (response) {--}}
+
+                {{--}--}}
+
+            {{--});--}}
+
+
+        {{--});--}}
 
         $('.change-cohorts').on('change', function(){
 
@@ -406,6 +574,23 @@
 
             });
 
+            $('#createCsv2').on('click', function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    data: $('form.csv-forms-all').serialize(),
+                    url: '{{  URL::action('Dashboard\StatsController@exportCsvAllCustomers')}}',
+                    success: function (data) {
+
+                    }
+
+                });
+
+                $(this).prop('disabled', true);
+
+            });
+
+
             $('.csv-category').on('change', function () {
                 if ($('.csv-category').val() == 4) {
 
@@ -419,12 +604,13 @@
                 }
             });
 
+            checkCsv2($('#input_states2').val());
             checkCsv($('#input_states').val());
 
             setInterval(function() {
+                checkCsv2($('#input_states2').val());
                 checkCsv($('#input_states').val());
             }, 20000);
-
 
             $('#input_states').on('change', function(){
                 checkCsv($(this).val());
@@ -452,6 +638,31 @@
 
             }
 
+            $('#input_states2').on('change', function(){
+                checkCsv2($(this).val());
+            });
+
+            function checkCsv2(lang) {
+
+                $.ajax({
+                    url: '{{  URL::action('Dashboard\StatsController@checkCsvAllCustomers')}}',
+                    type: 'POST',
+                    data: {lang: lang},
+                    headers: {
+                        'X-CSRF-TOKEN': $('form.csv-forms-all').find('[name="_token"]').val()
+                    },
+                    success: function (response) {
+                        $('#createCsv2').prop('disabled', true);
+                        $('#downloadCsv2').prop('disabled', false);
+                    },
+                    error: function (response) {
+                        $('#createCsv2').prop('disabled', false);
+                        $('#downloadCsv2').prop('disabled', true);
+                    }
+
+                });
+
+            }
 
         });
 

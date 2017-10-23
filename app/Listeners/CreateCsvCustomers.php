@@ -34,7 +34,7 @@ class CreateCsvCustomers implements ShouldQueue
         $customers = $event->customers;
         $lang = $event->lang;
 
-        \App\Apricot\Helpers\CreateCsvAllCustomers::storeAllCustomerToCsv($customers,$lang);
+        \App\Apricot\Helpers\CreateCsvMonths::storeAllCustomerMonthsToCsv($customers,$lang);
 
         return false;
 

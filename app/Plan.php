@@ -74,6 +74,7 @@ class Plan extends Model
         'subscription_rebill_at',
         'last_rebill_date',
         'old_rebill_at',
+        'nutritionist_id',
         'unsubscribe_reason',
         'currency',
         'vitamins',

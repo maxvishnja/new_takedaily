@@ -22,6 +22,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\CreateCsv' => [
             'App\Listeners\CreateCsvCustomers',
         ],
+        'App\Events\CreateAllCsv' => [
+            'App\Listeners\CreateCsvAllCustomers',
+        ],
     ];
 
     /**

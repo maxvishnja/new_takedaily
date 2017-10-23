@@ -110,17 +110,23 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'snoozing', 'Dashboard\SnoozingController@index' );
 	Route::get( 'stats', 'Dashboard\StatsController@index' );
 	Route::post('stats/post', ['as' => 'stats-post', 'uses' => 'Dashboard\StatsController@getData']);
+    Route::post('stats/coupon-post', ['as' => 'coupon-post', 'uses' => 'Dashboard\StatsController@getStatsCustomersFromCoupon']);
 	Route::post('stats/exportdate', ['as' => 'csv-export', 'uses' => 'Dashboard\StatsController@exportCsvDate']);
 	Route::post('stats/chortscsv', ['as' => 'cohorts-export', 'uses' => 'Dashboard\StatsController@cohortsToCsv']);
 	Route::post('stats/export-coupon', ['as' => 'export-coupon', 'uses' => 'Dashboard\StatsController@exportDateCoupon']);
 	Route::post('stats/export', ['as' => 'export', 'uses' => 'Dashboard\StatsController@exportCsv']);
 	Route::post('stats/check-csv', ['as' => 'check', 'uses' => 'Dashboard\StatsController@checkCsv']);
 	Route::post('stats/download', ['as' => 'check', 'uses' => 'Dashboard\StatsController@downloadCsv']);
+    Route::post('stats/export_all_customers', ['as' => 'export', 'uses' => 'Dashboard\StatsController@exportCsvAllCustomers']);
+    Route::post('stats/check-csv-all-customers', ['as' => 'check', 'uses' => 'Dashboard\StatsController@checkCsvAllCustomers']);
+	Route::post('stats/download-all-customers', ['as' => 'check', 'uses' => 'Dashboard\StatsController@downloadCsvAllCustomers']);
 	Route::post('stats/reason', ['as' => 'reason', 'uses' => 'Dashboard\StatsController@getUnsubscribeReason']);
 	Route::resource( 'feedback', 'Dashboard\FeedbackController' );
 	Route::get( 'feedback/delete/{id}', 'Dashboard\FeedbackController@destroy' );
 	Route::resource( 'faq-translations', 'Dashboard\FaqTranslationController' );
 	Route::get( 'faq-translations/{id}/delete', 'Dashboard\FaqTranslationController@delete' );
+    Route::resource( 'nutritionist', 'Dashboard\NutritionistController' );
+    Route::get( 'nutritionist/delete/{id}', 'Dashboard\NutritionistController@destroy' );
 
 	Route::any( 'upload/image', function ( \Illuminate\Http\Request $request )
 	{
