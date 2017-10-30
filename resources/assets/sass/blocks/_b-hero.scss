@@ -1,0 +1,31 @@
+//----- Hero Block
+.b-hero {
+  position: relative;
+  text-align: center;
+  font-weight: $fw-bold;
+  color: $color-white;
+
+  &__media {
+    background-color: $color-black;
+    img {
+      opacity: .7;
+    }
+  }
+  &__txt {
+    @include absolute(center);
+    max-width: 45rem;
+  }
+  &__title {
+    @include font-size(48px ,48px);
+    margin-bottom: 2rem;
+  }
+  &__intro {
+    @include font-size(16px ,16px);
+    @include line-height(24px, 24px);
+    margin-bottom: 2rem;
+    span {
+      display: block;
+      margin-bottom: 2rem;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+//----- Block 3
+.b-3 {
+  position: relative;
+  background-color: rgba(240,240,240,1);
+  text-align: center;
+  padding: 4rem 0;
+
+  &__txt {
+    max-width: 53rem;
+    margin: 0 auto;
+  }
+  &__title {
+    margin-bottom: 2.5rem;
+    @extend .c-line;
+  }
+  &__intro {
+    @include font-size(14px, 14px);
+    @include line-height(23px, 23px);
+    color: rgb(128, 128, 128);
+  }
+}
