@@ -29,7 +29,8 @@
 		"skovmand/mailchimp-laravel": "^1.0",
 		"spatie/laravel-backup": "^3.0.0",
 		"pda/Pheanstalk": "^3.1",
-		"maatwebsite/excel": "~2.1.0"
+		"maatwebsite/excel": "~2.1.0",
+		"milon/barcode": "^5.3"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "~1.4",

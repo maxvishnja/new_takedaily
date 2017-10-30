@@ -6,6 +6,8 @@ use App\Apricot\Repositories\OrderRepository;
 use App\Http\Controllers\Controller;
 use App\Order;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use Illuminate\Support\Collection;
 
 class OrderController extends Controller
 {
@@ -66,9 +68,29 @@ class OrderController extends Controller
 
 	function printAll()
 	{
-		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->shippable()->select('id')->get();
+        /** @var Collection $orders_dk */
+        $orders_dk = $this->repo->getBarcode()
+            ->shippable()
+            ->select('orders.*')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->where('customers.locale', 'nl')
+            ->get();
 
-		return $this->downloadMultiple( array_flatten($printableOrders->toArray()) );
+        $orders_nl = $this->repo->getPaid()
+            ->shippable()
+            ->select('orders.*')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->where('customers.locale', 'dk')
+            ->get();
+
+        $orders = $orders_dk->merge($orders_nl);
+
+
+//		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->shippable()->select('id')->get();
+
+//		return $this->downloadMultiple( array_flatten($printableOrders->toArray()) );
+
+		return $this->downloadMultiple( $orders );
 	}
 
 	function shipAll()
@@ -126,11 +148,15 @@ class OrderController extends Controller
 		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The action was handled!' );
 	}
 
-	private function downloadMultiple( $ids )
+	private function downloadMultiple( $ids_or_orders )
 	{
 		$printables = [];
 
-		foreach ( Order::whereIn( 'id', $ids )->get() as $order )
+		$orders = $ids_or_orders instanceof Collection
+            ? $ids_or_orders
+            : Order::whereIn( 'id', $ids_or_orders )->get();
+
+		foreach ( $orders as $order )
 		{
 			$order->markPrint();
 
@@ -153,4 +179,131 @@ class OrderController extends Controller
 			$order->markSent();
 		}
 	}
+
+    public function getAllBarcodeDK()
+    {
+
+        $orders = $this->repo->getEmptyBarcode()
+            ->shippable()
+            ->select('orders.*')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->where('customers.locale', 'nl')
+            ->orderBy('created_at', 'DESC')
+            ->with('customer.plan')
+            ->get();
+
+        $barcodes = [];
+
+        foreach ($orders as $order) {
+
+            $order_id = $order->id;
+            $customer_name = $order->getCustomer()->getUser()->name;
+            $customer_email = $order->getCustomer()->getUser()->email;
+            $customer_phone = $order->getCustomer()->getCustomerAttribute('phone');
+
+            $shipping_zipcode  = $order->shipping_zipcode;
+            $shipping_street = $order->shipping_street;
+            $street = explode(", ", $shipping_street);
+
+            $client = new Client();
+            $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street[0].'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&test=1&format=json');
+
+            $response = json_decode($res->getBody());
+            $status = $response->status;
+
+            if (strtolower($status) == 'ok') {
+                $order->barcode = json_decode($res->getBody())->resultat->stregkode;
+                $order->labelTekst1 = json_decode($res->getBody())->resultat->labelTekst1;
+                $order->labelTekst2 = json_decode($res->getBody())->resultat->labelTekst2;
+                $order->labelTekst3 = json_decode($res->getBody())->resultat->labelTekst3;
+                $order->udsortering = json_decode($res->getBody())->resultat->udsortering;
+                $order->eta = json_decode($res->getBody())->resultat->ETA;
+                $order->save();
+                $barcodes[$order_id] = $response->resultat->stregkode;
+            }
+
+        }
+        return \Response::json([
+            'message' => 'OK'
+        ]);
+    }
+
+	public function getBarcodeDK(Request $request)
+    {
+        $data = $request->all();
+
+        $order =  Order::where( 'id', $data )->first();
+
+
+            $order_id = $order->id;
+            $customer_locale = $order->getCustomer()->locale;
+            $customer_name = $order->getCustomer()->getUser()->name;
+            $customer_email = $order->getCustomer()->getUser()->email;
+            $customer_phone =$order->getCustomer()->getCustomerAttribute('phone');
+            $shipping_zipcode  = $order->shipping_zipcode;
+            $shipping_street =  $order->shipping_street;
+            $street = explode(", ", $shipping_street);
+
+            if($customer_locale == 'nl'){
+                $client = new Client();
+                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street[0].'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&test=1&format=json');
+
+                $status = json_decode($res->getBody())->status;
+
+                if (strtolower($status) == 'ok') {
+                    $order->barcode = json_decode($res->getBody())->resultat->stregkode;
+                    $order->labelTekst1 = json_decode($res->getBody())->resultat->labelTekst1;
+                    $order->labelTekst2 = json_decode($res->getBody())->resultat->labelTekst2;
+                    $order->labelTekst3 = json_decode($res->getBody())->resultat->labelTekst3;
+                    $order->udsortering = json_decode($res->getBody())->resultat->udsortering;
+                    $order->eta = json_decode($res->getBody())->resultat->ETA;
+                    $order->save();
+                    return \Response::json([
+                        'message' => json_decode($res->getBody())->resultat->stregkode
+                    ]);
+                }else{
+                    return \Response::json([
+                        'message' => 'Error',
+                        'result' => json_decode($res->getBody())->fejltekst
+                    ]);
+                }
+            }
+
+
+//        }
+
+    }
+
+    public function cancelDeliveryDK(Request $request)
+    {
+        $data = $request->all();
+
+        $order = Order::where( 'id', $data['id'] )->first();
+
+        $client = new Client();
+        $res = $client->request('GET', 'https://api.dao.as/AnnullerePakke.php?kundeid=1332&kode=eb7kr6b7dsr5&stregkode='.$data['barcode'].'&format=json');
+
+        $status = json_decode($res->getBody())->status;
+
+//        echo "<pre>";
+//        var_dump(json_decode($res->getBody())->status);
+//        echo "</pre>";
+
+        if($status == 'OK'){
+            $order->barcode = '';
+            $order->save();
+            return \Response::json([
+                'message' => $data['id']
+            ]);
+        }else{
+            return \Response::json([
+                'message' => 'Error'
+            ]);
+        }
+
+
+
+
+    }
+
 }

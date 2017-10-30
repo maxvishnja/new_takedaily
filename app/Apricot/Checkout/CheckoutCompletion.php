@@ -164,8 +164,13 @@ class CheckoutCompletion
 //                ->where('active', 1)
 //                ->get();
 //
-//			if($dietologs->isEmpty()){
+//            $dietologs_all_active = Nutritionist::where('locale', \App::getLocale())
+//                ->where('active', 1)
+//                ->get();
+//
+//			if($dietologs->isEmpty() and count($dietologs_all_active)>0){
 //                $dietologs = Nutritionist::where('locale', \App::getLocale())
+//                    ->where('active', 1)
 //                    ->get();
 //                foreach($dietologs as $dietolog){
 //                    $dietolog->order = 0;
@@ -178,8 +183,10 @@ class CheckoutCompletion
 //            }
 //            $dietolog_ids = [];
 //
-//			if(count($dietologs) == 1){
+//			if(count($dietologs) == 1 and count($dietologs_all_active) > 1){
+//
 //                $dietolog_ids = $dietologs[0]['id'];
+//                $dietolog_order =  Nutritionist::where('id', $dietolog_ids)->first();
 //                $dietolog_order->order = 1;
 //                $dietolog_order->save();
 //            }elseif(count($dietologs) == 0){
@@ -195,14 +202,6 @@ class CheckoutCompletion
 //                $dietolog_order =  Nutritionist::where('id', $dietolog_ids)->first();
 //                $dietolog_order->order = 1;
 //                $dietolog_order->save();
-//
-//                if (sizeof($dietolog_ids)>1) {
-//                    Nutritionist::whereIn('id', array_slice($dietolog_ids, 0, sizeof($dietolog_ids) - 1))
-//                        ->update([
-//                            'order' => 0
-//                        ]);
-//                }
-//
 //            }
 
 			$this->getUser()->getCustomer()->getPlan()->update( [
@@ -213,7 +212,6 @@ class CheckoutCompletion
 				'subscription_rebill_at'    => $newDate,
 				'subscription_cancelled_at' => null,
 //                'nutritionist_id'           => $dietolog_ids,
-//                  'nutritionist_id'           => sizeof($dietolog_ids) ? $dietolog_ids[sizeof($dietolog_ids) - 1] : 0
 			] );
 
 			if ( session( 'vitamins', false ) )

@@ -89,6 +89,11 @@ class Order extends Model
 		'shipping_zipcode',
 		'shipping_company',
 		'is_shippable',
+		'barcode',
+		'labellesskode',
+		'labelTekst1',
+		'labelTekst2',
+		'labelTekst3',
 		'coupon',
 		'vitamins',
 		'repeat'
@@ -120,7 +125,15 @@ class Order extends Model
 		return $this->customer;
 	}
 
-	public function getPaddedId()
+    public function user()
+    {
+        return $this->hasOne( 'App\User', 'id', 'customer_id' );
+    }
+
+
+
+
+    public function getPaddedId()
 	{
 		return str_pad( $this->id, 11, 0, STR_PAD_LEFT );
 	}

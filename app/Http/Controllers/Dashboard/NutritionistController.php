@@ -117,7 +117,7 @@ class NutritionistController extends Controller
 
         $nutritionist->update($data);
 
-        return redirect('dashboard/nutritionist')->with('success', 'Nutritionist updated');;
+        return redirect('dashboard/nutritionist')->with('success', 'Nutritionist updated');
 
     }
 
