@@ -66,7 +66,8 @@
 								<div class="btn-group">
 									@if($order->state == 'paid' )
 										<span class="dao-request-{{$order->id}}">
-											@if($order->getCustomer()->locale == 'nl' and $order->barcode == '')
+											@if($order->getCustomer()->locale == 'da')
+												@if($order->barcode == '')
 											<a class="btn btn-danger get-barcode barcode-for-{{$order->id}}" data-id="{{$order->id}}"><i class="menu-icon icon-barcode"></i>
 												Get Barcode {{$order->barcode}}</a>
 
@@ -74,13 +75,14 @@
 											<a class="btn btn-warning cancel-delivery cancel-delivery-for-{{$order->id}}"  data-id="{{$order->id}}" data-barcode="{{$order->barcode}}">
 												Cancel delivery</a>
 											}
+												@endif
 											@endif
 										</span>
 										<a class="btn btn-primary"
 										   href="{{ URL::action('Packer\OrderController@markSent', [ 'id' => $order->id ]) }}"><i
 												class="icon-truck"></i>
 											Mark sent</a>
-										<a class="btn btn-default print-{{$order->id}}" @if($order->getCustomer()->locale == 'nl' and $order->barcode == '') disabled="disabled" @endif target="_blank"
+										<a class="btn btn-default print-{{$order->id}}" @if($order->getCustomer()->locale == 'da' and $order->barcode == '') disabled="disabled" @endif target="_blank"
 										   href="{{ URL::action('Packer\OrderController@print', [ 'id' => $order->id ]) }}"><i
 												class="icon-download"></i>
 											Print</a>

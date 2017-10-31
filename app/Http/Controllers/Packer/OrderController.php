@@ -73,14 +73,14 @@ class OrderController extends Controller
             ->shippable()
             ->select('orders.*')
             ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->where('customers.locale', 'nl')
+            ->where('customers.locale', 'da')
             ->get();
 
         $orders_nl = $this->repo->getPaid()
             ->shippable()
             ->select('orders.*')
             ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->where('customers.locale', 'dk')
+            ->where('customers.locale', 'nl')
             ->get();
 
         $orders = $orders_dk->merge($orders_nl);
@@ -187,7 +187,7 @@ class OrderController extends Controller
             ->shippable()
             ->select('orders.*')
             ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->where('customers.locale', 'nl')
+            ->where('customers.locale', 'da')
             ->orderBy('created_at', 'DESC')
             ->with('customer.plan')
             ->get();
@@ -203,10 +203,17 @@ class OrderController extends Controller
 
             $shipping_zipcode  = $order->shipping_zipcode;
             $shipping_street = $order->shipping_street;
-            $street = explode(", ", $shipping_street);
+            $shipping_number =  $order->getCustomer()->getCustomerAttribute('address_number');
+            if($shipping_number != ''){
+                $street = $shipping_street." ".$shipping_number;
+            } else{
+                $temp_street = explode(", ", $shipping_street);
+                $street = $temp_street['0'];
+            }
+
 
             $client = new Client();
-            $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street[0].'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&test=1&format=json');
+            $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&test=1&format=json');
 
             $response = json_decode($res->getBody());
             $status = $response->status;
@@ -236,17 +243,23 @@ class OrderController extends Controller
 
 
             $order_id = $order->id;
-            $customer_locale = $order->getCustomer()->locale;
             $customer_name = $order->getCustomer()->getUser()->name;
             $customer_email = $order->getCustomer()->getUser()->email;
             $customer_phone =$order->getCustomer()->getCustomerAttribute('phone');
-            $shipping_zipcode  = $order->shipping_zipcode;
-            $shipping_street =  $order->shipping_street;
-            $street = explode(", ", $shipping_street);
+            $shipping_zipcode  = $order->getCustomer()->getCustomerAttribute('address_postal');
+            $shipping_street =  $order->getCustomer()->getCustomerAttribute('address_line1');
+            $shipping_number =  $order->getCustomer()->getCustomerAttribute('address_number');
+            if($shipping_number != ''){
+                $street = $shipping_street." ".$shipping_number;
+            } else{
+                $temp_street = explode(", ", $shipping_street);
+                $street = $temp_street['0'];
+            }
+        
 
-            if($customer_locale == 'nl'){
+
                 $client = new Client();
-                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street[0].'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&test=1&format=json');
+                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&test=1&format=json');
 
                 $status = json_decode($res->getBody())->status;
 
@@ -267,7 +280,7 @@ class OrderController extends Controller
                         'result' => json_decode($res->getBody())->fejltekst
                     ]);
                 }
-            }
+
 
 
 //        }
