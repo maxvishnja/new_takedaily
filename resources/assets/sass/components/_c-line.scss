@@ -1,0 +1,17 @@
+//----- Lne
+.c-line  {
+  position: relative;
+  padding-bottom: 2.5rem;
+
+  &:after {
+    content: '';
+    height: 1px;
+    background-color: $color-black;
+    width: 10rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+}

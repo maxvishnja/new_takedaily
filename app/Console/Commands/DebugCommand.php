@@ -12,7 +12,10 @@ namespace App\Console\Commands;
 use App\Customer;
 use App\Nutritionist;
 use App\Plan;
+use GuzzleHttp\Client;
 use Illuminate\Console\Command;
+use Milon\Barcode\DNS1D;
+use Milon\Barcode\DNS2D;
 
 class DebugCommand extends Command
 {
@@ -20,18 +23,11 @@ class DebugCommand extends Command
 
     public function handle()
     {
-        /** @var Customer $customer */
-        $customer = Customer::find(7);
-
-        /** @var Plan $plan */
-        $plan = $customer->plan;
-
-
-        /** @var Nutritionist $nutritionist */
-        $nutritionist = $plan->nutritionist;
-
         echo "<pre>";
-        var_dump($nutritionist->toArray());
+        var_dump(DNS1D::getBarcodePNGUri("00057126960000000015", "C128",3,33, true));
+        var_dump(DNS1D::getBarcodePNGUri("4", "C39+",3,33,array(1,1,1), true));
+        var_dump(DNS1D::getBarcodePNGUri("4445645656", "PHARMA2T",3,33,array(255,255,0), true));
+        var_dump(DNS1D::getBarcodePNGUri("455", "C39+",3,33,array(1,1,1)));
         echo "</pre>";
     }
 }

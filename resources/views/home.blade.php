@@ -3,8 +3,7 @@
 @section('pageClass', 'index')
 
 @section('content')
-	<header class="header--landing header--front-slide-1" style="background: #fff url(/images/header_bg2.jpg) no-repeat center center; background-size: cover;
-    background-position: 60%;" >
+	<header class="header--landing header--front-slide-1">
 		<div class="header-nav">
 			<div class="container-fluid">
 				@if(\Cookie::get('campaign')!= null)
