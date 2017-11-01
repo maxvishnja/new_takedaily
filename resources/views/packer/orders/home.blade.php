@@ -78,7 +78,7 @@
 												@endif
 											@endif
 										</span>
-										<a class="btn btn-primary"
+										<a class="btn btn-primary sent-{{$order->id}}" @if($order->getCustomer()->locale == 'da' and $order->barcode == '') disabled="disabled" @endif
 										   href="{{ URL::action('Packer\OrderController@markSent', [ 'id' => $order->id ]) }}"><i
 												class="icon-truck"></i>
 											Mark sent</a>
@@ -145,6 +145,7 @@
                         alert('Barcode for order ' +order_id+ ' not received - ' +response.result);
 					}else{
                         $('.print-' +order_id).attr("disabled",false);
+                        $('.sent-' +order_id).attr("disabled",false);
                         $('.dao-request-' + order_id).html('<a class="btn btn-warning cancel-delivery cancel-delivery-for-'+order_id+'" data-barcode="'+response.message+'" data-id="'+order_id+'">Cancel delivery</a>');
 					}
                 }

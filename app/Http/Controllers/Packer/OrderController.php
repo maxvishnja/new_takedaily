@@ -255,7 +255,7 @@ class OrderController extends Controller
                 $temp_street = explode(", ", $shipping_street);
                 $street = $temp_street['0'];
             }
-        
+
 
 
                 $client = new Client();
