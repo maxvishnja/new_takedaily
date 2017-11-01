@@ -8,6 +8,7 @@ use App\Order;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
+use Jenssegers\Date\Date;
 
 class OrderController extends Controller
 {
@@ -210,10 +211,10 @@ class OrderController extends Controller
                 $temp_street = explode(", ", $shipping_street);
                 $street = $temp_street['0'];
             }
-
+            $date = Date::now()->addDay()->format('Y-m-d');
 
             $client = new Client();
-            $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&format=json');
+            $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&dato='.$date.'&format=json');
 
             $response = json_decode($res->getBody());
             $status = $response->status;
@@ -242,6 +243,8 @@ class OrderController extends Controller
         $order =  Order::where( 'id', $data )->first();
 
 
+
+
             $order_id = $order->id;
             $customer_name = $order->getCustomer()->getUser()->name;
             $customer_email = $order->getCustomer()->getUser()->email;
@@ -255,11 +258,12 @@ class OrderController extends Controller
                 $temp_street = explode(", ", $shipping_street);
                 $street = $temp_street['0'];
             }
+            $date = Date::now()->addDay()->format('Y-m-d');
 
 
 
                 $client = new Client();
-                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&format=json');
+                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&dato='.$date.'&format=json');
 
                 $status = json_decode($res->getBody())->status;
 
