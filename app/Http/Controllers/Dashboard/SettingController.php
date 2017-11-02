@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Apricot\Helpers\EmailPlatformApi;
 use App\Apricot\Repositories\SettingsRepository;
 use App\Setting;
 use Illuminate\Http\Request;
@@ -26,6 +27,13 @@ class SettingController extends Controller
 
 	function index()
 	{
+
+        $connect = new EmailPlatformApi();
+
+        dd($connect->TestUserToken());
+
+
+
 		return view('admin.settings.home', [
 			'settings' => $this->repo->all()
 		]);
