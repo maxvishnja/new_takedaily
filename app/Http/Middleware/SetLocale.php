@@ -66,7 +66,7 @@ class SetLocale
 		}
 
 
-
+        $locale = 'da';
 
 		\App::setLocale( $locale );
 

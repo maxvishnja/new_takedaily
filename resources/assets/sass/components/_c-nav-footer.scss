@@ -1,0 +1,38 @@
+//----- Navigation / style only for footer nav
+.c-nav-footer {
+  @include breakpoint(phone) {
+    float: left;
+    width: 80%;
+    padding-left: 4%;
+    margin-bottom: .7rem;
+  }
+  @include breakpoint(overPhone) {
+    display: inline-block;
+    vertical-align: -1rem;
+    margin-left: 2.5rem;
+  }
+
+  &__item {
+    @include breakpoint(phone) {
+      margin-bottom: 1.2rem;
+    }
+    @include breakpoint(overPhone) {
+      display: inline-block;
+      margin-right: 3.2rem;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    @include breakpoint(tablet) {
+      margin-right: 1rem;
+    }
+  }
+  &__link {
+    @include font-size(14px, 14px);
+    @include line-height(18px, 18px);
+    color: #3BA883;
+    @include breakpoint(tablet) {
+      font-size: 1.4vw;
+    }
+  }
+}

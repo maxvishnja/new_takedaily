@@ -1,0 +1,54 @@
+//----- Home Page / Block Choose
+.hp-choose {
+  color: $color-black;
+  text-align: center;
+  margin-bottom: 3rem;
+  @include breakpoint(phone) {
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #D8D8D8;
+  }
+
+  &__title {
+    color: #262626;
+    @include font-size(26px, 38px);
+    @include line-height(32px, 47px);
+    margin-bottom: 2.5rem;
+    @include breakpoint(overPhone) {
+      margin-bottom: 5.5rem;
+    }
+  }
+  &__list {
+    @include clearfix;
+    @include breakpoint(overPhone) {
+      border-bottom: 1px solid #D8D8D8;
+    }
+  }
+  &__item {
+    margin-bottom: 3rem;
+    @include breakpoint(overPhone) {
+      @include grid(3, 3%);
+    }
+  }
+  &__item__img {
+    margin: 0 auto;
+    margin-bottom: .8rem;
+    @include breakpoint(phone) {
+      max-width: 8rem;
+    }
+    @include breakpoint(overPhone) {
+      margin-bottom: 1.5rem;
+    }
+  }
+  &__item__title {
+    color: #262626;
+    font-weight: $fw-bold;
+    @include font-size(16px, 14px);
+    @include line-height(19px, 22px);
+    margin-bottom: .8rem;
+  }
+  &__item__intro {
+    color: #535353;
+    @include font-size(12px, 14px);
+    @include line-height(16px, 22px);
+  }
+}

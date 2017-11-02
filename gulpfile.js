@@ -41,6 +41,8 @@ elixir(function (mix) {
 
 	mix.scripts([
 		'/vendor/jquery.min.js',
+		'/vendor/picturefill.js',
+		'/vendor/slick.js',
 		'/vendor/vue.min.js',
 		'/vendor/bootstrap-datepicker.min.js',
 		'/vendor/datepicker/*.*',

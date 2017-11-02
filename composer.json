@@ -29,7 +29,10 @@
 		"skovmand/mailchimp-laravel": "^1.0",
 		"spatie/laravel-backup": "^3.0.0",
 		"pda/Pheanstalk": "^3.1",
-		"maatwebsite/excel": "~2.1.0"
+		"maatwebsite/excel": "~2.1.0",
+		"vinkla/instagram": "^7.0",
+		"php-http/message": "^1.6",
+		"php-http/guzzle6-adapter": "^1.1"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "~1.4",

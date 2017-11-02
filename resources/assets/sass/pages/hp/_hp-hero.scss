@@ -1,0 +1,93 @@
+//----- Home Page / Block Hero
+.hp-hero {
+  position: relative;
+  color: $color-white;
+  text-align: center;
+  margin-bottom: 6rem;
+
+  &__media {
+    img {
+      width: 100%;
+    }
+  }
+  &__content {
+    @include absolute(center);
+    padding: 0 7%;
+    @include breakpoint(phone) {
+      width: 100%;
+    }
+    @include breakpoint(overPhone) {
+      padding: 0 5%;
+    }
+    @include breakpoint(tablet) {
+      width: 80%;
+    }
+  }
+  &__title {
+    @include font-size(24px, 38px);
+    @include line-height(29px, 47px);
+    margin-bottom: .8rem;
+  }
+  &__intro {
+    @include font-size(14px, 14px);
+    @include line-height(18px, 18px);
+    margin-bottom: 1.3rem;
+    @include breakpoint(overPhone) {
+      max-width: 69%;
+      @include center-block;
+      margin-bottom: 2.6rem;
+    }
+  }
+  .hp-btn {
+    @include breakpoint(phone) {
+      min-width: 27.5rem;
+      margin-bottom: 1.2rem;
+    }
+    @include breakpoint(overPhone) {
+      display: inline-block;
+      vertical-align: middle;
+      margin-bottom: 0;
+      min-width: 21rem;
+      margin-left: 3rem;
+      margin-right: 1rem;
+    }
+  }
+  &__play {
+    @include breakpoint(overPhone) {
+      display: inline-block;
+      vertical-align: middle;
+      // margin-left: 2rem;
+    }
+  }
+  &__play__btn {
+    position: relative;
+    vertical-align: middle;
+    width: 5.5rem;
+    height: 4rem;
+    color: $color-white;
+    background-color: transparentize($color-white, .7);
+    @include vendor-prefixes(border-radius, 5px);
+    border: .2rem solid $color-white;
+    margin-right: 1.5rem;
+    @include breakpoint(phone) {
+      display: inline-block;
+    }
+    @include breakpoint(overPhone) {
+      display: table-cell;
+    }
+  }
+  &__play__btn__icon {
+    @include triangle(right, .8rem, $color-white);
+    border-left: solid 1.4rem;
+    @include absolute(center);
+  }
+  &__play__txt {
+    @include breakpoint(overPhone) {
+      display: inline-block;
+      vertical-align: -0.6rem;
+      width: 50%;
+      text-align: left;
+      padding-left: 2%;
+    }
+  }
+}

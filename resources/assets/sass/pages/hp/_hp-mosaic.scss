@@ -1,0 +1,89 @@
+//----- Home Page / Block Mosaic
+.hp-mosaic {
+  color: $color-black;
+  margin-bottom: .5rem;
+  @include breakpoint(overPhone) {
+    margin-bottom: 9rem;
+  }
+
+  &.l {
+    @include breakpoint(phone) {
+      padding: 0;
+    }
+  }
+
+  &__item {
+    @include clearfix;
+    @include breakpoint(phone) {
+      margin-bottom: 6rem;
+    }
+    @include breakpoint(overPhone) {
+      padding: 0 8.5%;
+    }
+    @include breakpoint(tablet) {
+      padding: 0 2%;
+    }
+    &:nth-of-type(odd) {
+      .hp-mosaic__item__media {
+        @include breakpoint(overPhone) {
+          float: right;
+        }
+      }
+    }
+  }
+  &__item__media {
+    @include breakpoint(phone) {
+      margin-bottom: 2rem;
+    }
+    @include breakpoint(overPhone) {
+      float: left;
+      width: 50%;
+    }
+    img {
+      @include breakpoint(phone) {
+        width: 100%;
+      }
+    }
+  }
+  &__item__content {
+    @include breakpoint(phone) {
+      display: inline-block;
+      padding: 0 8%;
+    }
+    @include breakpoint(overPhone) {
+      float: left;
+      width: 50%;
+      padding: 4.1% 5.1% 1%;
+    }
+    @include breakpoint(tablet) {
+      padding: 2% 2.5% .5%;
+    }
+  }
+
+  &__item__title {
+    color: #262626;
+    @include font-size(26px, 38px);
+    @include line-height(32px, 44px);
+    @include breakpoint(phone) {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    @include breakpoint(overPhone) {
+      margin-bottom: 2rem;
+    }
+    @include breakpoint(tablet) {
+      font-size: 3vw;
+      line-height: 4vw;
+      margin-bottom: 1rem;
+    }
+  }
+  &__item__intro {
+    color: #535353;
+    @include font-size(12px, 14px);
+    @include line-height(16px, 22px);
+    @include breakpoint(tablet) {
+      font-size: 1.4vw;
+      line-height: 2vw;
+    }
+  }
+}

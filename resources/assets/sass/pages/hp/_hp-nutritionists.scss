@@ -1,0 +1,79 @@
+//----- Home Page / Block Nutritionists
+.hp-nutr {
+  color: $color-black;
+  text-align: center;
+  margin-bottom: 4rem;
+  @include breakpoint(overPhone) {
+    margin-bottom: 8rem;
+  }
+
+  &__title {
+      color: #000;
+      @include font-size(28px, 38px);
+      @include line-height(34px, 47px);
+      margin-bottom: 1rem;
+      @include breakpoint(overPhone) {
+        margin-bottom: 2rem;
+      }
+  }
+  &__intro {
+    color: #535353;
+    @include font-size(12px, 14px);
+    @include line-height(16px, 18px);
+    margin-bottom: 3.7rem;
+    @include breakpoint(overPhone) {
+      margin-bottom: 3rem;
+    }
+  }
+  &__list {
+    @include clearfix;
+  }
+  &__item {
+    @include breakpoint(phone) {
+      @include clearfix;
+      margin-bottom: 1.7rem;
+      display: table;
+    }
+    @include breakpoint(overPhone) {
+      @include grid(3, 2%);
+    }
+  }
+  &__item__img {
+    margin: 0 auto;
+    @include vendor-prefixes(border-radius, 50%);
+    @include breakpoint(phone) {
+      display: table-cell;
+      max-width: 8.2rem;
+    }
+    @include breakpoint(overPhone) {
+      margin-bottom: 1rem;
+    }
+  }
+  &__item__content {
+    @include breakpoint(phone) {
+      display: table-cell;
+      width: 70%;
+      text-align: left;
+      vertical-align: middle;
+      padding-left: 1.5rem;
+    }
+    @include breakpoint(overPhone) {
+      @include center-block;
+      max-width: 80%;
+    }
+  }
+  &__item__title {
+      color: #262626;
+      @include font-size(18px, 20px);
+      @include line-height(22px, 22px);
+      margin-bottom: .7rem;
+      @include breakpoint(overPhone) {
+        margin-bottom: .2rem;
+      }
+  }
+  &__item__intro {
+      color: #535353;
+      @include font-size(12px, 14px);
+      @include line-height(18px, 22px);
+  }
+}

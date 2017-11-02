@@ -1,3 +1,69 @@
+// Header Behavior
+$(window).on('load', function() {
+
+    var header = $('.b-header');
+    var hpHero = $('.hp-hero');
+
+    var headerHeight = header.height();
+    var hpHeroHeight = hpHero.height();
+
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > (hpHeroHeight - headerHeight / 2)) {
+            header.addClass('active');
+        } else {
+            header.removeClass('active');
+        }
+    });
+
+    $('.c-nav-header__trigger').click(function() {
+        $('.c-nav-header').toggleClass('active');
+    });
+
+});
+
+// Sliders
+sliderMembers();
+if ($(window).width() < 768) {
+    sliderInstagram();
+    sliderCompromises();
+}
+function sliderMembers() {
+    $('.hp-members__list').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        prevArrow: '<div class="hp-members__arrow hp-members__arrow--left"></div>',
+        nextArrow: '<div class="hp-members__arrow hp-members__arrow--right"></div>',
+        dots: false,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false
+                }
+            }
+        ]
+    });
+}
+function sliderCompromises() {
+    $('.hp-comp__list').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false
+    });
+}
+function sliderInstagram() {
+    $('.hp-insta__list').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false
+    });
+}
+
+// old code
+
 $(".toggle-mobile-nav").click(function (e)
 {
 	e.preventDefault();

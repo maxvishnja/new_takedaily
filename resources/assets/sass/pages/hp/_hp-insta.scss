@@ -1,0 +1,91 @@
+//----- Home Page / Block Instagram Feeds
+.hp-insta {
+  color: $color-black;
+  margin-bottom: 10rem;
+  @include breakpoint(overPhone) {
+    margin-bottom: 7rem;
+  }
+
+  &.l {
+    @include breakpoint(phone) {
+      padding-right: 0;
+    }
+  }
+
+  &__head {
+    text-align: center;
+    @include breakpoint(phone) {
+      margin-bottom: 2rem;
+      padding-right: 2rem;
+    }
+    @include breakpoint(overPhone) {
+      margin-bottom: 2.5rem;
+    }
+  }
+  &__logo {
+    display: inline-block;
+    vertical-align: middle;
+    @include breakpoint(phone) {
+      width: 3.2rem;
+      margin-right: .7rem;
+    }
+  }
+  &__title {
+    @include font-size(28px, 38px);
+    @include line-height(34px, 47px);
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__list {
+    @include clearfix;
+  }
+  &__item {
+    @include breakpoint(phone) {
+      margin-right: .7%;
+    }
+    @include breakpoint(overPhone) {
+      @include grid(4, 1%);
+    }
+  }
+  &__item__media {
+    @include breakpoint(phone) {
+      margin-bottom: 1.2rem;
+    }
+    @include breakpoint(overPhone) {
+      margin-bottom: .9rem;
+    }
+    img {
+      @include vendor-prefixes(border-radius, 7px);
+      @include breakpoint(phone) {
+        width: 100%;
+      }
+    }
+  }
+  &__item__content {}
+  &__item__intro {
+    color: #515151;
+    @include font-size(10px, 12px);
+    @include line-height(14px, 16px);
+    margin-bottom: .4rem;
+  }
+  &__item__bottom {
+    margin-right: 1.5rem;
+    img {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  &__item__bottom__num {
+    @include font-size(12px, 12px);
+    @include line-height(22px, 22px);
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .slick-list {
+    @include breakpoint(phone) {
+      padding: 0 11% 0 0;
+    }
+  }
+}

@@ -1,12 +1,155 @@
 //----- Footer
 .b-footer {
-  overflow: hidden;
-  padding: 1rem 0;
+  background-color: #F2F2F2;
+  @include breakpoint(phone) {
+    padding-top: 2rem;
+  }
+  @include breakpoint(overPhone) {
+    padding-bottom: 2.5rem;
+  }
 
+  .l {
+    @include breakpoint(phone) {
+      padding: 0;
+    }
+  }
+
+  &__top {
+    @include clearfix;
+    border-bottom: 1px solid $color-white;
+    @include breakpoint(overPhone) {
+      padding: 2rem 0;
+    }
+  }
+  &__lang {
+    @include breakpoint(phone) {
+      float: right;
+      margin-right: 4%;
+    }
+    @include breakpoint(overPhone) {
+      display: inline-block;
+      vertical-align: -.8rem;
+    }
+  }
+  &__lang__flag {
+    width: 3rem;
+    height: 2rem;
+    background: white;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__lang__arrow {
+    @include arrow(.5rem, 1px, #979797, bottom);
+    margin-left: .5rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__top__right {
+    @include breakpoint(phone) {
+      border-top: 1px solid $color-white;
+      clear: both;
+      overflow: hidden;
+      padding: 6%;
+    }
+    @include breakpoint(overPhone) {
+      float: right;
+      padding-right: 1.3rem;
+    }
+  }
   &__copy {
-    @include font-size(9px, 9px);
-    float: right;
-    margin-top: 2rem;
+    @include font-size(12px, 12px);
+    @include line-height(15px, 15px);
+    color: #515151;
+    @include breakpoint(phone) {
+      float: left;
+      margin-left: 1.2rem;
+      margin-top: 0.4rem;
+    }
+    @include breakpoint(overPhone) {
+      display: inline-block;
+      margin-right: 2.2rem;
+      margin-top: 0.2rem;
+    }
+  }
+  &__payment {
+    @include breakpoint(phone) {
+      float: left;
+    }
+    @include breakpoint(overPhone) {
+      float: right;
+    }
+  }
+  &__payment__card {
+    display: inline-block;
+    width: 3rem;
+    height: 2rem;
+    background: white;
+    margin-right: 1rem;
+    @include breakpoint(overPhone) {
+      margin-right: .5rem;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &__bottom {
+    padding: .4rem 0;
+    @include breakpoint(overPhone) {
+      @include clearfix;
+      padding-top: 2.3rem;
+    }
+  }
+  &__col {
+    @include breakpoint(phone) {
+      padding: 0 4%;
+      padding-top: 1.3rem;
+      margin-bottom: 1.3rem;
+    }
+    @include breakpoint(overPhone) {
+      @include grid(4, 1.5%);
+    }
+    &--socials {
+      @include breakpoint(phone) {
+        border-top: 1px solid $color-white;
+      }
+      .b-footer__info__title {
+        @include invisible(phone);
+      }
+    }
+  }
+  &__info {
+    color: #515151;
+    @include font-size(12px, 12px);
+    @include line-height(15px, 15px);
+  }
+  &__info__title {
     text-transform: uppercase;
+    margin-bottom: .8rem;
+    @include breakpoint(overPhone) {
+      font-weight: $fw-regular;
+    }
+  }
+  &__info__txt {
+    margin-bottom: 1.5rem;
+  }
+
+  &__social {
+    @include breakpoint(phone) {
+      text-align: center;
+    }
+    @include breakpoint(overPhone) {
+      margin-top: 1.5rem;
+    }
+  }
+  &__social__item {
+    display: inline-block;
+    width: 4.1rem;
+    height: 4.1rem;
+    background-color: $color-white;
+    margin-right: 1rem;
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 }

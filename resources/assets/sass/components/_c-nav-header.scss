@@ -1,0 +1,75 @@
+//----- Navigation / style only for header nav
+.c-nav-header {
+  @include vendor-prefixes(transition, .4s);
+  @include breakpoint(phone) {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      background-color: #3BA883;
+      text-align: center;
+      padding-top: 6rem;
+      height: 100%;
+      opacity: 0;
+  }
+  @include breakpoint(overPhone) {
+    display: inline-block;
+  }
+
+  &.active {
+    right: 0;
+    opacity: 1;
+  }
+
+  &__item {
+    @include breakpoint(phone) {
+      padding: 2rem 2%;
+    }
+    @include breakpoint(overPhone) {
+      display: inline-block;
+      margin-right: 3.2rem;
+    }
+    @include breakpoint(tablet) {
+      margin-right: 1.2rem;
+    }
+
+    &--log {
+      @include breakpoint(overPhone) {
+        position: relative;
+        margin-left: 3rem;
+      }
+      @include breakpoint(tablet) {
+        margin-left: 1.2rem;
+      }
+      &:before {
+        width: 1px;
+        height: 2.6rem;
+        background-color: rgba(255,255,255,0.4);
+        position: absolute;
+        left: -3rem;
+        bottom: -.4rem;
+        @include breakpoint(overPhone) {
+          content: '';
+        }
+        @include breakpoint(tablet) {
+          left: -1.2rem;
+        }
+      }
+    }
+  }
+  &__link {
+    @include font-size(14px, 14px);
+    @include line-height(18px, 18px);
+    color: $color-white;
+    @include breakpoint(phone) {
+      text-transform: uppercase;
+    }
+  }
+  &__close {
+    @include close(3rem, .3rem, $color-white);
+    @include hide(overPhone);
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+}
