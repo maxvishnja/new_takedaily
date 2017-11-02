@@ -54,7 +54,7 @@
 </head>
 
 <body class="@yield('pageClass', 'index')">
-<header class="b-header">
+<header class="b-header @if(!Request::is('home')) active @endif">
 
     <div class="b-header__body">
 
