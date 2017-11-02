@@ -28,16 +28,18 @@ class HomeController extends Controller
     public function index()
     {
 
-        // instagram feed - latest four posts
-        $instaFeed = $this->instagram->get('takedaily_dk');
+        // Instagram feed - latest four posts
+        $locale = \App::getLocale();
+        if($locale == 'da') {
+            $instaFeed = $this->instagram->get('takedaily_dk');
+        }else{
+            $instaFeed = $this->instagram->get('takedaily_nl');
+        }
+
         $instaLatestFour = array_slice($instaFeed, 0, 4, true);
 
-        // reviews
+        // Reviews
         $reviews = $this->review->all();
-
-//        return $instaLatestFour;
-
-        //todo: trustpilot review
 
         return view( 'home2', compact( 'instaLatestFour', 'reviews' ) );
     }
