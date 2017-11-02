@@ -28,9 +28,9 @@ class SettingController extends Controller
 	function index()
 	{
 
-        $connect = new EmailPlatformApi();
+       // $connect = new EmailPlatformApi();
 
-        dd($connect->TestUserToken());
+       // dd($connect->TestUserToken());
 
 
 
