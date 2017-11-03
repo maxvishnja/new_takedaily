@@ -28,9 +28,16 @@ class SettingController extends Controller
 	function index()
 	{
 
-       // $connect = new EmailPlatformApi();
-
-       // dd($connect->TestUserToken());
+//        $parser = new EmailPlatformApi();
+//
+//        $listids = array(4191);
+//        $result = $parser->GetCustomFields($listids);
+//
+//        foreach($result as $field){
+//            echo $field['fieldid']." - ".$field['name']."<br/>";
+//        }
+//
+//        dd('11');
 
 
 
