@@ -236,7 +236,7 @@
             @foreach($instaLatestFour as $insta)
                 <article class="hp-insta__item">
                     <div class="hp-insta__item__media">
-                        <img srcset="{{ $insta->images->standard_resolution->url }}" width="237px" alt="">
+                        <img srcset="{{ $insta->images->standard_resolution->url }}" width="237px" height="237px" alt="">
                     </div>
                     <div class="hp-insta__item__content">
                         <p class="hp-insta__item__intro">{{ $insta->caption->text }}</p>

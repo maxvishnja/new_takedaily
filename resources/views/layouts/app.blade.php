@@ -75,16 +75,16 @@
         <nav class="c-nav-header">
             <ul class="c-nav-header__list">
                 <li class="c-nav-header__item">
-                    <a href="" class="c-nav-header__link">Sådan virker det</a>
+                    <a href="/how-it-works" class="c-nav-header__link">Sådan virker det</a>
                 </li>
                 <li class="c-nav-header__item">
-                    <a href="" class="c-nav-header__link">Gavekort</a>
+                    <a href="/gifting" class="c-nav-header__link">Gavekort</a>
                 </li>
                 <li class="c-nav-header__item">
                     <a href="" class="c-nav-header__link">Vitaminer</a>
                 </li>
                 <li class="c-nav-header__item c-nav-header__item--log">
-                    <a href="" class="c-nav-header__link">Log ind</a>
+                    <a href="/account" class="c-nav-header__link">Log ind</a>
                 </li>
             </ul>
 
