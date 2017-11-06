@@ -6,15 +6,7 @@
     <main>
         <!-- HP Hero -->
         <section class="hp-hero">
-            <div class="hp-hero__media">
-                {{--<picture>--}}
-                    {{--<!-- Desk && Tab img -->--}}
-                    {{--<source srcset="/images/home/hero.jpg" media="(min-width: 768px)">--}}
-                    {{--<!-- Mob img -->--}}
-                    {{--<img srcset="/images/home/hero-mobile.jpg"--}}
-                         {{--alt="">--}}
-                {{--</picture>--}}
-            </div>
+            <div class="hp-hero__media"></div>
             <div class="l">
                 <div class="hp-hero__content">
                     <h1 class="hp-hero__title">{!! trans('home.header.title-1') !!}</h1>

@@ -2,10 +2,18 @@
     <div class="l">
         <div class="b-footer__top">
             <!-- Lang -->
-            <div class="b-footer__lang">
-                <div class="b-footer__lang__flag"></div>
+            <span class="b-footer__lang">
+                <div class="b-footer__lang__flag flag-{{App::getLocale()}}"></div>
                 <span class="b-footer__lang__arrow"></span>
-            </div>
+                <span>
+                    @foreach(config('app.locales') as $locale)
+                        <a rel="alternate" hreflang="{{ $locale['code'] }}"
+                           href="{{ \App\Apricot\Helpers\DomainHelper::convertTldTo($locale['tld']) }}">
+                            <span class="icon flag-{{ $locale['code'] }}"></span>
+                        </a>
+                    @endforeach
+                </span>
+            </span>
             <!-- Footer Navigation -->
             <nav class="c-nav-footer">
                 <ul class="c-nav-footer__list">
@@ -26,9 +34,9 @@
             <!-- Copy && Payment -->
             <div class="b-footer__top__right">
                 <div class="b-footer__payment">
-                    <span class="b-footer__payment__card"></span>
-                    <span class="b-footer__payment__card"></span>
-                    <span class="b-footer__payment__card"></span>
+                    <span class="b-footer__payment__card icon-card-mastercard"></span>
+                    <span class="b-footer__payment__card icon-card-visa"></span>
+                    <span class="b-footer__payment__card icon-card-dk"></span>
                 </div>
                 <p class="b-footer__copy">© 2017 TakeDaily.</p>
             </div>
@@ -48,7 +56,7 @@
             <div class="b-footer__col">
                 <div class="b-footer__info">
                     <h4 class="b-footer__info__title">Generelle oplysninger</h4>
-                    <p class="b-footer__info__txt">Take Daily ApS CVR. nr. 37360813/p>
+                    <p class="b-footer__info__txt">Take Daily ApS CVR. nr. 37360813</p>
                     <p class="b-footer__info__txt">
                         Danneskiold-Samsøes Allé 24, 1.
                         <br>
@@ -74,8 +82,8 @@
                 <div class="b-footer__info">
                     <h4 class="b-footer__info__title">Følg os her</h4>
                     <div class="b-footer__social">
-                        <div class="b-footer__social__item"></div>
-                        <div class="b-footer__social__item"></div>
+                        <div class="b-footer__social__item"><img src="/images/home/instagram-logo.png" alt=""></div>
+                        <div class="b-footer__social__item"><img src="/images/home/facebook.png" alt=""></div>
                     </div>
                 </div>
             </div>
