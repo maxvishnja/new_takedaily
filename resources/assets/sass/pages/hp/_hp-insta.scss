@@ -25,6 +25,7 @@
   &__logo {
     display: inline-block;
     vertical-align: middle;
+    margin-right: .3rem;
     @include breakpoint(phone) {
       width: 3.2rem;
       margin-right: .7rem;

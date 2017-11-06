@@ -7,13 +7,13 @@
         <!-- HP Hero -->
         <section class="hp-hero">
             <div class="hp-hero__media">
-                <picture>
-                    <!-- Desk && Tab img -->
-                    <source srcset="/images/home/hero.jpg" media="(min-width: 768px)">
-                    <!-- Mob img -->
-                    <img srcset="/images/home/hero-mobile.jpg"
-                         alt="">
-                </picture>
+                {{--<picture>--}}
+                    {{--<!-- Desk && Tab img -->--}}
+                    {{--<source srcset="/images/home/hero.jpg" media="(min-width: 768px)">--}}
+                    {{--<!-- Mob img -->--}}
+                    {{--<img srcset="/images/home/hero-mobile.jpg"--}}
+                         {{--alt="">--}}
+                {{--</picture>--}}
             </div>
             <div class="l">
                 <div class="hp-hero__content">
@@ -241,11 +241,11 @@
                     <div class="hp-insta__item__content">
                         <p class="hp-insta__item__intro">{{ $insta->caption->text }}</p>
                         <span class="hp-insta__item__bottom">
-                            <img src="/images/instagram/like.png" class="insta_icon" alt="">
+                            <img src="/images/instagram/like.png" alt="">
                             <span class="hp-insta__item__bottom__num">{{ $insta->likes->count }}</span>
                         </span>
                         <span class="hp-insta__item__bottom">
-                            <img src="/images/instagram/comment.png" class="insta_icon" alt="">
+                            <img src="/images/instagram/comment.png" alt="">
                             <span class="hp-insta__item__bottom__num">{{ $insta->comments->count }}</span>
                         </span>
                     </div>
