@@ -50,7 +50,8 @@ function sliderCompromises() {
         slidesToShow: 3,
         slidesToScroll: 1,
         arrows: false,
-        dots: false
+        dots: false,
+        infinite: false
     });
 }
 function sliderInstagram() {

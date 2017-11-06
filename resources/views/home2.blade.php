@@ -229,7 +229,7 @@
         @if($instaLatestFour)
         <section class="hp-insta l">
             <header class="hp-insta__head">
-                <img src="/images/instagram/instagram-logo.png" alt="" class="hp-insta__logo">
+                <img src="/images/instagram/insta.png" alt="" class="hp-insta__logo">
                 <h2 class="hp-insta__title">#Takedaily</h2>
             </header>
             <section class="hp-insta__list">
@@ -241,11 +241,11 @@
                     <div class="hp-insta__item__content">
                         <p class="hp-insta__item__intro">{{ $insta->caption->text }}</p>
                         <span class="hp-insta__item__bottom">
-                            <img src="/images/instagram/instagram-comm.png" alt="">
+                            <img src="/images/instagram/like.png" class="insta_icon" alt="">
                             <span class="hp-insta__item__bottom__num">{{ $insta->likes->count }}</span>
                         </span>
                         <span class="hp-insta__item__bottom">
-                            <img src="/images/instagram/instagram-comm.png" alt="">
+                            <img src="/images/instagram/comment.png" class="insta_icon" alt="">
                             <span class="hp-insta__item__bottom__num">{{ $insta->comments->count }}</span>
                         </span>
                     </div>
@@ -258,37 +258,5 @@
 @endsection
 
 @section('footer_scripts')
-    <script>
-        $(document).ready(function(){
-            // Sliders
-            sliderMembers();
-            if ($(window).width() < 768) {
-                sliderInstagram();
-            }
-            function sliderMembers() {
-                $('.hp-members__list').slick({
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    dots: false,
-                    responsive: [
-                        {
-                            breakpoint: 768,
-                            settings: {
-                                slidesToShow: 1
-                            }
-                        }
-                    ]
-                });
-            }
-            function sliderInstagram() {
-                $('.hp-insta__list').slick({
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    dots: false
-                });
-            }
-        })
-    </script>
+
 @endsection
