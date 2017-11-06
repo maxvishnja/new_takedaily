@@ -6,9 +6,19 @@ use App\Nutritionist;
 
 class NutritionistRepository
 {
+    /**
+     * @var \App\Nutritionist
+     */
+    private $nutritionist;
+
+    public function __construct(Nutritionist $nutritionist)
+    {
+        $this->nutritionist = $nutritionist;
+    }
+
     public function all()
     {
-        return Nutritionist::orderBy('created_at', 'DESC')->get();
+        return $this->nutritionist->orderBy('created_at', 'DESC')->get();
     }
 
 }

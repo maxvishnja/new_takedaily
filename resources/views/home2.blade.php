@@ -189,33 +189,23 @@
         </section>
 
         <!-- Nutritionists -->
+        @if($nutritionists)
         <section class="hp-nutr l">
-            <h2 class="hp-nutr__title">Spørg vores ernæringseksperter</h2>
-            <p class="hp-nutr__intro">Dummy text goes here…</p>
+            <h2 class="hp-nutr__title">{{ trans('home.nutritionists.title') }}</h2>
+            <p class="hp-nutr__intro">{{ trans('home.nutritionists.subtitle') }}</p>
             <section class="hp-nutr__list">
-                <article class="hp-nutr__item">
-                    <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
-                    <div class="hp-nutr__item__content">
-                        <h4 class="hp-nutr__item__title">Marie-Louise</h4>
-                        <p class="hp-nutr__item__intro">Ernærings, BA i Ernæring & Sundhed, Projektleder</p>
-                    </div>
-                </article>
-                <article class="hp-nutr__item">
-                    <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
-                    <div class="hp-nutr__item__content">
-                        <h4 class="hp-nutr__item__title">Marie-Louise</h4>
-                        <p class="hp-nutr__item__intro">Ernærings, BA i Ernæring & Sundhed, Projektleder</p>
-                    </div>
-                </article>
-                <article class="hp-nutr__item">
-                    <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
-                    <div class="hp-nutr__item__content">
-                        <h4 class="hp-nutr__item__title">Marie-Louise</h4>
-                        <p class="hp-nutr__item__intro">Ernærings, BA i Ernæring & Sundhed, Projektleder</p>
-                    </div>
-                </article>
+                @foreach($nutritionists as $nutri)
+                    <article class="hp-nutr__item">
+                        <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
+                        <div class="hp-nutr__item__content">
+                            <h4 class="hp-nutr__item__title">{{ $nutri->first_name }}</h4>
+                            <p class="hp-nutr__item__intro">{{ $nutri->desc }}</p>
+                        </div>
+                    </article>
+                @endforeach
             </section>
         </section>
+        @endif
 
         <!-- Instagram -->
         @if($instaLatestFour)
@@ -228,7 +218,10 @@
             @foreach($instaLatestFour as $insta)
                 <article class="hp-insta__item">
                     <div class="hp-insta__item__media">
-                        <img srcset="{{ $insta->images->standard_resolution->url }}" width="237px" height="237px" alt="">
+                        <img srcset="{{ $insta->images->standard_resolution->url }}"
+                             width="237px"
+                             height="237px"
+                             alt="">
                     </div>
                     <div class="hp-insta__item__content">
                         <p class="hp-insta__item__intro">{{ $insta->caption->text }}</p>

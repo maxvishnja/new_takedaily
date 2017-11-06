@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Apricot\Repositories\NutritionistRepository;
 use App\Apricot\Repositories\ReviewRepository;
 use Vinkla\Instagram\Instagram;
 
@@ -19,10 +20,16 @@ class HomeController extends Controller
      */
     private $review;
 
-    public function __construct(Instagram $instagram, ReviewRepository $review)
+    /**
+     * @var NutritionistRepository
+     */
+    private $nutritionist;
+
+    public function __construct(Instagram $instagram, ReviewRepository $review, NutritionistRepository $nutritionist)
     {
         $this->instagram = $instagram;
         $this->review = $review;
+        $this->nutritionist = $nutritionist;
     }
 
     public function index()
@@ -41,6 +48,9 @@ class HomeController extends Controller
         // Reviews
         $reviews = $this->review->all();
 
-        return view( 'home2', compact( 'instaLatestFour', 'reviews' ) );
+        // Nutritionists
+        $nutritionists = $this->nutritionist->all();
+
+        return view( 'home2', compact( 'instaLatestFour', 'reviews', 'nutritionists' ) );
     }
 }
