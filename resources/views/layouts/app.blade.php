@@ -84,7 +84,11 @@
                     <a href="" class="c-nav-header__link">Vitaminer</a>
                 </li>
                 <li class="c-nav-header__item c-nav-header__item--log">
-                    <a href="/account" class="c-nav-header__link">Log ind</a>
+                    @if(Auth::user() && Auth::user()->isAdmin())
+                        <a href="/dashboard" class="c-nav-header__link">Dashboard </a>
+                    @else
+                        <a href="/account" class="c-nav-header__link">Log ind </a>
+                    @endif
                 </li>
             </ul>
 

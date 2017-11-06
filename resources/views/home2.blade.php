@@ -196,7 +196,11 @@
             <section class="hp-nutr__list">
                 @foreach($nutritionists as $nutri)
                     <article class="hp-nutr__item">
-                        <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
+                        @if($nutri->image !== '')
+                            <img src="/images/nutritionist/{{$nutri->image}}" alt="" class="hp-nutr__item__img">
+                        @else
+                            <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
+                        @endif
                         <div class="hp-nutr__item__content">
                             <h4 class="hp-nutr__item__title">{{ $nutri->first_name }}</h4>
                             <p class="hp-nutr__item__intro">{{ $nutri->desc }}</p>
