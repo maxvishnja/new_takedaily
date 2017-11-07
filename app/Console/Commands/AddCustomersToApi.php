@@ -44,13 +44,16 @@ class AddCustomersToApi extends Command
 
         $customers = $repo->all();
 
+        $almosts = $repo->getAlmostCustomer();
+
         $listid = 4859;
 
+        $add_to_autoresponders = true;
+        $skip_listcheck = true;
+
+        $parser = new EmailPlatformApi();
+
         foreach($customers as $customer){
-
-
-
-            $parser = new EmailPlatformApi();
 
             $emailaddress = $customer->getEmail();
             $mobile = $customer->getPhone();
@@ -61,9 +64,6 @@ class AddCustomersToApi extends Command
             } else{
                 $mobilePrefix = "45";
             }
-
-            $add_to_autoresponders = true;
-            $skip_listcheck = true;
 
             if ($customer->getGender() == 1) {
                $gender = 'male';
@@ -104,8 +104,13 @@ class AddCustomersToApi extends Command
             }
 
             $nextpaymentdate = '';
+            $nextshipmentdate = '';
+
             if ($customer->plan->subscription_rebill_at != null) {
                 $nextpaymentdate = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d-m-Y');
+
+                $nextshipmentdate = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->addDay()->format('d-m-Y');
+
             }
 
 
@@ -158,6 +163,14 @@ class AddCustomersToApi extends Command
                   $latest_date = $customer->created_at;
               }
 
+            $lastOrder = $customer->orders()->where('state','sent')->latest()->first();
+
+
+              $lastOrderDate = '';
+
+              if($lastOrder){
+                  $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
+              }
 
             $customfields  =  array (
                 array (
@@ -223,10 +236,10 @@ class AddCustomersToApi extends Command
                     'value'  =>  $nextpaymentdate),
                 array (
                     'fieldid'  => 2676,
-                    'value'  =>  ''),
+                    'value'  =>  $lastOrderDate),
                 array (
                     'fieldid'  => 2677,
-                    'value'  =>  ''),
+                    'value'  =>  $nextshipmentdate),
                 array (
                     'fieldid'  => 2678,
                     'value'  =>  ''),
@@ -247,7 +260,7 @@ class AddCustomersToApi extends Command
                     'value'  =>  $interval->days),
                 array (
                     'fieldid'  => 2684,
-                    'value'  =>  ''),
+                    'value'  =>  $nextshipmentdate),
                 array (
                     'fieldid'  => 2685,
                     'value'  =>  ''),
@@ -288,6 +301,97 @@ class AddCustomersToApi extends Command
 
                }
 
+
+        }
+
+
+        foreach($almosts as $almost){
+
+            $emailaddress = $almost->email;
+            $mobile = '';
+            $mobilePrefix = "";
+
+            if($almost->location == "nl")
+            {
+                $country = 'netherlands';
+            }      else{
+                $country = 'denmark';
+            }
+
+            $flowCompletion = \App\FlowCompletion::whereToken( $almost->token )->first();
+
+
+            $vitamins['1'] = '';
+            $vitamins['2'] = '';
+            $vitamins['3'] = '';
+            $vitamins['4'] = '';
+
+            if($flowCompletion){
+
+                $userData = $flowCompletion->user_data;
+
+                $combinations = \App\Customer::calculateAlmostCombinations($userData);
+
+                foreach ($combinations as $key=>$vitamin){
+                    $s = $key+1;
+                    $vitamins[$s] = \App\Apricot\Helpers\PillName::get(strtolower($vitamin));
+                }
+
+
+            }
+
+            if($almost->token != ''){
+                if ($almost->location == 'nl') {
+                    $link = 'https://takedaily.nl/flow?token='.$almost->token;
+                } else {
+
+                    $link = 'https://takedaily.dk/flow?token='.$almost->token;
+                }
+            } else{
+                     $link = '';
+            }
+
+            $customfields  =  array (
+                array (
+                    'fieldid'  => 2,
+                    'value'  =>  $almost->name),
+                array (
+                    'fieldid'  => 11,
+                    'value'  =>  $country),
+                array (
+                    'fieldid'  => 2682,
+                    'value'  =>  $country),
+                array (
+                    'fieldid'  => 2686,
+                    'value'  =>  $vitamins['1']),
+                array (
+                    'fieldid'  => 2687,
+                    'value'  =>  $vitamins['2']),
+                array (
+                    'fieldid'  => 2688,
+                    'value'  =>  $vitamins['3']),
+                array (
+                    'fieldid'  => 2689,
+                    'value'  =>  $vitamins['4']),
+                array (
+                    'fieldid'  => 2682,
+                    'value'  =>  $link),
+
+            );
+
+
+            $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
+
+            if(!is_array($result) and strstr($result,"Already subscribed to the list")){
+
+                $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
+                $subscriberid = $subscriber[1][0]['subscriberid'];
+
+                $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
+
+
+
+            }
 
         }
 
