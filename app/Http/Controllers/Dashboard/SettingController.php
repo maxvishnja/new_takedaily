@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Apricot\Helpers\EmailPlatformApi;
+
 use App\Apricot\Repositories\SettingsRepository;
 use App\Setting;
 use Illuminate\Http\Request;
@@ -27,19 +27,6 @@ class SettingController extends Controller
 
 	function index()
 	{
-
-//        $parser = new EmailPlatformApi();
-//
-//        $listids = array(4191);
-//        $result = $parser->GetCustomFields($listids);
-//
-//        foreach($result as $field){
-//            echo $field['fieldid']." - ".$field['name']."<br/>";
-//        }
-//
-//        dd('11');
-
-
 
 		return view('admin.settings.home', [
 			'settings' => $this->repo->all()

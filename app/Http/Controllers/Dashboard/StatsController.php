@@ -49,6 +49,10 @@ class StatsController extends Controller
             } else{
                 $currency = "DKK";
             }
+
+            $data['start_date'] = $data['start_date']." 00:01:00";
+            $data['end_date'] = $data['end_date']." 23:59:00";
+
             switch ($data['csv-category']) {
                 case 1:
                     return $this->repo->allActiveLocaleTime($currency, $data['start_date'], $data['end_date'] )->count();
@@ -363,6 +367,8 @@ class StatsController extends Controller
             } else{
                 $currency = "DKK";
             }
+            $data['start_date'] = $data['start_date']." 00:01:00";
+            $data['end_date'] = $data['end_date']." 23:59:00";
             switch ($data['csv-category']) {
 
                 case 1:
@@ -393,13 +399,12 @@ class StatsController extends Controller
                     $i = 0;
                     $plans = $this->repo->allNewLocaleTime($currency, $data['start_date'], $data['end_date'] )->get();
                     foreach ($plans as $plan) {
-                        if (!empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")) {
                             $email_array[$i]['First Name'] = $plan->customer->getFirstName();
                             $email_array[$i]['Last Name'] = $plan->customer->getLastName();
                             $email_array[$i]['Phone'] = $plan->customer->getPhone();
                             $email_array[$i]['Email Address'] = $plan->customer->getEmail();
                             $i++;
-                        }
+
                     }
                     if(isset($email_array)) {
                         \Excel::create('new_user_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {

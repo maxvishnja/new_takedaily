@@ -19,6 +19,7 @@ use App\Console\Commands\UpdateCurrencies;
 use App\Console\Commands\ClearOldCoupons;
 use App\Console\Commands\UpdateUserMail;
 use App\Console\Commands\UpdatePregnancyWeeks;
+use App\Console\Commands\AddCustomersToApi;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -46,6 +47,7 @@ class Kernel extends ConsoleKernel
 		ClearSnoozing::class,
 		UpdateUserMail::class,
 		DebugCommand::class,
+		AddCustomersToApi::class,
 	];
 
 	/**
