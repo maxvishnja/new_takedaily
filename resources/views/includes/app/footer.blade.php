@@ -82,7 +82,7 @@
                 <div class="b-footer__info">
                     <h4 class="b-footer__info__title">Følg os her</h4>
                     <div class="b-footer__social">
-                        <div class="b-footer__social__item"><img src="/images/home/instagram-logo.png" alt=""></div>
+                        <div class="b-footer__social__item"><img src="/images/home/insta2.png" alt=""></div>
                         <div class="b-footer__social__item"><img src="/images/home/facebook.png" alt=""></div>
                     </div>
                 </div>

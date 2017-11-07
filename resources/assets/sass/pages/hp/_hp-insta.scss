@@ -26,6 +26,7 @@
     display: inline-block;
     vertical-align: middle;
     margin-right: .3rem;
+    width: 42px;
     @include breakpoint(phone) {
       width: 3.2rem;
       margin-right: .7rem;

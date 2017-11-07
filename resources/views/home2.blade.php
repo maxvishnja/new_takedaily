@@ -215,17 +215,19 @@
         @if($instaLatestFour)
         <section class="hp-insta l">
             <header class="hp-insta__head">
-                <img src="/images/instagram/insta.png" alt="" class="hp-insta__logo">
+                <img src="/images/home/insta2.png" width="42px" alt="" class="hp-insta__logo">
                 <h2 class="hp-insta__title">#Takedaily</h2>
             </header>
             <section class="hp-insta__list">
             @foreach($instaLatestFour as $insta)
                 <article class="hp-insta__item">
                     <div class="hp-insta__item__media">
+                        <a href="{{ $insta->link }}" target="_blank">
                         <img srcset="{{ $insta->images->standard_resolution->url }}"
                              width="237px"
                              height="237px"
                              alt="">
+                        </a>
                     </div>
                     <div class="hp-insta__item__content">
                         <p class="hp-insta__item__intro">{{ $insta->caption->text }}</p>
