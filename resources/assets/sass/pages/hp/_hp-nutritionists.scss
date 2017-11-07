@@ -40,6 +40,7 @@
   }
   &__item__img {
     margin: 0 auto;
+    width: 18rem;
     @include vendor-prefixes(border-radius, 50%);
     @include breakpoint(phone) {
       display: table-cell;

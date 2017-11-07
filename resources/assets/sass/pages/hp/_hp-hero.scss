@@ -7,7 +7,7 @@
 
   &__media {
     width: 100%;
-    height: 550px;
+    height: 600px;
     background: url("/images/home/hero.jpg");
     background-size: cover;
     background-position: 50%;
@@ -20,10 +20,13 @@
     }
   }
   &__content {
+      top: 48% !important;
+      left: 51% !important;
     @include absolute(center);
     padding: 0 7%;
     @include breakpoint(phone) {
       width: 100%;
+      top: 48%;
     }
     @include breakpoint(overPhone) {
       padding: 0 5%;
@@ -60,6 +63,10 @@
       margin-left: 3rem;
       margin-right: 1rem;
     }
+  }
+  .blk-bg {
+    background-color: #0C182E;
+    border: 1px solid #0C182E;
   }
   &__play {
     @include breakpoint(overPhone) {
