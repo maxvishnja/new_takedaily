@@ -215,7 +215,7 @@
         @if($instaLatestFour)
         <section class="hp-insta l">
             <header class="hp-insta__head">
-                <img src="/images/home/insta2.png" width="42px" alt="" class="hp-insta__logo">
+                <img src="/images/home/insta2.png" alt="" class="hp-insta__logo">
                 <h2 class="hp-insta__title">#Takedaily</h2>
             </header>
             <section class="hp-insta__list">

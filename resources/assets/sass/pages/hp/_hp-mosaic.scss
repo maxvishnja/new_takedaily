@@ -40,6 +40,7 @@
       width: 50%;
     }
     img {
+      width: 100%;
       @include breakpoint(phone) {
         width: 100%;
       }
