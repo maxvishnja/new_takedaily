@@ -119,9 +119,9 @@
                 <div class="hp-mosaic__item__media">
                     <picture>
                         <!-- Desk && Tab img -->
-                        <source srcset="/images/home/Takedaily1.jpg" media="(min-width: 768px)">
+                        <source srcset="/images/home/desktop-pills2.jpg" media="(min-width: 768px)">
                         <!-- Mob img -->
-                        <img srcset="/images/home/Takedaily1.jpg"
+                        <img srcset="/images/home/desktop-pills2.jpg"
                              alt=""
                              class="hp-mosaic__item__img">
                     </picture>
@@ -135,9 +135,9 @@
                 <div class="hp-mosaic__item__media">
                     <picture>
                         <!-- Desk && Tab img -->
-                        <source srcset="/images/home/Takedaily2.jpg" media="(min-width: 768px)">
+                        <source srcset="/images/home/desktop-pills1.jpg" media="(min-width: 768px)">
                         <!-- Mob img -->
-                        <img srcset="/images/home/Takedaily2.jpg"
+                        <img srcset="/images/home/desktop-pills1.jpg"
                              alt=""
                              class="hp-mosaic__item__img">
                     </picture>
