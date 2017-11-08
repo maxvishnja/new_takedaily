@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+
 use App\Apricot\Repositories\SettingsRepository;
 use App\Setting;
 use Illuminate\Http\Request;
@@ -26,6 +27,7 @@ class SettingController extends Controller
 
 	function index()
 	{
+
 		return view('admin.settings.home', [
 			'settings' => $this->repo->all()
 		]);

@@ -32,7 +32,9 @@
 		"maatwebsite/excel": "~2.1.0",
 		"vinkla/instagram": "^7.0",
 		"php-http/message": "^1.6",
-		"php-http/guzzle6-adapter": "^1.1"
+		"php-http/guzzle6-adapter": "^1.1",
+		"milon/barcode": "^5.3",
+		"mbarwick83/instagram": "^1.11"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "~1.4",

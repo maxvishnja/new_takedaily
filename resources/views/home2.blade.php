@@ -222,22 +222,22 @@
             @foreach($instaLatestFour as $insta)
                 <article class="hp-insta__item">
                     <div class="hp-insta__item__media">
-                        <a href="{{ $insta->link }}" target="_blank">
-                        <img srcset="{{ $insta->images->standard_resolution->url }}"
+                        <a href="{{ $insta['link'] }}" target="_blank">
+                        <img srcset="{{ $insta['images']['standard_resolution']['url'] }}"
                              width="237px"
                              height="237px"
                              alt="">
                         </a>
                     </div>
                     <div class="hp-insta__item__content">
-                        <p class="hp-insta__item__intro">{{ $insta->caption->text }}</p>
+                        <p class="hp-insta__item__intro">{{ $insta['caption']['text'] }}</p>
                         <span class="hp-insta__item__bottom">
                             <img src="/images/instagram/like.png" alt="">
-                            <span class="hp-insta__item__bottom__num">{{ $insta->likes->count }}</span>
+                            <span class="hp-insta__item__bottom__num">{{ $insta['likes']['count'] }}</span>
                         </span>
                         <span class="hp-insta__item__bottom">
                             <img src="/images/instagram/comment.png" alt="">
-                            <span class="hp-insta__item__bottom__num">{{ $insta->comments->count }}</span>
+                            <span class="hp-insta__item__bottom__num">{{ $insta['comments']['count'] }}</span>
                         </span>
                     </div>
                 </article>

@@ -31,6 +31,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		    return view('privacy');
         });
 
+		Route::get('/privacy', function(){
+		    return view('privacy');
+        });
+
 
 		Route::get( '/our-products', function ()
 		{

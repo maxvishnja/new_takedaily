@@ -141,8 +141,7 @@ class Plan extends Model
 
     public static function getSignups($date)
     {
-        $customers = Plan::whereMonth('subscription_started_at', '=', $date)->whereYear('subscription_started_at', '=', '2017')
-            ->count();
+        $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', '2017')->count();
 
         return $customers;
     }
@@ -153,12 +152,11 @@ class Plan extends Model
         $week_number = $date;
         $year = 2017;
 
-        $first_day = date('Y-m-d', $week_number * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400 + 86400);
-        $last_day = date('Y-m-d', ($week_number + 1) * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
+        $first_day = date('Y-m-d 00:01:00', $week_number * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400 + 86400);
+        $last_day = date('Y-m-d 23:59:00', ($week_number + 1) * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
 
-        $customers = Plan::whereBetween('subscription_started_at', [$first_day, $last_day])->count();
 
-        $multiple = DatesSubscribe::whereBetween('subscription_started_at', [$first_day, $last_day])->count();
+        $customers = Plan::whereBetween('created_at', [$first_day, $last_day])->count();
 
 
         return $customers;
@@ -175,7 +173,7 @@ class Plan extends Model
 
         $allCustomers = Plan::getSignups($signDate);
 
-        $customers = $allCustomers - Plan::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
+        $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
 
 
         if ($allCustomers == 0) {
@@ -194,8 +192,8 @@ class Plan extends Model
         $week_number = $week;
         $year = 2017;
 
-        $first_day = date('Y-m-d', $week_number * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400 + 86400);
-        $last_day = date('Y-m-d', ($week_number + 1) * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
+        $first_day = date('Y-m-d 00:01:00', $week_number * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400 + 86400);
+        $last_day = date('Y-m-d 23:59:00', ($week_number + 1) * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
 
 
         $sub_day = date('Y-m-d', $signDate * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
@@ -204,7 +202,7 @@ class Plan extends Model
 
         $allCustomers = Plan::getSignupsWeek($week);
 
-        $customers = $allCustomers - Plan::whereBetween('subscription_started_at', [$first_day, $last_day])->where('subscription_cancelled_at', '<=', $sub_day)->count()/* + DatesSubscribe::whereBetween('subscription_started_at', [$first_day, $last_day])->whereMonth('subscription_cancelled_at', '<=', sprintf('%02d', $signDate))->count()*/;
+        $customers = $allCustomers - Plan::whereBetween('created_at', [$first_day, $last_day])->where('subscription_cancelled_at', '<=', $sub_day)->count()/* + DatesSubscribe::whereBetween('subscription_started_at', [$first_day, $last_day])->whereMonth('subscription_cancelled_at', '<=', sprintf('%02d', $signDate))->count()*/;
 
 
         if ($allCustomers == 0) {

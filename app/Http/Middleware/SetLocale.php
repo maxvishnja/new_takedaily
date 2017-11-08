@@ -22,7 +22,7 @@ class SetLocale
 			'com'   => 'en',
 			'co.uk' => 'en',
 			'nl'    => 'nl',
-			'.dev'    => 'nl',
+			'.dev'    => 'da',
 			'dev'    => 'nl',
 		];
 

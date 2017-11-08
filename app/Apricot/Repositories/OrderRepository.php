@@ -1,6 +1,7 @@
 <?php namespace App\Apricot\Repositories;
 
 use App\Order;
+use Illuminate\Support\Facades\DB;
 
 class OrderRepository
 {
@@ -18,6 +19,16 @@ class OrderRepository
 	{
 		return Order::where('state', 'paid');
 	}
+
+    public function getBarcode()
+    {
+        return Order::where('state', 'paid')->where('barcode', '!=', '');
+    }
+
+    public function getEmptyBarcode()
+    {
+      return Order::where('state', 'paid')->where('barcode', '');
+    }
 
 	public function getNotShipped()
 	{

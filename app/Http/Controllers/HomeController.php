@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Apricot\Repositories\NutritionistRepository;
 use App\Apricot\Repositories\ReviewRepository;
-use Vinkla\Instagram\Instagram;
+use Mbarwick83\Instagram\Instagram;
 
 
 class HomeController extends Controller
@@ -34,15 +34,22 @@ class HomeController extends Controller
 
     public function index()
     {
-
-        // Instagram feed - latest four posts
         $locale = \App::getLocale();
-        if($locale == 'da') {
-            $instaFeed = $this->instagram->get('takedaily_dk');
-        }else{
-            $instaFeed = $this->instagram->get('takedaily_nl');
+
+        if($locale == 'da')
+        {
+            $user_id = env('INSTAGRAM_USER_ID_DK');
+            $access_token = env('INSTAGRAM_ACCESS_TOKEN_DK');
+        }
+        else
+        {
+            $user_id = env('INSTAGRAM_USER_ID_NL');
+            $access_token = env('INSTAGRAM_ACCESS_TOKEN_NL');
         }
 
+        // Instagram feed - latest four posts
+        $data = $this->instagram->get('v1/users/'.$user_id.'/media/recent', ['access_token' => $access_token]);
+        $instaFeed = $data['data'];
         $instaLatestFour = array_slice($instaFeed, 0, 4, true);
 
         // Reviews
