@@ -27,6 +27,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		 */
 		Route::get( '/', 'HomeController@index' )->name( 'home' );
 
+		Route::get('/privacy', function(){
+		    return view('privacy');
+        });
+
 
 		Route::get( '/our-products', function ()
 		{
