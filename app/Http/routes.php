@@ -32,6 +32,10 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			return view( 'home', compact( 'faqs' ) );
 		} )->name( 'home' );
 
+		Route::get('/privacy', function(){
+		    return view('privacy');
+        });
+
 
 		Route::get( '/our-products', function ()
 		{
