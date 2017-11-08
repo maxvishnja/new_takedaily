@@ -61,7 +61,16 @@
 						</select>
 					</div>
 				</div>
-
+				<div class="control-group">
+					<label for="page_title" class="control-label">For existing customers too</label>
+					<div class="controls">
+						<select name="for_second" id="input_state">
+							@foreach([0 => 'No', 1=>'Yes' ] as $key=> $value)
+								<option @if(isset($coupon) && $coupon->for_second == $key) selected   @endif value="{{$key }}">{{ $value }}</option>
+							@endforeach
+						</select>
+					</div>
+				</div>
 
 				<div class="control-group" id="discount_element">
 					<label for="discount" class="control-label">Worth</label>

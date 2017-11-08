@@ -610,17 +610,25 @@ class Customer extends Model
         $coupon_free = $this->getPlan()->getCouponCount();
         $discount_type = $this->getPlan()->getDiscountType();
 
-        if($coupon_free > 0 && $discount_type=='motnh') {
+        if($coupon_free > 0 && $discount_type=='month') {
             $amount = 0;
             $this->getPlan()->setCouponCount($coupon_free - 1);
-            $coupon = new Coupon();
-            $coupon->code = "SHAREMONTH";
+            $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
+            if(!$coupon){
+                 $coupon = new Coupon();
+                 $coupon->code = "SHAREMONTH";
+            }
+
 
         }elseif($coupon_free > 0 && $discount_type=='percent'){
 
             $amount = $amount - ($amount * ($coupon_free/100));
-            $coupon = new Coupon();
-            $coupon->code = "SHAREPERCENT";
+
+            $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
+            if(!$coupon){
+                 $coupon = new Coupon();
+                 $coupon->code = "SHAREPERCENT";
+            }
             $this->getPlan()->clearDiscount();
 
         }elseif($coupon_free > 0 && $discount_type==''){
