@@ -896,7 +896,7 @@
                     document.getElementById(addressType).value = val;
                 }
             }
-            $('#postal_code').prop('disabled',true);
+            //$('#postal_code').prop('disabled',true);
         }
 
         // Bias the autocomplete object to the user's geographical location,
