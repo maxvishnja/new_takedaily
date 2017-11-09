@@ -211,11 +211,23 @@
 									@if(App::getLocale() == "nl")
 									<h3 class="require-text">{{ trans('checkout.index.order.info.address.require') }}</h3>
 									@endif
+								</div>
+								<div class="row  m-b-20">
+									<div class="col-md-12" id="locationField">
+										<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.start') }}
+											</label>
+										<input type="text" class="input input--medium input--semibold input--full"
+											   id="autocomplete" placeholder=""
+											    onFocus="geolocate()"
+											   value=""/>
+									</div>
+								</div>
+								<div class="row">
 									<div class="col-md-3">
 										<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.street') }}
 											<span class="required">*</span></label>
 										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_street')) input--error @endif"
-											   id="input_info_address_street" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.street-placeholder') }}"
+											   id="route" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.street-placeholder') }}"
 											   name="address_street" required="required" aria-required="true"
 											   value="{{ Request::old('address_street', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_line1') : '')) }}"/>
 									</div>
@@ -224,30 +236,30 @@
 											<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.number') }}
 												<span class="required">*</span></label>
 											<input  class="input input--medium input--semibold input--full @if($errors->has('address_number')) input--error @endif"
-												   id="input_info_address_number" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.number-placeholder') }}"
+												   id="street_number" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.number-placeholder') }}"
 												   name="address_number" required="required" type="text" aria-required="true"
 												   value="{{ Request::old('address_number', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_number') : '')) }}"/>
 										</div>
-
+										<div class="col-md-3 col-xs-6">
+											<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
+											<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
+												<span class="required">*</span></label>
+											<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_city')) input--error @endif"
+												   id="locality" data-validate="true" placeholder="{{ App::getLocale() != 'nl' ? trans('checkout.index.order.info.address.city-placeholder') : '' }}"
+												   name="address_city" required="required" aria-required="true"
+												   value="{{ Request::old('address_city', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
+										</div>
 										<div class="col-md-3 col-xs-6">
 											<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
 											<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.zipcode') }}
 												<span class="required">*</span></label>
 											<input class="input input_info_address_zip input--medium input--semibold input--full @if($errors->has('address_zip')) input--error @endif"
-												   id="input_info_address_zip" data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
+												   id="postal_code"  data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
 												   name="address_zip" required="required" aria-required="true" @if(App::getLocale() != 'nl') type="number" data-pattern="[0-9]{4}" data-validation="number"  maxlength="4" minlength="4"  @else type="text" @endif
 												   value="{{ Request::old('address_zip', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 										</div>
 
-									<div class="col-md-3 col-xs-6">
-										<div class="visible-xs visible-sm m-t-50 m-sm-t-20"></div>
-										<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.city') }}
-											<span class="required">*</span></label>
-										<input type="text" class="input input--medium input--semibold input--full @if($errors->has('address_city')) input--error @endif"
-											   id="input_info_address_city" data-validate="true" placeholder="{{ App::getLocale() != 'nl' ? trans('checkout.index.order.info.address.city-placeholder') : '' }}"
-											   name="address_city" required="required" aria-required="true"
-											   value="{{ Request::old('address_city', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_city') : '')) }}"/>
-									</div>
+
 								</div>
 								@if(App::getLocale() == "nl")
 									<div class="row m-t-20 m-sm-t-20 m-b-20 m-sm-b-20" >
@@ -287,6 +299,7 @@
 							</fieldset>
 						</div>
 					@endif
+
 
 					@include('includes.payment.method')
 
@@ -834,6 +847,79 @@
 			}
 		}
 	</style>
+
+
+	<script>
+        // This example displays an address form, using the autocomplete feature
+        // of the Google Places API to help users fill in the information.
+
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        var placeSearch, autocomplete;
+        var componentForm = {
+            street_number: 'short_name',
+            route: 'short_name',
+            locality: 'long_name',
+            postal_code: 'short_name'
+        };
+
+        function initAutocomplete() {
+            // Create the autocomplete object, restricting the search to geographical
+            // location types.
+            autocomplete = new google.maps.places.Autocomplete(
+                /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+                {types: ['geocode']});
+
+            // When the user selects an address from the dropdown, populate the address
+            // fields in the form.
+            autocomplete.addListener('place_changed', fillInAddress);
+
+        }
+
+        function fillInAddress() {
+            // Get the place details from the autocomplete object.
+            var place = autocomplete.getPlace();
+
+            for (var component in componentForm) {
+                document.getElementById(component).value = '';
+                document.getElementById(component).disabled = false;
+            }
+
+            // Get each component of the address from the place details
+            // and fill the corresponding field on the form.
+            for (var i = 0; i < place.address_components.length; i++) {
+                var addressType = place.address_components[i].types[0];
+                if (componentForm[addressType]) {
+                    var val = place.address_components[i][componentForm[addressType]];
+                    document.getElementById(addressType).value = val;
+                }
+            }
+            $('#postal_code').prop('disabled',true);
+        }
+
+        // Bias the autocomplete object to the user's geographical location,
+        // as supplied by the browser's 'navigator.geolocation' object.
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    var circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+	</script>
+
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMjNmcrNKsKPb3kfsJHhgDgr_PrnBtW9Y&libraries=places&callback=initAutocomplete" async defer></script>
 @endsection
 
 @section('tracking-scripts')

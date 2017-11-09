@@ -308,6 +308,11 @@ class OrderController extends Controller
 
         if($status == 'OK'){
             $order->barcode = '';
+            $order->labelTekst1 = '';
+            $order->labelTekst2 = '';
+            $order->labelTekst3 = '';
+            $order->udsortering = '';
+            $order->eta = '';
             $order->save();
             return \Response::json([
                 'message' => $data['id']

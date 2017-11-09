@@ -122,7 +122,6 @@
                 url: '{{ route("get-all-barcode-dk") }}',
                 success: function (response) {
                     if(response.message === 'OK') {
-                        console.log(response);
                         window.location.reload();
                     }
                 }

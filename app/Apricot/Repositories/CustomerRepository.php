@@ -122,10 +122,17 @@ class CustomerRepository
 
     public static function getMonthlyFinish($year, $month)
     {
-        return Plan::whereNull('subscription_cancelled_at')
-            ->whereNotNull('subscription_rebill_at')
+
+        return Plan::whereNotNull('subscription_rebill_at')
+
+            ->where( function ( $query ) use ( $year )
+            {
+                $query->whereNull('subscription_cancelled_at')
+                    ->orWhereDate( 'subscription_cancelled_at', '>', $year );
+            } )
+
+
             ->whereDate('created_at', '<', $year)
-            //->whereMonth('created_at','<=', $month)
             ->count();
     }
 

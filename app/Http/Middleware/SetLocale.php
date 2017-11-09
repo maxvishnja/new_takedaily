@@ -23,7 +23,7 @@ class SetLocale
 			'co.uk' => 'en',
 			'nl'    => 'nl',
 			'.dev'    => 'da',
-			'dev'    => 'da',
+			'dev'    => 'nl',
 		];
 
 		$domainRedirects = [
