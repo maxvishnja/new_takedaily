@@ -875,6 +875,7 @@
             // When the user selects an address from the dropdown, populate the address
             // fields in the form.
             autocomplete.addListener('place_changed', fillInAddress);
+
         }
 
         function fillInAddress() {
@@ -895,6 +896,7 @@
                     document.getElementById(addressType).value = val;
                 }
             }
+            $('#postal_code').prop('disabled',true);
         }
 
         // Bias the autocomplete object to the user's geographical location,

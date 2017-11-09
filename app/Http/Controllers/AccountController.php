@@ -392,7 +392,7 @@ class AccountController extends Controller
             return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
         }
         $coupon = $couponRepository->findByCouponForSecond($request->get('coupon'));
-        
+
         if (!$coupon) {
             \Session::forget('applied_coupon');
             return \Response::json(['message' => trans('checkout.messages.no-such-coupon')], 400);
