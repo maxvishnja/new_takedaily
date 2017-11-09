@@ -50,7 +50,7 @@ class AddCustomersToApi extends Command
         echo count($customers)."-";
 
         echo count($almosts);
-        dd();
+       
 
         $listid = 4988;
 
