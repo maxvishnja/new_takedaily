@@ -46,7 +46,7 @@ class AddCustomersToApi extends Command
 
         $almosts = $repo->getAlmostCustomer();
 
-        $listid = 4859;
+        $listid = 4988;
 
         $add_to_autoresponders = true;
         $skip_listcheck = true;
@@ -285,6 +285,9 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2692,
                     'value'  =>  $choice),
+             array (
+                 'fieldid'  => 2825,
+                    'value'  =>  $customer->id),
             );
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
@@ -376,6 +379,9 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2682,
                     'value'  =>  $link),
+                array (
+                    'fieldid'  => 2825,
+                    'value'  =>  $almost->id),
 
             );
 

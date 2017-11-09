@@ -8,12 +8,24 @@ class EmailPlatformApi
 
     const REQUEST_FAILED = 'Unsuccessful request';
 
+
+
+//    private $settings = [
+//        'URL' => 'https://api.mailmailmail.net/',
+//        'username' => 'takedaily_dk_api2',
+//        'token' => 'mOvHdHdweYj3DOiC2Bzj',
+//        'format' => 'json',
+//    ];
+
     private $settings = [
         'URL' => 'https://api.mailmailmail.net/',
-        'username' => 'takedaily_dk_api2',
-        'token' => 'mOvHdHdweYj3DOiC2Bzj',
+        'username' => 'takedaily_dk_api',
+        'token' => 'hwSP0yd1qCINpnoX2Hn7',
         'format' => 'json',
     ];
+
+
+
 
 
     public function __construct ()
