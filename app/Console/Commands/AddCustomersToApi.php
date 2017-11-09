@@ -46,6 +46,12 @@ class AddCustomersToApi extends Command
 
         $almosts = $repo->getAlmostCustomer();
 
+
+        echo count($customers)."-";
+
+        echo count($almosts);
+        dd();
+
         $listid = 4988;
 
         $add_to_autoresponders = true;
