@@ -291,8 +291,7 @@ class AddCustomersToApi extends Command
             );
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
-            echo $customer->id;
-                print_r ($result);
+           print_r ($result);
                if(!is_array($result) and strstr($result,"Already subscribed to the list")){
 
                    $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
