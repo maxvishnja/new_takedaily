@@ -382,6 +382,9 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2825,
                     'value'  =>  $almost->id),
+                array (
+                    'fieldid'  => 2669,
+                    'value'  =>  'Almost'),
 
             );
 
