@@ -254,7 +254,7 @@
 											<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.zipcode') }}
 												<span class="required">*</span></label>
 											<input class="input input_info_address_zip input--medium input--semibold input--full @if($errors->has('address_zip')) input--error @endif"
-												   id="postal_code"  data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
+												   id="postal_code"  readonly data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
 												   name="address_zip" required="required" aria-required="true" @if(App::getLocale() != 'nl') type="number" data-pattern="[0-9]{4}" data-validation="number"  maxlength="4" minlength="4"  @else type="text" @endif
 												   value="{{ Request::old('address_zip', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 										</div>
@@ -896,7 +896,8 @@
                     document.getElementById(addressType).value = val;
                 }
             }
-            //$('#postal_code').prop('disabled',true);
+            $('#postal_code').attr('readonly','readonly');
+
         }
 
         // Bias the autocomplete object to the user's geographical location,
