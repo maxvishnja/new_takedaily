@@ -281,7 +281,7 @@ class Order extends Model
         try {
             \Mail::queue( $template, [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail, $trans )
 
-            {   \Log::info('Mail sent with status'.$trans. ' to '.$receiverEmail);
+            {   \Log::info('Mail sent with status '.$trans. ' to '.$receiverEmail);
                 $message->from( $fromEmail, 'TakeDaily' );
                 $message->to( $receiverEmail, $receiverName );
                 $message->subject( $trans );
