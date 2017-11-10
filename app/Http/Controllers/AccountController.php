@@ -290,7 +290,7 @@ class AccountController extends Controller
             $fromEmail = 'info@takedaily.dk';
         }
 
-        \Mail::queue('emails.snoozing', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
+        \Mail::send('emails.snoozing', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
             \App::setLocale($locale);
             $message->from($fromEmail, 'TakeDaily');
             $message->to($mailEmail, $mailName);
@@ -443,7 +443,7 @@ class AccountController extends Controller
             $mailName = 'TakeDaily';
             $locale = \App::getLocale();
 
-            \Mail::queue('emails.shared', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
+            \Mail::send('emails.shared', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
                 \App::setLocale($locale);
                 $message->from($fromEmail, 'TakeDaily');
                 $message->to($mailEmail, $mailName);

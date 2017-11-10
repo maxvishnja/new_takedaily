@@ -25,7 +25,7 @@ class RecieptController extends Controller
             $fromEmail = 'info@takedaily.dk';
         }
 
-        \Mail::queue( 'emails.receipt',[
+        \Mail::send( 'emails.receipt',[
             'order' => $order,
             'layout' => 'layouts.mail',
             'locale' => $locale

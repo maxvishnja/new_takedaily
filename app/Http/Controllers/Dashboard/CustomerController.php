@@ -253,7 +253,7 @@ class CustomerController extends Controller
 		$customer->user->password = \Hash::make($password);
 		$customer->user->save();
 
-		\Mail::queue('emails.new-password', [ 'locale' => \App::getLocale(), 'password' => $password ], function (Message $message) use ($customer)
+		\Mail::send('emails.new-password', [ 'locale' => \App::getLocale(), 'password' => $password ], function (Message $message) use ($customer)
 		{
 			$message->to($customer->user->getEmailForPasswordReset(), $customer->getName());
 			$message->subject(trans('mails.new-password.subject'));
