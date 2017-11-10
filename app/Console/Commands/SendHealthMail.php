@@ -61,7 +61,7 @@ class SendHealthMail extends Command
 
                 \Log::info('Health mail send to Customer ID '.$customer->customer->id." email ".$mailEmail);
 
-                \Mail::queue( 'emails.control-health', [ 'locale' => $customer->customer->getLocale(), 'name' => $customer->customer->getFirstname(), 'id' =>$customer->customer->id ], function ( Message $message ) use ( $mailEmail, $mailName, $fromEmail )
+                \Mail::send( 'emails.control-health', [ 'locale' => $customer->customer->getLocale(), 'name' => $customer->customer->getFirstname(), 'id' =>$customer->customer->id ], function ( Message $message ) use ( $mailEmail, $mailName, $fromEmail )
                 {
                     $message->from( $fromEmail, 'TakeDaily' );
                     $message->to( $mailEmail, $mailName );

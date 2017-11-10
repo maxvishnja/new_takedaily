@@ -67,7 +67,7 @@ class SendToAlmost extends Command
             $newalmost->sent = 1;
             $newalmost->save();
 
-            \Mail::queue('emails.almost-customers', ['locale' => $almost->location], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
+            \Mail::send('emails.almost-customers', ['locale' => $almost->location], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
                 $message->from($fromEmail, 'TakeDaily');
                 $message->to($mailEmail, $mailName);
                 $message->subject(trans('mails.almost-subject'));

@@ -62,7 +62,7 @@ class SubscriptionRebillCommand extends Command
 				if (!$customer->rebill()) {
 					$customer->getPlan()->moveRebill(1); // consider a max attempts limit
 
-					\Mail::queue('emails.subscription-failed', ['locale' => $customer->getLocale(), 'name' => $customer->getFirstname()], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
+					\Mail::send('emails.subscription-failed', ['locale' => $customer->getLocale(), 'name' => $customer->getFirstname()], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
 						$message->from($fromEmail, 'TakeDaily');
 						$message->to($mailEmail, $mailName);
 						$message->subject(trans('checkout.mail.subject-subscription-failed'));
