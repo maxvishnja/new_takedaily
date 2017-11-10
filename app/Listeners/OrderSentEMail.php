@@ -26,7 +26,7 @@ class OrderSentEMail
 
         try {
 
-
+            \Log::info('Start sending mail');
 
             $order = $event->order;
             $order->sendEmail($event->status );
