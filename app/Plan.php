@@ -670,7 +670,7 @@ class Plan extends Model
         $image = 'https://takedaily.nl/checksnooz/' . base64_encode($customer->getEmail()) . '/' . rand(1, 999) . '/email.png';
 
 
-        \Mail::queue('emails.pending-rebill', ['locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url, 'image' => $image], function (Message $message) use ($customer, $fromEmail) {
+        \Mail::send('emails.pending-rebill', ['locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url, 'image' => $image], function (Message $message) use ($customer, $fromEmail) {
             \Log::info("Message send to " . $customer->getName() . "(id " . $customer->id . ", mail " . $customer->getEmail() . ")");
 
             $message->from($fromEmail, 'TakeDaily')
