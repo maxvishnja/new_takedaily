@@ -56,6 +56,7 @@ elixir(function (mix) {
 		'/vendor/clipboard.min.js',
 		'/vendor/he.js',
 		'/vendor/jquery.history.js',
+		'/vendor/croppie.min.js',
 		'/app.js'
 	], 'public/js/app.js');
 

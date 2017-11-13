@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('page-stylesheet')
+    <link rel="stylesheet" href="/admin/css/croppie.css" />
+@endsection
+
 @section('content')
     <div class="module">
         <div class="module-head">
@@ -42,6 +46,15 @@
                 </div>
 
                 <div class="control-group">
+                    <label for="page_title" class="control-label">Bio</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="desc"
+                               value="{{ Request::old('desc') }}"
+                               placeholder="Bio"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
                     <label for="page_title" class="control-label">Photo</label>
                     <div class="controls">
                         <input type="file" class="form-control span8" name="image">
@@ -79,4 +92,8 @@
                </form>
            </div>
        </div><!--/.module-->
-   @stop
+@stop
+
+@section('scripts')
+<script src="/js/admin/croppie.min.js"></script>
+@endsection

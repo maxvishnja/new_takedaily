@@ -37,6 +37,7 @@
     background: white;
     display: inline-block;
     vertical-align: middle;
+    margin-bottom: .3rem;
   }
   &__lang__arrow {
     @include arrow(.5rem, 1px, #979797, bottom);
@@ -44,6 +45,13 @@
     display: inline-block;
     vertical-align: middle;
   }
+  &__lang__dropdown {
+    display: grid;
+    position: absolute;
+  }
+    .hidden {
+      visibility: hidden;
+    }
   &__top__right {
     @include breakpoint(phone) {
       border-top: 1px solid $color-white;

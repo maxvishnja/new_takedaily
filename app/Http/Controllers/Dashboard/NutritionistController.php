@@ -96,24 +96,26 @@ class NutritionistController extends Controller
 
         $nutritionist = Nutritionist::find($id);
         $data = $request->all();
+        dd($data);
+        $file = Image::make(file_get_contents($data['imagebase64']));
 
-        if (Input::hasFile('image')){
+//        if (Input::hasFile('image')){
+//
+//        $file = Input::file('image');
 
-            $file = Input::file('image');
+        $timestamp = str_replace([' ', ':'], '-', \Carbon\Carbon::now()->toDateTimeString());
+        $data['image'] = $timestamp. '-' .$file->getClientOriginalName();
+        $file->move(public_path().'/images/nutritionist/', $data['image']);
+        $path = public_path().'/images/nutritionist/'.'thumb_'.$data['image'];
+        $imagePath = public_path() . '/images/nutritionist/' . $data['image'];
+        $image = Image::make($imagePath);
 
-            $timestamp = str_replace([' ', ':'], '-', \Carbon\Carbon::now()->toDateTimeString());
-            $data['image'] = $timestamp. '-' .$file->getClientOriginalName();
-            $file->move(public_path().'/images/nutritionist/', $data['image']);
-            $path = public_path().'/images/nutritionist/'.'thumb_'.$data['image'];
-            $imagePath = public_path() . '/images/nutritionist/' . $data['image'];
-            $image = Image::make($imagePath);
+        $image->resize(175, 175, function ($constraint) {
+            $constraint->aspectRatio();
+        });
 
-            $image->resize(175, 175, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-
-            $image->save($path);
-        }
+        $image->save($path);
+//        }
 
         $nutritionist->update($data);
 

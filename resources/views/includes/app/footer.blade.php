@@ -5,12 +5,14 @@
             <span class="b-footer__lang">
                 <div class="b-footer__lang__flag flag-{{App::getLocale()}}"></div>
                 <span class="b-footer__lang__arrow"></span>
-                <span>
+                <span class="b-footer__lang__dropdown hidden">
                     @foreach(config('app.locales') as $locale)
-                        <a rel="alternate" hreflang="{{ $locale['code'] }}"
-                           href="{{ \App\Apricot\Helpers\DomainHelper::convertTldTo($locale['tld']) }}">
-                            <span class="icon flag-{{ $locale['code'] }}"></span>
-                        </a>
+                        @if(App::getLocale() != $locale['code'])
+                            <a rel="alternate" hreflang="{{ $locale['code'] }}"
+                               href="{{ \App\Apricot\Helpers\DomainHelper::convertTldTo($locale['tld']) }}">
+                                <span class="b-footer__lang__flag flag-{{ $locale['code'] }}"></span>
+                            </a>
+                        @endif
                     @endforeach
                 </span>
             </span>
@@ -151,6 +153,18 @@
             'X-CSRF-TOKEN': '{{ csrf_token() }}'
         }
     });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.b-footer__lang').mouseenter(function () {
+            console.log('works')
+            $('.b-footer__lang__dropdown').removeClass('hidden');
+        })
+        $('.b-footer__lang__dropdown').mouseleave(function () {
+            $('.b-footer__lang__dropdown').addClass('hidden');
+        })
+    })
 </script>
 
 @yield('footer_scripts')

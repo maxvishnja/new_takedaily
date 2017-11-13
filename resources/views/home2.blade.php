@@ -197,7 +197,7 @@
                 @foreach($nutritionists as $nutri)
                     <article class="hp-nutr__item">
                         @if($nutri->image !== '')
-                            <img src="/images/nutritionist/{{$nutri->image}}" alt="" class="hp-nutr__item__img">
+                            <img src="/images/nutritionist/thumb_{{$nutri->image}}" alt="" class="hp-nutr__item__img">
                         @else
                             <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
                         @endif
@@ -223,10 +223,10 @@
                 <article class="hp-insta__item">
                     <div class="hp-insta__item__media">
                         <a href="{{ $insta['link'] }}" target="_blank">
-                        <img srcset="{{ $insta['images']['standard_resolution']['url'] }}"
-                             width="237px"
-                             height="237px"
-                             alt="">
+                            <img srcset="{{ $insta['images']['standard_resolution']['url'] }}"
+                                 width="237px"
+                                 height="237px"
+                                 alt="">
                         </a>
                     </div>
                     <div class="hp-insta__item__content">

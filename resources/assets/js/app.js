@@ -63,6 +63,11 @@ function sliderInstagram() {
     });
 }
 
+// footer flags
+$('.b-footer__lang__arrow').on('hover', function () {
+    $('.b-footer__lang__dropdown').css('display', 'block');
+})
+
 // old code
 
 $(".toggle-mobile-nav").click(function (e)

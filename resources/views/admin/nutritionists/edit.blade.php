@@ -1,5 +1,9 @@
 @extends('layouts.admin')
 
+@section('page-stylesheet')
+    <link rel="stylesheet" href="/admin/css/croppie.css" />
+@endsection
+
 @section('content')
     <div class="module">
         <div class="module-head">
@@ -42,12 +46,22 @@
                 </div>
 
                 <div class="control-group">
+                    <label for="page_title" class="control-label">Biography</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="desc"
+                               value="{{ Request::old('desc', ($nutritionist->desc) ? $nutritionist->desc : '') }}"
+                               placeholder="Biography"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
                     <label for="page_title" class="control-label">Photo</label>
+                    <input type="hidden" id="imagebase64" name="imagebase64">
                     <div class="controls">
                         @if(!empty($nutritionist->image))
                             <img src="/images/nutritionist/thumb_{!! $nutritionist->image !!}" class="img-thumbnail"><br/><br/>
                         @endif
-                        <input type="file" class="form-control span8" name="image" value="">
+                        <input type="file" class="form-control span8" id="upload" name="image" value="">
                     </div>
                 </div>
 
@@ -73,7 +87,7 @@
 
                    <div class="clear"></div>
                    <div class="pull-right">
-                        <button class="btn btn-info"  type="submit"><i class="icon-pencil"></i>Update</button>
+                        <button class="btn btn-info" type="submit"><i class="icon-pencil"></i>Update</button>
                    </div>
                    {{ csrf_field() }}
                    {{ method_field('PUT') }}
@@ -81,5 +95,52 @@
 
                </form>
            </div>
-       </div><!--/.module-->
-   @stop
+    </div><!--/.module-->
+@stop
+
+@section('scripts')
+<script src="/js/admin/croppie.min.js"></script>
+<script>
+    var $uploadCrop,
+        $imgThumb = $('.img-thumbnail');
+
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $uploadCrop.croppie('bind', {
+                    url: e.target.result
+                });
+                $imgThumb.addClass('ready');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $uploadCrop = $imgThumb.croppie({
+        viewport: {
+            width: 180,
+            height: 180,
+            type: 'circle'
+        },
+        boundary: {
+            width: 300,
+            height: 300
+        }
+    });
+
+    $('#upload').on('change', function () { readFile(this); });
+
+    $('.btn-info').on('click', function (ev) {
+        $uploadCrop.croppie('result', {
+            type: 'canvas',
+            size: 'original'
+        }).then(function (resp) {
+            $('#imagebase64').val(resp);
+//            $('#form').submit();
+//            ev.preventDefault();
+//            console.log($('#imagebase64').val());
+        });
+    });
+</script>
+@endsection
