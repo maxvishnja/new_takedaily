@@ -20,7 +20,7 @@
             <nav class="c-nav-footer">
                 <ul class="c-nav-footer__list">
                     <li class="c-nav-footer__item">
-                        <a href="" class="c-nav-footer__link">{{ trans('footer.links.vitamins') }}</a>
+                        <a href="/page/a-zink" class="c-nav-footer__link">{{ trans('footer.links.vitamins') }}</a>
                     </li>
                     <li class="c-nav-footer__item">
                         <a href="/about-us" class="c-nav-footer__link">{{ trans('footer.links.about') }}</a>
@@ -29,7 +29,7 @@
                         <a href="/faq" class="c-nav-footer__link">{{ trans('footer.links.faq') }}</a>
                     </li>
                     <li class="c-nav-footer__item">
-                        <a href="" class="c-nav-footer__link">{{ trans('footer.links.conditions') }}</a>
+                        <a href="/page/terms" class="c-nav-footer__link">{{ trans('footer.links.conditions') }}</a>
                     </li>
                 </ul>
             </nav>

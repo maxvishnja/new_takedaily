@@ -60,7 +60,7 @@
 
         <!-- Logo -->
         <div class="b-header__logo">
-            <a href="">
+            <a href="/">
                 <img
                     src="/images/header/takedaily-logo--main.svg"
                     alt=""

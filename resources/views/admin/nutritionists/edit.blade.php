@@ -137,7 +137,7 @@
             size: 'original'
         }).then(function (resp) {
             $('#imagebase64').val(resp);
-//            $('#form').submit();
+            $('#form').submit();
 //            ev.preventDefault();
 //            console.log($('#imagebase64').val());
         });

@@ -96,26 +96,36 @@ class NutritionistController extends Controller
 
         $nutritionist = Nutritionist::find($id);
         $data = $request->all();
-//        dd($data);
-        $file = Image::make(file_get_contents($data['imagebase64']));
 
         if (Input::hasFile('image')){
-//
-//        $file = Input::file('image');
 
-        $timestamp = str_replace([' ', ':'], '-', \Carbon\Carbon::now()->toDateTimeString());
-        $data['image'] = $timestamp. '-' .$file->getClientOriginalName();
-        $file->move(public_path().'/images/nutritionist/', $data['image']);
-        $path = public_path().'/images/nutritionist/'.'thumb_'.$data['image'];
-        $imagePath = public_path() . '/images/nutritionist/' . $data['image'];
-        $image = Image::make($imagePath);
+            $file = Input::file('image');
 
-        $image->resize(175, 175, function ($constraint) {
-            $constraint->aspectRatio();
-        });
+            $crop = $data['imagebase64'];
 
-        $image->save($path);
+            list($type, $crop) = explode(';', $crop);
+            list(, $crop)      = explode(',', $crop);
+
+            $crop = base64_decode($crop);
+
+            $timestamp = str_replace([' ', ':'], '-', \Carbon\Carbon::now()->toDateTimeString());
+            $data['image'] = $timestamp . '-' . $file->getClientOriginalName();
+
+//            dd($file);
+
+            $path = public_path().'/images/nutritionist/'.'thumb_'.$data['image'];
+            $imagePath = public_path() . '/images/nutritionist/' . $data['image'];
+            $image = file_put_contents($imagePath, $crop);
+
+            $image = Image::make($imagePath, $data['image']);
+
+            $image->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            $image->save($path);
         }
+//
 
         $nutritionist->update($data);
 
