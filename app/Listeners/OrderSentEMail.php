@@ -3,8 +3,9 @@
 namespace App\Listeners;
 
 use App\Events\SentMail;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class OrderSentEMail
+class OrderSentEMail implements ShouldQueue
 {
     /**
      * Create the event listener.
@@ -25,8 +26,6 @@ class OrderSentEMail
     {
 
         try {
-
-
 
             $order = $event->order;
             $order->sendEmail($event->status );

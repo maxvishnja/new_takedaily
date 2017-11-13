@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
 use Jenssegers\Date\Date;
+use App\Jobs\SentNewMail;
 
 class OrderController extends Controller
 {
@@ -103,6 +104,7 @@ class OrderController extends Controller
 		{
 
 			$order->markSent();
+           // $this->dispatch(new SentNewMail($order, 'sent'));
 		}
 
 		return \Redirect::back()->with('success', 'Done!');
@@ -119,6 +121,9 @@ class OrderController extends Controller
 
 
 		$order->markSent();
+
+
+       // $this->dispatch(new SentNewMail($order, 'sent'));
 
 		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The order was marked as sent!' );
 	}
@@ -160,6 +165,7 @@ class OrderController extends Controller
 		foreach ( $orders as $order )
 		{
 			$order->markPrint();
+            //$this->dispatch(new SentNewMail($order, 'print'));
 
 			$printables[] = [
 				'label'   => $order->loadLabel(),
@@ -178,6 +184,7 @@ class OrderController extends Controller
 		foreach ( Order::whereIn( 'id', $ids )->get() as $order )
 		{
 			$order->markSent();
+            //$this->dispatch(new SentNewMail($order, 'sent'));
 		}
 	}
 
