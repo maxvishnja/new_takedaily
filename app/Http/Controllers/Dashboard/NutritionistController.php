@@ -96,10 +96,10 @@ class NutritionistController extends Controller
 
         $nutritionist = Nutritionist::find($id);
         $data = $request->all();
-        dd($data);
+//        dd($data);
         $file = Image::make(file_get_contents($data['imagebase64']));
 
-//        if (Input::hasFile('image')){
+        if (Input::hasFile('image')){
 //
 //        $file = Input::file('image');
 
@@ -115,7 +115,7 @@ class NutritionistController extends Controller
         });
 
         $image->save($path);
-//        }
+        }
 
         $nutritionist->update($data);
 

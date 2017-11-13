@@ -20,16 +20,16 @@
             <nav class="c-nav-footer">
                 <ul class="c-nav-footer__list">
                     <li class="c-nav-footer__item">
-                        <a href="" class="c-nav-footer__link">Tag vitamintesten</a>
+                        <a href="" class="c-nav-footer__link">{{ trans('footer.links.vitamins') }}</a>
                     </li>
                     <li class="c-nav-footer__item">
-                        <a href="" class="c-nav-footer__link">Om TakeDaily</a>
+                        <a href="/about-us" class="c-nav-footer__link">{{ trans('footer.links.about') }}</a>
                     </li>
                     <li class="c-nav-footer__item">
-                        <a href="" class="c-nav-footer__link">FAQ</a>
+                        <a href="/faq" class="c-nav-footer__link">{{ trans('footer.links.faq') }}</a>
                     </li>
                     <li class="c-nav-footer__item">
-                        <a href="" class="c-nav-footer__link">Handelsbetingelser</a>
+                        <a href="" class="c-nav-footer__link">{{ trans('footer.links.conditions') }}</a>
                     </li>
                 </ul>
             </nav>
@@ -40,52 +40,52 @@
                     <span class="b-footer__payment__card icon-card-visa"></span>
                     <span class="b-footer__payment__card icon-card-dk"></span>
                 </div>
-                <p class="b-footer__copy">© 2017 TakeDaily.</p>
+                <p class="b-footer__copy">{{ trans('footer.copyright') }}</p>
             </div>
         </div>
         <div class="b-footer__bottom">
             <div class="b-footer__col">
                 <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">KONTAKT OS</h4>
-                    <p class="b-footer__info__txt">Du kan ringe til os alle hverdage fra 9-17.</p>
+                    <h4 class="b-footer__info__title">{{ trans('footer.column1.contact') }}</h4>
+                    <p class="b-footer__info__txt">{{ trans('footer.column1.call') }}</p>
                     <p class="b-footer__info__txt">
-                        +45 70 60 50 15
+                        {{ trans('footer.column1.phone') }}
                         <br>
-                        info@takedaily.dk
+                        {{ trans('footer.column1.email') }}
                     </p>
                 </div>
             </div>
             <div class="b-footer__col">
                 <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">Generelle oplysninger</h4>
-                    <p class="b-footer__info__txt">Take Daily ApS CVR. nr. 37360813</p>
+                    <h4 class="b-footer__info__title">{{ trans('footer.column2.general') }}</h4>
+                    <p class="b-footer__info__txt">{{ trans('footer.column2.company') }}</p>
                     <p class="b-footer__info__txt">
-                        Danneskiold-Samsøes Allé 24, 1.
-                        <br>
-                        1434 København K
+                        {!! trans('footer.column2.address') !!}
                     </p>
                     <p class="b-footer__info__txt">
-                        e-mail: info@takedaily.dk
+                        {{ trans('footer.column2.email') }}
                         <br>
-                        Telefon: 70605015
+                        {{ trans('footer.column2.phone') }}
                     </p>
                 </div>
             </div>
             <div class="b-footer__col">
                 <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">Tilmeld nyhedsbrev</h4>
+                    <h4 class="b-footer__info__title">{{ trans('footer.column3.subscribe') }}</h4>
                     <div class="c-newsletter">
-                        <input type="text" name="" value="" placeholder="indtast email-adresse">
-                        <button type="submit" name="" class="hp-btn">Tilmeld</button>
+                        <form action="{{ url()->action('MailchimpEmailSignup@post') }}" method="post">
+                            <input type="email" name="email" id="input_newsletters_email" placeholder="{{ trans('footer.column3.email_placeholder') }}">
+                            <button type="submit" class="hp-btn">{{ trans('footer.column3.subscribe_btn') }}</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="b-footer__col b-footer__col--socials">
                 <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">Følg os her</h4>
+                    <h4 class="b-footer__info__title">{{ trans('footer.column4.follow') }}</h4>
                     <div class="b-footer__social">
-                        <div class="b-footer__social__item"><img src="/images/home/insta2.png" alt=""></div>
-                        <div class="b-footer__social__item"><img src="/images/home/facebook.png" alt=""></div>
+                        <div class="b-footer__social__item"><a href="{{ trans('footer.column4.instagram') }}"><img src="/images/home/insta2.png" alt=""></a></div>
+                        <div class="b-footer__social__item"><a href="{{ trans('footer.column4.facebook') }}"><img src="/images/home/facebook.png" alt=""></a></div>
                     </div>
                 </div>
             </div>

@@ -1,34 +1,39 @@
 <?php
 
-return array (
-  'social' => 
-  array (
-    'instagram' => 'http://instagram.com/takedaily_nl/',
-    'facebook' => 'https://www.facebook.com/TakeDaily-NL-602761183216983',
-  ),
-  'columns' => 
-  array (
-    'one' => 
-    array (
-      'title' => 'Abonneer je op de TakeDaily nieuwsbrief',
-      'input-placeholder' => 'mijn@gmail.com',
-      'button-text' => 'Versturen',
-    ),
-    'two' => 
-    array (
-      'title' => 'Volg TakeDaily op',
-    ),
-    'three' => 
-    array (
-      'title' => 'Contact',
-      'text' => 'Heb je vragen of behoefte aan extra informatie? Ons team staat voor jou klaar om telefonisch of per e-mail jouw vragen te beantwoorden. Wij zijn op werkdagen geopend van 09:00-17:00 uur.',
-      'info' => 'Bel: 020-2382580<br/><a href="mailto:info@takedaily.nl">Email: info@takedaily.nl</a>',
-    ),
-  ),
-  'language' => 'Nederlands',
-  'copyright' => 'TakeDaily',
-  'links' => '<li class="hidden-sm hidden-md"><a href="/about-us">Over TakeDaily</a></li>
-					<li><a href="/faq">FAQ</a></li>
-					<li class="hidden-sm hidden-md"><a href="/use-giftcard">Verzilver cadeaubon</a></li>
-					<li><a  class="terms"  href="/page/terms">Algemene voorwaarden</a></li>',
-);
+return [
+    'links' => [
+        'vitamins'    => 'Tag vitamintesten',
+        'about'       => 'Om TakeDaily',
+        'FAQ'         => 'FAQ',
+        'conditions'  => 'Handelsbetingelser',
+    ],
+
+    'copyright' => '© 2017 TakeDaily.',
+
+    'column1' => [
+        'contact' => 'KONTAKT OS',
+        'call'    => 'Du kan ringe til os alle hverdage fra 9-17.',
+        'phone'   => '+45 70 60 50 15',
+        'email'   => 'info@takedaily.dk'
+    ],
+
+    'column2' => [
+        'general' => 'GENERELLE OPLYSNINGER',
+        'company' => 'Take Daily ApS CVR. nr. 37360813',
+        'address' => 'Danneskiold-Samsøes Allé 24, 1. <br>1434 København K',
+        'email'   => 'email: info@takedaily.dk',
+        'phone'   => 'Telefon: 70605015'
+    ],
+
+    'column3' => [
+        'subscribe'         => 'TILMELD NYHEDSBREV',
+        'email_placeholder' => 'indtast email-adresse',
+        'subscribe_btn'     => 'Tilmeld'
+    ],
+
+    'column4' => [
+        'follow'    => 'FØLG OS HER',
+        'instagram' => 'https://www.instagram.com/takedaily_dk/',
+        'facebook'  => 'https://www.facebook.com/takedaily.dk'
+    ]
+];
