@@ -74,6 +74,9 @@ class Kernel extends ConsoleKernel
 		$schedule->command('healthmail:send')
 			     ->dailyAt('13:00');
 
+        $schedule->command('api:add')
+                    ->dailyAt('02:00');
+
 		$schedule->command('check:ambassador')
 			     ->dailyAt('09:00');
 

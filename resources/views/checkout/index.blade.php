@@ -865,6 +865,10 @@
             postal_code: 'short_name'
         };
 
+        for (var component in componentForm) {
+            document.getElementById(component).disabled = true;
+        }
+
         function initAutocomplete() {
             // Create the autocomplete object, restricting the search to geographical
             // location types.
