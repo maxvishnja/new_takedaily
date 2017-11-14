@@ -28,6 +28,16 @@ class CouponRepository
 	}
 
 
+    public function AutomaticNL()
+    {
+        return Coupon::orderBy( 'created_at', 'DESC' )->where( 'automatic', 1 )->where('currency', 'EUR')->get();
+    }
+
+    public function AutomaticDK()
+    {
+        return Coupon::orderBy( 'created_at', 'DESC' )->where( 'automatic', 1 )->where('currency', 'DKK')->get();
+    }
+
 	public function findByCoupon( $coupon )
 	{
 		$coupon = strtoupper( $coupon );
