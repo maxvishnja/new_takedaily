@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\SentMail;
+use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class OrderSentEMail implements ShouldQueue
@@ -10,6 +11,9 @@ class OrderSentEMail implements ShouldQueue
     /**
      * Create the event listener.
      */
+    
+    use InteractsWithQueue;
+
     public function __construct()
     {
         //
