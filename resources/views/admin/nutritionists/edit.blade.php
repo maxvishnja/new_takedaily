@@ -46,11 +46,11 @@
                 </div>
 
                 <div class="control-group">
-                    <label for="page_title" class="control-label">Biography</label>
+                    <label for="page_title" class="control-label">About</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="desc"
                                value="{{ Request::old('desc', ($nutritionist->desc) ? $nutritionist->desc : '') }}"
-                               placeholder="Biography"/>
+                               placeholder="About"/>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@
                     <input type="hidden" id="imagebase64" name="imagebase64">
                     <div class="controls">
                         @if(!empty($nutritionist->image))
-                            <img src="/images/nutritionist/thumb_{!! $nutritionist->image !!}" class="img-thumbnail"><br/><br/>
+                            <img src="/images/nutritionist/{!! $nutritionist->image !!}" class="img-thumbnail"><br/><br/>
                         @endif
                         <input type="file" class="form-control span8" id="upload" name="image" value="">
                     </div>
@@ -138,8 +138,6 @@
         }).then(function (resp) {
             $('#imagebase64').val(resp);
             $('#form').submit();
-//            ev.preventDefault();
-//            console.log($('#imagebase64').val());
         });
     });
 </script>

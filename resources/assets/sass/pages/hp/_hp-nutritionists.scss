@@ -33,6 +33,7 @@
       @include clearfix;
       margin-bottom: 1.7rem;
       display: table;
+      width: 100%;
     }
     @include breakpoint(overPhone) {
       @include grid(3, 2%);
