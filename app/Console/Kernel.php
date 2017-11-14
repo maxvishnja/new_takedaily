@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ChangeAutomaticCoupon;
 use App\Console\Commands\ClearOldCarts;
 use App\Console\Commands\ClearSnoozing;
 use App\Console\Commands\ClearOldSavedFlows;
@@ -48,6 +49,7 @@ class Kernel extends ConsoleKernel
 		UpdateUserMail::class,
 		DebugCommand::class,
 		AddCustomersToApi::class,
+		ChangeAutomaticCoupon::class,
 	];
 
 	/**

@@ -96,6 +96,14 @@ class AddCustomersToApi extends Command
                 $active = "Not active";
             }
 
+
+            if($customer->getLocale() == "nl")
+            {
+                $country = 'NLD';
+            }      else{
+                $country = 'DNK';
+            }
+
             $unsubscribe = '';
 
             if ($customer->plan->subscription_cancelled_at != null) {
@@ -212,7 +220,7 @@ class AddCustomersToApi extends Command
                     'value'  =>  $campaign),
                 array (
                     'fieldid'  => 11,
-                    'value'  =>  $customer->getCustomerAttribute('address_country')),
+                    'value'  =>  $country),
                 array (
                     'fieldid'  => 2669,
                     'value'  =>  $active),
@@ -322,9 +330,9 @@ class AddCustomersToApi extends Command
 
             if($almost->location == "nl")
             {
-                $country = 'netherlands';
+                $country = 'NLD';
             }      else{
-                $country = 'denmark';
+                $country = 'DNK';
             }
 
             $flowCompletion = \App\FlowCompletion::whereToken( $almost->token )->first();

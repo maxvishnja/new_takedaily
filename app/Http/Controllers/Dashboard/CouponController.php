@@ -39,6 +39,8 @@ class CouponController extends Controller
 		$coupon->discount_type = $request->get('type');
 		$coupon->ambas = $request->get('ambas');
 		$coupon->for_second = $request->get('for_second');
+		$coupon->automatic = $request->get('automatic');
+		$coupon->automatic_id = $request->get('automatic_id');
 		$coupon->currency = $request->get('currency');
 		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
 		$coupon->uses_left = $request->get('uses_left');
@@ -79,6 +81,8 @@ class CouponController extends Controller
 		$coupon->discount_type = $request->get('type');
 		$coupon->currency = $request->get('currency');
 		$coupon->for_second = $request->get('for_second');
+        $coupon->automatic = $request->get('automatic');
+        $coupon->automatic_id = $request->get('automatic_id');
 		$coupon->ambas = $request->get('ambas');
 		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
 		$coupon->uses_left = $request->get('uses_left');

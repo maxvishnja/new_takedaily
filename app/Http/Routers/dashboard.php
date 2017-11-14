@@ -95,6 +95,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'orders/mark-sent/{id}', 'Dashboard\OrderController@markSent' );
 	Route::get( 'orders/refund/{id}', 'Dashboard\OrderController@refund' );
 	Route::get( 'orders/download/{id}', 'Dashboard\OrderController@download' );
+	Route::get( 'orders/create', 'Dashboard\OrderController@createCsv' );
 	Route::get( 'orders/download-sticker/{id}', 'Dashboard\OrderController@downloadSticker' );
 	Route::resource( 'coupons', 'Dashboard\CouponController' );
 	Route::resource( 'settings', 'Dashboard\SettingController' );
