@@ -54,7 +54,7 @@
     @include breakpoint(overPhone) {
       float: left;
       width: 50%;
-      padding: 4.1% 5.1% 1%;
+      padding: 4.1% 5% 1%;
     }
     @include breakpoint(tablet) {
       padding: 2% 2.5% .5%;
