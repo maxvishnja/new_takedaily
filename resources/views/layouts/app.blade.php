@@ -83,6 +83,11 @@
                 <li class="c-nav-header__item">
                     <a href="" class="c-nav-header__link">Vitaminer</a>
                 </li>
+                @if(App::getLocale() == 'da')
+                    <li class="c-nav-header__item">
+                        <a href="https://takedaily.dk/blog" class="c-nav-header__link">Blog</a>
+                    </li>
+                @endif
                 <li class="c-nav-header__item c-nav-header__item--log">
                     @if(Auth::user() && Auth::user()->isAdmin())
                         <a href="/dashboard" class="c-nav-header__link">Dashboard </a>
