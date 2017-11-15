@@ -49,6 +49,7 @@
   }
   #media1 {
     background: url('/images/home/enjoy1.jpg') no-repeat;
+    background-size: cover;
     @include breakpoint(phone) {
       background: url('/images/home/enjoy1.jpg') no-repeat;
       min-height: 170px;
@@ -58,6 +59,7 @@
   }
   #media2 {
     background: url('/images/home/enjoy2.jpg') no-repeat;
+    background-size: cover;
     @include breakpoint(phone) {
       background: url('/images/home/enjoy2.jpg') no-repeat;
       min-height: 170px;
