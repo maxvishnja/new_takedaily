@@ -26,4 +26,9 @@ class NutritionistRepository
         return $this->nutritionist->where('active', 1)->orderBy('created_at', 'DESC')->get();
     }
 
+    public function allActiveByLocale($locale)
+    {
+        return $this->nutritionist->where(['active' => 1, 'locale' => $locale])->orderBy('created_at', 'DESC')->get();
+    }
+
 }
