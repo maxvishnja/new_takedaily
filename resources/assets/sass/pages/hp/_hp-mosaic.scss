@@ -53,8 +53,7 @@
     @include breakpoint(phone) {
       background: url('/images/home/enjoy1.jpg') no-repeat;
       min-height: 170px;
-      background-size: cover;
-      background-position: 50% 75%;
+      background-position: 70% 64%;
     }
   }
   #media2 {
@@ -63,8 +62,7 @@
     @include breakpoint(phone) {
       background: url('/images/home/enjoy2.jpg') no-repeat;
       min-height: 170px;
-      background-size: cover;
-      background-position: 50% 59%;
+      background-position: 100% 51%;
     }
   }
   &__item__content {
