@@ -76,6 +76,8 @@ class Kernel extends ConsoleKernel
 		$schedule->command('healthmail:send')
 			     ->dailyAt('13:00');
 
+        $schedule->command('coupon:change')->cron('0 0 */14 * *');
+
         $schedule->command('api:add')
                     ->dailyAt('02:00');
 

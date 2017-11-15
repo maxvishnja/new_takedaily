@@ -11,7 +11,7 @@ class OrderSentEMail implements ShouldQueue
     /**
      * Create the event listener.
      */
-    
+
     use InteractsWithQueue;
 
     public function __construct()
