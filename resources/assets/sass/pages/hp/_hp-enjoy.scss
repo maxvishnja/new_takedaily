@@ -59,6 +59,9 @@
     @include breakpoint(phone) {
       width: 85%;
     }
+    @include breakpoint(phoneLandscape) {
+      padding-top: 25px;
+    }
     @include breakpoint(overPhone) {
       width: 75.5%;
     }

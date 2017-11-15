@@ -7,7 +7,7 @@
 
   &__media {
     width: 100%;
-    height: 600px;
+    min-height: 60rem;
     background: url("/images/home/hero.jpg");
     background-size: cover;
     background-position: 50%;
@@ -15,18 +15,30 @@
       width: 100%;
       height: 550px;
       background: url("/images/home/mobile-hero.jpg");
-      background-position: 50%;
+      background-position: 55%;
+      background-size: cover;
+    }
+    @include breakpoint(phoneLandscape) {
+      width: 100%;
+      height: 400px;
+      background: url("/images/home/hero.jpg");
+      background-position: 56%;
       background-size: cover;
     }
   }
   &__content {
       top: 48% !important;
       left: 51% !important;
+      max-width: 71rem;
     @include absolute(center);
     padding: 0 7%;
     @include breakpoint(phone) {
       width: 100%;
       top: 48%;
+    }
+    @include breakpoint(phoneLandscape) {
+      top: 48% !important;
+      left: 51% !important;
     }
     @include breakpoint(overPhone) {
       padding: 0 5%;
@@ -100,10 +112,11 @@
   &__play__txt {
     @include breakpoint(overPhone) {
       display: inline-block;
-      vertical-align: -0.6rem;
+      vertical-align: -0.9rem;
       width: 50%;
       text-align: left;
       padding-left: 2%;
+      line-height: 1.4rem;
     }
   }
 }
