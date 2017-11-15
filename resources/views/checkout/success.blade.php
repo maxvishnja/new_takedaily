@@ -140,6 +140,24 @@
             'orderId': '{{$order_id}}'
 
             });
+
+        dataLayer.push({
+            'event': 'transCompleted’,
+            'transactionId': '{{$order_id}}',
+            'transactionAffiliation': 'TakeDaily',
+            'transactionTotal': {{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }},
+            'transactionTax':{{ Auth::user()->getCustomer()->getPlan()->getPrice()/100 }},
+            'transactionShipping': {{ Auth::user()->getCustomer()->getPlan()->getShippingPrice()/100 }},
+            'transactionProducts': [{
+                'sku': '1',
+                'name': 'Subscription',
+                'category': 'Subscription',
+                'price': {{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }},
+                'quantity': 1
+            }]
+        });
+
+
         @endif
         @if(\Cookie::get('utm_source')!=null)
 
