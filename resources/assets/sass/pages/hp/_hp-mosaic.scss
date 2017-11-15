@@ -55,6 +55,11 @@
       min-height: 170px;
       background-position: 70% 64%;
     }
+    @include breakpoint(phoneLandscape) {
+      background: url('/images/home/enjoy1.jpg') no-repeat;
+      background-size: cover;
+      background-position: 50% 60%;
+    }
   }
   #media2 {
     background: url('/images/home/enjoy2.jpg') no-repeat;
@@ -63,6 +68,11 @@
       background: url('/images/home/enjoy2.jpg') no-repeat;
       min-height: 170px;
       background-position: 100% 51%;
+    }
+    @include breakpoint(phoneLandscape) {
+      background: url('/images/home/enjoy2.jpg') no-repeat;
+      background-size: cover;
+      background-position: 50% 51%;
     }
   }
   &__item__content {
