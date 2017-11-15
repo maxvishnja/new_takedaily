@@ -58,6 +58,7 @@
     float: left;
     @include breakpoint(phone) {
       width: 85%;
+      padding-top: 5px;
     }
     @include breakpoint(phoneLandscape) {
       padding-top: 25px;

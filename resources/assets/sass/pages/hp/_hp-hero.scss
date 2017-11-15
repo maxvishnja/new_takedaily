@@ -51,11 +51,13 @@
     @include font-size(24px, 38px);
     @include line-height(29px, 47px);
     margin-bottom: .8rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   &__intro {
     @include font-size(14px, 14px);
     @include line-height(18px, 18px);
     margin-bottom: 1.3rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     @include breakpoint(overPhone) {
       max-width: 69%;
       @include center-block;
@@ -110,6 +112,7 @@
     @include absolute(center);
   }
   &__play__txt {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     @include breakpoint(overPhone) {
       display: inline-block;
       vertical-align: -0.9rem;
