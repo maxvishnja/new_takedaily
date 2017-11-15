@@ -116,32 +116,14 @@
         <!-- Mosaic -->
         <section class="hp-mosaic l">
             <article class="hp-mosaic__item">
-                <div class="hp-mosaic__item__media">
-                    <picture>
-                        <!-- Desk && Tab img -->
-                        <source srcset="/images/home/desktop-pills2.jpg" media="(min-width: 768px)">
-                        <!-- Mob img -->
-                        <img srcset="/images/home/desktop-pills2.jpg"
-                             alt=""
-                             class="hp-mosaic__item__img">
-                    </picture>
-                </div>
+                <div class="hp-mosaic__item__media" id="media1"></div>
                 <div class="hp-mosaic__item__content">
                     <h3 class="hp-mosaic__item__title">{{ trans('home.mosaic.block1_h3') }}</h3>
                     <p class="hp-mosaic__item__intro">{!!  trans('home.mosaic.block1_txt') !!}</p>
                 </div>
             </article>
             <article class="hp-mosaic__item">
-                <div class="hp-mosaic__item__media">
-                    <picture>
-                        <!-- Desk && Tab img -->
-                        <source srcset="/images/home/desktop-pills1.jpg" media="(min-width: 768px)">
-                        <!-- Mob img -->
-                        <img srcset="/images/home/desktop-pills1.jpg"
-                             alt=""
-                             class="hp-mosaic__item__img">
-                    </picture>
-                </div>
+                <div class="hp-mosaic__item__media" id="media2"></div>
                 <div class="hp-mosaic__item__content">
                     <h3 class="hp-mosaic__item__title">{{ trans('home.mosaic.block2_h3') }}</h3>
                     <p class="hp-mosaic__item__intro">{!!  trans('home.mosaic.block2_txt') !!}</p>
@@ -152,7 +134,7 @@
         <!-- Enjoy -->
         <section class="hp-enjoy l">
             <div class="hp-enjoy__body">
-                <h2 class="hp-enjoy__title">Til glæde for dig</h2>
+                <h2 class="hp-enjoy__title">{{ trans('home.enjoy.title') }}</h2>
                 <section class="hp-enjoy__list">
                     <article class="hp-enjoy__item">
                         <img src="/images/enjoy/chat.png" alt="" class="hp-enjoy__item__img">
@@ -178,9 +160,9 @@
         <section class="hp-packaging">
             <div class="hp-packaging__body l">
                 <div class="hp-packaging__content">
-                    <h2 class="hp-packaging__title">Kender du dit vitamin behov?</h2>
-                    <p class="hp-packaging__intro">- Så kan du nemt og enkelt sammensætte din egen pakke</p>
-                    <a href="" class="hp-btn">Vælg selv dine vitaminer</a>
+                    <h2 class="hp-packaging__title">{{ trans('home.packaging.title') }}</h2>
+                    <p class="hp-packaging__intro">{{ trans('home.packaging.intro') }}</p>
+                    <a href="" class="hp-btn">{{ trans('home.packaging.btn') }}</a>
                 </div>
                 <div class="hp-packaging__media">
                     <img src="/images/home/product.png" alt="">
