@@ -28,6 +28,10 @@
   &__list {
     @include clearfix;
   }
+  .flex {
+    display: flex;
+    justify-content: center;
+  }
   &__item {
     @include breakpoint(phone) {
       @include clearfix;
