@@ -8,7 +8,7 @@
         <section class="hp-hero">
             <div class="hp-hero__media"></div>
             <div class="l">
-                <div class="hp-hero__content">
+                <div class="hp-hero__content @if(App::getLocale() == 'nl') {{ 'm-w-nl' }} @endif">
                     <h1 class="hp-hero__title">{!! trans('home.header.title-1') !!}</h1>
                     <p class="hp-hero__intro">{!! trans('home.header.intro') !!}</p>
                     <a href="/flow" class="hp-btn blk-bg">{!! trans('home.header.button-test') !!}</a>

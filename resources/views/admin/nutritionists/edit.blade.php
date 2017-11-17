@@ -126,7 +126,8 @@
         boundary: {
             width: 300,
             height: 300
-        }
+        },
+        enforceBoundy: false
     });
 
     $('#upload').on('change', function () { readFile(this); });

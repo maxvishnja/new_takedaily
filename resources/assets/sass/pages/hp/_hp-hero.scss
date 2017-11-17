@@ -47,6 +47,9 @@
       width: 80%;
     }
   }
+  .m-w-nl {
+    max-width: 80rem !important;
+  }
   &__title {
     @include font-size(24px, 38px);
     @include line-height(29px, 47px);

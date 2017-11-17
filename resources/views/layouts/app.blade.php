@@ -72,37 +72,10 @@
         </div>
 
         <!-- Navigation -->
-        <nav class="c-nav-header">
-            <ul class="c-nav-header__list">
-                <li class="c-nav-header__item">
-                    <a href="/how-it-works" class="c-nav-header__link">Sådan virker det</a>
-                </li>
-                <li class="c-nav-header__item">
-                    <a href="/gifting" class="c-nav-header__link">Gavekort</a>
-                </li>
-                <li class="c-nav-header__item">
-                    <a href="" class="c-nav-header__link">Vitaminer</a>
-                </li>
-                @if(App::getLocale() == 'da')
-                    <li class="c-nav-header__item">
-                        <a href="https://takedaily.dk/blog" class="c-nav-header__link">Blog</a>
-                    </li>
-                @endif
-                <li class="c-nav-header__item c-nav-header__item--log">
-                    @if(Auth::user() && Auth::user()->isAdmin())
-                        <a href="/dashboard" class="c-nav-header__link">Dashboard </a>
-                    @else
-                        <a href="/account" class="c-nav-header__link">Log ind </a>
-                    @endif
-                </li>
-            </ul>
-
-            <!-- Close -->
-            <div class="c-nav-header__close c-nav-header__trigger"></div>
-        </nav>
+        @include('includes.app.nav')
 
         <!-- Button -->
-        <a href="/flow" class="hp-btn">Tag testen</a>
+        <a href="/flow" class="hp-btn">{{ trans('home.take-test') }}</a>
 
         <!-- Hamb -->
         <div class="b-header__hamb c-nav-header__trigger">

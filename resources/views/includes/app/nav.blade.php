@@ -1,21 +1,26 @@
-<!-- Navigation -->
 <nav class="c-nav-header">
 	<ul class="c-nav-header__list">
-		@foreach(\App\Apricot\Helpers\NavGenerator::generate(App::getLocale()) as $item)
-			<li
-					@if(URL::getRequest()->path() === $item['link']) class="cta" @endif>
-				<a href="/{{ $item['link'] }}">{{ $item['text'] }}</a>
-			</li>
-		@endforeach
+		<li class="c-nav-header__item">
+			<a href="/how-it-works" class="c-nav-header__link">{{ trans('nav.how-it-works') }}</a>
+		</li>
+		<li class="c-nav-header__item">
+			<a href="/gifting" class="c-nav-header__link">{{ trans('nav.gifting') }}</a>
+		</li>
+		<li class="c-nav-header__item">
+			<a href="" class="c-nav-header__link">{{ trans('nav.vitamins') }}</a>
+		</li>
 		@if(App::getLocale() == 'da')
-			<li><a href="https://takedaily.dk/blog">Blog</a></li>
+			<li class="c-nav-header__item">
+				<a href="https://takedaily.dk/blog" class="c-nav-header__link">Blog</a>
+			</li>
 		@endif
-		@if(Auth::guest() || Auth::user()->isUser())
-			<li><a href="/account">{{ trans('nav.account.profile') }}</a></li>
-		@endif
-		@if( Auth::user() && Auth::user()->isAdmin() )
-			<li><a href="/dashboard"><strong>Dashboard</strong></a></li>
-		@endif
+		<li class="c-nav-header__item c-nav-header__item--log">
+			@if(Auth::user() && Auth::user()->isAdmin())
+				<a href="/dashboard" class="c-nav-header__link">Dashboard </a>
+			@else
+				<a href="/account" class="c-nav-header__link">{{ trans('nav.account') }}</a>
+			@endif
+		</li>
 	</ul>
 
 	<!-- Close -->
