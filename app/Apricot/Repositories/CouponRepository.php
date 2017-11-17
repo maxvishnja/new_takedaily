@@ -35,7 +35,7 @@ class CouponRepository
 
     public function AutomaticDK()
     {
-        return Coupon::orderBy( 'created_at', 'DESC' )->where( 'automatic', 1 )->where('currency', 'DKK')->get();
+        return Coupon::orderBy( 'created_at', 'DESC' )->where( 'automatic', 1 )->where()->get();
     }
 
 	public function findByCoupon( $coupon )
