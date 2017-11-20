@@ -27,7 +27,7 @@ class StatsController extends Controller
     function index()
     {
         $active_user = $this->repo->allActive();
-        $active_coupon = Coupon::orderBy( 'created_at', 'DESC' )->where( 'valid_to', '>=', date( 'Y-m-d' ) )->where('description','!=','Upsell discount')->get();
+        $active_coupon = Coupon::orderBy( 'created_at', 'DESC' )->where('description','!=','Upsell discount')->get();
 
         return view('admin.stats.home', [
             'active_user' => $active_user,
