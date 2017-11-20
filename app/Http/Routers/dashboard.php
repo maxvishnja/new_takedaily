@@ -25,6 +25,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 
 		$salesYear     = $orderRepo->getMonthlySales();
 		$orderYear     = $orderRepo->getMonthlyOrder();
+		$orderMoneyYear     = $orderRepo->getMonthlyMoneyOrder();
 		$customersYear = $customerRepo->getMonthlyNew();
 		$customersDay = $customerRepo->getDailyNew();
 		$customersUnsub = $customerRepo->getDailyUnsub();
@@ -48,7 +49,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 			->where( 'currency', 'EUR' )
 			->sum( 'total' ) ?: 0;
 
-		$money_today = $money_today_nl + $money_today_dk/7.5;
+		$money_today = $money_today_nl + $money_today_dk/7.45;
 		return view( 'admin.home', [
 			'orders_today'    => $orderRepo->getToday()
 			                               ->count() ?: 0,
@@ -59,6 +60,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 			'money_today'     => $money_today,
 			'sales_year'      => $salesYear ?: [],
 			'orderYear'      => $orderYear ?: [],
+			'orderMoneyYear'      => $orderMoneyYear ?: [],
 			'customers_year'  => $customersYear ?: [],
 			'customers_day'  => $customersDay ?: [],
 			'customers_unsub'  => $customersUnsub ?: [],
