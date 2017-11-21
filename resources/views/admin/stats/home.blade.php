@@ -194,9 +194,14 @@
                                 <td class="visib">
 
                                     <select name="coupon" id="input_state" >
+                                        <option value="" ><b>---Active coupon---</b></option>
                                         <option value="1">Free order</option>
                                         @foreach ($active_coupon as $coupon)
                                             <option value="{{$coupon->code}}">{{$coupon->code}}</option>
+                                        @endforeach
+                                        <option value="" ><b>---Inactive coupon---</b></option>
+                                        @foreach ($inactive_coupon as $incoupon)
+                                            <option value="{{$incoupon->code}}">{{$incoupon->code}}</option>
                                         @endforeach
                                     </select>
                                 </td>
