@@ -345,9 +345,10 @@ class CheckoutCompletion
 			$fromEmail = 'info@takedaily.dk';
 		}
 
+        \App::setLocale( $locale );
+
 		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName, $locale, $fromEmail )
 		{
-			\App::setLocale( $locale );
 
 			$message->from( $fromEmail, 'TakeDaily' );
 			$message->to( $mailEmail, $mailName );
