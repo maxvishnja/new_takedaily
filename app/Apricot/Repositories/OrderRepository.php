@@ -96,7 +96,7 @@ class OrderRepository
         return Order::selectRaw("YEAR(created_at) as year, MONTH(created_at) as month, COUNT(DISTINCT id) as total")
             ->groupBy(\DB::raw("YEAR(created_at), MONTH(created_at)"))
             ->whereNull('repeat')
-            ->where('total','!=', 0)
+            ->where('total','>', 0)
             ->get();
     }
 
