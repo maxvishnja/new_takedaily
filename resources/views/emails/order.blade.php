@@ -1,3 +1,4 @@
+<?php App::setLocale($locale);?>
 @extends('layouts.mail')
 
 @section('title', trans('mails.order.title'))

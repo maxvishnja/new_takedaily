@@ -420,6 +420,8 @@ class Plan extends Model
         $mailName = $customer->getUser()->getName();
 
         \Mail::queue('emails.cancel', ['locale' => $customer->getLocale(), 'reason' => $reason, 'name' => $customer->getFirstname()], function (Message $message) use ($mailEmail, $mailName, $customer, $fromEmail) {
+
+
             $message->from($fromEmail, 'TakeDaily')
                 ->to($mailEmail, $mailName)
                 ->subject(trans('mails.cancel.subject'));

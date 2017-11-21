@@ -1,3 +1,4 @@
+<?php App::setLocale($locale);?>
 @extends('layouts.mail')
 
 @section('title', str_replace('{name}', $name, nl2br(trans('mails.cancel.title'))))
