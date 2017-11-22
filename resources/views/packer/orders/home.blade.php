@@ -114,6 +114,7 @@
 
         $('.get-all-barcode-dk').on('click', function (e) {
             e.preventDefault();
+            $('.get-all-barcode-dk').hide();
             $.ajax({
                 type: 'POST',
                 headers: {
