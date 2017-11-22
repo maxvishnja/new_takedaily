@@ -79,7 +79,7 @@
                                         <option value="1">Active cusomers with time</option>
                                         <option value="6">New customers with time</option>
                                         {{--<option value="2">All unsubscribe with time</option>--}}
-                                        {{--<option value="3">Unsubscribe with other reason</option>--}}
+                                        <option value="3">Unsubscribe with other reason</option>
                                         {{--<option value="5">Unsubscribe from dashboard</option>--}}
                                         {{--<option value="4">Client for X amount of weeks</option>--}}
                                     </select>
@@ -514,7 +514,11 @@
                         allowPointSelect: true,
                         cursor: 'pointer',
                         dataLabels: {
-                            enabled: false
+                            enabled: true,
+                            format: '<b>{point.percentage:.1f} %</b>',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
                         },
                         showInLegend: true
                     }
