@@ -2,38 +2,38 @@
 
 return [
     'links' => [
-        'vitamins'    => 'Tag vitamintesten',
-        'about'       => 'Om TakeDaily',
+        'vitamins'    => 'Doe onze vitamine test',
+        'about'       => 'Over TakeDaily',
         'FAQ'         => 'FAQ',
-        'conditions'  => 'Handelsbetingelser',
+        'conditions'  => 'Algemene voorwaarden',
     ],
 
     'copyright' => '© 2017 TakeDaily.',
 
     'column1' => [
-        'contact' => 'KONTAKT OS',
-        'call'    => 'Du kan ringe til os alle hverdage fra 9-17.',
+        'contact' => 'CONTACTEER ONS',
+        'call'    => 'U kunt ons elke werkdag bellen van 9-17.',
         'phone'   => '+45 70 60 50 15',
-        'email'   => 'info@takedaily.dk'
+        'email'   => 'info@takedaily.nl'
     ],
 
     'column2' => [
-        'general' => 'GENERELLE OPLYSNINGER',
+        'general' => 'ALGEMENE INFORMATIE',
         'company' => 'Take Daily ApS CVR. nr. 37360813',
         'address' => 'Danneskiold-Samsøes Allé 24, 1. <br>1434 København K',
-        'email'   => 'email: info@takedaily.dk',
+        'email'   => 'email: info@takedaily.nl',
         'phone'   => 'Telefon: 70605015'
     ],
 
     'column3' => [
-        'subscribe'         => 'TILMELD NYHEDSBREV',
-        'email_placeholder' => 'indtast email-adresse',
+        'subscribe'         => 'MELD NIEUWSBRIEF AAN',
+        'email_placeholder' => 'voer het e-mailadres in',
         'subscribe_btn'     => 'Tilmeld'
     ],
 
     'column4' => [
-        'follow'    => 'FØLG OS HER',
-        'instagram' => 'https://www.instagram.com/takedaily_dk/',
-        'facebook'  => 'https://www.facebook.com/takedaily.dk'
+        'follow'    => 'VOLG ONS HIER',
+        'instagram' => 'https://www.instagram.com/takedaily_nl/',
+        'facebook'  => 'https://www.facebook.com/takedaily.nl'
     ]
 ];
