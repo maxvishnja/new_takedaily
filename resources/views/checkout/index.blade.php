@@ -906,8 +906,12 @@
 
 	</script>
 
+	@if(Config::get('app.debug') == 0)
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPa4ebv6W_V4vFmD4CLd5MkLW1tXFWrk&libraries=places&callback=initAutocomplete" async defer></script>
 
+	@else
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMjNmcrNKsKPb3kfsJHhgDgr_PrnBtW9Y&libraries=places&callback=initAutocomplete" async defer></script>
+	@endif
 @endsection
 
 @section('tracking-scripts')
