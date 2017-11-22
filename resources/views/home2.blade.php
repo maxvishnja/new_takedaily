@@ -13,8 +13,8 @@
                     <p class="hp-hero__intro">{!! trans('home.header.intro') !!}</p>
                     <a href="/flow" class="hp-btn blk-bg">{!! trans('home.header.button-test') !!}</a>
                     <div class="hp-hero__play">
-                        <a href="">
-                            <div class="hp-hero__play__btn video_circle_content">
+                        <a href="#">
+                            <div class="hp-hero__play__btn" id="video-toggle">
                                 <div class="hp-hero__play__btn__icon"></div>
                             </div>
                         </a>
@@ -244,6 +244,7 @@
     var videoPopup = $("#video_popup");
     var videoPopupContent = $("#video_popup-content");
     $("#video-toggle, #video-toggle-two").click(function (e) {
+        e.preventDefault();
         videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
             '<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
             '<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +

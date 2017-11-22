@@ -190,7 +190,7 @@ Dat is ook waarom onze vitamines, mineralen en visoliecapsules volledig vrij zij
     ],
 
     'nutritionists' => [
-        'title'         => 'Spørg vores ernæringseksperter',
+        'title'         => 'Vraag het onze diëtisten',
         'intro'         => '',
     ]
 
