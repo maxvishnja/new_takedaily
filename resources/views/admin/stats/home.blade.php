@@ -79,7 +79,7 @@
                                         <option value="1">Active cusomers with time</option>
                                         <option value="6">New customers with time</option>
                                         {{--<option value="2">All unsubscribe with time</option>--}}
-                                        {{--<option value="3">Unsubscribe with other reason</option>--}}
+                                        <option value="3">Unsubscribe with other reason</option>
                                         {{--<option value="5">Unsubscribe from dashboard</option>--}}
                                         {{--<option value="4">Client for X amount of weeks</option>--}}
                                     </select>
@@ -194,9 +194,14 @@
                                 <td class="visib">
 
                                     <select name="coupon" id="input_state" >
+                                        <option value="" ><b>---Active coupon---</b></option>
                                         <option value="1">Free order</option>
                                         @foreach ($active_coupon as $coupon)
                                             <option value="{{$coupon->code}}">{{$coupon->code}}</option>
+                                        @endforeach
+                                        <option value="" ><b>---Inactive coupon---</b></option>
+                                        @foreach ($inactive_coupon as $incoupon)
+                                            <option value="{{$incoupon->code}}">{{$incoupon->code}}</option>
                                         @endforeach
                                     </select>
                                 </td>
@@ -509,7 +514,11 @@
                         allowPointSelect: true,
                         cursor: 'pointer',
                         dataLabels: {
-                            enabled: false
+                            enabled: true,
+                            format: '<b>{point.percentage:.1f} %</b>',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                            }
                         },
                         showInLegend: true
                     }

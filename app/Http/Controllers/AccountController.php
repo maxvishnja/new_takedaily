@@ -290,7 +290,7 @@ class AccountController extends Controller
             $fromEmail = 'info@takedaily.dk';
         }
 
-        \Mail::queue('emails.snoozing', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
+        \Mail::send('emails.snoozing', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
             \App::setLocale($locale);
             $message->from($fromEmail, 'TakeDaily');
             $message->to($mailEmail, $mailName);
@@ -391,7 +391,8 @@ class AccountController extends Controller
         if (is_null($request->get('coupon')) || $request->get('coupon') == '') {
             return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
         }
-        $coupon = $couponRepository->findByCoupon($request->get('coupon'));
+        $coupon = $couponRepository->findByCouponForSecond($request->get('coupon'));
+
         if (!$coupon) {
             \Session::forget('applied_coupon');
             return \Response::json(['message' => trans('checkout.messages.no-such-coupon')], 400);
@@ -442,7 +443,7 @@ class AccountController extends Controller
             $mailName = 'TakeDaily';
             $locale = \App::getLocale();
 
-            \Mail::queue('emails.shared', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
+            \Mail::send('emails.shared', $data, function ($message) use ($mailEmail, $mailName, $locale, $fromEmail) {
                 \App::setLocale($locale);
                 $message->from($fromEmail, 'TakeDaily');
                 $message->to($mailEmail, $mailName);
@@ -453,6 +454,7 @@ class AccountController extends Controller
 
 
     }
+
 
 
 }

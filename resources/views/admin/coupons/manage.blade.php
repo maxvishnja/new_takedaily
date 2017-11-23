@@ -61,6 +61,41 @@
 						</select>
 					</div>
 				</div>
+				<div class="control-group">
+					<label for="page_title" class="control-label">For existing customers too</label>
+					<div class="controls">
+						<select name="for_second" id="input_state">
+							@foreach([0 => 'No', 1=>'Yes' ] as $key=> $value)
+								<option @if(isset($coupon) && $coupon->for_second == $key) selected   @endif value="{{$key }}">{{ $value }}</option>
+							@endforeach
+						</select>
+					</div>
+				</div>
+
+
+				<div class="control-group">
+					<label for="page_title" class="control-label">Automatic voucher</label>
+					<div class="controls">
+						<select name="automatic" id="automatic" onchange="if( $('#automatic').val() == 1 ) { $('#automatic_id').show() } else { $('#automatic_id').hide() }">
+							@foreach([0 => 'No', 1=>'Yes' ] as $key=> $value)
+								<option @if(isset($coupon) && $coupon->automatic == $key) selected   @endif value="{{$key }}">{{ $value }}</option>
+							@endforeach
+						</select>
+					</div>
+				</div>
+
+
+				<div class="control-group" id="automatic_id"  @if(isset($coupon) && $coupon->automatic == 0) style="display: none" @endif>
+					<label for="discount" class="control-label">What the automatic coupon</label>
+					<div class="controls">
+						<select name="automatic_id" >
+							@foreach(['50first' => '50% off first order', '100first' =>'100% off first order', '20sub' => '20% discount off subscription' ] as $key=> $value)
+								<option @if(isset($coupon) && $coupon->automatic_id == $key) selected   @endif value="{{$key }}">{{ $value }}</option>
+							@endforeach
+						</select>
+					</div>
+				</div>
+
 
 
 				<div class="control-group" id="discount_element">

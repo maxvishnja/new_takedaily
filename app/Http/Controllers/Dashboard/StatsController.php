@@ -27,11 +27,14 @@ class StatsController extends Controller
     function index()
     {
         $active_user = $this->repo->allActive();
-        $active_coupon = Coupon::orderBy( 'created_at', 'DESC' )->where( 'valid_to', '>=', date( 'Y-m-d' ) )->where('description','!=','Upsell discount')->get();
+        $active_coupon = Coupon::orderBy( 'code', 'ASC' )->where( 'valid_to', '>=', date( 'Y-m-d' ) )->where('description','!=','Upsell discount')->get();
+        $inactive_coupon = Coupon::orderBy( 'code', 'ASC' )->where( 'valid_to', '<', date( 'Y-m-d' ) )->where('description','!=','Upsell discount')->get();
+
 
         return view('admin.stats.home', [
             'active_user' => $active_user,
             'active_coupon' => $active_coupon,
+            'inactive_coupon' => $inactive_coupon,
         ]);
     }
 
@@ -487,14 +490,11 @@ class StatsController extends Controller
                         ) {
                             $email_array[$i]['First Name'] = $plan->customer->getFirstName();
                             $email_array[$i]['Last Name'] = $plan->customer->getLastName();
-                            $email_array[$i]['Phone'] = $plan->customer->getPhone();
-                            if($plan->snoozing_at) {
-                                $email_array[$i]['Sent postponing mail'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->snoozing_at)->format('j. M Y');
-                            } else{
-                                $email_array[$i]['Sent postponing mail'] = 'No data';
-                            }
-                            $email_array[$i]['Cancel date'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->subscription_cancelled_at)->format('j. M Y');
                             $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                            $email_array[$i]['Phone'] = $plan->customer->getPhone();
+
+                            $email_array[$i]['Cancel date'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->subscription_cancelled_at)->format('j. M Y');
+
                             $email_array[$i]['Age'] = $plan->customer->getAge();
                             $email_array[$i]['Supplements'] = '';
                             if($plan->getVitamiPlan()){
@@ -508,7 +508,7 @@ class StatsController extends Controller
                         }
                     }
                     if(isset($email_array)) {
-                        \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
+                        \Excel::create('reason_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
 
                             $excel->sheet('Unsubscribed users', function ($sheet) use ($email_array) {
 

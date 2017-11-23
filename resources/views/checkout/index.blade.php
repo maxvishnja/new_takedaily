@@ -218,7 +218,7 @@
 											</label>
 										<input type="text" class="input input--medium input--semibold input--full"
 											   id="autocomplete" placeholder=""
-											    onFocus="geolocate()"
+
 											   value=""/>
 									</div>
 								</div>
@@ -254,7 +254,7 @@
 											<label class="label label--full checkout--label" for="input_info_address_city">{{ trans('checkout.index.order.info.address.zipcode') }}
 												<span class="required">*</span></label>
 											<input class="input input_info_address_zip input--medium input--semibold input--full @if($errors->has('address_zip')) input--error @endif"
-												   id="postal_code"  data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
+												   id="postal_code"   data-validate="true" placeholder="{{ trans('checkout.index.order.info.address.zipcode-placeholder') }}"
 												   name="address_zip" required="required" aria-required="true" @if(App::getLocale() != 'nl') type="number" data-pattern="[0-9]{4}" data-validation="number"  maxlength="4" minlength="4"  @else type="text" @endif
 												   value="{{ Request::old('address_zip', (Auth::user() && Auth::user()->isUser() ? Auth::user()->getCustomer()->getCustomerAttribute('address_postal') : '')) }}"/>
 										</div>
@@ -865,6 +865,10 @@
             postal_code: 'short_name'
         };
 
+//        for (var component in componentForm) {
+//            document.getElementById(component).disabled = true;
+//        }
+
         function initAutocomplete() {
             // Create the autocomplete object, restricting the search to geographical
             // location types.
@@ -875,6 +879,7 @@
             // When the user selects an address from the dropdown, populate the address
             // fields in the form.
             autocomplete.addListener('place_changed', fillInAddress);
+
         }
 
         function fillInAddress() {
@@ -895,29 +900,18 @@
                     document.getElementById(addressType).value = val;
                 }
             }
+            //$('#postal_code').attr('readonly','readonly');
+
         }
 
-        // Bias the autocomplete object to the user's geographical location,
-        // as supplied by the browser's 'navigator.geolocation' object.
-        function geolocate() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var geolocation = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    var circle = new google.maps.Circle({
-                        center: geolocation,
-                        radius: position.coords.accuracy
-                    });
-                    autocomplete.setBounds(circle.getBounds());
-                });
-            }
-        }
 	</script>
 
+	@if(Config::get('app.debug') == 0)
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLPa4ebv6W_V4vFmD4CLd5MkLW1tXFWrk&libraries=places&callback=initAutocomplete" async defer></script>
 
+	@else
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMjNmcrNKsKPb3kfsJHhgDgr_PrnBtW9Y&libraries=places&callback=initAutocomplete" async defer></script>
+	@endif
 @endsection
 
 @section('tracking-scripts')

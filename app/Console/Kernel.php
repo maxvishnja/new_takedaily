@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\ChangeAutomaticCoupon;
 use App\Console\Commands\ClearOldCarts;
 use App\Console\Commands\ClearSnoozing;
 use App\Console\Commands\ClearOldSavedFlows;
@@ -48,6 +49,7 @@ class Kernel extends ConsoleKernel
 		UpdateUserMail::class,
 		DebugCommand::class,
 		AddCustomersToApi::class,
+		ChangeAutomaticCoupon::class,
 	];
 
 	/**
@@ -73,6 +75,11 @@ class Kernel extends ConsoleKernel
 
 		$schedule->command('healthmail:send')
 			     ->dailyAt('13:00');
+
+        $schedule->command('coupon:change')->cron('0 0 */14 * *');
+
+        $schedule->command('api:add')
+                    ->dailyAt('02:00');
 
 		$schedule->command('check:ambassador')
 			     ->dailyAt('09:00');

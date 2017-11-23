@@ -3,12 +3,17 @@
 namespace App\Listeners;
 
 use App\Events\SentMail;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class OrderSentEMail
+class OrderSentEMail implements ShouldQueue
 {
     /**
      * Create the event listener.
      */
+
+    use InteractsWithQueue;
+
     public function __construct()
     {
         //
@@ -25,8 +30,6 @@ class OrderSentEMail
     {
 
         try {
-
-
 
             $order = $event->order;
             $order->sendEmail($event->status );

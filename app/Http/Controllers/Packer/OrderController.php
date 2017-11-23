@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
 use Jenssegers\Date\Date;
+use App\Jobs\SentNewMail;
 
 class OrderController extends Controller
 {
@@ -103,6 +104,7 @@ class OrderController extends Controller
 		{
 
 			$order->markSent();
+           // $this->dispatch(new SentNewMail($order, 'sent'));
 		}
 
 		return \Redirect::back()->with('success', 'Done!');
@@ -119,6 +121,9 @@ class OrderController extends Controller
 
 
 		$order->markSent();
+
+
+       // $this->dispatch(new SentNewMail($order, 'sent'));
 
 		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The order was marked as sent!' );
 	}
@@ -160,6 +165,7 @@ class OrderController extends Controller
 		foreach ( $orders as $order )
 		{
 			$order->markPrint();
+            //$this->dispatch(new SentNewMail($order, 'print'));
 
 			$printables[] = [
 				'label'   => $order->loadLabel(),
@@ -178,6 +184,7 @@ class OrderController extends Controller
 		foreach ( Order::whereIn( 'id', $ids )->get() as $order )
 		{
 			$order->markSent();
+            //$this->dispatch(new SentNewMail($order, 'sent'));
 		}
 	}
 
@@ -214,6 +221,7 @@ class OrderController extends Controller
             $date = Date::now()->addDay()->format('Y-m-d');
 
             $client = new Client();
+
             $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&dato='.$date.'&format=json');
 
             $response = json_decode($res->getBody());
@@ -242,6 +250,7 @@ class OrderController extends Controller
 
         $order =  Order::where( 'id', $data )->first();
 
+        if($order->barcode == ''){
 
 
 
@@ -285,7 +294,7 @@ class OrderController extends Controller
                     ]);
                 }
 
-
+        }
 
 //        }
 

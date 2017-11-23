@@ -81,6 +81,13 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		Route::get( 'orders/down-receipt/{id}', 'RecieptController@downloadReciept' );
 
 
+
+
+		Route::get( 'winback/{hash}', 'ReactivateController@indexReactivate' );
+		Route::post( 'winback/reactivate', 'ReactivateController@getReactivate' )->name( 'reactivate' );
+		Route::post( 'winback/apply-coupon', 'ReactivateController@applyCoupon' );
+
+
 		/*
 		 * Pick n mix
 		 */

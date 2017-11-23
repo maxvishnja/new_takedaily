@@ -46,7 +46,13 @@ class AddCustomersToApi extends Command
 
         $almosts = $repo->getAlmostCustomer();
 
-        $listid = 4859;
+
+        echo "All - ".count($customers)." - ";
+
+        echo "Almost - ".count($almosts);
+
+
+        $listid = 4988;
 
         $add_to_autoresponders = true;
         $skip_listcheck = true;
@@ -88,6 +94,14 @@ class AddCustomersToApi extends Command
                 $active = "Active";
             } else {
                 $active = "Not active";
+            }
+
+
+            if($customer->getLocale() == "nl")
+            {
+                $country = 'NLD';
+            }      else{
+                $country = 'DNK';
             }
 
             $unsubscribe = '';
@@ -206,7 +220,7 @@ class AddCustomersToApi extends Command
                     'value'  =>  $campaign),
                 array (
                     'fieldid'  => 11,
-                    'value'  =>  $customer->getCustomerAttribute('address_country')),
+                    'value'  =>  $country),
                 array (
                     'fieldid'  => 2669,
                     'value'  =>  $active),
@@ -285,19 +299,22 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2692,
                     'value'  =>  $choice),
+             array (
+                 'fieldid'  => 2825,
+                    'value'  =>  $customer->id),
             );
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
-            echo $customer->id;
-                print_r ($result);
+
                if(!is_array($result) and strstr($result,"Already subscribed to the list")){
 
                    $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
-                   $subscriberid = $subscriber[1][0]['subscriberid'];
+                    print_r ($subscriber);
+                   if(is_array($subscriber[1])){
+                       $subscriberid = $subscriber[1][0]['subscriberid'];
 
-                   $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
-
-
+                       $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
+                   }
 
                }
 
@@ -313,9 +330,9 @@ class AddCustomersToApi extends Command
 
             if($almost->location == "nl")
             {
-                $country = 'netherlands';
+                $country = 'NLD';
             }      else{
-                $country = 'denmark';
+                $country = 'DNK';
             }
 
             $flowCompletion = \App\FlowCompletion::whereToken( $almost->token )->first();
@@ -376,6 +393,12 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2682,
                     'value'  =>  $link),
+                array (
+                    'fieldid'  => 2825,
+                    'value'  =>  $almost->id),
+                array (
+                    'fieldid'  => 2669,
+                    'value'  =>  'Almost'),
 
             );
 
@@ -385,12 +408,13 @@ class AddCustomersToApi extends Command
             if(!is_array($result) and strstr($result,"Already subscribed to the list")){
 
                 $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
-                $subscriberid = $subscriber[1][0]['subscriberid'];
+                if(is_array($subscriber[1])) {
+                    $subscriberid = $subscriber[1][0]['subscriberid'];
 
-                $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
+                    $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
 
 
-
+                }
             }
 
         }

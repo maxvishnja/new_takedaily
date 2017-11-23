@@ -141,6 +141,48 @@ class OrderController extends Controller
 		return \Redirect::action('Dashboard\OrderController@index')->with('success', 'Ordren blev slettet!');
 	}
 
+    function createCsv(){
+
+        $opens = $this->repo->getOpenOrder()->get();
+
+            if(count($opens) > 0){
+                $email_array = [];
+                $i = 0;
+                foreach ($opens as $order) {
+
+                    $email_array[$i]['Email Address'] = $order->customer->getEmail();
+                    $email_array[$i]['First Name'] = $order->customer->getFirstName();
+
+                    if($order->customer->getLocale() == 'da'){
+                        $country = 'Denmark';
+                    } else{
+                        $country = 'Netherlands';
+                    }
+
+                    $email_array[$i]['Country'] = $country;
+                    $i++;
+
+
+                }
+
+
+                \Excel::create('open_orders', function ($excel) use ($email_array) {
+
+                    $excel->sheet('All open orders', function ($sheet) use ($email_array) {
+
+                        $sheet->fromArray($email_array, null, 'A1', true);
+
+                    });
+
+                })->download('xls');
+                return \Redirect::back();
+        }
+
+    }
+
+
+
+
 
 
 

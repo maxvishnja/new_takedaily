@@ -325,7 +325,7 @@ class CheckoutCompletion
 	{
 		$mailEmail = $this->getUser()->getEmail();
 		$mailName  = $this->getUser()->getName();
-		$locale    = \App::getLocale();
+		$locale    = $this->getUser()->getCustomer()->getLocale();
 
 		$data = [
 			'password'      => $password,
@@ -345,9 +345,11 @@ class CheckoutCompletion
 			$fromEmail = 'info@takedaily.dk';
 		}
 
+        \App::setLocale( $locale );
+
 		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName, $locale, $fromEmail )
 		{
-			\App::setLocale( $locale );
+
 			$message->from( $fromEmail, 'TakeDaily' );
 			$message->to( $mailEmail, $mailName );
 			$message->subject( trans( 'checkout.mail.subject' ) );

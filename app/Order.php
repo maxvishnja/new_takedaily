@@ -8,6 +8,7 @@ use Stripe\Refund;
 use Stripe\Stripe;
 use App\Events\SentMail;
 
+
 /**
  * App\Order
  *
@@ -212,7 +213,7 @@ class Order extends Model
 
             $locale = \App::getLocale();
 
-            \Event::fire(new SentMail($this, 'print'));
+            //+\Event::fire(new SentMail($this, 'print'));
 
 			\App::setLocale($locale);
 
@@ -242,9 +243,8 @@ class Order extends Model
 
             $locale = \App::getLocale();
 
+
             \Event::fire(new SentMail($this, 'sent'));
-
-
 
             \App::setLocale($locale);
 
@@ -257,6 +257,7 @@ class Order extends Model
 
 	public function sendEmail($status){
 
+        \Log::info('Start event '.$status);
 
 	    $locale = $this->customer->getLocale();
         $receiverName  = $this->customer->getName();
@@ -279,9 +280,9 @@ class Order extends Model
         }
 
         try {
-            \Mail::queue( $template, [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail, $trans )
+            \Mail::send( $template, [ 'locale' => $this->customer->getLocale(), 'name' => $this->customer->getFirstname() ], function ($message ) use ( $receiverName, $receiverEmail, $fromEmail, $trans, $status )
 
-            {
+            {   \Log::info('Mail sent with status '.$status.' '.$trans. ' to '.$receiverEmail);
                 $message->from( $fromEmail, 'TakeDaily' );
                 $message->to( $receiverEmail, $receiverName );
                 $message->subject( $trans );

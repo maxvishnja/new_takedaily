@@ -51,6 +51,9 @@ class Coupon extends Model
 		'applies_to',
 		'discount_type',
 		'currency',
+		'for_second',
+		'automatic',
+		'automatic_id',
 		'uses_left',
 		'valid_from',
 		'valid_to'

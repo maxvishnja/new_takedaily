@@ -26,13 +26,13 @@ class CustomerRepository
 
 	public function allActive()
 	{
-		return Plan::whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->count();
+		return Plan::whereNull('subscription_cancelled_at')->whereNotNull('subscription_started_at')->count();
 	}
 
 
 	public function allActiveLocale($locale)
 	{
-		return Plan::where('currency','like', $locale)->whereNull('subscription_cancelled_at')->whereNotNull('subscription_rebill_at')->whereNull('deleted_at')->count();
+		return Plan::where('currency','like', $locale)->whereNull('subscription_cancelled_at')->whereNotNull('subscription_started_at')->whereNull('deleted_at')->count();
 	}
 
     public function allActiveLocaleTime($locale, $start, $end)
@@ -43,7 +43,7 @@ class CustomerRepository
                 $query->whereNull( 'subscription_cancelled_at' )
                     ->orWhereDate( 'subscription_cancelled_at', '>', $end );
             } )
-            ->whereNotNull('subscription_rebill_at')
+            ->whereNotNull('subscription_started_at')
             ->whereNull('deleted_at');
     }
 
@@ -123,17 +123,17 @@ class CustomerRepository
     public static function getMonthlyFinish($year, $month)
     {
 
-        return Plan::whereNotNull('subscription_rebill_at')
+
+        return Plan::whereDate('created_at', '<', $year)
 
             ->where( function ( $query ) use ( $year )
             {
                 $query->whereNull('subscription_cancelled_at')
                     ->orWhereDate( 'subscription_cancelled_at', '>', $year );
             } )
-
-
-            ->whereDate('created_at', '<', $year)
+            ->whereNotNull('subscription_started_at')
             ->count();
+
     }
 
 
