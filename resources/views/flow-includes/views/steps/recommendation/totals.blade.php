@@ -45,7 +45,7 @@
 				{{--<a href="#coupon-field"--}}
 				{{--id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>--}}
 				{{--</div>--}}
-
+				@if(!Auth::check() )
 				<div id="coupon-field"  class="m-t-20">
 					<div class="row">
 						<div class="col-md-8">
@@ -65,6 +65,7 @@
 					<div id="coupon-form-successes" class="m-t-10"></div>
 					<div id="coupon-form-errors" class="m-t-10"></div>
 				</div>
+			@endif
 			@endif
 			<button type="submit" onclick="updateNewVitamin();" class="button @if(!Auth::check() ) button--green @else  button--light  @endif button--huge button--full-mobile m-t-10">{{ trans('flow.button-order-text') }}</button>
 
