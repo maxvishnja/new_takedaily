@@ -13,7 +13,7 @@
 			<h1>{{ trans('how-works.page_title') }}</h1>
 
 			<div class="row cont__pos">
-				<div class="col-md-6 col-md-push-3 text-left desc__txt">
+				<div class="col-md-6 col-md-push-3 text-left">
 					{{--<h2>{!! trans('how-works.subtitle') !!}</h2>--}}
 					<div class="headervideo-block text-center">
 						<div class="video_circle" id="video-toggle">
@@ -120,7 +120,7 @@
 		}
 
 		section {
-			padding: 80px 0;
+			padding: 60px 0;
 		}
 
 		section.mid {
