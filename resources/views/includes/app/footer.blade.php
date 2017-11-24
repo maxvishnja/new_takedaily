@@ -1,98 +1,90 @@
-<footer class="b-footer">
-    <div class="l">
-        <div class="b-footer__top">
-            <!-- Lang -->
-            <span class="b-footer__lang">
-                <div class="b-footer__lang__flag flag-{{App::getLocale()}}"></div>
-                <span class="b-footer__lang__arrow"></span>
-                <span class="b-footer__lang__dropdown hidden">
-                    @foreach(config('app.locales') as $locale)
-                        @if(App::getLocale() != $locale['code'])
-                            <a rel="alternate" hreflang="{{ $locale['code'] }}"
-                               href="{{ \App\Apricot\Helpers\DomainHelper::convertTldTo($locale['tld']) }}">
-                                <span class="b-footer__lang__flag flag-{{ $locale['code'] }}"></span>
-                            </a>
-                        @endif
-                    @endforeach
-                </span>
-            </span>
-            <!-- Footer Navigation -->
-            <nav class="c-nav-footer">
-                <ul class="c-nav-footer__list">
-                    <li class="c-nav-footer__item">
-                        <a href="/page/a-zink" class="c-nav-footer__link">{{ trans('footer2.links.vitamins') }}</a>
-                    </li>
-                    <li class="c-nav-footer__item">
-                        <a href="/about-us" class="c-nav-footer__link">{{ trans('footer2.links.about') }}</a>
-                    </li>
-                    <li class="c-nav-footer__item">
-                        <a href="/faq" class="c-nav-footer__link">{{ trans('footer2.links.faq') }}</a>
-                    </li>
-                    <li class="c-nav-footer__item">
-                        <a href="/page/terms" class="c-nav-footer__link">{{ trans('footer2.links.conditions') }}</a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- Copy && Payment -->
-            <div class="b-footer__top__right">
-                <div class="b-footer__payment">
-                    <span class="b-footer__payment__card icon-card-mastercard"></span>
-                    <span class="b-footer__payment__card icon-card-visa"></span>
-                    <span class="b-footer__payment__card icon-card-dk"></span>
+<div class="clear"></div>
+
+<footer>
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer_column footer_column--newsletters text-center">
+                    <h3 class="footer_title">{{ trans('footer.columns.one.title') }}</h3>
+                    <form method="post" action="https://client3.mailmailmail.net/form.php?form=656" id="frmSS656"
+                          onsubmit="return CheckForm656(this);" class="m-t-20 m-b-10">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <input type="email" name="email" id="input_newsletters_email"
+                                       placeholder="{{ trans('footer.columns.one.input-placeholder') }}"
+                                       class="input input--regular input--full input--plain"/>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="submit" class="button button--regular button--full button--green"
+                                        style="padding-left: 0; padding-right: 0;">{{ trans('footer.columns.one.button-text') }}</button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                    </form>
+
+
+
+
                 </div>
-                <p class="b-footer__copy">{{ trans('footer2.copyright') }}</p>
-            </div>
-        </div>
-        <div class="b-footer__bottom">
-            <div class="b-footer__col">
-                <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">{{ trans('footer2.column1.contact') }}</h4>
-                    <p class="b-footer__info__txt">{{ trans('footer2.column1.call') }}</p>
-                    <p class="b-footer__info__txt">
-                        {{ trans('footer2.column1.phone') }}
-                        <br>
-                        {{ trans('footer2.column1.email') }}
-                    </p>
+                <div class="col-md-4 footer_column text-center">
+                    <h3 class="footer_title">{{ trans('footer.columns.two.title') }}</h3>
+                    @if(trans('footer.social.facebook') != '')
+                        <a href="{{ trans('footer.social.facebook') }}" rel="nofollow" target="_blank"><span
+                                    class="icon icon-facebook v-a-m m-r-10"></span></a>
+                    @endif
+                    @if(trans('footer.social.instagram') != '')
+                        <a href="{{ trans('footer.social.instagram') }}" rel="nofollow" target="_blank"><span
+                                    class="icon icon-instagram v-a-m m-l-10"></span></a>
+                    @endif
                 </div>
-            </div>
-            <div class="b-footer__col">
-                <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">{{ trans('footer2.column2.general') }}</h4>
-                    <p class="b-footer__info__txt">{{ trans('footer2.column2.company') }}</p>
-                    <p class="b-footer__info__txt">
-                        {!! trans('footer2.column2.address') !!}
-                    </p>
-                    <p class="b-footer__info__txt">
-                        {{ trans('footer2.column2.email') }}
-                        <br>
-                        {{ trans('footer2.column2.phone') }}
-                    </p>
-                </div>
-            </div>
-            <div class="b-footer__col">
-                <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">{{ trans('footer2.column3.subscribe') }}</h4>
-                    <div class="c-newsletter">
-                        <form action="{{ url()->action('MailchimpEmailSignup@post') }}" method="post">
-                            <input type="email" name="email" id="input_newsletters_email" placeholder="{{ trans('footer2.column3.email_placeholder') }}">
-                            <button type="submit" class="hp-btn">{{ trans('footer2.column3.subscribe_btn') }}</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="b-footer__col b-footer__col--socials">
-                <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">{{ trans('footer2.column4.follow') }}</h4>
-                    <div class="b-footer__social">
-                        <div class="b-footer__social__item"><a href="{{ trans('footer2.column4.instagram') }}"><img src="/images/home/insta2.png" alt=""></a></div>
-                        <div class="b-footer__social__item"><a href="{{ trans('footer2.column4.facebook') }}"><img src="/images/home/facebook.png" alt=""></a></div>
+                <div class="col-md-4 footer_column text-center">
+                    <h3 class="footer_title">{{ trans('footer.columns.three.title') }}</h3>
+                    <p>{{ trans('footer.columns.three.text') }}</p>
+                    <div class="m-b-10 m-t-10">
+                        <p>
+                            {!! trans('footer.columns.three.info') !!}
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</footer>
 
+    <div class="bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-4">
+                    <span class="footer_bottom_copy">&copy; {{ date('Y') }} {{ trans('footer.copyright') }}.</span>
+
+                    <div class="visible-sm m-t-10"></div>
+                    @foreach(\App\Apricot\Helpers\PaymentMethods::getIconsForMethods(\App\Apricot\Helpers\PaymentMethods::getAcceptedMethodsForCountry(App::getLocale())) as $method)
+                        <span class="icon icon-card-{{ $method }} m-r-5 v-a-m" title="{{ ucfirst($method) }}"></span>
+                    @endforeach
+                </div>
+                <div class="col-lg-9 col-sm-8 text-right">
+                    <ul class="footer_bottom_links">
+                        <li class="input input--semibold input--transparent lang-selector-footer selector selector--up"
+                            style="border: none !important;"><span
+                                    class="icon v-a-m flag-{{ App::getLocale() }}"></span>
+                            <span class="icon icon-arrow-up-small v-a-m m-l-5"></span>
+                            <ul>
+                                @foreach(config('app.locales') as $locale)
+                                    <li>
+                                        <a rel="alternate" hreflang="{{ $locale['code'] }}"
+                                           href="{{ \App\Apricot\Helpers\DomainHelper::convertTldTo($locale['tld']) }}">
+                                            <span class="icon flag-{{ $locale['code'] }}"></span>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        {!! trans('footer.links') !!}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 @if(Auth::user() && Auth::user()->isUser() && Config::get('app.debug') == 1)
     @include('includes.modal')
 @endif
@@ -146,7 +138,25 @@
 <!--[if lt IE 9]>
 <script src="/js/placeholders.min.js"></script>
 <![endif]-->
+<script>
 
+
+    $(function () {
+        $('.kn_3').liKnopik();
+        $('.kn_2').liKnopik({
+            topPos: '50px',
+            sidePos: 'left',
+            startVisible: true
+        });
+        $('.kn_1').liKnopik({
+            topPos: '300px',
+            sidePos: 'right'
+        });
+
+
+
+    });
+</script>
 <script>
     $.ajaxSetup({
         headers: {
@@ -155,20 +165,7 @@
     });
 </script>
 
-<script>
-    $(document).ready(function () {
-        $('.b-footer__lang').mouseenter(function () {
-            console.log('works')
-            $('.b-footer__lang__dropdown').removeClass('hidden');
-        })
-        $('.b-footer__lang__dropdown').mouseleave(function () {
-            $('.b-footer__lang__dropdown').addClass('hidden');
-        })
-    })
-</script>
-
 @yield('footer_scripts')
-
 @if(Auth::user() && Auth::user()->isUser())
     <script>
         $(function () {
@@ -386,12 +383,57 @@
 
 <script>
 
+    $(window).scroll(function () {
+        var hgt = $('.header-nav').height();
+        var top = $(document).scrollTop();
+        if (top > 2) $(".header-nav").css({position: 'fixed'});
+        else $(".header-nav").css({position: 'relative'});
+    });
+
+    // <![CDATA[
+
+    function CheckMultiple656(frm, name) {
+        for (var i=0; i < frm.length; i++)
+        {
+            fldObj = frm.elements[i];
+            fldId = fldObj.id;
+            if (fldId) {
+                var fieldnamecheck=fldObj.id.indexOf(name);
+                if (fieldnamecheck != -1) {
+                    if (fldObj.checked) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+
+    function CheckForm656(f) {
+        var email_re = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i;
+        if (!email_re.test(f.email.value)) {
+            alert("Venligst indtaste din e-mail-adresse.:");
+            f.email.focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    // ]]>
+
+
+
+
+
     $("#mailchimp_signup").submit(function (e) {
         e.preventDefault();
 
         var $form = $(this);
 
         $.post($form.attr('action'), $form.serialize()).success(function (response) {
+
             swal({
                 title: "{{ trans('message.success-title') }}",
                 text: "{{ trans('mailchimp.thanks') }}",
@@ -417,6 +459,7 @@
     });
 </script>
 @if(App::environment() != 'local')
-
-    @yield('tracking-scripts')
+@yield('tracking-scripts')
 @endif
+</body>
+</html>
