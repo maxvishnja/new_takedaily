@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-md-4 footer_column footer_column--newsletters text-center">
                     <h3 class="footer_title">{{ trans('footer.columns.one.title') }}</h3>
-                    <form method="post" action="https://client3.mailmailmail.net/form.php?form=656" id="frmSS656"
-                          onsubmit="return CheckForm656(this);" class="m-t-20 m-b-10">
+                    <form method="post" action="{{ url()->action('MailchimpEmailSignup@post') }}" class="m-t-20 m-b-10"
+                          id="mailchimp_signup">
                         <div class="row">
                             <div class="col-sm-8">
                                 <input type="email" name="email" id="input_newsletters_email"
@@ -390,38 +390,7 @@
             else $(".header-nav").css({position: 'relative'});
         });
 
-        // <![CDATA[
 
-        function CheckMultiple656(frm, name) {
-            for (var i=0; i < frm.length; i++)
-            {
-                fldObj = frm.elements[i];
-                fldId = fldObj.id;
-                if (fldId) {
-                    var fieldnamecheck=fldObj.id.indexOf(name);
-                    if (fieldnamecheck != -1) {
-                        if (fldObj.checked) {
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
-
-        function CheckForm656(f) {
-            var email_re = /[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/i;
-            if (!email_re.test(f.email.value)) {
-                alert("Venligst indtaste din e-mail-adresse.:");
-                f.email.focus();
-                return false;
-            }
-
-            return true;
-        }
-
-        // ]]>
 
 
 
@@ -433,7 +402,7 @@
             var $form = $(this);
 
             $.post($form.attr('action'), $form.serialize()).success(function (response) {
-
+                console.log(response);
                 swal({
                     title: "{{ trans('message.success-title') }}",
                     text: "{{ trans('mailchimp.thanks') }}",
