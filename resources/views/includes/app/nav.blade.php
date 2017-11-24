@@ -1,13 +1,13 @@
 <nav class="c-nav-header">
 	<ul class="c-nav-header__list">
 		<li class="c-nav-header__item">
-			<a href="/how-it-works" class="c-nav-header__link">{{ trans('nav.how-it-works') }}</a>
+			<a href="/how-it-works" class="c-nav-header__link">{{ trans('nav2.how-it-works') }}</a>
 		</li>
 		<li class="c-nav-header__item">
-			<a href="/gifting" class="c-nav-header__link">{{ trans('nav.gifting') }}</a>
+			<a href="/gifting" class="c-nav-header__link">{{ trans('nav2.gifting') }}</a>
 		</li>
 		<li class="c-nav-header__item">
-			<a href="" class="c-nav-header__link">{{ trans('nav.vitamins') }}</a>
+			<a href="" class="c-nav-header__link">{{ trans('nav2.vitamins') }}</a>
 		</li>
 		@if(App::getLocale() == 'da')
 			<li class="c-nav-header__item">
@@ -18,7 +18,7 @@
 			@if(Auth::user() && Auth::user()->isAdmin())
 				<a href="/dashboard" class="c-nav-header__link">Dashboard </a>
 			@else
-				<a href="/account" class="c-nav-header__link">{{ trans('nav.account') }}</a>
+				<a href="/account" class="c-nav-header__link">{{ trans('nav2.account') }}</a>
 			@endif
 		</li>
 	</ul>

@@ -20,16 +20,16 @@
             <nav class="c-nav-footer">
                 <ul class="c-nav-footer__list">
                     <li class="c-nav-footer__item">
-                        <a href="/page/a-zink" class="c-nav-footer__link">{{ trans('footer.links.vitamins') }}</a>
+                        <a href="/page/a-zink" class="c-nav-footer__link">{{ trans('footer2.links.vitamins') }}</a>
                     </li>
                     <li class="c-nav-footer__item">
-                        <a href="/about-us" class="c-nav-footer__link">{{ trans('footer.links.about') }}</a>
+                        <a href="/about-us" class="c-nav-footer__link">{{ trans('footer2.links.about') }}</a>
                     </li>
                     <li class="c-nav-footer__item">
-                        <a href="/faq" class="c-nav-footer__link">{{ trans('footer.links.faq') }}</a>
+                        <a href="/faq" class="c-nav-footer__link">{{ trans('footer2.links.faq') }}</a>
                     </li>
                     <li class="c-nav-footer__item">
-                        <a href="/page/terms" class="c-nav-footer__link">{{ trans('footer.links.conditions') }}</a>
+                        <a href="/page/terms" class="c-nav-footer__link">{{ trans('footer2.links.conditions') }}</a>
                     </li>
                 </ul>
             </nav>
@@ -40,52 +40,52 @@
                     <span class="b-footer__payment__card icon-card-visa"></span>
                     <span class="b-footer__payment__card icon-card-dk"></span>
                 </div>
-                <p class="b-footer__copy">{{ trans('footer.copyright') }}</p>
+                <p class="b-footer__copy">{{ trans('footer2.copyright') }}</p>
             </div>
         </div>
         <div class="b-footer__bottom">
             <div class="b-footer__col">
                 <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">{{ trans('footer.column1.contact') }}</h4>
-                    <p class="b-footer__info__txt">{{ trans('footer.column1.call') }}</p>
+                    <h4 class="b-footer__info__title">{{ trans('footer2.column1.contact') }}</h4>
+                    <p class="b-footer__info__txt">{{ trans('footer2.column1.call') }}</p>
                     <p class="b-footer__info__txt">
-                        {{ trans('footer.column1.phone') }}
+                        {{ trans('footer2.column1.phone') }}
                         <br>
-                        {{ trans('footer.column1.email') }}
+                        {{ trans('footer2.column1.email') }}
                     </p>
                 </div>
             </div>
             <div class="b-footer__col">
                 <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">{{ trans('footer.column2.general') }}</h4>
-                    <p class="b-footer__info__txt">{{ trans('footer.column2.company') }}</p>
+                    <h4 class="b-footer__info__title">{{ trans('footer2.column2.general') }}</h4>
+                    <p class="b-footer__info__txt">{{ trans('footer2.column2.company') }}</p>
                     <p class="b-footer__info__txt">
-                        {!! trans('footer.column2.address') !!}
+                        {!! trans('footer2.column2.address') !!}
                     </p>
                     <p class="b-footer__info__txt">
-                        {{ trans('footer.column2.email') }}
+                        {{ trans('footer2.column2.email') }}
                         <br>
-                        {{ trans('footer.column2.phone') }}
+                        {{ trans('footer2.column2.phone') }}
                     </p>
                 </div>
             </div>
             <div class="b-footer__col">
                 <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">{{ trans('footer.column3.subscribe') }}</h4>
+                    <h4 class="b-footer__info__title">{{ trans('footer2.column3.subscribe') }}</h4>
                     <div class="c-newsletter">
                         <form action="{{ url()->action('MailchimpEmailSignup@post') }}" method="post">
-                            <input type="email" name="email" id="input_newsletters_email" placeholder="{{ trans('footer.column3.email_placeholder') }}">
-                            <button type="submit" class="hp-btn">{{ trans('footer.column3.subscribe_btn') }}</button>
+                            <input type="email" name="email" id="input_newsletters_email" placeholder="{{ trans('footer2.column3.email_placeholder') }}">
+                            <button type="submit" class="hp-btn">{{ trans('footer2.column3.subscribe_btn') }}</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="b-footer__col b-footer__col--socials">
                 <div class="b-footer__info">
-                    <h4 class="b-footer__info__title">{{ trans('footer.column4.follow') }}</h4>
+                    <h4 class="b-footer__info__title">{{ trans('footer2.column4.follow') }}</h4>
                     <div class="b-footer__social">
-                        <div class="b-footer__social__item"><a href="{{ trans('footer.column4.instagram') }}"><img src="/images/home/insta2.png" alt=""></a></div>
-                        <div class="b-footer__social__item"><a href="{{ trans('footer.column4.facebook') }}"><img src="/images/home/facebook.png" alt=""></a></div>
+                        <div class="b-footer__social__item"><a href="{{ trans('footer2.column4.instagram') }}"><img src="/images/home/insta2.png" alt=""></a></div>
+                        <div class="b-footer__social__item"><a href="{{ trans('footer2.column4.facebook') }}"><img src="/images/home/facebook.png" alt=""></a></div>
                     </div>
                 </div>
             </div>

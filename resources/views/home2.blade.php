@@ -9,16 +9,16 @@
             <div class="hp-hero__media"></div>
             <div class="l">
                 <div class="hp-hero__content @if(App::getLocale() == 'nl') {{ 'm-w-nl' }} @endif">
-                    <h1 class="hp-hero__title">{!! trans('home.header.title-1') !!}</h1>
-                    <p class="hp-hero__intro">{!! trans('home.header.intro') !!}</p>
-                    <a href="/flow" class="hp-btn blk-bg">{!! trans('home.header.button-test') !!}</a>
+                    <h1 class="hp-hero__title">{!! trans('home2.header.title-1') !!}</h1>
+                    <p class="hp-hero__intro">{!! trans('home2.header.intro') !!}</p>
+                    <a href="/flow" class="hp-btn blk-bg">{!! trans('home2.header.button-test') !!}</a>
                     <div class="hp-hero__play">
                         <a href="#">
                             <div class="hp-hero__play__btn" id="video-toggle">
                                 <div class="hp-hero__play__btn__icon"></div>
                             </div>
                         </a>
-                        <span class="hp-hero__play__txt">{!! trans('home.header.play-text') !!}</span>
+                        <span class="hp-hero__play__txt">{!! trans('home2.header.play-text') !!}</span>
                     </div>
                 </div>
             </div>
@@ -26,31 +26,31 @@
 
         <!-- Choose -->
         <section class="hp-choose l">
-            <h2 class="hp-choose__title">{{ trans('home.choose.title') }}</h2>
+            <h2 class="hp-choose__title">{{ trans('home2.choose.title') }}</h2>
             <section class="hp-choose__list">
                 <article class="hp-choose__item">
                     <img
                         src="/images/home/oval.png"
                         alt=""
                         class="hp-choose__item__img">
-                    <h4 class="hp-choose__item__title">{{ trans('home.choose.block1-title') }}</h4>
-                    <p class="hp-choose__item__intro">{{ trans('home.choose.block1-text') }}</p>
+                    <h4 class="hp-choose__item__title">{{ trans('home2.choose.block1-title') }}</h4>
+                    <p class="hp-choose__item__intro">{{ trans('home2.choose.block1-text') }}</p>
                 </article>
                 <article class="hp-choose__item">
                     <img
                         src="/images/home/oval2.png"
                         alt=""
                         class="hp-choose__item__img">
-                    <h4 class="hp-choose__item__title">{{ trans('home.choose.block2-title') }}</h4>
-                    <p class="hp-choose__item__intro">{{ trans('home.choose.block2-text')  }}</p>
+                    <h4 class="hp-choose__item__title">{{ trans('home2.choose.block2-title') }}</h4>
+                    <p class="hp-choose__item__intro">{{ trans('home2.choose.block2-text')  }}</p>
                 </article>
                 <article class="hp-choose__item">
                     <img
                         src="/images/home/oval3.png"
                         alt=""
                         class="hp-choose__item__img">
-                    <h4 class="hp-choose__item__title">{{ trans('home.choose.block3-title') }}</h4>
-                    <p class="hp-choose__item__intro">{{ trans('home.choose.block3-text')  }}</p>
+                    <h4 class="hp-choose__item__title">{{ trans('home2.choose.block3-title') }}</h4>
+                    <p class="hp-choose__item__intro">{{ trans('home2.choose.block3-text')  }}</p>
                 </article>
             </section>
         </section>
@@ -58,7 +58,7 @@
         <!-- Reviews -->
         <section class="hp-members l">
             <div class="hp-members__body">
-                <h2 class="hp-members__title">{{ trans('home.reviews.title') }}</h2>
+                <h2 class="hp-members__title">{{ trans('home2.reviews.title') }}</h2>
                 <section class="hp-members__list">
                     @foreach($reviews as $review)
                         <article class="hp-members__item">
@@ -75,40 +75,40 @@
 
         <!-- Compromises -->
         <section class="hp-comp l">
-            <h3 class="hp-comp__title">{{ trans('home.compromises.title') }}</h3>
-            <p class="hp-comp__intro">{{ trans('home.compromises.subtitle') }}</p>
+            <h3 class="hp-comp__title">{{ trans('home2.compromises.title') }}</h3>
+            <p class="hp-comp__intro">{{ trans('home2.compromises.subtitle') }}</p>
             <section class="hp-comp__list">
                 <article class="hp-comp__item">
                     <img src="/images/icons/plantbased.png" alt="" class="hp-comp__item__img">
-                    <p class="hp-comp__item__title">{!! trans('home.compromises.icons.plantbased') !!}</p>
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.plantbased') !!}</p>
                 </article>
                 <article class="hp-comp__item">
                     <img src="/images/icons/ISO.png" alt="" class="hp-comp__item__img">
-                    <p class="hp-comp__item__title">{!! trans('home.compromises.icons.iso') !!}</p>
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.iso') !!}</p>
                 </article>
                 <article class="hp-comp__item">
                     <img src="/images/icons/nordic.png" alt="" class="hp-comp__item__img">
-                    <p class="hp-comp__item__title">{!! trans('home.compromises.icons.nordic') !!}</p>
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.nordic') !!}</p>
                 </article>
                 <article class="hp-comp__item">
                     <img src="/images/icons/fos.png" alt="" class="hp-comp__item__img">
-                    <p class="hp-comp__item__title">{!! trans('home.compromises.icons.fos') !!}</p>
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.fos') !!}</p>
                 </article>
                 <article class="hp-comp__item">
                     <img src="/images/icons/glutenfree.png" alt="" class="hp-comp__item__img">
-                    <p class="hp-comp__item__title">{!! trans('home.compromises.icons.glutenfree') !!}</p>
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.glutenfree') !!}</p>
                 </article>
                 <article class="hp-comp__item">
                     <img src="/images/icons/lactosefree.png" alt="" class="hp-comp__item__img">
-                    <p class="hp-comp__item__title">{!! trans('home.compromises.icons.laktosefri') !!}</p>
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.laktosefri') !!}</p>
                 </article>
                 <article class="hp-comp__item">
                     <img src="/images/icons/allergyfree.png" alt="" class="hp-comp__item__img">
-                    <p class="hp-comp__item__title">{!! trans('home.compromises.icons.allergifri') !!}</p>
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.allergifri') !!}</p>
                 </article>
                 <article class="hp-comp__item">
                     <img src="/images/icons/gmo.png" alt="" class="hp-comp__item__img">
-                    <p class="hp-comp__item__title">{!! trans('home.compromises.icons.gmo') !!}</p>
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.gmo') !!}</p>
                 </article>
             </section>
         </section>
@@ -118,15 +118,15 @@
             <article class="hp-mosaic__item">
                 <div class="hp-mosaic__item__media" id="media1"></div>
                 <div class="hp-mosaic__item__content">
-                    <h3 class="hp-mosaic__item__title">{{ trans('home.mosaic.block1_h3') }}</h3>
-                    <p class="hp-mosaic__item__intro">{!!  trans('home.mosaic.block1_txt') !!}</p>
+                    <h3 class="hp-mosaic__item__title">{{ trans('home2.mosaic.block1_h3') }}</h3>
+                    <p class="hp-mosaic__item__intro">{!!  trans('home2.mosaic.block1_txt') !!}</p>
                 </div>
             </article>
             <article class="hp-mosaic__item">
                 <div class="hp-mosaic__item__media" id="media2"></div>
                 <div class="hp-mosaic__item__content">
-                    <h3 class="hp-mosaic__item__title">{{ trans('home.mosaic.block2_h3') }}</h3>
-                    <p class="hp-mosaic__item__intro">{!!  trans('home.mosaic.block2_txt') !!}</p>
+                    <h3 class="hp-mosaic__item__title">{{ trans('home2.mosaic.block2_h3') }}</h3>
+                    <p class="hp-mosaic__item__intro">{!!  trans('home2.mosaic.block2_txt') !!}</p>
                 </div>
             </article>
         </section>
@@ -134,23 +134,23 @@
         <!-- Enjoy -->
         <section class="hp-enjoy l">
             <div class="hp-enjoy__body">
-                <h2 class="hp-enjoy__title">{{ trans('home.enjoy.title') }}</h2>
+                <h2 class="hp-enjoy__title">{{ trans('home2.enjoy.title') }}</h2>
                 <section class="hp-enjoy__list">
                     <article class="hp-enjoy__item">
                         <img src="/images/enjoy/chat.png" alt="" class="hp-enjoy__item__img">
-                        <p class="hp-enjoy__item__intro">{!! trans('home.enjoy.p1') !!}</p>
+                        <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p1') !!}</p>
                     </article>
                     <article class="hp-enjoy__item">
                         <img src="/images/enjoy/salad.png" alt="" class="hp-enjoy__item__img">
-                        <p class="hp-enjoy__item__intro">{!! trans('home.enjoy.p2') !!}</p>
+                        <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p2') !!}</p>
                     </article>
                     <article class="hp-enjoy__item">
                         <img src="/images/enjoy/factory.png" alt="" class="hp-enjoy__item__img">
-                        <p class="hp-enjoy__item__intro">{!! trans('home.enjoy.p3') !!}</p>
+                        <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p3') !!}</p>
                     </article>
                     <article class="hp-enjoy__item">
                         <img src="/images/enjoy/connection-chart.png" alt="" class="hp-enjoy__item__img">
-                        <p class="hp-enjoy__item__intro">{!! trans('home.enjoy.p4') !!}</p>
+                        <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p4') !!}</p>
                     </article>
                 </section>
             </div>
@@ -160,9 +160,9 @@
         <section class="hp-packaging">
             <div class="hp-packaging__body l">
                 <div class="hp-packaging__content">
-                    <h2 class="hp-packaging__title">{{ trans('home.packaging.title') }}</h2>
-                    <p class="hp-packaging__intro">{{ trans('home.packaging.intro') }}</p>
-                    <a href="" class="hp-btn">{{ trans('home.packaging.btn') }}</a>
+                    <h2 class="hp-packaging__title">{{ trans('home2.packaging.title') }}</h2>
+                    <p class="hp-packaging__intro">{{ trans('home2.packaging.intro') }}</p>
+                    <a href="" class="hp-btn">{{ trans('home2.packaging.btn') }}</a>
                 </div>
                 <div class="hp-packaging__media">
                     <img src="/images/home/product.png" alt="">
@@ -173,8 +173,8 @@
         <!-- Nutritionists -->
         @if($nutritionists)
         <section class="hp-nutr l">
-            <h2 class="hp-nutr__title">{{ trans('home.nutritionists.title') }}</h2>
-            <p class="hp-nutr__intro">{{ trans('home.nutritionists.intro') }}</p>
+            <h2 class="hp-nutr__title">{{ trans('home2.nutritionists.title') }}</h2>
+            <p class="hp-nutr__intro">{{ trans('home2.nutritionists.intro') }}</p>
             <section class="hp-nutr__list @if(count($nutritionists) < 3) {{ 'flex' }} @endif">
                 @foreach($nutritionists as $nutri)
                     <article class="hp-nutr__item">

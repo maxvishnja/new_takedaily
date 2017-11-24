@@ -7,6 +7,7 @@
 @section('title', trans('flow.title'))
 
 @section('content')
+<main>
 	@include('flow-includes.views.noscript')
 
 	<div id="app" class="flow-container">
@@ -37,6 +38,7 @@
 	</div>
 
 	{{--@include('flow-includes.views.call-me')--}}
+</main>
 @endsection
 
 @section('footer_scripts')
