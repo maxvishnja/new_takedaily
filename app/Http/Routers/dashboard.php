@@ -107,6 +107,9 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::resource( 'page-translations', 'Dashboard\PageTranslationController' );
 	Route::get( 'page-translations/{id}/delete', 'Dashboard\PageTranslationController@delete' );
 
+	// Stock Inventory
+	Route::get('stock', 'Stock\StockController@index');
+
 	Route::resource( 'faq', 'Dashboard\FaqController' );
 	Route::get( 'payments-error', 'Dashboard\PaymentsErrorController@index' );
 	Route::get( 'payments-error/check/{id}', 'Dashboard\PaymentsErrorController@check' );
