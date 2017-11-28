@@ -29,7 +29,7 @@ class CreateCsvAllCustomers
 
             \App::setLocale($customer->getLocale());
 
-                \Log::info('Number_'.$i);
+
 
                 $email_array[$i]['Email'] = $customer->getEmail();
                 $email_array[$i]['Firstname'] = $customer->getFirstName();
@@ -123,7 +123,8 @@ class CreateCsvAllCustomers
 
 
         }
-
+        \Log::info('Succes create CSV '.$lang);
+        
         \Excel::create('all_active_mails_'.$lang, function ($excel) use ($email_array) {
 
             $excel->sheet('All users', function ($sheet) use ($email_array) {
