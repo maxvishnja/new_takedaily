@@ -3,6 +3,7 @@
 use App\Customer;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
+use App\MailStat;
 use App\Nutritionist;
 use App\Setting;
 use App\User;
@@ -346,6 +347,18 @@ class CheckoutCompletion
 		}
 
         \App::setLocale( $locale );
+
+        $mailCount = new MailStat();
+
+		if ($this->getCheckout()->getProduct()->name != 'subscription'){
+
+            $mailCount->setMail(2);
+        } else {
+
+            $mailCount->setMail(1);
+        }
+
+
 
 		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName, $locale, $fromEmail )
 		{

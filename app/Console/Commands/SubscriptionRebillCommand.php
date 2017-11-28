@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
+use App\MailStat;
 use Illuminate\Console\Command;
 use Illuminate\Mail\Message;
 
@@ -61,6 +62,10 @@ class SubscriptionRebillCommand extends Command
 				/* @var $customer Customer */
 				if (!$customer->rebill()) {
 					$customer->getPlan()->moveRebill(1); // consider a max attempts limit
+
+                    $mailCount = new MailStat();
+
+                    $mailCount->setMail(3);
 
 					\Mail::send('emails.subscription-failed', ['locale' => $customer->getLocale(), 'name' => $customer->getFirstname()], function (Message $message) use ($mailEmail, $mailName, $fromEmail) {
 						$message->from($fromEmail, 'TakeDaily');
