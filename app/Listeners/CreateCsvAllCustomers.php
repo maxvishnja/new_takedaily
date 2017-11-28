@@ -29,13 +29,27 @@ class CreateCsvAllCustomers implements ShouldQueue
     public function handle(CreateAllCsv $event)
     {
 
-        \Log::info('Start all '.$event->lang);
-        $customers = $event->customers;
-        $lang = $event->lang;
 
-        \App\Apricot\Helpers\CreateCsvAllCustomers::storeAllCustomerToCsv($customers,$lang);
 
-        return false;
+
+
+
+        try {
+
+            \Log::info('Start all '.$event->lang);
+            $customers = $event->customers;
+
+            $lang = $event->lang;
+
+            \App\Apricot\Helpers\CreateCsvAllCustomers::storeAllCustomerToCsv($customers,$lang);
+
+        } catch (\Exception $exception) {
+
+            \Log::error($exception->getFile() . " on line " . $exception->getLine());
+
+            \Log::error($exception->getTraceAsString());
+
+        }
 
     }
 
