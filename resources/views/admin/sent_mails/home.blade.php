@@ -66,10 +66,14 @@ Highcharts.chart('pie-chart', {
         type: 'column'
     },
     title: {
-        text: 'Sent mails'
+        text: ''
     },
     xAxis: {
-        categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+        categories: [
+            @foreach(range(6,0) as $i)
+             '{{\App\Apricot\Helpers\SentMailHelper::getDate($i)}}',
+            @endforeach
+        ]
     },
     yAxis: {
         min: 0,
@@ -88,7 +92,7 @@ Highcharts.chart('pie-chart', {
         align: 'right',
         x: -30,
         verticalAlign: 'top',
-        y: 25,
+        y: 0,
         floating: true,
         backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
         borderColor: '#CCC',
@@ -109,14 +113,33 @@ Highcharts.chart('pie-chart', {
         }
     },
     series: [{
-        name: 'John',
-        data: [5, 3, 4, 7, 2]
+        name: 'Registration',
+        data: [
+            @foreach(range(6,0) as $i)
+            {{\App\Apricot\Helpers\SentMailHelper::getCountMail($i,1)}},
+            @endforeach
+        ]
     }, {
-        name: 'Jane',
-        data: [2, 2, 3, 2, 1]
+        name: 'Email with giftcard',
+        data: [
+            @foreach(range(6,0) as $i)
+            {{\App\Apricot\Helpers\SentMailHelper::getCountMail($i,2)}},
+            @endforeach
+        ]
     }, {
-        name: 'Joe',
-        data: [3, 4, 4, 2, 5]
+        name: 'Unsuccessful payment',
+        data: [
+            @foreach(range(6,0) as $i)
+            {{\App\Apricot\Helpers\SentMailHelper::getCountMail($i,3)}},
+            @endforeach
+        ]
+    }, {
+        name: 'Postpone mail',
+        data: [
+            @foreach(range(6,0) as $i)
+            {{\App\Apricot\Helpers\SentMailHelper::getCountMail($i,4)}},
+            @endforeach
+        ]
     }]
 });
 

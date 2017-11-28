@@ -112,6 +112,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'payments-error/check/{id}', 'Dashboard\PaymentsErrorController@check' );
 	Route::get( 'snoozing', 'Dashboard\SnoozingController@index' );
 	Route::get( 'sent-mails', 'Dashboard\SentMailsController@index' );
+	Route::get( 'sent-mails/get-date', 'Dashboard\SentMailsController@getDate' );
 	Route::get( 'stats', 'Dashboard\StatsController@index' );
 	Route::post('stats/post', ['as' => 'stats-post', 'uses' => 'Dashboard\StatsController@getData']);
     Route::post('stats/coupon-post', ['as' => 'coupon-post', 'uses' => 'Dashboard\StatsController@getStatsCustomersFromCoupon']);
