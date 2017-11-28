@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 use App\Events\CreateAllCsv;
+use App\Setting;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -29,19 +30,21 @@ class CreateCsvAllCustomers implements ShouldQueue
     public function handle(CreateAllCsv $event)
     {
 
-
-
-
-
-
         try {
 
-            \Log::info('Start all '.$event->lang);
-            $customers = $event->customers;
+            $stat_count = Setting::where('identifier','=','stat_'.$event->lang)->first();
 
-            $lang = $event->lang;
+            if ($stat_count->value == 1){
 
-            \App\Apricot\Helpers\CreateCsvAllCustomers::storeAllCustomerToCsv($customers,$lang);
+                \Log::info('Start all '.$event->lang);
+
+                $customers = $event->customers;
+
+                $lang = $event->lang;
+
+                \App\Apricot\Helpers\CreateCsvAllCustomers::storeAllCustomerToCsv($customers,$lang);
+            }
+
 
         } catch (\Exception $exception) {
 
