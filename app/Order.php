@@ -213,7 +213,7 @@ class Order extends Model
 
             $locale = \App::getLocale();
 
-            //+\Event::fire(new SentMail($this, 'print'));
+            //\Event::fire(new SentMail($this, 'print'));
 
 			\App::setLocale($locale);
 
@@ -244,7 +244,7 @@ class Order extends Model
             $locale = \App::getLocale();
 
 
-            \Event::fire(new SentMail($this, 'sent'));
+            //\Event::fire(new SentMail($this, 'sent'));
 
             \App::setLocale($locale);
 

@@ -29,7 +29,7 @@ class CreateCsvAllCustomers implements ShouldQueue
     public function handle(CreateAllCsv $event)
     {
 
-        \Log::info('Start');
+        \Log::info('Start all '.$event->lang);
         $customers = $event->customers;
         $lang = $event->lang;
 

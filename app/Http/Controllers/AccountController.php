@@ -2,6 +2,7 @@
 
 use App\Apricot\Libraries\PillLibrary;
 use App\Customer;
+use App\MailStat;
 use App\Nutritionist;
 use App\User;
 use App\Vitamin;
@@ -277,6 +278,11 @@ class AccountController extends Controller
         $this->customer->getPlan()->snooze($request->get('days'));
 
         \Log::info("Customer ID ".$this->customer->id." snoozed to " . $request->get('days'));
+
+
+        $mailCount = new MailStat();
+
+        $mailCount->setMail(4);
 
         $mailEmail = $this->customer->getUser()->getEmail();
         $mailName = $this->customer->getUser()->getName();

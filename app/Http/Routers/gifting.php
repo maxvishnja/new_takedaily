@@ -17,7 +17,7 @@ Route::post( 'buy-giftcard', function ( \Illuminate\Http\Request $request )
 	{
 		return redirect()->back()->withErrors( $validator->errors() );
 	}
-
+    \Auth::logout();
 	\Session::forget( 'applied_coupon' );
 	\Session::forget( 'user_data' );
 	\Session::forget( 'flow-completion-token' );

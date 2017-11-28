@@ -21,6 +21,10 @@
                         </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                     </form>
+
+
+
+
                 </div>
                 <div class="col-md-4 footer_column text-center">
                     <h3 class="footer_title">{{ trans('footer.columns.two.title') }}</h3>
@@ -386,12 +390,19 @@
             else $(".header-nav").css({position: 'relative'});
         });
 
+
+
+
+
+
+
         $("#mailchimp_signup").submit(function (e) {
             e.preventDefault();
 
             var $form = $(this);
 
             $.post($form.attr('action'), $form.serialize()).success(function (response) {
+                console.log(response);
                 swal({
                     title: "{{ trans('message.success-title') }}",
                     text: "{{ trans('mailchimp.thanks') }}",
@@ -417,7 +428,6 @@
         });
     </script>
     @if(App::environment() != 'local')
-
         @yield('tracking-scripts')
     @endif
     </body>
