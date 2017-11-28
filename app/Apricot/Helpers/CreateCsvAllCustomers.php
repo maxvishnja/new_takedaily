@@ -76,25 +76,25 @@ class CreateCsvAllCustomers
 
                 $email_array[$i]['Unsubscribe reason'] = '';
 
-                if ($customer->plan->unsubscribe_reason != '') {
-
-                    if (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.0'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.0';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.1'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.1';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.2'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.2';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.3'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.3';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.4'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.4';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.5'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.5';
-                    } else {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.other';
-                    }
-
-                }
+//                if ($customer->plan->unsubscribe_reason != '') {
+//
+//                    if (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.0'))) {
+//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.0';
+//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.1'))) {
+//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.1';
+//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.2'))) {
+//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.2';
+//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.3'))) {
+//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.3';
+//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.4'))) {
+//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.4';
+//                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.5'))) {
+//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.5';
+//                    } else {
+//                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.other';
+//                    }
+//
+//                }
 
                 $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
                 $email_array[$i]['Amount'] = $customer->order_count;
