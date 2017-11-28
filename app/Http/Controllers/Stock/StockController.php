@@ -30,7 +30,8 @@ class StockController extends Controller
         {
             return view('admin.stock.index');
         } 
-        elseif(Auth::user()->isPacker()) {
+        elseif(Auth::user()->isPacker()) 
+        {
             return view('packer.stock.index');
         }
     }
