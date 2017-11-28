@@ -90,4 +90,4 @@
 
 @yield('content')
 
-@include('includes.app.footer')
+@include('includes.app.footer2')
