@@ -11,6 +11,7 @@ use App\Events\CreateCsv;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Plan;
+use App\Setting;
 use Illuminate\Http\Request;
 
 
@@ -135,6 +136,12 @@ class StatsController extends Controller
 
         $customers = $this->repo->allLocale($data['lang']);
 
+
+        $stat_count = Setting::where('identifier','=','stat_'.$data['lang'])->first();
+        $stat_count->value = 1;
+
+        $stat_count->save();
+
         \Event::fire(new CreateAllCsv($customers, $data['lang']));
 
 
@@ -177,9 +184,17 @@ class StatsController extends Controller
 
         if(file_exists($filename)){
 
+
+            $stat_count = Setting::where('identifier','=','stat_'.$data['lang'])->first();
+            $stat_count->value = 0;
+
+            $stat_count->save();
+
             return \Response::download($filename)->deleteFileAfterSend(true);
 
         } else{
+
+
             return \Redirect::back()->withErrors("No file! Please create it");
 
         }
