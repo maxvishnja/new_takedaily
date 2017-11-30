@@ -42,5 +42,8 @@ Route::group( [ 'prefix' => 'packaging', 'middleware' => ['packer', 'setLocale']
 	// Stock inventory
 	Route::get('/stock', 'Stock\StockController@index');
 	Route::get('/stock/new', 'Stock\StockController@create');
+	Route::get('/stock/edit/{id}', 'Stock\StockController@edit');
+	Route::get('/stock/delete/{id}', 'Stock\StockController@delete');
 	Route::post('/stock', 'Stock\StockController@insert');
+
 } );

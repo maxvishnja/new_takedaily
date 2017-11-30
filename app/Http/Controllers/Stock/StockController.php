@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Stock;
 
 use Auth;
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
 use App\Apricot\Repositories\StockRepository;
 
@@ -20,7 +20,7 @@ class StockController extends ApiController
     }
 
     /**
-     * 
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function index()
     {
@@ -37,6 +37,9 @@ class StockController extends ApiController
         }
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         return view('packer.stock.new');
@@ -56,8 +59,15 @@ class StockController extends ApiController
         $item = $this->repo->create($data);
 
         if(!$item) {
-            return redirect()->back()->with('message', $this->respondInternalError());
+            return redirect()->back()->with('message-fail', $this->respondInternalError());
         }
-        return redirect()->back();
+
+        return redirect('/packaging/stock')->with('message-success', 'Inventory item created.');
+    }
+
+    public function edit($id)
+    {
+        $item = $this->repo->getItem($id);
+        return view('packer.stock.edit', compact('item'));
     }
 }

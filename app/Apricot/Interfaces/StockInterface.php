@@ -5,7 +5,13 @@ namespace App\Apricot\Interfaces;
 interface StockInterface
 {
     /**
-     * Get all stock items
+     * @return mixed
      */
     public function getAll();
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getItem($id);
 }

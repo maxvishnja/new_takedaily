@@ -18,11 +18,20 @@ class StockRepository implements StockInterface
     }
 
     /**
-     * 
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAll()
     {
         return $this->item->all();
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getItem($id)
+    {
+        return $this->item->find($id);
     }
 
     /**
@@ -32,6 +41,18 @@ class StockRepository implements StockInterface
     public function create(array $data)
     {
         $item = $this->fillItemObject($this->item, $data);
+        return ($item->save()) ? $item : false;
+    }
+
+    /**
+     * @param $itemId
+     * @param array $data
+     * @return bool|mixed
+     */
+    public function update($itemId, array $data)
+    {
+        $item = $this->item->find($itemId);
+        $item = $this->fillItemObject($item, $data);
         return ($item->save()) ? $item : false;
     }
 

@@ -2,6 +2,18 @@
 
 @section('content')
 
+	@if(Session::has('message-success'))
+		<div class="alert alert-success">
+			<strong>Success! {{Session::get('message-success')}}</strong>
+		</div>
+	@endif
+
+	@if(Session::has('message-fail'))
+		<div class="alert alert-danger">
+			<strong>Something went wrong! {{ Session::get('message-fail') }}</strong>
+		</div>
+	@endif
+
 	<div class="clear"></div>
 
 	<div class="module">
@@ -31,6 +43,8 @@
 						<th>Item no.</th>
 						<th>Requested Quantity</th>
 						<th>Current Quantity</th>
+						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 
@@ -41,12 +55,20 @@
 						<td>{{ $item->number }}</td>
 						<td>{{ $item->reqQty }}</td>
 						<td>{{ $item->qty }}</td>
+						<td><a href="/stock/edit/{{$item->id}}" class="btn btn-default">Edit</a></td>
+						<td><a href="/stock/delete/{{$item->id}}" class="btn btn-danger">X</a></td>
 					</tr>
 				@endforeach
 				</tbody>
-
-				
 			</table>
 		</div>
 	</div><!--/.module-->
 @stop
+
+@section('scripts')
+	<script>
+        $(document).ready(function () {
+            $('.alert').delay(3000).fadeOut();
+        })
+	</script>
+@endsection
