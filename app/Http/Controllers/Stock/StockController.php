@@ -65,9 +65,49 @@ class StockController extends ApiController
         return redirect('/packaging/stock')->with('message-success', 'Inventory item created.');
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function edit($id)
     {
         $item = $this->repo->getItem($id);
         return view('packer.stock.edit', compact('item'));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request)
+    {
+        $data = [
+            'name'   => $request->input('item-name'),
+            'number' => $request->input('item-number'),
+            'type'   => $request->input('item-type'),
+            'reqQty' => $request->input('item-reqQty'),
+            'qty'    => $request->input('item-qty'),
+            'price'  => $request->input('item-price')
+        ];
+
+        $item = $this->repo->update($request->input('item-id'), $data);
+
+        if(!$item) {
+            return redirect()->back()->with('message-fail', $this->respondInternalError());
+        }
+
+        return redirect('/packaging/stock')->with('message-success', 'Item updated.');
+
+    }
+
+    public function delete($id)
+    {
+        $item = $this->repo->remove($id);
+
+        if(!$item) {
+            return redirect()->back()->with('message-fail', $this->respondInternalError());
+        }
+
+        return redirect('/packaging/stock')->with('message-success', 'Item removed.');
     }
 }

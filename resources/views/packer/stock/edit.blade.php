@@ -15,7 +15,7 @@
         <div class="module-body">
             <div class="row">
                 <div class="span8">
-                    <h3>Update Item #{{$item->id}}</h3>
+                    <h3>Edit Item #{{$item->id}}</h3>
                 </div>
             </div>
             <hr/>
@@ -38,6 +38,7 @@
                         <input type="text" class="form-control span8" name="item-qty" id="item-qty" value="{{$item->qty}}" placeholder="Quantity"/>
                     </div>
                     {{ csrf_field() }}
+                    <input type="hidden" name="item-id" value="{{$item->id}}">
                     <div class="controls">
                         <button type="submit" class="btn btn-default">Submit</button>
                     </div>

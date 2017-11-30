@@ -57,6 +57,16 @@ class StockRepository implements StockInterface
     }
 
     /**
+     * @param $itemId
+     * @return bool
+     */
+    public function remove($itemId)
+    {
+        $item = $this->item->find($itemId);
+        return ($item->delete()) ? : false;
+    }
+
+    /**
      * @param $object
      * @param array $data
      * @return mixed

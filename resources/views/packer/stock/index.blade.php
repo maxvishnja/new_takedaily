@@ -55,8 +55,8 @@
 						<td>{{ $item->number }}</td>
 						<td>{{ $item->reqQty }}</td>
 						<td>{{ $item->qty }}</td>
-						<td><a href="/stock/edit/{{$item->id}}" class="btn btn-default">Edit</a></td>
-						<td><a href="/stock/delete/{{$item->id}}" class="btn btn-danger">X</a></td>
+						<td><a href="/packaging/stock/edit/{{$item->id}}" class="btn btn-default">Edit</a></td>
+						<td><a href="/packaging/stock/delete/{{$item->id}}" class="btn btn-danger" onclick="return confirm('Are you sure?');">X</a></td>
 					</tr>
 				@endforeach
 				</tbody>

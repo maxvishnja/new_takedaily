@@ -39,11 +39,12 @@ Route::group( [ 'prefix' => 'packaging', 'middleware' => ['packer', 'setLocale']
     Route::post( 'cancel-delivery', ['as' => 'cancel-delivery', 'uses' => 'Packer\OrderController@cancelDeliveryDK'] );
 	Route::post( 'get-all-barcode-dk',  ['as' => 'get-all-barcode-dk', 'uses' => 'Packer\OrderController@getAllBarcodeDK'] );
 	
-	// Stock inventory
-	Route::get('/stock', 'Stock\StockController@index');
-	Route::get('/stock/new', 'Stock\StockController@create');
-	Route::get('/stock/edit/{id}', 'Stock\StockController@edit');
-	Route::get('/stock/delete/{id}', 'Stock\StockController@delete');
-	Route::post('/stock', 'Stock\StockController@insert');
+	// Stock / Inventory
+    Route::get('/stock', 'Stock\StockController@index');
+    Route::get('/stock/new', 'Stock\StockController@create');
+    Route::get('/stock/edit/{id}', 'Stock\StockController@edit');
+    Route::get('/stock/delete/{id}', 'Stock\StockController@delete');
+    Route::post('/stock', 'Stock\StockController@insert');
+    Route::post('/stock-update', 'Stock\StockController@update');
 
 } );
