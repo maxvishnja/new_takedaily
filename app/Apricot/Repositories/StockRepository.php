@@ -8,7 +8,7 @@ use App\Apricot\Interfaces\StockInterface;
 class StockRepository implements StockInterface
 {
     /**
-     * @var App\Item
+     * @var Item
      */
     private $item;
 
@@ -27,8 +27,9 @@ class StockRepository implements StockInterface
 
     /**
      * @param array $data
+     * @return bool|mixed
      */
-    public function insert(array $data)
+    public function create(array $data)
     {
         $item = $this->fillItemObject($this->item, $data);
         return ($item->save()) ? $item : false;
@@ -37,6 +38,7 @@ class StockRepository implements StockInterface
     /**
      * @param $object
      * @param array $data
+     * @return mixed
      */
     private function fillItemObject($object, array $data)
     {
@@ -48,8 +50,8 @@ class StockRepository implements StockInterface
             $object->number = $data['number'];
         }
 
-        if(isset($data['description'])) {
-            $object->description = $data['description'];
+        if(isset($data['type'])) {
+            $object->type = $data['type'];
         }
         
         if(isset($data['reqQty'])) {
