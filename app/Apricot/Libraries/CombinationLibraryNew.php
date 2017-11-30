@@ -737,7 +737,7 @@ class CombinationLibraryNew
                     {
                         // Not outside
                         $this->groupOne   = '2';
-                        $this->vitamins[] = '1b';
+                        $this->vitamins[] = '1a';
                         //$this->vitamins[] = '1b';
 
                         //$this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'skin' ] ) );

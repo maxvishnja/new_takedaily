@@ -77,7 +77,7 @@ class AddCustomersToApi extends Command
             }
 
             if ($customer->getGender() == 1) {
-               $gender = 'male';
+                $gender = 'male';
             } else {
                 $gender = 'female';
             }
@@ -187,27 +187,27 @@ class AddCustomersToApi extends Command
 
             $choice = '';
 
-              foreach($attributes as $attribute){
+            foreach($attributes as $attribute){
 
-                  if($attribute->identifier != 'user_data.gender' and $attribute->identifier !='user_data.age' and $attribute->identifier !='user_data.locale' and $attribute->identifier !='user_data.birthdate' and $attribute->value != ''){
-                      $choice.=$attribute->value.',';
-                  }
-              }
+                if($attribute->identifier != 'user_data.gender' and $attribute->identifier !='user_data.age' and $attribute->identifier !='user_data.locale' and $attribute->identifier !='user_data.birthdate' and $attribute->value != ''){
+                    $choice.=$attribute->value.',';
+                }
+            }
 
-              if($customer->plan->subscription_started_at != null){
-                  $latest_date = $customer->plan->subscription_started_at;
-              } else{
-                  $latest_date = $customer->created_at;
-              }
+            if($customer->plan->subscription_started_at != null){
+                $latest_date = $customer->plan->subscription_started_at;
+            } else{
+                $latest_date = $customer->created_at;
+            }
 
             $lastOrder = $customer->orders()->where('state','sent')->latest()->first();
 
 
-              $lastOrderDate = '';
+            $lastOrderDate = '';
 
-              if($lastOrder){
-                  $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
-              }
+            if($lastOrder){
+                $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
+            }
 
 
 
@@ -319,9 +319,6 @@ class AddCustomersToApi extends Command
                     'fieldid'  => 3235,
                     'value'  =>  $unsubReason),
                 array (
-                    'fieldid'  => 2584,
-                    'value'  =>  $customer->order_count),
-                array (
                     'fieldid'  => 2690,
                     'value'  =>  $reason),
                 array (
@@ -330,24 +327,24 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2692,
                     'value'  =>  $choice),
-             array (
-                 'fieldid'  => 2825,
+                array (
+                    'fieldid'  => 2825,
                     'value'  =>  $customer->id),
             );
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
 
-               if(!is_array($result) and strstr($result,"Already subscribed to the list")){
+            if(!is_array($result) and strstr($result,"Already subscribed to the list")){
 
-                   $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
-                    print_r ($subscriber);
-                   if(is_array($subscriber[1])){
-                       $subscriberid = $subscriber[1][0]['subscriberid'];
+                $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
+                print_r ($subscriber);
+                if(is_array($subscriber[1])){
+                    $subscriberid = $subscriber[1][0]['subscriberid'];
 
-                       $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
-                   }
+                    $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
+                }
 
-               }
+            }
 
 
         }
@@ -396,7 +393,7 @@ class AddCustomersToApi extends Command
                     $link = 'https://takedaily.dk/flow?token='.$almost->token;
                 }
             } else{
-                     $link = '';
+                $link = '';
             }
 
             $customfields  =  array (
