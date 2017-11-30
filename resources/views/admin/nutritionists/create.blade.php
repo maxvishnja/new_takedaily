@@ -31,7 +31,14 @@
                                placeholder="Last Name"/>
                     </div>
                 </div>
-
+                <div class="control-group">
+                    <label for="page_title" class="control-label">Title</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="title" id="page_subtitle"
+                               value="{{ Request::old('title') }}"
+                               placeholder="Title"/>
+                    </div>
+                </div>
                 <div class="control-group">
                     <label for="page_title" class="control-label">E-mail</label>
                     <div class="controls">

@@ -319,6 +319,9 @@ class AddCustomersToApi extends Command
                     'fieldid'  => 3235,
                     'value'  =>  $unsubReason),
                 array (
+                    'fieldid'  => 2584,
+                    'value'  =>  $customer->order_count),
+                array (
                     'fieldid'  => 2690,
                     'value'  =>  $reason),
                 array (

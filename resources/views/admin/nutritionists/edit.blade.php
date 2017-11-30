@@ -33,6 +33,15 @@
                 </div>
 
                 <div class="control-group">
+                    <label for="page_title" class="control-label">Title</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="title"
+                               value="{{ Request::old('last_name', ($nutritionist->title) ? $nutritionist->title : '' ) }}"
+                               placeholder=""/>
+                    </div>
+                </div>
+
+                <div class="control-group">
                     <label for="page_title" class="control-label">E-mail</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="email"

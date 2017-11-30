@@ -109,7 +109,14 @@
 
 
 				@endif
-
+				<tr>
+					<td>Nutritionist</td>
+					<td>
+						@if($nutritionist)
+							{{ $nutritionist->last_name}} {{ $nutritionist->first_name}}
+						@endif
+					</td>
+				</tr>
 				@foreach($customer->customerAttributes as $attribute)
 					<tr>
 						<td>{{ trans("attributes.{$attribute->identifier}") }}</td>

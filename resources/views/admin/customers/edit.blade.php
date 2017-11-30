@@ -83,6 +83,16 @@
                         </div>
 
 
+                <div class="control-group">
+                    <label for="page_title" class="control-label">Nutritionist</label>
+                    <div class="controls">
+                        <select name="nutritionist" id="input_state">
+                            @foreach($nutritionist as $one)
+                                <option value="{{$one->id }}" @if($customer->plan->nutritionist_id == $one->id) selected @endif>{{ $one->first_name }} {{ $one->last_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
 
 
                 <div class="control-group">
