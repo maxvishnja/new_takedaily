@@ -26,6 +26,15 @@ class StockRepository implements StockInterface
     }
 
     /**
+     * @param $type
+     * @return mixed
+     */
+    public function getAllByType($type)
+    {
+        return $this->item->whereType($type)->get();
+    }
+
+    /**
      * @param $id
      * @return mixed
      */

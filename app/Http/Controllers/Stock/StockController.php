@@ -100,6 +100,10 @@ class StockController extends ApiController
 
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function delete($id)
     {
         $item = $this->repo->remove($id);
