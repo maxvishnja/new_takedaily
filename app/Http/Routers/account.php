@@ -1,5 +1,5 @@
 <?php
-Route::group( [ 'middleware' => [ 'auth', 'user' ], 'prefix' => 'account' ], function ()
+Route::group( [ 'middleware' => [ 'auth', 'user', 'setLocale' ], 'prefix' => 'account' ], function ()
 {
 	Route::get( 'settings', function ()
 	{
@@ -7,7 +7,7 @@ Route::group( [ 'middleware' => [ 'auth', 'user' ], 'prefix' => 'account' ], fun
 		return redirect( 'account/settings/basic' );
 	} );
 
-	Route::get( '/', 'AccountController@getHome' );
+	Route::get( '/', 'AccountController@getHome' )->name( 'account.home' );
 
 	Route::post( '/update-preferences', 'AccountController@updatePreferences' );
 

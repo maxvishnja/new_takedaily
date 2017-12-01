@@ -29,6 +29,7 @@ class AccountController extends Controller
         $this->user = \Auth::user();
         if ($this->user && $this->user->getCustomer()) {
             $this->customer = $this->user->getCustomer();
+            \App::setLocale($this->user->getCustomer()->getLocale());
             \View::share('customer', $this->customer);
         }
 

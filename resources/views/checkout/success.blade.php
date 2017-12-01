@@ -142,7 +142,7 @@
             });
 
         dataLayer.push({
-            'event': 'transCompleted’,
+            'event': 'transCompleted',
             'transactionId': '{{$order_id}}',
             'transactionAffiliation': 'TakeDaily',
             'transactionTotal': {{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }},
@@ -208,16 +208,6 @@
 @endsection
 
 @section('tracking-scripts')
-    <script>
-        fbq('track', 'Purchase', {
-            value: '{{ session('order_price', '0.00') }}',
-            currency: '{{ session('order_currency', 'EUR') }}'
-        });
-
-        @if(Auth::check())
-            fbq('track', 'CompleteRegistration');
-        @endif
-    </script>
 
     <noscript>
 

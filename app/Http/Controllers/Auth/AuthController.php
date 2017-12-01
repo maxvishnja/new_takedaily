@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class AuthController extends Controller
@@ -72,4 +74,57 @@ class AuthController extends Controller
 			'type'     => 'user'
 		]);
 	}
+
+
+    protected function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        $throttles = $this->isUsingThrottlesLoginsTrait();
+
+        if ($throttles && $lockedOut = $this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        $credentials = $this->getCredentials($request);
+
+
+        if (Auth::guard($this->getGuard())->attempt($credentials, $request->has('remember'))) {
+
+            if(Auth::guard($this->getGuard())->user()->isUser() and \App::getLocale() != Auth::guard($this->getGuard())->user()->getCustomer()->getLocale()){
+
+                if(Auth::guard($this->getGuard())->user()->getCustomer()->getLocale() == 'nl'){
+
+                    $this->redirectTo = 'http://takedaily.dev/account?redirect=true';
+                }else{
+                    $this->redirectTo = 'http://takedaily.da/account?redirect=true';
+                }
+                $request->session()->put('url.intended', $this->redirectTo);
+            }
+
+            $this->logout();
+            return $this->handleUserWasAuthenticated($request, $throttles);
+        }
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        if ($throttles && ! $lockedOut) {
+            $this->incrementLoginAttempts($request);
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
+
+
+
+
+
+
 }

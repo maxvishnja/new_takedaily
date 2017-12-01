@@ -30,6 +30,8 @@ class User
 			}
 		}
 
+     //  \App::setLocale(Auth::user()->getCustomer()->getLocale());
+
 		return $next($request);
 	}
 }
