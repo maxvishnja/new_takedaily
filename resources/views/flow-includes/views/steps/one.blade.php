@@ -131,28 +131,29 @@
 		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
 			<select name="child_count" v-model="user_data.child_count" class="child_count" id="" data-model="child_count">
-				@foreach(range(1,5) as $i)
+				<option value="1">1</option>
+				@foreach(range(2,5) as $i)
 					<option value="{{ $i }}">{{ $i }}</option>
 				@endforeach
 			</select>
-			<br/>
-			<label class="child_age_label">
-				<input type="text" name="step[1][5]" class="child_age_class" v-model="user_data.child_age_1" placeholder="{{ trans('flow.questions.1-7.options') }}" data-model="child_age"/>
-			</label>
-			<label class="child_age_label hide"  v-bind:class="{ 'show': user_data.child_count >= 2  }">
-				<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_2" data-model="child_age"/>
-			</label>
-			<label class="child_age_label hide" v-bind:class="{ 'show': user_data.child_count >= 3 }">
-				<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_3" data-model="child_age"/>
-			</label>
-			<label class="child_age_label hide"  v-bind:class="{ 'show': user_data.child_count >= 4 }">
-				<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_4" data-model="child_age"/>
-			</label>
-			<label class="child_age_label hide"  v-bind:class="{ 'show': user_data.child_count >= 5 }">
-				<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_5" data-model="child_age"/>
-			</label>
+			<div class="max_heights">
+				<label class="child_age_label">
+					<input type="text" name="step[1][5]" class="child_age_class" v-model="user_data.child_age_1" placeholder="{{ trans('flow.questions.1-7.options') }}" data-model="child_age"/>
+				</label>
+				<label class="child_age_label hide"  v-bind:class="{ 'show-inline': user_data.child_count >= 2  }">
+					<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_2" data-model="child_age"/>
+				</label>
+				<label class="child_age_label hide" v-bind:class="{ 'show-inline': user_data.child_count >= 3 }">
+					<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_3" data-model="child_age"/>
+				</label>
+				<label class="child_age_label hide"  v-bind:class="{ 'show-inline': user_data.child_count >= 4 }">
+					<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_4" data-model="child_age"/>
+				</label>
+				<label class="child_age_label hide"  v-bind:class="{ 'show-inline': user_data.child_count >= 5 }">
+					<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_5" data-model="child_age"/>
+				</label>
+			</div>
 		</div>
-		<br/>
 		<button v-on:click="nextStep();" type="button" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-7' );"
 				class="button button--rounded button--medium button--green">{!! trans('flow.questions.1-7.button-submit-text') !!}</button>
 		<p class="substep-explanation">{{ trans('flow.questions.1-7.text') }}</p>
