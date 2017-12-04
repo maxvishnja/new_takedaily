@@ -24,6 +24,7 @@ class SetLocale
 			'nl'    => 'nl',
 			'.dev'    => 'da',
 			'dev'    => 'nl',
+			'da'    => 'da',
 		];
 
 		$domainRedirects = [

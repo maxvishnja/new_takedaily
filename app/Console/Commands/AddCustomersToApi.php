@@ -47,6 +47,8 @@ class AddCustomersToApi extends Command
         $almosts = $repo->getAlmostCustomer();
 
 
+
+
         echo "All - ".count($customers)." - ";
 
         echo "Almost - ".count($almosts);
@@ -60,6 +62,9 @@ class AddCustomersToApi extends Command
         $parser = new EmailPlatformApi();
 
         foreach($customers as $customer){
+
+
+            \App::setLocale($customer->getLocale());
 
             $emailaddress = $customer->getEmail();
             $mobile = $customer->getPhone();
@@ -150,9 +155,27 @@ class AddCustomersToApi extends Command
             }
 
             $reason = '';
+            $unsubReason = '';
 
             if ($customer->plan->unsubscribe_reason != '') {
+
                 $reason = $customer->plan->unsubscribe_reason;
+
+                if (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.0'))) {
+                    $unsubReason = '0';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.1'))) {
+                    $unsubReason = '1';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.2'))) {
+                    $unsubReason = '2';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.3'))) {
+                    $unsubReason = '3';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.4'))) {
+                    $unsubReason = '4';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.5'))) {
+                    $unsubReason = '5';
+                } else {
+                    $unsubReason = 'other';
+                }
             }
 
             if ($customer->plan->is_custom == 1) {
@@ -185,6 +208,8 @@ class AddCustomersToApi extends Command
               if($lastOrder){
                   $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
               }
+
+
 
             $customfields  =  array (
                 array (
@@ -290,6 +315,12 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2689,
                     'value'  =>  $vitamins['4']),
+                array (
+                    'fieldid'  => 3235,
+                    'value'  =>  $unsubReason),
+                array (
+                    'fieldid'  => 2584,
+                    'value'  =>  $customer->order_count),
                 array (
                     'fieldid'  => 2690,
                     'value'  =>  $reason),

@@ -17,52 +17,52 @@
 		{{--</div>--}}
 	@endif
 
-	<h1>{{ trans('account.home.header') }} - {{ trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) }}</h1>
 
-	@if(!empty($nutritionist))
-	<hr>
 
-	<h2>DIN PERSONLIGE ASSISTENT</h2>
-	<hr>
+<div class="row">
+	<div class="col-md-6">
+		<h1>{{ trans('account.home.header') }} - {{ trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) }}</h1>
+		@if($customer->getPlan()->getCouponCount() > 0 and ($customer->getPlan()->getDiscountType() == 'month' or $customer->getPlan()->getDiscountType() == '' ))
 
-	<div class="row nutritionist-block">
-		<div class="col-md-2">
-			@if(!empty($nutritionist->image))
-				<img src="/images/nutritionist/thumb_{!! $nutritionist->image !!}" class="nutritionist-img">
-			@endif
-		</div>
-		<div class="col-md-10">
-			{!! $nutritionist->first_name !!} {!! $nutritionist->last_name !!}
-		</div>
-		<hr>
-	</div>
-	<div class="row text-center">
-		<form method="POST" class="nutritionistEmail" action="" enctype="multipart/form-data">
-		<div class="col-md-4 offset-md-3">
-			<input type="hidden" name="customer_id" value="{{$nutritionist->id}}">
-			<button class="nutritionist-send-mail" type="submit">Send Message</button>
-		</div>
-			{{ csrf_field() }}
-		</form>
-	</div>
-	<hr>
-	@endif
+			<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => 0, 'currency' => $plan->currency])]) !!}</h2>
 
-	@if($customer->getPlan()->getCouponCount() > 0 and ($customer->getPlan()->getDiscountType() == 'month' or $customer->getPlan()->getDiscountType() == '' ))
+		@elseif($customer->getPlan()->getCouponCount() > 0 and $customer->getPlan()->getDiscountType() == 'percent')
 
-		<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => 0, 'currency' => $plan->currency])]) !!}</h2>
-
-	@elseif($customer->getPlan()->getCouponCount() > 0 and $customer->getPlan()->getDiscountType() == 'percent')
-
-		<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal() - ($plan->getTotal() * ($customer->getPlan()->getCouponCount()/100)), true), 'currency' => $plan->currency])]) !!}</h2>
+			<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal() - ($plan->getTotal() * ($customer->getPlan()->getCouponCount()/100)), true), 'currency' => $plan->currency])]) !!}</h2>
 		@else
-		<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true), 'currency' => $plan->currency])]) !!}</h2>
+			<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true), 'currency' => $plan->currency])]) !!}</h2>
 		@endif
 
 
-	@if( $plan->isActive() )
-		<p>{!! strip_tags(trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]), '<strong>') !!}</p>
-	@endif
+		@if( $plan->isActive() )
+			<p>{!! strip_tags(trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]), '<strong>') !!}</p>
+		@endif
+	</div>
+
+	<div class="col-md-6">
+		@if(!empty($nutritionist))
+
+			<div class="row nutritionist-block">
+				<div class="col-md-4 text-center">
+					@if(!empty($nutritionist->image))
+						<img src="/images/nutritionist/thumb_{!! $nutritionist->image !!}" class="img-responsive img-circle">
+					@endif
+				</div>
+				<div class="col-md-8">
+					<h3>{!! $nutritionist->first_name !!} {!! $nutritionist->last_name !!}</h3>
+					<h3>{!! $nutritionist->title !!}</h3>
+					<p>{{ trans('account.nutritionist_text') }}</p>
+					<a href="#nutritionist-form" class="button button--green button--small"
+					   id="toggle-nutritionist-form">{{ trans('account.nutritionist_button') }}</a>
+				</div>
+			</div>
+		@endif
+	</div>
+
+
+
+</div>
+
 	<div class="m-t-10 m-b-10 m-center">
 		<a href="/flow" class="button button--green">{{ trans('account.home.button-change') }}</a>
 		<a href="/pick-n-mix" class="button button--green">{{ trans('account.home.button-pick-n-mix') }}</a>
@@ -142,8 +142,8 @@
 	@endforeach
 
 
-
-	@if($orders->count() > 0 )
+	@if( $plan->isActive() )
+		@if($orders->count() > 0 )
 		<hr>
 		<h1>{{ trans('account.transactions.header') }}</h1>
 		<table class="table table--full table--striped text-left table--responsive">
@@ -172,6 +172,7 @@
 			@endforeach
 			</tbody>
 		</table>
+		@endif
 	@endif
 @endsection
 
@@ -204,6 +205,8 @@
 
             $("#coupon-field").toggle();
         });
+
+
         $("#coupon-button").click(function () {
             var button = $(this);
 
@@ -238,6 +241,34 @@
         if ($("#coupon-input").val().length > 0) {
             $("#coupon-button").click();
         }
+
+
+
+        $('#toggle-nutritionist-form').on('click', function (e) {
+            e.preventDefault();
+            swal({
+                title: "{{ trans('account.nutritionist_form_text')}}",
+                text: "" +
+                "<form method=\"post\" id='nutritionist-form' action=\"{{ route("nutritionist-email") }}\">" +
+                "<textarea type=\"text\" name=\"mess\" required class=\"form-control\"  placeholder=\"\" style='border:2px solid #C1C1C1' /></textarea>" +
+                "<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
+                "</form>",
+                type: "",
+                html: true,
+                confirmButtonText: "{{ trans('account.transaction.receipt-send') }}",
+                cancelButtonText: "{{ trans('account.settings_subscription.snooze_popup.button-close-text') }}",
+                confirmButtonColor: "#3AAC87",
+                allowOutsideClick: true,
+                showCancelButton: true,
+                closeOnConfirm: false
+            }, function (inputValue) {
+                if (inputValue) {
+                    return $("#nutritionist-form").submit();
+                }
+            });
+
+            $('.hid-id').val(id);
+        });
 
 
         $('.nutritionist-send-mail').on('click', function(e){
