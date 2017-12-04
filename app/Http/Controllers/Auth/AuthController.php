@@ -105,9 +105,10 @@ class AuthController extends Controller
                     $this->redirectTo = 'http://takedaily.da/account?redirect=true';
                 }
                 $request->session()->put('url.intended', $this->redirectTo);
+                $this->logout();
             }
 
-            $this->logout();
+
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
