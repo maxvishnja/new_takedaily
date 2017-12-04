@@ -100,9 +100,9 @@ class AuthController extends Controller
 
                 if(Auth::guard($this->getGuard())->user()->getCustomer()->getLocale() == 'nl'){
 
-                    $this->redirectTo = 'http://takedaily.dev/account?redirect=true';
+                    $this->redirectTo = 'https://takedaily.nl/account?redirect=true';
                 }else{
-                    $this->redirectTo = 'http://takedaily.da/account?redirect=true';
+                    $this->redirectTo = 'https://takedaily.dk/account?redirect=true';
                 }
                 $request->session()->put('url.intended', $this->redirectTo);
                 $this->logout();
