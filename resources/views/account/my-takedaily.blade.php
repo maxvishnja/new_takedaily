@@ -142,8 +142,8 @@
 	@endforeach
 
 
-
-	@if($orders->count() > 0 )
+	@if( $plan->isActive() )
+		@if($orders->count() > 0 )
 		<hr>
 		<h1>{{ trans('account.transactions.header') }}</h1>
 		<table class="table table--full table--striped text-left table--responsive">
@@ -172,6 +172,7 @@
 			@endforeach
 			</tbody>
 		</table>
+		@endif
 	@endif
 @endsection
 
