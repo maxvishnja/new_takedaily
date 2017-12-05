@@ -1,28 +1,39 @@
-<nav class="c-nav-header">
-	<ul class="c-nav-header__list">
-		<li class="c-nav-header__item">
-			<a href="/how-it-works" class="c-nav-header__link">{{ trans('nav2.how-it-works') }}</a>
-		</li>
-		<li class="c-nav-header__item">
-			<a href="/gifting" class="c-nav-header__link">{{ trans('nav2.gifting') }}</a>
-		</li>
-		<li class="c-nav-header__item">
-			<a href="/pick-n-mix" class="c-nav-header__link">{{ trans('nav2.vitamins') }}</a>
-		</li>
-		@if(App::getLocale() == 'da')
-			<li class="c-nav-header__item">
-				<a href="https://takedaily.dk/blog" class="c-nav-header__link">Blog</a>
-			</li>
+<nav role="navigation">
+	<ul class="navigation" id="mobile-nav">
+		<a class="visible-sm visible-xs icon icon-cross-large toggle-mobile-nav" href="#mobile-nav"></a>
+		@if(Auth::guest())
+			<li class="cta"><a href="/flow">{{ trans('nav.cta') }}</a></li>
 		@endif
-		<li class="c-nav-header__item c-nav-header__item--log">
-			@if(Auth::user() && Auth::user()->isAdmin())
-				<a href="/dashboard" class="c-nav-header__link">Dashboard </a>
+		@foreach(\App\Apricot\Helpers\NavGenerator::generate(App::getLocale()) as $item)
+			@if($item['link']==='gifting')
+				<li @if(URL::getRequest()->path() === $item['link']) class="cta" @endif><a class="dropdown-toggle" id="dropdownMenu1"
+																						   data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">{{ $item['text'] }}<span class="caret"></span></a>
+					<ul class="dropdown-menu center-dropdown" aria-labelledby="dropdownMenu1">
+						<li><a href="/gifting">{{ trans('nav.submenu.gifting-buy') }}</a></li>
+						<li><a href="/use-giftcard">{{ trans('nav.submenu.gifting-use') }}</a></li>
+					</ul>
+				</li>
+
 			@else
-				<a href="/account" class="c-nav-header__link">{{ trans('nav2.account') }}</a>
+				<li @if(URL::getRequest()->path() === $item['link']) class="cta" @endif><a href="/{{ $item['link'] }}">{{ $item['text'] }}</a></li>
 			@endif
-		</li>
+		@endforeach
+
+		@if(Auth::guest() || Auth::user()->isUser())
+			<li><a href="/account"><strong>{{ trans('nav.account.profile') }}</strong></a></li>
+		@endif
+		@if( Auth::user() && Auth::user()->isAdmin() )
+			<li><a href="/dashboard"><strong>Dashboard</strong></a></li>
+		@endif
 	</ul>
 
-	<!-- Close -->
-	<div class="c-nav-header__close c-nav-header__trigger"></div>
+	<div class="visible-sm visible-xs">
+		<a href="#mobile-nav" class="toggle-mobile-nav">
+			<span class="hamburger hamburger--white">
+				<span class="meat"></span>
+				<span class="meat"></span>
+				<span class="meat meat--last"></span>
+			</span>
+		</a>
+	</div>
 </nav>
