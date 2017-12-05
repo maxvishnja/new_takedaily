@@ -63,7 +63,13 @@ class StockController extends ApiController
             return redirect()->back()->with('message-fail', $this->respondInternalError());
         }
 
-        return redirect('/packaging/stock')->with('message-success', 'Inventory item created.');
+        if(Auth::user()->isAdmin()) {
+            return redirect('/dashboard/stock')->with('message-success', 'Inventory item created.');
+        }
+        elseif(Auth::user()->isPacker()) {
+            return redirect('/packaging/stock')->with('message-success', 'Inventory item created.');
+        }
+
     }
 
     /**
@@ -73,7 +79,14 @@ class StockController extends ApiController
     public function edit($id)
     {
         $item = $this->repo->getItem($id);
-        return view('packer.stock.edit', compact('item', 'qty'));
+
+        if(Auth::user()->isAdmin()) {
+            return view('admin.stock.edit', compact('item', 'qty'));
+        }
+        elseif(Auth::user()->isPacker()) {
+            return view('packer.stock.edit', compact('item', 'qty'));
+        }
+
     }
 
     /**
@@ -111,7 +124,13 @@ class StockController extends ApiController
             return redirect()->back()->with('message-fail', $this->respondInternalError());
         }
 
-        return redirect('/packaging/stock')->with('message-success', 'Item updated.');
+        if(Auth::user()->isAdmin()) {
+            return redirect('/dashboard/stock')->with('message-success', 'Item updated.');
+        }
+        elseif(Auth::user()->isPacker()) {
+            return redirect('/packaging/stock')->with('message-success', 'Item updated.');
+        }
+
 
     }
 
@@ -127,6 +146,12 @@ class StockController extends ApiController
             return redirect()->back()->with('message-fail', $this->respondInternalError());
         }
 
-        return redirect('/packaging/stock')->with('message-success', 'Item removed.');
+        if(Auth::user()->isAdmin()) {
+            return redirect('/dashboard/stock')->with('message-success', 'Item removed.');
+        }
+        elseif(Auth::user()->isPacker()) {
+            return redirect('/packaging/stock')->with('message-success', 'Item removed.');
+        }
+
     }
 }
