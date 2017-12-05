@@ -11,6 +11,7 @@ use App\Events\CreateCsv;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\Plan;
+use App\Setting;
 use Illuminate\Http\Request;
 
 
@@ -78,6 +79,17 @@ class StatsController extends Controller
                     return Order::whereNotNull('repeat')->whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
                 case 6:
                     return $this->repo->allNewLocaleTime($currency, $data['start_date'], $data['end_date'] )->count();
+                case 7:
+                    $orders = Order::selectRaw("COUNT(*) AS count, customer_id")
+                        ->whereNull('repeat')
+                        ->where('total','=', 0)
+                        ->where('state','=', 'sent')
+                        ->where('currency','=', $currency)
+                        ->groupBy('customer_id')
+                        ->having('count', '>', 1)
+                        ->get();
+
+                    return count($orders);
                 default:
                     return 0;
             }
@@ -135,6 +147,12 @@ class StatsController extends Controller
 
         $customers = $this->repo->allLocale($data['lang']);
 
+
+        $stat_count = Setting::where('identifier','=','stat_'.$data['lang'])->first();
+        $stat_count->value = 1;
+
+        $stat_count->save();
+
         \Event::fire(new CreateAllCsv($customers, $data['lang']));
 
 
@@ -177,9 +195,17 @@ class StatsController extends Controller
 
         if(file_exists($filename)){
 
+
+            $stat_count = Setting::where('identifier','=','stat_'.$data['lang'])->first();
+            $stat_count->value = 0;
+
+            $stat_count->save();
+
             return \Response::download($filename)->deleteFileAfterSend(true);
 
         } else{
+
+
             return \Redirect::back()->withErrors("No file! Please create it");
 
         }
@@ -364,6 +390,8 @@ class StatsController extends Controller
     {
 
         $data = $request->all();
+
+
         if ($data) {
             if($data['lang']=='nl'){
                 $currency = "EUR";
@@ -603,6 +631,46 @@ class StatsController extends Controller
                         \Excel::create('mails_from_' . $data['start_date'] . "_to_" . $data['end_date']."_".$data['lang'], function ($excel) use ($email_array) {
 
                             $excel->sheet('Amount of weeks', function ($sheet) use ($email_array) {
+
+                                $sheet->fromArray($email_array, null, 'A1', true);
+
+                            });
+
+                        })->download('xls');
+                        return \Redirect::back();
+                    }
+
+                case 7:
+
+                    $orders = Order::selectRaw("COUNT(*) AS count, customer_id")
+                        ->whereNull('repeat')
+                        ->where('total','=', 0)
+                        ->where('state','=', 'sent')
+                        ->where('currency','=', $currency)
+                        ->groupBy('customer_id')
+                        ->having('count', '>', 1)
+                        ->get();
+                    $i = 0;
+                    foreach ($orders as $order) {
+
+                            $email_array[$i]['First Name'] = $order->getCustomer()->getFirstName();
+                            $email_array[$i]['Last Name'] = $order->getCustomer()->getLastName();
+                            $email_array[$i]['Email Address'] = $order->getCustomer()->getEmail();
+                            $email_array[$i]['Order count'] = $order->count;
+
+                            if($order->getCustomer()->getPlan()->subscription_canceled_at != null){
+                                $email_array[$i]['Status'] = "Not active";
+                            } else{
+                                $email_array[$i]['Status'] = "Active";
+                            }
+
+                            $i++;
+                    }
+
+                    if(isset($email_array)) {
+                        \Excel::create("mails_free_from_".$data['lang'], function ($excel) use ($email_array) {
+
+                            $excel->sheet('Free subscription', function ($sheet) use ($email_array) {
 
                                 $sheet->fromArray($email_array, null, 'A1', true);
 

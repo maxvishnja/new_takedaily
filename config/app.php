@@ -206,6 +206,7 @@ return [
 		\App\Providers\OrderLineServiceProvider::class,
 		\App\Providers\PlanServiceProvider::class,
 		\App\Providers\PageServiceProvider::class,
+		\App\Providers\StockServiceProvider::class,
 
         Milon\Barcode\BarcodeServiceProvider::class,
 	],

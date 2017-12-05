@@ -11,7 +11,7 @@
         </div>
 
         <div class="module-body">
-         <div class="clear"></div>
+            <div class="clear"></div>
             <hr/>
             <form id="cms_manage_form" method="POST" class="form-horizontal row-fluid"
                   action="{{  URL::action('Dashboard\NutritionistController@update', [ $nutritionist->id ]) }}"
@@ -33,6 +33,15 @@
                         <input type="text" class="form-control span8" name="last_name"
                                value="{{ Request::old('last_name', ($nutritionist->last_name) ? $nutritionist->last_name : '' ) }}"
                                placeholder="Sidens undertitel"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="page_title" class="control-label">Title</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="title"
+                               value="{{ Request::old('last_name', ($nutritionist->title) ? $nutritionist->title : '' ) }}"
+                               placeholder=""/>
                     </div>
                 </div>
 

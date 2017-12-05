@@ -3,6 +3,7 @@
 use App\Customer;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
+use App\MailStat;
 use App\Nutritionist;
 use App\Setting;
 use App\User;
@@ -159,51 +160,55 @@ class CheckoutCompletion
 				$newDate = \Date::now()->addDays( 27 );
 			}
 
-//            $dietologs = Nutritionist::where('locale', \App::getLocale())
-//                ->where('order', 0)
-//                ->where('active', 1)
-//                ->get();
-//
-//            $dietologs_all_active = Nutritionist::where('locale', \App::getLocale())
-//                ->where('active', 1)
-//                ->get();
-//
-//			if($dietologs->isEmpty() and count($dietologs_all_active)>0){
-//                $dietologs = Nutritionist::where('locale', \App::getLocale())
-//                    ->where('active', 1)
-//                    ->get();
-//                foreach($dietologs as $dietolog){
-//                    $dietolog->order = 0;
-//                    $dietolog->save();
-//                }
-//                $dietologs = Nutritionist::where('locale', \App::getLocale())
-//                    ->where('order', 0)
-//                    ->where('active', 1)
-//                    ->get();
-//            }
-//            $dietolog_ids = [];
-//
-//			if(count($dietologs) == 1 and count($dietologs_all_active) > 1){
-//
-//                $dietolog_ids = $dietologs[0]['id'];
-//                $dietolog_order =  Nutritionist::where('id', $dietolog_ids)->first();
-//                $dietolog_order->order = 1;
-//                $dietolog_order->save();
-//            }elseif(count($dietologs) == 0){
-//                $dietolog_ids = 0;
-//            }
-//            else{
-//			    /** @var Nutritionist $dietolog */
-//                foreach($dietologs as $dietolog){
-//			        if($dietolog->order == 0){
-//                        $dietolog_ids = $dietolog->id;
-//                    }
-//                }
-//                $dietolog_order =  Nutritionist::where('id', $dietolog_ids)->first();
-//                $dietolog_order->order = 1;
-//                $dietolog_order->save();
-//            }
+            $dietologs = Nutritionist::where('locale', \App::getLocale())
+                ->where('order', 0)
+                ->where('active', 1)
+                ->get();
 
+            $dietologs_all_active = Nutritionist::where('locale', \App::getLocale())
+                ->where('active', 1)
+                ->get();
+
+            if(count($dietologs_all_active)>0) {
+
+                if ($dietologs->isEmpty() and count($dietologs_all_active) > 0) {
+                    $dietologs = Nutritionist::where('locale', \App::getLocale())
+                        ->where('active', 1)
+                        ->get();
+                    foreach ($dietologs as $dietolog) {
+                        $dietolog->order = 0;
+                        $dietolog->save();
+                    }
+                    $dietologs = Nutritionist::where('locale', \App::getLocale())
+                        ->where('order', 0)
+                        ->where('active', 1)
+                        ->get();
+                }
+                $dietolog_ids = [];
+
+                if (count($dietologs) == 1 and count($dietologs_all_active) > 1) {
+
+                    $dietolog_ids = $dietologs[0]['id'];
+                    $dietolog_order = Nutritionist::where('id', $dietolog_ids)->first();
+                    $dietolog_order->order = 1;
+                    $dietolog_order->save();
+                } elseif (count($dietologs) == 0) {
+                    $dietolog_ids = 0;
+                } else {
+                    /** @var Nutritionist $dietolog */
+                    foreach ($dietologs as $dietolog) {
+                        if ($dietolog->order == 0) {
+                            $dietolog_ids = $dietolog->id;
+                        }
+                    }
+                    $dietolog_order = Nutritionist::where('id', $dietolog_ids)->first();
+                    $dietolog_order->order = 1;
+                    $dietolog_order->save();
+                }
+
+            } else{
+                $dietolog_ids = '';
+            }
 			$this->getUser()->getCustomer()->getPlan()->update( [
 				'price'                     => $this->getCheckout()->getSubscriptionPrice(),
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
@@ -211,7 +216,7 @@ class CheckoutCompletion
 				'currency'                  => trans( 'general.currency' ),
 				'subscription_rebill_at'    => $newDate,
 				'subscription_cancelled_at' => null,
-//                'nutritionist_id'           => $dietolog_ids,
+                'nutritionist_id'           => $dietolog_ids,
 			] );
 
 			if ( session( 'vitamins', false ) )
@@ -346,6 +351,18 @@ class CheckoutCompletion
 		}
 
         \App::setLocale( $locale );
+
+        $mailCount = new MailStat();
+
+		if ($this->getCheckout()->getProduct()->name != 'subscription'){
+
+            $mailCount->setMail(2);
+        } else {
+
+            $mailCount->setMail(1);
+        }
+
+
 
 		\Mail::queue( 'emails.order', $data, function ( $message ) use ( $mailEmail, $mailName, $locale, $fromEmail )
 		{

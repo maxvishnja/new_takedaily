@@ -2,7 +2,11 @@
 	<div class="new_vitamin_item">
 
 		<div class="pill_section">
+			@if(strtolower($vitamin) == '1a')
+				<span class="icon pill-3f"></span>
+			@else
 			<span class="icon pill-{{ strtolower($vitamin) }}"></span>
+			@endif
 		</div>
 
 		<div class="content_section">

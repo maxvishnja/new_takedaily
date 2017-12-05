@@ -6,7 +6,7 @@ namespace App\Apricot\Helpers;
 use App\Customer;
 use App\Order;
 use App\Plan;
-
+use App\Setting;
 
 
 class CreateCsvAllCustomers
@@ -16,13 +16,21 @@ class CreateCsvAllCustomers
     public static function storeAllCustomerToCsv($customers, $lang)
     {
 
+        $stat_count = Setting::where('identifier','=','stat_'.$lang)->first();
+        $stat_count->value = 0;
+
+        $stat_count->save();
+
+
         $email_array = [];
         $i = 0;
 
         foreach ($customers as $customer) {
 
             \App::setLocale($customer->getLocale());
-            
+
+
+
                 $email_array[$i]['Email'] = $customer->getEmail();
                 $email_array[$i]['Firstname'] = $customer->getFirstName();
                 $email_array[$i]['Phone'] = $customer->getPhone();
@@ -115,6 +123,7 @@ class CreateCsvAllCustomers
 
 
         }
+        \Log::info('Succes create CSV '.$lang);
 
         \Excel::create('all_active_mails_'.$lang, function ($excel) use ($email_array) {
 

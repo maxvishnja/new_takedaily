@@ -34,7 +34,10 @@
 					<td>Last name</td>
 					<td>{{ $nutritionist->last_name }}</td>
 				</tr>
-
+				<tr>
+					<td>Title</td>
+					<td>{{ $nutritionist->title }}</td>
+				</tr>
 				@if(!empty($nutritionist->image))
 					<tr>
 						<td>Photo</td>

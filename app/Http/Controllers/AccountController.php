@@ -2,6 +2,7 @@
 
 use App\Apricot\Libraries\PillLibrary;
 use App\Customer;
+use App\MailStat;
 use App\Nutritionist;
 use App\User;
 use App\Vitamin;
@@ -28,6 +29,7 @@ class AccountController extends Controller
         $this->user = \Auth::user();
         if ($this->user && $this->user->getCustomer()) {
             $this->customer = $this->user->getCustomer();
+            \App::setLocale($this->user->getCustomer()->getLocale());
             \View::share('customer', $this->customer);
         }
 
@@ -38,8 +40,11 @@ class AccountController extends Controller
     {
         $orders = $this->customer->getOrders();
         $plan = $this->customer->getPlan();
+        $nutritionist = Nutritionist::where('id', $plan->nutritionist_id)
+            ->where('active', 1)
+            ->first();
 
-        return view('account.my-takedaily', compact('orders', 'plan'));
+        return view('account.my-takedaily', compact('orders', 'plan', 'nutritionist'));
     }
 
     public function getNutritionist()
@@ -48,7 +53,6 @@ class AccountController extends Controller
         $plan = $this->customer->getPlan();
 
         $nutritionist = Nutritionist::where('id', $plan->nutritionist_id)
-            ->where('active', 1)
             ->where('active', 1)
             ->first();
 
@@ -59,32 +63,39 @@ class AccountController extends Controller
 
     public function postNutritionistEmail(Request $request){
 
-        if (\Request::ajax()) {
+
 
             $data = $request->all();
+            if($data){
+                $nutritionist = Nutritionist::where('id', $this->customer->plan->nutritionist_id)
+                    ->where('active', 1)
+                    ->first();
 
-            $nutritionist = Nutritionist::where('id', $data['customer_id'])
-                ->where('active', 1)
-                ->first();
+                $mailEmail = $nutritionist->email;
+                $fromEmail = $this->customer->getUser()->getEmail();
+                $data['name']  = $this->customer->getUser()->getName();
+                $data['n_name']  = $nutritionist->first_name." ".$nutritionist->last_name;
+                $data['locale']  = $this->customer->getLocale();
+                $mailName = 'TakeDaily';
+                $locale = \App::getLocale();
 
-            $mailEmail = $nutritionist->email;
-            $fromEmail = $this->customer->getUser()->getEmail();
-            $data['CustomerName']  = $this->customer->getUser()->getName();
-            $data['layout'] = 'layouts.nutritionist-mail';
-            $mailName = 'TakeDaily';
-            $locale = \App::getLocale();
 
-            \Mail::queue('emails.nutritionist', $data,
-                function ($message)
+                \Mail::send('emails.nutritionist', $data,
+                    function ($message)
                     use ($mailEmail, $mailName, $locale, $fromEmail) {
                         \App::setLocale($locale);
                         $message->from($fromEmail, 'TakeDaily');
                         $message->to($mailEmail, $mailName);
                         //$message->subject($fromEmail);
                         $message->subject(trans('mails.nutritionist.subject'));
-            });
+                    });
 
-        }
+                return \Redirect::action('AccountController@getHome')->with('success', trans('messages.successes.nutritionist.email.sent'));
+
+            }
+
+
+
 
 
     }
@@ -277,6 +288,11 @@ class AccountController extends Controller
         $this->customer->getPlan()->snooze($request->get('days'));
 
         \Log::info("Customer ID ".$this->customer->id." snoozed to " . $request->get('days'));
+
+
+        $mailCount = new MailStat();
+
+        $mailCount->setMail(4);
 
         $mailEmail = $this->customer->getUser()->getEmail();
         $mailName = $this->customer->getUser()->getName();

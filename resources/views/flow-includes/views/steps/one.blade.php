@@ -1,6 +1,6 @@
 <div data-step="1" class="step step--active">
 	<div data-sub-step="1" class="sub_step sub_step--active">
-		<div class="count-step">(1/4)</div>
+		<div class="count-step">(1/7)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.1-1.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
@@ -21,7 +21,7 @@
 	</div>
 
 	<div data-sub-step="2" class="sub_step" >
-		<div class="count-step">(2/4)</div>
+		<div class="count-step">(2/7)</div>
 		<h3 class="substep-title"
 			v-show="user_data.gender == 1">{{ trans('flow.questions.1-2.title') }}</h3>
 		<h3 class="substep-title"
@@ -29,9 +29,9 @@
 
 		<div class="datepicker-container-block">
 			{{--<label for="birthdate-picker" class="text-center flow_label_noclick" id="openPicker">--}}
-								{{--<span class="icon calendar-icon"--}}
-									  {{--style="vertical-align: middle; margin-right: 6px;"></span>--}}
-				{{--<span>{{ trans('flow.questions.1-2.button-text') }}</span>--}}
+			{{--<span class="icon calendar-icon"--}}
+			{{--style="vertical-align: middle; margin-right: 6px;"></span>--}}
+			{{--<span>{{ trans('flow.questions.1-2.button-text') }}</span>--}}
 			{{--</label>--}}
 
 			<select name="day" class="days" id="">
@@ -72,26 +72,117 @@
 		<p class="substep-explanation">{{ trans('flow.questions.1-2.text') }}</p>
 	</div>
 
+
+	{{--<div data-sub-step="3" class="sub_step">--}}
+		{{--<div class="count-step">(3/7)</div>--}}
+		{{--<h3 class="substep-title">{{ trans('flow.questions.1-5.title') }}</h3>--}}
+		{{--<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>--}}
+		{{--<div class="sub_step_answers">--}}
+			{{--<label>--}}
+				{{--<input type="radio" name="step[1][3]" value="1" v-model="user_data.relation" data-model="relation"--}}
+					   {{--v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-3' );"/>--}}
+				{{--<span class="icon icon-relate-single"></span>--}}
+				{{--<br/>{{ trans('flow.questions.1-5.options.1') }}--}}
+			{{--</label>--}}
+			{{--<label>--}}
+				{{--<input type="radio" name="step[1][3]" value="2" v-model="user_data.relation" data-model="relation"--}}
+					   {{--v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-3' );"/>--}}
+				{{--<span class="icon icon-relate-relation"></span>--}}
+				{{--<br/>{{ trans('flow.questions.1-5.options.2') }}--}}
+			{{--</label>--}}
+			{{--<label>--}}
+				{{--<input type="radio" name="step[1][3]" value="3" v-model="user_data.relation" data-model="relation"--}}
+					   {{--v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-3' );"/>--}}
+				{{--<span class="icon icon-relate-family"></span>--}}
+				{{--<br/>{{ trans('flow.questions.1-5.options.3') }}--}}
+			{{--</label>--}}
+		{{--</div>--}}
+
+		{{--<p class="substep-explanation">{{ trans('flow.questions.1-5.text') }}</p>--}}
+	{{--</div>--}}
+
+
+	{{--<div data-sub-step="4" class="sub_step">--}}
+		{{--<div class="count-step">(4/7)</div>--}}
+		{{--<h3 class="substep-title">{{ trans('flow.questions.1-6.title') }}</h3>--}}
+		{{--<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>--}}
+		{{--<div class="sub_step_answers">--}}
+			{{--<label>--}}
+				{{--<input type="radio" name="step[1][4]" value="1" v-model="user_data.child" data-model="child"--}}
+					   {{--v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-4' );"/>--}}
+				{{--<span class="icon icon-child-no"></span>--}}
+				{{--<br/>{{ trans('flow.questions.1-6.options.1') }}--}}
+			{{--</label>--}}
+			{{--<label>--}}
+				{{--<input type="radio" name="step[1][4]" value="2" v-model="user_data.child" data-model="child"--}}
+					   {{--v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-4' );"/>--}}
+				{{--<span class="icon icon-child-yes"></span>--}}
+				{{--<br/>{{ trans('flow.questions.1-6.options.2') }}--}}
+			{{--</label>--}}
+		{{--</div>--}}
+
+		{{--<p class="substep-explanation">{{ trans('flow.questions.1-6.text') }}</p>--}}
+	{{--</div>--}}
+
+
+	{{--<div data-sub-step="5" class="sub_step" v-bind:class="{ 'sub_step--skip': user_data.child == 1 }">--}}
+		{{--<div class="count-step">(5/7)</div>--}}
+		{{--<h3 class="substep-title">{{ trans('flow.questions.1-7.title') }}</h3>--}}
+		{{--<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>--}}
+		{{--<div class="sub_step_answers">--}}
+			{{--<select name="child_count" v-model="user_data.child_count" class="child_count" id="" data-model="child_count">--}}
+				{{--<option value="1">1</option>--}}
+				{{--@foreach(range(2,5) as $i)--}}
+					{{--<option value="{{ $i }}">{{ $i }}</option>--}}
+				{{--@endforeach--}}
+			{{--</select>--}}
+			{{--<div class="max_heights">--}}
+				{{--<label class="child_age_label">--}}
+					{{--<input type="text" name="step[1][5]" class="child_age_class" v-model="user_data.child_age_1" placeholder="{{ trans('flow.questions.1-7.options') }}" data-model="child_age"/>--}}
+				{{--</label>--}}
+				{{--<label class="child_age_label hide"  v-bind:class="{ 'show-inline': user_data.child_count >= 2  }">--}}
+					{{--<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_2" data-model="child_age"/>--}}
+				{{--</label>--}}
+				{{--<label class="child_age_label hide" v-bind:class="{ 'show-inline': user_data.child_count >= 3 }">--}}
+					{{--<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_3" data-model="child_age"/>--}}
+				{{--</label>--}}
+				{{--<label class="child_age_label hide"  v-bind:class="{ 'show-inline': user_data.child_count >= 4 }">--}}
+					{{--<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_4" data-model="child_age"/>--}}
+				{{--</label>--}}
+				{{--<label class="child_age_label hide"  v-bind:class="{ 'show-inline': user_data.child_count >= 5 }">--}}
+					{{--<input type="text" name="step[1][5]" class="child_age_class" placeholder="{{ trans('flow.questions.1-7.options') }}" v-model="user_data.child_age_5" data-model="child_age"/>--}}
+				{{--</label>--}}
+			{{--</div>--}}
+		{{--</div>--}}
+		{{--<button v-on:click="nextStep();" type="button" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-7' );"--}}
+				{{--class="button button--rounded button--medium button--green">{!! trans('flow.questions.1-7.button-submit-text') !!}</button>--}}
+		{{--<p class="substep-explanation">{{ trans('flow.questions.1-7.text') }}</p>--}}
+	{{--</div>--}}
+
+
+
+
+
 	<div data-sub-step="3" class="sub_step">
-		<div class="count-step">(3/4)</div>
+		<div class="count-step">(6/7)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.1-3.title') }}</h3>
 		<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[1][3]" value="1" v-model="user_data.skin" data-model="skin"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-3' );"/>
+					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-6' );"/>
 				<span class="icon icon-skin-white"></span>
 				<br/>{{ trans('flow.questions.1-3.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[1][3]" value="2" v-model="user_data.skin" data-model="skin"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-3' );"/>
+					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-6' );"/>
 				<span class="icon icon-skin-mediterranean"></span>
 				<br/>{{ trans('flow.questions.1-3.options.2') }}
 			</label>
 			<label>
 				<input type="radio" name="step[1][3]" value="3" v-model="user_data.skin" data-model="skin"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-3' );"/>
+					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-6' );"/>
 				<span class="icon icon-skin-dark"></span>
 				<br/>{{ trans('flow.questions.1-3.options.3') }}
 			</label>
@@ -101,18 +192,18 @@
 	</div>
 
 	<div data-sub-step="4" class="sub_step">
-		<div class="count-step">(4/4)</div>
+		<div class="count-step">(7/7)</div>
 		<h3 class="substep-title">{{ trans('flow.questions.1-4.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[1][4]" value="1" v-model="user_data.outside" data-model="outside"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-4' );"/>
+					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-7' );"/>
 				<span class="icon icon-sun-yes"></span>
 				<br/>{{ trans('flow.questions.1-4.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[1][4]" value="2" v-model="user_data.outside" data-model="outside"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-4' );"/>
+					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-7' );"/>
 				<span class="icon icon-sun-no"></span>
 				<br/>{{ trans('flow.questions.1-4.options.2') }}
 			</label>

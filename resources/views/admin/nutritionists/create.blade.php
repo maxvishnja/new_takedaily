@@ -11,7 +11,7 @@
         </div>
 
         <div class="module-body">
-         <div class="clear"></div>
+            <div class="clear"></div>
             <hr/>
             <form id="cms_manage_form" method="POST" class="form-horizontal row-fluid"
                   action="{{  URL::action('Dashboard\NutritionistController@store') }}"
@@ -35,7 +35,14 @@
                                placeholder="Last Name"/>
                     </div>
                 </div>
-
+                <div class="control-group">
+                    <label for="page_title" class="control-label">Title</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="title" id="page_subtitle"
+                               value="{{ Request::old('title') }}"
+                               placeholder="Title"/>
+                    </div>
+                </div>
                 <div class="control-group">
                     <label for="page_title" class="control-label">E-mail</label>
                     <div class="controls">
@@ -83,17 +90,17 @@
                     </div>
                 </div>
 
-                   <div class="clear"></div>
-                   <div class="pull-right">
-                        <button class="btn btn-info"  type="submit"><i class="icon-pencil"></i>Create</button>
-                   </div>
-                   {{ csrf_field() }}
-                   {{ method_field('POST') }}
-                   <div class="clear"></div>
+                <div class="clear"></div>
+                <div class="pull-right">
+                    <button class="btn btn-info"  type="submit"><i class="icon-pencil"></i>Create</button>
+                </div>
+                {{ csrf_field() }}
+                {{ method_field('POST') }}
+                <div class="clear"></div>
 
-               </form>
-           </div>
-       </div><!--/.module-->
+            </form>
+        </div>
+    </div><!--/.module-->
 @stop
 
 @section('scripts')

@@ -14,7 +14,7 @@
 		@include('flow-includes.views.progress')
 
 		<div style="position: relative">
-			<div class="container">
+			<div class="container m-b-50">
 				<div class="flow-step-back" v-bind:class="{ 'clickable': step > 1 || sub_step > 1}">
 					<a href="javascript: void(0);" v-on:click="previousStep();">{{ trans('flow.back') }}</a>
 				</div>

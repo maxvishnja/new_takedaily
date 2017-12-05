@@ -73,8 +73,8 @@ class Kernel extends ConsoleKernel
 					->weekly()->wednesdays()->at('09:00')
 					->withoutOverlapping();
 
-		$schedule->command('healthmail:send')
-			     ->dailyAt('13:00');
+//		$schedule->command('healthmail:send')
+//			     ->dailyAt('13:00');
 
         $schedule->command('coupon:change')->cron('0 0 */14 * *');
 

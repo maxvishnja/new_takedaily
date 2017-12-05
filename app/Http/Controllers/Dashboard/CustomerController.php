@@ -6,6 +6,7 @@ use App\Apricot\Repositories\CustomerRepository;
 use App\Customer;
 use App\Http\Controllers\Controller;
 use App\Notes;
+use App\Nutritionist;
 use App\Order;
 use App\Vitamin;
 use Illuminate\Mail\Message;
@@ -50,10 +51,14 @@ class CustomerController extends Controller
 
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders' ]);
 
+
+        $nutritionist = Nutritionist::find($customer->plan->nutritionist_id);
+
 		return view('admin.customers.show', [
 			'customer' => $customer,
 			'newusers' => $newusers,
-			'allnewusers' => $allnewusers
+			'allnewusers' => $allnewusers,
+            'nutritionist' => $nutritionist,
 
 		]);
 	}
@@ -74,12 +79,16 @@ class CustomerController extends Controller
 			->count();
 
 		$allvitamins = \DB::table('ltm_translations')->where([['group', '=', 'pill-names'], ['locale', '=', 'nl']])->get();
+
+		$nutritionist = Nutritionist::where('active','=',1)->where('locale', '=', $customer->getLocale())->get();
+
 		$customer->load([ 'user', 'customerAttributes', 'plan', 'orders']);
 
 		return view('admin.customers.edit', [
 			'customer' => $customer,
 			'allvit' => $allvitamins,
 			'newusers' => $newusers,
+			'nutritionist' => $nutritionist,
 		]);
 	}
 
@@ -153,6 +162,7 @@ class CustomerController extends Controller
 			}
 
 		}
+
 
 
 		if($order) {
@@ -232,6 +242,11 @@ class CustomerController extends Controller
 			}
 			$customer->plan->setNewRebill($request->get('rebill'));
 		}
+        if($request->get('nutritionist')){
+            $customer->plan->nutritionist_id = $request->get('nutritionist');
+            $customer->plan->update();
+        }
+
 
 		$customer->update();
 

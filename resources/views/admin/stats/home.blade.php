@@ -80,6 +80,7 @@
                                         <option value="6">New customers with time</option>
                                         {{--<option value="2">All unsubscribe with time</option>--}}
                                         <option value="3">Unsubscribe with other reason</option>
+                                        <option value="7">Free subscription</option>
                                         {{--<option value="5">Unsubscribe from dashboard</option>--}}
                                         {{--<option value="4">Client for X amount of weeks</option>--}}
                                     </select>
@@ -315,31 +316,31 @@
                             @endforeach
                         </tbody>
 
-                        <tbody id="5" class="cohorts hidden">
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            @foreach(range(0,date('W')) as $val)
-                            <td>{{$val}}</td>
-                           @endforeach
-                        </tr>
+                        {{--<tbody id="5" class="cohorts hidden">--}}
+                        {{--<tr>--}}
+                            {{--<td></td>--}}
+                            {{--<td></td>--}}
+                            {{--@foreach(range(0,date('W')) as $val)--}}
+                            {{--<td>{{$val}}</td>--}}
+                           {{--@endforeach--}}
+                        {{--</tr>--}}
 
-                        @foreach(range(0,date('W')-1) as $week)
-                            <tr>
-                                <td>Week {{$week+1}}</td>
-                                <td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>
-                                <td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>
-                                @foreach(range(01,date('W')) as $y)
-                                    <td class="text-center">
+                        {{--@foreach(range(0,date('W')-1) as $week)--}}
+                            {{--<tr>--}}
+                                {{--<td>Week {{$week+1}}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>--}}
+                                {{--@foreach(range(01,date('W')) as $y)--}}
+                                    {{--<td class="text-center">--}}
 
-                                        @if(date('W')-$week >= $y)
-                                          {{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}
-                                        @endif
-                                    </td>
-                                @endforeach
-                            </tr>
-                        @endforeach
-                        </tbody>
+                                        {{--@if(date('W')-$week >= $y)--}}
+                                          {{--{{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}--}}
+                                        {{--@endif--}}
+                                    {{--</td>--}}
+                                {{--@endforeach--}}
+                            {{--</tr>--}}
+                        {{--@endforeach--}}
+                        {{--</tbody>--}}
 
                         </table>
 
@@ -601,15 +602,15 @@
 
 
             $('.csv-category').on('change', function () {
-                if ($('.csv-category').val() == 4) {
+                if ($('.csv-category').val() == 7) {
 
                     $('.visib .datepicker').hide();
-                    $('.visib .weeks').show();
+                    //$('.visib .weeks').show();
 
                 } else {
 
                     $('.visib .datepicker').show();
-                    $('.visib .weeks').hide();
+                   // $('.visib .weeks').hide();
                 }
             });
 

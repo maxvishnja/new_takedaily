@@ -109,10 +109,20 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::resource( 'page-translations', 'Dashboard\PageTranslationController' );
 	Route::get( 'page-translations/{id}/delete', 'Dashboard\PageTranslationController@delete' );
 
+    // Stock / Inventory
+    Route::get('/stock', 'Stock\StockController@index');
+    Route::get('/stock/new', 'Stock\StockController@create');
+    Route::get('/stock/edit/{id}', 'Stock\StockController@edit');
+    Route::get('/stock/delete/{id}', 'Stock\StockController@delete');
+    Route::post('/stock', 'Stock\StockController@insert');
+    Route::post('/stock-update', 'Stock\StockController@update');
+
 	Route::resource( 'faq', 'Dashboard\FaqController' );
 	Route::get( 'payments-error', 'Dashboard\PaymentsErrorController@index' );
 	Route::get( 'payments-error/check/{id}', 'Dashboard\PaymentsErrorController@check' );
 	Route::get( 'snoozing', 'Dashboard\SnoozingController@index' );
+	Route::get( 'sent-mails', 'Dashboard\SentMailsController@index' );
+	Route::get( 'sent-mails/get-date', 'Dashboard\SentMailsController@getDate' );
 	Route::get( 'stats', 'Dashboard\StatsController@index' );
 	Route::post('stats/post', ['as' => 'stats-post', 'uses' => 'Dashboard\StatsController@getData']);
     Route::post('stats/coupon-post', ['as' => 'coupon-post', 'uses' => 'Dashboard\StatsController@getStatsCustomersFromCoupon']);

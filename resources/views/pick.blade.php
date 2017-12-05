@@ -13,7 +13,7 @@
 			<div class="clear"></div>
 		@endif
 
-		<div class="col-md-9">
+		<div class="col-md-9" style="margin-top: 75px">
 			<div class="text-center m-t-30">
 				<h1>{{ trans('pick.title') }}</h1>
 				<p>{!! trans('pick.text-above') !!}</p>
