@@ -6,16 +6,16 @@
 		@endif
 		@foreach(\App\Apricot\Helpers\NavGenerator::generate(App::getLocale()) as $item)
 			@if($item['link']==='gifting')
-			<li @if(URL::getRequest()->path() === $item['link']) class="cta" @endif><a class="dropdown-toggle" id="dropdownMenu1"
-		   data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">{{ $item['text'] }}<span class="caret"></span></a>
-				<ul class="dropdown-menu center-dropdown" aria-labelledby="dropdownMenu1">
-					<li><a href="/gifting">{{ trans('nav.submenu.gifting-buy') }}</a></li>
-					<li><a href="/use-giftcard">{{ trans('nav.submenu.gifting-use') }}</a></li>
-				</ul>
-			</li>
+				<li @if(URL::getRequest()->path() === $item['link']) class="cta" @endif><a class="dropdown-toggle" id="dropdownMenu1"
+																						   data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">{{ $item['text'] }}<span class="caret"></span></a>
+					<ul class="dropdown-menu center-dropdown" aria-labelledby="dropdownMenu1">
+						<li><a href="/gifting">{{ trans('nav.submenu.gifting-buy') }}</a></li>
+						<li><a href="/use-giftcard">{{ trans('nav.submenu.gifting-use') }}</a></li>
+					</ul>
+				</li>
 
 			@else
-			<li @if(URL::getRequest()->path() === $item['link']) class="cta" @endif><a href="/{{ $item['link'] }}">{{ $item['text'] }}</a></li>
+				<li @if(URL::getRequest()->path() === $item['link']) class="cta" @endif><a href="/{{ $item['link'] }}">{{ $item['text'] }}</a></li>
 			@endif
 		@endforeach
 
