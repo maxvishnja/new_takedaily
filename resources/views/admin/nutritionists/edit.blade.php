@@ -94,61 +94,61 @@
                     </div>
                 </div>
 
-                <div class="clear"></div>
-                <div class="pull-right">
-                    <button class="btn btn-info" type="submit"><i class="icon-pencil"></i>Update</button>
-                </div>
-                {{ csrf_field() }}
-                {{ method_field('PUT') }}
-                <div class="clear"></div>
+                   <div class="clear"></div>
+                   <div class="pull-right">
+                        <button class="btn btn-info" type="submit"><i class="icon-pencil"></i>Update</button>
+                   </div>
+                   {{ csrf_field() }}
+                   {{ method_field('PUT') }}
+                   <div class="clear"></div>
 
-            </form>
-        </div>
+               </form>
+           </div>
     </div><!--/.module-->
 @stop
 
 @section('scripts')
-    <script src="/js/admin/croppie.min.js"></script>
-    <script>
-        var $uploadCrop,
-            $imgThumb = $('.img-thumbnail');
+<script src="/js/admin/croppie.min.js"></script>
+<script>
+    var $uploadCrop,
+        $imgThumb = $('.img-thumbnail');
 
-        function readFile(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $uploadCrop.croppie('bind', {
-                        url: e.target.result
-                    });
-                    $imgThumb.addClass('ready');
-                }
-                reader.readAsDataURL(input.files[0]);
+    function readFile(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $uploadCrop.croppie('bind', {
+                    url: e.target.result
+                });
+                $imgThumb.addClass('ready');
             }
+            reader.readAsDataURL(input.files[0]);
         }
+    }
 
-        $uploadCrop = $imgThumb.croppie({
-            viewport: {
-                width: 180,
-                height: 180,
-                type: 'circle'
-            },
-            boundary: {
-                width: 300,
-                height: 300
-            },
-            enforceBoundy: false
+    $uploadCrop = $imgThumb.croppie({
+        viewport: {
+            width: 180,
+            height: 180,
+            type: 'circle'
+        },
+        boundary: {
+            width: 300,
+            height: 300
+        },
+        enforceBoundy: false
+    });
+
+    $('#upload').on('change', function () { readFile(this); });
+
+    $('.btn-info').on('click', function (ev) {
+        $uploadCrop.croppie('result', {
+            type: 'canvas',
+            size: 'original'
+        }).then(function (resp) {
+            $('#imagebase64').val(resp);
+            $('#form').submit();
         });
-
-        $('#upload').on('change', function () { readFile(this); });
-
-        $('.btn-info').on('click', function (ev) {
-            $uploadCrop.croppie('result', {
-                type: 'canvas',
-                size: 'original'
-            }).then(function (resp) {
-                $('#imagebase64').val(resp);
-                $('#form').submit();
-            });
-        });
-    </script>
+    });
+</script>
 @endsection

@@ -1,0 +1,91 @@
+//----- Home Page / Block Packaging
+.hp-packaging {
+  position: relative;
+  color: $color-black;
+  background-color: #ECFAF6;
+  padding: 6.5rem 0 0;
+  margin-bottom: 6.2rem;
+  @include breakpoint(phone) {
+    text-align: center;
+  }
+  @include breakpoint(overPhone) {
+    padding: 0;
+  }
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: #fff;
+    z-index: 0;
+    @include breakpoint(overPhone) {
+      height: 20%;
+    }
+  }
+  &:before {
+    top: 0;
+  }
+  &:after {
+    bottom: 0;
+    @include breakpoint(phone) {
+      height: 16%;
+    }
+  }
+
+  .l {
+    @include breakpoint(phone) {
+      padding: 0;
+    }
+  }
+
+  &__body {
+    position: relative;
+    z-index: 1;
+    @include clearfix;
+  }
+  &__content {
+    @include breakpoint(phone) {
+      padding: 0 12%;
+    }
+    @include breakpoint(overPhone) {
+      width: 50%;
+      display: table-cell;
+      vertical-align: middle;
+      padding: 0 8.5%;
+    }
+    @include breakpoint(tablet) {
+      padding: 0 4% 0 1%;
+    }
+  }
+  &__title {
+    font-weight: $fw-bold;
+    @include font-size(26px, 38px);
+    @include line-height(32px, 47px);
+    color: #262626;
+    margin-bottom: 1.5rem;
+  }
+  &__intro {
+    color: #535353;
+    @include font-size(12px, 14px);
+    @include line-height(16px, 18px);
+    margin-bottom: 1.8rem;
+    @include breakpoint(overPhone) {
+      max-width: 80%;
+    }
+  }
+  &__media {
+    @include breakpoint(overPhone) {
+      width: 50%;
+      display: table-cell;
+      vertical-align: middle;
+      padding-right: 3.5%;
+    }
+    img {
+      margin: 0 auto;
+      @include breakpoint(phone) {
+        width: 100%;
+      }
+    }
+  }
+}

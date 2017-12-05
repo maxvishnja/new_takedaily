@@ -2,6 +2,8 @@
 //----- Example @include absolute(center);
 @mixin absolute($position) {
   $per: 50%;
+  $ctop: 43%;
+  $cleft: 48%;
   position: absolute;
   @if $position == 'center' {
     top: #{$per};
@@ -15,5 +17,10 @@
   @else if $position == 'center-horizontal' {
     left: #{$per};
 		@include vendor-prefixes(transform, translateX(-#{$per}));
+  }
+  @else if $position == 'custom' {
+    top: #{$ctop};
+    left: #{$cleft};
+      @include vendor-prefixes(transform, translate(-#{$ctop}, -#{$cleft}));
   }
 }

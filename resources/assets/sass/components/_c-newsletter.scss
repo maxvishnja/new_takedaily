@@ -1,0 +1,22 @@
+//----- Newsletter
+.c-newsletter  {
+  @include clearfix;
+  margin-top: 1.7rem;
+
+  input {
+    display: block;
+    outline: none;
+    @include vendor-prefixes(border-radius, 5px);
+    border: none;
+    width: 84%;
+    padding: 1.2rem 1.7rem;
+    margin-bottom: 1.2rem;
+    @include breakpoint(overPhone) {
+      width: 91%;
+    }
+  }
+  .hp-btn {
+    padding: 1.2rem 2.2rem;
+    margin-bottom: 0;
+  }
+}
