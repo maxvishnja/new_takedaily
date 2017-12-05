@@ -38,14 +38,15 @@
 			<hr/>
 			<table class="table table-striped">
 				<thead>
-					<tr>
-						<th>Item</th>
-						<th>Item no.</th>
-						<th>Requested Quantity</th>
-						<th>Current Quantity</th>
-						<th></th>
-						<th></th>
-					</tr>
+				<tr>
+					<th>Item</th>
+					<th>Item no.</th>
+					<th>Requested Quantity</th>
+					<th>Current Quantity</th>
+					<th>Status</th>
+					<th></th>
+					<th></th>
+				</tr>
 				</thead>
 
 				<tbody>
@@ -55,6 +56,13 @@
 						<td>{{ $item->number }}</td>
 						<td>{{ $item->reqQty }}</td>
 						<td>{{ $item->qty }}</td>
+						<td>
+							@if($item->status == 0)
+								<span class="icon icon-ok-circle"></span>
+							@elseif($item->status == 1)
+								<span class="icon icon-exclamation-sign"></span>
+							@endif
+						</td>
 						<td><a href="/packaging/stock/edit/{{$item->id}}" class="btn btn-default">Edit</a></td>
 						<td><a href="/packaging/stock/delete/{{$item->id}}" class="btn btn-danger" onclick="return confirm('Are you sure?');">X</a></td>
 					</tr>
@@ -69,6 +77,9 @@
 	<script>
         $(document).ready(function () {
             $('.alert').delay(3000).fadeOut();
+
+            // check item status
+
         })
 	</script>
 @endsection
