@@ -169,42 +169,46 @@ class CheckoutCompletion
                 ->where('active', 1)
                 ->get();
 
-			if($dietologs->isEmpty() and count($dietologs_all_active)>0){
-                $dietologs = Nutritionist::where('locale', \App::getLocale())
-                    ->where('active', 1)
-                    ->get();
-                foreach($dietologs as $dietolog){
-                    $dietolog->order = 0;
-                    $dietolog->save();
-                }
-                $dietologs = Nutritionist::where('locale', \App::getLocale())
-                    ->where('order', 0)
-                    ->where('active', 1)
-                    ->get();
-            }
-            $dietolog_ids = [];
+            if(count($dietologs_all_active)>0) {
 
-			if(count($dietologs) == 1 and count($dietologs_all_active) > 1){
-
-                $dietolog_ids = $dietologs[0]['id'];
-                $dietolog_order =  Nutritionist::where('id', $dietolog_ids)->first();
-                $dietolog_order->order = 1;
-                $dietolog_order->save();
-            }elseif(count($dietologs) == 0){
-                $dietolog_ids = 0;
-            }
-            else{
-			    /** @var Nutritionist $dietolog */
-                foreach($dietologs as $dietolog){
-			        if($dietolog->order == 0){
-                        $dietolog_ids = $dietolog->id;
+                if ($dietologs->isEmpty() and count($dietologs_all_active) > 0) {
+                    $dietologs = Nutritionist::where('locale', \App::getLocale())
+                        ->where('active', 1)
+                        ->get();
+                    foreach ($dietologs as $dietolog) {
+                        $dietolog->order = 0;
+                        $dietolog->save();
                     }
+                    $dietologs = Nutritionist::where('locale', \App::getLocale())
+                        ->where('order', 0)
+                        ->where('active', 1)
+                        ->get();
                 }
-                $dietolog_order =  Nutritionist::where('id', $dietolog_ids)->first();
-                $dietolog_order->order = 1;
-                $dietolog_order->save();
-            }
+                $dietolog_ids = [];
 
+                if (count($dietologs) == 1 and count($dietologs_all_active) > 1) {
+
+                    $dietolog_ids = $dietologs[0]['id'];
+                    $dietolog_order = Nutritionist::where('id', $dietolog_ids)->first();
+                    $dietolog_order->order = 1;
+                    $dietolog_order->save();
+                } elseif (count($dietologs) == 0) {
+                    $dietolog_ids = 0;
+                } else {
+                    /** @var Nutritionist $dietolog */
+                    foreach ($dietologs as $dietolog) {
+                        if ($dietolog->order == 0) {
+                            $dietolog_ids = $dietolog->id;
+                        }
+                    }
+                    $dietolog_order = Nutritionist::where('id', $dietolog_ids)->first();
+                    $dietolog_order->order = 1;
+                    $dietolog_order->save();
+                }
+
+            } else{
+                $dietolog_ids = '';
+            }
 			$this->getUser()->getCustomer()->getPlan()->update( [
 				'price'                     => $this->getCheckout()->getSubscriptionPrice(),
 				'price_shipping'            => Setting::getWithDefault( 'shipping_price', 0 ),
