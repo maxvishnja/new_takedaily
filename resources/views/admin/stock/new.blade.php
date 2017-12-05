@@ -1,4 +1,4 @@
-@extends('layouts.packer')
+@extends('layouts.admin')
 
 @section('content')
 
@@ -37,6 +37,11 @@
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-qty" id="item-qty" placeholder="Quantity"/>
                     </div>
+                    <label for="item-alarm" class="control-label">Set Alarm on Packages Left</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="item-alarm" id="item-alarm" placeholder="Alarm"/>
+                    </div>
+
                     {{ csrf_field() }}
                     <div class="controls">
                         <button type="submit" class="btn btn-default">Submit</button>
