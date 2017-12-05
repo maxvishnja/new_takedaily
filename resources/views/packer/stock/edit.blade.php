@@ -33,13 +33,13 @@
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-reqQty" value="{{$item->reqQty}}" id="item-reqQty" placeholder="Requested Quantity"/>
                     </div>
-                    <label for="item-qty" class="control-label">Quantity</label>
+                    <label for="item-qty" class="control-label">Quantity in Stock</label>
                     <div class="controls">
-                        <input type="text" class="form-control span8" name="item-qty" id="item-qty" value="{{$item->qty}}" placeholder="Quantity"/>
+                        <input type="text" class="form-control span8" name="item-qty" id="item-qty" value="{{$item->qty}}" placeholder="Quantity" readonly/>
                     </div>
-                    <label for="item-alarm" class="control-label">Set Alarm</label>
+                    <label for="item-alarm" class="control-label">Set Alarm on Packages Left</label>
                     <div class="controls">
-                        <input type="text" class="form-control span8" name="item-alarm" id="item-alarm" value="{{$item->alarm}}" placeholder="Alarm"/>
+                        <input type="text" class="form-control span8" name="item-alarm" id="item-alarm" value="{{$item->alert}}" placeholder="Alarm"/>
                     </div>
 
                     {{ csrf_field() }}

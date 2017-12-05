@@ -323,7 +323,7 @@ class Customer extends Model
         }
 
 
-       // $this->getPlan()->rebilled();
+        // $this->getPlan()->rebilled();
 
         return true;
 
@@ -356,9 +356,9 @@ class Customer extends Model
 
         if($this->getAge() >70 and $this->getGender() == 1){
             foreach($pills as $key=>$value){
-              if($value == 1 or $value == 2){
-                  $pills[$key] = 3;
-              }
+                if($value == 1 or $value == 2){
+                    $pills[$key] = 3;
+                }
             }
         }
 
@@ -615,8 +615,8 @@ class Customer extends Model
             $this->getPlan()->setCouponCount($coupon_free - 1);
             $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
             if(!$coupon){
-                 $coupon = new Coupon();
-                 $coupon->code = "SHAREMONTH";
+                $coupon = new Coupon();
+                $coupon->code = "SHAREMONTH";
             }
 
 
@@ -626,8 +626,8 @@ class Customer extends Model
 
             $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
             if(!$coupon){
-                 $coupon = new Coupon();
-                 $coupon->code = "SHAREPERCENT";
+                $coupon = new Coupon();
+                $coupon->code = "SHAREPERCENT";
             }
             $this->getPlan()->clearDiscount();
 
@@ -917,32 +917,32 @@ class Customer extends Model
             'user_data.foods.meat' => $userData->foods->meat ?: '',
             'user_data.foods.fish' => $userData->foods->fish ?: '',
             'user_data.foods.butter' => $userData->foods->butter ?: '',
-//            'user_data.relation' => $userData->relation ?: '',
-//            'user_data.child' => $userData->child ?: ''
+            'user_data.relation' => $userData->relation ?: '',
+            'user_data.child' => $userData->child ?: ''
         ];
-//        if (isset($userData->child_count) && $userData->child_count != '') {
-//            $data['user_data.child_count'] = $userData->child_count;
-//        }
-//
-//        if (isset($userData->child_age_1) && $userData->child_age_1 != '') {
-//            $data['user_data.child_age_1'] = $userData->child_age_1;
-//        }
-//        if (isset($userData->child_age_2) && $userData->child_age_2 != '') {
-//            $data['user_data.child_age_2'] = $userData->child_age_2;
-//        }
-//
-//        if (isset($userData->child_age_3) && $userData->child_age_3 != '') {
-//            $data['user_data.child_age_3'] = $userData->child_age_3;
-//        }
-//
-//
-//        if (isset($userData->child_age_4) && $userData->child_age_4 != '') {
-//            $data['user_data.child_age_4'] = $userData->child_age_4;
-//        }
-//
-//        if (isset($userData->child_age_5) && $userData->child_age_5 != '') {
-//            $data['user_data.child_age_5'] = $userData->child_age_5;
-//        }
+        if (isset($userData->child_count) && $userData->child_count != '') {
+            $data['user_data.child_count'] = $userData->child_count;
+        }
+
+        if (isset($userData->child_age_1) && $userData->child_age_1 != '') {
+            $data['user_data.child_age_1'] = $userData->child_age_1;
+        }
+        if (isset($userData->child_age_2) && $userData->child_age_2 != '') {
+            $data['user_data.child_age_2'] = $userData->child_age_2;
+        }
+
+        if (isset($userData->child_age_3) && $userData->child_age_3 != '') {
+            $data['user_data.child_age_3'] = $userData->child_age_3;
+        }
+
+
+        if (isset($userData->child_age_4) && $userData->child_age_4 != '') {
+            $data['user_data.child_age_4'] = $userData->child_age_4;
+        }
+
+        if (isset($userData->child_age_5) && $userData->child_age_5 != '') {
+            $data['user_data.child_age_5'] = $userData->child_age_5;
+        }
 
 
         if (isset($userData->custom) && isset($userData->custom->three) && $userData->custom->three != '' && !empty($userData->custom->three)) {
