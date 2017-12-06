@@ -16,7 +16,7 @@ class Nutritionist extends Model
      *
      * @var string
      */
-    protected $table = 'nutritionist';
+    protected $table = 'nutritionists';
 
     /**
      * The attributes that are mass assignable.
@@ -24,7 +24,8 @@ class Nutritionist extends Model
      * @var array
      */
 
-    protected $fillable = ['id', 'first_name', 'last_name', 'title', 'image', 'email', 'locale', 'active', 'order'];
+    protected $fillable = ['id', 'first_name', 'last_name', 'image', 'title', 'email', 'desc', 'locale', 'active', 'order'];
+
 
     /**
      * The attributes excluded from the model's JSON form.

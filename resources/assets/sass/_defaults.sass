@@ -3,7 +3,7 @@ html
 
 body
 	background: $white
-	font: 400 14px/1 "proxima-nova", "Proxima Nova", "proxima-nova-alt", "Proxima Nova Alt", sans-serif
+	font-family: 'Montserrat', sans-serif
 	//color: $greyish-brown
 	color: $main-green-dark
 	-webkit-font-smoothing: antialiased
@@ -129,13 +129,17 @@ header
 		background-image: url(/images/header_bg.jpg)
 
 	.header_top
-		padding: 20px 0
+		padding: 13px 0
 
 	.header_top_tb
 		padding: 20px 0
 
+	.white-background
+		background: rgba(255, 255, 255, 1) !important
+
 	.header-nav
-		background: #fff
+		background: rgba(255, 255, 255, 0.4)
+		transition: all 0.1s ease-in-out
 		position: relative
 		z-index: 999
 		top: 0
@@ -166,7 +170,7 @@ header
 						display: block
 
 						a
-							padding: 10px
+							padding: 5px
 							font-size: 13px
 							display: block
 							text-align: center
@@ -183,7 +187,7 @@ header
 
 			&.cta
 				a
-					background: $main-green
+					background: $cta-green
 					color: #fff
 					font-weight: bold
 
@@ -278,7 +282,7 @@ nav[role="navigation"]
 footer
 	.main
 		padding: 40px 0
-		background: $main-green
+		background: $light-grey
 		color: $white
 
 		h3.footer_title

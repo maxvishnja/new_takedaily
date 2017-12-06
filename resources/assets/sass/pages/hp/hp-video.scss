@@ -1,0 +1,41 @@
+.video-popup {
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, .75);
+    z-index: 99999;
+}
+// Gross..
+
+.video_popup_aligner {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-popup_container {
+    text-align: center;
+    margin: 0;
+    position: relative;
+    width: 960px;
+    padding: 0 10px;
+}
+
+ .video {
+     display: inline-block;
+     box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+ }
+
+.video-popup-close {
+    cursor: pointer;
+    float: right;
+    margin-bottom: 10px;
+}
