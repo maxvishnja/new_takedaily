@@ -195,6 +195,52 @@ class PageController extends Controller
 			$page->top_image = "/uploads/cms/top/$imgName";
 		}
 
+        if ( $banner = $request->file('banner1') )
+        {
+            $imgPath = public_path('uploads/cms/banners/');
+            $imgName = str_random(40) . '.' . $topImg->getClientOriginalExtension();
+
+            $fileIsUnique = false;
+            while( !$fileIsUnique )
+            {
+                if ( \File::exists("$imgPath/$imgName") )
+                {
+                    $imgName = str_random(40) . '.' . $topImg->getClientOriginalExtension();
+                }
+                else
+                {
+                    $fileIsUnique = true;
+                }
+            }
+
+            $banner->move($imgPath, $imgName);
+
+            $page->banner = "/uploads/cms/top/$imgName";
+        }
+
+        if ( $banner2 = $request->file('banner2') )
+        {
+            $imgPath = public_path('uploads/cms/banners/');
+            $imgName = str_random(40) . '.' . $topImg->getClientOriginalExtension();
+
+            $fileIsUnique = false;
+            while( !$fileIsUnique )
+            {
+                if ( \File::exists("$imgPath/$imgName") )
+                {
+                    $imgName = str_random(40) . '.' . $topImg->getClientOriginalExtension();
+                }
+                else
+                {
+                    $fileIsUnique = true;
+                }
+            }
+
+            $banner2->move($imgPath, $imgName);
+
+            $page->banner2 = "/uploads/cms/top/$imgName";
+        }
+
 		$page->save();
 
 		return \Redirect::action('Dashboard\PageController@index')->with('success', 'Siden blev oprettet!');

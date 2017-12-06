@@ -59,3 +59,8 @@ resources/assets/sass/_sprites.sass
 id_rsa
 dump.rdb
 package-lock.json
+public/images/quality/
+public/images/vitamins/
+resources/lang/
+
+.DS_Store

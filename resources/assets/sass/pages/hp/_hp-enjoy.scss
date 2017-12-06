@@ -1,0 +1,70 @@
+//----- Home Page / Block Enjoyment
+.hp-enjoy {
+  color: $color-black;
+  margin-bottom: 2rem;
+  @include breakpoint(phone) {
+    margin-bottom: .5rem;
+  }
+
+  &__body {
+    @include center-block;
+    @include breakpoint(overPhone) {
+      max-width: 67%;
+    }
+    @include breakpoint(tablet) {
+      max-width: 95%;
+    }
+  }
+
+  &__title {
+    color: #262626;
+    text-align: center;
+    @include font-size(26px, 38px);
+    @include line-height(32px, 47px);
+    margin-bottom: 2rem;
+    @include breakpoint(overPhone) {
+      margin-bottom: 4.5rem;
+    }
+  }
+  &__list {
+    @include clearfix;
+  }
+  &__item {
+    @include breakpoint(phone) {
+      @include clearfix;
+      margin-bottom: 2rem;
+    }
+    @include breakpoint(overPhone) {
+      @include grid(2, 11%);
+      margin-bottom: 6rem;
+    }
+  }
+  &__item__img {
+    // width: 3rem;
+    float: left;
+    @include breakpoint(phone) {
+      width: 11.5%;
+      margin-right: 3.5%;
+    }
+    @include breakpoint(overPhone) {
+      width: 16.5%;
+      margin-right: 8%;
+    }
+  }
+  &__item__intro {
+    color: #535353;
+    @include font-size(12px, 14px);
+    @include line-height(16px, 22px);
+    float: left;
+    @include breakpoint(phone) {
+      width: 85%;
+      padding-top: 5px;
+    }
+    @include breakpoint(phoneLandscape) {
+      padding-top: 25px;
+    }
+    @include breakpoint(overPhone) {
+      width: 75.5%;
+    }
+  }
+}
