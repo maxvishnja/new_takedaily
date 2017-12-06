@@ -31,29 +31,31 @@
                                 <div class="control-group">
                                     <label for="page_title" class="control-label">Sidens layout</label>
                                     <div class="controls">
-                                        {{--<label style="display: inline-block; border: 1px solid #eee; border-radius: 4px; padding: 10px; margin-right: 10px;">--}}
-                                            {{--<input type="radio" name="layout" id="page_layout" value="plain"--}}
-                                                   {{--@if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'plain') checked="checked" @endif />--}}
-                                            {{--<img src="{{ asset('admin/images/icons/icon-cms-layout-plain.png') }}"--}}
-                                                 {{--alt="">--}}
-                                        {{--</label>--}}
+                                        <label style="display: inline-block; border: 1px solid #eee; border-radius: 4px; padding: 10px; margin-right: 10px;">
+                                            <input type="radio" name="layout" id="page_layout" value="plain"
+                                                   @if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'plain') checked="checked" @endif />
+                                            <img src="{{ asset('admin/images/icons/icon-cms-layout-plain.png') }}"
+                                                 alt="">
+                                        </label>
 
                                         <label style="display: inline-block; border: 1px solid #eee; border-radius: 4px; padding: 10px;">
-                                            <input type="radio" name="layout" id="page_layout" value="header" checked="checked" />
+                                            <input type="radio" name="layout" id="page_layout" value="header"
+                                                   @if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'header') checked="checked" @endif />
                                             <img src="{{ asset('admin/images/icons/icon-cms-layout-header.png') }}"
                                                  alt="">
                                         </label>
 
-                                        {{--<label style="display: inline-block; border: 1px solid #eee; border-radius: 4px; padding: 10px;">--}}
-                                            {{--<input type="radio" name="layout" id="page_layout" value="empty"--}}
-                                                   {{--@if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'empty') checked="checked" @endif />--}}
-                                            {{--<img src="{{ asset('admin/images/icons/icon-cms-layout-empty.png') }}"--}}
-                                                 {{--alt="">--}}
-                                        {{--</label>--}}
+                                        <label style="display: inline-block; border: 1px solid #eee; border-radius: 4px; padding: 10px;">
+                                            <input type="radio" name="layout" id="page_layout" value="empty"
+                                                   @if(Request::old('layout', isset($page) ? $page->layout : 'plain') == 'empty') checked="checked" @endif />
+                                            <img src="{{ asset('admin/images/icons/icon-cms-layout-empty.png') }}"
+                                                 alt="">
+                                        </label>
                                     </div>
                                 </div>
 
-                                <div id="layout_header_only" class="control-group" style="display: block">
+                                <div id="layout_header_only" class="control-group"
+                                     @if(Request::old('layout', isset($page) ? $page->layout : 'plain') != 'header') style="display: none" @endif>
                                     <label for="page_title" class="control-label">Top billede</label>
                                     <div class="controls">
                                         <input type="file" name="top_image" id="top_image"
@@ -106,137 +108,15 @@
                                 </div>
                             </div>
 
-                            <!-- Page intro -->
-                            <div class="control-group">
-                                <label for="page_intro" class="control-label">Sidens intro</label>
-                                <div class="controls">
-                                    <input type="text" class="form-control span8" name="intro" id="page_intro"
-                                           value="{{ Request::old('intro', isset($page) ? $page->intro : '' ) }}"
-                                           placeholder="Sidens intro"/>
+                            @if( !isset($page) || (isset($page) && !$page->isLocked() ))
+                                <div class="control-group">
+                                    <label for="page_body" class="control-label">Sidens indhold</label>
+                                    <div class="controls">
+                                        <textarea name="body" class="form-control" rows="10" id="page_body"
+                                                  placeholder="Indhold...">{!! Request::old('body', isset($page) ? $page->body : '' ) !!}</textarea>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <!-- Block Body (About vitamin) -->
-                            <div class="control-group">
-                                <label for="body" class="control-label">Sidens indhold</label>
-                                <div class="controls">
-                                <textarea name="body" class="form-control" rows="10" id="body"
-                                          placeholder="About">{!! Request::old('body', isset($page) ? $page->body : '' ) !!}</textarea>
-                                </div>
-                            </div>
-
-                            <!-- Block Main Characteristics -->
-                            <div class="control-group">
-                                <label for="characteristics" class="control-label">Main Characteristics</label>
-                                <div class="controls">
-                                    <input type="text" class="form-control span3 char_title" name="char_title[]" placeholder="Title">
-                                    <input type="text" class="form-control span6 characteristics" name="characteristics[]"
-                                           value=""
-                                           placeholder="Characteristics"/> <input type="text" class="form-control span2 char_icon" name="char_icon[]" placeholder="Icon"><br><br>
-
-                                    <input type="text" class="form-control span3 char_title" name="char_title[]" placeholder="Title">
-                                    <input type="text" class="form-control span6 characteristics" name="characteristics[]"
-                                           value=""
-                                           placeholder="Characteristics"/> <input type="text" class="form-control span2 char_icon" name="char_icon[]" placeholder="Icon"> <br><br>
-
-                                    <input type="text" class="form-control span3 char_title" name="char_title[]" placeholder="Title">
-                                    <input type="text" class="form-control span6 characteristics" name="characteristics[]"
-                                           value=""
-                                           placeholder="Characteristics"/> <input type="text" class="form-control span2 char_icon" name="char_icon[]" placeholder="Icon"> <br><br>
-
-                                    <input type="text" class="form-control span3 char_title" name="char_title[]" placeholder="Title">
-                                    <input type="text" class="form-control span6 characteristics" name="characteristics[]"
-                                           value=""
-                                           placeholder="Characteristics"/> <input type="text" class="form-control span2 char_icon" name="char_icon[]" placeholder="Icon">
-                                </div>
-                            </div>
-
-                            <!-- Block Recommended daily intake -->
-                            <div class="control-group">
-                                <label for="page_title" class="control-label">Recommended daily intake</label>
-                                <div class="controls">
-                                    Kvinder og mænd <input type="text" name="daily_intake" class="form-control span1 daily_intake"> µg
-                                    <br><br>
-                                    Kvinder og mænd over 70 år <input type="text" name="daily_intake_over_70" class="form-control span1 daily_intake_over_70"> µg
-                                </div>
-                            </div>
-
-                            <!-- Block Good Sources -->
-                            <div class="control-group">
-                                <label for="sources" class="control-label">Gode Kilder</label>
-                                <div class="controls">
-                                    <input type="text" class="form-control span3" name="sources_title[]" placeholder="Source title">
-                                    <input type="text" class="form-control span6 sources" name="sources_desc[]"
-                                           value=""
-                                           placeholder="Sources description"/>
-                                    <input type="text" class="form-control span2 sources_icon" name="sources_icon[]" placeholder="Icon"><br><br>
-
-                                    <input type="text" class="form-control span3" name="sources_title[]" placeholder="Source title">
-                                    <input type="text" class="form-control span6 sources" name="sources_desc[]"
-                                           value=""
-                                           placeholder="Sources description"/>
-                                    <input type="text" class="form-control span2 sources_icon" name="sources_icon[]" placeholder="Icon"><br><br>
-                                </div>
-                            </div>
-
-                            <!-- Block Banner 1 -->
-                            <div id="layout_header_only2" class="control-group" style="display: block">
-                                <label for="page_title" class="control-label">Banner image 1</label>
-                                <div class="controls">
-                                    <input type="file" name="banner1" id="banner1"
-                                           accept="image/jpeg,image/jpg,image/png,image/gif" class="form-control"/>
-                                    <p class="help-block">Anbefalet størrelse: 1920x800 pixels</p>
-                                    <p class="help-block">Tilføj et nyt billede for at skifte nuværende, ellers lad
-                                        den feltet være tomt.</p>
-                                    @if( isset($page) ? $page->banner : '' != '')
-                                        <img src="{{ isset($page) ? $page->banner : '' }}" class="img-responsive"
-                                             alt="Meta image" width="480" height="200"
-                                             style="max-height: 200px; width: auto;"/>
-                                    @endif
-                                    <br>
-                                    <label for="banner1__title">Headline</label>
-                                    <input type="text" id="banner1__title" name="banner1__title">
-                                    <br>
-                                    <label for="banner1__subtitle">Sub title</label>
-                                    <input type="text" id="banner1__subtitle" name="banner1__subtitle">
-                                </div>
-                            </div>
-
-                            <!-- Block Customer Reviews -->
-                            <div class="control-group">
-                                <label for="page_review" class="control-label">Customer reviews</label>
-                                <div class="controls">
-                                    <input type="text" class="form-control span8 page_review" name="review[]"
-                                           value=""
-                                           placeholder="Review"/> by <input type="text" class="form-control span3 author" name="author[]" placeholder="Author"><br><br>
-                                    <input type="text" class="form-control span8 page_review" name="review[]"
-                                           value=""
-                                           placeholder="Review"/> by <input type="text" class="form-control span3 author" name="author[]" placeholder="Author"> <br><br>
-                                    <input type="text" class="form-control span8 page_review page_review" name="review[]"
-                                           value=""
-                                           placeholder="Review"/> by <input type="text" class="form-control span3 author" name="author[]" placeholder="Author">
-                                </div>
-                            </div>
-
-                            <!-- Block Banner 2 -->
-                            <div id="layout_header_only" class="control-group" style="display: block">
-                                <label for="page_title" class="control-label">Banner image 2</label>
-                                <div class="controls">
-                                    <input type="file" name="banner2" id="banner2"
-                                           accept="image/jpeg,image/jpg,image/png,image/gif" class="form-control"/>
-                                    <p class="help-block">Anbefalet størrelse: 1920x800 pixels</p>
-                                    <p class="help-block">Tilføj et nyt billede for at skifte nuværende, ellers lad
-                                        den feltet være tomt.</p>
-                                    @if( isset($page) ? $page->banner2 : '' != '')
-                                        <img src="{{ isset($page) ? $page->banner2 : '' }}" class="img-responsive"
-                                             alt="Meta image" width="480" height="200"
-                                             style="max-height: 200px; width: auto;"/>
-                                    @endif
-                                    <br>
-                                    <label for="banner2__title">Headline</label>
-                                    <input type="text" id="banner2__title" name="banner2__title">
-                                </div>
-                            </div>
+                            @endif
 
                             <div class="control-group"></div> <!-- To fix :last-child bug -->
                         </div>
@@ -383,19 +263,7 @@
 			}
         @endif
 
-        CKEDITOR.replace('body', {
-            height: 300,
-            language: "da",
-            filebrowserImageUploadUrl: '/dashboard/upload/image'
-        });
-
-        CKEDITOR.replace('page_recommended_intake', {
-            height: 300,
-            language: "da",
-            filebrowserImageUploadUrl: '/dashboard/upload/image'
-        });
-
-        CKEDITOR.replace('page_sources', {
+        CKEDITOR.replace('page_body', {
             height: 300,
             language: "da",
             filebrowserImageUploadUrl: '/dashboard/upload/image'

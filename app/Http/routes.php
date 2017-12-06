@@ -25,11 +25,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		/*
 		 * Main routes
 		 */
-		Route::get( '/', 'HomeController@index' )->name( 'home' );
+		Route::get( '/', function ()
+		{
+			$faqs = ( new \App\Apricot\Repositories\FaqRepository() )->get();
 
-		Route::get('/privacy', function(){
-		    return view('privacy');
-        });
+			return view( 'home', compact( 'faqs' ) );
+		} )->name( 'home' );
 
 		Route::get('/privacy', function(){
 		    return view('privacy');
@@ -156,12 +157,8 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$page->meta_description = $translation->meta_description;
 			}
 
-			if($identifier == 'a-zink') {
-			    return view('page', compact('page'));
-            }
-
-			return view( 'page2', [
-				'page' => $page,
+			return view( 'page', [
+				'page' => $page
 			] );
 		} );
 

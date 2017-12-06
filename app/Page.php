@@ -17,17 +17,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $meta_description
  * @property string $meta_image
  * @property boolean $is_locked
- * @property string $intro
- * @property string $banner
- * @property string $banner_headline
- * @property string $banner_subtitle
- * @property string $banner2
- * @property string $banner2_headline
- * @property string $customer_reviews
- * @property string $good_sources
- * @property string $daily_intake
- * @property string $daily_intake_over_70
- * @property string $characteristics
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property string $layout
@@ -71,11 +60,7 @@ class Page extends Model
 		'meta_title',
 		'meta_description',
 		'meta_image',
-		'is_locked',
-		'intro',
-		'banner',
-		'banner2',
-		'customer_reviews',
+		'is_locked'
 	];
 
 	/**

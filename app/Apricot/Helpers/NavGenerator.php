@@ -48,7 +48,7 @@ class NavGenerator
 		return \Cache::remember( "nav.{$locale}", 60, function () use ( $locale )
 		{
 
-			$nav      = \App\Nav::whereActive(1)->get();
+			$nav      = \App\Nav::all();
 			$navArray = [];
 
 			foreach ( $nav as $navItem )
