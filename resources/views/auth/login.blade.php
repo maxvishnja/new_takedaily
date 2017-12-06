@@ -7,7 +7,7 @@
 		<h1>{{ trans('login.title') }}</h1>
 	</div>
 
-	<div class="container" style="margin: 150px auto">
+	<div class="container m-t-30">
 		<div class="row">
 			<div class="col-md-6 col-md-push-3">
 				<div class="card">

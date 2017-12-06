@@ -22,7 +22,6 @@
 			<li><a href="/dashboard/feedback"><i class="menu-icon icon-comments"></i>Feedback</a></li>
 			<li><a href="/dashboard/snoozing"><i class="menu-icon icon-envelope"></i>Snoozing mails</a></li>
 			<li><a href="/dashboard/rewrites"><i class="menu-icon icon-random"></i>Redirects (SEO)</a></li>
-			<li><a href="/dashboard/reviews"><i class="menu-icon icon-comments-alt"></i>Customer reviews</a></li>
 			<li><a href="/dashboard/settings"><i class="menu-icon icon-cog"></i>Settings</a></li>
 
 		</ul>

@@ -93,8 +93,6 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'almost/csv', 'Dashboard\AlmostCustomersController@getCsv' );
 	Route::get( 'rewrites/remove/{id}', 'Dashboard\RewriteController@remove' );
 
-	Route::resource( 'reviews', 'Dashboard\ReviewsController');
-
 	Route::resource( 'orders', 'Dashboard\OrderController' );
 	Route::get( 'orders/mark-sent/{id}', 'Dashboard\OrderController@markSent' );
 	Route::get( 'orders/refund/{id}', 'Dashboard\OrderController@refund' );

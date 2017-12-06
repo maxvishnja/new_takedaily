@@ -81,30 +81,30 @@
 @section('footer_scripts')
 	<script>
 
-		var videoPopup = $("#video_popup");
-		var videoPopupContent = $("#video_popup-content");
-		$("#video-toggle, #video-toggle-two").click(function (e) {
-		videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
-			'<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
-			'<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
-			'<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
-			'<source src="/video/{{ App::getLocale() }}/home.m4v" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
-			'</video>');
-		videoPopup.fadeIn(200);
-		});
+			var videoPopup = $("#video_popup");
+			var videoPopupContent = $("#video_popup-content");
+			$("#video-toggle, #video-toggle-two").click(function (e) {
+			videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
+				'<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
+				'<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
+				'<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
+				'<source src="/video/{{ App::getLocale() }}/home.m4v" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
+				'</video>');
+			videoPopup.fadeIn(200);
+			});
 
-		$("#video_popup_close").click(function () {
-		videoPopupContent.html('');
-		videoPopup.hide();
-		});
+			$("#video_popup_close").click(function () {
+			videoPopupContent.html('');
+			videoPopup.hide();
+			});
 
-		$(".video-popup").click(function () {
-		videoPopupContent.html('');
-		videoPopup.hide();
-		});
+			$(".video-popup").click(function () {
+			videoPopupContent.html('');
+			videoPopup.hide();
+			});
 
-		$(".video-popup_container").click(function (e) {
-		e.stopPropagation();
-		});
-	</script>
+			$(".video-popup_container").click(function (e) {
+			e.stopPropagation();
+			});
+		</script>
 @endsection
