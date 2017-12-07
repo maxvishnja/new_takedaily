@@ -51,10 +51,9 @@ class ReviewsController extends ApiController
             'age'   => $request->input('rev_age'),
             'review' => $request->input('rev_review'),
             'locale' => $request->input('rev_locale'),
-            'active' => $request->input('rev_active'),
         ];
 
-        return $data;
+        $data['active'] = ($request->input('rev_active') == 'on') ? 1 : 0;
 
         $review = $this->repo->insert($data);
 
@@ -92,11 +91,9 @@ class ReviewsController extends ApiController
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return mixed
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -106,11 +103,22 @@ class ReviewsController extends ApiController
             \Redirect::back()->withErrors("Review (#{$id}) kunne ikke findes!");
         }
 
-        $review->name   = $request->input('rev_name');
-        $review->age    = $request->input('rev_age');
-        $review->review = $request->input('rev_review');
+        $data = [
+            'name'  => $request->input('rev_name'),
+            'age'   => $request->input('rev_age'),
+            'review' => $request->input('rev_review'),
+            'locale' => $request->input('rev_locale'),
+        ];
 
-        return $review->save() ? \Redirect::to('/dashboard/reviews') : \Redirect::back()->withErrors("Something went wrong.");
+        $data['active'] = ($request->input('rev_active') == 'on') ? 1 : 0;
+
+        $review = $this->repo->update($id, $data);
+
+        if(!$review) {
+            return redirect()->back()->with('message-fail', 'Sorry, something wen wrong.');
+        }
+
+        return redirect('/dashboard/reviews')->with('message-success', 'Review updated.');
     }
 
     /**

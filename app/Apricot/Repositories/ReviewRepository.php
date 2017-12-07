@@ -26,10 +26,22 @@ class ReviewRepository
         return $this->review->orderBy('created_at', 'DESC')->get();
     }
 
+    public function getAllActiveByLocale($locale)
+    {
+        return $this->review->where(['locale' => $locale, 'active' => 1])->get();
+    }
+
     public function insert($data)
     {
         $review = $this->fillReviewObject($this->review, $data);
 
+        return ($review->save()) ? $review : false;
+    }
+
+    public function update($reviewId, array $data)
+    {
+        $review = $this->getById($reviewId);
+        $review = $this->fillReviewObject($review, $data);
         return ($review->save()) ? $review : false;
     }
 
