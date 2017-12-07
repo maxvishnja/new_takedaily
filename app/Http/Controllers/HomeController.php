@@ -53,7 +53,7 @@ class HomeController extends Controller
         $instaLatestFour = array_slice($instaFeed, 0, 4, true);
 
         // Reviews
-        $reviews = $this->review->all();
+        $reviews = $this->review->getAllActiveByLocale($locale);
 
         // Nutritionists
         $nutritionists = $this->nutritionist->allActiveByLocale($locale);

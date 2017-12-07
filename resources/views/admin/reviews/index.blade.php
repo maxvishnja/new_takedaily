@@ -20,6 +20,7 @@
                     <th>Name</th>
                     <th>Age</th>
                     <th>Review</th>
+                    <th>Country</th>
                     <th>Oprettet d.</th>
                     <th>Opdateret d.</th>
                     <th></th>
@@ -32,6 +33,7 @@
                         <td>{{ $review->name  }}</td>
                         <td>{{ $review->age }}</td>
                         <td>{{ $review->review }}</td>
+                        <td>{{ $review->locale }}</td>
                         <td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $review->created_at)->format('j. M Y H:i') }}</td>
                         <td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $review->updated_at)->format('j. M Y H:i') }}</td>
                         <td>
