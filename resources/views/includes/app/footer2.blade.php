@@ -75,6 +75,7 @@
                     <div class="c-newsletter">
                         <form action="{{ url()->action('MailchimpEmailSignup@post') }}" method="post">
                             <input type="email" name="email" id="input_newsletters_email" placeholder="{{ trans('footer2.column3.email_placeholder') }}">
+                            {{ csrf_field() }}
                             <button type="submit" class="hp-btn">{{ trans('footer2.column3.subscribe_btn') }}</button>
                         </form>
                     </div>
