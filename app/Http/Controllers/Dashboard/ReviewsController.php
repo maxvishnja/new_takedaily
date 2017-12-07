@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\ApiController;
 use App\Apricot\Repositories\ReviewRepository;
 
-use App\Http\Requests;
-
-class ReviewsController extends Controller
+class ReviewsController extends ApiController
 {
     /**
      * @var ReviewRepository
@@ -37,7 +35,7 @@ class ReviewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.reviews.new');
     }
 
     /**
@@ -48,14 +46,31 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'name'  => $request->input('rev_name'),
+            'age'   => $request->input('rev_age'),
+            'review' => $request->input('rev_review'),
+            'locale' => $request->input('rev_locale'),
+            'active' => $request->input('rev_active'),
+        ];
+
+        return $data;
+
+        $review = $this->repo->insert($data);
+
+
+        if(!$review) {
+            return redirect()->back()->with('message-fail', 'Sorry, something went wrong.');
+        }
+
+        return redirect('/dashboard/reviews')->with('message-success', 'Review created.');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function show($id)
     {
@@ -67,7 +82,7 @@ class ReviewsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function edit($id)
     {
@@ -81,7 +96,7 @@ class ReviewsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function update(Request $request, $id)
     {
@@ -102,7 +117,7 @@ class ReviewsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
     public function destroy($id)
     {

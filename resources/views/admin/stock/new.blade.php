@@ -29,6 +29,10 @@
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-number" id="item-number" placeholder="Item Number"/>
                     </div>
+                    <label for="item-type" class="control-label">Type</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="item-typer" id="item-type" placeholder="Item Type"/>
+                    </div>
                     <label for="item-reqQty" class="control-label">Requested Quantity</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-reqQty" id="item-reqQty" placeholder="Requested Quantity"/>

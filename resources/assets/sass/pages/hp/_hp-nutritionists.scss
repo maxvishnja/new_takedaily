@@ -27,10 +27,10 @@
   }
   &__list {
     @include clearfix;
-  }
-  .flex {
-    display: flex;
-    justify-content: center;
+    @include breakpoint(overPhone) {
+      display: flex;
+      justify-content: center;
+    }
   }
   &__item {
     @include breakpoint(phone) {
