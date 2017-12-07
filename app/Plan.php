@@ -419,6 +419,10 @@ class Plan extends Model
         $mailEmail = $customer->getUser()->getEmail();
         $mailName = $customer->getUser()->getName();
 
+        $mailCount = new MailStat();
+
+        $mailCount->setMail(5);
+
         \Mail::queue('emails.cancel', ['locale' => $customer->getLocale(), 'reason' => $reason, 'name' => $customer->getFirstname()], function (Message $message) use ($mailEmail, $mailName, $customer, $fromEmail) {
 
 

@@ -93,7 +93,7 @@ Highcharts.chart('pie-chart', {
         x: -30,
         verticalAlign: 'top',
         y: 0,
-        floating: true,
+        floating: false,
         backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
         borderColor: '#CCC',
         borderWidth: 1,
@@ -140,7 +140,16 @@ Highcharts.chart('pie-chart', {
             {{\App\Apricot\Helpers\SentMailHelper::getCountMail($i,4)}},
             @endforeach
         ]
-    }]
+    }, {
+        name: 'Cancel mail',
+        data: [
+            @foreach(range(6,0) as $i)
+            {{\App\Apricot\Helpers\SentMailHelper::getCountMail($i,5)}},
+            @endforeach
+        ]
+    }
+
+    ]
 });
 
 
