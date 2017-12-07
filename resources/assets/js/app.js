@@ -123,6 +123,6 @@ function validateFormInput(form, addClasses)
 
 	// todo something with the errors.
 
-	return (errors.length > 0)
+	return (errors.length == 0)
 
 };
