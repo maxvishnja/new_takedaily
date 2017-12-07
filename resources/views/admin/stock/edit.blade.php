@@ -15,7 +15,7 @@
         <div class="module-body">
             <div class="row">
                 <div class="span8">
-                    <h3>Edit Item #{{$item->id}}</h3>
+                    <h3>Edit Item #{{$item->id}} - {{$item->name}}</h3>
                 </div>
             </div>
             <hr/>
@@ -29,6 +29,10 @@
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-number" value="{{$item->number}}" id="item-number" placeholder="Item Number"/>
                     </div>
+                    <label for="item-type" class="control-label">Type</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="item-typer" value="{{$item->type}}" id="item-type" placeholder="Item Type"/>
+                    </div>
                     <label for="item-reqQty" class="control-label">Requested Quantity</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-reqQty" value="{{$item->reqQty}}" id="item-reqQty" placeholder="Requested Quantity"/>
@@ -40,6 +44,10 @@
                     <label for="item-alarm" class="control-label">Set Alarm on Packages Left</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-alarm" id="item-alarm" value="{{$item->alert}}" placeholder="Alarm"/>
+                    </div>
+                    <label for="item-timeframe" class="control-label">Set Delivery Time Frame</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="item-timeframe" id="item-timeframe" value="" placeholder="Delivery Time Frame"/>
                     </div>
 
                     {{ csrf_field() }}

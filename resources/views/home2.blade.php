@@ -175,7 +175,7 @@
         <section class="hp-nutr l">
             <h2 class="hp-nutr__title">{{ trans('home2.nutritionists.title') }}</h2>
             <p class="hp-nutr__intro">{{ trans('home2.nutritionists.intro') }}</p>
-            <section class="hp-nutr__list @if(count($nutritionists) < 3) {{ 'flex' }} @endif">
+            <section class="hp-nutr__list">
                 @foreach($nutritionists as $nutri)
                     <article class="hp-nutr__item">
                         @if($nutri->image !== '')
