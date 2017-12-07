@@ -73,7 +73,9 @@
                 <div class="b-footer__info">
                     <h4 class="b-footer__info__title">{{ trans('footer2.column3.subscribe') }}</h4>
                     <div class="c-newsletter">
-                        <form action="{{ url()->action('MailchimpEmailSignup@post') }}" method="post">
+                        <form action="https://client3.mailmailmail.net/form.php?form=656" method="post"
+                              id="frmSS656"
+                              onsubmit="return CheckForm656(this);">
                             <input type="email" name="email" id="input_newsletters_email" placeholder="{{ trans('footer2.column3.email_placeholder') }}">
                             {{ csrf_field() }}
                             <button type="submit" class="hp-btn">{{ trans('footer2.column3.subscribe_btn') }}</button>
