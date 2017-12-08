@@ -87,8 +87,8 @@
                 <div class="b-footer__info">
                     <h4 class="b-footer__info__title">{{ trans('footer2.column4.follow') }}</h4>
                     <div class="b-footer__social">
-                        <div class="b-footer__social__item"><a href="{{ trans('footer2.column4.instagram') }}"><img src="/images/home/insta2.png" alt=""></a></div>
-                        <div class="b-footer__social__item"><a href="{{ trans('footer2.column4.facebook') }}"><img src="/images/home/facebook.png" alt=""></a></div>
+                        <div class="b-footer__social__item"><a href="{{ trans('footer2.column4.instagram') }}"><img src="/images/home/insta.png" alt=""></a></div>
+                        <div class="b-footer__social__item"><a href="{{ trans('footer2.column4.facebook') }}"><img src="/images/home/fb.png" alt=""></a></div>
                     </div>
                 </div>
             </div>
