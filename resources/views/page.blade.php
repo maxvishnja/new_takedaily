@@ -50,7 +50,7 @@
 		<div class="text-center m-t-30">
 			<a href="{{ url()->route('flow') }}"
 			   class="button button--rounded button--huge button--landing button--green">
-				<strong>{!! trans('home.header.button-click-here') !!}</strong>
+				<strong>{!! trans('home2.header.button-click-here') !!}</strong>
 			</a>
 			<div class="text-center m-t-20">
 
