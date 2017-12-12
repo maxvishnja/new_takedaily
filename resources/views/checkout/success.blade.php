@@ -71,7 +71,7 @@
 
             <div class="text-center">
                 <h1>{{ trans('checkout.success.title') }}</h1>
-                <p>{{ trans('checkout.success.text') }}</p>
+                <p style="margin: 1.5rem 0; font-size: 1.3rem">{{ trans('checkout.success.text') }}</p>
 
                 <a href="/account"
                    class="button button--green button--rounded button--medium">{{ trans('checkout.success.button-text') }}</a>
