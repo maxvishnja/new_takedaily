@@ -17,6 +17,8 @@
 		<li class="c-nav-header__item c-nav-header__item--log">
 			@if(Auth::user() && Auth::user()->isAdmin())
 				<a href="/dashboard" class="c-nav-header__link">Dashboard </a>
+			@elseif(Auth::user() && Auth::user()->isUser())
+				<a href="/account" class="c-nav-header__link">{{ trans('nav2.my-takedaily') }}</a>
 			@else
 				<a href="/account" class="c-nav-header__link">{{ trans('nav2.account') }}</a>
 			@endif

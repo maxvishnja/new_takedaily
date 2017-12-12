@@ -17,6 +17,12 @@
 		{{--</div>--}}
 	@endif
 
+	<style>
+		.description p {
+			font-size: 1.2rem;
+		}
+	</style>
+
 
 
 <div class="row">
