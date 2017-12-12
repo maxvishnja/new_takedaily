@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageClass', 'page-checkout-success')
+{{--@section('pageClass', 'page-checkout-success')--}}
 
 @section('mainClasses', 'm-b-50 m-t-50')
 @section('title', trans('checkout.success.page-title'))
@@ -9,7 +9,7 @@
     <div class="container">
 
         {{--@if(session('upsell', false) && Session::has('upsell_token'))--}}
-        <div class="text-center">
+        <div class="text-center" style="margin-top: 10rem">
             @if( isset($code) )
             <h2>{{ trans('success.upsell') }}</h2>
             <h2>{{ trans('success.upsell_code') }} {{ $code }}</h2>
@@ -193,17 +193,6 @@
                 });
 
         @endif
-
-
-
-
-
-
-
-
-
-
-
     </script>
 @endsection
 
