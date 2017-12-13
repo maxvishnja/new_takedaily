@@ -160,9 +160,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 			    return view('page', compact('page'));
             }
 
-			return view( 'page2', [
-				'page' => $page,
-			] );
+			return redirect('https://takedaily.com/blog/'.$identifier);
 		} );
 
 	} );

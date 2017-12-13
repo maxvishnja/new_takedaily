@@ -21,7 +21,7 @@
 								<span class="icon play-icon"></span>
 							</div>
 						</div>
-						<div class="m-t-10"><strong>{{ trans('home.header.what-is') }}</strong></div>
+						<div class="m-t-10"><strong>{{ trans('home2.header.what-is') }}</strong></div>
 					</div>
 				</div>
 			</div>
@@ -79,7 +79,7 @@
 	<div class="text-center m-t-50">
 		<a href="{{ url()->route('flow') }}"
 		   class="button button--rounded button--huge button--landing button--green">
-			<strong>{!! trans('home.header.button-click-here') !!}</strong>
+			<strong>{!! trans('home2.header.button-click-here') !!}</strong>
 		</a>
 		<div class="text-center m-t-20">
 

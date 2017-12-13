@@ -8,6 +8,7 @@ return array (
             'title-2' => 'TakeDaily udvælger vitaminer og mineraler i præcis de koncentrationer, som du har brug for.',
             'button-test' => 'Tag vores GRATIS test',
             'play-text' => 'Hvad er TakeDaily?',
+            'button-flow' => 'Tag vitamintesten <small class="button-line2">Det tager 2 minutter</small>',
             'button-click-here' => 'Vælg selv dine vitaminer',
             'button-gift-text' => 'Giv TakeDaily i gave',
             'splash' =>

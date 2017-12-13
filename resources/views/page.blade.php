@@ -7,8 +7,19 @@
 @section('mainClasses', 'm-b-50')
 
 @section('content')
+	<style>
+		a {
+			font-size: 1.5rem;
+			line-height: 1.6;
+		}
+
+		p {
+			font-size: 1.5rem;
+			margin: 1.5rem 0;
+		}
+	</style>
 	@if( $page->layout == 'header' )
-		<div class="header_image">
+		<div class="header_image" style="margin-top: 6.6rem">
 			<div class="container text-center">
 				<h1>{{ $page->title }}</h1>
 				@if( $page->sub_title != '')
@@ -50,7 +61,7 @@
 		<div class="text-center m-t-30">
 			<a href="{{ url()->route('flow') }}"
 			   class="button button--rounded button--huge button--landing button--green">
-				<strong>{!! trans('home2.header.button-click-here') !!}</strong>
+				<strong>{!! trans('home2.header.button-flow') !!}</strong>
 			</a>
 			<div class="text-center m-t-20">
 
