@@ -459,7 +459,7 @@ class Plan extends Model
 
     public function setLastPaymentDate(){
 
-        $this->last_rebill_date = $this->subscription_rebill_at;
+        $this->last_rebill_date = Date::createFromFormat('Y-m-d H:i:s', $this->subscription_rebill_at)->subDay();
         $this->save();
         return true;
     }

@@ -197,7 +197,7 @@
 									</div>
 									<div class="col-md-6">
 										<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone') }}</label>
-										<input type="number" @if(\App::getLocale()=="nl") maxlength="10" minlength="10" data-pattern="[0-9]{10}" data-validation="number" @else maxlength="8" minlength="8" data-pattern="[0-9]{8}" data-validation="number" @endif class="input input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif"
+										<input type="number" @if(\App::getLocale()=="nl") maxlength="10" minlength="10" data-pattern="[0-9]{10}" data-validation="number" @else maxlength="8" minlength="8" data-pattern="[0-9]{8}" data-validation="number" @endif class="input input_info_phone input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif"
 											   id="input_info_phone"  data-validate="true" aria-required="true"
 											   placeholder="{{ trans('checkout.index.order.info.phone-placeholder') }}" name="phone"
 											   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
@@ -725,7 +725,7 @@
 		function validateEmail(){
 
 			if($("#input_info_email").val() != $("#input_info_repeat_email").val()) {
-				console.log($("#input_info_repeat_email").val());
+
 				$('#input_info_repeat_email').addClass('input--error label--error');
 				$('#input_info_repeat_email-error').html('{{trans('checkout.index.order.info.email-check')}}').show();
 			} else {
@@ -786,8 +786,19 @@
 		});
 
 
+		@if(App::getLocale()=="da")
+			$.validator.addMethod('checkPhone', function (value) {
+				return /^[0-9]{8}$/.test(value);
+			}, '{{ trans('checkout.index.order.info.address.postal.error') }}' );
 
+			$.validator.addClassRules({
+				input_info_phone: {
+					required: true,
+					checkPhone: true
+				}
+			});
 
+		@endif
 
         @if(App::getLocale()=="nl")
 
@@ -832,6 +843,21 @@
 					postalCode: true
 				}
 			});
+
+
+
+        $.validator.addMethod('checkPhone', function (value) {
+            return /^[0-9]{10}$/.test(value);
+        }, '{{ trans('checkout.index.order.info.phone.error') }}' );
+
+        $.validator.addClassRules({
+            input_info_phone: {
+                required: true,
+                checkPhone: true
+            }
+        });
+
+
 		@endif
 	</script>
 

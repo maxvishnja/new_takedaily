@@ -225,6 +225,7 @@
 
 					var $form = $(this);
 
+
 					if (!validateFormInput($form)) {
 						return false;
 					}
