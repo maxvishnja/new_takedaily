@@ -843,20 +843,7 @@
 					postalCode: true
 				}
 			});
-
-
-
-        $.validator.addMethod('checkPhone', function (value) {
-            return /^[0-9]{10}$/.test(value);
-        }, '{{ trans('checkout.index.order.info.phone.error') }}' );
-
-        $.validator.addClassRules({
-            input_info_phone: {
-                required: true,
-                checkPhone: true
-            }
-        });
-
+		
 
 		@endif
 	</script>
