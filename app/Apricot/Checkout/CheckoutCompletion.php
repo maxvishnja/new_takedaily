@@ -374,27 +374,27 @@ class CheckoutCompletion
 
 
         if($locale == "nl"){
-            $data['id'] = config('services.fbApi.nl_active');
+            $dataFb['id'] = config('services.fbApi.nl_active');
             $locale = 'NL';
         } else {
-            $data['id'] = config('services.fbApi.dk_active');
+            $dataFb['id'] = config('services.fbApi.dk_active');
             $locale = 'DK';
         }
 
 
-        $data['data_users'] = [
+        $dataFb['data_users'] = [
             $this->getUser()->getCustomer()->getFirstname(),
             $this->getUser()->getCustomer()->getLastName(),
             $this->getUser()->getCustomer()->getPhone(),
             $this->getUser()->getCustomer()->getEmail(),
             $bday,
-            $this->getUser()->getCustomer()->getGender(),,
+            $this->getUser()->getCustomer()->getGender(),
             $locale
         ];
 
         try{
 
-            $fbApi->addToAudience($data);
+            $fbApi->addToAudience($dataFb);
 
         } catch (\Exception $exception) {
 
