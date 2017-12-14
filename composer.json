@@ -34,7 +34,8 @@
 		"php-http/message": "^1.6",
 		"php-http/guzzle6-adapter": "^1.1",
 		"milon/barcode": "^5.3",
-		"mbarwick83/instagram": "^1.11"
+		"mbarwick83/instagram": "^1.11",
+		"facebook/php-ads-sdk": "2.11.*"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "~1.4",

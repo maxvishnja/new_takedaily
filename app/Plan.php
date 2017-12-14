@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use App\Apricot\Helpers\FacebookApiHelper;
 use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
 use Illuminate\Database\Eloquent\Builder;
@@ -428,6 +429,61 @@ class Plan extends Model
         });
 
 
+        $fbApi = new FacebookApiHelper();
+
+        $bday = '';
+
+        if($customer->getBirthday()){
+            $bday = \Date::createFromFormat('Y-m-d', $customer->getBirthday())->format('Y');
+        }
+
+        if($customer->getLocale() == "nl"){
+
+            $data_active['id'] = config('services.fbApi.nl_active');
+            $data_not_active['id'] = config('services.fbApi.nl_not_active');
+            $locale = 'NL';
+
+        } else{
+
+            $data_active['id'] = config('services.fbApi.dk_active');
+            $data_not_active['id'] = config('services.fbApi.dk_not_active');
+            $locale = 'NL';
+        }
+
+        $data_not_active['data_users'] = [
+            $customer->getFirstname(),
+            $customer->getLastName(),
+            $customer->getPhone(),
+            $customer->getEmail(),
+            $bday,
+            $customer->getGender(),
+            $locale
+        ];
+
+        $data_active['email'] =  $customer->getEmail();
+
+        try{
+
+            $fbApi->removeFromAudience($data_active);
+
+        } catch (\Exception $exception) {
+
+            \Log::error("Error in delete from FB active user  : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+        }
+
+
+        try{
+
+            $fbApi->addToAudience($data_not_active);
+
+        } catch (\Exception $exception) {
+
+            \Log::error("Error in add to FB not active user  : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+        }
+
+
         return true;
     }
 
@@ -448,6 +504,65 @@ class Plan extends Model
         $this->subscription_rebill_at = Date::now()->addDays(28);
         //$this->subscription_rebill_at     = Date::now()->addDays( 28 );
         $this->save();
+
+
+
+        $fbApi = new FacebookApiHelper();
+
+        $bday = '';
+
+        $customer = $this->customer;
+
+        if($customer->getBirthday()){
+            $bday = \Date::createFromFormat('Y-m-d', $customer->getBirthday())->format('Y');
+        }
+
+        if($customer->getLocale() == "nl"){
+
+            $data_active['id'] = config('services.fbApi.nl_active');
+            $data_not_active['id'] = config('services.fbApi.nl_not_active');
+            $locale = 'NL';
+
+        } else{
+
+            $data_active['id'] = config('services.fbApi.dk_active');
+            $data_not_active['id'] = config('services.fbApi.dk_not_active');
+            $locale = 'NL';
+        }
+
+        $data_active['data_users'] = [
+            $customer->getFirstname(),
+            $customer->getLastName(),
+            $customer->getPhone(),
+            $customer->getEmail(),
+            $bday,
+            $customer->getGender(),
+            $locale
+        ];
+
+        $data_not_active['email'] =  $customer->getEmail();
+
+        try{
+
+            $fbApi->removeFromAudience($data_not_active);
+
+        } catch (\Exception $exception) {
+
+            \Log::error("Error in delete from FB active user  : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+        }
+
+
+        try{
+
+            $fbApi->addToAudience($data_active);
+
+        } catch (\Exception $exception) {
+
+            \Log::error("Error in add to FB not active user  : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+        }
+
 
         return true;
     }
