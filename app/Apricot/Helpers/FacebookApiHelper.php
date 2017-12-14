@@ -18,12 +18,17 @@ class FacebookApiHelper
     public function __construct()
     {
 
-        $access_token = 'EAAKcCQIRPvsBAJkwc5sAl0OW4YrleHtRUrjx1JcZCdTMFVz2WMjtnE3j0eYD8c5jc2hStzu8dp3ZB3i09NGmVMFvhjEucArFWRciSSGFZBpudgein6iihfpwXoee1AHtU3PMZAQOoXawXSZBO8BFLWOWi1M6y5DZBjxB3ZCkoXZCylzq7G5XgcciQ1EJwrZBveN0WKvpQA4tC3A6aGvNHgsVue6OYi2h3xJAZD';
 
-        Api::init( env('FACEBOOK_APP_ID') , env('FACEBOOK_APP_SECRET') ,  $access_token );
+        Api::init(config('services.fbKey.app_id') , config('services.fbKey.app_secret') ,  config('services.fbKey.app_token') );
         Api::instance();
     }
 
+
+
+    public function checkApi(){
+
+        return Api::instance();
+    }
 
 
     public function addRealUsers($id, $plans, $country)
