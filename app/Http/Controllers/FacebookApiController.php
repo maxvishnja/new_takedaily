@@ -23,7 +23,9 @@ class FacebookApiController extends Controller
 
         public function checkApi()
         {
-            $api = Api::instance();
+            $query = new FacebookApiHelper();
+
+            dd( $query->checkApi());
 
         }
 

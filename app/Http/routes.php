@@ -75,7 +75,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 
 
-		//Route::get( '/fb', 'FacebookApiController@createAudience');
+		//Route::get( '/fb', 'FacebookApiController@checkApi');
 
 
 		Route::get( '/campaign/{code}', 'CampaignController@getCampaign')->name( 'campaign' );

@@ -51,4 +51,10 @@ return [
         'almost_dk'     => 23842780323780212,
     ],
 
+    'fbKey' => [
+        'app_id'     => 734512456744699,
+        'app_secret' => 'dbbe270880be0b26bb4df0d2a3df3ff7',
+        'app_token' => 'EAAKcCQIRPvsBAJkwc5sAl0OW4YrleHtRUrjx1JcZCdTMFVz2WMjtnE3j0eYD8c5jc2hStzu8dp3ZB3i09NGmVMFvhjEucArFWRciSSGFZBpudgein6iihfpwXoee1AHtU3PMZAQOoXawXSZBO8BFLWOWi1M6y5DZBjxB3ZCkoXZCylzq7G5XgcciQ1EJwrZBveN0WKvpQA4tC3A6aGvNHgsVue6OYi2h3xJAZD',
+    ],
+
 ];
