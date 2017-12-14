@@ -80,3 +80,6 @@
 		@include('includes.promo')
 	</div>
 </div>
+<script>
+    dataLayer.push({"event":"q_done"});
+</script>
