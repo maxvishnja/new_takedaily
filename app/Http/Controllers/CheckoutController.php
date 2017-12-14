@@ -3,6 +3,7 @@ use App\AlmostCustomers;
 use App\Apricot\Checkout\Cart;
 use App\Apricot\Checkout\Checkout;
 use App\Apricot\Checkout\CheckoutCompletion;
+use App\Apricot\Helpers\FacebookApiHelper;
 use App\Apricot\Helpers\PaymentMethods;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
@@ -520,6 +521,21 @@ class CheckoutController extends Controller
         $user = User::whereEmail($request->get('email'))->count();
         $customer = AlmostCustomers::where('email', '=', $request->get('email'))->count();
         if($user == 0 and $customer == 0){
+
+            $fbApi = new FacebookApiHelper();
+            if($request->get('location') == "nl") {
+                $data['id'] = config('services.fbApi.almost_nl');
+                $country = 'NL';
+            }else{
+                $data['id'] = config('services.fbApi.almost_dk');
+                $country = 'DK';
+            }
+
+            $data['data_users'] = [$name, $request->get('email'), $country];
+
+            $fbApi->addToAlmostAudience($data);
+
+
             $almost = new AlmostCustomers();
             $almost->email = $request->get('email');
             $almost->location = $request->get('location');

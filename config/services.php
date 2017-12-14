@@ -41,4 +41,14 @@ return [
 //	    'redirect'      => env('MOLLIE_REDIRECT_URI'),
     ],
 
+
+    'fbApi' => [
+        'nl_active'     => 23842780430620212,
+        'dk_active'     => 23842780326590212,
+        'nl_not_active' => 23842780430740212,
+        'dk_not_active' => 23842780327320212,
+        'almost_nl'     => 23842780325910212,
+        'almost_dk'     => 23842780323780212,
+    ],
+
 ];
