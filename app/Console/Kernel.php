@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\AddManualFb;
 use App\Console\Commands\ChangeAutomaticCoupon;
 use App\Console\Commands\ClearOldCarts;
 use App\Console\Commands\ClearSnoozing;
@@ -44,6 +45,7 @@ class Kernel extends ConsoleKernel
 		CheckPayment::class,
 	    ClearOldCarts::class,
 	    ClearOldSavedFlows::class,
+        AddManualFb::class,
         ClearOldCoupons::class,
 		ClearSnoozing::class,
 		UpdateUserMail::class,
