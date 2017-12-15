@@ -26,7 +26,12 @@
 
 
 <div class="row">
-	<div class="col-md-6">
+	@if(!empty($nutritionist))
+	<div class="col-md-7">
+	@else
+	<div class="col-md-12">
+	@endif
+
 		<h1>{{ trans('account.home.header') }} - {{ trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) }}</h1>
 		@if($customer->getPlan()->getCouponCount() > 0 and ($customer->getPlan()->getDiscountType() == 'month' or $customer->getPlan()->getDiscountType() == '' ))
 
@@ -43,12 +48,35 @@
 		@if( $plan->isActive() )
 			<p>{!! strip_tags(trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]), '<strong>') !!}</p>
 		@endif
+		<div class="m-t-10 m-b-10 m-center">
+			<a href="/flow" class="button button--green  m-b-10">{{ trans('account.home.button-change') }}</a>
+			<a href="/pick-n-mix" class="button button--green  m-b-10">{{ trans('account.home.button-pick-n-mix') }}</a>
+			<a href="#coupon-field" class="button button--green  m-b-10"
+			   id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
+		</div>
+		<div id="coupon-field" style="display: none" class="m-t-20">
+			<div class="row">
+				<div class="col-md-8">
+					<input type="text" id="coupon-input" maxlength="20"
+						   placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}"
+						   class="input input--regular input--uppercase input--spacing input--full input--semibold"
+						   value="{{ Request::old('coupon', Session::get('applied_coupon')) }}"/>
+				</div>
+
+				<div class="col-md-4">
+					<button type="button"
+							class="button button--regular button--green button--full"
+							id="coupon-button">{{ trans('checkout.index.coupon.button-text') }}</button>
+				</div>
+			</div>
+
+			<div id="coupon-form-successes" class="m-t-10"></div>
+			<div id="coupon-form-errors" class="m-t-10"></div>
+		</div>
 	</div>
-
-	<div class="col-md-6">
-		@if(!empty($nutritionist))
-
-			<div class="row nutritionist-block">
+	@if(!empty($nutritionist))
+	<div class="col-md-5">
+			<div class="row nutritionist-block  m-t-20 ">
 				<div class="col-md-4 text-center">
 					@if(!empty($nutritionist->image))
 						<img src="/images/nutritionist/thumb_{!! $nutritionist->image !!}" class="img-responsive img-circle">
@@ -62,38 +90,14 @@
 					   id="toggle-nutritionist-form">{{ trans('account.nutritionist_button') }}</a>
 				</div>
 			</div>
-		@endif
+
 	</div>
 
-
+	@endif
 
 </div>
 
-	<div class="m-t-10 m-b-10 m-center">
-		<a href="/flow" class="button button--green">{{ trans('account.home.button-change') }}</a>
-		<a href="/pick-n-mix" class="button button--green">{{ trans('account.home.button-pick-n-mix') }}</a>
-		<a href="#coupon-field" class="button button--green"
-		id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
-	</div>
-	<div id="coupon-field" style="display: none" class="m-t-20">
-		<div class="row">
-			<div class="col-md-8">
-				<input type="text" id="coupon-input" maxlength="20"
-					   placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}"
-					   class="input input--regular input--uppercase input--spacing input--full input--semibold"
-					   value="{{ Request::old('coupon', Session::get('applied_coupon')) }}"/>
-			</div>
 
-			<div class="col-md-4">
-				<button type="button"
-						class="button button--regular button--green button--full"
-						id="coupon-button">{{ trans('checkout.index.coupon.button-text') }}</button>
-			</div>
-		</div>
-
-		<div id="coupon-form-successes" class="m-t-10"></div>
-		<div id="coupon-form-errors" class="m-t-10"></div>
-	</div>
 	@foreach(Auth::user()->getCustomer()->getVitaminModels() as $vitamin)
 		<div class="new_vitamin_item">
 
