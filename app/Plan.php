@@ -420,6 +420,10 @@ class Plan extends Model
         $mailEmail = $customer->getUser()->getEmail();
         $mailName = $customer->getUser()->getName();
 
+        $mailCount = new MailStat();
+
+        $mailCount->setMail(5);
+
         \Mail::queue('emails.cancel', ['locale' => $customer->getLocale(), 'reason' => $reason, 'name' => $customer->getFirstname()], function (Message $message) use ($mailEmail, $mailName, $customer, $fromEmail) {
 
 
@@ -490,15 +494,14 @@ class Plan extends Model
     public function start()
     {
 
-        if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInDays() >= 14) {
-            $this->subscription_started_at = Date::now();
 
-        }
+
 
         if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInMonths() < 1) {
             $this->delNewUnsubscribe();
         }
 
+        $this->last_start_date = Date::now();
         $this->subscription_snoozed_until = null;
         $this->subscription_cancelled_at = null;
         $this->subscription_rebill_at = Date::now()->addDays(28);
@@ -570,7 +573,7 @@ class Plan extends Model
 
     public function setLastPaymentDate(){
 
-        $this->last_rebill_date = $this->subscription_rebill_at;
+        $this->last_rebill_date = Date::createFromFormat('Y-m-d H:i:s', $this->subscription_rebill_at)->subDay();
         $this->save();
         return true;
     }
@@ -601,15 +604,11 @@ class Plan extends Model
     public function startFromToday()
     {
 
-        if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInDays() >= 14) {
-            $this->subscription_started_at = Date::now();
-
-        }
 
         if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInMonths() < 1) {
             $this->delNewUnsubscribe();
         }
-
+        $this->last_start_date = Date::now();
         $this->subscription_snoozed_until = null;
         $this->subscription_cancelled_at = null;
         $this->unsubscribe_reason = '';
