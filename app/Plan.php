@@ -438,15 +438,14 @@ class Plan extends Model
     public function start()
     {
 
-        if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInDays() >= 14) {
-            $this->subscription_started_at = Date::now();
 
-        }
+
 
         if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInMonths() < 1) {
             $this->delNewUnsubscribe();
         }
 
+        $this->last_start_date = Date::now();
         $this->subscription_snoozed_until = null;
         $this->subscription_cancelled_at = null;
         $this->subscription_rebill_at = Date::now()->addDays(28);
@@ -490,15 +489,11 @@ class Plan extends Model
     public function startFromToday()
     {
 
-        if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInDays() >= 14) {
-            $this->subscription_started_at = Date::now();
-
-        }
 
         if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInMonths() < 1) {
             $this->delNewUnsubscribe();
         }
-
+        $this->last_start_date = Date::now();
         $this->subscription_snoozed_until = null;
         $this->subscription_cancelled_at = null;
         $this->unsubscribe_reason = '';
