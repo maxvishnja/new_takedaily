@@ -642,7 +642,7 @@ class StatsController extends Controller
 
                 case 7:
 
-                    $orders = Order::selectRaw("COUNT(*) AS count, customer_id")
+                    $orders = Order::selectRaw("COUNT(*) AS count, customer_id, coupon")
                         ->whereNull('repeat')
                         ->where('total','=', 0)
                         ->where('state','=', 'sent')
@@ -650,6 +650,9 @@ class StatsController extends Controller
                         ->groupBy('customer_id')
                         ->having('count', '>', 1)
                         ->get();
+
+                    $plans = Plan::where('discount_type','=', 'month')->where('coupon_free', '>', 0)->get();
+
                     $i = 0;
                     foreach ($orders as $order) {
 
@@ -658,14 +661,33 @@ class StatsController extends Controller
                             $email_array[$i]['Email Address'] = $order->getCustomer()->getEmail();
                             $email_array[$i]['Order count'] = $order->count;
 
-                            if($order->getCustomer()->getPlan()->subscription_canceled_at != null){
-                                $email_array[$i]['Status'] = "Not active";
-                            } else{
+                            if($order->getCustomer()->getPlan()->subscription_cancelled_at == null){
                                 $email_array[$i]['Status'] = "Active";
+                            } else{
+                                $email_array[$i]['Status'] = "Not active";
                             }
+                             $email_array[$i]['Coupon'] = $order->coupon;
 
                             $i++;
                     }
+
+                    foreach ($plans as $plan) {
+
+                        $email_array[$i]['First Name'] = $plan->customer->getFirstName();
+                        $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                        $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                        $email_array[$i]['Order count'] = $plan->customer->getOrderCount();
+
+                        if($plan->subscription_cancelled_at == null){
+                            $email_array[$i]['Status'] = "Active";
+                        } else{
+                            $email_array[$i]['Status'] = "Not active";
+                        }
+                        $email_array[$i]['Coupon'] = $plan->getLastCoupon();
+                        $i++;
+                    }
+
+
 
                     if(isset($email_array)) {
                         \Excel::create("mails_free_from_".$data['lang'], function ($excel) use ($email_array) {
