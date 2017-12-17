@@ -197,8 +197,8 @@
 									</div>
 									<div class="col-md-6">
 										<label class="label label--full checkout--label" for="input_info_phone">{{ trans('checkout.index.order.info.phone-text') }}</label>
-										<input type="number" @if(\App::getLocale()=="nl") maxlength="10" minlength="10" data-pattern="[0-9]{10}" data-validation="number" @else maxlength="8" minlength="8" data-pattern="[0-9]{8}" data-validation="number" @endif class="input input_info_phone input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif"
-											   id="input_info_phone"  data-validate="true" aria-required="true"
+										<input type="number" data-validate="true"  @if(\App::getLocale()=="nl") maxlength="10" minlength="10" data-pattern="[0-9]{10}" data-validation="number" @else maxlength="8" minlength="8" data-pattern="[0-9]{8}" data-validation="number" @endif class="input input_info_phone input--medium input--semibold input--full @if($errors->has('phone')) input--error @endif"
+											   id="input_info_phone"  aria-required="true"
 											   placeholder="{{ trans('checkout.index.order.info.phone-placeholder') }}" name="phone"
 											   value="{{ Request::old('phone', (Auth::user() && Auth::user()->isUser() ?Auth::user()->getCustomer()->getCustomerAttribute('phone') : '')) }}"/>
 									</div>
