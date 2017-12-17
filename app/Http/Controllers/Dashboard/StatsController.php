@@ -750,7 +750,17 @@ class StatsController extends Controller
 
                 $count = $count + $count_res;
             }
-            $reasons[6]= ["name" => 'Other reason', "y"=>$all - $count ];
+
+            $count_14 = Plan::whereNotNull('subscription_cancelled_at')
+                ->whereBetween('subscription_cancelled_at', [$data['start_dates'], $data['end_dates']])
+                ->where('unsubscribe_reason','like','14 days expired')
+                ->where('currency','like',$data['lang'])
+                ->count();
+
+            $reasons[6]= ["name" => 'Churn/Quit', "y"=> $count_14 ];
+
+            $reasons[7]= ["name" => 'Other reason', "y"=>$all - $count - $count_14 ];
+
 
           return $reasons;
 
