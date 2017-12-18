@@ -45,10 +45,6 @@
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-alarm" id="item-alarm" value="{{$item->alert}}" placeholder="Alarm"/>
                     </div>
-                    <label for="item-timeframe" class="control-label">Set Delivery Time Frame</label>
-                    <div class="controls">
-                        <input type="text" class="form-control span8" name="item-timeframe" id="item-timeframe" value="" placeholder="Delivery Time Frame"/>
-                    </div>
 
                     {{ csrf_field() }}
                     <input type="hidden" name="item-id" value="{{$item->id}}">
