@@ -156,7 +156,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$page->meta_description = $translation->meta_description;
 			}
 
-			if($identifier == 'a-zink') {
+			if($identifier == 'a-zink' || $identifier == 'terms') {
 			    return view('page', compact('page'));
             }
 
