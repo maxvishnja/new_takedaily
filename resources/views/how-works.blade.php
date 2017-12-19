@@ -34,7 +34,7 @@
 				<div class="col-md-4">
 					<img src="{{ asset('/images/how-works/icon-heart@2x.png') }}" height="276" alt="Heart">
 				</div>
-				<div class="col-md-6 desc__txt">
+				<div class="col-md-6">
 					<h3>{{ trans('how-works.steps.one.title') }}</h3>
 					<p>{!! trans('how-works.steps.one.body') !!}</p>
 				</div>
@@ -54,7 +54,7 @@
 						<img src="{{ asset('/images/how-works/icon-logo@2x.png') }}" height="276" alt="Logo">
 					</div>
 				</div>
-				<div class="col-md-6 col-md-pull-4 desc__txt desc__txt-pl">
+				<div class="col-md-6 col-md-pull-4">
 					<h3>{{ trans('how-works.steps.two.title') }}</h3>
 					<p>{!! trans('how-works.steps.two.body') !!}</p>
 				</div>
@@ -68,7 +68,7 @@
 				<div class="col-md-4">
 					<img src="{{ asset('/images/how-works/icon-box@2x.png') }}" height="276" alt="Box">
 				</div>
-				<div class="col-md-6 desc__txt">
+				<div class="col-md-6">
 					<h3>{{ trans('how-works.steps.three.title') }}</h3>
 					<p>{!! trans('how-works.steps.three.body') !!}</p>
 				</div>
@@ -79,13 +79,13 @@
 	<div class="text-center m-t-50">
 		<a href="{{ url()->route('flow') }}"
 		   class="button button--rounded button--huge button--landing button--green">
-			<strong>{!! trans('home2.header.button-click-here') !!}</strong>
+			<strong>{!! trans('home2.header.button-flow') !!}</strong>
 		</a>
 		<div class="text-center m-t-20">
 
 			<a href="{{ url()->route('pick-n-mix') }}"
 			   class="button button--rounded button--huge button--landing button--green m-b-10 picks-not-main">
-				<strong>{!! trans('pick.button-main') !!}</strong>
+				<strong>{!! trans('pick.button-pnm') !!}</strong>
 			</a>
 		</div>
 	</div>
