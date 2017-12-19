@@ -71,7 +71,7 @@
 	</div>
 
 	<div class="container m-t-50" id="app">
-		<div class="row">
+		<div class="row" style="margin-top: 6.6rem">
 			<div class="col-md-4 visible-sm visible-xs text-center">
 				<div class="mobile-total-text">{{ trans('checkout.index.total.total') }}</div>
 				<div class="mobile-total">{{ trans('general.money-vue', ['amount' => 'total']) }}</div>

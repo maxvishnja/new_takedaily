@@ -3,7 +3,7 @@
 @section('mainClasses', 'm-b-50')
 
 @section('content')
-	<div class="header_image">
+	<div class="header_image" style="margin-top: 6.6rem">
 		<h1>{{ trans('login.title') }}</h1>
 	</div>
 
