@@ -51,7 +51,7 @@
 			</form>
 		</div>
 
-		<div class="gifting-steps">
+		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-4 text-center">
 				<img src="/images/gifting/step_1.png"
 					 alt="{{ trans('gifting.steps.one.title') }}">
