@@ -19,6 +19,7 @@ class Checkout
 	private $total;
 	private $totalBeforeGiftcard;
 	private $subscriptionPrice;
+	private $subscriptionPriceDiscount;
 	private $paymentMethod;
 	private $paymentHandler;
 	private $product;
@@ -36,6 +37,10 @@ class Checkout
 		if ( $coupon && ! $this->getProduct()->isGiftcard() )
 		{
 			$this->coupon = $coupon;
+
+            $start_price =  $this->getTotal();
+
+
 
 			if ( $coupon->discount_type == 'percentage' )
 			{
@@ -55,7 +60,10 @@ class Checkout
 
 			if ( $coupon->applies_to == 'plan' and $coupon->discount_type != 'free_shipping')
 			{
-				$this->setSubscriptionPrice( $this->getTotal() );
+
+                $this->setSubscriptionPrice( $start_price );
+
+                $this->setSubscriptionPriceDiscount( $this->getTotal() );
 			}
 		}
 		return $this;
@@ -206,12 +214,24 @@ class Checkout
 		return $this->subscriptionPrice;
 	}
 
+    public function getSubscriptionPriceDiscount()
+    {
+        return $this->subscriptionPriceDiscount;
+    }
+
 	public function setSubscriptionPrice( $newPrice )
 	{
 		$this->subscriptionPrice = $newPrice;
 
 		return $this;
 	}
+
+    public function setSubscriptionPriceDiscount( $newPrice )
+    {
+        $this->subscriptionPriceDiscount = $newPrice;
+
+        return $this;
+    }
 
 
 	public function addToTotal( $byAmount )

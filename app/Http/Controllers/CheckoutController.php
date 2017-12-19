@@ -356,10 +356,24 @@ class CheckoutController extends Controller
 
                 if ($couponCode) {
                     $coupon = Coupon::where('code', '=', $couponCode)->first();
+
                     if ($coupon->discount_type == "free_shipping") {
                         $count = $coupon->discount - 1;
                         $checkoutCompletion->getUser()->getCustomer()->getPlan()->setCouponCount($count);
                     }
+
+                    if($coupon->applies_to == "plan"){
+                        if($coupon->length > 0){
+                            $countDiscount = $coupon->length - 1;
+                        } else{
+                            $countDiscount = $coupon->length;
+                        }
+                        $checkoutCompletion->getUser()->getCustomer()->getPlan()->setDiscountCount($countDiscount);
+                        $checkoutCompletion->updatePriceDiscount();
+                    }
+
+
+
                     $checkoutCompletion->getUser()->getCustomer()->getPlan()->setLastCoupon($couponCode);
                 }
 
