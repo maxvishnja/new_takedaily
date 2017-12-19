@@ -82,3 +82,13 @@
 		});
 	</script>
 @endsection
+
+<style>
+	.row h3 {
+		font-size: 1.6rem;
+		margin-bottom: 0.2rem;
+	}
+	.row {
+		font-size: 1.3rem;
+	}
+</style>
