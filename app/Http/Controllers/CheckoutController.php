@@ -493,6 +493,7 @@ class CheckoutController extends Controller
                     'applies_to' => $coupon->applies_to,
                     'discount_type' => $coupon->discount_type,
                     'discount' => $coupon->discount,
+                    'length' => $coupon->length,
                     'code' => $coupon->code
                 ]
             ], 200);

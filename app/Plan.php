@@ -64,6 +64,8 @@ class Plan extends Model
         'payment_customer_token',
         'payment_method',
         'price',
+        'price_discount',
+        'count_discount',
         'price_shipping',
         'referal',
         'coupon_free',
