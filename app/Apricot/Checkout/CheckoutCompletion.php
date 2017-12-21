@@ -274,6 +274,18 @@ class CheckoutCompletion
 		return $this;
 	}
 
+
+	public function updatePriceDiscount (){
+
+        $this->getUser()->getCustomer()->getPlan()->update( [
+            'price_discount'                     => $this->getCheckout()->getSubscriptionPriceDiscount(),
+
+        ] );
+
+        return $this;
+    }
+
+
 	public function handleProductActions()
 	{
 		// giftcard

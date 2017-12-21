@@ -65,6 +65,8 @@ class Plan extends Model
         'payment_customer_token',
         'payment_method',
         'price',
+        'price_discount',
+        'count_discount',
         'price_shipping',
         'referal',
         'coupon_free',
@@ -242,7 +244,29 @@ class Plan extends Model
         $this->save();
     }
 
-    public function setDiscountType($type)
+    public function setDiscountCount($count)
+    {
+
+        $this->count_discount = $count;
+        $this->save();
+
+    }
+
+
+    public function getDiscountCount()
+    {
+        return $this->count_discount;
+    }
+
+
+    public function clearPriceDiscount()
+    {
+
+        $this->price_discount = 0;
+        $this->save();
+    }
+
+        public function setDiscountType($type)
     {
         $this->discount_type = $type;
         $this->save();
@@ -697,6 +721,15 @@ class Plan extends Model
     {
         return $this->price_shipping;
     }
+
+
+    public function getPriceDiscount()
+    {
+        return $this->price_discount;
+    }
+
+
+
 
     public function getStripeToken() // todo remove
     {
