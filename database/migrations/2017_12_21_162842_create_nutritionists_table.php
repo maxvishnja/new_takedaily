@@ -35,6 +35,6 @@ class CreateNutritionistsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('nutritionists');
     }
 }
