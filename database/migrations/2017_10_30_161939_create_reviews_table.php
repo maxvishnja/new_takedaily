@@ -12,14 +12,22 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('age');
-            $table->text('review');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+
+
+        if (Schema::hasTable('reviews')) {
+
+        } else{
+            Schema::create('reviews', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name');
+                $table->string('age');
+                $table->text('review');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
+
+
     }
 
     /**
