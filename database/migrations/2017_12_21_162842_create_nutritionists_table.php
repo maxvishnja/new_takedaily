@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNutritionistTable extends Migration
+class CreateNutritionistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,6 +18,7 @@ class CreateNutritionistTable extends Migration
             $table->string('last_name');
             $table->string('email');
             $table->string('locale');
+            $table->string('desc');
             $table->string('image');
             $table->integer('active')->default(0);
             $table->integer('order')->default(0);
