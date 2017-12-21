@@ -12,7 +12,7 @@ class CreateNutritionistTable extends Migration
      */
     public function up()
     {
-        Schema::create('nutritionist', function (Blueprint $table) {
+        Schema::create('nutritionists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
@@ -34,6 +34,6 @@ class CreateNutritionistTable extends Migration
      */
     public function down()
     {
-        Schema::drop('nutritionist');
+        Schema::drop('nutritionists');
     }
 }
