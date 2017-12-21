@@ -141,6 +141,10 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
     Route::resource( 'nutritionist', 'Dashboard\NutritionistController' );
     Route::get( 'nutritionist/delete/{id}', 'Dashboard\NutritionistController@destroy' );
 
+
+    Route::resource( 'actions', 'Dashboard\ActionsController' );
+    
+    
 	Route::any( 'upload/image', function ( \Illuminate\Http\Request $request )
 	{
 		if ( $request->hasFile( 'upload' ) )
