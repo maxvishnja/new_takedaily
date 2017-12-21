@@ -12,11 +12,21 @@ class AddFieldsToReviews extends Migration
      */
     public function up()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->string('locale')->after('review');
-            $table->integer('active')->after('locale');
 
-        });
+
+
+        if (Schema::hasColumn('reviews', 'locale')) {
+
+        } else {
+            Schema::table('reviews', function (Blueprint $table) {
+
+                $table->string('locale')->after('review');
+                $table->integer('active')->after('locale');
+
+            });
+        }
+
+
     }
 
     /**
