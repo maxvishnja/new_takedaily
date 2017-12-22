@@ -97,6 +97,7 @@ class AddCustomersToApi extends Command
                         $medium = $market->medium;
                         $campaign = $market->campaign;
                     }
+                    echo " - 11 --";
                 } catch (\Exception $exception) {
 
                     \Log::error("Foreach error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
@@ -162,6 +163,7 @@ class AddCustomersToApi extends Command
                         $s = $key + 1;
                         $vitamins[$s] = \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code));
                     }
+                    echo " - 22 --";
                 } catch (\Exception $exception) {
 
                     \Log::error("Foreach 2 error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
@@ -213,7 +215,7 @@ class AddCustomersToApi extends Command
                             $choice.=$attribute->value.',';
                         }
                     }
-
+                    echo " - 33 --";
                 } catch (\Exception $exception) {
 
                     \Log::error("Foreach 3 error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
