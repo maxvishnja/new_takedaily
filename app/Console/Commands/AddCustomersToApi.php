@@ -88,6 +88,7 @@ class AddCustomersToApi extends Command
 
 
             if (count($customer->getMarketing()) > 0) {
+                
                 foreach ($customer->getMarketing() as $market) {
                     $source = $market->source;
                     $medium = $market->medium;
@@ -187,11 +188,15 @@ class AddCustomersToApi extends Command
 
             $choice = '';
 
-            foreach($attributes as $attribute){
+            if($attributes and count($attributes) > 1){
 
-                if($attribute->identifier != 'user_data.gender' and $attribute->identifier !='user_data.age' and $attribute->identifier !='user_data.locale' and $attribute->identifier !='user_data.birthdate' and $attribute->value != ''){
-                    $choice.=$attribute->value.',';
+                foreach($attributes as $attribute){
+
+                    if($attribute->identifier != 'user_data.gender' and $attribute->identifier !='user_data.age' and $attribute->identifier !='user_data.locale' and $attribute->identifier !='user_data.birthdate' and $attribute->value != ''){
+                        $choice.=$attribute->value.',';
+                    }
                 }
+
             }
 
             if($customer->plan->subscription_started_at != null){
