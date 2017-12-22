@@ -40,7 +40,7 @@ class CouponController extends Controller
 		$coupon->ambas = $request->get('ambas');
 		$coupon->for_second = $request->get('for_second');
 		$coupon->automatic = $request->get('automatic');
-		if($coupon->automatic_id != 0){
+		if($request->get('automatic_id') != 0){
             $coupon->automatic_id = $request->get('automatic_id');
         }
         $coupon->length = $request->get('length');
@@ -85,7 +85,7 @@ class CouponController extends Controller
 		$coupon->currency = $request->get('currency');
 		$coupon->for_second = $request->get('for_second');
         $coupon->automatic = $request->get('automatic');
-        if($coupon->automatic_id != 0){
+        if($request->get('automatic_id') != 0){
             $coupon->automatic_id = $request->get('automatic_id');
         }
         $coupon->length = $request->get('length');
