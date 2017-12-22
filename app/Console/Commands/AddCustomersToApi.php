@@ -64,7 +64,7 @@ class AddCustomersToApi extends Command
         foreach($customers as $customer){
 
 
-            echo $customer->id;
+            echo $customer->id." - ";
 
             \App::setLocale($customer->getLocale());
 
@@ -150,7 +150,7 @@ class AddCustomersToApi extends Command
             $vitamins['3'] = '';
             $vitamins['4'] = '';
 
-            if ($customer->plan->getVitamiPlan() and count($customer->plan->getVitamiPlan()) > 1) {
+            if (isset($customer->plan->getVitamiPlan()) and count($customer->plan->getVitamiPlan()) > 1) {
                 foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
                     $s = $key + 1;
                     $vitamins[$s] = \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code));
