@@ -88,10 +88,8 @@ class AddCustomersToApi extends Command
             $medium = '';
             $campaign = '';
 
-echo " - ".count($customer->getMarketing())."-";
-            if ($customer->getMarketing() and count($customer->getMarketing()) > 0) {
+            if (count($customer->getMarketing()) > 0) {
                 try{
-
                     foreach ($customer->getMarketing() as $market) {
                         $source = $market->source;
                         $medium = $market->medium;
@@ -104,7 +102,7 @@ echo " - ".count($customer->getMarketing())."-";
 
                 }
             }
-
+            echo "-1111-";
             if ($customer->isSubscribed()) {
                 $active = "Active";
             } else {
@@ -170,7 +168,7 @@ echo " - ".count($customer->getMarketing())."-";
 
                 }
             }
-
+            echo "-2222-";
             $reason = '';
             $unsubReason = '';
 
@@ -224,7 +222,7 @@ echo " - ".count($customer->getMarketing())."-";
 
 
             }
-
+            echo "-33333-";
             if($customer->plan->subscription_started_at != null){
                 $latest_date = $customer->plan->subscription_started_at;
             } else{
