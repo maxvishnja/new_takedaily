@@ -155,22 +155,22 @@ class AddCustomersToApi extends Command
             $vitamins['3'] = '';
             $vitamins['4'] = '';
 
-            print_r ($customer->plan->getVitamiPlan());
 
-            if ($customer->plan->getVitamiPlan() != false and count($customer->plan->getVitamiPlan()) > 1) {
 
-                try{
-                    foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
-                        $s = $key + 1;
-                        $vitamins[$s] = \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code));
-                    }
-
-                } catch (\Exception $exception) {
-
-                    \Log::error("Foreach 2 error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
-                }
-            }
+//            if ($customer->plan->getVitamiPlan() != false and count($customer->plan->getVitamiPlan()) > 1) {
+//
+//                try{
+//                    foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
+//                        $s = $key + 1;
+//                        $vitamins[$s] = \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code));
+//                    }
+//
+//                } catch (\Exception $exception) {
+//
+//                    \Log::error("Foreach 2 error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+//
+//                }
+//            }
 
             $reason = '';
             $unsubReason = '';
