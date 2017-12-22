@@ -342,9 +342,12 @@ class AddCustomersToApi extends Command
                 $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
                 print_r ($subscriber);
                 if(is_array($subscriber)){
-                    $subscriberid = $subscriber['subscriberid'];
+                    if(isset($subscriber['subscriberid'])){
+                        $subscriberid = $subscriber['subscriberid'];
 
-                    $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
+                        $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
+                    }
+
                 }
 
             }
