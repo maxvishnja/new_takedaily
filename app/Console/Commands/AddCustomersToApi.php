@@ -64,6 +64,8 @@ class AddCustomersToApi extends Command
         foreach($customers as $customer){
 
 
+            echo $customer->id;
+
             \App::setLocale($customer->getLocale());
 
             $emailaddress = $customer->getEmail();
@@ -88,7 +90,7 @@ class AddCustomersToApi extends Command
 
 
             if (count($customer->getMarketing()) > 0) {
-                
+
                 foreach ($customer->getMarketing() as $market) {
                     $source = $market->source;
                     $medium = $market->medium;
@@ -345,7 +347,7 @@ class AddCustomersToApi extends Command
             if(!is_array($result) and strstr($result,"Already subscribed to the list")){
 
                 $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
-                print_r ($subscriber);
+               // print_r ($subscriber);
                 if(is_array($subscriber)){
                     if(isset($subscriber['subscriberid'])){
                         $subscriberid = $subscriber['subscriberid'];
@@ -360,6 +362,7 @@ class AddCustomersToApi extends Command
 
         }
 
+        echo "Start almost";
 
         foreach($almosts as $almost){
 
