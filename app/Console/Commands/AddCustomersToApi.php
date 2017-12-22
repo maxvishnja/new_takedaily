@@ -88,8 +88,8 @@ class AddCustomersToApi extends Command
             $medium = '';
             $campaign = '';
 
-            print_r ($customer->getMarketing());
-            if (count($customer->getMarketing()) > 0) {
+
+            if ($customer->getMarketing() and count($customer->getMarketing()) > 0) {
 
                 try{
 
