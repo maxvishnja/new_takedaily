@@ -88,6 +88,7 @@
 				<div class="control-group"   id="automatic_id"  @if(!isset($coupon) or $coupon->automatic == 0) style="display: none"  @endif>
 					<label for="discount" class="control-label">Automatic coupon category</label>
 					<div class="controls">
+
 						<select name="automatic_id" >
 						<option value="0"> ---- </option>
 							@foreach(['50first' => '50% off first order', '100first' =>'100% off first order', '20sub' => '20% discount off subscription' ] as $key=> $value)
