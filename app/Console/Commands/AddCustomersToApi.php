@@ -102,7 +102,7 @@ class AddCustomersToApi extends Command
 
                 }
             }
-            echo "-1111-";
+
             if ($customer->isSubscribed()) {
                 $active = "Active";
             } else {
@@ -155,7 +155,10 @@ class AddCustomersToApi extends Command
             $vitamins['3'] = '';
             $vitamins['4'] = '';
 
+            print_r ($customer->plan->getVitamiPlan());
+
             if ($customer->plan->getVitamiPlan() != false and count($customer->plan->getVitamiPlan()) > 1) {
+
                 try{
                     foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
                         $s = $key + 1;
@@ -168,7 +171,7 @@ class AddCustomersToApi extends Command
 
                 }
             }
-            echo "-2222-";
+
             $reason = '';
             $unsubReason = '';
 
@@ -222,7 +225,7 @@ class AddCustomersToApi extends Command
 
 
             }
-            echo "-33333-";
+
             if($customer->plan->subscription_started_at != null){
                 $latest_date = $customer->plan->subscription_started_at;
             } else{
