@@ -51,7 +51,7 @@ class AddCustomersToApi extends Command
 
         echo "All - ".count($customers)." - ";
 
-        echo "Almost - ".count($almosts);
+        echo "Almost - ".count($almosts)." - ";
 
 
         $listid = 4988;
@@ -88,9 +88,8 @@ class AddCustomersToApi extends Command
             $medium = '';
             $campaign = '';
 
-
+echo " - ".count($customer->getMarketing())."-";
             if ($customer->getMarketing() and count($customer->getMarketing()) > 0) {
-
                 try{
 
                     foreach ($customer->getMarketing() as $market) {
