@@ -91,10 +91,16 @@ class AddCustomersToApi extends Command
 
             if (count($customer->getMarketing()) > 0) {
 
-                foreach ($customer->getMarketing() as $market) {
-                    $source = $market->source;
-                    $medium = $market->medium;
-                    $campaign = $market->campaign;
+                try{
+                    foreach ($customer->getMarketing() as $market) {
+                        $source = $market->source;
+                        $medium = $market->medium;
+                        $campaign = $market->campaign;
+                    }
+                } catch (\Exception $exception) {
+
+                    \Log::error("Foreach error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
                 }
             }
 
@@ -151,9 +157,15 @@ class AddCustomersToApi extends Command
             $vitamins['4'] = '';
 
             if ($customer->plan->getVitamiPlan() != false and count($customer->plan->getVitamiPlan()) > 1) {
-                foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
-                    $s = $key + 1;
-                    $vitamins[$s] = \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code));
+                try{
+                    foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
+                        $s = $key + 1;
+                        $vitamins[$s] = \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code));
+                    }
+                } catch (\Exception $exception) {
+
+                    \Log::error("Foreach 2 error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
                 }
             }
 
@@ -192,12 +204,22 @@ class AddCustomersToApi extends Command
 
             if($attributes and count($attributes) > 1){
 
-                foreach($attributes as $attribute){
 
-                    if($attribute->identifier != 'user_data.gender' and $attribute->identifier !='user_data.age' and $attribute->identifier !='user_data.locale' and $attribute->identifier !='user_data.birthdate' and $attribute->value != ''){
-                        $choice.=$attribute->value.',';
+                try {
+
+                    foreach($attributes as $attribute){
+
+                        if($attribute->identifier != 'user_data.gender' and $attribute->identifier !='user_data.age' and $attribute->identifier !='user_data.locale' and $attribute->identifier !='user_data.birthdate' and $attribute->value != ''){
+                            $choice.=$attribute->value.',';
+                        }
                     }
+
+                } catch (\Exception $exception) {
+
+                    \Log::error("Foreach 3 error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
                 }
+
 
             }
 
