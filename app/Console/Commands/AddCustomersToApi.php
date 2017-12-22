@@ -102,11 +102,20 @@ class AddCustomersToApi extends Command
 
                 }
             }
+            $winback = '';
 
             if ($customer->isSubscribed()) {
                 $active = "Active";
             } else {
                 $active = "Not active";
+                $hash = base64_encode($customer->id);
+                if ($customer->getLocale() == "nl"){
+                    $winback = "https://takedaily.nl/winback/".$hash;
+                }else{
+                    $winback = "https://takedaily.dk/winback/".$hash;
+                }
+
+
             }
 
 
@@ -316,7 +325,7 @@ class AddCustomersToApi extends Command
                     'value'  =>  ''),
                 array (
                     'fieldid'  => 2679,
-                    'value'  =>  ''),
+                    'value'  =>  $winback),
                 array (
                     'fieldid'  => 2680,
                     'value'  =>  ''),
