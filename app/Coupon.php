@@ -52,7 +52,6 @@ class Coupon extends Model
 		'discount_type',
 		'currency',
 		'for_second',
-		'length',
 		'automatic',
 		'automatic_id',
 		'uses_left',
@@ -95,15 +94,6 @@ class Coupon extends Model
 			$this->save();
 		}
 	}
-
-    function reduceLength()
-    {
-        if ( $this->length > 0 )
-        {
-            $this->length --;
-            $this->save();
-        }
-    }
 
 	public static function newUpsellCoupon($code)
 	{

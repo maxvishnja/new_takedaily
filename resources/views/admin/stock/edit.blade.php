@@ -15,7 +15,7 @@
         <div class="module-body">
             <div class="row">
                 <div class="span8">
-                    <h3>Edit Item #{{$item->id}} - {{$item->name}}</h3>
+                    <h3>Edit Item #{{$item->id}}</h3>
                 </div>
             </div>
             <hr/>
@@ -28,10 +28,6 @@
                     <label for="item-number" class="control-label">Number</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-number" value="{{$item->number}}" id="item-number" placeholder="Item Number"/>
-                    </div>
-                    <label for="item-type" class="control-label">Type</label>
-                    <div class="controls">
-                        <input type="text" class="form-control span8" name="item-typer" value="{{$item->type}}" id="item-type" placeholder="Item Type"/>
                     </div>
                     <label for="item-reqQty" class="control-label">Requested Quantity</label>
                     <div class="controls">

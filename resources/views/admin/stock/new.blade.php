@@ -29,21 +29,13 @@
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-number" id="item-number" placeholder="Item Number"/>
                     </div>
-                    <label for="item-type" class="control-label">Type</label>
+                    <label for="item-reqQty" class="control-label">Requested Quantity</label>
                     <div class="controls">
-                        <select name="item-type" id="item-type">
-                            <option>-- Choose Item Type --</option>
-                            <option value="vitamin">vitamin</option>
-                            <option value="material">material</option>
-                        </select>
+                        <input type="text" class="form-control span8" name="item-reqQty" id="item-reqQty" placeholder="Requested Quantity"/>
                     </div>
-                    <label for="item-reqQty" class="control-label">NEW Stock</label>
+                    <label for="item-qty" class="control-label">Quantity</label>
                     <div class="controls">
-                        <input type="text" class="form-control span8" name="item-reqQty" id="item-reqQty" placeholder="NEW Stock"/>
-                    </div>
-                    <label for="item-qty" class="control-label">Current Stock</label>
-                    <div class="controls">
-                        <input type="text" class="form-control span8" name="item-qty" id="item-qty" placeholder="Current Stock"/>
+                        <input type="text" class="form-control span8" name="item-qty" id="item-qty" placeholder="Quantity"/>
                     </div>
                     <label for="item-alarm" class="control-label">Set Alarm on Packages Left</label>
                     <div class="controls">
