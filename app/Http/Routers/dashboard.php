@@ -97,7 +97,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 
     Route::get( 'orders/createNl', 'Dashboard\OrderController@createCsvNl' );
     Route::get( 'orders/createDk', 'Dashboard\OrderController@createCsvDk' );
-    
+
 	Route::resource( 'orders', 'Dashboard\OrderController' );
 	Route::get( 'orders/mark-sent/{id}', 'Dashboard\OrderController@markSent' );
 	Route::get( 'orders/refund/{id}', 'Dashboard\OrderController@refund' );
