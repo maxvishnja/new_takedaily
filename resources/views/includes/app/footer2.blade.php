@@ -96,9 +96,9 @@
     </div>
 </footer>
 
-@if(Auth::user() && Auth::user()->isUser() && Config::get('app.debug') == 1)
-    @include('includes.modal')
-@endif
+{{--@if(Auth::user() && Auth::user()->isUser() && Config::get('app.debug') == 1)--}}
+    {{--@include('includes.modal')--}}
+{{--@endif--}}
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     (function (d, w, c) {
