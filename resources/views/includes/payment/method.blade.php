@@ -225,10 +225,17 @@
 
 					var $form = $(this);
 
+					$validate = $form.validate();
+
 
 					if (!validateFormInput($form)) {
+
 						return false;
 					}
+					
+                    if($validate.errorList.length > 0){
+                        return false;
+                    }
 
 					swal({
 						title: he.decode("{{ trans('checkout.index.wait-text') }}"),

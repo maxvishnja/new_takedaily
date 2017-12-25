@@ -3,6 +3,7 @@ use App\AlmostCustomers;
 use App\Apricot\Checkout\Cart;
 use App\Apricot\Checkout\Checkout;
 use App\Apricot\Checkout\CheckoutCompletion;
+use App\Apricot\Helpers\FacebookApiHelper;
 use App\Apricot\Helpers\PaymentMethods;
 use App\Apricot\Libraries\TaxLibrary;
 use App\Apricot\Repositories\CouponRepository;
@@ -356,10 +357,24 @@ class CheckoutController extends Controller
 
                 if ($couponCode) {
                     $coupon = Coupon::where('code', '=', $couponCode)->first();
+
                     if ($coupon->discount_type == "free_shipping") {
                         $count = $coupon->discount - 1;
                         $checkoutCompletion->getUser()->getCustomer()->getPlan()->setCouponCount($count);
                     }
+
+                    if($coupon->applies_to == "plan"){
+                        if($coupon->length > 0){
+                            $countDiscount = $coupon->length - 1;
+                        } else{
+                            $countDiscount = $coupon->length;
+                        }
+                        $checkoutCompletion->getUser()->getCustomer()->getPlan()->setDiscountCount($countDiscount);
+                        $checkoutCompletion->updatePriceDiscount();
+                    }
+
+
+
                     $checkoutCompletion->getUser()->getCustomer()->getPlan()->setLastCoupon($couponCode);
                 }
 
@@ -493,6 +508,7 @@ class CheckoutController extends Controller
                     'applies_to' => $coupon->applies_to,
                     'discount_type' => $coupon->discount_type,
                     'discount' => $coupon->discount,
+                    'length' => $coupon->length,
                     'code' => $coupon->code
                 ]
             ], 200);
@@ -520,6 +536,21 @@ class CheckoutController extends Controller
         $user = User::whereEmail($request->get('email'))->count();
         $customer = AlmostCustomers::where('email', '=', $request->get('email'))->count();
         if($user == 0 and $customer == 0){
+
+            $fbApi = new FacebookApiHelper();
+            if($request->get('location') == "nl") {
+                $data['id'] = config('services.fbApi.almost_nl');
+                $country = 'NL';
+            }else{
+                $data['id'] = config('services.fbApi.almost_dk');
+                $country = 'DK';
+            }
+
+            $data['data_users'] = [$name, $request->get('email'), $country];
+
+            $fbApi->addToAlmostAudience($data);
+
+
             $almost = new AlmostCustomers();
             $almost->email = $request->get('email');
             $almost->location = $request->get('location');

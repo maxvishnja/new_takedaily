@@ -1,0 +1,91 @@
+//----- Home Page / Block Compromises
+.hp-comp {
+  @include clearfix;
+  color: $color-black;
+  text-align: center;
+  @include breakpoint(phone) {
+    margin-bottom: 6rem;
+  }
+  @include breakpoint(overPhone) {
+    margin-bottom: 8rem;
+  }
+
+  &.l {
+    @include breakpoint(phone) {
+      padding-right: 0;
+    }
+  }
+
+  &__title {
+    color: #262626;
+    @include font-size(26px, 26px);
+    @include line-height(32px, 22px);
+    font-weight: $fw-bold;
+    margin-bottom: 1.2rem;
+    @include breakpoint(phone) {
+      padding-right: 1.2rem;
+    }
+  }
+  &__intro {
+    color: #535353;
+    @include center-block;
+    @include font-size(12px, 14px);
+    @include line-height(16px, 22px);
+    @include breakpoint(phone) {
+      margin-bottom: 2.2rem;
+      padding-right: 1.2rem;
+    }
+    @include breakpoint(overPhone) {
+      max-width: 47%;
+      margin-bottom: 4.8rem;
+    }
+  }
+
+  &__list {
+    @include clearfix;
+    @include breakpoint(phone) {
+      padding-left: 3.3%;
+      // width: 100%;
+      // overflow-x: auto;
+      // white-space: nowrap;
+    }
+  }
+  &__item {
+    display: inline-block;
+    @include breakpoint(phone) {
+      width: 8rem;
+      margin-right: .9rem;
+      display: inline-block;
+    }
+    @include breakpoint(overPhone) {
+      width: 7.5%;
+      margin-right: 1.7%;
+    }
+    @include breakpoint(tablet) {
+      width: 11%;
+      margin-right: 1%;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  &__item__img {
+    margin: 0 auto;
+    margin-bottom: .5rem;
+    width: 7.4rem;
+  }
+  &__item__title {
+    color: #404040;
+    @include font-size(10px, 10px);
+    @include line-height(13px, 13px);
+    @include breakpoint(phone) {
+      white-space: normal;
+    }
+  }
+
+  .slick-list {
+    @include breakpoint(phone) {
+      padding-right: 12%;
+    }
+  }
+}

@@ -61,6 +61,8 @@ class AddCustomersToApi extends Command
 
         $parser = new EmailPlatformApi();
 
+        $i = 0;
+
         foreach($customers as $customer){
 
 
@@ -252,6 +254,26 @@ class AddCustomersToApi extends Command
 
 
 
+            if($i % 10 == 0){
+                $test_group = 1;
+            } else{
+                $test_group = 0;
+            }
+
+           if(\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->last_start_date)->format('Y') == '-0001'){
+
+               if($customer->plan->subscription_started_at != null){
+                   $latest_date = $customer->plan->subscription_started_at;
+               } else{
+                   $latest_date = $customer->created_at;
+               }
+                $last_start = \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y');
+           } else {
+                $last_start = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->last_start_date)->format('d-m-Y');
+           }
+
+
+
             $customfields  =  array (
                 array (
                     'fieldid'  => 2,
@@ -372,6 +394,12 @@ class AddCustomersToApi extends Command
                     'fieldid'  => 2692,
                     'value'  =>  $choice),
                 array (
+                    'fieldid'  => 3737,
+                    'value'  =>  $test_group),
+                array (
+                    'fieldid'  => 2581,
+                    'value'  =>  $last_start),
+                array (
                     'fieldid'  => 2825,
                     'value'  =>  $customer->id),
             );
@@ -393,7 +421,7 @@ class AddCustomersToApi extends Command
 
             }
 
-
+            $i++;
         }
 
         echo "Start almost";

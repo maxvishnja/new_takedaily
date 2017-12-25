@@ -1,15 +1,16 @@
 $main-green: #88E2C4
 $main-green-dark: #3AAC87
-$cta-green: #3bae8a
+$cta-green: #5CE59E
 $cta-blue: #3b5998
 $greyish-brown: #555555
 $white: #ffffff
 $dark-grey: #333333
-$warm-grey: #777777
+$warm-grey: #666666
 $greyish: #aaaaaa
-$light-grey: #cccccc
+$light-grey: #F2F2F2
 $lighter-grey: #dddddd
 $black: #000000
+$black-light: #333333
 $lightest-grey: #eeeeee
 $warmer-grey: #888888
 $bottom-grey: #e5e5e5
@@ -28,10 +29,11 @@ $weight-default: 400
 $weight-semibold: 600
 $weight-bold: bold
 
+@import '_new'
 @import '_normalise'
 @import '_grid'
 @import '_helpers'
-@import '_fonts'
+//@import '_fonts'
 @import '_defaults'
 @import '_sprites'
 @include sprites($spritesheet-sprites)
@@ -39,7 +41,6 @@ $weight-bold: bold
 //@import '_datepicker'
 @import '_datepicker-new'
 @import '_sweetalert'
-@import '_landing'
 @import '_elements'
 @import '_account'
 @import '_checkout'
@@ -54,3 +55,4 @@ $weight-bold: bold
 @import '_promo'
 @import '_gifting'
 @import '_nav_wizard'
+@import '_page'

@@ -25,6 +25,7 @@ class SetLocale
 			'.dev'    => 'da',
 			'dev'    => 'nl',
 			'da'    => 'da',
+            'wip'   => 'da'
 		];
 
 		$domainRedirects = [
@@ -65,10 +66,7 @@ class SetLocale
 		if(isset($_GET['utm_campaign'])){
 			Cookie::queue('utm_campaign', $_GET['utm_campaign'], 30);
 		}
-
-
-
-
+		
 		\App::setLocale( $locale );
 
 		return $next( $request );

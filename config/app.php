@@ -196,7 +196,7 @@ return [
 		Skovmand\Mailchimp\MailchimpServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
-
+        Mbarwick83\Instagram\InstagramServiceProvider::class,
 		/*
 		 * App providers
 		 */

@@ -3,11 +3,11 @@
 @section('mainClasses', 'm-b-50')
 
 @section('content')
-	<div class="header_image">
+	<div class="header_image" style="margin-top: 6.6rem">
 		<h1>{{ trans('login.title') }}</h1>
 	</div>
 
-	<div class="container m-t-30">
+	<div class="container" style="margin: 150px auto">
 		<div class="row">
 			<div class="col-md-6 col-md-push-3">
 				<div class="card">
@@ -48,7 +48,7 @@
 					<h2>{{ trans('auth.new') }}</h2>
 					<a href="{{ url()->route('flow') }}"
 					   class="button button--rounded button--huge button--landing button--green">
-						<strong>{!! trans('home.header.button-click-here') !!}</strong>
+						<strong>{!! trans('home2.header.button-click-here') !!}</strong>
 					</a>
 					{{--					<div class="m-t-10"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
 				</div>
