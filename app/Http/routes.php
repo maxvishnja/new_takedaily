@@ -25,11 +25,12 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		/*
 		 * Main routes
 		 */
-		Route::get( '/', 'HomeController@index' )->name( 'home' );
+		Route::get( '/', function ()
+		{
+			$faqs = ( new \App\Apricot\Repositories\FaqRepository() )->get();
 
-		Route::get('/privacy', function(){
-		    return view('privacy');
-        });
+			return view( 'home', compact( 'faqs' ) );
+		} )->name( 'home' );
 
 		Route::get('/privacy', function(){
 		    return view('privacy');
@@ -74,12 +75,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 
 
 
-		//Route::get( '/fb', 'FacebookApiController@checkApi');
-
-
 		Route::get( '/campaign/{code}', 'CampaignController@getCampaign')->name( 'campaign' );
-
-
 
 		Route::get('/checksnooz/{hash}/{id}/{email}','SnoozingController@checkSnooz')->name('check_snooz');
 		Route::post( 'orders/send-receipt', 'RecieptController@sendReciept' );
@@ -161,11 +157,9 @@ Route::group( [ 'middleware' => 'web' ], function ()
 				$page->meta_description = $translation->meta_description;
 			}
 
-			if($identifier == 'a-zink' || $identifier == 'terms') {
-			    return view('page', compact('page'));
-            }
-
-			return redirect('https://takedaily.com/blog/'.$identifier);
+			return view( 'page', [
+				'page' => $page
+			] );
 		} );
 
 	} );

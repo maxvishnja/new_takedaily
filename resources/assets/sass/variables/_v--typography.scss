@@ -9,7 +9,6 @@
 // $ff == $font-family
 $fontDefault            : Arial, sans-serif;
 // $ff          : 'Hello-Type-Bold', $fontDefault;
-$ff-main        : 'Montserrat', $fontDefault;
 
 //----- Font style
 $fw-regular: 400;
@@ -23,7 +22,7 @@ html {
   @include font-size-vw($font-size-base, $font-size-base);
 }
 body {
-  font-family: $ff-main;
+  //font-family: $fontDefault;
   //-webkit-font-smoothing: antialiased;
 }
 
@@ -31,8 +30,8 @@ h1 {}
 h2 {
     @include font-size(26px, 26px);
     @include line-height(40px, 40px);
-    //text-transform: uppercase;
-    //font-weight: $fw-regular;
+    text-transform: uppercase;
+    font-weight: $fw-regular;
 }
 a {}
 p {}

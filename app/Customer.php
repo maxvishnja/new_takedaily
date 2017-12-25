@@ -607,14 +607,8 @@ class Customer extends Model
         if (!$this->getPlan()) {
             return false;
         }
-
-
         $coupon_free = $this->getPlan()->getCouponCount();
         $discount_type = $this->getPlan()->getDiscountType();
-
-
-        $count_discount = $this->getPlan()->getDiscountCount();
-
 
         if($coupon_free > 0 && $discount_type=='month') {
             $amount = 0;
@@ -643,15 +637,7 @@ class Customer extends Model
             $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
         }
 
-        if($count_discount > 0){
 
-            $amount = $this->getPlan()->getPriceDiscount();
-            $this->getPlan()->setDiscountCount($count_discount - 1);
-
-        } else{
-
-            $this->getPlan()->clearPriceDiscount();
-        }
 
         /** @var PaymentHandler $paymentHandler */
         $paymentHandler = new PaymentHandler(PaymentDelegator::getMethod($this->getPlan()->getPaymentMethod()));

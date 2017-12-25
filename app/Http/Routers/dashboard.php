@@ -92,12 +92,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'almost/send/{id}', 'Dashboard\AlmostCustomersController@sendOne' );
 	Route::get( 'almost/csv', 'Dashboard\AlmostCustomersController@getCsv' );
 	Route::get( 'rewrites/remove/{id}', 'Dashboard\RewriteController@remove' );
-
-	Route::resource( 'reviews', 'Dashboard\ReviewsController');
-
     Route::get( 'orders/createNl', 'Dashboard\OrderController@createCsvNl' );
     Route::get( 'orders/createDk', 'Dashboard\OrderController@createCsvDk' );
-    
 	Route::resource( 'orders', 'Dashboard\OrderController' );
 	Route::get( 'orders/mark-sent/{id}', 'Dashboard\OrderController@markSent' );
 	Route::get( 'orders/refund/{id}', 'Dashboard\OrderController@refund' );
@@ -146,10 +142,6 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
     Route::resource( 'nutritionist', 'Dashboard\NutritionistController' );
     Route::get( 'nutritionist/delete/{id}', 'Dashboard\NutritionistController@destroy' );
 
-
-    Route::resource( 'actions', 'Dashboard\ActionsController' );
-    
-    
 	Route::any( 'upload/image', function ( \Illuminate\Http\Request $request )
 	{
 		if ( $request->hasFile( 'upload' ) )
