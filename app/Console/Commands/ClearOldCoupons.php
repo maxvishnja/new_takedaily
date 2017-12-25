@@ -39,7 +39,7 @@ class ClearOldCoupons extends Command
      */
     public function handle()
     {
-        Coupon::where('valid_to', '<=', Date::now()->subDay())->delete();
+        Coupon::where('valid_to', '<=', Date::now()->subDays(7))->delete();
 
     }
 }
