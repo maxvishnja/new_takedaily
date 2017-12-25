@@ -7,7 +7,8 @@
 		</div>
 		<div class="module-option clearfix">
 			<div class="pull-right">
-				<a href="{{ URL::action('Dashboard\OrderController@createCsv') }}" class="btn btn-primary">Create CSV</a>
+				<a href="{{ URL::action('Dashboard\OrderController@createCsvNl') }}" class="btn btn-primary">Create NL CSV</a>
+				<a href="{{ URL::action('Dashboard\OrderController@createCsvDk') }}" class="btn btn-primary">Create DK CSV</a>
 			</div>
 		</div>
 		<div class="module-body table">

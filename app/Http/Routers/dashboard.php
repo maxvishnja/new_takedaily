@@ -95,11 +95,14 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 
 	Route::resource( 'reviews', 'Dashboard\ReviewsController');
 
+    Route::get( 'orders/createNl', 'Dashboard\OrderController@createCsvNl' );
+    Route::get( 'orders/createDk', 'Dashboard\OrderController@createCsvDk' );
+    
 	Route::resource( 'orders', 'Dashboard\OrderController' );
 	Route::get( 'orders/mark-sent/{id}', 'Dashboard\OrderController@markSent' );
 	Route::get( 'orders/refund/{id}', 'Dashboard\OrderController@refund' );
 	Route::get( 'orders/download/{id}', 'Dashboard\OrderController@download' );
-	Route::get( 'orders/create', 'Dashboard\OrderController@createCsv' );
+
 	Route::get( 'orders/download-sticker/{id}', 'Dashboard\OrderController@downloadSticker' );
 	Route::resource( 'coupons', 'Dashboard\CouponController' );
 	Route::resource( 'settings', 'Dashboard\SettingController' );

@@ -141,7 +141,7 @@ class OrderController extends Controller
 		return \Redirect::action('Dashboard\OrderController@index')->with('success', 'Ordren blev slettet!');
 	}
 
-    function createCsv(){
+    function createCsvNl(){
 
         $opens = $this->repo->getOpenOrder()->get();
 
@@ -149,24 +149,26 @@ class OrderController extends Controller
                 $email_array = [];
                 $i = 0;
                 foreach ($opens as $order) {
+                    if($order->customer->getLocale() != 'da') {
+                        $email_array[$i]['First Name'] = $order->customer->getFirstName();
+                        $email_array[$i]['Email Address'] = $order->customer->getEmail();
+                        $email_array[$i]['Phone'] = $order->customer->getPhone();
+                        $email_array[$i]['Create'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i');
 
-                    $email_array[$i]['Email Address'] = $order->customer->getEmail();
-                    $email_array[$i]['First Name'] = $order->customer->getFirstName();
+                        if ($order->customer->getLocale() == 'da') {
+                            $country = 'Denmark';
+                        } else {
+                            $country = 'Netherlands';
+                        }
 
-                    if($order->customer->getLocale() == 'da'){
-                        $country = 'Denmark';
-                    } else{
-                        $country = 'Netherlands';
+                        $email_array[$i]['Country'] = $country;
+                        $i++;
                     }
-
-                    $email_array[$i]['Country'] = $country;
-                    $i++;
-
 
                 }
 
 
-                \Excel::create('open_orders', function ($excel) use ($email_array) {
+                \Excel::create('open_orders_nl', function ($excel) use ($email_array) {
 
                     $excel->sheet('All open orders', function ($sheet) use ($email_array) {
 
@@ -180,7 +182,46 @@ class OrderController extends Controller
 
     }
 
+    function createCsvDk(){
 
+        $opens = $this->repo->getOpenOrder()->get();
+
+        if(count($opens) > 0){
+            $email_array = [];
+            $i = 0;
+            foreach ($opens as $order) {
+                if($order->customer->getLocale() == 'da') {
+                    $email_array[$i]['First Name'] = $order->customer->getFirstName();
+                    $email_array[$i]['Email Address'] = $order->customer->getEmail();
+                    $email_array[$i]['Phone'] = $order->customer->getPhone();
+                    $email_array[$i]['Create'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i');
+
+
+                    if ($order->customer->getLocale() == 'da') {
+                        $country = 'Denmark';
+                    } else {
+                        $country = 'Netherlands';
+                    }
+
+                    $email_array[$i]['Country'] = $country;
+                    $i++;
+                }
+
+            }
+
+            \Excel::create('open_orders_da', function ($excel) use ($email_array) {
+
+                $excel->sheet('All open orders', function ($sheet) use ($email_array) {
+
+                    $sheet->fromArray($email_array, null, 'A1', true);
+
+                });
+
+            })->download('xls');
+            return \Redirect::back();
+        }
+
+    }
 
 
 

@@ -51,7 +51,7 @@ class AddCustomersToApi extends Command
 
         echo "All - ".count($customers)." - ";
 
-        echo "Almost - ".count($almosts);
+        echo "Almost - ".count($almosts)." - ";
 
 
         $listid = 4988;
@@ -65,6 +65,8 @@ class AddCustomersToApi extends Command
 
         foreach($customers as $customer){
 
+
+            echo $customer->id." - ";
 
             \App::setLocale($customer->getLocale());
 
@@ -88,19 +90,34 @@ class AddCustomersToApi extends Command
             $medium = '';
             $campaign = '';
 
-
             if (count($customer->getMarketing()) > 0) {
-                foreach ($customer->getMarketing() as $market) {
-                    $source = $market->source;
-                    $medium = $market->medium;
-                    $campaign = $market->campaign;
+                try{
+                    foreach ($customer->getMarketing() as $market) {
+                        $source = $market->source;
+                        $medium = $market->medium;
+                        $campaign = $market->campaign;
+                    }
+
+                } catch (\Exception $exception) {
+
+                    \Log::error("Foreach error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
                 }
             }
+            $winback = '';
 
             if ($customer->isSubscribed()) {
                 $active = "Active";
             } else {
                 $active = "Not active";
+                $hash = base64_encode($customer->id);
+                if ($customer->getLocale() == "nl"){
+                    $winback = "https://takedaily.nl/winback/".$hash;
+                }else{
+                    $winback = "https://takedaily.dk/winback/".$hash;
+                }
+
+
             }
 
 
@@ -149,10 +166,20 @@ class AddCustomersToApi extends Command
             $vitamins['3'] = '';
             $vitamins['4'] = '';
 
-            if ($customer->plan->getVitamiPlan()) {
-                foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
-                    $s = $key + 1;
-                    $vitamins[$s] = \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code));
+
+
+            if ($customer->plan->getVitamiPlan() and count($customer->plan->getVitamiPlan()) > 1) {
+
+                try{
+                    foreach ($customer->plan->getVitamiPlan() as $key => $vitamin) {
+                        $s = $key + 1;
+                        $vitamins[$s] = \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code));
+                    }
+
+                } catch (\Exception $exception) {
+
+                    \Log::error("Foreach 2 error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
                 }
             }
 
@@ -189,11 +216,25 @@ class AddCustomersToApi extends Command
 
             $choice = '';
 
-            foreach($attributes as $attribute){
+            if($attributes and count($attributes) > 1){
 
-                if($attribute->identifier != 'user_data.gender' and $attribute->identifier !='user_data.age' and $attribute->identifier !='user_data.locale' and $attribute->identifier !='user_data.birthdate' and $attribute->value != ''){
-                    $choice.=$attribute->value.',';
+
+                try {
+
+                    foreach($attributes as $attribute){
+
+                        if($attribute->identifier != 'user_data.gender' and $attribute->identifier !='user_data.age' and $attribute->identifier !='user_data.locale' and $attribute->identifier !='user_data.birthdate' and $attribute->value != ''){
+                            $choice.=$attribute->value.',';
+                        }
+                    }
+
+                } catch (\Exception $exception) {
+
+                    \Log::error("Foreach 3 error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
                 }
+
+
             }
 
             if($customer->plan->subscription_started_at != null){
@@ -306,7 +347,7 @@ class AddCustomersToApi extends Command
                     'value'  =>  ''),
                 array (
                     'fieldid'  => 2679,
-                    'value'  =>  ''),
+                    'value'  =>  $winback),
                 array (
                     'fieldid'  => 2680,
                     'value'  =>  ''),
@@ -368,11 +409,14 @@ class AddCustomersToApi extends Command
             if(!is_array($result) and strstr($result,"Already subscribed to the list")){
 
                 $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
-                print_r ($subscriber);
-                if(is_array($subscriber[1])){
-                    $subscriberid = $subscriber[1][0]['subscriberid'];
+               // print_r ($subscriber);
+                if(is_array($subscriber)){
+                    if(isset($subscriber['subscriberid'])){
+                        $subscriberid = $subscriber['subscriberid'];
 
-                    $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
+                        $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
+                    }
+
                 }
 
             }
@@ -380,6 +424,7 @@ class AddCustomersToApi extends Command
             $i++;
         }
 
+        echo "Start almost";
 
         foreach($almosts as $almost){
 
@@ -467,12 +512,13 @@ class AddCustomersToApi extends Command
             if(!is_array($result) and strstr($result,"Already subscribed to the list")){
 
                 $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
-                if(is_array($subscriber[1])) {
-                    $subscriberid = $subscriber[1][0]['subscriberid'];
+                if(is_array($subscriber)) {
+                    if(isset($subscriber['subscriberid'])) {
+                        $subscriberid = $subscriber['subscriberid'];
 
-                    $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
+                        $status = $parser->Update_Subscriber($subscriberid, $emailaddress, $mobile, $listid, $customfields);
 
-
+                    }
                 }
             }
 
