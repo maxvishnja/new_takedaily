@@ -1,4 +1,4 @@
-<div class="flow-helper m-t-10 m-b-50" @if(isset($center)) style="text-align: center !important;" @endif>
+<div class="flow-helper" @if(isset($center)) style="text-align: center !important;" @endif>
 	<div class="m-b-10 hidden-xs" style="font-size: 1.5rem;">
 		@if( \App::getLocale() == "nl" and $_SERVER['REQUEST_URI']!="/pick-n-mix")
 			<strong>{{ trans('help.extra-text') }}</strong><br/>
@@ -26,4 +26,13 @@
 		</div>
 
 		<div class="m-t-10 hidden-xs" style="font-size: 1.5rem">{{ trans('help.openings') }}</div>
+
+	<style>
+		.flow-helper {
+			margin-bottom: 0.3rem !important;
+		}
+		.flow-helper .icon {
+			margin-left: -0.8rem;
+		}
+	</style>
 </div>
