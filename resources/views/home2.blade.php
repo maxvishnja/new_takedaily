@@ -162,7 +162,7 @@
                 <div class="hp-packaging__content">
                     <h2 class="hp-packaging__title">{{ trans('home2.packaging.title') }}</h2>
                     <p class="hp-packaging__intro">{{ trans('home2.packaging.intro') }}</p>
-                    <a href="" class="hp-btn">{{ trans('home2.packaging.btn') }}</a>
+                    <a href="/page/a-zink" class="hp-btn">{{ trans('home2.packaging.btn') }}</a>
                 </div>
                 <div class="hp-packaging__media">
                     <img src="/images/home/product.png" alt="">

@@ -21,7 +21,7 @@
 								<span class="icon play-icon"></span>
 							</div>
 						</div>
-						<div class="m-t-10"><strong>{{ trans('home2.header.what-is') }}</strong></div>
+						<div class="m-t-10"><strong style="font-size: 1rem">{{ trans('home2.header.what-is') }}</strong></div>
 					</div>
 				</div>
 			</div>
@@ -101,12 +101,8 @@
 
 	<style>
 		.header_image {
-			padding: 40px 0 51px;
 			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/how-works/bg.jpg);
 			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/how-works/bg.jpg);
-			margin: 66px 0 20px;
-			text-align: center;
-			color: #fff;
 		}
 
 		main p {
