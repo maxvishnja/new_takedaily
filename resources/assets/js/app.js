@@ -15,7 +15,8 @@ $(window).on('load', function() {
         }
     });
 
-    $('.c-nav-header__trigger').click(function() {
+    $('#nav-icon4').click(function() {
+        $(this).toggleClass('open');
         $('.c-nav-header').toggleClass('active');
     });
 

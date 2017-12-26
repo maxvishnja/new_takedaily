@@ -24,14 +24,4 @@
 			@endif
 		</li>
 	</ul>
-
-	<div class="visible-sm visible-xs">
-		<a href="#mobile-nav" class="toggle-mobile-nav">
-			<span class="hamburger hamburger--white">
-				<span class="meat"></span>
-				<span class="meat"></span>
-				<span class="meat meat--last"></span>
-			</span>
-		</a>
-	</div>
 </nav>

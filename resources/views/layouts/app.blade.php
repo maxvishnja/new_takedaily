@@ -78,7 +78,7 @@
         <a href="/flow" class="hp-btn">{{ trans('home2.take-test') }}</a>
 
         <!-- Hamb -->
-        <div class="b-header__hamb c-nav-header__trigger">
+        <div id="nav-icon4" class="b-header__hamb c-nav-header__trigger">
             <span class="b-header__hamb__span"></span>
             <span class="b-header__hamb__span"></span>
             <span class="b-header__hamb__span"></span>
