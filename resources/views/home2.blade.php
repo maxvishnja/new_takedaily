@@ -245,7 +245,7 @@
     var videoPopupContent = $("#video_popup-content");
     $("#video-toggle, #video-toggle-two").click(function (e) {
         e.preventDefault();
-        videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
+        videoPopupContent.html('<video preload="none" autoplay controls>' +
             '<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
             '<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
             '<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
