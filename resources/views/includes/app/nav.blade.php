@@ -7,7 +7,7 @@
 			<a href="/gifting" class="c-nav-header__link">{{ trans('nav2.gifting') }}</a>
 		</li>
 		<li class="c-nav-header__item">
-			<a href="/pick-n-mix" class="c-nav-header__link">{{ trans('nav2.vitamins') }}</a>
+			<a href="/page/a-zink" class="c-nav-header__link">{{ trans('nav2.vitamins') }}</a>
 		</li>
 		@if(App::getLocale() == 'da')
 			<li class="c-nav-header__item">
