@@ -7,6 +7,12 @@
 @section('title', trans('pick.title'))
 
 @section('content')
+	<style>
+		p {
+			font-size: 1.2rem;
+			margin: .5rem 0;
+		}
+	</style>
 	<div class="container" id="app">
 		@if(Request::has('flow_token'))
 			<a href="{{ url()->route('flow',['token' => Request::get('flow_token') ]) }}">{{ trans('checkout.back') }}</a>
