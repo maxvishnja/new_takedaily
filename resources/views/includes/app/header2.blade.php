@@ -56,15 +56,15 @@
 <body class="@yield('pageClass', 'index')">
 <header class="b-header @if(!Request::is('/')){{ 'active' }}@endif">
 
-    <div class="b-header__body">
+    <div class="b-header__body @if(Request::is('checkout')){{ 'no--nav' }}@endif">
 
         <!-- Logo -->
         <div class="b-header__logo">
             <a href="/">
                 <img
-                        src="/images/header/takedaily-logo--main.svg"
-                        alt=""
-                        class="b-header__logo__main">
+                    src="/images/header/takedaily-logo--main.svg"
+                    alt=""
+                    class="b-header__logo__main">
                 <img src="/images/header/takedaily-logo--sec.svg"
                      alt=""
                      class="b-header__logo__sec">
@@ -74,15 +74,17 @@
         <!-- Navigation -->
     @include('includes.app.nav')
 
-    <!-- Button -->
-        <a href="/flow" class="hp-btn">{{ trans('home2.take-test') }}</a>
+        @if(!Request::is('checkout'))
+            <!-- Button -->
+            <a href="/flow" class="hp-btn">{{ trans('home2.take-test') }}</a>
 
-        <!-- Hamb -->
-        <div id="nav-icon4" class="b-header__hamb c-nav-header__trigger">
-            <span class="b-header__hamb__span"></span>
-            <span class="b-header__hamb__span"></span>
-            <span class="b-header__hamb__span"></span>
-        </div>
+            <!-- Hamb -->
+            <div id="nav-icon4" class="b-header__hamb c-nav-header__trigger">
+                <span class="b-header__hamb__span"></span>
+                <span class="b-header__hamb__span"></span>
+                <span class="b-header__hamb__span"></span>
+            </div>
+        @endif
 
     </div>
 
