@@ -3,7 +3,7 @@
 @section('pageClass', 'index')
 
 @section('content')
-    <main>
+    <main style="margin-top: -6rem;">
         <!-- HP Hero -->
         <section class="hp-hero">
             <div class="hp-hero__media"></div>

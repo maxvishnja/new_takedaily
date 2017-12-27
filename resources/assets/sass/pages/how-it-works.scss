@@ -5,12 +5,12 @@
 
 main p {
     font-size: 1.4rem;
-    color: #3BA883;
-    margin-top: 2rem;
+    //color: #3BA883;
+    //margin-top: 2rem;
     line-height: 1.5;
     @include breakpoint(phone) {
         font-size: 1.4rem;
-        color: #3BA883;
+        //color: #3BA883;
         margin-top: 2rem;
         line-height: 1.5;
     }
