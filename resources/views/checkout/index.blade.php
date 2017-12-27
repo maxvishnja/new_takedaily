@@ -71,35 +71,35 @@
 	</div>
 
 	<div class="container m-t-50" id="app">
-		<div class="row" style="margin-top: 6.6rem">
-			<div class="col-md-4 visible-sm visible-xs text-center">
-				<div class="mobile-total-text">{{ trans('checkout.index.total.total') }}</div>
-				<div class="mobile-total">{{ trans('general.money-vue', ['amount' => 'total']) }}</div>
+		<div class="row">
+			{{--<div class="col-md-4 visible-sm visible-xs text-center mob-v">--}}
+				{{--<div class="mobile-total-text">{{ trans('checkout.index.total.total') }}</div>--}}
+				{{--<div class="mobile-total">{{ trans('general.money-vue', ['amount' => 'total']) }}</div>--}}
 
-				@if ( ! $giftcard && $product->isSubscription() )
-					<div class="m-t-20 m-b-20">
-						<a href="#coupon-form-mobile" id="toggle-coupon-form-mobile">{{ trans('checkout.index.coupon.link') }}</a>
-					</div>
-					<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form-mobile"
-						  style="@if(!Request::old('coupon')) display: none; @endif">
-						<div class="row">
-							<div class="col-md-7">
-								<input type="text" name="coupon" maxlength="20" placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}" data-validate="true"
-									   class="input input--regular input--uppercase input--spacing input--full input--semibold"
-									   value="{{ Request::old('coupon', Session::get('applied_coupon')) }}" required="required"/>
-							</div>
-							<div class="col-md-5">
-								<button type="submit" class="button button--regular button--full button--green">{{ trans('checkout.index.coupon.button-text') }}</button>
-							</div>
-						</div>
-						{{ csrf_field() }}
+				{{--@if ( ! $giftcard && $product->isSubscription() )--}}
+					{{--<div class="m-t-20 m-b-20">--}}
+						{{--<a href="#coupon-form-mobile" id="toggle-coupon-form-mobile">{{ trans('checkout.index.coupon.link') }}</a>--}}
+					{{--</div>--}}
+					{{--<form method="post" action="{{ URL::action('CheckoutController@applyCoupon') }}" id="coupon-form-mobile"--}}
+						  {{--style="@if(!Request::old('coupon')) display: none; @endif">--}}
+						{{--<div class="row">--}}
+							{{--<div class="col-md-7">--}}
+								{{--<input type="text" name="coupon" maxlength="20" placeholder="{{ trans('checkout.index.coupon.input-placeholder') }}" data-validate="true"--}}
+									   {{--class="input input--regular input--uppercase input--spacing input--full input--semibold"--}}
+									   {{--value="{{ Request::old('coupon', Session::get('applied_coupon')) }}" required="required"/>--}}
+							{{--</div>--}}
+							{{--<div class="col-md-5">--}}
+								{{--<button type="submit" class="button button--regular button--full button--green">{{ trans('checkout.index.coupon.button-text') }}</button>--}}
+							{{--</div>--}}
+						{{--</div>--}}
+						{{--{{ csrf_field() }}--}}
 
-						<div id="coupon-form-successes-mobile" class="m-t-10"></div>
-						<div id="coupon-form-errors-mobile" class="m-t-10"></div>
-					</form>
-					<hr/>
-				@endif
-			</div>
+						{{--<div id="coupon-form-successes-mobile" class="m-t-10"></div>--}}
+						{{--<div id="coupon-form-errors-mobile" class="m-t-10"></div>--}}
+					{{--</form>--}}
+					{{--<hr/>--}}
+				{{--@endif--}}
+			{{--</div>--}}
 			<div class="col-md-8">
 				<h1 style="margin-top: 0;">{{ trans('checkout.index.order.title') }}</h1>
 
