@@ -10,7 +10,8 @@
 				<td>
 					<span v-show="!item.showPrice">-</span>
 					<span v-show="item.showPrice">
-						<span v-show="item.price > 0">{{ trans('general.money-vue', ['amount' => 'item.price']) }}</span>
+						<span v-show="item.price !== 0 && discount.type != 'fixed'">{{ trans('general.money-vue', ['amount' => 'item.price']) }}</span>
+						<span v-show="item.price !== 0 && discount.type == 'fixed'">{{ trans('general.money-vue', ['amount' => 'total']) }}</span>
 						<span v-show="item.price === 0">{{ trans('products.free_shipping') }}</span>
 					</span>
 				</td>
@@ -21,6 +22,7 @@
 					<div v-show="discount.type == 'amount'">-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</div>
 					<div v-show="discount.type == 'percentage'">-@{{ total_discount }}</div>
 					<div v-show="discount.type == 'free_shipping'">-100%</div>
+					<div v-show="discount.type == 'fixed'">{{ trans('general.money-vue', ['amount' => 'total_discount']) }} x @{{ total_month }} {{ trans('general.month')}}</div>
 				</td>
 			</tr>
 			<tr>

@@ -370,8 +370,16 @@ class CheckoutController extends Controller
                             $countDiscount = $coupon->length;
                         }
                         $checkoutCompletion->getUser()->getCustomer()->getPlan()->setDiscountCount($countDiscount);
-                        $checkoutCompletion->updatePriceDiscount();
+                        if($coupon->discount_type == "fixed"){
+                            $checkoutCompletion->updatePriceFixed();
+                        }else{
+                            $checkoutCompletion->updatePriceDiscount();
+                        }
+
                     }
+
+
+
 
 
 

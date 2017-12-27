@@ -20,6 +20,7 @@
 				applied: false,
 				type: null,
 				amount: 0,
+				length: 0,
 				applies_to: null,
 				description: '',
 				code: '{{ Request::old('coupon', !is_null($coupon) ? $coupon->code : '') }}'
@@ -93,6 +94,9 @@
 					else if (app.discount.type == 'percentage') {
 						sum *= (1 - (app.discount.amount / 100));
 					}
+                    else if (app.discount.type == 'fixed') {
+                        sum = this.discount.amount * this.discount.length;
+                    }
 				}
 
 				sum = sum > 0 ? sum : 0;
@@ -111,9 +115,21 @@
 				else if (this.discount.type == 'percentage') {
 					total = this.discount.amount + '%';
 				}
+                else if (this.discount.type == 'fixed') {
+                    total = this.discount.amount;
+                }
 
 				return total;
 			},
+            total_month: function () {
+                var month = 0;
+
+                if (this.discount.type == 'fixed') {
+                    month = this.discount.length;
+                }
+
+                return month;
+            },
 			total_subscription: function () {
 				var amount = 0;
 
@@ -133,6 +149,9 @@
 						else if (this.discount.type == 'free_shipping') {
 							discount = amount * (100 / 100);
 						}
+                        else if (this.discount.type == 'fixed') {
+                            discount = amount + (this.discount.amount * this.discount.length);
+                        }
 
 						amount -= discount;
 					}
@@ -152,7 +171,14 @@
 				return newDate.getDate() + " " + months[newDate.getMonth()] + " " + newDate.getFullYear();
 			},
 			total_taxes: function () {
-				return this.total * this.tax_rate;
+
+                if (this.discount.type == 'fixed') {
+                    return this.total * 0;
+                } else{
+                    return this.total * this.tax_rate;
+                }
+
+
 			},
 			total: function () {
 				return this.total_sum;
@@ -170,10 +196,11 @@
 							showPrice: line.hidePrice === undefined
 						});
 					});
-
+                    console.log(response.coupon);
 					if (response.coupon !== undefined && response.coupon.applied !== undefined) {
 						app.discount.applied = response.coupon.applied;
 						app.discount.type = response.coupon.type;
+						app.discount.length = response.coupon.length;
 						app.discount.amount = response.coupon.amount;
 						app.discount.applies_to = response.coupon.applies_to;
 						app.discount.description = response.coupon.description;
