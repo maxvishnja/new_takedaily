@@ -1,0 +1,9 @@
+.header_image {
+  padding: 40px 0 45px;
+  margin: 66px 0 20px;
+  text-align: center;
+  color: #fff;
+  @include breakpoint(phone) {
+    margin: 60px 0 20px;
+  }
+}

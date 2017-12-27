@@ -3,7 +3,7 @@
 @section('pageClass', 'index')
 
 @section('content')
-    <main>
+    <main style="margin-top: -6rem;">
         <!-- HP Hero -->
         <section class="hp-hero">
             <div class="hp-hero__media"></div>
@@ -162,7 +162,7 @@
                 <div class="hp-packaging__content">
                     <h2 class="hp-packaging__title">{{ trans('home2.packaging.title') }}</h2>
                     <p class="hp-packaging__intro">{{ trans('home2.packaging.intro') }}</p>
-                    <a href="" class="hp-btn">{{ trans('home2.packaging.btn') }}</a>
+                    <a href="/page/a-zink" class="hp-btn">{{ trans('home2.packaging.btn') }}</a>
                 </div>
                 <div class="hp-packaging__media">
                     <img src="/images/home/product.png" alt="">
@@ -245,7 +245,7 @@
     var videoPopupContent = $("#video_popup-content");
     $("#video-toggle, #video-toggle-two").click(function (e) {
         e.preventDefault();
-        videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
+        videoPopupContent.html('<video preload="none" autoplay controls>' +
             '<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
             '<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
             '<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +

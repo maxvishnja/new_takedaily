@@ -34,7 +34,7 @@
     padding: 0 7%;
     @include breakpoint(phone) {
       width: 100%;
-      top: 42% !important;
+      top: 38% !important;
     }
     @include breakpoint(phoneLandscape) {
       top: 48% !important;
@@ -115,6 +115,7 @@
     @include absolute(center);
   }
   &__play__txt {
+    font-size: 1rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     @include breakpoint(overPhone) {
       display: inline-block;

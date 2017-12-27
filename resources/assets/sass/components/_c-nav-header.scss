@@ -57,12 +57,19 @@
       }
     }
   }
+  &__list {
+    @include breakpoint(phone) {
+      margin: 2rem 0;
+    }
+  }
   &__link {
     @include font-size(14px, 14px);
     @include line-height(18px, 18px);
     color: #0C182E;
     @include breakpoint(phone) {
       text-transform: uppercase;
+      color: $color-white;
+      font-size: 1.8rem !important;
     }
   }
   &__close {

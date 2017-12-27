@@ -8,7 +8,7 @@
 
 @section('content')
 <main>
-	<div class="header_image">
+	<div class="header_image image--hiw">
 		<div class="container hiw_m-h">
 			<h1>{{ trans('how-works.page_title') }}</h1>
 
@@ -21,7 +21,7 @@
 								<span class="icon play-icon"></span>
 							</div>
 						</div>
-						<div class="m-t-10"><strong>{{ trans('home2.header.what-is') }}</strong></div>
+						<div class="m-t-10"><strong style="font-size: 1rem">{{ trans('home2.header.what-is') }}</strong></div>
 					</div>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 		<div class="container">
 			<div class="row cont__pos">
 				<div class="col-md-4">
-					<img src="{{ asset('/images/how-works/icon-box@2x.png') }}" height="276" alt="Box">
+					<img src="{{ asset('/images/how-works/icon-box@2x.png') }}" height="276" alt="Box" class="icon--box">
 				</div>
 				<div class="col-md-6">
 					<h3>{{ trans('how-works.steps.three.title') }}</h3>
@@ -98,82 +98,11 @@
 			</div>
 		</div>
 	</div>
-
 	<style>
 		.header_image {
-			padding: 40px 0 51px;
 			background-image: -webkit-linear-gradient(top, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/how-works/bg.jpg);
 			background-image: linear-gradient(-180deg, rgba(97, 97, 97, 0.64) 0%, rgba(51, 51, 51, 0.00) 100%), url(/images/how-works/bg.jpg);
-			margin: 66px 0 20px;
-			text-align: center;
-			color: #fff;
 		}
-
-		main p {
-			font-size: 16px;
-			color: #3BA883;
-			margin-top: 20px;
-		}
-
-		main h3 {
-			font-size: 22px;
-		}
-
-		section {
-			padding: 60px 0;
-		}
-
-		section.mid {
-			background: #fafafa;
-		}
-
-		.video_circle {
-			text-align: center;
-			display: inline-block;
-			border-radius: 4px;
-			width: 5.5rem;
-			height: 4rem;
-			padding-top: 21px;
-			position: relative;
-			transition: transform .4s ease;
-			cursor: pointer;
-			border: 2px solid #fff;
-		}
-
-		.play-icon {
-			width: 0;
-			height: 0;
-			display: inline-block;
-			border: solid 0.8rem transparent;
-			border-right: none;
-			border-left: solid 0.8rem #fff;
-			border-left: solid 1.4rem;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
-
-		.desc__txt {
-			width: 50%;
-			height: 50%;
-			margin: auto;
-			position: absolute;
-			top: 0;
-			left: 50%;
-			bottom: 0;
-			right: 0;
-		}
-
-		.cont__pos {
-			position: relative;
-		}
-
-		.desc__txt-pl {
-			left: -50% !important;
-		}
-
-
 	</style>
 </main>
 @endsection
