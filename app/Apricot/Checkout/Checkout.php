@@ -55,10 +55,14 @@ class Checkout
 			{
 				//$this->deductTotal( MoneyLibrary::toMoneyFormat( $coupon->discount ) );
 				$this->deductTotal( $coupon->discount  );
-			}
+			} elseif ( $coupon->discount_type == 'fixed' )
+            {
+                $this->setTotal( $coupon->discount * $coupon->length * 100);
+                $this->setSubscriptionPrice( $start_price );
+            }
 
 
-			if ( $coupon->applies_to == 'plan' and $coupon->discount_type != 'free_shipping')
+			if ( $coupon->applies_to == 'plan' and $coupon->discount_type != 'free_shipping' and $coupon->discount_type != 'fixed')
 			{
 
                 $this->setSubscriptionPrice( $start_price );
@@ -66,6 +70,7 @@ class Checkout
                 $this->setSubscriptionPriceDiscount( $this->getTotal() );
 			}
 		}
+
 		return $this;
 	}
 

@@ -286,7 +286,19 @@ class CheckoutCompletion
     }
 
 
-	public function handleProductActions()
+
+    public function updatePriceFixed (){
+
+        $this->getUser()->getCustomer()->getPlan()->update( [
+            'price_discount'                     => 0,
+
+        ] );
+
+        return $this;
+    }
+
+
+    public function handleProductActions()
 	{
 		// giftcard
 		if ( str_contains( $this->getCheckout()->getProduct()->name, 'giftcard' ) )
