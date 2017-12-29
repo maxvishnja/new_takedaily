@@ -5,13 +5,13 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[2][1]" value="1" v-model="user_data.pregnant" data-model="pregnant"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-1' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-pregnant-yes"></span>
 				<br/>{{ trans('flow.questions.2-1.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][1]" value="2" v-model="user_data.pregnant" data-model="pregnant"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-1' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-pregnant-no"></span>
 				<br/>{{ trans('flow.questions.2-1.options.2') }}
 			</label>
@@ -26,13 +26,13 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[2][2]" value="1" v-model="user_data.diet" data-model="diet"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-2' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-diet-pear"></span>
 				<br/>{{ trans('flow.questions.2-2.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][2]" value="2" v-model="user_data.diet" data-model="diet"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-2' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-diet-burger"></span>
 				<br/>{{ trans('flow.questions.2-2.options.2') }}
 			</label>
@@ -47,25 +47,25 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[2][3]" value="1" v-model="user_data.sports" data-model="sports"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-3' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-activity-seldom"></span>
 				<br/>{{ trans('flow.questions.2-3.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][3]" value="2" v-model="user_data.sports" data-model="sports"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-3' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-activity-once"></span>
 				<br/>{{ trans('flow.questions.2-3.options.2') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][3]" value="3" v-model="user_data.sports" data-model="sports"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-3' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-activity-twice"></span>
 				<br/>{{ trans('flow.questions.2-3.options.3') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][3]" value="4" v-model="user_data.sports" data-model="sports"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-3' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-activity-more"></span>
 				<br/>{{ trans('flow.questions.2-3.options.4') }}
 			</label>
@@ -80,13 +80,13 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[2][4]" value="1" v-model="user_data.stressed" data-model="stressed"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-4');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-stress"></span>
 				<br/>{{ trans('flow.questions.2-4.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][4]" value="2" v-model="user_data.stressed" data-model="stressed"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-4');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-joy"></span>
 				<br/>{{ trans('flow.questions.2-4.options.2') }}
 			</label>
@@ -102,13 +102,13 @@
 
 			<label>
 				<input type="radio" name="step[2][5]" value="1" v-model="user_data.lacks_energy" data-model="lacks_energy"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-5');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-tired"></span>
 				<br/>{{ trans('flow.questions.2-5.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][5]" value="2" v-model="user_data.lacks_energy" data-model="lacks_energy"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-5');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-awake"></span>
 				<br/>{{ trans('flow.questions.2-5.options.2') }}
 			</label>
@@ -116,7 +116,7 @@
 				<div class="can-scroll visible-xs"><span class="icon icon-canscroll"></span></div>
 					<label>
 					<input type="radio" name="step[2][5]" value="3" v-model="user_data.lacks_energy" data-model="lacks_energy"
-						   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-5');"/>
+						   v-on:click="nextStep();" />
 					<span class="icon icon-fresh"></span>
 					<br/>{{ trans('flow.questions.2-5.options.3') }}
 				</label>
@@ -132,20 +132,20 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[2][6]" value="1" v-model="user_data.immune_system" data-model="immune_system"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-6');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-immune-boost"></span>
 				<br/>{{ trans('flow.questions.2-6.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][6]" value="2" v-model="user_data.immune_system" data-model="immune_system"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-6');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-immune-moderate"></span>
 				<br/>{{ trans('flow.questions.2-6.options.2') }}
 			</label>
 			@if(Lang::has('flow.questions.2-6.options.3', App::getLocale(), false) && trans('flow.questions.2-6.options.3') !== 'flow.questions.2-6.options.3' && trans('flow.questions.2-6.options.3') !== '')
 				<label>
 					<input type="radio" name="step[2][6]" value="3" v-model="user_data.immune_system" data-model="immune_system"
-						   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-6');"/>
+						   v-on:click="nextStep();" />
 					<span class="icon icon-immune-ignore"></span>
 					<br/>{{ trans('flow.questions.2-6.options.3') }}
 				</label>
@@ -162,13 +162,13 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[2][7]" value="1" v-model="user_data.smokes" data-model="smokes"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-7');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-smoke"></span>
 				<br/>{{ trans('flow.questions.2-7.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][7]" value="2" v-model="user_data.smokes" data-model="smokes"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-7');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-smoke-no"></span>
 				<br/>{{ trans('flow.questions.2-7.options.2') }}
 			</label>
@@ -183,7 +183,7 @@
 		<div class="sub_step_answers">
 			<label class="text-center flow_label_noclick">
 				<span>{{ trans('flow.questions.2-8.button-text') }}</span><br/>
-				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-on:change="nextStep();" onchange="ga('send', 'event', 'flow' , 'completed' , 'question.2-8');" v-model="user_data.pregnancy.week"
+				<select name="step[2][8]" data-model="pregnancy.week" data-default="0" v-on:change="nextStep();"  v-model="user_data.pregnancy.week"
 						class="select select--full m-t-10">
 					<option value="0">{{ trans('flow.questions.2-8.pick-one') }}</option>
 					@foreach(range(1,40) as $week)
@@ -193,7 +193,7 @@
 			</label>
 			<label>
 				<input type="radio" name="step[2][8]" value="1" v-model="user_data.pregnancy.wish" data-model="pregnancy.wish"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-8');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-pregnant-yes"></span>
 				<span class="icon icon-pregnant-no"></span>
 				<br/>{{ trans('flow.questions.2-8.i-have-a-wish') }}
@@ -209,13 +209,13 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[2][10]" value="1" v-model="user_data.joints" data-model="joints"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-10');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-joint-yes"></span>
 				<br/>{{ trans('flow.questions.2-10.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][10]" value="2" v-model="user_data.joints" data-model="joints"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-10');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-joint-no"></span>
 				<br/>{{ trans('flow.questions.2-10.options.2') }}
 			</label>
@@ -230,13 +230,13 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[2][9]" value="1" v-model="user_data.vegetarian" data-model="vegetarian"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-9');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-vegetarian-yes"></span>
 				<br/>{{ trans('flow.questions.2-9.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[2][9]" value="2" v-model="user_data.vegetarian" data-model="vegetarian"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-9');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-meat"></span>
 				<br/>{{ trans('flow.questions.2-9.options.2') }}
 			</label>
@@ -259,19 +259,19 @@
 		<div class="sub_step_answers">
 			<label  v-bind:class="{'hide-label': user_data.immune_system == 2}">
 				<input type="radio" name="step[2][11]" value="1" v-model="user_data.priority" data-model="priority"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-immune-boost"></span>
 				<br/>{{ trans('flow.questions.2-11.options.1') }}
 			</label>
 			<label v-bind:class="{'hide-label': user_data.lacks_energy == 2}">
 				<input type="radio" name="step[2][11]" value="2" v-model="user_data.priority" data-model="priority"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-tired"></span>
 				<br/>{{ trans('flow.questions.2-11.options.2') }}
 			</label>
 			<label v-bind:class="{'hide-label': user_data.joints == 2}">
 				<input type="radio" name="step[2][11]" value="3" v-model="user_data.priority" data-model="priority"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.2-11');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-joint-yes"></span>
 				<br/>{{ trans('flow.questions.2-11.options.3') }}
 			</label>

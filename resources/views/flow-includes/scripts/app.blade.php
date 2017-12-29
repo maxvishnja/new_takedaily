@@ -196,7 +196,7 @@
 							showPrice: line.hidePrice === undefined
 						});
 					});
-                    console.log(response.coupon);
+
 					if (response.coupon !== undefined && response.coupon.applied !== undefined) {
 						app.discount.applied = response.coupon.applied;
 						app.discount.type = response.coupon.type;
