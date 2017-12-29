@@ -42,12 +42,8 @@ class AccountController extends Controller
 
 
         $plan = $this->customer->getPlan();
+        $orders = $this->customer->getOrders();
 
-        if($plan->isActive()){
-            $orders = $this->customer->getOrders();
-        } else{
-            $orders = 0;
-        }
         $nutritionist = Nutritionist::where('id', $plan->nutritionist_id)
             ->where('active', 1)
             ->first();
