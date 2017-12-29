@@ -420,9 +420,18 @@ class AccountController extends Controller
 
         $plan = $this->customer->getPlan();
 
-        if(($plan->last_coupon == $coupon->code or  $plan->coupon_free != '') and $coupon->code != 'UNDSKYLD'){
-            return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
+        if($coupon->code == 'UNDSKYLD'){
+            if($plan->coupon_free != ''){
+                return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
+            }
+        } else{
+            if($plan->last_coupon == $coupon->code or $plan->coupon_free != ''){
+                return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
+            }
         }
+
+
+
 
         $plan->last_coupon = $coupon->code;
         if($coupon->discount_type == 'percentage'){
