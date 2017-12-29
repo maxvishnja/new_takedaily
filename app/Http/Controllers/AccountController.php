@@ -38,7 +38,12 @@ class AccountController extends Controller
 
     function getHome()
     {
-        $orders = $this->customer->getOrders();
+        if($this->customer->getOrders()){
+            $orders = $this->customer->getOrders();
+        } else{
+            $orders = 0;
+        }
+
         $plan = $this->customer->getPlan();
         $nutritionist = Nutritionist::where('id', $plan->nutritionist_id)
             ->where('active', 1)
@@ -416,7 +421,7 @@ class AccountController extends Controller
 
         $plan = $this->customer->getPlan();
 
-        if($plan->last_coupon == $coupon->code or  $plan->coupon_free != ''){
+        if(($plan->last_coupon == $coupon->code or  $plan->coupon_free != '') and $coupon->code != 'UNDSKYLD'){
             return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
         }
 
