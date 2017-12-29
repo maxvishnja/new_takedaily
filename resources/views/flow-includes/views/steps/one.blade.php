@@ -4,13 +4,13 @@
 		<h3 class="substep-title">{{ trans('flow.questions.1-1.title') }}</h3>
 		<div class="sub_step_answers">
 			<label>
-				<input type="radio" name="step[1][1]" value="1" v-model="user_data.gender" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-1' );" data-model="gender"
+				<input type="radio" name="step[1][1]" value="1" v-model="user_data.gender"  data-model="gender"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-gender-male"></span>
 				<br/>{{ trans('flow.questions.1-1.options.1') }}
 			</label>
 			<label>
-				<input type="radio" name="step[1][1]" value="2" v-model="user_data.gender" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-1' );" data-model="gender"
+				<input type="radio" name="step[1][1]" value="2" v-model="user_data.gender"  data-model="gender"
 					   v-on:click="nextStep();"/>
 				<span class="icon icon-gender-female"></span>
 				<br/>{{ trans('flow.questions.1-1.options.2') }}
@@ -65,7 +65,7 @@
 
 		<template v-if="temp_age">
 			<br/>
-			<button v-on:click="nextStep();" type="button" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-2' );"
+			<button v-on:click="nextStep();" type="button"
 					class="button button--rounded button--medium button--green">{!! trans('flow.questions.1-2.button-submit-text') !!}</button>
 		</template>
 
@@ -170,19 +170,19 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[1][3]" value="1" v-model="user_data.skin" data-model="skin"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-6' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-skin-white"></span>
 				<br/>{{ trans('flow.questions.1-3.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[1][3]" value="2" v-model="user_data.skin" data-model="skin"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-6' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-skin-mediterranean"></span>
 				<br/>{{ trans('flow.questions.1-3.options.2') }}
 			</label>
 			<label>
 				<input type="radio" name="step[1][3]" value="3" v-model="user_data.skin" data-model="skin"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-6' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-skin-dark"></span>
 				<br/>{{ trans('flow.questions.1-3.options.3') }}
 			</label>
@@ -197,13 +197,13 @@
 		<div class="sub_step_answers">
 			<label>
 				<input type="radio" name="step[1][4]" value="1" v-model="user_data.outside" data-model="outside"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-7' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-sun-yes"></span>
 				<br/>{{ trans('flow.questions.1-4.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[1][4]" value="2" v-model="user_data.outside" data-model="outside"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.1-7' );"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-sun-no"></span>
 				<br/>{{ trans('flow.questions.1-4.options.2') }}
 			</label>
