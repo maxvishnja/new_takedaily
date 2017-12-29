@@ -106,6 +106,39 @@
             <img src="https://track.adform.net/Serving/TrackPoint/?pm=788995&ADFPageName=Take%20Daily%20conversion&ADFdivider=|" width="1" height="1" alt="" />
         </p>
     </noscript>
+
+    <!-- TradeTracker -->
+
+    <script type="text/javascript">
+        var ttConversionOptions = ttConversionOptions || [];
+        ttConversionOptions.push({
+            type: 'sales',
+            campaignID: '26413',
+            productID: '38852',
+            transactionID: '{{$order_id}}',
+            transactionAmount: '1',
+            quantity: '1',
+            email: '',
+            descrMerchant: '',
+            descrAffiliate: '',
+            currency: ''
+        });
+    </script>
+    <noscript>
+        <img src="//ts.tradetracker.net/?cid=26413&amp;pid=38852&amp;tid=ORDER_ID&amp;tam=ORDER_AMOUNT&amp;data=&amp;qty=1&amp;eml=&amp;descrMerchant=&amp;descrAffiliate=&amp;event=sales&amp;currency=EUR" alt="" />
+    </noscript>
+    <script type="text/javascript">
+        // No editing needed below this line.
+        (function(ttConversionOptions) {
+            var campaignID = 'campaignID' in ttConversionOptions ? ttConversionOptions.campaignID : ('length' in ttConversionOptions && ttConversionOptions.length ? ttConversionOptions[0].campaignID : null);
+            var tt = document.createElement('script'); tt.type = 'text/javascript'; tt.async = true; tt.src = '//tm.tradetracker.net/conversion?s=' + encodeURIComponent(campaignID) + '&t=m';
+            var s = document.getElementsByTagName('script'); s = s[s.length - 1]; s.parentNode.insertBefore(tt, s);
+        })(ttConversionOptions);
+    </script>
+
+    <!-- /TradeTracker -->
+
+
     <!-- Adform Tracking Code END -->
     {{--@if(App::getLocale() == 'nl')--}}
         {{--<img src="http://oa1.nl/m/5824/19fa5023ff43b6545d455e24a6a475f880acd6a1/?transactie_id={{$user_email}}"--}}
@@ -145,14 +178,14 @@
             'event': 'transCompleted',
             'transactionId': '{{$order_id}}',
             'transactionAffiliation': 'TakeDaily',
-            'transactionTotal': {{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }},
-            'transactionTax':{{ Auth::user()->getCustomer()->getPlan()->getPrice()/100 }},
-            'transactionShipping': {{ Auth::user()->getCustomer()->getPlan()->getShippingPrice()/100 }},
+            'transactionTotal': '{{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }}',
+            'transactionTax': '{{ Auth::user()->getCustomer()->getPlan()->getPrice()/100 }}',
+            'transactionShipping': '{{ Auth::user()->getCustomer()->getPlan()->getShippingPrice()/100 }}',
             'transactionProducts': [{
                 'sku': '1',
                 'name': 'Subscription',
                 'category': 'Subscription',
-                'price': {{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }},
+                'price': '{{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }}',
                 'quantity': 1
             }]
         });
