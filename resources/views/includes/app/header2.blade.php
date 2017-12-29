@@ -72,7 +72,7 @@
         </div>
 
         <!-- Navigation -->
-    @include('includes.app.nav')
+    @include('includes.app.nav2')
 
         @if(!Request::is('checkout'))
             <!-- Button -->
