@@ -38,13 +38,16 @@ class AccountController extends Controller
 
     function getHome()
     {
-        if($this->customer->getOrders()){
+
+
+
+        $plan = $this->customer->getPlan();
+
+        if($plan->isActive()){
             $orders = $this->customer->getOrders();
         } else{
             $orders = 0;
         }
-
-        $plan = $this->customer->getPlan();
         $nutritionist = Nutritionist::where('id', $plan->nutritionist_id)
             ->where('active', 1)
             ->first();
