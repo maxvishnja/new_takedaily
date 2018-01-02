@@ -87,7 +87,7 @@ div.logo, div.icon
 
 .header_image
 	max-height: 800px
-	margin: 0
+	margin: 6.6rem 0 0
 	position: relative
 	text-align: center
 	padding: 40px 0
@@ -96,6 +96,8 @@ div.logo, div.icon
 	background-repeat: no-repeat
 	background-size: cover
 	background-position: center center
+	@include breakpoint(phone)
+		margin: 6rem 0 0
 
 	h1
 		font-size: 32px

@@ -14,7 +14,7 @@
 		}
 	</style>
 	@if( $page->layout == 'header' )
-		<div class="header_image" style="margin-top: 6.6rem">
+		<div class="header_image">
 			<div class="container text-center">
 				<h1>{{ $page->title }}</h1>
 				@if( $page->sub_title != '')

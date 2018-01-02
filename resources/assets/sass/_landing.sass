@@ -761,6 +761,9 @@ body.index
 		video
 			display: inline-block
 			box-shadow: 0 0 40px rgba(0, 0, 0, .2)
+			width: 96rem
+			@include breakpoint(phone)
+				width: 35rem
 
 	.video-popup-close
 		cursor: pointer
