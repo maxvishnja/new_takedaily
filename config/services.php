@@ -41,6 +41,7 @@ return [
 //	    'redirect'      => env('MOLLIE_REDIRECT_URI'),
     ],
 
+    
 
     'fbApi' => [
         'nl_active'     => 23842780430620212,
