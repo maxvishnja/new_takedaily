@@ -90,6 +90,7 @@
 					<label for="discount" class="control-label">Automatic coupon category</label>
 					<div class="controls">
 						<select name="automatic_id" >
+							<option value="0"> ---- </option>
 							@foreach(['50first' => '50% off first order', '100first' =>'100% off first order', '20sub' => '20% discount off subscription' ] as $key=> $value)
 								<option @if(isset($coupon) && $coupon->automatic_id == $key) selected   @endif value="{{$key }}">{{ $value }}</option>
 							@endforeach
@@ -118,13 +119,20 @@
 				<div class="control-group">
 					<label for="applies_to" class="control-label">Can be used on</label>
 					<div class="controls">
-						<select name="applies_to" id="applies_to">
+						<select name="applies_to" id="applies_to" onchange="if( $('#applies_to').val() == 'plan' ) { $('#length_subscription').show() } else { $('#length_subscription').hide() }">
 							@foreach(['order', 'plan'] as $option)
 								<option value="{{ $option }}" @if(isset($coupon) && $coupon->applies_to == $option) selected="selected" @endif>{{ trans("coupons.applies.$option") }}</option>
 							@endforeach
 						</select>
 						<p class="help-block"><strong>Subscription:</strong> the initial order and any future rebills on this subscription.<br/>
 							<strong>Order:</strong> only the order its applied to.</p>
+					</div>
+				</div>
+				<div class="control-group" id="length_subscription" @if(!isset($coupon) or $coupon->applies_to == 'order') style="display: none;" @endif>
+					<label for="length_subscription" class="control-label">Length of discount subscription</label>
+					<div class="controls">
+						<input type="text" class="form-control span8" name="length" id="length" value="{{ Request::old('length', isset($coupon) ? $coupon->length : '' ) }}" placeholder="Example.: 3"/>
+						<p class="help-block">For unlimited length, <a href="#length" title="Unlimited = -1" onclick="$('#length').val(-1);">click here</a>.</p>
 					</div>
 				</div>
 
