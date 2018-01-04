@@ -13,7 +13,6 @@ class FeedbackController extends Controller
     public function index($id = 0)
     {
 
-
         $customer = Customer::find($id);
         if ($id == 0) {
             $name = 'Guest';
