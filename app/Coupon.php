@@ -98,7 +98,14 @@ class Coupon extends Model
 		}
 	}
 
-	
+    function reduceLength()
+    {
+        if ( $this->length > 0 )
+        {
+            $this->length --;
+            $this->save();
+        }
+    }
 
 	public static function newUpsellCoupon($code)
 	{
