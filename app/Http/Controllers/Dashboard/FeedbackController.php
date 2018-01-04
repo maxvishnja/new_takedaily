@@ -16,14 +16,7 @@ class FeedbackController extends Controller
     function index()
     {
 
-        $plans = Plan::where('subscription_rebill_at','like','%2018-01-05%')->where('attempt','=',3)->get();
-        echo count($plans);
-        foreach ($plans as $plan){
-            echo $plan->customer->getEmail()."<br/>";
-        }
-        dd();
-
-
+ 
         $feedbacks = Feedback::orderBy('created_at', 'DESC')->get();
 
         return view('admin.feedback.main', [
