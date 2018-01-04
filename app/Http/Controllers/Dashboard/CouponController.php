@@ -33,14 +33,16 @@ class CouponController extends Controller
 
 	function store(CouponRequest $request) {
 		$coupon = new Coupon();
-
 		$coupon->code = strtoupper($request->get('code'));
 		$coupon->description = $request->get('description');
 		$coupon->discount_type = $request->get('type');
 		$coupon->ambas = $request->get('ambas');
 		$coupon->for_second = $request->get('for_second');
 		$coupon->automatic = $request->get('automatic');
-		$coupon->automatic_id = $request->get('automatic_id');
+		if($request->get('automatic_id') != 0){
+            $coupon->automatic_id = $request->get('automatic_id');
+        }
+        $coupon->length = $request->get('length');
 		$coupon->currency = $request->get('currency');
 		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
 		$coupon->uses_left = $request->get('uses_left');
@@ -82,7 +84,10 @@ class CouponController extends Controller
 		$coupon->currency = $request->get('currency');
 		$coupon->for_second = $request->get('for_second');
         $coupon->automatic = $request->get('automatic');
-        $coupon->automatic_id = $request->get('automatic_id');
+        if($request->get('automatic_id') != 0){
+            $coupon->automatic_id = $request->get('automatic_id');
+        }
+        $coupon->length = $request->get('length');
 		$coupon->ambas = $request->get('ambas');
 		$coupon->discount = $request->get('type') == 'amount' ? MoneyLibrary::toCents($request->get('discount')) : $request->get('discount');
 		$coupon->uses_left = $request->get('uses_left');

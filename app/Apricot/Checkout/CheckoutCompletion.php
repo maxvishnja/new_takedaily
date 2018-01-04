@@ -1,5 +1,6 @@
 <?php namespace App\Apricot\Checkout;
 
+use App\Apricot\Helpers\FacebookApiHelper;
 use App\Customer;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
@@ -273,9 +274,32 @@ class CheckoutCompletion
 		return $this;
 	}
 
-	public function handleProductActions()
-	{
 
+	public function updatePriceDiscount (){
+
+        $this->getUser()->getCustomer()->getPlan()->update( [
+            'price_discount'                     => $this->getCheckout()->getSubscriptionPriceDiscount(),
+
+        ] );
+
+        return $this;
+    }
+
+
+
+    public function updatePriceFixed (){
+
+        $this->getUser()->getCustomer()->getPlan()->update( [
+            'price_discount'                     => 0,
+
+        ] );
+
+        return $this;
+    }
+
+
+    public function handleProductActions()
+	{
 		// giftcard
 		if ( str_contains( $this->getCheckout()->getProduct()->name, 'giftcard' ) )
 		{
@@ -361,6 +385,45 @@ class CheckoutCompletion
         } else {
 
             $mailCount->setMail(1);
+        }
+
+
+        $fbApi = new FacebookApiHelper();
+
+        $bday = '';
+
+        if($this->getUser()->getCustomer()->getBirthday()){
+            $bday = \Date::createFromFormat('Y-m-d', $this->getUser()->getCustomer()->getBirthday())->format('Y');
+        }
+
+
+        if($locale == "nl"){
+            $dataFb['id'] = config('services.fbApi.nl_active');
+            $locale = 'NL';
+        } else {
+            $dataFb['id'] = config('services.fbApi.dk_active');
+            $locale = 'DK';
+        }
+
+
+        $dataFb['data_users'] = [
+            $this->getUser()->getCustomer()->getFirstname(),
+            $this->getUser()->getCustomer()->getLastName(),
+            $this->getUser()->getCustomer()->getPhone(),
+            $this->getUser()->getCustomer()->getEmail(),
+            $bday,
+            $this->getUser()->getCustomer()->getGender(),
+            $locale
+        ];
+
+        try{
+
+            $fbApi->addToAudience($dataFb);
+
+        } catch (\Exception $exception) {
+
+            \Log::error("Error in add to FB new user  : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
         }
 
 
