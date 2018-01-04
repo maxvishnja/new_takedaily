@@ -196,7 +196,7 @@
 							showPrice: line.hidePrice === undefined
 						});
 					});
-                    console.log(response.coupon);
+
 					if (response.coupon !== undefined && response.coupon.applied !== undefined) {
 						app.discount.applied = response.coupon.applied;
 						app.discount.type = response.coupon.type;
@@ -215,6 +215,7 @@
 						})
 					}
 				});
+
 			},
 
 			removeVitamin: function (vitamin) {
@@ -357,16 +358,20 @@
 						if (timeout >= delay || !useTimeout) {
 							timeout = delay - 1;
 						}
-
+                        app.getCart();
 						combinationTimeout = setTimeout(function () {
 							$("#advises-label").html(response.label);
 							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes + '&flow_token=' + response.token));
 							app.result = response.result;
 							app.recommendation_token = response.token;
 
+                            if(app.totals.length > 0){
+                                app.getCombinations(true);
+                            }
 							$("#advises-loader").hide();
 							$("#advises-block").fadeIn();
-							app.getCart();
+                            dataLayer.push({"event":"q_done"});
+
 
 						}, delay - timeout);
 					}

@@ -1,3 +1,4 @@
+<script src="https://use.fontawesome.com/a0fbf8c496.js"></script>
 <nav class="account_nav m-b-30">
 	<ul class="navigation" id="profile-nav">
 		<a class="visible-sm visible-xs icon icon-cross-large toggle-mobile-nav" href="#profile-nav"></a>
