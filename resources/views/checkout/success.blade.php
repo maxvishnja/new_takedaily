@@ -194,37 +194,6 @@
 
         @endif
     </script>
-
-        <!-- TradeTracker -->
-
-        <script type="text/javascript">
-            var ttConversionOptions = ttConversionOptions || [];
-            ttConversionOptions.push({
-                type: 'sales',
-                campaignID: '26413',
-                productID: '38852',
-                transactionID: '{{$order_id}}',
-                transactionAmount: '1',
-                quantity: '1',
-                email: '',
-                descrMerchant: '',
-                descrAffiliate: '',
-                currency: ''
-            });
-        </script>
-        <noscript>
-            <img src="//ts.tradetracker.net/?cid=26413&amp;pid=38852&amp;tid={{$order_id}}&amp;tam=1&amp;data=&amp;qty=1&amp;eml=&amp;descrMerchant=&amp;descrAffiliate=&amp;event=sales&amp;currency=EUR" alt="" />
-        </noscript>
-        <script type="text/javascript">
-            // No editing needed below this line.
-            (function(ttConversionOptions) {
-                var campaignID = 'campaignID' in ttConversionOptions ? ttConversionOptions.campaignID : ('length' in ttConversionOptions && ttConversionOptions.length ? ttConversionOptions[0].campaignID : null);
-                var tt = document.createElement('script'); tt.type = 'text/javascript'; tt.async = true; tt.src = '//tm.tradetracker.net/conversion?s=' + encodeURIComponent(campaignID) + '&t=m';
-                var s = document.getElementsByTagName('script'); s = s[s.length - 1]; s.parentNode.insertBefore(tt, s);
-            })(ttConversionOptions);
-        </script>
-
-        <!-- /TradeTracker -->
 @endsection
 
 @section('tracking-scripts')
