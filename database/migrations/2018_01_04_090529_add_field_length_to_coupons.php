@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateTableCouponFieldDiscountType extends Migration
+class AddFieldLengthToCoupons extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class UpdateTableCouponFieldDiscountType extends Migration
     public function up()
     {
         Schema::table('coupons', function (Blueprint $table) {
-            DB::statement("ALTER TABLE `coupons` MODIFY  `discount_type` ENUM('percentage','amount','free_shipping','fixed' )");
+            $table->integer('length')->default(0)->after('uses_left');
         });
     }
 
@@ -25,6 +25,8 @@ class UpdateTableCouponFieldDiscountType extends Migration
      */
     public function down()
     {
-        DB::statement("ALTER TABLE `coupons` MODIFY  `discount_type` ENUM('percentage','amount','free_shipping')");
+        Schema::table('coupons', function (Blueprint $table) {
+            $table->dropColumn('length');
+        });
     }
 }
