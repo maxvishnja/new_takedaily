@@ -127,7 +127,6 @@
 							<strong>Order:</strong> only the order its applied to.</p>
 					</div>
 				</div>
-
 				<div class="control-group" id="length_subscription" @if(!isset($coupon) or $coupon->applies_to == 'order') style="display: none;" @endif>
 					<label for="length_subscription" class="control-label">Length of discount subscription</label>
 					<div class="controls">

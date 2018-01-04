@@ -10,6 +10,7 @@ class AddFieldLengthToCoupon extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::table('coupons', function (Blueprint $table) {

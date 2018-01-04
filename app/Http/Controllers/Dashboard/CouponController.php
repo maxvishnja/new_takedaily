@@ -33,14 +33,13 @@ class CouponController extends Controller
 
 	function store(CouponRequest $request) {
 		$coupon = new Coupon();
-
 		$coupon->code = strtoupper($request->get('code'));
 		$coupon->description = $request->get('description');
 		$coupon->discount_type = $request->get('type');
 		$coupon->ambas = $request->get('ambas');
 		$coupon->for_second = $request->get('for_second');
 		$coupon->automatic = $request->get('automatic');
-		if($coupon->automatic_id != 0){
+		if($request->get('automatic_id') != 0){
             $coupon->automatic_id = $request->get('automatic_id');
         }
         $coupon->length = $request->get('length');
@@ -85,7 +84,7 @@ class CouponController extends Controller
 		$coupon->currency = $request->get('currency');
 		$coupon->for_second = $request->get('for_second');
         $coupon->automatic = $request->get('automatic');
-        if($coupon->automatic_id != 0){
+        if($request->get('automatic_id') != 0){
             $coupon->automatic_id = $request->get('automatic_id');
         }
         $coupon->length = $request->get('length');

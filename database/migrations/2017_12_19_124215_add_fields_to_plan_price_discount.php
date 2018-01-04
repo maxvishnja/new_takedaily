@@ -10,6 +10,7 @@ class AddFieldsToPlanPriceDiscount extends Migration
      *
      * @return void
      */
+
     public function up()
     {
         Schema::table('plans', function (Blueprint $table) {
