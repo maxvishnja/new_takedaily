@@ -7,22 +7,22 @@
 
 			<label>
 				<input type="radio" name="step[3][1]" value="1" v-model="user_data.foods.vegetables" data-model="foods.vegetables"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-1');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-vegetables-1"></span>
 				<br/>{{ trans('flow.questions.3-1.options.1') }}</label>
 			<label>
 				<input type="radio" name="step[3][1]" value="2" v-model="user_data.foods.vegetables" data-model="foods.vegetables"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-1');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-vegetables-2"></span>
 				<br/>{{ trans('flow.questions.3-1.options.2') }}</label>
 			<label>
 				<input type="radio" name="step[3][1]" value="3" v-model="user_data.foods.vegetables" data-model="foods.vegetables"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-1');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-vegetables-3"></span>
 				<br/>{{ trans('flow.questions.3-1.options.3') }}</label>
 			<label>
 				<input type="radio" name="step[3][1]" value="4" v-model="user_data.foods.vegetables" data-model="foods.vegetables"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-1');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-vegetables-4"></span>
 				<br/>{{ trans('flow.questions.3-1.options.4') }}</label>
 		</div>
@@ -38,17 +38,17 @@
 
 			<label>
 				<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" data-model="foods.fruits" value="1"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-2');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-fruit-1"></span>
 				<br/>{{ trans('flow.questions.3-2.options.1') }}</label>
 			<label>
 				<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" data-model="foods.fruits" value="2"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-2');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-fruit-2"></span>
 				<br/>{{ trans('flow.questions.3-2.options.2') }}</label>
 			<label>
 				<input type="radio" name="step[3][2]" v-model="user_data.foods.fruits" data-model="foods.fruits" value="3"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-2');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-fruit-3"></span>
 				<br/>{{ trans('flow.questions.3-2.options.3') }}</label>
 		</div>
@@ -64,30 +64,30 @@
 
 			<label>
 				<input type="radio" name="step[3][3]" value="1" v-model="user_data.foods.bread" data-model="foods.bread"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-3');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-bread-1"></span>
 				<br/>{{ trans('flow.questions.3-3.options.1') }}</label>
 			<label>
 				<input type="radio" name="step[3][3]" value="2" v-model="user_data.foods.bread" data-model="foods.bread"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-3');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-bread-2"></span>
 				<br/>{{ trans('flow.questions.3-3.options.2') }}</label>
 			<label>
 				<input type="radio" name="step[3][3]" value="3" v-model="user_data.foods.bread" data-model="foods.bread"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-3');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-bread-3"></span>
 				<br/>{{ trans('flow.questions.3-3.options.3') }}</label>
 			@if(trans('flow.questions.3-3.options.4') != '' && trans('flow.questions.3-3.options.4') != 'flow.questions.3-3.options.4')
 			<label>
 				<input type="radio" name="step[3][3]" value="4" v-model="user_data.foods.bread" data-model="foods.bread"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-3');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-bread-4"></span>
 				<br/>{{ trans('flow.questions.3-3.options.4') }}</label>
 			@endif
 			@if(trans('flow.questions.3-3.options.5') != '' && trans('flow.questions.3-3.options.5') != 'flow.questions.3-3.options.5')
 			<label>
 				<input type="radio" name="step[3][3]" value="5" v-model="user_data.foods.bread" data-model="foods.bread"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-3');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-bread-5"></span>
 				<br/>{{ trans('flow.questions.3-3.options.5') }}</label>
 			@endif
@@ -104,19 +104,19 @@
 
 			<label>
 				<input type="radio" name="step[3][4]" value="2" v-model="user_data.foods.butter" data-model="foods.butter"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-4');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-butter-no"></span>
 				<br/>{{ trans('flow.questions.3-4.options.2') }}
 			</label>
 			<label>
 				<input type="radio" name="step[3][4]" value="3" v-model="user_data.foods.butter" data-model="foods.butter"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-4');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-butter-sometimes"></span>
 				<br/>{{ trans('flow.questions.3-4.options.3') }}
 			</label>
 			<label>
 				<input type="radio" name="step[3][4]" value="1" v-model="user_data.foods.butter" data-model="foods.butter"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-4');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-butter-yes"></span>
 				<br/>{{ trans('flow.questions.3-4.options.1') }}
 			</label>
@@ -133,22 +133,22 @@
 
 			<label>
 				<input type="radio" name="step[3][5]" value="1" v-model="user_data.foods.wheat" data-model="foods.wheat"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-5');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-pasta-1"></span>
 				<br/>{{ trans('flow.questions.3-5.options.1') }}</label>
 			<label>
 				<input type="radio" name="step[3][5]" value="2" v-model="user_data.foods.wheat" data-model="foods.wheat"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-5');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-pasta-2"></span>
 				<br/>{{ trans('flow.questions.3-5.options.2') }}</label>
 			<label>
 				<input type="radio" name="step[3][5]" value="3" v-model="user_data.foods.wheat" data-model="foods.wheat"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-5');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-pasta-3"></span>
 				<br/>{{ trans('flow.questions.3-5.options.3') }}</label>
 			<label>
 				<input type="radio" name="step[3][5]" value="4" v-model="user_data.foods.wheat" data-model="foods.wheat"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-5');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-pasta-4"></span>
 				<br/>{{ trans('flow.questions.3-5.options.4') }}</label>
 		</div>
@@ -164,17 +164,17 @@
 
 			<label>
 				<input type="radio" name="step[3][6]" value="1" v-model="user_data.foods.meat" data-model="foods.meat"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-6');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-meat-1"></span>
 				<br/>{{ trans('flow.questions.3-6.options.1') }}</label>
 			<label>
 				<input type="radio" name="step[3][6]" value="2" v-model="user_data.foods.meat" data-model="foods.meat"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-6');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-meat-2"></span>
 				<br/>{{ trans('flow.questions.3-6.options.2') }}</label>
 			<label>
 				<input type="radio" name="step[3][6]" value="3" v-model="user_data.foods.meat" data-model="foods.meat"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-6');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-meat-3"></span>
 				<br/>{{ trans('flow.questions.3-6.options.3') }}</label>
 		</div>
@@ -191,14 +191,14 @@
 			@if(App::getLocale() == 'nl')
 				<label>
 					<input type="radio" name="step[3][7]" value="4" v-model="user_data.foods.fish" data-model="foods.fish"
-						   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-7');"/>
+						   v-on:click="nextStep();" />
 					<span class="icon icon-portion-fish-1"></span>
 					<br/>{{ trans('flow.questions.3-7.options.4') }}
 				</label>
 			@endif
 			<label>
 				<input type="radio" name="step[3][7]" value="1" v-model="user_data.foods.fish" data-model="foods.fish"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-7');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-fish-1"></span>
 				<br/>{{ trans('flow.questions.3-7.options.1') }}
 			</label>
@@ -206,13 +206,13 @@
 
 			<label>
 				<input type="radio" name="step[3][7]" value="2" v-model="user_data.foods.fish" data-model="foods.fish"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-7');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-fish-2"></span>
 				<br/>{{ trans('flow.questions.3-7.options.2') }}
 			</label>
 			<label>
 				<input type="radio" name="step[3][7]" value="3" v-model="user_data.foods.fish" data-model="foods.fish"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-7');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-fish-3"></span>
 				<br/>{{ trans('flow.questions.3-7.options.3') }}
 			</label>
@@ -229,26 +229,26 @@
 
 			<label>
 				<input type="radio" name="step[3][8]" value="1" v-model="user_data.foods.dairy" data-model="foods.dairy"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-8');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-milk-1"></span>
 				<br/>{{ trans('flow.questions.3-8.options.1') }}
 			</label>
 			<label>
 				<input type="radio" name="step[3][8]" value="2" v-model="user_data.foods.dairy" data-model="foods.dairy"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-8');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-milk-2"></span>
 				<br/>{{ trans('flow.questions.3-8.options.2') }}
 			</label>
 			<label>
 				<input type="radio" name="step[3][8]" value="3" v-model="user_data.foods.dairy" data-model="foods.dairy"
-					   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-8');"/>
+					   v-on:click="nextStep();" />
 				<span class="icon icon-portion-milk-3"></span>
 				<br/>{{ trans('flow.questions.3-8.options.3') }}
 			</label>
 			@if(trans('flow.questions.3-8.options.4') != '' && trans('flow.questions.3-8.options.4') != 'flow.questions.3-8.options.4')
 				<label>
 					<input type="radio" name="step[3][8]" value="4" v-model="user_data.foods.dairy" data-model="foods.dairy"
-						   v-on:click="nextStep();" onclick="ga('send', 'event', 'flow' , 'completed' , 'question.3-8');"/>
+						   v-on:click="nextStep();" />
 					<span class="icon icon-portion-milk-4"></span>
 					<br/>{{ trans('flow.questions.3-8.options.4') }}
 				</label>
