@@ -16,7 +16,7 @@ class Nutritionist extends Model
      *
      * @var string
      */
-    protected $table = 'nutritionist';
+    protected $table = 'nutritionists';
 
     /**
      * The attributes that are mass assignable.
