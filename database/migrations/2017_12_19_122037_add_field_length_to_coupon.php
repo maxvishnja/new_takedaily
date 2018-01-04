@@ -13,7 +13,7 @@ class AddFieldLengthToCoupon extends Migration
 
     public function up()
     {
-        
+
         Schema::table('coupons', function (Blueprint $table) {
             $table->integer('length')->default(0)->after('uses_left');
         });

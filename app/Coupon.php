@@ -60,6 +60,8 @@ class Coupon extends Model
 		'valid_to'
 	];
 
+
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
