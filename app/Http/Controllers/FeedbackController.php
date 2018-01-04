@@ -12,15 +12,7 @@ class FeedbackController extends Controller
 
     public function index($id = 0)
     {
-
-        $plans = Plan::where('subscription_rebill_at','like','%2018-01-05%')->where('attempt','=',3)->get();
-echo count($plans);
-        foreach ($plans as $plan){
-            echo $plan->customer->getEmail()."<br/>";
-        }
-dd();
-
-
+        
         $customer = Customer::find($id);
         if ($id == 0) {
             $name = 'Guest';
