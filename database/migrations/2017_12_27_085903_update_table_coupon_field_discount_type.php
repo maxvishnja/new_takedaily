@@ -13,6 +13,7 @@ class UpdateTableCouponFieldDiscountType extends Migration
 
     public function up()
     {
+
         Schema::table('coupons', function (Blueprint $table) {
             DB::statement("ALTER TABLE `coupons` MODIFY  `discount_type` ENUM('percentage','amount','free_shipping','fixed' )");
         });

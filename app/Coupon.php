@@ -52,12 +52,15 @@ class Coupon extends Model
 		'discount_type',
 		'currency',
 		'for_second',
+		'length',
 		'automatic',
 		'automatic_id',
 		'uses_left',
 		'valid_from',
 		'valid_to'
 	];
+
+
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -94,6 +97,8 @@ class Coupon extends Model
 			$this->save();
 		}
 	}
+
+	
 
 	public static function newUpsellCoupon($code)
 	{
