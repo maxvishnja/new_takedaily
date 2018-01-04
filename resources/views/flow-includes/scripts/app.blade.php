@@ -364,8 +364,8 @@
 							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes + '&flow_token=' + response.token));
 							app.result = response.result;
 							app.recommendation_token = response.token;
-
-                            if(app.totals.length > 0){
+                            console.log(app.totals.length);
+                            if(app.totals.length == 0){
                                 app.getCombinations(true);
                             }
 							$("#advises-loader").hide();
