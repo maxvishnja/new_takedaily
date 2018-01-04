@@ -21,7 +21,7 @@ class CreateCsvAllCustomers
 
         $stat_count->save();
 
-        $almost
+
         $email_array = [];
         $i = 0;
 
