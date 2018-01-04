@@ -35,7 +35,8 @@ Route::get( '/cart', function ()
 				'amount'      => $coupon->discount_type == 'amount' ? \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat( $coupon->discount ) : $coupon->discount,
 				'applies_to'  => $coupon->applies_to,
 				'description' => $coupon->description,
-				'code'        => $coupon->code
+				'code'        => $coupon->code,
+                 'length'     => $coupon->length
 			];
 		}
 	}

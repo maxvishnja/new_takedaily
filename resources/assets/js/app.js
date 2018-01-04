@@ -1,3 +1,76 @@
+// Header Behavior
+$(window).on('load', function() {
+
+    var header = $('.b-header');
+    var hpHero = $('.hp-hero');
+
+    var headerHeight = header.height();
+    var hpHeroHeight = hpHero.height();
+
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > (hpHeroHeight - headerHeight / 2)) {
+            header.addClass('active');
+        } else {
+            header.removeClass('active');
+        }
+    });
+
+    $('#nav-icon4').click(function() {
+        $(this).toggleClass('open');
+        $('.c-nav-header').toggleClass('active');
+    });
+
+});
+
+// Sliders
+sliderMembers();
+if ($(window).width() < 768) {
+    sliderInstagram();
+    sliderCompromises();
+}
+function sliderMembers() {
+    $('.hp-members__list').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        prevArrow: '<div class="hp-members__arrow hp-members__arrow--left"></div>',
+        nextArrow: '<div class="hp-members__arrow hp-members__arrow--right"></div>',
+        dots: false,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    arrows: false
+                }
+            }
+        ]
+    });
+}
+function sliderCompromises() {
+    $('.hp-comp__list').slick({
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: false,
+        dots: false,
+        infinite: false
+    });
+}
+function sliderInstagram() {
+    $('.hp-insta__list').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false
+    });
+}
+
+// footer flags
+$('.b-footer__lang__arrow').on('hover', function () {
+    $('.b-footer__lang__dropdown').css('display', 'block');
+})
+
+// old code
+
 $(".toggle-mobile-nav").click(function (e)
 {
 	e.preventDefault();
@@ -49,12 +122,10 @@ function validateFormInput(form, addClasses)
 		}
 	});
 
-	// todo something with the errors.
-
-	if(errors.length > 0)
-	{
+	if (errors.length > 0) {
 		return false;
-	}
+    }
 
 	return true;
-};
+}
+

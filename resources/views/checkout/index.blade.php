@@ -365,7 +365,8 @@
 						<td>
 							<span v-show="!item.showPrice && item.price === 0">-</span>
 							<span v-show="item.showPrice || item.price !== 0">
-								<span v-show="item.price !== 0">{{ trans('general.money-vue', ['amount' => 'item.price']) }}</span>
+								<span v-show="item.price !== 0 && discount.type != 'fixed'">{{ trans('general.money-vue', ['amount' => 'item.price']) }}</span>
+								<span v-show="item.price !== 0 && discount.type == 'fixed'">{{ trans('general.money-vue', ['amount' => 'total']) }}</span>
 								<span v-show="item.price === 0">{{ trans('products.free_shipping') }}</span>
 							</span>
 						</td>
@@ -376,6 +377,7 @@
 							<div v-show="discount.type == 'amount'">-{{ trans('general.money-vue', ['amount' => 'total_discount']) }}</div>
 							<div v-show="discount.type == 'percentage'">-@{{ total_discount }}</div>
 							<div v-show="discount.type == 'free_shipping'">-100%</div>
+							<div v-show="discount.type == 'fixed'">{{ trans('general.money-vue', ['amount' => 'total_discount']) }} x @{{ total_month }} {{ trans('general.month')}}</div>
 						</td>
 					</tr>
 					<tr>
@@ -448,6 +450,7 @@
 				discount: {
 					applied: false,
 					type: null,
+					length: 0,
 					amount: 0,
 					applies_to: null,
 					description: '',
@@ -456,7 +459,11 @@
 			},
 			computed: {
 				total_taxes: function () {
-					return this.total * this.tax_rate;
+                    if (this.discount.type == 'fixed') {
+                        return this.total * 0;
+                    } else{
+                        return this.total * this.tax_rate;
+                    }
 				},
 				required_totals: function () {
 					var total = 0;
@@ -481,18 +488,24 @@
 							var discount = 0;
 							if (this.discount.type == 'percentage') {
 								discount = amount * (this.discount.amount / 100);
+                                amount -= discount;
 							}
 							else if (this.discount.type == 'amount') {
 								discount = this.discount.amount;
+                                amount -= discount;
 							}
 							else if (this.discount.type == 'free_shipping') {
 								discount = amount * (100 / 100);
+                                amount -= discount;
 							}
+                            else if (this.discount.type == 'fixed') {
+                                discount = this.discount.amount * this.discount.length;
+                                amount = discount;
+                            }
 
-							amount -= discount;
+
 						}
 					}
-
 					return amount;
 				},
 				total_sum: function () {
@@ -514,12 +527,24 @@
 						else if (app.discount.type == 'free_shipping') {
 							sum *= (1 - (100 / 100));
 						}
+                        else if (app.discount.type == 'fixed') {
+                            sum = this.discount.amount * this.discount.length;
+                        }
 					}
 
 					sum = sum > 0 ? sum : 0;
 
 					return sum;
 				},
+                total_month: function () {
+                    var month = 0;
+
+                    if (this.discount.type == 'fixed') {
+                        month = this.discount.length;
+                    }
+
+                    return month;
+                },
 				total_discount: function () {
 					var total = 0;
 
@@ -529,6 +554,9 @@
 					else if (this.discount.type == 'percentage') {
 						total = this.discount.amount + '%';
 					}
+                    else if (this.discount.type == 'fixed') {
+                        total = this.discount.amount;
+                    }
 
 					return total;
 				}
@@ -550,6 +578,7 @@
 							app.discount.applied = response.coupon.applied;
 							app.discount.type = response.coupon.type;
 							app.discount.amount = response.coupon.amount;
+							app.discount.length = response.coupon.length;
 							app.discount.applies_to = response.coupon.applies_to;
 							app.discount.description = response.coupon.description;
 							app.discount.code = response.coupon.code;

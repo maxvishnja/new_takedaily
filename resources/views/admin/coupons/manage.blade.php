@@ -33,7 +33,8 @@
 					<label for="currency" class="control-label">Currency</label>
 					<div class="controls">
 						<select name="currency" id="currency" onchange="if( $('#type').val() != 'percentage' ) { $('#discount_text').text($(this).val()) }">
-							@foreach(['DKK','EUR','USD','SEK','NOK','GBP'] as $option)
+							{{--@foreach(['DKK','EUR','USD','SEK','NOK','GBP'] as $option)--}}
+							@foreach(['DKK','EUR'] as $option)
 								<option value="{{ $option }}" @if(isset($coupon) && $coupon->currency == $option) selected="selected" @endif>{{ $option }}</option>
 							@endforeach
 						</select>
@@ -43,15 +44,15 @@
 				<div class="control-group">
 					<label for="type" class="control-label">Type</label>
 					<div class="controls">
-						<select name="type" id="type" onchange="if( $(this).val() == 'percentage' ) { $('#discount_text').text('%') } else if($(this).val() == 'free_shipping') { $('#discount_text').text('order/month'); $('#applies_to').val('plan') } else { $('#discount_text').text($('#currency').val()) }">
-							@foreach(['percentage', 'amount', 'free_shipping'] as $option)
+						<select name="type" id="type">
+							@foreach(['percentage', 'amount', 'free_shipping','fixed'] as $option)
 								<option value="{{ $option }}" @if(isset($coupon) && $coupon->discount_type == $option) selected="selected" @endif>{{ trans("coupons.type.$option") }}</option>
 							@endforeach
 						</select>
 					</div>
 				</div>
 
-				<div class="control-group">
+				<div class="control-group fixed-hide">
 					<label for="page_title" class="control-label">For ambasador</label>
 					<div class="controls">
 						<select name="ambas" id="input_state">
@@ -73,7 +74,7 @@
 				</div>
 
 
-				<div class="control-group">
+				<div class="control-group fixed-hide">
 					<label for="page_title" class="control-label">Automatic voucher</label>
 					<div class="controls">
 						<select name="automatic" id="automatic" onchange="if( $('#automatic').val() == 1 ) { $('#automatic_id').show() } else { $('#automatic_id').hide() }">
@@ -171,6 +172,27 @@
 			$( ".datepicker" ).datepicker({
 				dateFormat: "yy-mm-dd"
 			});
-		});
+
+			$('#type').on('change', function () {
+                if( $(this).val() == 'percentage' ) {
+                    $('#discount_text').text('%')
+                    $('.fixed-hide').show();
+                } else if($(this).val() == 'free_shipping') {
+                    $('#discount_text').text('order/month');
+                    $('#applies_to').val('plan');
+                    $('.fixed-hide').show();
+
+                } else if($(this).val() == 'fixed') {
+                    $('#discount_text').text($('#currency').val());
+                    $('#applies_to').val('plan');
+                    $('.fixed-hide').hide();
+                    $('#length_subscription').show();
+                } else {
+                    $('.fixed-hide').show();
+                    $('#discount_text').text($('#currency').val());
+                }
+            });
+
+            });
 	</script>
 @endsection
