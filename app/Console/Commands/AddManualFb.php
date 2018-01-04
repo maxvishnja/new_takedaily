@@ -57,6 +57,7 @@ class AddManualFb extends Command
 
         $query = new FacebookApiHelper();
 
+
         try{
 
             $query->addRealUsers(config('services.fbApi.nl_active'), $plansActiveNl, 'NL');

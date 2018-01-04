@@ -276,6 +276,7 @@ class CheckoutCompletion
 
 	public function handleProductActions()
 	{
+
 		// giftcard
 		if ( str_contains( $this->getCheckout()->getProduct()->name, 'giftcard' ) )
 		{

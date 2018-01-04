@@ -140,6 +140,7 @@ class CheckoutController extends Controller
                 ->withInput();
         }
 
+
         $request->session()->put('charge_id', $charge->id);
         $request->session()->put('payment_customer_id', $checkout->getCustomer()->id);
         $request->session()->put('name', $name);
