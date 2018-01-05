@@ -104,4 +104,12 @@ class User extends Authenticatable
 	{
 		return $this->email;
 	}
+
+    public function getCustomerId()
+    {
+        if(!$this->getCustomer()){
+            return false;
+        }
+        return $this->getCustomer()->getId();
+    }
 }

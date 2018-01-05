@@ -7,7 +7,20 @@
 		</div>
 
 		<div class="module-body table">
-			<table cellpadding="0" cellspacing="0" border="0" class="datatable-1 table table-bordered table-striped	display" width="100%">
+			<div style="text-align: right;" class="search-div">
+				<form class="form-inline" id="search-form" method="post" action="">
+					<div class="form-group">
+						<input name="find" id="search-input" class="form-control" placeholder="What search">
+					</div>
+					<div class="form-group">
+						<button name="submit"  id='search-button' class="btn btn-success" type="submit">Search</button>
+					</div>
+					{{ csrf_field() }}
+				</form>
+			</div>
+
+
+			<table cellpadding="0" cellspacing="0" border="0" class="datatable-2 table table-bordered table-striped	display" width="100%">
 				<thead>
 				<tr>
 					<th>#</th>
@@ -19,7 +32,7 @@
 					<th></th>
 				</tr>
 				</thead>
-				<tbody>
+				<tbody id="results">
 
 				@foreach($customers as $customer)
 
@@ -59,6 +72,9 @@
 				@endforeach
 				</tbody>
 			</table>
+			<div style="text-align: right" id="pagination">
+			{{ $customers->links() }}
+			</div>
 		</div>
 	</div><!--/.module-->
 @stop
@@ -69,6 +85,7 @@
 		{
 			$('.datatable-1').dataTable({
 				stateSave: true,
+               // serverSide: true,
 				"columnDefs": [
 					{
 						"targets": [6],
@@ -87,5 +104,24 @@
 			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
 			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
 		}
+
+
+        $('#search-button').on('click', function (e) {
+            e.preventDefault();
+			$('#pagination').hide();
+            $.ajax({
+                type: 'POST',
+                data: $('form#search-form').serialize(),
+                url: '{{ route("find-customer") }}',
+                success: function (data) {
+                    if(data){
+                        $('#results').html(data);
+					}
+
+                }
+
+            });
+        });
+
 	</script>
 @endsection
