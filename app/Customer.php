@@ -196,6 +196,11 @@ class Customer extends Model
         return $this->orders;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function isSubscribed()
     {
         return $this->getPlan()->isActive();

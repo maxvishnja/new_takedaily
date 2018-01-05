@@ -82,6 +82,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'customers/delete/{id}', 'Dashboard\CustomerController@destroy' );
 	Route::post( 'customers/addnote/{id}', 'Dashboard\CustomerController@addNote' );
 
+	Route::post( 'customers/find', ['as' => 'find-customer', 'uses' => 'Dashboard\CustomerController@findData'] );
+
 	Route::resource( 'calls', 'Dashboard\CallController' );
 	Route::get( 'calls/mark-done/{id}', 'Dashboard\CallController@markDone' );
 

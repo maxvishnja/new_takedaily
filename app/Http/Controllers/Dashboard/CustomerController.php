@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Notes;
 use App\Nutritionist;
 use App\Order;
+use App\User;
 use App\Vitamin;
 use Illuminate\Mail\Message;
 use Illuminate\Http\Request;
@@ -25,13 +26,18 @@ class CustomerController extends Controller
 
 	function index()
 	{
-		$customers = $this->repo->all();
+
+        $customers = Customer::orderBy('created_at', 'DESC')->paginate(15);
+
+		//$customers = $this->repo->all();
 		$customers->load('user');
 
 		return view('admin.customers.home', [
 			'customers' => $customers
 		]);
 	}
+
+
 
 	function show($id)
 	{
@@ -371,4 +377,29 @@ class CustomerController extends Controller
 		return \Redirect::action('Dashboard\CustomerController@index')->with('success', 'Kunden blev slettet.');
 
 	}
+
+
+
+
+    function findData(Request $request){
+
+        if($request->get('find') and $request->get('find') != ''){
+
+            $users = User::where('email','like', '%'. $request->get('find') .'%')->orWhere('name','like', '%'. $request->get('find') .'%')->get();
+
+            $customers = Customer::where('id','like', '%'. $request->get('find') .'%')->get();
+
+            return view('admin.customers.search', [
+                'users' => $users,
+                'customers' => $customers
+            ]);
+
+
+        }
+
+        return 0;
+
+
+    }
+
 }
