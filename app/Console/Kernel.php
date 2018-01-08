@@ -111,7 +111,7 @@ class Kernel extends ConsoleKernel
 		$schedule->command('clear:carts')
 		         ->dailyAt('00:20');
 
-		$schedule->command('backup:run')
-		         ->dailyAt('01:00');
+//		$schedule->command('backup:run')
+//		         ->dailyAt('01:00');
 	}
 }
