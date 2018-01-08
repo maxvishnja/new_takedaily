@@ -123,13 +123,13 @@ class Plan extends Model
     }
     public static function getSignups($date)
     {
-        $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', '2017')->count();
+        $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', date('Y'))->count();
         return $customers;
     }
     public static function getSignupsWeek($date)
     {
         $week_number = $date;
-        $year = 2017;
+        $year = date('Y');
         $first_day = date('Y-m-d 00:01:00', $week_number * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400 + 86400);
         $last_day = date('Y-m-d 23:59:00', ($week_number + 1) * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
         $customers = Plan::whereBetween('created_at', [$first_day, $last_day])->count();
@@ -143,7 +143,7 @@ class Plan extends Model
 //				->orWhereNull( 'subscription_cancelled_at');
 //		} )->count();
         $allCustomers = Plan::getSignups($signDate);
-        $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
+        $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', date('Y'))->whereMonth('subscription_cancelled_at', '<=', $month)->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
         if ($allCustomers == 0) {
             $cohorts = 100;
         } else {
@@ -154,7 +154,7 @@ class Plan extends Model
     public static function getCohortsWeek($week, $signDate)
     {
         $week_number = $week;
-        $year = 2017;
+        $year = date('Y');
         $first_day = date('Y-m-d 00:01:00', $week_number * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400 + 86400);
         $last_day = date('Y-m-d 23:59:00', ($week_number + 1) * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
         $sub_day = date('Y-m-d', $signDate * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);

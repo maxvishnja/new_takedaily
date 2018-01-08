@@ -300,7 +300,7 @@
                         @foreach(trans('flow.datepicker.months_long') as $key=>$month)
 
                                 <tr>
-                                    <td>{{$month}} 2017</td>
+                                    <td>{{$month}} {{date('Y')}}</td>
                                     <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
                                     <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>
                                     @foreach(range($key,12) as $y)
@@ -381,7 +381,7 @@
                         @foreach(trans('flow.datepicker.months_long') as $key=>$month)
 
                             <tr>
-                                <td>{{$month}} 2017</td>
+                                <td>{{$month}} {{date('Y')}}</td>
                                 <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
                                 <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>
                                 @foreach(range($key,12) as $y)
