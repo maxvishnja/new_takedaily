@@ -102,7 +102,7 @@
 		<div class="module-head">
 			<h3>
 
-				Orders of rebill {{ \Jenssegers\Date\Date::now()->format('M Y') }}</h3>
+				Orders within a month</h3>
 		</div>
 		<div class="module-body">
 			<div class="chart inline-legend grid">
