@@ -344,12 +344,13 @@ class StatsController extends Controller
                 $lastOrder = $customer->orders()->latest()->first();
 
 
-                if( Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays($lastOrder->updated_at) < 28 and $lastOrder->state != 'sent'){
+                if( Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays($lastOrder->updated_at) < 28){
                     $email_array[$i]['Name'] = $customer->getName();
                     $email_array[$i]['Email Address'] = $customer->getEmail();
                     $email_array[$i]['Rebill'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d/m/Y');
                     $email_array[$i]['Last order'] = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d/m/Y');
                     $email_array[$i]['Difference'] = Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays($lastOrder->updated_at);
+                    $email_array[$i]['Status order'] = $lastOrder->state;
                     $i++;
                 }
 
