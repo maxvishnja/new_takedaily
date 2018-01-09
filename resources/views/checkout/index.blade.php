@@ -725,13 +725,13 @@
             dataLayer.push({
 			'event':'addtocart',
             'currency':'DKK', //EUR or DKK
-            'value': app.total//value
+            'value': parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\Cart::getTotal()) }}")
             });
 			@else
             dataLayer.push({
 			'event':'addtocart',
 			'currency':'EUR', //EUR or DKK
-			'value': app.total//value
+			'value': parseFloat("{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Apricot\Checkout\Cart::getTotal()) }}")
             });
 			@endif
 		</script>
