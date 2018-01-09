@@ -106,8 +106,11 @@
     }
   }
 
-  .nav-left {
+  .item-left {
     float: left;
+    @include breakpoint(phone) {
+      float: none;
+    }
   }
 
   &__logo {
