@@ -215,6 +215,27 @@
                         </table>
                     </form>
 
+
+                    <br/>
+
+                    <form class="wrong-sb" action="{{ URL::action('Dashboard\StatsController@getWrongSb') }}" method="POST">
+                        {{ csrf_field() }}
+                        <table cellpadding="0" cellspacing="0" border="0"
+                               class="datatable-1 table table-bordered table-striped display" width="100%">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <h5>Get wrong subscription date</h5>
+                                </td>
+
+                                <td>
+                                    <button style="float: right" class="btn btn-success">Download CSV</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+
                     <br/>
                     <form class="reason-form" action="" method="POST">
                         {{ csrf_field() }}
