@@ -155,6 +155,15 @@ class CustomerRepository
 	}
 
 
+	public static function getFutureOrders($date){
+
+
+	    $plan = Plan::whereNull('subscription_cancelled_at')->whereDate('subscription_rebill_at','like','%'.$date.'%')->count();
+
+	   return $plan;
+
+    }
+
 
 
 	public function getAlmostCustomer()
