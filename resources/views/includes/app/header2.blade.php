@@ -71,9 +71,6 @@
             </a>
         </div>
 
-        <!-- Navigation -->
-    @include('includes.app.nav2')
-
         @if(!Request::is('checkout'))
             <!-- Button -->
             <a href="/flow" class="hp-btn">{{ trans('home2.take-test') }}</a>
@@ -85,6 +82,9 @@
                 <span class="b-header__hamb__span"></span>
             </div>
         @endif
+
+    <!-- Navigation -->
+        @include('includes.app.nav2')
 
     </div>
 
