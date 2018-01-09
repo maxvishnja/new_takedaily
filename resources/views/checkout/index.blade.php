@@ -720,6 +720,20 @@
 			if (validateFormInput($("#coupon-form-mobile"), false)) {
 				$("#coupon-form-mobile").submit();
 			}
+
+			@if (  App::getLocale()=="da" )
+            dataLayer.push({
+			'event':'addtocart',
+            'currency':'DKK', //EUR or DKK
+            'value': app.total//value
+            });
+			@else
+            dataLayer.push({
+			'event':'addtocart',
+			'currency':'EUR', //EUR or DKK
+			'value': app.total//value
+            });
+			@endif
 		</script>
 	@endif
 

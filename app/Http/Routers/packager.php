@@ -47,4 +47,7 @@ Route::group( [ 'prefix' => 'packaging', 'middleware' => ['packer', 'setLocale']
     Route::post('/stock', 'Stock\StockController@insert');
     Route::post('/stock-update', 'Stock\StockController@update');
 
+
+    Route::get( 'forecast', 'Dashboard\ForecastController@indexPacker' );
+
 } );

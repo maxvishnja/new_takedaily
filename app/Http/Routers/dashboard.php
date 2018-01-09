@@ -148,7 +148,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'faq-translations/{id}/delete', 'Dashboard\FaqTranslationController@delete' );
     Route::resource( 'nutritionist', 'Dashboard\NutritionistController' );
     Route::get( 'nutritionist/delete/{id}', 'Dashboard\NutritionistController@destroy' );
-
+    Route::get( 'forecast', 'Dashboard\ForecastController@index' );
 
     Route::resource( 'actions', 'Dashboard\ActionsController' );
     

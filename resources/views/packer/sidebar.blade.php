@@ -6,6 +6,7 @@
 			<li><a href="/packaging/printed-orders"><i class="menu-icon icon-download"></i>Printed orders @if($printed_numOrders > 0)<b class="label green pull-right">{{ $printed_numOrders }}</b>@endif</a></li>
 			<li><a href="/packaging/shipped-orders"><i class="menu-icon icon-truck"></i>Sent orders</a></li>
 			<li><a href="/packaging/stock"><i class="menu-icon icon-exchange"></i>Stock</a></li>
+			<li><a href="/packaging/forecast"><i class="menu-icon icon-exchange"></i>Prod Forecast</a></li>
 		</ul>
 		<!--/.widget-nav-->
 	</div>
