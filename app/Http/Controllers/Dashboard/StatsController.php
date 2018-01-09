@@ -13,6 +13,7 @@ use App\Order;
 use App\Plan;
 use App\Setting;
 use Illuminate\Http\Request;
+use Jenssegers\Date\Date;
 
 
 class StatsController extends Controller
@@ -324,6 +325,57 @@ class StatsController extends Controller
         }
 
     }
+
+
+    public function getWrongSb (Request $request){
+
+        $data = $request->all();
+
+        if ($data) {
+            $repo = new CustomerRepository();
+
+            $customers = $repo->rebillAble();
+
+            $email_array = [];
+            $i = 0;
+
+            foreach($customers->get() as $customer){
+
+                $lastOrder = $customer->orders()->latest()->first();
+
+
+                if( Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays($lastOrder->updated_at) < 28 and $lastOrder->state == 'sent'){
+                    $email_array[$i]['Name'] = $customer->getName();
+                    $email_array[$i]['Email Address'] = $customer->getEmail();
+                    $email_array[$i]['Rebill'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d/m/Y');
+                    $email_array[$i]['Last order'] = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d/m/Y');
+                    $email_array[$i]['Difference'] = Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays($lastOrder->updated_at);
+                    $i++;
+                }
+
+            }
+
+            if(empty($email_array)){
+                return \Redirect::back()->withErrors("No data!");
+            }
+
+            \Excel::create('wrong_users', function ($excel) use ($email_array) {
+
+                $excel->sheet('All wrong users', function ($sheet) use ($email_array) {
+
+                    $sheet->fromArray($email_array, null, 'A1', true);
+
+                });
+
+            })->download('xls');
+            return \Redirect::back();
+
+        }
+
+        return \Redirect::back()->withErrors("Error!");
+    }
+
+
 
 
     function exportDateCoupon (Request $request){

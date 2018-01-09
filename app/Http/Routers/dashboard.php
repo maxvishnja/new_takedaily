@@ -141,6 +141,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
     Route::post('stats/check-csv-all-customers', ['as' => 'check', 'uses' => 'Dashboard\StatsController@checkCsvAllCustomers']);
 	Route::post('stats/download-all-customers', ['as' => 'check', 'uses' => 'Dashboard\StatsController@downloadCsvAllCustomers']);
 	Route::post('stats/reason', ['as' => 'reason', 'uses' => 'Dashboard\StatsController@getUnsubscribeReason']);
+	Route::post('stats/wrong', ['as' => 'wrong', 'uses' => 'Dashboard\StatsController@getWrongSb']);
 	Route::resource( 'feedback', 'Dashboard\FeedbackController' );
 	Route::get( 'feedback/delete/{id}', 'Dashboard\FeedbackController@destroy' );
 	Route::resource( 'faq-translations', 'Dashboard\FaqTranslationController' );
