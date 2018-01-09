@@ -13,6 +13,10 @@
       height: 100%;
       opacity: 0;
   }
+  @include breakpoint(tablet) {
+    width: 69%;
+    margin: 1rem -1.2rem;
+  }
   @include breakpoint(overPhone) {
     display: inline-block;
   }

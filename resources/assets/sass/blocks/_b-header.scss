@@ -103,12 +103,16 @@
     }
     @include breakpoint(tablet) {
       padding: 1.3rem 2rem;
+      max-width: $site-desk-design;
     }
   }
 
   .item-left {
     float: left;
     @include breakpoint(phone) {
+      float: none;
+    }
+    @include breakpoint(tablet) {
       float: none;
     }
   }
@@ -129,6 +133,10 @@
       height: 3.3rem;
       top: 1.8rem;
       left: 41.8%;
+    }
+    @include breakpoint(tablet) {
+      left: 16.8%;
+      top: 1.6rem;
     }
     img {
       position: absolute;
@@ -159,6 +167,9 @@
       padding: 1.2rem;
       margin-top: -1rem;
       margin-right: 3.2rem;
+    }
+    @include breakpoint(tablet) {
+      margin: 0 .5rem 1rem 0;
     }
   }
 
