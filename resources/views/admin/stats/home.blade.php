@@ -78,7 +78,7 @@
                                     <select name="csv-category" class="csv-category">
                                         <option value="1">Active cusomers with time</option>
                                         <option value="6">New customers with time</option>
-                                        {{--<option value="2">All unsubscribe with time</option>--}}
+                                        <option value="2">All unsubscribe with time</option>
                                         <option value="3">Unsubscribe with other reason</option>
                                         <option value="7">Free subscription</option>
                                         {{--<option value="5">Unsubscribe from dashboard</option>--}}

@@ -503,6 +503,7 @@ class StatsController extends Controller
                         return \Redirect::back();
                     }
                 case 2:
+
                     $i = 0;
                     if($data['lang']=='nl'){
                         $currency = "EUR";
@@ -512,24 +513,27 @@ class StatsController extends Controller
                     $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->get();
                     foreach ($plans as $plan) {
                         if (!empty($plan->customer) and !empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")) {
-                            $email_array[$i]['First Name'] = $plan->customer->getFirstName();
-                            $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                            $email_array[$i]['ID'] = $plan->customer->id;
+                            $email_array[$i]['Name'] = $plan->customer->getName();
                             $email_array[$i]['Phone'] = $plan->customer->getPhone();
-                            if($plan->snoozing_at) {
-                                $email_array[$i]['Sent postponing mail'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->snoozing_at)->format('j. M Y');
-                            } else{
-                                $email_array[$i]['Sent postponing mail'] = 'No data';
-                            }
-                            $email_array[$i]['Cancel date'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->subscription_cancelled_at)->format('j. M Y');
                             $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                            $email_array[$i]['Order count'] = $plan->customer->order_count;
                             $email_array[$i]['Age'] = $plan->customer->getAge();
+                            if ($plan->customer->getGender() == 1) {
+                                $gender = 'male';
+                            } else {
+                                $gender = 'female';
+                            }
+                            $email_array[$i]['Gender'] = $gender;
+                            $email_array[$i]['Signup date'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->subscription_started_at)->format('j. M Y');
+                            $email_array[$i]['Cancel date'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->subscription_cancelled_at)->format('j. M Y');
+                            $email_array[$i]['Reason'] = $plan->unsubscribe_reason;
                             $email_array[$i]['Supplements'] = '';
                             if($plan->getVitamiPlan()){
                                 foreach ($plan->getVitamiPlan() as $vitamin){
                                     $email_array[$i]['Supplements'] .= \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)).", ";
                                  }
                              }
-                            $email_array[$i]['Last coupon'] = $plan->getLastCoupon();
                             $i++;
                         }
                     }
