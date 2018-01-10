@@ -10,6 +10,10 @@
     margin-bottom: 8rem;
   }
 
+  h2 {
+    font-size: 3.8rem !important;
+  }
+
   &.l {
     @include breakpoint(phone) {
       padding-right: 0;
