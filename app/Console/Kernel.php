@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\AddManualFb;
 use App\Console\Commands\ChangeAutomaticCoupon;
 use App\Console\Commands\ClearOldCarts;
 use App\Console\Commands\ClearSnoozing;
@@ -50,6 +51,7 @@ class Kernel extends ConsoleKernel
 		DebugCommand::class,
 		AddCustomersToApi::class,
 		ChangeAutomaticCoupon::class,
+		AddManualFb::class,
 	];
 
 	/**
