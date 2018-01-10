@@ -510,7 +510,7 @@ class StatsController extends Controller
                     } else{
                         $currency = "DKK";
                     }
-                    $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->get();
+                    $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereNotNull('subscription_started_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->get();
                     foreach ($plans as $plan) {
                         if (!empty($plan->customer) and !empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")) {
                             $email_array[$i]['ID'] = $plan->customer->id;
