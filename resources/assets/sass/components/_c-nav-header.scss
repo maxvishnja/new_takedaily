@@ -1,6 +1,6 @@
 //----- Navigation / style only for header nav
 .c-nav-header {
-  width: 92%;
+  width: 91%;
   @include vendor-prefixes(transition, .4s);
   @include breakpoint(phone) {
       position: fixed;
