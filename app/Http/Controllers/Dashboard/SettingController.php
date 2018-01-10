@@ -29,26 +29,25 @@ class SettingController extends Controller
 	function index()
 	{
 
-	    $orders = Order::whereBetween('created_at', ['2017-12-13 00:00:00', '2018-01-03 23:59:00'])->get();
+	    $orders = Order::whereBetween('created_at', ['2017-12-13 00:00:00', '2018-01-03 23:59:00'])->where('state','sent')->get();
         $i = 0;
 	    foreach ($orders as $order){
 
-	        if($order->customer->plan->subscription_canceled_at == null){
+	        if($order->customer->plan->subscription_canceled_at == null and $order->customer->plan->subscription_rebill_at != ''){
 	            if(count($orders)/2 > $i){
 	                $date = '2018-01-30 14:35:00';
                 } else{
                     $date = '2018-01-31 14:35:00';
                 }
-                echo $order->customer->plan->subscription_rebill_at." - old date <br/>";
+                echo "Customer - ".$order->customer->getName()." - Old rebill - ". $order->customer->plan->subscription_rebill_at." - New date ".$date." <br/>";
 	            $order->customer->plan->subscription_rebill_at = $date;
-	            echo $order->customer->plan->subscription_rebill_at." - new date <br/>";
                 $order->customer->plan->save();
 	            $i++;
 	        }
 
         }
 
-dd();
+        dd();
 
 		return view('admin.settings.home', [
 			'settings' => $this->repo->all()
