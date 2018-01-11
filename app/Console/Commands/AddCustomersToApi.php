@@ -292,18 +292,18 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2669,
                     'value'  =>  $active),
-                array (
-                    'fieldid'  => 2670,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
-                array (
-                    'fieldid'  => 2693,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
 //                array (
-//                    'fieldid'  => 2671,
-//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
+//                    'fieldid'  => 2670,
+//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
 //                array (
-//                    'fieldid'  => 2694,
-//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
+//                    'fieldid'  => 2693,
+//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
+                array (
+                    'fieldid'  => 2671,
+                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
+                array (
+                    'fieldid'  => 2694,
+                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
                 array (
                     'fieldid'  => 2672,
                     'value'  =>  $unsubscribe),
