@@ -298,12 +298,12 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2693,
                     'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
-                array (
-                    'fieldid'  => 2671,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
-                array (
-                    'fieldid'  => 2694,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
+//                array (
+//                    'fieldid'  => 2671,
+//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
+//                array (
+//                    'fieldid'  => 2694,
+//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
                 array (
                     'fieldid'  => 2672,
                     'value'  =>  $unsubscribe),
@@ -378,7 +378,7 @@ class AddCustomersToApi extends Command
                     'value'  =>  $customer->id),
             );
 
-            echo " - Ok";
+
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
 
