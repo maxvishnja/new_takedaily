@@ -253,6 +253,13 @@ class AddCustomersToApi extends Command
                 $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
             }
 
+            echo $lastpaymentdate;
+            echo $lastOrderDate;
+            echo $latest_date;
+            echo $interval->days;
+
+            echo "ok";
+
             try {
             $customfields  =  array (
                 array (
