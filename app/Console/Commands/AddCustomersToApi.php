@@ -253,8 +253,7 @@ class AddCustomersToApi extends Command
                 $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
             }
 
-
-echo "ok";
+            try {
             $customfields  =  array (
                 array (
                     'fieldid'  => 2,
@@ -338,9 +337,9 @@ echo "ok";
                 array (
                     'fieldid'  => 2682,
                     'value'  =>  ''),
-//                array (
-//                    'fieldid'  => 2683,
-//                    'value'  =>  $interval->days),
+                array (
+                    'fieldid'  => 2683,
+                    'value'  =>  $interval->days),
                 array (
                     'fieldid'  => 2684,
                     'value'  =>  $nextshipmentdate),
@@ -378,6 +377,12 @@ echo "ok";
                     'fieldid'  => 2825,
                     'value'  =>  $customer->id),
             );
+
+            } catch (\Exception $exception) {
+
+                \Log::error("Create fields error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+            }
 
             echo "ok2";
 
