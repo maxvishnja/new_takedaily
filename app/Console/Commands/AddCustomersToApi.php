@@ -295,36 +295,36 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2669,
                     'value'  =>  $active),
+                array (
+                    'fieldid'  => 2670,
+                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
+                array (
+                    'fieldid'  => 2693,
+                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
+                array (
+                    'fieldid'  => 2671,
+                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
+                array (
+                    'fieldid'  => 2694,
+                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
 //                array (
-//                    'fieldid'  => 2670,
-//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
+//                    'fieldid'  => 2672,
+//                    'value'  =>  $unsubscribe),
 //                array (
-//                    'fieldid'  => 2693,
-//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
+//                    'fieldid'  => 2673,
+//                    'value'  =>  $unsubscribe),
 //                array (
-//                    'fieldid'  => 2671,
-//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
+//                    'fieldid'  => 2674,
+//                    'value'  =>  $lastpaymentdate),
 //                array (
-//                    'fieldid'  => 2694,
-//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
-                array (
-                    'fieldid'  => 2672,
-                    'value'  =>  $unsubscribe),
-                array (
-                    'fieldid'  => 2673,
-                    'value'  =>  $unsubscribe),
-                array (
-                    'fieldid'  => 2674,
-                    'value'  =>  $lastpaymentdate),
-                array (
-                    'fieldid'  => 2675,
-                    'value'  =>  $nextpaymentdate),
-                array (
-                    'fieldid'  => 2676,
-                    'value'  =>  $lastOrderDate),
-                array (
-                    'fieldid'  => 2677,
-                    'value'  =>  $nextshipmentdate),
+//                    'fieldid'  => 2675,
+//                    'value'  =>  $nextpaymentdate),
+//                array (
+//                    'fieldid'  => 2676,
+//                    'value'  =>  $lastOrderDate),
+//                array (
+//                    'fieldid'  => 2677,
+//                    'value'  =>  $nextshipmentdate),
                 array (
                     'fieldid'  => 2678,
                     'value'  =>  ''),
