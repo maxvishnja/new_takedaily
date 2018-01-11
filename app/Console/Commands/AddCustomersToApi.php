@@ -268,9 +268,9 @@ class AddCustomersToApi extends Command
                     'fieldid'  => 12,
                     'value'  =>  $gender),
 
-                array (
-                    'fieldid'  => 2667,
-                    'value'  =>  $customer->getAge()),
+//                array (
+//                    'fieldid'  => 2667,
+//                    'value'  =>  $customer->getAge()),
                 array (
                     'fieldid'  => 2668,
                     'value'  =>  $customer->getBirthday()),
@@ -325,60 +325,60 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2677,
                     'value'  =>  $nextshipmentdate),
-//                array (
-//                    'fieldid'  => 2678,
-//                    'value'  =>  ''),
-//                array (
-//                    'fieldid'  => 2679,
-//                    'value'  =>  $winback),
-//                array (
-//                    'fieldid'  => 2680,
-//                    'value'  =>  ''),
-//                array (
-//                    'fieldid'  => 2681,
-//                    'value'  =>  ''),
-//                array (
-//                    'fieldid'  => 2682,
-//                    'value'  =>  ''),
-//                array (
-//                    'fieldid'  => 2683,
-//                    'value'  =>  $interval->days),
-//                array (
-//                    'fieldid'  => 2684,
-//                    'value'  =>  $nextshipmentdate),
-//                array (
-//                    'fieldid'  => 2685,
-//                    'value'  =>  ''),
-//                array (
-//                    'fieldid'  => 2686,
-//                    'value'  =>  $vitamins['1']),
-//                array (
-//                    'fieldid'  => 2687,
-//                    'value'  =>  $vitamins['2']),
-//                array (
-//                    'fieldid'  => 2688,
-//                    'value'  =>  $vitamins['3']),
-//                array (
-//                    'fieldid'  => 2689,
-//                    'value'  =>  $vitamins['4']),
-//                array (
-//                    'fieldid'  => 3235,
-//                    'value'  =>  $unsubReason),
-//                array (
-//                    'fieldid'  => 2584,
-//                    'value'  =>  $customer->order_count),
-//                array (
-//                    'fieldid'  => 2690,
-//                    'value'  =>  $reason),
-//                array (
-//                    'fieldid'  => 2695,
-//                    'value'  =>  $s_type),
-//                array (
-//                    'fieldid'  => 2692,
-//                    'value'  =>  $choice),
-//                array (
-//                    'fieldid'  => 2825,
-//                    'value'  =>  $customer->id),
+                array (
+                    'fieldid'  => 2678,
+                    'value'  =>  ''),
+                array (
+                    'fieldid'  => 2679,
+                    'value'  =>  $winback),
+                array (
+                    'fieldid'  => 2680,
+                    'value'  =>  ''),
+                array (
+                    'fieldid'  => 2681,
+                    'value'  =>  ''),
+                array (
+                    'fieldid'  => 2682,
+                    'value'  =>  ''),
+                array (
+                    'fieldid'  => 2683,
+                    'value'  =>  $interval->days),
+                array (
+                    'fieldid'  => 2684,
+                    'value'  =>  $nextshipmentdate),
+                array (
+                    'fieldid'  => 2685,
+                    'value'  =>  ''),
+                array (
+                    'fieldid'  => 2686,
+                    'value'  =>  $vitamins['1']),
+                array (
+                    'fieldid'  => 2687,
+                    'value'  =>  $vitamins['2']),
+                array (
+                    'fieldid'  => 2688,
+                    'value'  =>  $vitamins['3']),
+                array (
+                    'fieldid'  => 2689,
+                    'value'  =>  $vitamins['4']),
+                array (
+                    'fieldid'  => 3235,
+                    'value'  =>  $unsubReason),
+                array (
+                    'fieldid'  => 2584,
+                    'value'  =>  $customer->order_count),
+                array (
+                    'fieldid'  => 2690,
+                    'value'  =>  $reason),
+                array (
+                    'fieldid'  => 2695,
+                    'value'  =>  $s_type),
+                array (
+                    'fieldid'  => 2692,
+                    'value'  =>  $choice),
+                array (
+                    'fieldid'  => 2825,
+                    'value'  =>  $customer->id),
             );
 
             } catch (\Exception $exception) {
