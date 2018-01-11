@@ -125,7 +125,7 @@
         });
     </script>
     <noscript>
-        <img src="//ts.tradetracker.net/?cid=26413&amp;pid=38852&amp;tid=ORDER_ID&amp;tam=ORDER_AMOUNT&amp;data=&amp;qty=1&amp;eml=&amp;descrMerchant=&amp;descrAffiliate=&amp;event=sales&amp;currency=EUR" alt="" />
+        <img src="//ts.tradetracker.net/?cid=26413&amp;pid=38852&amp;tid={{$order_id}}&amp;tam=1&amp;data=&amp;qty=1&amp;eml=&amp;descrMerchant=&amp;descrAffiliate=&amp;event=sales&amp;currency=EUR" alt="" />
     </noscript>
     <script type="text/javascript">
         // No editing needed below this line.

@@ -7,7 +7,7 @@
 @section('mainClasses', 'm-b-50')
 
 @section('content')
-	<div class="header_image" style="margin-top: 6.6rem">
+	<div class="header_image">
 		<div class="container text-center">
 			<h1>{{ trans('faq.title') }}</h1>
 		</div>
