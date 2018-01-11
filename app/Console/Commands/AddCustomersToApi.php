@@ -254,7 +254,7 @@ class AddCustomersToApi extends Command
             }
 
 
-
+echo "ok";
             $customfields  =  array (
                 array (
                     'fieldid'  => 2,
@@ -338,9 +338,9 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2682,
                     'value'  =>  ''),
-                array (
-                    'fieldid'  => 2683,
-                    'value'  =>  $interval->days),
+//                array (
+//                    'fieldid'  => 2683,
+//                    'value'  =>  $interval->days),
                 array (
                     'fieldid'  => 2684,
                     'value'  =>  $nextshipmentdate),
@@ -379,7 +379,7 @@ class AddCustomersToApi extends Command
                     'value'  =>  $customer->id),
             );
 
-
+            echo "ok2";
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
 
