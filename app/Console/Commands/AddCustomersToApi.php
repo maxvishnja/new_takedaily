@@ -128,13 +128,13 @@ class AddCustomersToApi extends Command
 
             $unsubscribe = '';
 
-            echo "11";
+
 
             if ($customer->plan->subscription_cancelled_at != null) {
                 $unsubscribe = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_cancelled_at)->format('d-m-Y');
             }
 
-            echo "22";
+
             $lastpaymentdate = '';
 
             if ($customer->plan->last_rebill_date != null) {
@@ -143,14 +143,14 @@ class AddCustomersToApi extends Command
 
             $nextpaymentdate = '';
             $nextshipmentdate = '';
-            echo "33";
+
             if ($customer->plan->subscription_rebill_at != null) {
                 $nextpaymentdate = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d-m-Y');
 
                 $nextshipmentdate = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->addDay()->format('d-m-Y');
 
             }
-            echo "44";
+
 
             $datetime1 = new \DateTime($customer->created_at);
 
@@ -166,7 +166,7 @@ class AddCustomersToApi extends Command
             $vitamins['3'] = '';
             $vitamins['4'] = '';
 
-            echo "55";
+
 
             if ($customer->plan->getVitamiPlan() and count($customer->plan->getVitamiPlan()) > 1) {
 
@@ -236,7 +236,7 @@ class AddCustomersToApi extends Command
 
 
             }
-            echo "66";
+
             if($customer->plan->subscription_started_at != null){
                 $latest_date = $customer->plan->subscription_started_at;
             } else{
@@ -247,7 +247,7 @@ class AddCustomersToApi extends Command
 
 
             $lastOrderDate = '';
-            echo "77";
+
             if($lastOrder){
                 $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
             }
@@ -377,6 +377,8 @@ class AddCustomersToApi extends Command
                     'fieldid'  => 2825,
                     'value'  =>  $customer->id),
             );
+
+            echo " - Ok";
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
 
