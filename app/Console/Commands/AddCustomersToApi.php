@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Apricot\Repositories\CustomerRepository;
 use App\Apricot\Helpers\EmailPlatformApi;
+use App\Customer;
 use Illuminate\Console\Command;
 
 
@@ -47,7 +48,7 @@ class AddCustomersToApi extends Command
         $almosts = $repo->getAlmostCustomer();
 
 
-
+        $customers = Customer::where('id', 6808)->get();
 
         echo "All - ".count($customers)." - ";
 
@@ -292,12 +293,12 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2669,
                     'value'  =>  $active),
-//                array (
-//                    'fieldid'  => 2670,
-//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
-//                array (
-//                    'fieldid'  => 2693,
-//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
+                array (
+                    'fieldid'  => 2670,
+                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
+                array (
+                    'fieldid'  => 2693,
+                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
                 array (
                     'fieldid'  => 2671,
                     'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
