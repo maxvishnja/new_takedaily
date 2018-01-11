@@ -47,7 +47,7 @@ class AddCustomersToApi extends Command
 
         $almosts = $repo->getAlmostCustomer();
 
-        
+
 
         echo "All - ".count($customers)." - ";
 
@@ -103,9 +103,14 @@ class AddCustomersToApi extends Command
                 }
             }
             $winback = '';
+            
 
             if ($customer->isSubscribed()) {
-                $active = "Active";
+                if($customer->order_count == 1 and \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays(\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_started_at)) < 29){
+                    $active = "Trial";
+                }else {
+                    $active = "Active";
+                }
             } else {
                 $active = "Not active";
                 $hash = base64_encode($customer->id);
