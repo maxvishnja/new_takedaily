@@ -47,8 +47,7 @@ class AddCustomersToApi extends Command
 
         $almosts = $repo->getAlmostCustomer();
 
-
-        $customers = Customer::where('id', 6808)->get();
+        
 
         echo "All - ".count($customers)." - ";
 
@@ -254,7 +253,7 @@ class AddCustomersToApi extends Command
             }
 
             $age = 0;
-echo $customer->getAge();
+
             if($customer->getAge()){
                 $age = $customer->getAge();
             }
