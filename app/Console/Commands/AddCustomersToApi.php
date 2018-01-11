@@ -253,7 +253,11 @@ class AddCustomersToApi extends Command
                 $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
             }
 
-
+            $age = 0;
+echo $customer->getAge();
+            if($customer->getAge()){
+                $age = $customer->getAge();
+            }
 
 
             try {
@@ -268,9 +272,9 @@ class AddCustomersToApi extends Command
                     'fieldid'  => 12,
                     'value'  =>  $gender),
 
-//                array (
-//                    'fieldid'  => 2667,
-//                    'value'  =>  $customer->getAge()),
+                array (
+                    'fieldid'  => 2667,
+                    'value'  =>  $age),
                 array (
                     'fieldid'  => 2668,
                     'value'  =>  $customer->getBirthday()),
