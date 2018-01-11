@@ -14,7 +14,7 @@
 		}
 	</style>
 	@if( $page->layout == 'header' )
-		<div class="header_image">
+		<div class="header_image" style="margin-top: 6.4rem">
 			<div class="container text-center">
 				<h1>{{ $page->title }}</h1>
 				@if( $page->sub_title != '')
@@ -61,7 +61,7 @@
 			<div class="text-center m-t-20">
 
 				<a href="{{ url()->route('pick-n-mix') }}"
-				   class="button button--rounded button--huge button--landing button--green m-b-10 picks-not-main">
+				   class="button button--rounded button--huge button--landing button--green m-b-10 picks-not-main2">
 					<strong>{!! trans('pick.button-main') !!}</strong>
 				</a>
 			</div>

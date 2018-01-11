@@ -1,5 +1,6 @@
 //----- Navigation / style only for header nav
 .c-nav-header {
+  width: 91%;
   @include vendor-prefixes(transition, .4s);
   @include breakpoint(phone) {
       position: fixed;
@@ -11,6 +12,10 @@
       padding-top: 6rem;
       height: 100%;
       opacity: 0;
+  }
+  @include breakpoint(tablet) {
+    width: 69%;
+    margin: 1rem -1.2rem;
   }
   @include breakpoint(overPhone) {
     display: inline-block;

@@ -6,14 +6,14 @@
     <header class="header--landing header--front-slide-1" @if(App::getLocale()=='nl') style="background: #fff url(/images/block-two-bg-nl.jpg) no-repeat center center; background-size: cover;
     background-position: 60%;" @endif>
         <div class="header-nav promo-nav">
-            <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12 promocode" style="background:#{{$color}};" >
-                            <div class="promo-text">
-                                {!! $text  !!}
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col-md-12 promocode" style="background:#{{$color}};" >
+                    <div class="promo-text">
+                        {!! $text  !!}
                     </div>
+                </div>
+            </div>
+            <div class="container-fluid">
                 <div class="header_top">
                     <div class="row">
                         <div class="col-md-3 col-xs-9">

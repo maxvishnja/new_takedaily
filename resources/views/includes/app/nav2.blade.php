@@ -1,10 +1,13 @@
 <nav class="c-nav-header">
     <ul class="c-nav-header__list">
-        <li class="c-nav-header__item">
-            <a href="/how-it-works" class="c-nav-header__link">{{ trans('nav2.how-it-works') }}</a>
+        <li class="c-nav-header__item item-left">
+            <a href="/pick-n-mix" class="c-nav-header__link">{{ trans('nav2.pick') }}</a>
+        </li>
+        <li class="c-nav-header__item item-left">
+            <a href="/gifting" class="c-nav-header__link">{{ trans('nav2.gifting') }}</a>
         </li>
         <li class="c-nav-header__item">
-            <a href="/gifting" class="c-nav-header__link">{{ trans('nav2.gifting') }}</a>
+            <a href="/how-it-works" class="c-nav-header__link">{{ trans('nav2.how-it-works') }}</a>
         </li>
         <li class="c-nav-header__item">
             <a href="/page/a-zink" class="c-nav-header__link">{{ trans('nav2.vitamins') }}</a>

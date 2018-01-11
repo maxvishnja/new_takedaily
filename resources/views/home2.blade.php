@@ -75,7 +75,7 @@
 
         <!-- Compromises -->
         <section class="hp-comp l">
-            <h3 class="hp-comp__title">{{ trans('home2.compromises.title') }}</h3>
+            <h2 class="hp-comp__title">{{ trans('home2.compromises.title') }}</h2>
             <p class="hp-comp__intro">{{ trans('home2.compromises.subtitle') }}</p>
             <section class="hp-comp__list">
                 <article class="hp-comp__item">

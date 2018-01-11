@@ -94,31 +94,49 @@
   }
 
   &__body {
-    padding: 2.2rem 1.7rem;
+    padding: 2.3rem 1.7rem;
+    position: relative;
     @include breakpoint(overPhone) {
-      padding: 1.3rem 5rem;
+      padding: 2.3rem 5rem;
       @include center-block;
-      max-width: $site-desk-design;
+      max-width: $site-large-desk-design;
     }
     @include breakpoint(tablet) {
       padding: 1.3rem 2rem;
+      max-width: $site-desk-design;
+    }
+  }
+
+  .item-left {
+    float: left;
+    @include breakpoint(phone) {
+      float: none;
+    }
+    @include breakpoint(tablet) {
+      float: none;
     }
   }
 
   &__logo {
     display: inline-block;
-    position: relative;
-    vertical-align: middle;
-    float: left;
+    position: absolute;
+    //vertical-align: middle;
+    //float: left;
     @include breakpoint(phone) {
       width: 12.7rem;
       height: 2.4rem;
-      top: -.4rem;
+      top: 2rem;
+      left: 37%;
     }
     @include breakpoint(overPhone) {
       width: 15.5%;
       height: 3.3rem;
-      top: .4rem;
+      top: 1.8rem;
+      left: 41.8%;
+    }
+    @include breakpoint(tablet) {
+      left: 16.8%;
+      top: 1.6rem;
     }
     img {
       position: absolute;
@@ -133,6 +151,7 @@
   }
 
   .hp-btn {
+    float: left;
     margin-bottom: 0;
     display: inline-block;
     vertical-align: middle;
@@ -142,9 +161,15 @@
       background-color: transparent;
       color: $color-white;
       border: none;
+      margin-top: .2rem;
     }
     @include breakpoint(overPhone) {
       padding: 1.2rem;
+      margin-top: -1rem;
+      margin-right: 1rem;
+    }
+    @include breakpoint(tablet) {
+      margin: 0 .5rem 1rem 0;
     }
   }
 
@@ -152,6 +177,7 @@
     display: inline-block;
     vertical-align: middle;
     position: relative;
+    z-index: 99999;
     @include hide(overPhone);
     margin-left: 2rem;
   }

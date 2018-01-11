@@ -18,6 +18,7 @@ $(window).on('load', function() {
     $('#nav-icon4').click(function() {
         $(this).toggleClass('open');
         $('.c-nav-header').toggleClass('active');
+        console.log($(this));
     });
 
 });
