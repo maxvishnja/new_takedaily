@@ -253,12 +253,8 @@ class AddCustomersToApi extends Command
                 $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
             }
 
-            echo $lastpaymentdate;
-            echo $lastOrderDate;
-            echo $latest_date;
-            echo $interval->days;
 
-            echo "ok";
+
 
             try {
             $customfields  =  array (
@@ -299,18 +295,18 @@ class AddCustomersToApi extends Command
                 array (
                     'fieldid'  => 2669,
                     'value'  =>  $active),
-                array (
-                    'fieldid'  => 2670,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
-                array (
-                    'fieldid'  => 2693,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
-                array (
-                    'fieldid'  => 2671,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
-                array (
-                    'fieldid'  => 2694,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
+//                array (
+//                    'fieldid'  => 2670,
+//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
+//                array (
+//                    'fieldid'  => 2693,
+//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
+//                array (
+//                    'fieldid'  => 2671,
+//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
+//                array (
+//                    'fieldid'  => 2694,
+//                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
                 array (
                     'fieldid'  => 2672,
                     'value'  =>  $unsubscribe),
@@ -391,7 +387,7 @@ class AddCustomersToApi extends Command
 
             }
 
-            echo "ok2";
+
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
 
