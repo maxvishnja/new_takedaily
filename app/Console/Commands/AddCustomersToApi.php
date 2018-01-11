@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Apricot\Repositories\CustomerRepository;
 use App\Apricot\Helpers\EmailPlatformApi;
+use App\Customer;
 use Illuminate\Console\Command;
 
 
@@ -47,7 +48,7 @@ class AddCustomersToApi extends Command
         $almosts = $repo->getAlmostCustomer();
 
 
-
+        $customers = Customer::where('id', 6808)->get();
 
         echo "All - ".count($customers)." - ";
 
@@ -254,6 +255,8 @@ class AddCustomersToApi extends Command
 
 
 
+
+            try {
             $customfields  =  array (
                 array (
                     'fieldid'  => 2,
@@ -265,9 +268,9 @@ class AddCustomersToApi extends Command
                     'fieldid'  => 12,
                     'value'  =>  $gender),
 
-                array (
-                    'fieldid'  => 2667,
-                    'value'  =>  $customer->getAge()),
+//                array (
+//                    'fieldid'  => 2667,
+//                    'value'  =>  $customer->getAge()),
                 array (
                     'fieldid'  => 2668,
                     'value'  =>  $customer->getBirthday()),
@@ -378,7 +381,13 @@ class AddCustomersToApi extends Command
                     'value'  =>  $customer->id),
             );
 
-            echo " - Ok";
+            } catch (\Exception $exception) {
+
+                \Log::error("Create fields error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+            }
+
+
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
 
