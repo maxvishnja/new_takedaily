@@ -121,10 +121,13 @@ class Plan extends Model
             return false;
         }
     }
-    public static function getSignups($date)
+    public static function getSignups($date, $year)
     {
-        $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', date('Y'))->count();
-        return $customers;
+
+
+        $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->count();
+
+            return $customers;
     }
     public static function getSignupsWeek($date)
     {
@@ -135,22 +138,28 @@ class Plan extends Model
         $customers = Plan::whereBetween('created_at', [$first_day, $last_day])->count();
         return $customers;
     }
-    public static function getCohorts($signDate, $month)
+    public static function getCohorts($signDate, $month, $year)
     {
-//		$customers = Plan::whereMonth('subscription_started_at','=',$signDate)->where( function ( $where ) use ($month)
-//		{
-//			$where->whereMonth('subscription_cancelled_at','!=',$month)
-//				->orWhereNull( 'subscription_cancelled_at');
-//		} )->count();
-        $allCustomers = Plan::getSignups($signDate);
-        $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', date('Y'))->whereMonth('subscription_cancelled_at', '<=', $month)->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
+
+        $allCustomers = Plan::getSignups($signDate, $year);
+        $nextyear = $year;
+
+        if($month > 12){
+            $month = sprintf('%02d', $month - 12);
+            $nextyear = 2018;
+        }
+
+        $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', $year)->whereDate('subscription_cancelled_at', '<=', $nextyear."-".$month."-31")->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
         if ($allCustomers == 0) {
             $cohorts = 100;
         } else {
             $cohorts = round(($customers / $allCustomers) * 100, 2);
         }
+
         return $customers." (".$cohorts."%)";
     }
+
+
     public static function getCohortsWeek($week, $signDate)
     {
         $week_number = $week;

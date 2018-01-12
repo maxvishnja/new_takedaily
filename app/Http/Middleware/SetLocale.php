@@ -66,9 +66,6 @@ class SetLocale
 			Cookie::queue('utm_campaign', $_GET['utm_campaign'], 30);
 		}
 
-
-
-
 		\App::setLocale( $locale );
 
 		return $next( $request );

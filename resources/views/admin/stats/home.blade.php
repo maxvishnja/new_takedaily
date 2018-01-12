@@ -299,42 +299,64 @@
                         </form>
 
                         </thead>
+                        </table >
+                        <table cellpadding="0" cellspacing="0" border="0"
+                               class="datatable-1 table table-bordered table-striped display" width="100%">
                         <tbody id="4" class="cohorts">
                         <tr>
                             <td></td>
                             <td></td>
 
-                            <td>0</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                            <td>9</td>
-                            <td>10</td>
-                            <td>11</td>
-                            <td>12</td>
+                            @foreach(range(0,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $number)
+                                <td>{{$number}}</td>
+                            @endforeach
+
+                            {{--<td>0</td>--}}
+                            {{--<td>1</td>--}}
+                            {{--<td>2</td>--}}
+                            {{--<td>3</td>--}}
+                            {{--<td>4</td>--}}
+                            {{--<td>5</td>--}}
+                            {{--<td>6</td>--}}
+                            {{--<td>7</td>--}}
+                            {{--<td>8</td>--}}
+                            {{--<td>9</td>--}}
+                            {{--<td>10</td>--}}
+                            {{--<td>11</td>--}}
+                            {{--<td>12</td>--}}
                         </tr>
                         @foreach(trans('flow.datepicker.months_long') as $key=>$month)
 
                                 <tr>
-                                    <td>{{$month}} {{date('Y')}}</td>
-                                    <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
-                                    <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>
-                                    @foreach(range($key,12) as $y)
+                                    <td>{{$month}} {{\Date::now()->subYear()->format('Y')}}</td>
+                                    <td>{{ \App\Plan::getSignups(sprintf('%02d', $key), 2017) }}</td>
+                                    <td>{{ \App\Plan::getSignups(sprintf('%02d', $key), 2017) }} (100%)</td>
+                                    @foreach(range($key,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y)
                                         <td class="text-center">
-                                            @if($y >= $key and $y <= (int)date('m') )
-                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}
-
+                                            @if($y >= $key)
+                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017)}}
                                             @endif
                                         </td>
                                     @endforeach
                                 </tr>
 
                             @endforeach
+                        @foreach(trans('flow.datepicker.months_long') as $key2=>$month2)
+
+                            <tr>
+                                <td>{{$month2}} {{\Date::now()->format('Y')}}</td>
+                                <td>{{ \App\Plan::getSignups(sprintf('%02d', $key2), 2018) }}</td>
+                                <td>{{ \App\Plan::getSignups(sprintf('%02d', $key2), 2018) }} (100%)</td>
+                                @foreach(range($key2,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y2)
+                                    <td class="text-center">
+                                        @if($y2 >= $key2 and $y2 <= (int)date('m') )
+                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018)}}
+                                        @endif
+                                    </td>
+                                @endforeach
+                            </tr>
+
+                        @endforeach
                         </tbody>
 
                         {{--<tbody id="5" class="cohorts hidden">--}}
@@ -368,55 +390,55 @@
                 </div>
             </div>
 
-            <div role="tabpanel" class="tab-pane" id="cohorts-coupon">
-                <div class="module-body table">
-                    <table cellpadding="0" cellspacing="0" border="0"
-                           class="datatable-1 table table-bordered table-striped display" width="100%">
-                        <thead>
-                        <form class="csv-form coupon-form" action="{{ URL::route('coupon-post') }}">
-                            {{ csrf_field() }}
-                        <input  name="coupon_name" type="text" value="">
-                        <button class="btn btn-success stats-coupon" style="float:right">Create Table</button>
-                        </form>
+            {{--<div role="tabpanel" class="tab-pane" id="cohorts-coupon">--}}
+                {{--<div class="module-body table">--}}
+                    {{--<table cellpadding="0" cellspacing="0" border="0"--}}
+                           {{--class="datatable-1 table table-bordered table-striped display" width="100%">--}}
+                        {{--<thead>--}}
+                        {{--<form class="csv-form coupon-form" action="{{ URL::route('coupon-post') }}">--}}
+                            {{--{{ csrf_field() }}--}}
+                        {{--<input  name="coupon_name" type="text" value="">--}}
+                        {{--<button class="btn btn-success stats-coupon" style="float:right">Create Table</button>--}}
+                        {{--</form>--}}
 
-                        </thead>
-                        <tbody id="4" class="cohorts">
-                        <tr>
-                            <td></td>
-                            <td></td>
+                        {{--</thead>--}}
+                        {{--<tbody id="4" class="cohorts">--}}
+                        {{--<tr>--}}
+                            {{--<td></td>--}}
+                            {{--<td></td>--}}
 
-                            <td>0</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>5</td>
-                            <td>6</td>
-                            <td>7</td>
-                            <td>8</td>
-                            <td>9</td>
-                            <td>10</td>
-                            <td>11</td>
-                            <td>12</td>
-                        </tr>
-                        @foreach(trans('flow.datepicker.months_long') as $key=>$month)
+                            {{--<td>0</td>--}}
+                            {{--<td>1</td>--}}
+                            {{--<td>2</td>--}}
+                            {{--<td>3</td>--}}
+                            {{--<td>4</td>--}}
+                            {{--<td>5</td>--}}
+                            {{--<td>6</td>--}}
+                            {{--<td>7</td>--}}
+                            {{--<td>8</td>--}}
+                            {{--<td>9</td>--}}
+                            {{--<td>10</td>--}}
+                            {{--<td>11</td>--}}
+                            {{--<td>12</td>--}}
+                        {{--</tr>--}}
+                        {{--@foreach(trans('flow.datepicker.months_long') as $key=>$month)--}}
 
-                            <tr>
-                                <td>{{$month}} {{date('Y')}}</td>
-                                <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>
-                                <td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>
-                                @foreach(range($key,12) as $y)
-                                    <td class="text-center">
-                                        @if($y >= $key and $y <= (int)date('m') )
-                                            {{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}
+                            {{--<tr>--}}
+                                {{--<td>{{$month}} {{date('Y')}}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>--}}
+                                {{--<td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>--}}
+                                {{--@foreach(range($key,12) as $y)--}}
+                                    {{--<td class="text-center">--}}
+                                        {{--@if($y >= $key and $y <= (int)date('m') )--}}
+                                            {{--{{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}--}}
 
-                                        @endif
-                                    </td>
-                                @endforeach
-                            </tr>
+                                        {{--@endif--}}
+                                    {{--</td>--}}
+                                {{--@endforeach--}}
+                            {{--</tr>--}}
 
-                        @endforeach
-                        </tbody>
+                        {{--@endforeach--}}
+                        {{--</tbody>--}}
 
                         {{--<tbody id="5" class="cohorts hidden">--}}
                         {{--<tr>--}}
@@ -444,10 +466,10 @@
                         {{--@endforeach--}}
                         {{--</tbody>--}}
 
-                    </table>
+                    {{--</table>--}}
 
-                </div>
-            </div>
+                {{--</div>--}}
+            {{--</div>--}}
 
         </div>
 

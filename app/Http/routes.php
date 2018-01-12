@@ -26,7 +26,7 @@ Route::group( [ 'middleware' => 'web' ], function ()
 		 * Main routes
 		 */
 		Route::get( '/', function ()
-		{
+		{   return view( 'errors.500' );
 			$faqs = ( new \App\Apricot\Repositories\FaqRepository() )->get();
 
 			return view( 'home', compact( 'faqs' ) );

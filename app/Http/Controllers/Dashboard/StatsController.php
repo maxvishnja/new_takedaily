@@ -269,17 +269,33 @@ class StatsController extends Controller
                     $users_array = [];
                     foreach(trans('flow.datepicker.months_long') as $key=>$month) {
 
-                        $users_array[$month]['Month'] = $month;
-                        $users_array[$month]['Signups'] = Plan::getSignups(sprintf('%02d', $key));
-                        $users_array[$month]['0'] = '100%';
-                        foreach (range($key, 12) as $y){
-                            if($y >= $key and $y <= (int)date('m') ){
-                                $users_array[$month][$y] = Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y));
+                        $users_array[$month.' 2017']['Month'] = $month.' 2017;';
+                        $users_array[$month.' 2017']['Signups'] = Plan::getSignups(sprintf('%02d', $key),2017);
+                        $users_array[$month.' 2017']['0'] = '100%';
+                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y){
+                            if($y >= $key ){
+                                $users_array[$month.' 2017'][$y] = Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y),2017);
                             }
 
                           }
 
                     }
+
+                    foreach(trans('flow.datepicker.months_long') as $key2=>$month2) {
+
+                        $users_array[$month2.' 2018']['Month'] = $month2.' 2018';
+                        $users_array[$month2.' 2018']['Signups'] = Plan::getSignups(sprintf('%02d', $key2),2018);
+                        $users_array[$month2.' 2018']['0'] = '100%';
+                        foreach (range($key2, 12) as $y2){
+                            if($y2 >= $key2 and $y2 <= (int)date('m') ){
+                                $users_array[$month2.' 2018'][$y2] = Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2),2018);
+                            }
+
+                        }
+
+                    }
+
+
                     \Excel::create('cohorts_month', function ($excel) use ($users_array) {
 
                         $excel->sheet('All users', function ($sheet) use ($users_array) {
