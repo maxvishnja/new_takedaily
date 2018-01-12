@@ -6,10 +6,7 @@
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */
 
-if($_SERVER['REQUEST_URI'] != '/'){
-    header('Location: /');
-    exit;
-}
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
