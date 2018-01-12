@@ -123,7 +123,7 @@ class StockController extends ApiController
         // update item
         $item = $this->repo->update($item->id, $data);
 
-        if($item->email != '')
+        if($item->email != '' && $item->status == 1)
         {
             $emails = explode(',', $item->email);
 
