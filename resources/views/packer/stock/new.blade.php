@@ -15,7 +15,7 @@
         <div class="module-body">
             <div class="row">
                 <div class="span8">
-                    <h3>New Item</h3>
+                    <h3>Create New Item</h3>
                 </div>
             </div>
             <hr/>
@@ -29,18 +29,28 @@
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-number" id="item-number" placeholder="Item Number"/>
                     </div>
-                    <label for="item-reqQty" class="control-label">Requested Quantity</label>
+                    <label for="item-reqQty" class="control-label">NEW Stock</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-reqQty" id="item-reqQty" placeholder="Requested Quantity"/>
                     </div>
-                    <label for="item-qty" class="control-label">Quantity</label>
+                    <label for="item-qty" class="control-label">Quantity in Stock</label>
                     <div class="controls">
-                        <input type="text" class="form-control span8" name="item-qty" id="item-qty" placeholder="Quantity"/>
+                        <input type="text" class="form-control span8" name="item-qty" id="item-qty" placeholder="Quantity" />
                     </div>
                     <label for="item-alarm" class="control-label">Set Alarm on Packages Left</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-alarm" id="item-alarm" placeholder="Alarm"/>
                     </div>
+
+                    <hr>
+
+                    <label for="item-alarm" class="control-label">Email(s) to alert</label>
+                    <small>(hit tab to add new email)</small>
+                    <div class="controls">
+                        <input type="text" data-role="tagsinput" class="form-control span8" name="item-alarm-email" id="item-alarm-email" placeholder="Add email"/>
+                    </div>
+
+                    <hr>
 
                     {{ csrf_field() }}
                     <div class="controls">
@@ -51,3 +61,7 @@
         </div>
     </div><!--/.module-->
 @stop
+
+@section('scripts')
+
+@endsection
