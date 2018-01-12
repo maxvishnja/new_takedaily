@@ -29,7 +29,7 @@
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-number" value="{{$item->number}}" id="item-number" placeholder="Item Number"/>
                     </div>
-                    <label for="item-reqQty" class="control-label">Requested Quantity</label>
+                    <label for="item-reqQty" class="control-label">NEW Stock</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-reqQty" value="{{$item->reqQty}}" id="item-reqQty" placeholder="Requested Quantity"/>
                     </div>
@@ -42,6 +42,16 @@
                         <input type="text" class="form-control span8" name="item-alarm" id="item-alarm" value="{{$item->alert}}" placeholder="Alarm"/>
                     </div>
 
+                    <hr>
+
+                    <label for="item-alarm" class="control-label">Email(s) to alert</label>
+                    <small>(hit tab to add new email)</small>
+                    <div class="controls">
+                        <input type="text" data-role="tagsinput" class="form-control span8" name="item-alarm-email" id="item-alarm-email" value="{{$item->email}}" placeholder="Add email"/>
+                    </div>
+
+                    <hr>
+
                     {{ csrf_field() }}
                     <input type="hidden" name="item-id" value="{{$item->id}}">
                     <div class="controls">
@@ -52,3 +62,7 @@
         </div>
     </div><!--/.module-->
 @stop
+
+@section('scripts')
+
+@endsection
