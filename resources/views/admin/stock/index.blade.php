@@ -41,8 +41,8 @@
 				<tr>
 					<th>Item</th>
 					<th>Item no.</th>
-					<th>Requested Quantity</th>
-					<th>Current Quantity</th>
+					<th>NEW Stock</th>
+					<th>Quantity</th>
 					<th>Status</th>
 					<th></th>
 					<th></th>
