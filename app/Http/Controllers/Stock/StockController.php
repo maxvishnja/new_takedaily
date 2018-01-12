@@ -42,7 +42,14 @@ class StockController extends ApiController
      */
     public function create()
     {
-        return view('packer.stock.new');
+        if(Auth::user()->isAdmin())
+        {
+            return view('admin.stock.new');
+        }
+        elseif(Auth::user()->isPacker())
+        {
+            return view('packer.stock.new');
+        }
     }
 
     public function insert(Request $request)
