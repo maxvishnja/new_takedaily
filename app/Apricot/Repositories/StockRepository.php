@@ -190,6 +190,10 @@ class StockRepository implements StockInterface
             $object->price = $data['price'];
         }
 
+        if(isset($data['email'])) {
+            $object->email = $data['email'];
+        }
+
         return $object;
 
     }
