@@ -23,46 +23,46 @@ $(window).on('load', function() {
 });
 
 // Sliders
-sliderMembers();
-if ($(window).width() < 768) {
-    sliderInstagram();
-    sliderCompromises();
-}
-function sliderMembers() {
-    $('.hp-members__list').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        prevArrow: '<div class="hp-members__arrow hp-members__arrow--left"></div>',
-        nextArrow: '<div class="hp-members__arrow hp-members__arrow--right"></div>',
-        dots: false,
-        responsive: [
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    arrows: false
-                }
-            }
-        ]
-    });
-}
-function sliderCompromises() {
-    $('.hp-comp__list').slick({
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        arrows: false,
-        dots: false,
-        infinite: false
-    });
-}
-function sliderInstagram() {
-    $('.hp-insta__list').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        dots: false
-    });
-}
+// sliderMembers();
+// if ($(window).width() < 768) {
+//     sliderInstagram();
+//     sliderCompromises();
+// }
+// function sliderMembers() {
+//     $('.hp-members__list').slick({
+//         slidesToShow: 3,
+//         slidesToScroll: 1,
+//         prevArrow: '<div class="hp-members__arrow hp-members__arrow--left"></div>',
+//         nextArrow: '<div class="hp-members__arrow hp-members__arrow--right"></div>',
+//         dots: false,
+//         responsive: [
+//             {
+//                 breakpoint: 768,
+//                 settings: {
+//                     slidesToShow: 1,
+//                     arrows: false
+//                 }
+//             }
+//         ]
+//     });
+// }
+// function sliderCompromises() {
+//     $('.hp-comp__list').slick({
+//         slidesToShow: 3,
+//         slidesToScroll: 3,
+//         arrows: false,
+//         dots: false,
+//         infinite: false
+//     });
+// }
+// function sliderInstagram() {
+//     $('.hp-insta__list').slick({
+//         slidesToShow: 1,
+//         slidesToScroll: 1,
+//         arrows: false,
+//         dots: false
+//     });
+// }
 
 // footer flags
 $('.b-footer__lang__arrow').on('hover', function () {

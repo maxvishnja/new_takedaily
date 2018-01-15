@@ -106,7 +106,7 @@ class AddCustomersToApi extends Command
             
 
             if ($customer->isSubscribed()) {
-                if($customer->order_count == 1 and \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays(\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_started_at)) < 29){
+                if($customer->order_count == 1 and \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays(\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_started_at)) < 29 and $customer->plan->trial == 1){
                     $active = "Trial";
                 }else {
                     $active = "Active";
