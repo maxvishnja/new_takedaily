@@ -5,6 +5,7 @@ namespace App\Apricot\Helpers;
 use App\Customer;
 use App\Order;
 use App\Plan;
+use App\Setting;
 
 
 class CreateCsvMonths
@@ -15,6 +16,12 @@ class CreateCsvMonths
 
 //        ini_set('memory_limit', '200m');
 //        ini_set('max_execution_time', 90);
+
+
+        $stat_count = Setting::where('identifier','=','month_stat_'.$lang)->first();
+        $stat_count->value = 0;
+
+        $stat_count->save();
 
         $email_array = [];
         $i = 0;
