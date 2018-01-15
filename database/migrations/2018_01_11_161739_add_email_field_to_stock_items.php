@@ -12,7 +12,7 @@ class AddEmailFieldToStockItems extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('stock_items')) {
+        if (Schema::hasTable('stock_items') and !Schema::hasColumn('stock_items','email')) {
             Schema::table('stock_items', function (Blueprint $table) {
                 $table->string('email')->after('alert');
             });
