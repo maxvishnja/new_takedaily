@@ -128,7 +128,11 @@ class StatsController extends Controller
         //$customers = $this->repo->allLocaleTime($data['lang']);
         $customers = $this->repo->allLocaleTime($data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']);
 
-        //\Event::fire(new CreateCsv($customers, $data['lang']));
+        $stat_count = Setting::where('identifier','=','month_stat_'.$data['lang'])->first();
+        $stat_count->value = 1;
+
+        $stat_count->save();
+
         \Event::fire(new CreateCsv($customers, $data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']));
 
 
@@ -175,6 +179,10 @@ class StatsController extends Controller
 
         if(file_exists($filename)){
 
+            $stat_count = Setting::where('identifier','=','month_stat_'.$data['lang'])->first();
+            $stat_count->value = 0;
+
+            $stat_count->save();
             return \Response::download($filename)->deleteFileAfterSend(true);
 
         } else{
