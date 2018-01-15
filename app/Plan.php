@@ -451,6 +451,19 @@ class Plan extends Model
         $this->save();
         return true;
     }
+
+    public function setTrial(){
+        $this->trial = 1;
+        $this->save();
+    }
+
+
+    public function clearTrial(){
+        $this->trial = 0;
+        $this->save();
+
+    }
+
     public function getShippingPrice()
     {
         return $this->price_shipping;
