@@ -2,8 +2,10 @@
 .hp-mosaic {
   color: $color-black;
   margin-bottom: .5rem;
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 4rem;
   @include breakpoint(overPhone) {
-    margin-bottom: 9rem;
+    margin-bottom: 2rem;
   }
 
   &.l {

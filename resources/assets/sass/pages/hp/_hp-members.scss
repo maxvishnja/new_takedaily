@@ -3,9 +3,10 @@
   overflow: hidden;
   color: $color-black;
   text-align: center;
-  margin-bottom: 7.5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid #d8d8d8;
   @include breakpoint(overPhone) {
-    margin-bottom: 7rem;
+    margin-bottom: 3rem;
   }
 
   h2 {
@@ -29,7 +30,7 @@
     @include line-height(24px, 24px);
     margin-bottom: 2.5rem;
     @include breakpoint(overPhone) {
-      margin-bottom: 4rem;
+      margin-bottom: 6.1rem;
     }
   }
   &__list {

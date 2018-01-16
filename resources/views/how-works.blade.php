@@ -28,7 +28,7 @@
 		</div>
 	</div>
 
-	<section>
+	<section class="hiw">
 		<div class="container">
 			<div class="row cont__pos">
 				<div class="col-md-4">
@@ -36,13 +36,13 @@
 				</div>
 				<div class="col-md-6">
 					<h3>{{ trans('how-works.steps.one.title') }}</h3>
-					<p>{!! trans('how-works.steps.one.body') !!}</p>
+					<p class="hiw--p">{!! trans('how-works.steps.one.body') !!}</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="mid">
+	<section class=" hiw mid">
 		<div class="container">
 			<div class="row cont__pos">
 				<div class="col-md-4 col-md-push-8">
@@ -56,13 +56,13 @@
 				</div>
 				<div class="col-md-6 col-md-pull-4">
 					<h3>{{ trans('how-works.steps.two.title') }}</h3>
-					<p>{!! trans('how-works.steps.two.body') !!}</p>
+					<p class="hiw--p">{!! trans('how-works.steps.two.body') !!}</p>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section>
+	<section class="hiw">
 		<div class="container">
 			<div class="row cont__pos">
 				<div class="col-md-4">
@@ -70,7 +70,7 @@
 				</div>
 				<div class="col-md-6">
 					<h3>{{ trans('how-works.steps.three.title') }}</h3>
-					<p>{!! trans('how-works.steps.three.body') !!}</p>
+					<p class="hiw--p">{!! trans('how-works.steps.three.body') !!}</p>
 				</div>
 			</div>
 		</div>
@@ -84,7 +84,7 @@
 		<div class="text-center m-t-20">
 
 			<a href="{{ url()->route('pick-n-mix') }}"
-			   class="button button--rounded button--huge button--landing button--green m-b-10 picks-not-main">
+			   class="button button--rounded button--huge button--landing button--green m-b-10 picks-not-main" style="width: 38.8rem !important">
 				<strong>{!! trans('pick.button-main') !!}</strong>
 			</a>
 		</div>

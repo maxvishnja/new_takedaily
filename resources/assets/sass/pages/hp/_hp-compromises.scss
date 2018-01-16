@@ -3,11 +3,12 @@
   @include clearfix;
   color: $color-black;
   text-align: center;
+  border-bottom: 1px solid #d8d8d8;
   @include breakpoint(phone) {
     margin-bottom: 6rem;
   }
   @include breakpoint(overPhone) {
-    margin-bottom: 8rem;
+    margin-bottom: 2rem;
   }
 
   h2 {
@@ -44,12 +45,13 @@
     }
     @include breakpoint(overPhone) {
       max-width: 47%;
-      margin-bottom: 4.8rem;
+      margin-bottom: 6rem;
     }
   }
 
   &__list {
     @include clearfix;
+    padding-bottom: 4rem;
     @include breakpoint(phone) {
       padding-left: 3.3%;
       // width: 100%;
