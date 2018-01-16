@@ -3,7 +3,7 @@
 		@if( \App::getLocale() == "nl" and $_SERVER['REQUEST_URI']!="/pick-n-mix")
 			<strong>{{ trans('help.extra-text') }}</strong><br/>
 		@endif
-		<strong>{{ trans('help.title') }}</strong>
+		<strong class="hidden-xs hidden-sm">{{ trans('help.title') }}</strong>
 	</div>
 
 		<div>
@@ -25,7 +25,7 @@
 			</a>
 		</div>
 
-		<div class="m-t-10 hidden-xs" style="font-size: 1.5rem">{{ trans('help.openings') }}</div>
+		<div class="m-t-10 hidden-xs hidden-sm" style="font-size: 1.5rem">{{ trans('help.openings') }}</div>
 
 	<style>
 		.flow-helper {
