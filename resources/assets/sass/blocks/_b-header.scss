@@ -101,7 +101,7 @@
       @include center-block;
       max-width: $site-large-desk-design;
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(tabletToDesk) {
       padding: 1.3rem 2rem;
       max-width: $site-desk-design;
     }
@@ -112,7 +112,7 @@
     @include breakpoint(phone) {
       float: none;
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(tabletToDesk) {
       float: none;
     }
   }
@@ -134,7 +134,7 @@
       top: 1.8rem;
       left: 41.8%;
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(tabletToDesk) {
       left: 16.8%;
       top: 1.6rem;
     }
@@ -168,7 +168,7 @@
       margin-top: -1rem;
       margin-right: 1rem;
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(tabletToDesk) {
       margin: 0 .5rem 1rem 0;
     }
   }

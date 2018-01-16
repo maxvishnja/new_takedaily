@@ -1,6 +1,6 @@
 //----- Navigation / style only for header nav
 .c-nav-header {
-  width: 91%;
+  width: 93%;
   @include vendor-prefixes(transition, .4s);
   @include breakpoint(phone) {
       position: fixed;
@@ -16,7 +16,7 @@
   @include breakpoint(custom) {
     width: 89%;
   }
-  @include breakpoint(tablet) {
+  @include breakpoint(tabletToDesk) {
     width: 69%;
     margin: 1rem -1.2rem;
   }
@@ -37,7 +37,7 @@
       display: inline-block;
       margin-right: 3.2rem;
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(tabletToDesk) {
       margin-right: 1.2rem;
     }
 
@@ -46,7 +46,7 @@
         position: relative;
         margin-left: 3rem;
       }
-      @include breakpoint(tablet) {
+      @include breakpoint(tabletToDesk) {
         margin-left: 1.2rem;
       }
       &:before {
@@ -59,7 +59,7 @@
         @include breakpoint(overPhone) {
           content: '';
         }
-        @include breakpoint(tablet) {
+        @include breakpoint(tabletToDesk) {
           left: -1.2rem;
         }
       }

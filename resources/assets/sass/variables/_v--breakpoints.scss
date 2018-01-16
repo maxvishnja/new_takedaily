@@ -27,11 +27,12 @@ $breakpoints        : (
   // 'phoneSmall'   : ($max: #{$phoneSmall}),
   'phone'           : '(#{$max}: #{$phone})',
   'phoneLandscape'  : '(#{$max}: #{$phone}) and (orientation:landscape)',
-  'custom'          : '(#{$min}: #{$cMinW}) and (#{$max}: 1372px)',
+  'custom'          : '(#{$min}: #{$cMinW}) and (#{$max}: 1733px)',
   'overPhone'       : '(#{$min}: #{$overPhone})',
   'tablet'          : '(#{$min}: #{$tabletPortrait}) and (#{$max}: #{$tabletLandscape})',
   'tabletLandscape' : '(#{$min}: #{$tabletPortrait}) and (#{$max}: #{$tabletLandscape}) and (orientation:landscape)',
   'tabletPortrait'  : '(#{$min}: #{$tabletPortrait}) and (#{$max}: #{$tabletLandscape}) and (orientation:portrait)',
+  'tabletToDesk'    : '(#{$min}: #{$tabletPortrait}) and (#{$max}: 1144px)',
   'toDesktop'       : '(#{$max}: #{$toDesktop})',
   'desktop'         : '(#{$min}: #{$desktop})',
   'siteMaxWidth'    : '(#{$max}: #{$siteMaxWidth})'
