@@ -38,7 +38,7 @@
     }
     @include breakpoint(overPhone) {
       @include grid(2, 11%);
-      margin-bottom: 6rem;
+      margin-bottom: 4rem;
     }
   }
   &__item__img {
