@@ -70,7 +70,7 @@
 		@endif
 	</div>
 
-	<div class="container m-t-50" id="app">
+	<div class="container" id="app">
 		<div class="row">
 			<div class="col-md-4 visible-sm visible-xs text-center">
 				{{--<div class="mobile-total-text">{{ trans('checkout.index.total.total') }}</div>--}}
@@ -316,6 +316,8 @@
 						</label>
 					</div>
 
+					<!-- coupon field -->
+
 					<div class="visible-xs">
 						<div class="form-button-submit-holder">
 							<button onsubmit="ga('send', 'event', 'order', 'completed');" class="button button--huge button--green button--full button--rounded" type="submit"
@@ -441,6 +443,11 @@
 
 @section('footer_scripts')
 	<script>
+
+		$(document).ready(function(){
+		   $('.disc--coupon').insertAfter('.terms_container_box');
+		});
+
         var app = new Vue({
             el: '#app',
             data: {
