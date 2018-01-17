@@ -20,7 +20,7 @@
             <nav class="c-nav-footer">
                 <ul class="c-nav-footer__list">
                     <li class="c-nav-footer__item">
-                        <a href="/page/a-zink" class="c-nav-footer__link">{{ trans('footer2.links.vitamins') }}</a>
+                        <a href="/flow" class="c-nav-footer__link">{{ trans('footer2.links.vitamins') }}</a>
                     </li>
                     <li class="c-nav-footer__item">
                         <a href="/about-us" class="c-nav-footer__link">{{ trans('footer2.links.about') }}</a>
