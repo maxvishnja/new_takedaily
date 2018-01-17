@@ -273,7 +273,7 @@ class OrderController extends Controller
 
 
                 $client = new Client();
-                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&test=1&dato='.$date.'&format=json');
+                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&&dato='.$date.'&format=json');
 
                 $status = json_decode($res->getBody())->status;
 
