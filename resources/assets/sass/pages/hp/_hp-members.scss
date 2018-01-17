@@ -3,6 +3,7 @@
   overflow: hidden;
   color: $color-black;
   text-align: center;
+  padding-top: .5rem;
   padding-bottom: 4rem;
   border-bottom: 1px solid #d8d8d8;
   @include breakpoint(overPhone) {
