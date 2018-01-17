@@ -35,7 +35,8 @@
                 <div class="control-group">
                     <label for="rev_review" class="control-label">Review</label>
                     <div class="controls">
-                        <textarea name="rev_review" id="rev_review" style="width: 64%; height: 100px">{{ $review->review }}</textarea>
+                        <textarea name="rev_review" id="rev_review" style="width: 64%; height: 100px">{{ $review->review }}</textarea><br>
+                        <span id='remainingC'></span>
                     </div>
                 </div>
 
@@ -70,3 +71,17 @@
         </div>
     </div><!--/.module-->
 @stop
+
+@section('scripts')
+    <script>
+        $(document).ready(function(){
+            $('#rev_review').on('keypress', function(){
+
+                if(this.value.length > 122){
+                    return false;
+                }
+                $("#remainingC").html("Remaining characters : " +(122 - this.value.length));
+            })
+        })
+    </script>
+@endsection
