@@ -41,6 +41,7 @@
     border: 1px solid #d8d8d8;
     position: relative;
     padding: 3.2rem 1.2rem 2rem;
+    min-height: 188px;
     @include vendor-prefixes(border-radius, 7px);
     @include breakpoint(phone) {
       margin-right: .6%;
