@@ -357,19 +357,31 @@
 
 						if (timeout >= delay || !useTimeout) {
 							timeout = delay - 1;
-						}
+                        }
+
+
+
                         app.getCart();
 						combinationTimeout = setTimeout(function () {
 							$("#advises-label").html(response.label);
 							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes + '&flow_token=' + response.token));
 							app.result = response.result;
 							app.recommendation_token = response.token;
-                            console.log(app.totals.length);
+
                             if(app.totals.length == 0){
                                 app.getCombinations(true);
                             }
 							$("#advises-loader").hide();
-							$("#advises-block").fadeIn();
+
+                            if(response.num_advises <= 2){
+                                $('#advises-table').removeClass('col-md-7').addClass('col-md-12');
+                                $('.card').hide();
+
+                            }else{
+                                $('#advises-table').removeClass('col-md-12').addClass('col-md-7');
+                                $('.card').show();
+                            }
+                            $("#advises-block").fadeIn();
                             dataLayer.push({"event":"q_done"});
 
 
