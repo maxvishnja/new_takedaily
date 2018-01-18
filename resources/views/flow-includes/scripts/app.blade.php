@@ -360,7 +360,7 @@
                         }
 
 
-
+console.log(response.num_advises);
                         app.getCart();
 						combinationTimeout = setTimeout(function () {
 							$("#advises-label").html(response.label);
@@ -373,7 +373,7 @@
                             }
 							$("#advises-loader").hide();
 
-                            if(response.num_advises <= 2){
+                            if(response.num_advises <= 1){
                                 $('#advises-table').removeClass('col-md-7').addClass('col-md-12');
                                 $('.card').hide();
 

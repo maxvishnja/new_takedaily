@@ -58,6 +58,7 @@ class CombinationLibraryNew
 
     public function getAdvises()
     {
+
         return $this->advises;
     }
 
@@ -131,9 +132,13 @@ class CombinationLibraryNew
             $this->generateGroupThree( $data );
         }
 
+
         if ( count( $this->vitamins ) < 2  ){
 
             unset($this->vitamins[0]);
+            foreach ($this->advises as $key=>$advise){
+                unset($this->advises[$key]);
+            }
 
             $this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
         }
@@ -154,10 +159,10 @@ class CombinationLibraryNew
 
             if ( $this->groupThree === null )
             {
-                $this->setAdvise( 'no-diet', trans( 'flow.combinations.no-diet' ) );
+                //$this->setAdvise( 'no-diet', trans( 'flow.combinations.no-diet' ) );
             }
 
-            $this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
+            //$this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
         }
 
 
