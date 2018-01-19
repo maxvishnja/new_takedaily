@@ -133,6 +133,8 @@ class StatsController extends Controller
 
         $stat_count->save();
 
+        \Log::info('Click on create month CSV'.$data['lang']);
+
         \Event::fire(new CreateCsv($customers, $data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']));
 
 
@@ -157,6 +159,8 @@ class StatsController extends Controller
         $stat_count->value = 1;
 
         $stat_count->save();
+        
+        \Log::info('Click on create All CSV'.$data['lang']);
 
         \Event::fire(new CreateAllCsv($customers, $data['lang']));
 
