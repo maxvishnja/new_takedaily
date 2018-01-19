@@ -4,7 +4,6 @@
 @section('summary', trans('mails.control-health.summary'))
 
 @section('content')
-    <h3 style="font-family: 'Open Sans',sans-serif; font-size: 18px;">{{ trans('mails.check_adress.title') }}</h3>
     <p>{{ trans('mails.check_adress.text') }}</p>
-    <p>{!! trans('mails.check_adress.link', ['link' => $link ]) !!}</p>
+    <h3>{!! trans('mails.check_adress.link', ['link' => $link ]) !!}</h3>
 @endsection
