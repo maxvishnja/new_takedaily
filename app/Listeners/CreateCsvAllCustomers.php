@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class CreateCsvAllCustomers implements ShouldQueue
 {
 
-    use InteractsWithQueue;
+    //use InteractsWithQueue;
 
     /**
      * Create the event listener.
