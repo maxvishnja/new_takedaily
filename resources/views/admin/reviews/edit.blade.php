@@ -13,7 +13,6 @@
                   action="{{  URL::action('Dashboard\ReviewsController@update', [ $review->id ]) }}"
                   enctype="multipart/form-data">
 
-
                 <div class="control-group">
                     <label for="rev_name" class="control-label">Navn</label>
                     <div class="controls">

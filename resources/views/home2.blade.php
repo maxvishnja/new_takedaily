@@ -115,44 +115,48 @@
 
         <!-- Mosaic -->
         <section class="hp-mosaic l">
-            <article class="hp-mosaic__item">
-                <div class="hp-mosaic__item__media" id="media1"></div>
-                <div class="hp-mosaic__item__content">
-                    <h3 class="hp-mosaic__item__title">{{ trans('home2.mosaic.block1_h3') }}</h3>
-                    <p class="hp-mosaic__item__intro">{!!  trans('home2.mosaic.block1_txt') !!}</p>
-                </div>
-            </article>
-            <article class="hp-mosaic__item">
-                <div class="hp-mosaic__item__media" id="media2"></div>
-                <div class="hp-mosaic__item__content">
-                    <h3 class="hp-mosaic__item__title">{{ trans('home2.mosaic.block2_h3') }}</h3>
-                    <p class="hp-mosaic__item__intro">{!!  trans('home2.mosaic.block2_txt') !!}</p>
-                </div>
-            </article>
+            <div class="hp-mosaic__wrapper">
+                <article class="hp-mosaic__item">
+                    <div class="hp-mosaic__item__media" id="media1"></div>
+                    <div class="hp-mosaic__item__content">
+                        <h3 class="hp-mosaic__item__title">{{ trans('home2.mosaic.block1_h3') }}</h3>
+                        <p class="hp-mosaic__item__intro">{!!  trans('home2.mosaic.block1_txt') !!}</p>
+                    </div>
+                </article>
+                <article class="hp-mosaic__item">
+                    <div class="hp-mosaic__item__media" id="media2"></div>
+                    <div class="hp-mosaic__item__content">
+                        <h3 class="hp-mosaic__item__title">{{ trans('home2.mosaic.block2_h3') }}</h3>
+                        <p class="hp-mosaic__item__intro">{!!  trans('home2.mosaic.block2_txt') !!}</p>
+                    </div>
+                </article>
+            </div>
         </section>
 
         <!-- Enjoy -->
         <section class="hp-enjoy l">
-            <div class="hp-enjoy__body">
-                <h2 class="hp-enjoy__title">{{ trans('home2.enjoy.title') }}</h2>
-                <section class="hp-enjoy__list">
-                    <article class="hp-enjoy__item">
-                        <img src="/images/enjoy/chat.png" alt="" class="hp-enjoy__item__img">
-                        <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p1') !!}</p>
-                    </article>
-                    <article class="hp-enjoy__item">
-                        <img src="/images/enjoy/salad.png" alt="" class="hp-enjoy__item__img">
-                        <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p2') !!}</p>
-                    </article>
-                    <article class="hp-enjoy__item">
-                        <img src="/images/enjoy/factory.png" alt="" class="hp-enjoy__item__img">
-                        <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p3') !!}</p>
-                    </article>
-                    <article class="hp-enjoy__item">
-                        <img src="/images/enjoy/connection-chart.png" alt="" class="hp-enjoy__item__img">
-                        <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p4') !!}</p>
-                    </article>
-                </section>
+            <div class="hp-enjoy__wrapper">
+                <div class="hp-enjoy__body">
+                    <h2 class="hp-enjoy__title">{{ trans('home2.enjoy.title') }}</h2>
+                    <section class="hp-enjoy__list">
+                        <article class="hp-enjoy__item">
+                            <img src="/images/enjoy/chat.png" alt="" class="hp-enjoy__item__img">
+                            <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p1') !!}</p>
+                        </article>
+                        <article class="hp-enjoy__item">
+                            <img src="/images/enjoy/salad.png" alt="" class="hp-enjoy__item__img">
+                            <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p2') !!}</p>
+                        </article>
+                        <article class="hp-enjoy__item">
+                            <img src="/images/enjoy/factory.png" alt="" class="hp-enjoy__item__img">
+                            <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p3') !!}</p>
+                        </article>
+                        <article class="hp-enjoy__item">
+                            <img src="/images/enjoy/connection-chart.png" alt="" class="hp-enjoy__item__img">
+                            <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p4') !!}</p>
+                        </article>
+                    </section>
+                </div>
             </div>
         </section>
 
@@ -173,23 +177,25 @@
         <!-- Nutritionists -->
         @if($nutritionists)
         <section class="hp-nutr l">
-            <h2 class="hp-nutr__title">{{ trans('home2.nutritionists.title') }}</h2>
-            <p class="hp-nutr__intro">{{ trans('home2.nutritionists.intro') }}</p>
-            <section class="hp-nutr__list">
-                @foreach($nutritionists as $nutri)
-                    <article class="hp-nutr__item">
-                        @if($nutri->image !== '')
-                            <img src="/images/nutritionist/thumb_{{$nutri->image}}" alt="" class="hp-nutr__item__img">
-                        @else
-                            <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
-                        @endif
-                        <div class="hp-nutr__item__content">
-                            <h4 class="hp-nutr__item__title">{{ $nutri->first_name }}</h4>
-                            <p class="hp-nutr__item__intro">{{ $nutri->desc }}</p>
-                        </div>
-                    </article>
-                @endforeach
-            </section>
+            <div class="hp-nutr__wrapper">
+                <h2 class="hp-nutr__title">{{ trans('home2.nutritionists.title') }}</h2>
+                <p class="hp-nutr__intro">{{ trans('home2.nutritionists.intro') }}</p>
+                <section class="hp-nutr__list">
+                    @foreach($nutritionists as $nutri)
+                        <article class="hp-nutr__item">
+                            @if($nutri->image !== '')
+                                <img src="/images/nutritionist/thumb_{{$nutri->image}}" alt="" class="hp-nutr__item__img">
+                            @else
+                                <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
+                            @endif
+                            <div class="hp-nutr__item__content">
+                                <h4 class="hp-nutr__item__title">{{ $nutri->first_name }}</h4>
+                                <p class="hp-nutr__item__intro">{{ $nutri->desc }}</p>
+                            </div>
+                        </article>
+                    @endforeach
+                </section>
+            </div>
         </section>
         @endif
 
