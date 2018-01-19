@@ -10,6 +10,7 @@ use GuzzleHttp\Client;
 use Illuminate\Support\Collection;
 use Jenssegers\Date\Date;
 use App\Jobs\SentNewMail;
+use Illuminate\Mail\Message;
 
 class OrderController extends Controller
 {
@@ -210,7 +211,7 @@ class OrderController extends Controller
             $customer_phone = $order->getCustomer()->getCustomerAttribute('phone');
 
             $shipping_zipcode  = $order->shipping_zipcode;
-            $shipping_street = $order->shipping_street;
+            $shipping_street = $order->getCustomer()->getCustomerAttribute('address_line1');
             $shipping_number =  $order->getCustomer()->getCustomerAttribute('address_number');
             if($shipping_number != ''){
                 $street = $shipping_street." ".$shipping_number;
@@ -272,7 +273,7 @@ class OrderController extends Controller
 
 
                 $client = new Client();
-                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&dato='.$date.'&format=json');
+                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&&dato='.$date.'&format=json');
 
                 $status = json_decode($res->getBody())->status;
 
@@ -288,6 +289,25 @@ class OrderController extends Controller
                         'message' => json_decode($res->getBody())->resultat->stregkode
                     ]);
                 }else{
+
+                    if ($order->getCustomer()->getLocale() == 'nl') {
+                        $fromEmail = 'info@takedaily.nl';
+                        $url = "https://takedaily.nl/account/settings/basic";
+                    } else {
+                        $fromEmail = 'info@takedaily.dk';
+                        $url = "https://takedaily.dk/account/settings/basic";
+                    }
+
+                    \Mail::queue('emails.check_adress', ['locale' => $order->getCustomer()->getLocale(), 'name' => $customer_name, 'link' => $url, ], function (Message $message) use ($customer_name, $customer_email, $fromEmail) {
+                        \Log::info("Check address from " . $customer_name);
+                        $message->from($fromEmail, 'TakeDaily')
+                            ->to($customer_email, $customer_name)
+                            ->subject(trans('mails.check_adress.subject'));
+                    });
+
+
+
+
                     return \Response::json([
                         'message' => 'Error',
                         'result' => json_decode($res->getBody())->fejltekst
