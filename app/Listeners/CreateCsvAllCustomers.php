@@ -30,6 +30,8 @@ class CreateCsvAllCustomers implements ShouldQueue
     public function handle(CreateAllCsv $event)
     {
 
+        \Log::info('Enter to listener '.$event->lang);
+
         try {
 
             $stat_count = Setting::where('identifier','=','stat_'.$event->lang)->first();
