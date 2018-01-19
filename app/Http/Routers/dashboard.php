@@ -142,6 +142,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::post('stats/download-all-customers', ['as' => 'check', 'uses' => 'Dashboard\StatsController@downloadCsvAllCustomers']);
 	Route::post('stats/reason', ['as' => 'reason', 'uses' => 'Dashboard\StatsController@getUnsubscribeReason']);
 	Route::post('stats/wrong', ['as' => 'wrong', 'uses' => 'Dashboard\StatsController@getWrongSb']);
+	Route::post('stats/cohorts-country', ['as' => 'cohortsCountry', 'uses' => 'Dashboard\StatsController@getCohortsCountry']);
 	Route::resource( 'feedback', 'Dashboard\FeedbackController' );
 	Route::get( 'feedback/delete/{id}', 'Dashboard\FeedbackController@destroy' );
 	Route::resource( 'faq-translations', 'Dashboard\FaqTranslationController' );

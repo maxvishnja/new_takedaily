@@ -286,8 +286,9 @@
                             <td>Sign.</td>
                             <td colspan="11">
                                 <select name="rate" class="change-cohorts">
-                                    <option value="4" >Month</option>
-                                    <option value="5">Week</option>
+                                    <option value="4" >All</option>
+                                    <option value="DKK">Denmark</option>
+                                    <option value="EUR">Netherlands</option>
                                 </select>
                             </td>
                             <td>
@@ -311,19 +312,6 @@
                                 <td>{{$number}}</td>
                             @endforeach
 
-                            {{--<td>0</td>--}}
-                            {{--<td>1</td>--}}
-                            {{--<td>2</td>--}}
-                            {{--<td>3</td>--}}
-                            {{--<td>4</td>--}}
-                            {{--<td>5</td>--}}
-                            {{--<td>6</td>--}}
-                            {{--<td>7</td>--}}
-                            {{--<td>8</td>--}}
-                            {{--<td>9</td>--}}
-                            {{--<td>10</td>--}}
-                            {{--<td>11</td>--}}
-                            {{--<td>12</td>--}}
                         </tr>
                         @foreach(trans('flow.datepicker.months_long') as $key=>$month)
 
@@ -384,6 +372,11 @@
                             {{--</tr>--}}
                         {{--@endforeach--}}
                         {{--</tbody>--}}
+
+                            <tbody id="6" class="cohorts hidden">
+
+                            </tbody>
+
 
                         </table>
 
@@ -535,7 +528,26 @@
         $('.change-cohorts').on('change', function(){
 
             $('.cohorts').addClass('hidden');
-           $('#'+$(this).val()).removeClass('hidden');
+
+            if($(this).val() != 4){
+                $('#6').html('<div class="text-center"><img src="/images/loading.gif"</div>');
+                $.ajax({
+                    url: '{{  URL::action('Dashboard\StatsController@getCohortsCountry')}}',
+                    type: 'POST',
+                    data: {country: $(this).val()},
+                    headers: {
+                        'X-CSRF-TOKEN': $('form.csv-forms').find('[name="_token"]').val()
+                    },
+                    success: function (response) {
+                        $('#6').html(response);
+                    }
+
+                });
+                $('#6').removeClass('hidden');
+            }else{
+                $('#'+$(this).val()).removeClass('hidden');
+            }
+
         });
 
         $('.pie-chart').hide();

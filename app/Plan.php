@@ -129,6 +129,18 @@ class Plan extends Model
 
             return $customers;
     }
+
+
+    public static function getSignupsCountry($date, $year, $lang)
+    {
+
+
+        $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->where('currency', $lang)->count();
+
+        return $customers;
+    }
+
+
     public static function getSignupsWeek($date)
     {
         $week_number = $date;
@@ -150,6 +162,27 @@ class Plan extends Model
         }
 
         $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', $year)->whereDate('subscription_cancelled_at', '<=', $nextyear."-".$month."-31")->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
+        if ($allCustomers == 0) {
+            $cohorts = 100;
+        } else {
+            $cohorts = round(($customers / $allCustomers) * 100, 2);
+        }
+
+        return $customers." (".$cohorts."%)";
+    }
+
+    public static function getCohortsCountry($signDate, $month, $year, $lang)
+    {
+
+        $allCustomers = Plan::getSignupsCountry($signDate, $year, $lang);
+        $nextyear = $year;
+
+        if($month > 12){
+            $month = sprintf('%02d', $month - 12);
+            $nextyear = 2018;
+        }
+
+        $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', $year)->whereDate('subscription_cancelled_at', '<=', $nextyear."-".$month."-31")->where('currency', $lang)->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
         if ($allCustomers == 0) {
             $cohorts = 100;
         } else {
