@@ -8,9 +8,20 @@
 
 @section('content')
 	<style>
+
+		.container {
+			background: #fff;
+			font: 400 14px/1 proxima-nova,Proxima Nova,proxima-nova-alt,Proxima Nova Alt,sans-serif;
+			color: #3aac87;
+			-webkit-font-smoothing: antialiased;
+			box-sizing: border-box;
+		}
+
 		p {
-			font-size: 1.2rem;
+			font-size: 1.4rem;
+			font-weight: 400;
 			margin: .5rem 0;
+			line-height: 1.5;
 		}
 	</style>
 	<div class="container" id="app">
