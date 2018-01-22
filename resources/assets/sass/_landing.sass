@@ -1,9 +1,723 @@
+html.no-flexbox
+	body.index
+		.block
+			&.block--promises
+				display: none
+
+.promocode
+	background: $main-green
+.promo-text
+	color: black
+	font-size: 18px
+	padding: 10px
+	text-align: center
+.promobold
+	font-weight: bold
+
+
+body.index
+	.promise-item:nth-child(2)
+		margin-left: -55px
+		margin-right: 55px
+
+	.promise-item:nth-child(4)
+		margin-left: -65px
+		margin-right: 65px
+
+	.promise-item:nth-child(5)
+		margin-right: -20px
+		margin-left: 20px
+
+	.promise-item:nth-child(7)
+		margin-right: -40px
+		margin-left: 40px
+
+	.pricing_item_header
+		//width: 350px
+		//text-align: center
+		font-size: 26px
+		width: 825px
+
+	.flex-desktop
+		display: flex
+		align-items: center
+		padding: 80px 0
+
+	.landing_advantages
+		text-align: center
+		padding: 18px 0
+		background: #fff
+		border-bottom: 1px solid #ddd
+		font-size: 14px
+		font-weight: 600
+		transition: padding 200ms
+
+		.icon
+			vertical-align: -8px
+			margin-right: 2px
+			transition: transform 200ms, vertical-align 200ms, margin 200ms
+
+	.splash_circle
+		background: #fff
+		width: 170px
+		height: 170px
+		margin-top: 15px
+		border-radius: 100%
+		text-align: center
+		padding: 50px 10px 0
+		color: $main-green-dark
+		box-shadow: 0 10px 20px rgba(0, 0, 0, .2)
+
+		span
+			font-size: 16px
+			display: block
+			margin-bottom: 10px
+
+		small
+			font-size: 20px
+			font-weight: $weight-semibold
+
+			&.info
+				font-size: 14px
+
+		strong
+			font-size: 50px
+			font-weight: $weight-bold
+			display: block
+
+	.v-align-desktop
+		display: flex
+		justify-content: center
+		align-items: center
+
+	header.header--landing
+		min-height: 600px
+		min-height: 80%
+		min-height: 80vh
+		position: relative
+		background: #fff url(/images/DSCF0704.jpg) no-repeat center center
+		background-size: cover
+
+		&.header--front-slide-1,
+		&.header--front-slide-2
+			.headervideo-block
+				strong
+					color: #fff !important
+
+		.gifting-button
+			margin-left: 10px
+			color: #fff
+			font-size: 15px
+
+		.or-pick-mix-link-container
+			margin: 10px 0 0 0px
+
+			a
+				color: #fff
+
+		.header_content
+			color: #fff
+			margin-top: 0 !important
+			padding: 20vh 0
+
+			h1
+				font-size: 46px
+				font-weight: $weight-bold
+				margin: 0 0 20px
+
+			a.button
+				font-size: 18px
+
+				&.button--huge
+					font-size: 24px
+				// eww
+
+				&.button--white
+					color: $main-green-dark
+
+			.headervideo-block
+				display: block
+				margin-top: 30px
+
+				span.icon
+					position: relative
+					cursor: pointer
+					top: 0
+					left: 0
+
+				strong
+					margin: 10px 0 0
+					display: block
+					font-size: 15px
+					font-weight: $weight-semibold
+
+			.header_slides_container
+				overflow: hidden
+
+				.header_slides
+					width: 200%
+					max-width: 200%
+					transition: transform 300ms
+					transform: translateX(0%)
+
+					.header_slide
+						width: 50%
+						float: left
+
+			.header_slide_nav
+				font-size: 0
+				text-align: center
+				position: absolute
+				bottom: 30px
+				width: 100%
+				height: 30px
+
+				.header_slide_nav_item
+					background: $main-green-dark
+					border-radius: 100%
+					width: 30px
+					height: 30px
+					display: inline-block
+					margin: 0 5px
+					cursor: pointer
+
+					&:hover
+						background: darken($main-green-dark, 10%)
+
+					&.header_slide_nav_item--active
+						background: #fff
+						cursor: default
+
+		.header_footer
+			background: rgba($dark-grey, 0.75)
+			width: 100%
+			position: absolute
+			left: 0
+			bottom: 0
+			color: #fff
+			text-align: center
+			padding: 55px
+			font-size: 32px
+
+			&.header_footer--sticky
+				position: fixed
+				top: 0
+				bottom: auto
+				background: rgba($dark-grey, 0.95)
+				z-index: 150
+				padding: 30px 15px
+				font-size: 26px
+
+			a
+				color: #fff
+				text-decoration: underline
+
+	.block
+		&.block--one
+			padding: 60px 0 80px
+
+			.block_item
+				position: relative
+
+				.arrow
+					position: absolute
+					left: 65%
+					top: -50px
+					background: url(/images/arrow.png) no-repeat
+					background-size: contain
+					width: 285px
+					height: 42px
+
+			h2
+				font-size: 40px
+				color: $main-green-dark
+				margin: 0 0 40px
+
+			p
+				font-size: 15px
+				line-height: 2
+				//color: $greyish-brown
+				color: $main-green-dark
+				margin: 10px 0 0
+
+				&.sub_header
+					margin: 0 auto 60px
+					max-width: 500px
+
+			h3
+				margin: 20px 0 10px
+				color: $main-green-dark
+				font-size: 22px
+
+		&.block--promises
+			background: $almost-white
+			background: $main-green
+			color: $white
+			padding: 80px 0
+
+			h2
+				font-size: 36px
+				margin: 0 0 60px
+				color: $main-green-dark
+				color: $white
+
+			.promise-container
+				display: flex
+				flex-flow: row wrap
+				align-items: center
+
+			.promise-item
+				flex: 1 1 25%
+				vertical-align: middle
+				width: 25%
+				height: auto
+				text-align: center
+
+				img
+					border-radius: 100px
+
+				p
+					margin: 0
+					padding: 0 15px
+					font-size: 16px
+					line-height: 24px
+
+				a
+					display: block
+					color: $main-green-dark
+					text-decoration: underline
+
+		&.block--reviews
+			padding: 80px 0
+
+			h2
+				font-size: 36px
+				margin: 0 0 60px
+				color: $main-green-dark
+
+			.review-item
+				margin-bottom: 30px
+
+				img
+					border-radius: 100%
+					border: 5px solid $white
+					box-shadow: 0 0 0 3px $main-green
+
+				blockquote
+					line-height: 1.6
+
+		&.block--two
+			color: $white
+			background: url(/images/banner2.jpg) no-repeat center bottom
+			background-size: cover
+			padding: 150px 0
+
+			h2
+				font-weight: 600
+				font-size: 40px
+				line-height: 1.2
+				margin: 0 0 30px
+
+			p
+				font-size: 15px
+				line-height: 1.5
+				margin: 0 0 30px
+
+		&.block--six
+			color: $main-green-dark
+
+			.slide
+				background-size: cover !important
+				padding: 100px 0
+
+				&.slide--one
+					background: url(/images/landing/smoke.jpg) no-repeat center center
+
+				&.slide--two
+					background: url(/images/landing/chili.jpg) no-repeat center center
+
+				&.slide--three
+					background: url(/images/landing/sleep.jpg) no-repeat center center
+
+				&.slide--four
+					background: url(/images/landing/pills.jpg) no-repeat center center
+
+			h2
+				font-weight: normal
+				font-size: 34px
+				margin: 0 0 30px
+
+			p
+				line-height: 1.5
+				font-size: 15px
+				margin: 0 0 50px
+
+			a
+				color: $main-green-dark
+				text-decoration: underline
+
+				&.button
+					color: #fff
+
+	.slider_container
+		overflow: hidden
+		position: relative
+
+		.slider-arrow-left,
+		.slider-arrow-right
+			position: absolute
+			z-index: 1
+			cursor: pointer
+
+		.slider-arrow-left
+			left: 50px
+			top: 50%
+			margin-top: -22px
+
+		.slider-arrow-right
+			right: 50px
+			top: 50%
+			margin-top: -22px
+
+		.slider
+			max-width: none
+
+			.slide_container
+				transition: -webkit-transform 450ms
+				transition: transform 450ms
+
+				.slide
+					overflow: hidden
+					position: relative
+					float: left
+					width: 100%
+
+@media all and (min-height: 900px)
+	body.index
+		header.header--landing
+			.header_content
+				margin-top: 16vh
+
+@media all and (min-height: 1200px)
+	body.index
+		header.header--landing
+			.header_content
+				margin-top: 24vh
+
+				h1
+					margin-bottom: 40px
+
+@media all and (min-height: 1600px)
+	body.index
+		header.header--landing
+			.header_content
+				margin-top: 24vh
+
+@media all and (max-width: 1599px)
+	body.index
+		.block
+			&.block--five
+				.block_content
+					padding: 3vw
+
+@media all and (max-width: 1299px)
+	body.index
+		.block
+			&.block--one
+				.block_item
+					.arrow
+						left: 55%
+
+				a
+					color: $main-green-dark
+					text-decoration: underline
+
+					&.button
+						color: #fff
+
+			&.block--five
+				.block_content
+					padding: 1vw
+
+				p
+					line-height: 1.5
+
+@media all and (max-width: 1199px)
+	body.index
+		.block
+			&.block--promises
+				.promise-item
+					p
+						font-size: 15px
+						line-height: 22px
+
+@media all and (min-width: 992px)
+	body.index
+		.landing_advantages
+			&.sticky
+				position: fixed
+				top: 0
+				left: 0
+				width: 100%
+				box-shadow: 0 2px 10px rgba(0,0,0,.1)
+				z-index: 10
+				padding: 8px 0
+				border: none
+
+				.icon
+					transform: scale(0.66666666666667)
+					margin-right: -1px
+					vertical-align: -11px
+
+		.landing_advantages_placeholder
+			display: none
+			height: 66px
+
+@media all and (max-width: 991px)
+	body.index
+		header.header--landing
+			.header_content
+				.headervideo-block
+					text-align: center !important
+					margin: 30px 0 0 !important
+
+				.pull-left-n-mobile
+					float: none !important
+
+					&:before,
+					&:after
+						content: ""
+						clear: both
+						display: table
+						width: 100%
+						height: 1px
+
+		.landing_advantages
+			text-align: left
+			font-size: 12px
+			padding-bottom: 8px
+
+		.landing_advantages .col-xs-6
+			margin-bottom: 10px
+			padding-left: 0
+			padding-right: 0
+
+		.landing_advantages .icon
+			transform: scale(0.66666666666667)
+			margin-right: -1px
+			vertical-align: -11px
+
+		.header_bg_slides_container
+			.header_bg_slides
+				.header_bg_item
+					&.header_bg_item--2:after
+						display: block
+						content: ""
+						background: rgba(0, 0, 0, .25)
+						position: absolute
+						left: 0
+						top: 0
+						width: 100%
+						height: 100%
+
+		.block
+			&.block--promises
+				.promise-item
+					flex: 1 1 50%
+					margin-bottom: 20px
+
+					&:nth-child(1)
+						order: 1
+
+					&:nth-child(2)
+						order: 2
+
+					&:nth-child(3)
+						order: 3
+
+					&:nth-child(4)
+						order: 4
+
+					&:nth-child(5)
+						order: 6
+
+					&:nth-child(6)
+						order: 5
+
+					&:nth-child(7)
+						order: 8
+
+					&:nth-child(8)
+						order: 7
+
+					p
+						font-size: 14px
+						line-height: 20px
+
+			&.block--five
+				img,
+				.block_content
+					float: none
+					height: auto
+					width: 100%
+
+				.block_content
+					padding: 5vw
+
+			&.block--one
+				.block_item
+					.arrow
+						left: 65%
+						top: -30px
+						width: 190px
+						height: 28px
+
+					h3
+						line-height: 1.3
+
+					p
+						line-height: 1.6
+						font-size: 14px
+
+@media all and (max-width: 767px)
+	body.index
+		.v-align-desktop
+			display: block !important
+
+		.pricing_item_header
+			width: 100%
+
+		.flex-desktop
+			display: block
+			padding: 50px 0
+
+		.slider_container
+			.slider-arrow-right
+				right: 5px
+
+			.slider-arrow-left
+				left: 5px
+
+		.block
+			&.block--promises
+				h2
+					margin-bottom: 30px
+
+				.promise-item
+					margin: 0 !important
+					flex: 1 1 100%
+					text-align: center
+
+					img
+						width: 75%
+						margin: 0 0 -10%
+
+					p
+						font-size: 16px
+						line-height: 1.8
+
+			&.block--one
+				.block_item
+					margin-bottom: 30px
+
+					&:last-of-type
+						margin-bottom: 0
+
+					.arrow
+						display: none
+
+			&.block--one
+				h2
+					font-size: 32px
+
+			&.block--two
+				h2
+					font-size: 32px
+
+			&.block--six
+				h2
+					font-size: 26px
+
+			&.block--two,
+			&.block--one
+				padding: 50px 0
+
+			&.block--six
+				.slide
+					padding: 50px 0
+
+		header.header--landing
+			height: auto
+			min-height: 0
+			padding: 0 0
+
+			.button
+				width: 100%
+				display: block
+
+			.or-pick-mix-link-container
+				margin-left: 0
+				text-align: center
+
+			.gifting-button
+				padding-left: 30px
+				padding-right: 30px
+				margin-left: 0
+
+			.header_content
+				padding: 50px 0 25px
+
+				h1
+					font-size: 36px
+					padding-right: 100px
+
+				.headervideo-block
+					padding: 0
+					margin-top: 25px
+					margin-bottom: 25px !important
+					text-align: center !important
+
+@media all and (max-width: 480px)
+	body.index
+		header.header--landing
+			a.button
+				font-size: 16px
+
+				&.gifting-button
+					margin: 20px 0 0
+
+			.header_content
+				margin-top: 50px
+
+				h1
+					font-size: 30px
+					padding: 0
+
+				.headervideo-block
+					padding: 0
+		.promo-text
+			padding: 1px
+
+
+
+body.index
+	header.header--landing.header--front-slide-1
+		.headervideo-block
+			margin-top: 0
+			text-align: center
+
+
 .video_circle
-	height: 40px
-	width: 56px
-	border: 2px solid #FDFDFD
-	border-radius: 5px
-	background-color: rgba(255,255,255,0.35)
+	text-align: center
+	display: inline-block
+	border-radius: 4px
+	width: 140px
+	height: 83px
+	padding-top: 21px
+	position: relative
+	transition: transform .4s ease
+	cursor: pointer
+	border: 2px solid #fff
 
 	&:hover
 		transform: scale(1.05)
@@ -47,9 +761,6 @@
 		video
 			display: inline-block
 			box-shadow: 0 0 40px rgba(0, 0, 0, .2)
-			width: 96rem
-			@include breakpoint(phone)
-				width: 35rem
 
 	.video-popup-close
 		cursor: pointer
@@ -63,10 +774,6 @@
 
 .picks-not-main
 	width: 280px
-	padding: 14px 30px!important
-
-.picks-not-main2
-	width: 388px
 	padding: 14px 30px!important
 
 @media all and (max-width: 480px)

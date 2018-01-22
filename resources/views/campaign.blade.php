@@ -3,6 +3,21 @@
 @section('pageClass', 'index')
 
 @section('content')
+    <style>
+        .container {
+            font: 400 14px/1 proxima-nova,Proxima Nova,proxima-nova-alt,Proxima Nova Alt,sans-serif;
+        }
+        .promo-nav {
+            background: #fff !important;
+        }
+        .container-fluid {
+            margin-top: 1rem !important;
+        }
+        .flex-desktop p {
+            line-height: 1.5;
+            margin: 1.5rem 0;
+        }
+    </style>
     <header class="header--landing header--front-slide-1" @if(App::getLocale()=='nl') style="background: #fff url(/images/block-two-bg-nl.jpg) no-repeat center center; background-size: cover;
     background-position: 60%;" @endif>
         <div class="header-nav promo-nav">
@@ -213,7 +228,7 @@
                     <div class="flex-desktop">
                         <div class="col-md-6 col-md-push-6 text-center">
                             <img src="/images/marie-louise-home.jpg" alt="Marie-Louise" style="border-radius: 10px" width="330"/>
-                            <div class="m-t-20">{!! trans('home.new_blocks.one.below_image') !!}</div>
+                            <div class="m-t-20" style="margin-left: -20rem">{!! trans('home.new_blocks.one.below_image') !!}</div>
                         </div>
                         <div class="col-md-6 col-md-pull-6">
                             <h3 style="font-size: 20px;">{{ trans('home.new_blocks.one.title') }}</h3>
