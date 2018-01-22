@@ -109,12 +109,18 @@
 				if (this.discount.type == 'amount') {
 					total = this.discount.amount;
 				}
+                else if (this.discount.type == 'amount' && this.discount.length != 0) {
+                    total = this.discount.amount + " x "+ this.discount.length + " {!! trans('general.month') !!}";
+                }
 				else if (this.discount.type == 'free_shipping') {
 					total = '100%';
 				}
-				else if (this.discount.type == 'percentage') {
+				else if (this.discount.type == 'percentage' && this.discount.length == 0) {
 					total = this.discount.amount + '%';
 				}
+                else if (this.discount.type == 'percentage' && this.discount.length != 0) {
+                    total = this.discount.amount + "% x "+ this.discount.length + " {!! trans('general.month') !!}";
+                }
                 else if (this.discount.type == 'fixed') {
                     total = this.discount.amount;
                 }
@@ -360,7 +366,7 @@
                         }
 
 
-console.log(response.num_advises);
+
                         app.getCart();
 						combinationTimeout = setTimeout(function () {
 							$("#advises-label").html(response.label);

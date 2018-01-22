@@ -548,12 +548,18 @@
 				total_discount: function () {
 					var total = 0;
 
-					if (this.discount.type == 'amount') {
+					if (this.discount.type == 'amount' && this.discount.length == 0) {
 						total = this.discount.amount;
 					}
-					else if (this.discount.type == 'percentage') {
+                    else if (this.discount.type == 'amount' && this.discount.length != 0) {
+                        total = this.discount.amount + " x "+ this.discount.length + " {!! trans('general.month') !!}";
+                    }
+					else if (this.discount.type == 'percentage' && this.discount.length == 0) {
 						total = this.discount.amount + '%';
 					}
+                    else if (this.discount.type == 'percentage' && this.discount.length != 0) {
+                        total = this.discount.amount + "% x "+ this.discount.length + " {!! trans('general.month') !!}";
+                    }
                     else if (this.discount.type == 'fixed') {
                         total = this.discount.amount;
                     }
