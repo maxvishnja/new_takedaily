@@ -444,9 +444,9 @@
 @section('footer_scripts')
 	<script>
 
-		$(document).ready(function(){
-		   $('.disc--coupon').insertAfter('.terms_container_box');
-		});
+		// $(document).ready(function(){
+		//    $('.disc--coupon').insertAfter('.terms_container_box');
+		// });
 
         var app = new Vue({
             el: '#app',
