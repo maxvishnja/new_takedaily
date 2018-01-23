@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Mail\Message;
 use Jenssegers\Date\Date;
+use PhpParser\Node\Expr\Cast\Object_;
+
 /**
  * Class Plan
  *
@@ -130,6 +132,18 @@ class Plan extends Model
             return $customers;
     }
 
+    public static function getSignupsRevenue($date, $year)
+    {
+
+        $revenue1 = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->where('currency', 'EUR')->sum('price');
+
+        $revenue2 = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->where('currency', 'DKK')->sum('price');
+
+        $sum = $revenue2 + (7.45 * $revenue1);
+
+        return $sum;
+    }
+
 
     public static function getSignupsCountry($date, $year, $lang)
     {
@@ -138,6 +152,18 @@ class Plan extends Model
         $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->where('currency', $lang)->count();
 
         return $customers;
+    }
+
+
+    public static function getSignupsCountryRevenue($date, $year, $lang)
+    {
+
+
+        $revenues = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->where('currency', $lang)->sum('price');
+
+
+
+        return $revenues ? $revenues : 0;
     }
 
 
@@ -168,8 +194,15 @@ class Plan extends Model
             $cohorts = round(($customers / $allCustomers) * 100, 2);
         }
 
-        return $customers." (".$cohorts."%)";
+       $data = new Stat();
+
+        $data->customers = $customers;
+        $data->cohorts = $cohorts;
+
+        return $data;
     }
+
+
 
     public static function getCohortsCountry($signDate, $month, $year, $lang)
     {
@@ -189,8 +222,62 @@ class Plan extends Model
             $cohorts = round(($customers / $allCustomers) * 100, 2);
         }
 
-        return $customers." (".$cohorts."%)";
+        $data = new Stat();
+
+        $data->customers = $customers;
+        $data->cohorts = $cohorts;
+
+        return $data;
     }
+
+
+
+    public static function getCohortsRevenue($signDate, $month, $year)
+    {
+
+        $revenue_all = Plan::getSignupsRevenue($signDate, $year);
+        $nextyear = $year;
+
+        if($month > 12){
+            $month = sprintf('%02d', $month - 12);
+            $nextyear = 2018;
+        }
+
+        $revenue1 = Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', $year)->whereDate('subscription_cancelled_at', '<=', $nextyear."-".$month."-31")->where('currency', 'DKK')->sum('price');
+        $revenue2 = Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', $year)->whereDate('subscription_cancelled_at', '<=', $nextyear."-".$month."-31")->where('currency', 'EUR')->sum('price') * 7.45;
+
+
+
+        if ($revenue_all == 0) {
+            $cohorts = 0;
+        } else {
+            $cohorts = $revenue_all - ($revenue1 + $revenue2);
+        }
+
+        return $cohorts;
+    }
+
+    public static function getCohortsCountryRevenue($signDate, $month, $year, $lang)
+    {
+
+        $allCustomers = Plan::getSignupsCountryRevenue($signDate, $year, $lang);
+        $nextyear = $year;
+
+        if($month > 12){
+            $month = sprintf('%02d', $month - 12);
+            $nextyear = 2018;
+        }
+
+        $revenues = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', $year)->whereDate('subscription_cancelled_at', '<=', $nextyear."-".$month."-31")->where('currency', $lang)->sum('price');
+        if ($allCustomers == 0) {
+            $cohorts = 0;
+        } else {
+            $cohorts = $revenues;
+        }
+
+        return $cohorts;
+    }
+
 
 
     public static function getCohortsWeek($week, $signDate)
