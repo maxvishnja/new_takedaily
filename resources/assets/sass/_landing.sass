@@ -755,12 +755,15 @@ body.index
 		text-align: center
 		margin: 0
 		position: relative
-		width: 960px
+		width: 980px
 		padding: 0 10px
 
 		video
 			display: inline-block
 			box-shadow: 0 0 40px rgba(0, 0, 0, .2)
+			width: 960px
+			@include breakpoint(phone)
+				width: 360px
 
 	.video-popup-close
 		cursor: pointer
