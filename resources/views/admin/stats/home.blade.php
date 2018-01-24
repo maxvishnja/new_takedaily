@@ -344,7 +344,6 @@
                                                 <b>ARPU</b>
                                             <br/>
                                             @if($cohorts17 == 0)
-
                                             0
                                             @else
                                                 {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017) / $cohorts17, 2)  }}
@@ -361,12 +360,12 @@
                                 <td>{{$month2}} {{\Date::now()->format('Y')}}</td>
                                 <td>{{ $signup18 = \App\Plan::getSignups(sprintf('%02d', $key2), 2018) }}</td>
                                 <td class="text-center">{{ $signup18 }}<br/> (100%) <br/>
-                                    <b>Rev. </b>  <br/>{{ $rev18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key), 2018),2) }}
+                                    <b>Rev. </b>  <br/>{{ $rev18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), 2018),2) }}
                                     <br/>
                                     <b>ARPU</b>
                                     <br/>
                                     @if($signup18 != 0)
-                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key), 2018) / $signup18, 2)  }}
+                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), 2018) / $signup18, 2)  }}
                                     @else
                                         0
                                     @endif
@@ -374,19 +373,19 @@
                                 @foreach(range($key2,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y2)
                                     <td class="text-center">
                                         @if($y2 >= $key2 and $y2 <= (int)date('m') )
-                                            {{ $cohorts18 = \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2018)->customers}} <br/>
-                                            ({{\App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2018)->cohorts}}%)
+                                            {{ $cohorts18 = \App\Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018)->customers}} <br/>
+                                            ({{\App\Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018)->cohorts}}%)
                                             <br/>
                                             <b>Rev.</b>
                                             <br/>
-                                            {{ $revc18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2018), 2)}}
+                                            {{ $revc18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018), 2)}}
                                             <br/>
                                             <b>ARPU</b>
                                             <br/>
                                             @if($cohorts18 == 0)
                                                 0
                                             @else
-                                                {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2018) / $cohorts18, 2)  }}
+                                                {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018) / $cohorts18, 2)  }}
                                             @endif
                                         @endif
                                     </td>

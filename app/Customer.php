@@ -107,6 +107,12 @@ class Customer extends Model
     }
 
 
+    public function getOrdersFromDate($month, $year)
+    {
+        return $this->hasMany('App\Order', 'customer_id', 'id')->whereMonth('created_at', '=', $month)->whereYear('created_at', '=', $year)->get();
+    }
+
+
     public function notes()
     {
         return $this->hasMany('App\Notes', 'customer_id', 'id');
@@ -195,6 +201,7 @@ class Customer extends Model
     {
         return $this->orders;
     }
+
 
     public function getId()
     {
