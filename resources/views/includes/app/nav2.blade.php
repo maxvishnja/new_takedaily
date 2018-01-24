@@ -4,11 +4,11 @@
             <a href="/pick-n-mix" class="c-nav-header__link">{{ trans('nav2.pick') }}</a>
         </li>
         <li class="c-nav-header__item item-left dropdown">
-            <a href="#" class="c-nav-header__link navbar-toggle" data-toggle="dropdown">{{ trans('nav2.gifting') }}</a>
+            <a href="#" class="c-nav-header__link navbar-toggle" data-toggle="dropdown">{{ trans('nav2.gifting') }}</a><span class="caret"></span>
             <ul class="dropdown-menu2">
                 <li>
                     <a href="/gifting" class="c-nav-header__link">{{ trans('nav2.buy-gift') }}</a>
-                    <a href="/use-gifting" class="c-nav-header__link">{{ trans('nav2.reedem-gift') }}</a>
+                    <a href="/use-giftcard" class="c-nav-header__link">{{ trans('nav2.reedem-gift') }}</a>
                 </li>
             </ul>
         </li>

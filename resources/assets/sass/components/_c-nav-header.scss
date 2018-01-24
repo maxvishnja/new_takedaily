@@ -87,4 +87,12 @@
     top: 2rem;
     left: 2rem;
   }
+  .dropdown .caret {
+    display: none;
+    @include breakpoint(phone) {
+      display: inline-block;
+      vertical-align: 3px;
+      color: #fff;
+    }
+  }
 }
