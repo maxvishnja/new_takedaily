@@ -18,7 +18,12 @@ $(window).on('load', function() {
     $('#nav-icon4').click(function() {
         $(this).toggleClass('open');
         $('.c-nav-header').toggleClass('active');
-        console.log($(this));
+    });
+
+    $('ul>li.dropdown').hover(function() {
+        $(this).find('.dropdown-menu2').stop(true, true).delay(200).fadeIn(500);
+    }, function() {
+        $(this).find('.dropdown-menu2').stop(true, true).delay(200).fadeOut(500);
     });
 
 });
