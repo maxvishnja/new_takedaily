@@ -492,6 +492,9 @@ footer
 	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175)
 	-webkit-background-clip: padding-box
 	background-clip: padding-box
+	@include breakpoint(phone)
+		left: 40px
+		text-align: center
 	&.pull-right
 		right: 0
 		left: auto
