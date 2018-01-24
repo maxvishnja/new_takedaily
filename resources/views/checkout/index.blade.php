@@ -70,7 +70,7 @@
 		@endif
 	</div>
 
-	<div class="container" id="app">
+	<div class="container checkout--app" id="app">
 		<div class="row">
 			<div class="col-md-4 visible-sm visible-xs text-center">
 				{{--<div class="mobile-total-text">{{ trans('checkout.index.total.total') }}</div>--}}
