@@ -25,7 +25,7 @@
 	@endif
 
 	<div class="container m-t-50">
-		<article>
+		<article class="vit--landing">
 			@if( $page->layout == 'plain' )
 				<h1 class="cms-title">{{ $page->title }}</h1>
 				@if( $page->sub_title != '')
