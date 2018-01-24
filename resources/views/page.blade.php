@@ -12,6 +12,19 @@
 			font-size: 1.5rem;
 			line-height: 1.5;
 		}
+
+		.container {
+			font: 400 14px/1 proxima-nova,Proxima Nova,proxima-nova-alt,Proxima Nova Alt,sans-serif;
+			line-height: 1.5;
+		}
+
+		article p {
+			margin: 20px 0;
+		}
+
+		article h3{
+			margin: 10px 0;
+		}
 	</style>
 	@if( $page->layout == 'header' )
 		<div class="header_image" style="margin-top: 6.4rem">
@@ -25,7 +38,7 @@
 	@endif
 
 	<div class="container m-t-50">
-		<article class="vit--landing">
+		<article>
 			@if( $page->layout == 'plain' )
 				<h1 class="cms-title">{{ $page->title }}</h1>
 				@if( $page->sub_title != '')
