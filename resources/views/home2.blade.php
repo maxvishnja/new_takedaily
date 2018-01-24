@@ -66,7 +66,7 @@
                                 <img src="/images/reviews/smiley.png" alt="">
                             </div>
                             <p class="hp-members__item__intro">{{ $review->review }}</p>
-                            <p class="hp-members__item__author">{{ $review->name }} {{ $review->age }}år</p>
+                            <p class="hp-members__item__author">{{ $review->name }} {{ $review->age }}@if(\App::getLocale() == 'da') {{ 'år' }} @else {{ 'jaar' }} @endif</p>
                         </article>
                     @endforeach
                 </section>
