@@ -800,12 +800,12 @@
             return /^[0-9]{8}$/.test(value);
         }, '{{ trans('checkout.index.order.info.address.postal.error') }}' );
 
-        $.validator.addClassRules({
-            input_info_phone: {
-                required: true,
-                checkPhone: true
-            }
-        });
+        // $.validator.addClassRules({
+        //     input_info_phone: {
+        //         required: true,
+        //         checkPhone: true
+        //     }
+        // });
 
 		@endif
 
