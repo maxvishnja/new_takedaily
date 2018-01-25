@@ -1,4 +1,5 @@
 @foreach($combinations as $vitamin)
+
 	<div class="new_vitamin_item">
 
 		<div class="pill_section">
@@ -105,6 +106,19 @@
 
 		<div class="content_section" style="font-size: 17px">
 			{!! $descriptions['no-diet'] !!}
+		</div>
+	</div>
+@endif
+
+@if(isset($descriptions['none']))
+
+	<div class="new_vitamin_item">
+
+		<div class="pill_section">
+		</div>
+
+		<div class="content_section" style="font-size: 17px">
+			{!! $descriptions['none'] !!}
 		</div>
 	</div>
 @endif

@@ -27,53 +27,53 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-	/**
-	 * The Artisan commands provided by your application.
-	 *
-	 * @var array
-	 */
-	protected $commands = [
-		SubscriptionRebillCommand::class,
-		UpdateCurrencies::class,
-		NotifyPendingRebills::class,
-	    UpdateAges::class,
-	    MailFlowSender::class,
-	    SendHealthMail::class,
-		CheckGoalAmbassador::class,
-		SendToAlmost::class,
-		UpdatePregnancyWeeks::class,
-		CheckPayment::class,
-	    ClearOldCarts::class,
-	    ClearOldSavedFlows::class,
-        AddManualFb::class,
+    /**
+     * The Artisan commands provided by your application.
+     *
+     * @var array
+     */
+    protected $commands = [
+        SubscriptionRebillCommand::class,
+        UpdateCurrencies::class,
+        NotifyPendingRebills::class,
+        UpdateAges::class,
+        MailFlowSender::class,
+        SendHealthMail::class,
+        CheckGoalAmbassador::class,
+        SendToAlmost::class,
+        UpdatePregnancyWeeks::class,
+        CheckPayment::class,
+        ClearOldCarts::class,
+        ClearOldSavedFlows::class,
         ClearOldCoupons::class,
-		ClearSnoozing::class,
-		UpdateUserMail::class,
-		DebugCommand::class,
-		AddCustomersToApi::class,
-		ChangeAutomaticCoupon::class,
-	];
+        ClearSnoozing::class,
+        UpdateUserMail::class,
+        DebugCommand::class,
+        AddCustomersToApi::class,
+        ChangeAutomaticCoupon::class,
+        AddManualFb::class,
+    ];
 
-	/**
-	 * Define the application's command schedule.
-	 *
-	 * @param  \Illuminate\Console\Scheduling\Schedule $schedule
-	 *
-	 * @return void
-	 */
-	protected function schedule(Schedule $schedule)
-	{
-		$schedule->command('subscriptions:rebill')
-		         ->name('rebill-subscribed-users')
-		         ->everyThirtyMinutes()
-		         ->withoutOverlapping();
+    /**
+     * Define the application's command schedule.
+     *
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
+     *
+     * @return void
+     */
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->command('subscriptions:rebill')
+            ->name('rebill-subscribed-users')
+            ->everyThirtyMinutes()
+            ->withoutOverlapping();
 
-		$schedule->command('currencies:update')
-		         ->hourly();
+        $schedule->command('currencies:update')
+            ->hourly();
 
-		$schedule->command('almost:send')
-					->weekly()->wednesdays()->at('09:00')
-					->withoutOverlapping();
+        $schedule->command('almost:send')
+            ->weekly()->wednesdays()->at('09:00')
+            ->withoutOverlapping();
 
 //		$schedule->command('healthmail:send')
 //			     ->dailyAt('13:00');
@@ -81,39 +81,39 @@ class Kernel extends ConsoleKernel
         $schedule->command('coupon:change')->cron('0 0 */14 * *');
 
         $schedule->command('api:add')
-                    ->dailyAt('02:00');
+            ->dailyAt('02:00');
 
-		$schedule->command('check:ambassador')
-			     ->dailyAt('09:00');
+        $schedule->command('check:ambassador')
+            ->dailyAt('09:00');
 
-		/*$schedule->command('subscriptions:pending')
-		         ->name('notify-user-of-incoming-rebill')
-		         ->dailyAt('06:00')
-			     ->everyThirtyMinutes()
-		         ->withoutOverlapping(); */
+        /*$schedule->command('subscriptions:pending')
+                 ->name('notify-user-of-incoming-rebill')
+                 ->dailyAt('06:00')
+                 ->everyThirtyMinutes()
+                 ->withoutOverlapping(); */
 
-		$schedule->command('customers:age-update')
-		         ->daily();
+        $schedule->command('customers:age-update')
+            ->daily();
 
         $schedule->command('clear:coupons')
             ->daily();
 
-		$schedule->command('customers:pregnancy-update')
-		         ->daily();
+        $schedule->command('customers:pregnancy-update')
+            ->daily();
 
-		$schedule->command('mailflow:send')
-		         ->everyTenMinutes();
+        $schedule->command('mailflow:send')
+            ->everyTenMinutes();
 
-		$schedule->command('check:payment')
-			->everyThirtyMinutes();
+        $schedule->command('check:payment')
+            ->everyThirtyMinutes();
 
-		$schedule->command('clear:flows')
-		         ->monthly();
+        $schedule->command('clear:flows')
+            ->monthly();
 
-		$schedule->command('clear:carts')
-		         ->dailyAt('00:20');
+        $schedule->command('clear:carts')
+            ->dailyAt('00:20');
 
-		$schedule->command('backup:run')
-		         ->dailyAt('01:00');
-	}
+//		$schedule->command('backup:run')
+//		         ->dailyAt('01:00');
+    }
 }

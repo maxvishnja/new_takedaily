@@ -15,6 +15,7 @@ public/temp_opcachereset.php
 /public/uploads/*/*/*
 /resources/assets/images/*sprite*
 /resources/lang/*
+resources/lang/*
 /public/images/*sprite*
 /public/js/app.js
 /public/js/validation_messages_*.js
@@ -59,8 +60,3 @@ resources/assets/sass/_sprites.sass
 id_rsa
 dump.rdb
 package-lock.json
-public/images/quality/
-public/images/vitamins/
-resources/lang/
-
-.DS_Store

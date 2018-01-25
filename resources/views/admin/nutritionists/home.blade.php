@@ -17,7 +17,6 @@
 					<th>#</th>
 					<th>Navn</th>
 					<th>E-mail</th>
-					<th>Country</th>
 					<th>Active</th>
 					<th></th>
 				</tr>
@@ -32,7 +31,6 @@
 						</td>
 						<td>{{ $nutritionist->first_name }} {{ $nutritionist->last_name }}</td>
 						<td><a href="mailto:{{ $nutritionist->email }}">{{ $nutritionist->email }}</a></td>
-						<td>{{ $nutritionist->locale }}</td>
 						<td>
 							{{ \Date::createFromFormat('Y-m-d H:i:s', $nutritionist->created_at)->format('Y/m/d H:i')}}
 						</td>

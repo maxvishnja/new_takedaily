@@ -172,6 +172,7 @@ class Order extends Model
 		return $this->sub_total;
 	}
 
+
 	public function getTotalShipping()
 	{
 		return $this->total_shipping;

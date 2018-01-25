@@ -40,11 +40,11 @@ class FacebookApiHelper
 
         foreach($plans as $plan){
 
-        $bday = '';
+            $bday = '';
 
-        if($plan->customer->getBirthday()){
-            $bday = \Date::createFromFormat('Y-m-d', $plan->customer->getBirthday())->format('Y');
-        }
+            if($plan->customer->getBirthday()){
+                $bday = \Date::createFromFormat('Y-m-d', $plan->customer->getBirthday())->format('Y');
+            }
 
 
             $params['data_users'][] = [
@@ -61,7 +61,7 @@ class FacebookApiHelper
 
         if($this->addToAudience($params)){
 
-           return true;
+            return true;
 
         } else{
 

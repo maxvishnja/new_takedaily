@@ -99,6 +99,7 @@
 	</div>
 
 
+
 	<div class="module">
 		<div class="module-head">
 			<h3>
@@ -222,6 +223,10 @@
             [ {{ 12 - $i }} , {{ \App\Apricot\Repositories\OrderRepository::getPaidOrder(\Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('Y') , \Jenssegers\Date\Date::now()->firstOfMonth()->subMonths($i)->format('n') * 1) }} ],
 			@endforeach
         ];
+
+
+
+
 
 		var plot = $.plot($('#placeholder4'),
 				[

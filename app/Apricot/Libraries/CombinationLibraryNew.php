@@ -58,6 +58,7 @@ class CombinationLibraryNew
 
     public function getAdvises()
     {
+
         return $this->advises;
     }
 
@@ -131,8 +132,26 @@ class CombinationLibraryNew
             $this->generateGroupThree( $data );
         }
 
-        if ( count( $this->vitamins ) < 3 )
+
+        if ( count( $this->vitamins ) < 2  ){
+
+            unset($this->vitamins[0]);
+            foreach ($this->advises as $key=>$advise){
+                unset($this->advises[$key]);
+            }
+
+            $this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
+        }
+
+        if ( count( $this->vitamins ) < 3 and count( $this->vitamins ) > 1 )
         {
+
+            if ( $this->groupOne === null and $this->groupThree === null)
+            {
+                $this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
+            }
+
+
             if ( $this->groupTwo === null )
             {
                 $this->setAdvise( 'no-lifestyle', trans( 'flow.combinations.no-lifestyle' ) );
@@ -140,11 +159,13 @@ class CombinationLibraryNew
 
             if ( $this->groupThree === null )
             {
-                $this->setAdvise( 'no-diet', trans( 'flow.combinations.no-diet' ) );
+                //$this->setAdvise( 'no-diet', trans( 'flow.combinations.no-diet' ) );
             }
 
-            $this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
+            //$this->setAdvise( 'none', trans( 'flow.combinations.none' ) );
         }
+
+
 
         if ( isset( $data->replacements ) )
         {
@@ -385,11 +406,11 @@ class CombinationLibraryNew
         }
         if (isset( $data->foods ))
         {
-            $this->vitamins[] = '3g';
-            $this->groupThree = 'g';
-
-            $this->setAdvise( '3g', $this->textGenerator->generate( '3g', [ 'chiaoil' ], true ) );
-            $this->setAdviseInfo( '3g', trans( 'flow.combination_info.3.g' ) );
+//            $this->vitamins[] = '3g';
+//            $this->groupThree = 'g';
+//
+//            $this->setAdvise( '3g', $this->textGenerator->generate( '3g', [ 'chiaoil' ], true ) );
+//            $this->setAdviseInfo( '3g', trans( 'flow.combination_info.3.g' ) );
 
             return;
         }
@@ -690,11 +711,11 @@ class CombinationLibraryNew
                     if ( $data->outside == '1' )
                     {
                         // Outside
-                        $this->groupOne   = '1';
-                        $this->vitamins[] = '1a';
-
-                        $this->setAdvise( '1a', $this->textGenerator->generate( '1a', [] ) );
-                        $this->setAdviseInfo( '1a', trans( 'flow.combination_info.1.basic' ) );
+//                        $this->groupOne   = '1';
+//                        $this->vitamins[] = '1a';
+//
+//                        $this->setAdvise( '1a', $this->textGenerator->generate( '1a', [] ) );
+//                        $this->setAdviseInfo( '1a', trans( 'flow.combination_info.1.basic' ) );
 
                         return;
                     }
@@ -831,11 +852,11 @@ class CombinationLibraryNew
                         if ( $data->outside == '1' )
                         {
                             // Outside
-                            $this->groupOne   = '1';
-                            $this->vitamins[] = '1a';
-
-                            $this->setAdvise( '1a', $this->textGenerator->generate( '1a', [] ) );
-                            $this->setAdviseInfo( '1a', trans( 'flow.combination_info.1.basic' ) );
+//                            $this->groupOne   = '1';
+//                            $this->vitamins[] = '1a';
+//
+//                            $this->setAdvise( '1a', $this->textGenerator->generate( '1a', [] ) );
+//                            $this->setAdviseInfo( '1a', trans( 'flow.combination_info.1.basic' ) );
 
                             return;
                         }
@@ -865,8 +886,8 @@ class CombinationLibraryNew
 
                             $this->vitamins[] = '1b';
 
-                             $this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'skin' ] ) );
-                             $this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d' ) );
+                            $this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'skin' ] ) );
+                            $this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d' ) );
 
 
 
@@ -915,8 +936,8 @@ class CombinationLibraryNew
 
                             $this->vitamins[] = '1b';
 
-                             $this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'age' ] ) );
-                             $this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
+                            $this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'age' ] ) );
+                            $this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d-alt' ) );
 
 
 
@@ -933,7 +954,7 @@ class CombinationLibraryNew
 
                             $this->vitamins[] = '1b';
 
-                             $this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'age' ] ) );
+                            $this->setAdvise( '1b', $this->textGenerator->generate( '1b', [ 'age' ] ) );
                             $this->setAdviseInfo( '1b', trans( 'flow.combination_info.1.basic-10-d' ) );
 
 

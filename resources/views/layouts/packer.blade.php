@@ -36,11 +36,11 @@
 					@endif
 
 					@if( session('links') )
-							@foreach(session('links') as $link)
-								<div class="alert alert-info">
-									Download file: <a href="{{ $link['url'] }}">{{ $link['label'] }}</a>
-								</div>
-							@endforeach
+						@foreach(session('links') as $link)
+							<div class="alert alert-info">
+								Download file: <a href="{{ $link['url'] }}">{{ $link['label'] }}</a>
+							</div>
+						@endforeach
 					@endif
 					@yield('content')
 				</div>

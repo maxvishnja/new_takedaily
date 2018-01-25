@@ -109,12 +109,18 @@
 				if (this.discount.type == 'amount') {
 					total = this.discount.amount;
 				}
+                else if (this.discount.type == 'amount' && this.discount.length != 0) {
+                    total = this.discount.amount + " x "+ this.discount.length + " {!! trans('general.month') !!}";
+                }
 				else if (this.discount.type == 'free_shipping') {
 					total = '100%';
 				}
-				else if (this.discount.type == 'percentage') {
+				else if (this.discount.type == 'percentage' && this.discount.length == 0) {
 					total = this.discount.amount + '%';
 				}
+                else if (this.discount.type == 'percentage' && this.discount.length != 0) {
+                    total = this.discount.amount + "% x "+ this.discount.length + " {!! trans('general.month') !!}";
+                }
                 else if (this.discount.type == 'fixed') {
                     total = this.discount.amount;
                 }
@@ -215,6 +221,7 @@
 						})
 					}
 				});
+
 			},
 
 			removeVitamin: function (vitamin) {
@@ -356,17 +363,33 @@
 
 						if (timeout >= delay || !useTimeout) {
 							timeout = delay - 1;
-						}
+                        }
 
+
+
+                        app.getCart();
 						combinationTimeout = setTimeout(function () {
 							$("#advises-label").html(response.label);
 							$("#link-to-change").attr('href', ('{{ URL::route('pick-n-mix') }}?selected=' + response.selected_codes + '&flow_token=' + response.token));
 							app.result = response.result;
 							app.recommendation_token = response.token;
-                            dataLayer.push({"event":"q_done"});
+
+                            if(app.totals.length == 0){
+                                app.getCombinations(true);
+                            }
 							$("#advises-loader").hide();
-							$("#advises-block").fadeIn();
-							app.getCart();
+
+                            if(response.num_advises <= 1){
+                                $('#advises-table').removeClass('col-md-7').addClass('col-md-12');
+                                $('.card').hide();
+
+                            }else{
+                                $('#advises-table').removeClass('col-md-12').addClass('col-md-7');
+                                $('.card').show();
+                            }
+                            $("#advises-block").fadeIn();
+                            dataLayer.push({"event":"q_done"});
+
 
 						}, delay - timeout);
 					}

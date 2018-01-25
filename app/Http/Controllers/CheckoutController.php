@@ -379,9 +379,7 @@ class CheckoutController extends Controller
                     }
 
 
-
-
-
+                    $checkoutCompletion->getUser()->getCustomer()->getPlan()->setTrial();
 
                     $checkoutCompletion->getUser()->getCustomer()->getPlan()->setLastCoupon($couponCode);
                 }

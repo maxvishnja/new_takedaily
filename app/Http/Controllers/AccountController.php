@@ -38,8 +38,12 @@ class AccountController extends Controller
 
     function getHome()
     {
-        $orders = $this->customer->getOrders();
+
+
+
         $plan = $this->customer->getPlan();
+        $orders = $this->customer->getOrders();
+
         $nutritionist = Nutritionist::where('id', $plan->nutritionist_id)
             ->where('active', 1)
             ->first();
@@ -65,34 +69,34 @@ class AccountController extends Controller
 
 
 
-            $data = $request->all();
-            if($data){
-                $nutritionist = Nutritionist::where('id', $this->customer->plan->nutritionist_id)
-                    ->where('active', 1)
-                    ->first();
+        $data = $request->all();
+        if($data){
+            $nutritionist = Nutritionist::where('id', $this->customer->plan->nutritionist_id)
+                ->where('active', 1)
+                ->first();
 
-                $mailEmail = $nutritionist->email;
-                $fromEmail = $this->customer->getUser()->getEmail();
-                $data['name']  = $this->customer->getUser()->getName();
-                $data['n_name']  = $nutritionist->first_name." ".$nutritionist->last_name;
-                $data['locale']  = $this->customer->getLocale();
-                $mailName = 'TakeDaily';
-                $locale = \App::getLocale();
+            $mailEmail = $nutritionist->email;
+            $fromEmail = $this->customer->getUser()->getEmail();
+            $data['name']  = $this->customer->getUser()->getName();
+            $data['n_name']  = $nutritionist->first_name." ".$nutritionist->last_name;
+            $data['locale']  = $this->customer->getLocale();
+            $mailName = 'TakeDaily';
+            $locale = \App::getLocale();
 
 
-                \Mail::send('emails.nutritionist', $data,
-                    function ($message)
-                    use ($mailEmail, $mailName, $locale, $fromEmail) {
-                        \App::setLocale($locale);
-                        $message->from($fromEmail, 'TakeDaily');
-                        $message->to($mailEmail, $mailName);
-                        //$message->subject($fromEmail);
-                        $message->subject(trans('mails.nutritionist.subject'));
-                    });
+            \Mail::send('emails.nutritionist', $data,
+                function ($message)
+                use ($mailEmail, $mailName, $locale, $fromEmail) {
+                    \App::setLocale($locale);
+                    $message->from($fromEmail, 'TakeDaily');
+                    $message->to($mailEmail, $mailName);
+                    //$message->subject($fromEmail);
+                    $message->subject(trans('mails.nutritionist.subject'));
+                });
 
-                return \Redirect::action('AccountController@getHome')->with('success', trans('messages.successes.nutritionist.email.sent'));
+            return \Redirect::action('AccountController@getHome')->with('success', trans('messages.successes.nutritionist.email.sent'));
 
-            }
+        }
 
 
 
@@ -416,9 +420,18 @@ class AccountController extends Controller
 
         $plan = $this->customer->getPlan();
 
-        if($plan->last_coupon == $coupon->code or  $plan->coupon_free != ''){
-            return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
+        if($coupon->code == 'UNDSKYLD'){
+            if($plan->coupon_free != ''){
+                return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
+            }
+        } else{
+            if($plan->last_coupon == $coupon->code or $plan->coupon_free != ''){
+                return \Response::json(['message' => trans('checkout.messages.coupon-missing')], 400);
+            }
         }
+
+
+
 
         $plan->last_coupon = $coupon->code;
         if($coupon->discount_type == 'percentage'){

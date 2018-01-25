@@ -29,7 +29,7 @@
         </style>
         <div id='ppHeader'>TakeDaily Privacy Policy</div><div id='ppBody'>
             <div class='ppConsistencies'><div class='col-2'>
-                <div class="quick-links text-center">Information Collection</div>
+                    <div class="quick-links text-center">Information Collection</div>
                 </div><div class='col-2'>
                     <div class="quick-links text-center">Information Usage</div>
                 </div><div class='col-2'>

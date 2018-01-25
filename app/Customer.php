@@ -107,6 +107,12 @@ class Customer extends Model
     }
 
 
+    public function getOrdersFromDate($month, $year)
+    {
+        return $this->hasMany('App\Order', 'customer_id', 'id')->whereMonth('created_at', '=', $month)->whereYear('created_at', '=', $year)->get();
+    }
+
+
     public function notes()
     {
         return $this->hasMany('App\Notes', 'customer_id', 'id');
@@ -160,6 +166,7 @@ class Customer extends Model
     }
 
 
+
     /**
      * @return Coupon ambassador
      */
@@ -193,6 +200,12 @@ class Customer extends Model
     public function getOrders()
     {
         return $this->orders;
+    }
+
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function isSubscribed()
@@ -607,14 +620,8 @@ class Customer extends Model
         if (!$this->getPlan()) {
             return false;
         }
-
-
         $coupon_free = $this->getPlan()->getCouponCount();
         $discount_type = $this->getPlan()->getDiscountType();
-
-
-        $count_discount = $this->getPlan()->getDiscountCount();
-
 
         if($coupon_free > 0 && $discount_type=='month') {
             $amount = 0;
@@ -643,15 +650,7 @@ class Customer extends Model
             $coupon= Coupon::where('code','=',$this->getPlan()->getLastCoupon())->first();
         }
 
-        if($count_discount > 0){
 
-            $amount = $this->getPlan()->getPriceDiscount();
-            $this->getPlan()->setDiscountCount($count_discount - 1);
-
-        } else{
-
-            $this->getPlan()->clearPriceDiscount();
-        }
 
         /** @var PaymentHandler $paymentHandler */
         $paymentHandler = new PaymentHandler(PaymentDelegator::getMethod($this->getPlan()->getPaymentMethod()));
@@ -670,6 +669,17 @@ class Customer extends Model
         }
 
         if ($amount > 0) {
+
+            if($this->getLocale() == 'da'){
+                if($amount == 14900 or $amount == 12800 or $amount == 17400) {
+                    $this->getPlan()->clearTrial();
+                }
+            } else{
+                if($amount == 1595 and $amount == 1895) {
+                    $this->getPlan()->clearTrial();
+                }
+            }
+
             try {
                 $charge = $paymentHandler->makeRebill($amount, $this->getPlan()->getPaymentCustomer());
 

@@ -21,7 +21,7 @@ class CreateCsvAllCustomers
 
         $stat_count->save();
 
-        $almost
+
         $email_array = [];
         $i = 0;
 
@@ -29,96 +29,96 @@ class CreateCsvAllCustomers
 
             \App::setLocale($customer->getLocale());
 
-                $email_array[$i]['Firstname'] = $customer->getFirstName();
+            $email_array[$i]['Firstname'] = $customer->getFirstName();
 
-                $email_array[$i]['Email'] = $customer->getEmail();
+            $email_array[$i]['Email'] = $customer->getEmail();
 
-                $email_array[$i]['Phone'] = $customer->getPhone();
+            $email_array[$i]['Phone'] = $customer->getPhone();
 
-                if ($customer->getGender() == 1) {
-                    $email_array[$i]['Gender'] = 'male';
+            if ($customer->getGender() == 1) {
+                $email_array[$i]['Gender'] = 'male';
+            } else {
+                $email_array[$i]['Gender'] = 'female';
+            }
+
+            $email_array[$i]['Birth'] = $customer->getBirthday();
+
+            if ($customer->isSubscribed()) {
+                $email_array[$i]['Active'] = "Active";
+            } else {
+                $email_array[$i]['Active'] = "Not active";
+            }
+
+            if ($customer->plan->is_custom == 1) {
+                $email_array[$i]['Subscription type'] = 'PicknMix';
+            } else {
+                $email_array[$i]['Subscription type'] = 'Test';
+            }
+
+
+            $email_array[$i]['Signupdate'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
+
+
+
+            if ($customer->plan->subscription_rebill_at != null) {
+                $email_array[$i]['Nextpayment'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d-m-Y');
+
+            } else {
+
+                $email_array[$i]['Nextpayment'] = '';
+
+            }
+
+            $email_array[$i]['Last PaymentDate'] = '';
+
+            if ($customer->plan->last_rebill_date != null) {
+                $email_array[$i]['Last PaymentDate'] = $customer->plan->last_rebill_date;
+            }
+
+            $email_array[$i]['Unsubscribe date'] = '';
+
+            if ($customer->plan->subscription_cancelled_at != null) {
+                $email_array[$i]['Unsubscribe date'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_cancelled_at)->format('d-m-Y');
+            }
+
+
+            $email_array[$i]['Unsubscribe reason'] = '';
+
+            if ($customer->plan->unsubscribe_reason != '') {
+
+                if (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.0'))) {
+                    $email_array[$i]['Unsubscribe reason'] = 'Reasons.0';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.1'))) {
+                    $email_array[$i]['Unsubscribe reason'] = 'Reasons.1';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.2'))) {
+                    $email_array[$i]['Unsubscribe reason'] = 'Reasons.2';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.3'))) {
+                    $email_array[$i]['Unsubscribe reason'] = 'Reasons.3';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.4'))) {
+                    $email_array[$i]['Unsubscribe reason'] = 'Reasons.4';
+                } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.5'))) {
+                    $email_array[$i]['Unsubscribe reason'] = 'Reasons.5';
                 } else {
-                    $email_array[$i]['Gender'] = 'female';
+                    $email_array[$i]['Unsubscribe reason'] = 'Reasons.other';
                 }
 
-                $email_array[$i]['Birth'] = $customer->getBirthday();
+            }
 
-                if ($customer->isSubscribed()) {
-                    $email_array[$i]['Active'] = "Active";
-                } else {
-                    $email_array[$i]['Active'] = "Not active";
+
+
+            $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
+            $email_array[$i]['Amount'] = $customer->order_count;
+            $email_array[$i]['Source'] = '';
+            $email_array[$i]['Medium'] = '';
+            $email_array[$i]['Campaign'] = '';
+
+            if (count($customer->getMarketing()) > 0) {
+                foreach ($customer->getMarketing() as $market) {
+                    $email_array[$i]['Source'] = $market->source;
+                    $email_array[$i]['Medium'] = $market->medium;
+                    $email_array[$i]['Campaign'] = $market->campaign;
                 }
-
-                if ($customer->plan->is_custom == 1) {
-                    $email_array[$i]['Subscription type'] = 'PicknMix';
-                } else {
-                    $email_array[$i]['Subscription type'] = 'Test';
-                }
-
-
-                $email_array[$i]['Signupdate'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
-
-
-
-                if ($customer->plan->subscription_rebill_at != null) {
-                    $email_array[$i]['Nextpayment'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d-m-Y');
-
-                } else {
-
-                    $email_array[$i]['Nextpayment'] = '';
-
-                }
-
-                $email_array[$i]['Last PaymentDate'] = '';
-
-                if ($customer->plan->last_rebill_date != null) {
-                    $email_array[$i]['Last PaymentDate'] = $customer->plan->last_rebill_date;
-                }
-
-                $email_array[$i]['Unsubscribe date'] = '';
-
-                if ($customer->plan->subscription_cancelled_at != null) {
-                    $email_array[$i]['Unsubscribe date'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_cancelled_at)->format('d-m-Y');
-                }
-
-
-                $email_array[$i]['Unsubscribe reason'] = '';
-
-                if ($customer->plan->unsubscribe_reason != '') {
-
-                    if (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.0'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.0';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.1'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.1';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.2'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.2';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.3'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.3';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.4'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.4';
-                    } elseif (strstr($customer->plan->unsubscribe_reason, trans('account.settings_cancel.reasons.5'))) {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.5';
-                    } else {
-                        $email_array[$i]['Unsubscribe reason'] = 'Reasons.other';
-                    }
-
-                }
-
-
-
-                $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
-                $email_array[$i]['Amount'] = $customer->order_count;
-                $email_array[$i]['Source'] = '';
-                $email_array[$i]['Medium'] = '';
-                $email_array[$i]['Campaign'] = '';
-
-                if (count($customer->getMarketing()) > 0) {
-                    foreach ($customer->getMarketing() as $market) {
-                        $email_array[$i]['Source'] = $market->source;
-                        $email_array[$i]['Medium'] = $market->medium;
-                        $email_array[$i]['Campaign'] = $market->campaign;
-                    }
-                }
+            }
 
             $email_array[$i]['Hvilken hudfarve matcher din bedst?'] = $customer->getCustomerAttribute('user_data.skin');
 

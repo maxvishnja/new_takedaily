@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Apricot\Repositories\CustomerRepository;
 use App\Apricot\Helpers\EmailPlatformApi;
+use App\Customer;
 use Illuminate\Console\Command;
 
 
@@ -48,7 +49,6 @@ class AddCustomersToApi extends Command
 
 
 
-
         echo "All - ".count($customers)." - ";
 
         echo "Almost - ".count($almosts)." - ";
@@ -60,8 +60,6 @@ class AddCustomersToApi extends Command
         $skip_listcheck = true;
 
         $parser = new EmailPlatformApi();
-
-        $i = 0;
 
         foreach($customers as $customer){
 
@@ -106,8 +104,13 @@ class AddCustomersToApi extends Command
             }
             $winback = '';
 
+
             if ($customer->isSubscribed()) {
-                $active = "Active";
+                if($customer->plan->trial == 1){
+                    $active = "Trial";
+                }else {
+                    $active = "Active";
+                }
             } else {
                 $active = "Not active";
                 $hash = base64_encode($customer->id);
@@ -129,6 +132,8 @@ class AddCustomersToApi extends Command
             }
 
             $unsubscribe = '';
+
+
 
             if ($customer->plan->subscription_cancelled_at != null) {
                 $unsubscribe = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_cancelled_at)->format('d-m-Y');
@@ -252,164 +257,152 @@ class AddCustomersToApi extends Command
                 $lastOrderDate = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d-m-Y');
             }
 
+            $age = 0;
 
-
-            if($i % 10 == 0){
-                $test_group = 1;
-            } else{
-                $test_group = 0;
+            if($customer->getAge()){
+                $age = $customer->getAge();
             }
 
-           if(\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->last_start_date)->format('Y') == '-0001'){
 
-               if($customer->plan->subscription_started_at != null){
-                   $latest_date = $customer->plan->subscription_started_at;
-               } else{
-                   $latest_date = $customer->created_at;
-               }
-                $last_start = \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y');
-           } else {
-                $last_start = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->last_start_date)->format('d-m-Y');
-           }
+            try {
+                $customfields  =  array (
+                    array (
+                        'fieldid'  => 2,
+                        'value'  =>  $customer->getFirstName()),
+                    array (
+                        'fieldid'  => 3,
+                        'value'  =>  $customer->getLastName()),
+                    array (
+                        'fieldid'  => 12,
+                        'value'  =>  $gender),
+
+                    array (
+                        'fieldid'  => 2667,
+                        'value'  =>  $age),
+                    array (
+                        'fieldid'  => 2668,
+                        'value'  =>  $customer->getBirthday()),
+                    array (
+                        'fieldid'  => 4,
+                        'value'  =>  $customer->getPhone()),
+                    array (
+                        'fieldid'  => 2583,
+                        'value'  =>  $customer->plan->getLastCoupon()),
+                    array (
+                        'fieldid'  => 2585,
+                        'value'  =>  $source),
+                    array (
+                        'fieldid'  => 2586,
+                        'value'  =>  $medium),
+                    array (
+                        'fieldid'  => 2587,
+                        'value'  =>  $campaign),
+                    array (
+                        'fieldid'  => 11,
+                        'value'  =>  $country),
+                    array (
+                        'fieldid'  => 2669,
+                        'value'  =>  $active),
+                    array (
+                        'fieldid'  => 2670,
+                        'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
+                    array (
+                        'fieldid'  => 2693,
+                        'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
+                    array (
+                        'fieldid'  => 2671,
+                        'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
+                    array (
+                        'fieldid'  => 2694,
+                        'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
+                    array (
+                        'fieldid'  => 2672,
+                        'value'  =>  $unsubscribe),
+                    array (
+                        'fieldid'  => 2673,
+                        'value'  =>  $unsubscribe),
+                    array (
+                        'fieldid'  => 2674,
+                        'value'  =>  $lastpaymentdate),
+                    array (
+                        'fieldid'  => 2675,
+                        'value'  =>  $nextpaymentdate),
+                    array (
+                        'fieldid'  => 2676,
+                        'value'  =>  $lastOrderDate),
+                    array (
+                        'fieldid'  => 2677,
+                        'value'  =>  $nextshipmentdate),
+                    array (
+                        'fieldid'  => 2678,
+                        'value'  =>  ''),
+                    array (
+                        'fieldid'  => 2679,
+                        'value'  =>  $winback),
+                    array (
+                        'fieldid'  => 2680,
+                        'value'  =>  ''),
+                    array (
+                        'fieldid'  => 2681,
+                        'value'  =>  ''),
+                    array (
+                        'fieldid'  => 2682,
+                        'value'  =>  ''),
+                    array (
+                        'fieldid'  => 2683,
+                        'value'  =>  $interval->days),
+                    array (
+                        'fieldid'  => 2684,
+                        'value'  =>  $nextshipmentdate),
+                    array (
+                        'fieldid'  => 2685,
+                        'value'  =>  ''),
+                    array (
+                        'fieldid'  => 2686,
+                        'value'  =>  $vitamins['1']),
+                    array (
+                        'fieldid'  => 2687,
+                        'value'  =>  $vitamins['2']),
+                    array (
+                        'fieldid'  => 2688,
+                        'value'  =>  $vitamins['3']),
+                    array (
+                        'fieldid'  => 2689,
+                        'value'  =>  $vitamins['4']),
+                    array (
+                        'fieldid'  => 3235,
+                        'value'  =>  $unsubReason),
+                    array (
+                        'fieldid'  => 2584,
+                        'value'  =>  $customer->order_count),
+                    array (
+                        'fieldid'  => 2690,
+                        'value'  =>  $reason),
+                    array (
+                        'fieldid'  => 2695,
+                        'value'  =>  $s_type),
+                    array (
+                        'fieldid'  => 2692,
+                        'value'  =>  $choice),
+                    array (
+                        'fieldid'  => 2825,
+                        'value'  =>  $customer->id),
+                );
+
+            } catch (\Exception $exception) {
+
+                \Log::error("Create fields error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+            }
 
 
-
-            $customfields  =  array (
-                array (
-                    'fieldid'  => 2,
-                    'value'  =>  $customer->getFirstName()),
-                array (
-                    'fieldid'  => 3,
-                    'value'  =>  $customer->getLastName()),
-                array (
-                    'fieldid'  => 12,
-                    'value'  =>  $gender),
-
-                array (
-                    'fieldid'  => 2667,
-                    'value'  =>  $customer->getAge()),
-                array (
-                    'fieldid'  => 2668,
-                    'value'  =>  $customer->getBirthday()),
-                array (
-                    'fieldid'  => 4,
-                    'value'  =>  $customer->getPhone()),
-                array (
-                    'fieldid'  => 2583,
-                    'value'  =>  $customer->plan->getLastCoupon()),
-                array (
-                    'fieldid'  => 2585,
-                    'value'  =>  $source),
-                array (
-                    'fieldid'  => 2586,
-                    'value'  =>  $medium),
-                array (
-                    'fieldid'  => 2587,
-                    'value'  =>  $campaign),
-                array (
-                    'fieldid'  => 11,
-                    'value'  =>  $country),
-                array (
-                    'fieldid'  => 2669,
-                    'value'  =>  $active),
-                array (
-                    'fieldid'  => 2670,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y')),
-                array (
-                    'fieldid'  => 2693,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('H:i:s')),
-                array (
-                    'fieldid'  => 2671,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('d-m-Y')),
-                array (
-                    'fieldid'  => 2694,
-                    'value'  =>  \Date::createFromFormat('Y-m-d H:i:s', $latest_date)->format('H:i:s')),
-                array (
-                    'fieldid'  => 2672,
-                    'value'  =>  $unsubscribe),
-                array (
-                    'fieldid'  => 2673,
-                    'value'  =>  $unsubscribe),
-                array (
-                    'fieldid'  => 2674,
-                    'value'  =>  $lastpaymentdate),
-                array (
-                    'fieldid'  => 2675,
-                    'value'  =>  $nextpaymentdate),
-                array (
-                    'fieldid'  => 2676,
-                    'value'  =>  $lastOrderDate),
-                array (
-                    'fieldid'  => 2677,
-                    'value'  =>  $nextshipmentdate),
-                array (
-                    'fieldid'  => 2678,
-                    'value'  =>  ''),
-                array (
-                    'fieldid'  => 2679,
-                    'value'  =>  $winback),
-                array (
-                    'fieldid'  => 2680,
-                    'value'  =>  ''),
-                array (
-                    'fieldid'  => 2681,
-                    'value'  =>  ''),
-                array (
-                    'fieldid'  => 2682,
-                    'value'  =>  ''),
-                array (
-                    'fieldid'  => 2683,
-                    'value'  =>  $interval->days),
-                array (
-                    'fieldid'  => 2684,
-                    'value'  =>  $nextshipmentdate),
-                array (
-                    'fieldid'  => 2685,
-                    'value'  =>  ''),
-                array (
-                    'fieldid'  => 2686,
-                    'value'  =>  $vitamins['1']),
-                array (
-                    'fieldid'  => 2687,
-                    'value'  =>  $vitamins['2']),
-                array (
-                    'fieldid'  => 2688,
-                    'value'  =>  $vitamins['3']),
-                array (
-                    'fieldid'  => 2689,
-                    'value'  =>  $vitamins['4']),
-                array (
-                    'fieldid'  => 3235,
-                    'value'  =>  $unsubReason),
-                array (
-                    'fieldid'  => 2584,
-                    'value'  =>  $customer->order_count),
-                array (
-                    'fieldid'  => 2690,
-                    'value'  =>  $reason),
-                array (
-                    'fieldid'  => 2695,
-                    'value'  =>  $s_type),
-                array (
-                    'fieldid'  => 2692,
-                    'value'  =>  $choice),
-                array (
-                    'fieldid'  => 3737,
-                    'value'  =>  $test_group),
-                array (
-                    'fieldid'  => 2581,
-                    'value'  =>  $last_start),
-                array (
-                    'fieldid'  => 2825,
-                    'value'  =>  $customer->id),
-            );
 
             $result = $parser->AddSubscriberToList($listid, $emailaddress, $mobile, $mobilePrefix, $customfields, $add_to_autoresponders, $skip_listcheck);
 
             if(!is_array($result) and strstr($result,"Already subscribed to the list")){
 
                 $subscriber = $parser->GetSubscriberDetails($emailaddress, $listid);
-               // print_r ($subscriber);
+                // print_r ($subscriber);
                 if(is_array($subscriber)){
                     if(isset($subscriber['subscriberid'])){
                         $subscriberid = $subscriber['subscriberid'];
@@ -421,7 +414,7 @@ class AddCustomersToApi extends Command
 
             }
 
-            $i++;
+
         }
 
         echo "Start almost";

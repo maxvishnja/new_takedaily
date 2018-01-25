@@ -82,6 +82,8 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'customers/delete/{id}', 'Dashboard\CustomerController@destroy' );
 	Route::post( 'customers/addnote/{id}', 'Dashboard\CustomerController@addNote' );
 
+	Route::post( 'customers/find', ['as' => 'find-customer', 'uses' => 'Dashboard\CustomerController@findData'] );
+
 	Route::resource( 'calls', 'Dashboard\CallController' );
 	Route::get( 'calls/mark-done/{id}', 'Dashboard\CallController@markDone' );
 
@@ -97,7 +99,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 
     Route::get( 'orders/createNl', 'Dashboard\OrderController@createCsvNl' );
     Route::get( 'orders/createDk', 'Dashboard\OrderController@createCsvDk' );
-    
+
 	Route::resource( 'orders', 'Dashboard\OrderController' );
 	Route::get( 'orders/mark-sent/{id}', 'Dashboard\OrderController@markSent' );
 	Route::get( 'orders/refund/{id}', 'Dashboard\OrderController@refund' );
@@ -139,13 +141,15 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
     Route::post('stats/check-csv-all-customers', ['as' => 'check', 'uses' => 'Dashboard\StatsController@checkCsvAllCustomers']);
 	Route::post('stats/download-all-customers', ['as' => 'check', 'uses' => 'Dashboard\StatsController@downloadCsvAllCustomers']);
 	Route::post('stats/reason', ['as' => 'reason', 'uses' => 'Dashboard\StatsController@getUnsubscribeReason']);
+	Route::post('stats/wrong', ['as' => 'wrong', 'uses' => 'Dashboard\StatsController@getWrongSb']);
+	Route::post('stats/cohorts-country', ['as' => 'cohortsCountry', 'uses' => 'Dashboard\StatsController@getCohortsCountry']);
 	Route::resource( 'feedback', 'Dashboard\FeedbackController' );
 	Route::get( 'feedback/delete/{id}', 'Dashboard\FeedbackController@destroy' );
 	Route::resource( 'faq-translations', 'Dashboard\FaqTranslationController' );
 	Route::get( 'faq-translations/{id}/delete', 'Dashboard\FaqTranslationController@delete' );
     Route::resource( 'nutritionist', 'Dashboard\NutritionistController' );
     Route::get( 'nutritionist/delete/{id}', 'Dashboard\NutritionistController@destroy' );
-
+    Route::get( 'forecast', 'Dashboard\ForecastController@index' );
 
     Route::resource( 'actions', 'Dashboard\ActionsController' );
     

@@ -42,7 +42,7 @@
 					<th>Item</th>
 					<th>Item no.</th>
 					<th>NEW Stock</th>
-					<th>Current Stock</th>
+					<th>Quantity</th>
 					<th>Status</th>
 					<th></th>
 					<th></th>

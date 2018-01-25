@@ -1,6 +1,4 @@
 <?php namespace App;
-
-use App\Apricot\Helpers\FacebookApiHelper;
 use App\Apricot\Libraries\PaymentDelegator;
 use App\Apricot\Libraries\PaymentHandler;
 use Illuminate\Database\Eloquent\Builder;
@@ -8,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Mail\Message;
 use Jenssegers\Date\Date;
+use PhpParser\Node\Expr\Cast\Object_;
 
 /**
  * Class Plan
@@ -46,16 +45,13 @@ use Jenssegers\Date\Date;
  */
 class Plan extends Model
 {
-
     use SoftDeletes;
-
     /**
      * The database table for the model
      *
      * @var string
      */
     protected $table = 'plans';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -83,14 +79,12 @@ class Plan extends Model
         'vitamins',
         'is_custom'
     ];
-
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
     protected $hidden = [];
-
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -98,38 +92,28 @@ class Plan extends Model
     {
         return $this->belongsTo('App\Customer', 'id', 'plan_id');
     }
-
     public function isActive()
     {
         return !$this->isCancelled() && !is_null($this->getRebillAt());
     }
-
     public function isCancelled()
     {
         return !is_null($this->getSubscriptionCancelledAt());
     }
-
     public function hasFishoil()
     {
         $vitamins = json_decode($this->vitamins);
-
         if (is_null($vitamins)) {
             return false;
         }
-
         return Vitamin::whereIn('id', $vitamins)->where('code', '3e')->limit(1)->count() === 1; // todo unhardcode the 3e code
     }
-
-
     public function getVitamiPlan()
     {
-
         $vitamins = json_decode($this->vitamins);
-
         if (is_null($vitamins)) {
             return false;
         }
-
         foreach ($vitamins as $vitamin) {
             $allvitamins[] = Vitamin::find($vitamin);
         }
@@ -138,199 +122,311 @@ class Plan extends Model
         } else {
             return false;
         }
+    }
+    public static function getSignups($date, $year)
+    {
 
+
+        $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->count();
+
+        return $customers;
+    }
+
+    public static function getSignupsRevenue($date, $year)
+    {
+
+        $ordersNl =  Order::select('orders.total')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->join('plans', 'plans.id', '=', 'customers.plan_id')
+            ->whereMonth('plans.created_at', '=', $date)
+            ->whereYear('plans.created_at', '=', $year)
+            ->where('customers.locale', '=', 'nl')
+            ->whereMonth('orders.created_at', '=', $date)
+            ->whereYear('orders.created_at', '=', $year)
+            ->sum('orders.total');
+
+        $ordersDk =  Order::select('orders.total')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->join('plans', 'plans.id', '=', 'customers.plan_id')
+            ->whereMonth('plans.created_at', '=', $date)
+            ->whereYear('plans.created_at', '=', $year)
+            ->where('customers.locale', '=', 'da')
+            ->whereMonth('orders.created_at', '=', $date)
+            ->whereYear('orders.created_at', '=', $year)
+            ->sum('orders.total');
+
+
+        $sum = $ordersDk + (7.45 * $ordersNl);
+
+        return $sum;
     }
 
 
-    public static function getSignups($date)
+    public static function getSignupsCountry($date, $year, $lang)
     {
-        $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', '2017')->count();
+
+
+        $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->where('currency', $lang)->count();
 
         return $customers;
+    }
+
+
+    public static function getSignupsCountryRevenue($date, $year, $lang)
+    {
+
+
+        $revenues =  Order::select('orders.total')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->join('plans', 'plans.id', '=', 'customers.plan_id')
+            ->whereMonth('plans.created_at', '=', $date)
+            ->whereYear('plans.created_at', '=', $year)
+            ->where('orders.currency', '=', $lang)
+            ->whereMonth('orders.created_at', '=', $date)
+            ->whereYear('orders.created_at', '=', $year)
+            ->sum('orders.total');
+
+
+        return $revenues;
     }
 
 
     public static function getSignupsWeek($date)
     {
         $week_number = $date;
-        $year = 2017;
-
+        $year = date('Y');
         $first_day = date('Y-m-d 00:01:00', $week_number * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400 + 86400);
         $last_day = date('Y-m-d 23:59:00', ($week_number + 1) * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
-
-
         $customers = Plan::whereBetween('created_at', [$first_day, $last_day])->count();
-
-
         return $customers;
-
     }
-
-    public static function getCohorts($signDate, $month)
+    public static function getCohorts($signDate, $month, $year)
     {
-//		$customers = Plan::whereMonth('subscription_started_at','=',$signDate)->where( function ( $where ) use ($month)
-//		{
-//			$where->whereMonth('subscription_cancelled_at','!=',$month)
-//				->orWhereNull( 'subscription_cancelled_at');
-//		} )->count();
 
-        $allCustomers = Plan::getSignups($signDate);
+        $allCustomers = Plan::getSignups($signDate, $year);
+        $nextyear = $year;
 
-        $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
+        if($month > 12){
+            $month = sprintf('%02d', $month - 12);
+            $nextyear = 2018;
+        }
 
-
+        $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', $year)->whereDate('subscription_cancelled_at', '<=', $nextyear."-".$month."-31")->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
         if ($allCustomers == 0) {
             $cohorts = 100;
         } else {
             $cohorts = round(($customers / $allCustomers) * 100, 2);
         }
 
-        return $customers." (".$cohorts."%)";
+        $data = new Stat();
 
+        $data->customers = $customers;
+        $data->cohorts = $cohorts;
+
+        return $data;
     }
+
+
+
+    public static function getCohortsCountry($signDate, $month, $year, $lang)
+    {
+
+        $allCustomers = Plan::getSignupsCountry($signDate, $year, $lang);
+        $nextyear = $year;
+
+        if($month > 12){
+            $month = sprintf('%02d', $month - 12);
+            $nextyear = 2018;
+        }
+
+        $customers = $allCustomers - Plan::whereMonth('created_at', '=', $signDate)->whereYear('created_at', '=', $year)->whereDate('subscription_cancelled_at', '<=', $nextyear."-".$month."-31")->where('currency', $lang)->count() /*+ DatesSubscribe::whereMonth('subscription_started_at', '=', $signDate)->whereMonth('subscription_cancelled_at', '<=', $month)->count()*/;
+        if ($allCustomers == 0) {
+            $cohorts = 100;
+        } else {
+            $cohorts = round(($customers / $allCustomers) * 100, 2);
+        }
+
+        $data = new Stat();
+
+        $data->customers = $customers;
+        $data->cohorts = $cohorts;
+
+        return $data;
+    }
+
+
+
+    public static function getCohortsRevenue($signDate, $month, $year)
+    {
+
+        $revenue_all = Plan::getSignupsRevenue($signDate, $year);
+        $nextyear = $year;
+
+        if($month > 12){
+            $month = sprintf('%02d', $month - 12);
+            $nextyear = 2018;
+        }
+
+        $ordersNl =  Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear."-".$month."-31")
+                ->where('customers.locale', '=', 'nl')
+                ->whereMonth('orders.created_at', '=', $signDate)
+                ->whereYear('orders.created_at', '=', $year)
+                ->sum('orders.total') * 7.45;
+
+        $ordersDk =  Order::select('orders.total')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->join('plans', 'plans.id', '=', 'customers.plan_id')
+            ->whereMonth('plans.created_at', '=', $signDate)
+            ->whereYear('plans.created_at', '=', $year)
+            ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear."-".$month."-31")
+            ->where('customers.locale', '=', 'da')
+            ->whereMonth('orders.created_at', '=', $signDate)
+            ->whereYear('orders.created_at', '=', $year)
+            ->sum('orders.total');
+
+
+
+
+        if ($revenue_all == 0) {
+            $cohorts = 0;
+        } else {
+            $cohorts = $revenue_all - ($ordersNl + $ordersDk);
+        }
+
+        return $cohorts;
+    }
+
+    public static function getCohortsCountryRevenue($signDate, $month, $year, $lang)
+    {
+
+        $allCustomers = Plan::getSignupsCountryRevenue($signDate, $year, $lang);
+        $nextyear = $year;
+
+        if($month > 12){
+            $month = sprintf('%02d', $month - 12);
+            $nextyear = 2018;
+        }
+
+        $orders =  Order::select('orders.total')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->join('plans', 'plans.id', '=', 'customers.plan_id')
+            ->whereMonth('plans.created_at', '=', $signDate)
+            ->whereYear('plans.created_at', '=', $year)
+            ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear."-".$month."-31")
+            ->where('orders.currency', '=', $lang)
+            ->whereMonth('orders.created_at', '=', $signDate)
+            ->whereYear('orders.created_at', '=', $year)
+            ->sum('orders.total');
+
+
+
+        $revenues = $allCustomers - $orders;
+
+        if ($allCustomers == 0) {
+            $cohorts = 0;
+        } else {
+            $cohorts = $revenues;
+        }
+
+        return $cohorts;
+    }
+
+
 
     public static function getCohortsWeek($week, $signDate)
     {
-
         $week_number = $week;
-        $year = 2017;
-
+        $year = date('Y');
         $first_day = date('Y-m-d 00:01:00', $week_number * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400 + 86400);
         $last_day = date('Y-m-d 23:59:00', ($week_number + 1) * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
-
-
         $sub_day = date('Y-m-d', $signDate * 7 * 86400 + strtotime('1/1/' . $year) - date('w', strtotime('1/1/' . $year)) * 86400);
-
-
-
         $allCustomers = Plan::getSignupsWeek($week);
-
         $customers = $allCustomers - Plan::whereBetween('created_at', [$first_day, $last_day])->where('subscription_cancelled_at', '<=', $sub_day)->count()/* + DatesSubscribe::whereBetween('subscription_started_at', [$first_day, $last_day])->whereMonth('subscription_cancelled_at', '<=', sprintf('%02d', $signDate))->count()*/;
-
-
         if ($allCustomers == 0) {
             $cohorts = 100;
         } else {
             $cohorts = round(($customers / $allCustomers) * 100, 2);
         }
-
         return $customers." (".$cohorts."%)";
-
     }
-
-
     public function getVitamins()
     {
-
         $vitamins = json_decode($this->vitamins);
-
         if (is_null($vitamins)) {
             return false;
         }
         return $vitamins;
     }
-
     public function getCouponCount()
     {
-
         return $this->coupon_free;
     }
-
-
     public function setCouponCount($count)
     {
-
         $this->coupon_free = $count;
         $this->save();
     }
-
     public function setDiscountCount($count)
     {
-
         $this->count_discount = $count;
         $this->save();
-
     }
-
-
     public function getDiscountCount()
     {
         return $this->count_discount;
     }
-
-
     public function clearPriceDiscount()
     {
-
         $this->price_discount = 0;
         $this->save();
     }
-
-        public function setDiscountType($type)
+    public function setDiscountType($type)
     {
         $this->discount_type = $type;
         $this->save();
     }
-
-
     public function getReferalCount()
     {
-
         return $this->referal;
     }
-
-
     public function setReferalCount()
     {
-
         $this->referal = $this->getReferalCount() + 1;
         $this->save();
-
         return true;
-
     }
-
     public function setLastCoupon($code)
     {
-
         $this->last_coupon = $code;
         $this->save();
     }
-
     public function clearDiscount()
     {
-
         $this->coupon_free = 0;
         $this->discount_type = '';
         $this->save();
     }
-
     public function getLastCoupon()
     {
-
         return $this->last_coupon;
-
     }
-
-
     public function getDiscountType()
     {
-
         return $this->discount_type;
-
     }
-
     public function hasChiaoil()
     {
         $vitamins = json_decode($this->vitamins);
-
         if (is_null($vitamins)) {
             return false;
         }
-
         return Vitamin::whereIn('id', $vitamins)->where('code', '3g')->limit(1)->count() === 1; // todo unhardcode the 3e code
     }
-
     public function isSnoozed()
     {
         if (!is_null($this->getSubscriptionSnoozedUntil()) && Date::createFromFormat('Y-m-d H:i:s', $this->getSubscriptionSnoozedUntil())
@@ -339,38 +435,27 @@ class Plan extends Model
             $this->subscription_snoozed_until = null;
             $this->save();
         }
-
         return !is_null($this->getSubscriptionSnoozedUntil());
     }
-
     public function snooze($days)
     {
         $newDate = Date::parse($days . "14:10:00");
-
         $this->subscription_snoozed_until = $newDate;
         $this->subscription_rebill_at = $newDate;
         $this->save();
-
         return true;
     }
-
     public function moveRebill($days = 1)
     {
         if ($this->attempt == 14) {
-
             $this->cancel('14 days expired');
             return true;
-
         }
-
         $this->attempt = $this->attempt + 1;
         $this->subscription_rebill_at = Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->addWeekday($days);
         $this->save();
-
         return true;
     }
-
-
     public function setNewRebill($date)
     {
         if (!empty($date)) {
@@ -379,50 +464,37 @@ class Plan extends Model
         }
         return true;
     }
-
     public function isSnoozeable()
     {
-
         return $this->isActive()
-        //&& ! $this->isSnoozed()
-        && Date::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffInDays() >= 1
-        && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 1;
+            //&& ! $this->isSnoozed()
+            && Date::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffInDays() >= 1
+            && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 1;
     }
-
     public function isCancelable()
     {
         if(!$this->getRebillAt()){
             return false;
         }
-
         return Date::createFromFormat('Y-m-d H:i:s', $this->created_at)->diffInDays() >= 1
-        && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 1
-        && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt()) > Date::now();
+            && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt())->diffInDays() >= 1
+            && Date::createFromFormat('Y-m-d H:i:s', $this->getRebillAt()) > Date::now();
     }
-
-
     public function setNewUnsubscribe()
     {
-
         $uDate = new DatesSubscribe();
         $uDate->customer_id = $this->customer->id;
         $uDate->subscription_cancelled_at = $this->subscription_cancelled_at;
         $uDate->subscription_started_at = $this->subscription_started_at;
         $uDate->save();
     }
-
     public function delNewUnsubscribe()
     {
-
         $unsubscriber = DatesSubscribe::where('subscription_cancelled_at', '=', $this->subscription_cancelled_at);
         $unsubscriber->delete();
     }
-
-
     public function cancel($reason = '')
     {
-
-
         $this->subscription_snoozed_until = null;
         $this->subscription_cancelled_at = Date::now();
         $this->old_rebill_at = $this->subscription_rebill_at;
@@ -430,209 +502,67 @@ class Plan extends Model
         $this->unsubscribe_reason = $reason;
         $this->setNewUnsubscribe();
         $this->save();
-
         $customer = $this->customer;
-
         \App::setLocale($customer->getLocale());
-
         if ($customer->getLocale() == 'nl') {
             $fromEmail = 'info@takedaily.nl';
         } else {
             $fromEmail = 'info@takedaily.dk';
         }
-
         $mailEmail = $customer->getUser()->getEmail();
         $mailName = $customer->getUser()->getName();
-
         $mailCount = new MailStat();
-
         $mailCount->setMail(5);
-
         \Mail::queue('emails.cancel', ['locale' => $customer->getLocale(), 'reason' => $reason, 'name' => $customer->getFirstname()], function (Message $message) use ($mailEmail, $mailName, $customer, $fromEmail) {
-
-
             $message->from($fromEmail, 'TakeDaily')
                 ->to($mailEmail, $mailName)
                 ->subject(trans('mails.cancel.subject'));
         });
-
-
-        $fbApi = new FacebookApiHelper();
-
-        $bday = '';
-
-        if($customer->getBirthday()){
-            $bday = \Date::createFromFormat('Y-m-d', $customer->getBirthday())->format('Y');
-        }
-
-        if($customer->getLocale() == "nl"){
-
-            $data_active['id'] = config('services.fbApi.nl_active');
-            $data_not_active['id'] = config('services.fbApi.nl_not_active');
-            $locale = 'NL';
-
-        } else{
-
-            $data_active['id'] = config('services.fbApi.dk_active');
-            $data_not_active['id'] = config('services.fbApi.dk_not_active');
-            $locale = 'NL';
-        }
-
-        $data_not_active['data_users'] = [
-            $customer->getFirstname(),
-            $customer->getLastName(),
-            $customer->getPhone(),
-            $customer->getEmail(),
-            $bday,
-            $customer->getGender(),
-            $locale
-        ];
-
-        $data_active['email'] =  $customer->getEmail();
-
-        try{
-
-            $fbApi->removeFromAudience($data_active);
-
-        } catch (\Exception $exception) {
-
-            \Log::error("Error in delete from FB active user  : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
-        }
-
-
-        try{
-
-            $fbApi->addToAudience($data_not_active);
-
-        } catch (\Exception $exception) {
-
-            \Log::error("Error in add to FB not active user  : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
-        }
-
-
         return true;
     }
-
     public function start()
     {
-
-
-
-
+        if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInDays() >= 14) {
+            $this->subscription_started_at = Date::now();
+        }
         if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInMonths() < 1) {
             $this->delNewUnsubscribe();
         }
-
-        $this->last_start_date = Date::now();
         $this->subscription_snoozed_until = null;
         $this->subscription_cancelled_at = null;
         $this->subscription_rebill_at = Date::now()->addDays(28);
         //$this->subscription_rebill_at     = Date::now()->addDays( 28 );
         $this->save();
-
-
-
-        $fbApi = new FacebookApiHelper();
-
-        $bday = '';
-
-        $customer = $this->customer;
-
-        if($customer->getBirthday()){
-            $bday = \Date::createFromFormat('Y-m-d', $customer->getBirthday())->format('Y');
-        }
-
-        if($customer->getLocale() == "nl"){
-
-            $data_active['id'] = config('services.fbApi.nl_active');
-            $data_not_active['id'] = config('services.fbApi.nl_not_active');
-            $locale = 'NL';
-
-        } else{
-
-            $data_active['id'] = config('services.fbApi.dk_active');
-            $data_not_active['id'] = config('services.fbApi.dk_not_active');
-            $locale = 'NL';
-        }
-
-        $data_active['data_users'] = [
-            $customer->getFirstname(),
-            $customer->getLastName(),
-            $customer->getPhone(),
-            $customer->getEmail(),
-            $bday,
-            $customer->getGender(),
-            $locale
-        ];
-
-        $data_not_active['email'] =  $customer->getEmail();
-
-        try{
-
-            $fbApi->removeFromAudience($data_not_active);
-
-        } catch (\Exception $exception) {
-
-            \Log::error("Error in delete from FB active user  : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
-        }
-
-
-        try{
-
-            $fbApi->addToAudience($data_active);
-
-        } catch (\Exception $exception) {
-
-            \Log::error("Error in add to FB not active user  : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
-
-        }
-
-
         return true;
     }
-
-
     public function setLastPaymentDate(){
-
         $this->last_rebill_date = Date::createFromFormat('Y-m-d H:i:s', $this->subscription_rebill_at)->subDay();
         $this->save();
         return true;
     }
-
     public function rebilled()
     {
         $this->attempt = 0;
         $this->subscription_rebill_at = Date::now()->addDays(28);
         $this->subscription_snoozed_until = null;
         $this->save();
-
         $this->markHasNotified(false);
-
         return true;
     }
-
-
     public function setSnoozingDate()
     {
-
         $this->snoozing_at = Date::now();
         $this->save();
-
         return true;
     }
-
-
     public function startFromToday()
     {
-
-
+        if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInDays() >= 14) {
+            $this->subscription_started_at = Date::now();
+        }
         if (Date::createFromFormat('Y-m-d H:i:s', $this->subscription_cancelled_at)->diffInMonths() < 1) {
             $this->delNewUnsubscribe();
         }
-        $this->last_start_date = Date::now();
         $this->subscription_snoozed_until = null;
         $this->subscription_cancelled_at = null;
         $this->unsubscribe_reason = '';
@@ -643,104 +573,91 @@ class Plan extends Model
         }
         $this->old_rebill_at = null;
         $this->save();
-
         return true;
     }
-
     public function getSubscriptionSnoozedUntil()
     {
         return $this->subscription_snoozed_until;
     }
-
     public function getSubscriptionCancelledAt()
     {
         return $this->subscription_cancelled_at;
     }
-
     public function getReasonCancel()
     {
         return $this->unsubscribe_reason;
     }
-
-
     public function getSubscriptionStartedAt()
     {
         return $this->subscription_started_at;
     }
-
     public function getRebillAt()
     {
         return $this->subscription_rebill_at;
     }
-
     public function getNextDelivery()
     {
         return (new Date($this->getRebillAt()))->addDays(5)->format('Y-m-d');
     }
-
     public function getStartNextDeliveryNl()
     {
         return (new Date($this->getRebillAt()))->addWeekdays(2)->format('Y-m-d');
     }
-
     public function getEndNextDeliveryNl()
     {
         return (new Date($this->getRebillAt()))->addWeekdays(5)->format('Y-m-d');
     }
-
     public function getStartNextDeliveryDk()
     {
         return (new Date($this->getRebillAt()))->addWeekdays(3)->format('Y-m-d');
     }
-
     public function getEndNextDeliveryDk()
     {
         return (new Date($this->getRebillAt()))->addWeekdays(7)->format('Y-m-d');
     }
-
     public function getTotal()
     {
         return $this->getPrice() + $this->getShippingPrice();
     }
-
     public function getPrice()
     {
         return $this->price;
     }
-
     public function setPrice($newamount)
     {
         $this->price = $newamount;
         $this->save();
-
         return true;
     }
 
+    public function setTrial(){
+        $this->trial = 1;
+        $this->save();
+    }
+
+
+    public function clearTrial(){
+        $this->trial = 0;
+        $this->save();
+
+    }
 
     public function getShippingPrice()
     {
         return $this->price_shipping;
     }
-
-
     public function getPriceDiscount()
     {
         return $this->price_discount;
     }
-
-
-
-
     public function getStripeToken() // todo remove
     {
         return $this->stripe_token;
     }
-
     public function getPaymentCustomerToken()
     {
         return $this->payment_customer_token;
     }
-
     /**
      * Returns the payment method
      *
@@ -750,23 +667,17 @@ class Plan extends Model
     {
         return $this->payment_method;
     }
-
     public function getPaymentCustomer()
     {
         $customerToken = $this->getPaymentCustomerToken();
-
         $paymentMethod = new PaymentHandler(PaymentDelegator::getMethod($this->getPaymentMethod()));
-
         return $paymentMethod->getCustomer($customerToken);
     }
-
     public function getPaymentHandler()
     {
         $paymentMethod = new PaymentHandler(PaymentDelegator::getMethod($this->getPaymentMethod()));
-
         return $paymentMethod;
     }
-
     /**
      * @param Builder $query
      *
@@ -780,9 +691,7 @@ class Plan extends Model
                     ->orWhere('subscription_snoozed_until', '<=', Date::now()->addDays(3));
             })
             ->whereNull('subscription_cancelled_at');
-
     }
-
     /**
      * @param Builder $query
      *
@@ -792,15 +701,11 @@ class Plan extends Model
     {
         return $query->where('has_notified_pending_rebill', 0);
     }
-
     private function markHasNotified($hasNotified = true)
     {
         $this->has_notified_pending_rebill = $hasNotified ? 1 : 0;
-
         $this->save();
     }
-
-
     /**
      * @return bool
      */
@@ -815,52 +720,39 @@ class Plan extends Model
             $fromEmail = 'info@takedaily.dk';
             $url = "https://takedaily.dk/account/transactions?already_open=1";
         }
-
         $image = 'https://takedaily.nl/checksnooz/' . base64_encode($customer->getEmail()) . '/' . rand(1, 999) . '/email.png';
-
-
         \Mail::send('emails.pending-rebill', ['locale' => $customer->getLocale(), 'rebillAt' => $this->getRebillAt(), 'name' => $customer->getFirstname(), 'link' => $url, 'image' => $image], function (Message $message) use ($customer, $fromEmail) {
             \Log::info("Message send to " . $customer->getName() . "(id " . $customer->id . ", mail " . $customer->getEmail() . ")");
-
             $message->from($fromEmail, 'TakeDaily')
                 ->to($customer->getEmail(), $customer->getName())
                 ->subject(trans('mails.pending.subject'));
         });
-
         $snoozing = new Snoozing();
         $snoozing->customer_id = $customer->id;
         $snoozing->email = $customer->getEmail();
         $snoozing->save();
         $this->setSnoozingDate();
         $this->markHasNotified();
-
         return true;
     }
-
     public function isCustom()
     {
         return $this->is_custom == 1;
     }
-
     public function setIsCustom($isCustom = false)
     {
         $this->is_custom = $isCustom ? 1 : 0;
         $this->save();
-
         return true;
     }
-
     public function getPackage()
     {
         // todo
     }
-
     public function setNullSnooze()
     {
         $this->subscription_snoozed_until = null;
         $this->save();
-
         return true;
     }
-
 }

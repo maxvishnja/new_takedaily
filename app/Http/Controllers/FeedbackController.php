@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use App\Feedback;
+use App\Plan;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller

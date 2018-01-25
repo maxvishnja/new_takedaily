@@ -13,6 +13,7 @@ use App\Order;
 use App\Plan;
 use App\Setting;
 use Illuminate\Http\Request;
+use Jenssegers\Date\Date;
 
 
 class StatsController extends Controller
@@ -127,7 +128,13 @@ class StatsController extends Controller
         //$customers = $this->repo->allLocaleTime($data['lang']);
         $customers = $this->repo->allLocaleTime($data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']);
 
-        //\Event::fire(new CreateCsv($customers, $data['lang']));
+        $stat_count = Setting::where('identifier','=','month_stat_'.$data['lang'])->first();
+        $stat_count->value = 1;
+
+        $stat_count->save();
+
+        \Log::info('Click on create month CSV'.$data['lang']);
+
         \Event::fire(new CreateCsv($customers, $data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']));
 
 
@@ -153,6 +160,8 @@ class StatsController extends Controller
 
         $stat_count->save();
 
+        \Log::info('Click on create All CSV'.$data['lang']);
+
         \Event::fire(new CreateAllCsv($customers, $data['lang']));
 
 
@@ -174,6 +183,10 @@ class StatsController extends Controller
 
         if(file_exists($filename)){
 
+            $stat_count = Setting::where('identifier','=','month_stat_'.$data['lang'])->first();
+            $stat_count->value = 0;
+
+            $stat_count->save();
             return \Response::download($filename)->deleteFileAfterSend(true);
 
         } else{
@@ -268,27 +281,142 @@ class StatsController extends Controller
                     $users_array = [];
                     foreach(trans('flow.datepicker.months_long') as $key=>$month) {
 
-                        $users_array[$month]['Month'] = $month;
-                        $users_array[$month]['Signups'] = Plan::getSignups(sprintf('%02d', $key));
-                        $users_array[$month]['0'] = '100%';
-                        foreach (range($key, 12) as $y){
-                            if($y >= $key and $y <= (int)date('m') ){
-                                $users_array[$month][$y] = Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y));
+                        $users_array[$month.' 2017']['Month'] = $month.' 2017';
+                        $users_array[$month.' 2017']['Signups'] = Plan::getSignups(sprintf('%02d', $key),2017);
+                        $users_array[$month.' 2017']['0'] = '100%';
+                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y){
+                            if($y >= $key ){
+                                $users_array[$month.' 2017'][$y] = Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y),2017)->customers."(".Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y),2017)->cohorts."%)";
                             }
 
-                          }
+                        }
 
                     }
-                    \Excel::create('cohorts_month', function ($excel) use ($users_array) {
+
+                    foreach(trans('flow.datepicker.months_long') as $key2=>$month2) {
+
+                        $users_array[$month2.' 2018']['Month'] = $month2.' 2018';
+                        $users_array[$month2.' 2018']['Signups'] = Plan::getSignups(sprintf('%02d', $key2),2018);
+                        $users_array[$month2.' 2018']['0'] = '100%';
+                        foreach (range($key2, 12) as $y2){
+                            if($y2 >= $key2 and $y2 <= (int)date('m') ){
+                                $users_array[$month2.' 2018'][$y2] = Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2),2018)->customers."(".Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2),2018)->cohorts."%)";
+                            }
+
+                        }
+
+                    }
+
+
+                    $users_array2 = [];
+                    foreach(trans('flow.datepicker.months_long') as $key=>$month) {
+
+                        $users_array2[$month.' 2017']['Month'] = $month.' 2017';
+                        $users_array2[$month.' 2017']['Revenues'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsRevenue(sprintf('%02d', $key),2017),2);
+                        $users_array2[$month.' 2017']['0'] = '100%';
+                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y){
+                            if($y >= $key ){
+                                $users_array2[$month.' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y),2017),2);
+                            }
+
+                        }
+
+                    }
+
+                    foreach(trans('flow.datepicker.months_long') as $key2=>$month2) {
+
+                        $users_array2[$month2.' 2018']['Month'] = $month2.' 2018';
+                        $users_array2[$month2.' 2018']['Revenues'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsRevenue(sprintf('%02d', $key2),2018),2);
+                        $users_array2[$month2.' 2018']['0'] = '100%';
+                        foreach (range($key2, 12) as $y2){
+                            if($y2 >= $key2 and $y2 <= (int)date('m') ){
+                                $users_array2[$month2.' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2),2018),2);
+                            }
+
+                        }
+
+                    }
+
+
+                    $users_array3 = [];
+                    foreach(trans('flow.datepicker.months_long') as $key=>$month) {
+
+                        $users_array3[$month.' 2017']['Month'] = $month.' 2017';
+                        if(Plan::getSignups(sprintf('%02d', $key),2017) != 0) {
+                            $users_array3[$month.' 2017']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsRevenue(sprintf('%02d', $key), 2017) / Plan::getSignups(sprintf('%02d', $key),2017) , 2);
+                        } else{
+                            $users_array3[$month.' 2017']['ARPU'] = 0;
+                        }
+                        $users_array3[$month.' 2017']['0'] = '100%';
+                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y){
+                            if($y >= $key ){
+
+                                if(Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y),2017)->customers != 0){
+                                    $users_array3[$month.' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y),2017) / Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y),2017)->customers,2);
+
+                                } else{
+                                    $users_array3[$month.' 2017'][$y] = 0;
+                                }
+
+
+                            }
+
+                        }
+
+                    }
+
+                    foreach(trans('flow.datepicker.months_long') as $key2=>$month2) {
+
+                        $users_array3[$month2.' 2018']['Month'] = $month2.' 2018';
+                        if(Plan::getSignups(sprintf('%02d', $key2),2018) != 0) {
+                            $users_array3[$month2.' 2018']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsRevenue(sprintf('%02d', $key2), 2018) / Plan::getSignups(sprintf('%02d', $key2),2018) , 2);
+                        } else{
+                            $users_array3[$month2.' 2018']['ARPU'] = 0;
+                        }
+                        $users_array3[$month2.' 2018']['0'] = '100%';
+                        foreach (range($key2, 12) as $y2){
+                            if($y2 >= $key2 and $y2 <= (int)date('m') ){
+                                if(Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2),2018)->customers != 0){
+                                    $users_array3[$month2.' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2),2018) / Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2),2018)->customers,2);
+
+                                } else{
+                                    $users_array3[$month2.' 2018'][$y2] = 0;
+                                }
+
+
+                            }
+
+                        }
+
+                    }
+
+
+
+
+
+                    \Excel::create('cohorts_month', function ($excel) use ($users_array,$users_array2,$users_array3) {
 
                         $excel->sheet('All users', function ($sheet) use ($users_array) {
 
                             $sheet->fromArray($users_array, null, 'A1', true);
 
                         });
+                        $excel->sheet('Revenue', function ($sheet) use ($users_array2) {
+
+                            $sheet->fromArray($users_array2, null, 'A1', true);
+
+                        });
+                        $excel->sheet('ARPU', function ($sheet) use ($users_array3) {
+
+                            $sheet->fromArray($users_array3, null, 'A1', true);
+
+                        });
 
                     })->download('xls');
                     return \Redirect::back();
+
+
+
                 case 5:
 
                     $users_array = [];
@@ -317,7 +445,145 @@ class StatsController extends Controller
                     return \Redirect::back();
 
                 default:
-                    return \Redirect::back()->withErrors("No data!");
+                    $users_array = [];
+                    foreach(trans('flow.datepicker.months_long') as $key=>$month) {
+
+                        $users_array[$month.' 2017']['Month'] = $month.' 2017';
+                        $users_array[$month.' 2017']['Signups'] = Plan::getSignupsCountry(sprintf('%02d', $key),2017, $data['rate']);
+                        $users_array[$month.' 2017']['0'] = '100%';
+                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y){
+                            if($y >= $key ){
+                                $users_array[$month.' 2017'][$y] = Plan::getCohortsCountry(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate'])->customers."(".Plan::getCohortsCountry(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate'])->cohorts."%)";
+                            }
+
+                        }
+
+                    }
+
+                    foreach(trans('flow.datepicker.months_long') as $key2=>$month2) {
+
+                        $users_array[$month2.' 2018']['Month'] = $month2.' 2018';
+                        $users_array[$month2.' 2018']['Signups'] = Plan::getSignupsCountry(sprintf('%02d', $key2),2018, $data['rate']);
+                        $users_array[$month2.' 2018']['0'] = '100%';
+                        foreach (range($key2, 12) as $y2){
+                            if($y2 >= $key2 and $y2 <= (int)date('m') ){
+                                $users_array[$month2.' 2018'][$y2] = Plan::getCohortsCountry(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate'])->customers."(".Plan::getCohortsCountry(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate'])->cohorts."%)";
+                            }
+
+                        }
+
+                    }
+
+
+                    $users_array2 = [];
+                    foreach(trans('flow.datepicker.months_long') as $key=>$month) {
+
+                        $users_array2[$month.' 2017']['Month'] = $month.' 2017';
+                        $users_array2[$month.' 2017']['Revenues'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsCountryRevenue(sprintf('%02d', $key),2017, $data['rate']),2);
+                        $users_array2[$month.' 2017']['0'] = '100%';
+                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y){
+                            if($y >= $key ){
+                                $users_array2[$month.' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryRevenue(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate']),2);
+                            }
+
+                        }
+
+                    }
+
+                    foreach(trans('flow.datepicker.months_long') as $key2=>$month2) {
+
+                        $users_array2[$month2.' 2018']['Month'] = $month2.' 2018';
+                        $users_array2[$month2.' 2018']['Revenues'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsCountryRevenue(sprintf('%02d', $key2),2018, $data['rate']),2);
+                        $users_array2[$month2.' 2018']['0'] = '100%';
+                        foreach (range($key2, 12) as $y2){
+                            if($y2 >= $key2 and $y2 <= (int)date('m') ){
+                                $users_array2[$month2.' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate']),2);
+                            }
+
+                        }
+
+                    }
+
+
+                    $users_array3 = [];
+                    foreach(trans('flow.datepicker.months_long') as $key=>$month) {
+
+                        $users_array3[$month.' 2017']['Month'] = $month.' 2017';
+                        if(Plan::getSignupsCountry(sprintf('%02d', $key),2017, $data['rate']) != 0) {
+                            $users_array3[$month.' 2017']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsCountryRevenue(sprintf('%02d', $key), 2017, $data['rate']) / Plan::getSignupsCountry(sprintf('%02d', $key),2017, $data['rate']) , 2);
+                        } else{
+                            $users_array3[$month.' 2017']['ARPU'] = 0;
+                        }
+                        $users_array3[$month.' 2017']['0'] = '100%';
+                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y){
+                            if($y >= $key ){
+
+                                if(Plan::getCohortsCountry(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate'])->customers != 0){
+                                    $users_array3[$month.' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryRevenue(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate']) / Plan::getCohortsCountry(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate'])->customers,2);
+
+                                } else{
+                                    $users_array3[$month.' 2017'][$y] = 0;
+                                }
+
+
+                            }
+
+                        }
+
+                    }
+
+                    foreach(trans('flow.datepicker.months_long') as $key2=>$month2) {
+
+                        $users_array3[$month2.' 2018']['Month'] = $month2.' 2018';
+                        if(Plan::getSignupsCountry(sprintf('%02d', $key2),2018, $data['rate']) != 0) {
+                            $users_array3[$month2.' 2018']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsCountryRevenue(sprintf('%02d', $key2), 2018, $data['rate']) / Plan::getSignupsCountry(sprintf('%02d', $key2),2018, $data['rate']) , 2);
+                        } else{
+                            $users_array3[$month2.' 2018']['ARPU'] = 0;
+                        }
+                        $users_array3[$month2.' 2018']['0'] = '100%';
+                        foreach (range($key2, 12) as $y2){
+                            if($y2 >= $key2 and $y2 <= (int)date('m') ){
+                                if(Plan::getCohortsCountry(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate'])->customers != 0){
+                                    $users_array3[$month2.' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate']) / Plan::getCohortsCountry(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate'])->customers,2);
+
+                                } else{
+                                    $users_array3[$month2.' 2018'][$y2] = 0;
+                                }
+
+
+                            }
+
+                        }
+
+                    }
+
+
+                    \Excel::create('cohorts_month_country_'.$data['rate'], function ($excel) use ($users_array,$users_array2,$users_array3) {
+
+                        $excel->sheet('All users', function ($sheet) use ($users_array) {
+
+                            $sheet->fromArray($users_array, null, 'A1', true);
+
+                        });
+                        $excel->sheet('Revenue', function ($sheet) use ($users_array2) {
+
+                            $sheet->fromArray($users_array2, null, 'A1', true);
+
+                        });
+                        $excel->sheet('ARPU', function ($sheet) use ($users_array3) {
+
+                            $sheet->fromArray($users_array3, null, 'A1', true);
+
+                        });
+
+                    })->download('xls');
+                    return \Redirect::back();
+
+
+
+
+
+                //return \Redirect::back()->withErrors("No data!");
 
             }
 
@@ -326,53 +592,105 @@ class StatsController extends Controller
     }
 
 
+    public function getWrongSb (Request $request){
+
+        $data = $request->all();
+
+        if ($data) {
+            $repo = new CustomerRepository();
+
+            $customers = $repo->rebillAble();
+
+            $email_array = [];
+            $i = 0;
+
+            foreach($customers->get() as $customer){
+
+                $lastOrder = $customer->orders()->latest()->first();
+
+
+                if( Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays($lastOrder->updated_at) != 28){
+                    $email_array[$i]['Name'] = $customer->getName();
+                    $email_array[$i]['Email Address'] = $customer->getEmail();
+                    $email_array[$i]['Rebill'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d/m/Y');
+                    $email_array[$i]['Last order'] = \Date::createFromFormat('Y-m-d H:i:s', $lastOrder->updated_at)->format('d/m/Y');
+                    $email_array[$i]['Difference'] = Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->diffInDays($lastOrder->updated_at);
+                    $email_array[$i]['Status order'] = $lastOrder->state;
+                    $i++;
+                }
+
+            }
+
+            if(empty($email_array)){
+                return \Redirect::back()->withErrors("No data!");
+            }
+
+            \Excel::create('wrong_users', function ($excel) use ($email_array) {
+
+                $excel->sheet('All wrong users', function ($sheet) use ($email_array) {
+
+                    $sheet->fromArray($email_array, null, 'A1', true);
+
+                });
+
+            })->download('xls');
+            return \Redirect::back();
+
+        }
+
+        return \Redirect::back()->withErrors("Error!");
+    }
+
+
+
+
     function exportDateCoupon (Request $request){
 
         $data = $request->all();
-         if ($data) {
+        if ($data) {
 
-             if($data['coupon'] == 1){
+            if($data['coupon'] == 1){
 
-                 $orders = Order::where('repeat','=',$data['coupon'])->get();
+                $orders = Order::where('repeat','=',$data['coupon'])->get();
 
-             } else{
-                 $orders = Order::where('coupon','=',$data['coupon'])->get();
-             }
-
-
-
-             if(count($orders) > 0){
-                 $email_array = [];
-                 $i = 0;
-                        foreach ($orders as $order) {
-
-                                    $email_array[$i]['First Name'] = $order->customer->getFirstName();
-                                    $email_array[$i]['Last Name'] = $order->customer->getLastName();
-                                    $email_array[$i]['Email Address'] = $order->customer->getEmail();
-                                    $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $order->customer->created_at)->format('d/m/Y H:i');
-                                    $i++;
+            } else{
+                $orders = Order::where('coupon','=',$data['coupon'])->get();
+            }
 
 
-                        }
+
+            if(count($orders) > 0){
+                $email_array = [];
+                $i = 0;
+                foreach ($orders as $order) {
+
+                    $email_array[$i]['First Name'] = $order->customer->getFirstName();
+                    $email_array[$i]['Last Name'] = $order->customer->getLastName();
+                    $email_array[$i]['Email Address'] = $order->customer->getEmail();
+                    $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $order->customer->created_at)->format('d/m/Y H:i');
+                    $i++;
 
 
-                 \Excel::create('users_coupon', function ($excel) use ($email_array) {
-
-                     $excel->sheet('All users with coupon', function ($sheet) use ($email_array) {
-
-                         $sheet->fromArray($email_array, null, 'A1', true);
-
-                     });
-
-                 })->download('xls');
-                 return \Redirect::back();
+                }
 
 
-             }
+                \Excel::create('users_coupon', function ($excel) use ($email_array) {
 
-             return \Redirect::back()->withErrors("No items!");
+                    $excel->sheet('All users with coupon', function ($sheet) use ($email_array) {
 
-         }
+                        $sheet->fromArray($email_array, null, 'A1', true);
+
+                    });
+
+                })->download('xls');
+                return \Redirect::back();
+
+
+            }
+
+            return \Redirect::back()->withErrors("No items!");
+
+        }
 
         return \Redirect::back()->withErrors("No data!");
 
@@ -430,11 +748,11 @@ class StatsController extends Controller
                     $i = 0;
                     $plans = $this->repo->allNewLocaleTime($currency, $data['start_date'], $data['end_date'] )->get();
                     foreach ($plans as $plan) {
-                            $email_array[$i]['First Name'] = $plan->customer->getFirstName();
-                            $email_array[$i]['Last Name'] = $plan->customer->getLastName();
-                            $email_array[$i]['Phone'] = $plan->customer->getPhone();
-                            $email_array[$i]['Email Address'] = $plan->customer->getEmail();
-                            $i++;
+                        $email_array[$i]['First Name'] = $plan->customer->getFirstName();
+                        $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                        $email_array[$i]['Phone'] = $plan->customer->getPhone();
+                        $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                        $i++;
 
                     }
                     if(isset($email_array)) {
@@ -450,33 +768,37 @@ class StatsController extends Controller
                         return \Redirect::back();
                     }
                 case 2:
+
                     $i = 0;
                     if($data['lang']=='nl'){
                         $currency = "EUR";
                     } else{
                         $currency = "DKK";
                     }
-                    $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->get();
+                    $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereNotNull('subscription_started_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->get();
                     foreach ($plans as $plan) {
                         if (!empty($plan->customer) and !empty($plan->customer->getEmail()) and strstr($plan->customer->getEmail(), "@")) {
-                            $email_array[$i]['First Name'] = $plan->customer->getFirstName();
-                            $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                            $email_array[$i]['ID'] = $plan->customer->id;
+                            $email_array[$i]['Name'] = $plan->customer->getName();
                             $email_array[$i]['Phone'] = $plan->customer->getPhone();
-                            if($plan->snoozing_at) {
-                                $email_array[$i]['Sent postponing mail'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->snoozing_at)->format('j. M Y');
-                            } else{
-                                $email_array[$i]['Sent postponing mail'] = 'No data';
-                            }
-                            $email_array[$i]['Cancel date'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->subscription_cancelled_at)->format('j. M Y');
                             $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                            $email_array[$i]['Order count'] = $plan->customer->order_count;
                             $email_array[$i]['Age'] = $plan->customer->getAge();
+                            if ($plan->customer->getGender() == 1) {
+                                $gender = 'male';
+                            } else {
+                                $gender = 'female';
+                            }
+                            $email_array[$i]['Gender'] = $gender;
+                            $email_array[$i]['Signup date'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->subscription_started_at)->format('j. M Y');
+                            $email_array[$i]['Cancel date'] = \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $plan->subscription_cancelled_at)->format('j. M Y');
+                            $email_array[$i]['Reason'] = $plan->unsubscribe_reason;
                             $email_array[$i]['Supplements'] = '';
                             if($plan->getVitamiPlan()){
                                 foreach ($plan->getVitamiPlan() as $vitamin){
                                     $email_array[$i]['Supplements'] .= \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)).", ";
-                                 }
-                             }
-                            $email_array[$i]['Last coupon'] = $plan->getLastCoupon();
+                                }
+                            }
                             $i++;
                         }
                     }
@@ -642,7 +964,7 @@ class StatsController extends Controller
 
                 case 7:
 
-                    $orders = Order::selectRaw("COUNT(*) AS count, customer_id, coupon")
+                    $orders = Order::selectRaw("COUNT(*) AS count, customer_id")
                         ->whereNull('repeat')
                         ->where('total','=', 0)
                         ->where('state','=', 'sent')
@@ -650,44 +972,22 @@ class StatsController extends Controller
                         ->groupBy('customer_id')
                         ->having('count', '>', 1)
                         ->get();
-
-                    $plans = Plan::where('discount_type','=', 'month')->where('coupon_free', '>', 0)->get();
-
                     $i = 0;
                     foreach ($orders as $order) {
 
-                            $email_array[$i]['First Name'] = $order->getCustomer()->getFirstName();
-                            $email_array[$i]['Last Name'] = $order->getCustomer()->getLastName();
-                            $email_array[$i]['Email Address'] = $order->getCustomer()->getEmail();
-                            $email_array[$i]['Order count'] = $order->count;
+                        $email_array[$i]['First Name'] = $order->getCustomer()->getFirstName();
+                        $email_array[$i]['Last Name'] = $order->getCustomer()->getLastName();
+                        $email_array[$i]['Email Address'] = $order->getCustomer()->getEmail();
+                        $email_array[$i]['Order count'] = $order->count;
 
-                            if($order->getCustomer()->getPlan()->subscription_cancelled_at == null){
-                                $email_array[$i]['Status'] = "Active";
-                            } else{
-                                $email_array[$i]['Status'] = "Not active";
-                            }
-                             $email_array[$i]['Coupon'] = $order->coupon;
-
-                            $i++;
-                    }
-
-                    foreach ($plans as $plan) {
-
-                        $email_array[$i]['First Name'] = $plan->customer->getFirstName();
-                        $email_array[$i]['Last Name'] = $plan->customer->getLastName();
-                        $email_array[$i]['Email Address'] = $plan->customer->getEmail();
-                        $email_array[$i]['Order count'] = $plan->customer->getOrderCount();
-
-                        if($plan->subscription_cancelled_at == null){
-                            $email_array[$i]['Status'] = "Active";
-                        } else{
+                        if($order->getCustomer()->getPlan()->subscription_canceled_at != null){
                             $email_array[$i]['Status'] = "Not active";
+                        } else{
+                            $email_array[$i]['Status'] = "Active";
                         }
-                        $email_array[$i]['Coupon'] = $plan->getLastCoupon();
+
                         $i++;
                     }
-
-
 
                     if(isset($email_array)) {
                         \Excel::create("mails_free_from_".$data['lang'], function ($excel) use ($email_array) {
@@ -750,23 +1050,24 @@ class StatsController extends Controller
 
                 $count = $count + $count_res;
             }
+            $reasons[6]= ["name" => 'Other reason', "y"=>$all - $count ];
 
-            $count_14 = Plan::whereNotNull('subscription_cancelled_at')
-                ->whereBetween('subscription_cancelled_at', [$data['start_dates'], $data['end_dates']])
-                ->where('unsubscribe_reason','like','14 days expired')
-                ->where('currency','like',$data['lang'])
-                ->count();
-
-            $reasons[6]= ["name" => 'Churn/Quit', "y"=> $count_14 ];
-
-            $reasons[7]= ["name" => 'Other reason', "y"=>$all - $count - $count_14 ];
-
-
-          return $reasons;
+            return $reasons;
 
         }
 
         return false;
     }
+
+
+
+    public function getCohortsCountry(Request $request){
+
+        return view('admin.stats.cohorts.country', [
+            'country' => $request->get('country'),
+        ]);
+
+    }
+
 
 }
