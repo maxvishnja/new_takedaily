@@ -123,18 +123,6 @@ class StockRepository implements StockInterface
         return $itemReqQty - count($orders);
     }
 
-    public function checkUser()
-    {
-        if(Auth::user()->isAdmin())
-        {
-            return 'admin';
-        }
-        elseif(Auth::user()->isPacker())
-        {
-            return 'packer';
-        }
-    }
-
     /**
      * Calculate vitamin quantity in all pending orders
      *
@@ -200,6 +188,10 @@ class StockRepository implements StockInterface
 
         if(isset($data['price'])) {
             $object->price = $data['price'];
+        }
+
+        if(isset($data['email'])) {
+            $object->email = $data['email'];
         }
 
         return $object;

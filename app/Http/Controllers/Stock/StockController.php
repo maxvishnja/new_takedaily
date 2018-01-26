@@ -42,7 +42,6 @@ class StockController extends ApiController
      */
     public function create()
     {
-
         if(Auth::user()->isAdmin())
         {
             return view('admin.stock.new');
@@ -114,7 +113,8 @@ class StockController extends ApiController
             'reqQty' => $request->input('item-reqQty'),
 //            'qty'    => $request->input('item-qty'),
             'alert'  => $request->input('item-alarm'),
-            'price'  => $request->input('item-price')
+            'price'  => $request->input('item-price'),
+            'email'  => $request->input('item-alarm-email')
         ];
 
         if($item->type == 'vitamin') {
@@ -127,6 +127,23 @@ class StockController extends ApiController
 
         // update item
         $item = $this->repo->update($item->id, $data);
+
+        if($item->email != '' && $item->status == 1)
+        {
+            $emails = explode(',', $item->email);
+
+            try {
+                for($i=0; $i<count($emails); $i++) {
+                    \Mail::send('emails.stock-alert', ['item' => $item], function ($m) use ($item, $emails, $i) {
+                        $m->from('admin@takedaily.com');
+                        $m->to($emails[$i]);
+                    });
+                }
+            } catch (\Exception $exception) {
+                \Log::error("Mail error: " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+            }
+        }
 
         if(!$item) {
             return redirect()->back()->with('message-fail', $this->respondInternalError());
