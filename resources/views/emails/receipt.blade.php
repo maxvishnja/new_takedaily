@@ -88,7 +88,7 @@
     <h3>{{ trans('account.settings_basic.header') }}</h3>
 
     <p style="text-align:left;color:#000; margin: 0"><b>{{ trans('checkout.index.order.info.email') }}:</b> {{$order->customer->getEmail()}}</p>
-    <p style="text-align:left;color:#000; margin: 0"><b>{{ trans('checkout.index.order.info.phone') }}:</b> {{$order->customer->getPhone()}}</p>
+    <p style="text-align:left;color:#000; margin: 0"><b>{{ trans('checkout.index.order.info.phone-text') }}:</b> {{$order->customer->getPhone()}}</p>
 
 <br/>
     <p style="text-align:left;color:#000; margin: 0"><b>{{ trans('account.transaction.title-shipping') }}</b></p>
