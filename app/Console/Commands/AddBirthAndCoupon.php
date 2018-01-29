@@ -44,7 +44,33 @@ class AddBirthAndCoupon extends Command
         $customers = $repo->all();
 
         foreach ($customers as $customer){
-            $customer->age_group = $customer->getAge();
+
+            $age = '';
+
+            if($customer->getAge() <= 24){
+                $age = 'group_1';
+            }
+            if($customer->getAge() > 24 and $customer->getAge() < 35){
+                $age = 'group_2';
+            }
+            if($customer->getAge() > 34 and $customer->getAge() < 45){
+                $age = 'group_3';
+            }
+            if($customer->getAge() > 44 and $customer->getAge() < 55){
+                $age = 'group_4';
+            }
+
+            if($customer->getAge() > 54 and $customer->getAge() < 65){
+                $age = 'group_5';
+            }
+
+            if($customer->getAge() > 64){
+                $age = 'group_6';
+            }
+
+
+            $customer->setAgeGroup($age);
+            
 
             $order = $customer->orders()->whereNotNull('coupon')->first();
             if($order){
