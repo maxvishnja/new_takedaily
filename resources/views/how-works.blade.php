@@ -18,7 +18,7 @@
 					<div class="headervideo-block text-center">
 						<div class="video_circle" id="video-toggle">
 							<div class="video_circle_content">
-								<span class="icon play-icon"></span>
+								<span class="icon icon-play"></span>
 							</div>
 						</div>
 						<div class="m-t-10"><strong style="font-size: 1rem">{{ trans('home2.header.what-is') }}</strong></div>
