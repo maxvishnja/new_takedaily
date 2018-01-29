@@ -1,3 +1,11 @@
+<style>
+	.row--four {
+		font: 400 14px/1 proxima-nova,Proxima Nova,proxima-nova-alt,Proxima Nova Alt,sans-serif;
+		line-height: 1.5;
+		margin-top: 30px;
+	}
+</style>
+
 <div data-step="4" class="step">
 	<div id="advises-loader" class="text-center">
 		<div class="spinner" style="display: inline-block;">
@@ -17,7 +25,7 @@
 		<button type="submit"
 				class="button button--green button--large visible-xs button--full-mobile m-t-30 m-b-30">{{ trans('flow.button-order-text') }}</button>
 
-		<div class="row">
+		<div class="row row--four">
 			@include('flow-includes.views.steps.recommendation.show')
 			@include('flow-includes.views.steps.recommendation.totals')
 		</div>

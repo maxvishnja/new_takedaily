@@ -7,68 +7,68 @@
 @section('content')
 	@if(Auth::user()->getCustomer()->hasNewRecommendations())
 		{{--<div class="card m-b-50">--}}
-			{{--<div class="card-body">--}}
-				{{--<h2 class="card_title">{{ trans('account.settings_subscription.new-recommendation.title') }}</h2>--}}
-				{{--<hr>--}}
-				{{--<p>{{ trans('account.settings_subscription.new-recommendation.text') }}</p>--}}
-				{{--<a href="{{ URL::action('AccountController@updateVitamins') }}"--}}
-				   {{--class="button button--green button--large">{{ trans('account.settings_subscription.new-recommendation.btn') }}</a>--}}
-			{{--</div>--}}
+		{{--<div class="card-body">--}}
+		{{--<h2 class="card_title">{{ trans('account.settings_subscription.new-recommendation.title') }}</h2>--}}
+		{{--<hr>--}}
+		{{--<p>{{ trans('account.settings_subscription.new-recommendation.text') }}</p>--}}
+		{{--<a href="{{ URL::action('AccountController@updateVitamins') }}"--}}
+		{{--class="button button--green button--large">{{ trans('account.settings_subscription.new-recommendation.btn') }}</a>--}}
+		{{--</div>--}}
 		{{--</div>--}}
 	@endif
 
 
 
-<div class="row">
-	<div class="col-md-6">
-		<h1>{{ trans('account.home.header') }} - {{ trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) }}</h1>
+	<div class="row">
+		<div class="col-md-6">
+			<h1>{{ trans('account.home.header') }} - {{ trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) }}</h1>
 
-		@if($customer->getPlan()->getCouponCount() > 0 and ($customer->getPlan()->getDiscountType() == 'month' or $customer->getPlan()->getDiscountType() == '' ) or ($customer->getPlan()->getDiscountCount() > 0 and  $customer->getPlan()->getPriceDiscount() == 0))
+			@if($customer->getPlan()->getCouponCount() > 0 and ($customer->getPlan()->getDiscountType() == 'month' or $customer->getPlan()->getDiscountType() == '' ) or ($customer->getPlan()->getDiscountCount() > 0 and  $customer->getPlan()->getPriceDiscount() == 0))
 
-			<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => 0, 'currency' => $plan->currency])]) !!}</h2>
+				<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => 0, 'currency' => $plan->currency])]) !!}</h2>
 
-		@elseif($customer->getPlan()->getCouponCount() > 0 and $customer->getPlan()->getDiscountType() == 'percent')
+			@elseif($customer->getPlan()->getCouponCount() > 0 and $customer->getPlan()->getDiscountType() == 'percent')
 
-			<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal() - ($plan->getTotal() * ($customer->getPlan()->getCouponCount()/100)), true), 'currency' => $plan->currency])]) !!}</h2>
-		@else
-			<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true), 'currency' => $plan->currency])]) !!}</h2>
-		@endif
+				<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal() - ($plan->getTotal() * ($customer->getPlan()->getCouponCount()/100)), true), 'currency' => $plan->currency])]) !!}</h2>
+			@else
+				<h2>{!! trans('account.settings_subscription.total', [ 'amount' => trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($plan->getTotal(), true), 'currency' => $plan->currency])]) !!}</h2>
+			@endif
 
 
-		@if( $plan->isActive() )
-			<p>{!! strip_tags(trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]), '<strong>') !!}</p>
-		@endif
-	</div>
+			@if( $plan->isActive() )
+				<p>{!! strip_tags(trans('account.settings_subscription.next-date', ['date' => Date::createFromFormat('Y-m-d H:i:s', $plan->getRebillAt())->format('j. M Y') ]), '<strong>') !!}</p>
+			@endif
+		</div>
 
-	<div class="col-md-6">
-		@if(!empty($nutritionist))
+		<div class="col-md-6">
+			@if(!empty($nutritionist))
 
-			<div class="row nutritionist-block">
-				<div class="col-md-4 text-center">
-					@if(!empty($nutritionist->image))
-						<img src="/images/nutritionist/thumb_{!! $nutritionist->image !!}" class="img-responsive img-circle">
-					@endif
+				<div class="row nutritionist-block">
+					<div class="col-md-4 text-center">
+						@if(!empty($nutritionist->image))
+							<img src="/images/nutritionist/thumb_{!! $nutritionist->image !!}" class="img-responsive img-circle">
+						@endif
+					</div>
+					<div class="col-md-8">
+						<h3>{!! $nutritionist->first_name !!} {!! $nutritionist->last_name !!}</h3>
+						<h3>{!! $nutritionist->title !!}</h3>
+						<p>{{ trans('account.nutritionist_text') }}</p>
+						<a href="#nutritionist-form" class="button button--green button--small"
+						   id="toggle-nutritionist-form">{{ trans('account.nutritionist_button') }}</a>
+					</div>
 				</div>
-				<div class="col-md-8">
-					<h3>{!! $nutritionist->first_name !!} {!! $nutritionist->last_name !!}</h3>
-					<h3>{!! $nutritionist->title !!}</h3>
-					<p>{{ trans('account.nutritionist_text') }}</p>
-					<a href="#nutritionist-form" class="button button--green button--small"
-					   id="toggle-nutritionist-form">{{ trans('account.nutritionist_button') }}</a>
-				</div>
-			</div>
-		@endif
+			@endif
+		</div>
+
+
+
 	</div>
-
-
-
-</div>
 
 	<div class="m-t-10 m-b-10 m-center">
 		<a href="/flow" class="button button--green">{{ trans('account.home.button-change') }}</a>
 		<a href="/pick-n-mix" class="button button--green">{{ trans('account.home.button-pick-n-mix') }}</a>
 		<a href="#coupon-field" class="button button--green"
-		id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
+		   id="toggle-coupon-form">{{ trans('checkout.index.coupon.link') }}</a>
 	</div>
 	<div id="coupon-field" style="display: none" class="m-t-20">
 		<div class="row">
@@ -145,34 +145,34 @@
 
 	@if( $plan->isActive() )
 		@if($orders->count() > 0 )
-		<hr>
-		<h1>{{ trans('account.transactions.header') }}</h1>
-		<table class="table table--full table--striped text-left table--responsive">
-			<thead>
-			<tr>
-				<th>#</th>
-				<th>{{ trans('account.transactions.table.date') }}</th>
-				<th>{{ trans('account.transactions.table.amount') }}</th>
-				<th>{{ trans('account.transactions.table.status') }}</th>
-				<th></th>
-			</tr>
-			</thead>
-			<tbody>
-			@foreach($orders as $order)
+			<hr>
+			<h1>{{ trans('account.transactions.header') }}</h1>
+			<table class="table table--full table--striped text-left table--responsive">
+				<thead>
 				<tr>
-					<td data-th="#">#{{ $order->getPaddedId() }}</td>
-					<td data-th="{{ trans('account.transactions.table.date') }}">{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
-					<td data-th="{{ trans('account.transactions.table.amount') }}">
-						<strong>{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true), 'currency' => $order->currency]) }}</strong>
-					</td>
-					<td data-th="{{ trans('account.transactions.table.status') }}"><span
-							class="state-label state-label--{{ $order->state  }}">{{ trans("order.state.{$order->state}") }}</span></td>
-					<td data-th="&nbsp;"><a href="{{URL::action('AccountController@getTransaction', [ 'id' => $order->id ]) }}"
-											class="button button--small button--rounded button--grey">{{ trans('account.transactions.button-show-text') }}</a></td>
+					<th>#</th>
+					<th>{{ trans('account.transactions.table.date') }}</th>
+					<th>{{ trans('account.transactions.table.amount') }}</th>
+					<th>{{ trans('account.transactions.table.status') }}</th>
+					<th></th>
 				</tr>
-			@endforeach
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+				@foreach($orders as $order)
+					<tr>
+						<td data-th="#">#{{ $order->getPaddedId() }}</td>
+						<td data-th="{{ trans('account.transactions.table.date') }}">{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
+						<td data-th="{{ trans('account.transactions.table.amount') }}">
+							<strong>{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true), 'currency' => $order->currency]) }}</strong>
+						</td>
+						<td data-th="{{ trans('account.transactions.table.status') }}"><span
+									class="state-label state-label--{{ $order->state  }}">{{ trans("order.state.{$order->state}") }}</span></td>
+						<td data-th="&nbsp;"><a href="{{URL::action('AccountController@getTransaction', [ 'id' => $order->id ]) }}"
+												class="button button--small button--rounded button--grey">{{ trans('account.transactions.button-show-text') }}</a></td>
+					</tr>
+				@endforeach
+				</tbody>
+			</table>
 		@endif
 	@endif
 @endsection
@@ -180,27 +180,27 @@
 @section('footer_scripts')
 	<script>
 
-		$('.readMoreBtn').click(function (e) {
-			e.preventDefault();
+        $('.readMoreBtn').click(function (e) {
+            e.preventDefault();
 
-			$(this).hide();
-			$(this).parent().find('.readLessBtn').show();
-			$(this).parent().parent().find('.description').stop().slideToggle(200);
-		});
+            $(this).hide();
+            $(this).parent().find('.readLessBtn').show();
+            $(this).parent().parent().find('.description').stop().slideToggle(200);
+        });
 
-		$('.readLessBtn').click(function (e) {
-			e.preventDefault();
+        $('.readLessBtn').click(function (e) {
+            e.preventDefault();
 
-			$(this).hide();
-			$(this).parent().find('.readMoreBtn').show();
-			$(this).parent().parent().find('.description').stop().slideToggle(200);
-		});
+            $(this).hide();
+            $(this).parent().find('.readMoreBtn').show();
+            $(this).parent().parent().find('.description').stop().slideToggle(200);
+        });
 
-		$('.seeIngredientsBtn').click(function (e) {
-			e.preventDefault();
+        $('.seeIngredientsBtn').click(function (e) {
+            e.preventDefault();
 
-			$(this).parent().parent().find('.ingredients').stop().slideToggle(200);
-		});
+            $(this).parent().parent().find('.ingredients').stop().slideToggle(200);
+        });
         $("#toggle-coupon-form").click(function (e) {
             e.preventDefault();
 

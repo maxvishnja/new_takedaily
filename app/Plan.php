@@ -129,7 +129,7 @@ class Plan extends Model
 
         $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->count();
 
-            return $customers;
+        return $customers;
     }
 
     public static function getSignupsRevenue($signDate,$date, $year)
@@ -231,7 +231,7 @@ class Plan extends Model
             $cohorts = round(($customers / $allCustomers) * 100, 2);
         }
 
-       $data = new Stat();
+        $data = new Stat();
 
         $data->customers = $customers;
         $data->cohorts = $cohorts;

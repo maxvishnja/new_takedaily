@@ -69,34 +69,34 @@ class AccountController extends Controller
 
 
 
-            $data = $request->all();
-            if($data){
-                $nutritionist = Nutritionist::where('id', $this->customer->plan->nutritionist_id)
-                    ->where('active', 1)
-                    ->first();
+        $data = $request->all();
+        if($data){
+            $nutritionist = Nutritionist::where('id', $this->customer->plan->nutritionist_id)
+                ->where('active', 1)
+                ->first();
 
-                $mailEmail = $nutritionist->email;
-                $fromEmail = $this->customer->getUser()->getEmail();
-                $data['name']  = $this->customer->getUser()->getName();
-                $data['n_name']  = $nutritionist->first_name." ".$nutritionist->last_name;
-                $data['locale']  = $this->customer->getLocale();
-                $mailName = 'TakeDaily';
-                $locale = \App::getLocale();
+            $mailEmail = $nutritionist->email;
+            $fromEmail = $this->customer->getUser()->getEmail();
+            $data['name']  = $this->customer->getUser()->getName();
+            $data['n_name']  = $nutritionist->first_name." ".$nutritionist->last_name;
+            $data['locale']  = $this->customer->getLocale();
+            $mailName = 'TakeDaily';
+            $locale = \App::getLocale();
 
 
-                \Mail::send('emails.nutritionist', $data,
-                    function ($message)
-                    use ($mailEmail, $mailName, $locale, $fromEmail) {
-                        \App::setLocale($locale);
-                        $message->from($fromEmail, 'TakeDaily');
-                        $message->to($mailEmail, $mailName);
-                        //$message->subject($fromEmail);
-                        $message->subject(trans('mails.nutritionist.subject'));
-                    });
+            \Mail::send('emails.nutritionist', $data,
+                function ($message)
+                use ($mailEmail, $mailName, $locale, $fromEmail) {
+                    \App::setLocale($locale);
+                    $message->from($fromEmail, 'TakeDaily');
+                    $message->to($mailEmail, $mailName);
+                    //$message->subject($fromEmail);
+                    $message->subject(trans('mails.nutritionist.subject'));
+                });
 
-                return \Redirect::action('AccountController@getHome')->with('success', trans('messages.successes.nutritionist.email.sent'));
+            return \Redirect::action('AccountController@getHome')->with('success', trans('messages.successes.nutritionist.email.sent'));
 
-            }
+        }
 
 
 

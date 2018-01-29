@@ -15,62 +15,62 @@ use Illuminate\Mail\Message;
 class OrderController extends Controller
 {
 
-	private $repo;
+    private $repo;
 
-	function __construct( OrderRepository $repo )
-	{
-		$this->repo = $repo;
-		//\App::setLocale( 'en' );
-	}
+    function __construct( OrderRepository $repo )
+    {
+        $this->repo = $repo;
+        //\App::setLocale( 'en' );
+    }
 
-	function index()
-	{
-		$orders = $this->repo->getPaid()->shippable()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
+    function index()
+    {
+        $orders = $this->repo->getPaid()->shippable()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
 
-		return view( 'packer.orders.home', [
-			'orders' => $orders
-		] );
-	}
+        return view( 'packer.orders.home', [
+            'orders' => $orders
+        ] );
+    }
 
-	function sent()
-	{
-		$orders = $this->repo->getShipped()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
+    function sent()
+    {
+        $orders = $this->repo->getShipped()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
 
-		return view( 'packer.orders.sent', [
-			'orders' => $orders
-		] );
-	}
-
-
-
-	function printed()
-	{
-		$orders = $this->repo->getPrinted()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
-
-		return view( 'packer.orders.printed', [
-			'orders' => $orders
-		] );
-	}
+        return view( 'packer.orders.sent', [
+            'orders' => $orders
+        ] );
+    }
 
 
-	function show( $id )
-	{
-		$order = Order::find( $id );
 
-		if ( ! $order )
-		{
-			return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
-		}
+    function printed()
+    {
+        $orders = $this->repo->getPrinted()->orderBy( 'created_at', 'DESC' )->with( 'customer.plan' )->get();
 
-		$order->load( 'customer.customerAttributes' );
+        return view( 'packer.orders.printed', [
+            'orders' => $orders
+        ] );
+    }
 
-		return view( 'packer.orders.show', [
-			'order' => $order
-		] );
-	}
 
-	function printAll()
-	{
+    function show( $id )
+    {
+        $order = Order::find( $id );
+
+        if ( ! $order )
+        {
+            return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
+        }
+
+        $order->load( 'customer.customerAttributes' );
+
+        return view( 'packer.orders.show', [
+            'order' => $order
+        ] );
+    }
+
+    function printAll()
+    {
         /** @var Collection $orders_dk */
         $orders_dk = $this->repo->getBarcode()
             ->shippable()
@@ -93,101 +93,101 @@ class OrderController extends Controller
 
 //		return $this->downloadMultiple( array_flatten($printableOrders->toArray()) );
 
-		return $this->downloadMultiple( $orders );
-	}
+        return $this->downloadMultiple( $orders );
+    }
 
-	function shipAll()
-	{
-		$printableOrders = $this->repo->getPrinted()->orderBy( 'created_at', 'DESC' )->shippable()->get();
+    function shipAll()
+    {
+        $printableOrders = $this->repo->getPrinted()->orderBy( 'created_at', 'DESC' )->shippable()->get();
 
-		/** @var Order $order */
-		foreach($printableOrders as $order)
-		{
+        /** @var Order $order */
+        foreach($printableOrders as $order)
+        {
 
-			$order->markSent();
-           // $this->dispatch(new SentNewMail($order, 'sent'));
-		}
+            $order->markSent();
+            // $this->dispatch(new SentNewMail($order, 'sent'));
+        }
 
-		return \Redirect::back()->with('success', 'Done!');
-	}
+        return \Redirect::back()->with('success', 'Done!');
+    }
 
-	function markSent( $id )
-	{
-		$order = Order::find( $id );
+    function markSent( $id )
+    {
+        $order = Order::find( $id );
 
-		if ( ! $order )
-		{
-			return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
-		}
-
-
-		$order->markSent();
+        if ( ! $order )
+        {
+            return \Redirect::back()->withErrors( "The order (#{$id}) could not be found!" );
+        }
 
 
-       // $this->dispatch(new SentNewMail($order, 'sent'));
+        $order->markSent();
 
-		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The order was marked as sent!' );
-	}
 
-	function print( $id )
-	{
-		return $this->downloadMultiple( [$id] );
-	}
+        // $this->dispatch(new SentNewMail($order, 'sent'));
 
-	function handleMultiple( Request $request )
-	{
-		switch ( $request->get( 'action' ) )
-		{
-			case 'download':
-				$this->downloadMultiple( $request->get( 'ordersForAction' ) );
-				break;
+        return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The order was marked as sent!' );
+    }
 
-			case 'mark-sent':
-				$this->markMultipleAsSent( $request->get( 'ordersForAction' ) );
-				break;
+    function print( $id )
+    {
+        return $this->downloadMultiple( [$id] );
+    }
 
-			case 'combine':
-				$this->markMultipleAsSent( $request->get( 'ordersForAction' ) );
-				$this->downloadMultiple( $request->get( 'ordersForAction' ) );
-				break;
-		}
+    function handleMultiple( Request $request )
+    {
+        switch ( $request->get( 'action' ) )
+        {
+            case 'download':
+                $this->downloadMultiple( $request->get( 'ordersForAction' ) );
+                break;
 
-		return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The action was handled!' );
-	}
+            case 'mark-sent':
+                $this->markMultipleAsSent( $request->get( 'ordersForAction' ) );
+                break;
 
-	private function downloadMultiple( $ids_or_orders )
-	{
-		$printables = [];
+            case 'combine':
+                $this->markMultipleAsSent( $request->get( 'ordersForAction' ) );
+                $this->downloadMultiple( $request->get( 'ordersForAction' ) );
+                break;
+        }
 
-		$orders = $ids_or_orders instanceof Collection
+        return \Redirect::action( 'Packer\OrderController@index' )->with( 'success', 'The action was handled!' );
+    }
+
+    private function downloadMultiple( $ids_or_orders )
+    {
+        $printables = [];
+
+        $orders = $ids_or_orders instanceof Collection
             ? $ids_or_orders
             : Order::whereIn( 'id', $ids_or_orders )->get();
 
-		foreach ( $orders as $order )
-		{
-			$order->markPrint();
+        foreach ( $orders as $order )
+        {
+            $order->markPrint();
             //$this->dispatch(new SentNewMail($order, 'print'));
 
-			$printables[] = [
-				'label'   => $order->loadLabel(),
-				'sticker' => $order->loadSticker(),
-			    'locale' => $order->getCustomer()->getLocale()
-			];
-		}
+            $printables[] = [
+                'label'   => $order->loadLabel(),
+                'sticker' => $order->loadSticker(),
+                'locale' => $order->getCustomer()->getLocale()
+            ];
+        }
 
-		return view( 'packer.print', [
-			'printables' => $printables
-		] );
-	}
+        return view( 'packer.print', [
+            'printables' => $printables
+        ] );
+    }
 
-	private function markMultipleAsSent( $ids )
-	{
-		foreach ( Order::whereIn( 'id', $ids )->get() as $order )
-		{
-			$order->markSent();
+    private function markMultipleAsSent( $ids )
+    {
+        foreach ( Order::whereIn( 'id', $ids )->get() as $order )
+        {
+            $order->markSent();
             //$this->dispatch(new SentNewMail($order, 'sent'));
-		}
-	}
+        }
+    }
 
     public function getAllBarcodeDK()
     {
@@ -245,7 +245,7 @@ class OrderController extends Controller
         ]);
     }
 
-	public function getBarcodeDK(Request $request)
+    public function getBarcodeDK(Request $request)
     {
         $data = $request->all();
 
@@ -272,47 +272,47 @@ class OrderController extends Controller
 
 
 
-                $client = new Client();
-                $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&&dato='.$date.'&format=json');
+            $client = new Client();
+            $res = $client->request('GET', 'https://api.dao.as/DAODirekte/leveringsordre.php?kundeid=1332&kode=eb7kr6b7dsr5&postnr='.$shipping_zipcode.'&adresse='.$street.'&navn='.$customer_name.'&mobil='.$customer_phone.'&email='.$customer_email.'&vaegt=200&l=27&h=20&b=2&faktura='.$order_id.'&&dato='.$date.'&format=json');
 
-                $status = json_decode($res->getBody())->status;
+            $status = json_decode($res->getBody())->status;
 
-                if (strtolower($status) == 'ok') {
-                    $order->barcode = json_decode($res->getBody())->resultat->stregkode;
-                    $order->labelTekst1 = json_decode($res->getBody())->resultat->labelTekst1;
-                    $order->labelTekst2 = json_decode($res->getBody())->resultat->labelTekst2;
-                    $order->labelTekst3 = json_decode($res->getBody())->resultat->labelTekst3;
-                    $order->udsortering = json_decode($res->getBody())->resultat->udsortering;
-                    $order->eta = json_decode($res->getBody())->resultat->ETA;
-                    $order->save();
-                    return \Response::json([
-                        'message' => json_decode($res->getBody())->resultat->stregkode
-                    ]);
-                }else{
+            if (strtolower($status) == 'ok') {
+                $order->barcode = json_decode($res->getBody())->resultat->stregkode;
+                $order->labelTekst1 = json_decode($res->getBody())->resultat->labelTekst1;
+                $order->labelTekst2 = json_decode($res->getBody())->resultat->labelTekst2;
+                $order->labelTekst3 = json_decode($res->getBody())->resultat->labelTekst3;
+                $order->udsortering = json_decode($res->getBody())->resultat->udsortering;
+                $order->eta = json_decode($res->getBody())->resultat->ETA;
+                $order->save();
+                return \Response::json([
+                    'message' => json_decode($res->getBody())->resultat->stregkode
+                ]);
+            }else{
 
-                    if ($order->getCustomer()->getLocale() == 'nl') {
-                        $fromEmail = 'info@takedaily.nl';
-                        $url = "https://takedaily.nl/account/settings/basic";
-                    } else {
-                        $fromEmail = 'info@takedaily.dk';
-                        $url = "https://takedaily.dk/account/settings/basic";
-                    }
-
-                    \Mail::queue('emails.check_adress', ['locale' => $order->getCustomer()->getLocale(), 'name' => $customer_name, 'link' => $url, ], function (Message $message) use ($customer_name, $customer_email, $fromEmail) {
-                        \Log::info("Check address from " . $customer_name);
-                        $message->from($fromEmail, 'TakeDaily')
-                            ->to($customer_email, $customer_name)
-                            ->subject(trans('mails.check_adress.subject'));
-                    });
-
-
-
-
-                    return \Response::json([
-                        'message' => 'Error',
-                        'result' => json_decode($res->getBody())->fejltekst
-                    ]);
+                if ($order->getCustomer()->getLocale() == 'nl') {
+                    $fromEmail = 'info@takedaily.nl';
+                    $url = "https://takedaily.nl/account/settings/basic";
+                } else {
+                    $fromEmail = 'info@takedaily.dk';
+                    $url = "https://takedaily.dk/account/settings/basic";
                 }
+
+                \Mail::queue('emails.check_adress', ['locale' => $order->getCustomer()->getLocale(), 'name' => $customer_name, 'link' => $url, ], function (Message $message) use ($customer_name, $customer_email, $fromEmail) {
+                    \Log::info("Check address from " . $customer_name);
+                    $message->from($fromEmail, 'TakeDaily')
+                        ->to($customer_email, $customer_name)
+                        ->subject(trans('mails.check_adress.subject'));
+                });
+
+
+
+
+                return \Response::json([
+                    'message' => 'Error',
+                    'result' => json_decode($res->getBody())->fejltekst
+                ]);
+            }
 
         }
 

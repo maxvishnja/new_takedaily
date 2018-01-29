@@ -21,7 +21,7 @@
             @if($signup17 != 0)
             {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017, $country) / $signup17, 2)  }}
             @else
-            0
+                0
             @endif
         </td>
         @foreach(range($key,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y)

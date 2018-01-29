@@ -1,5 +1,6 @@
 .nav-wizard
   overflow: hidden
+  margin-top: 6.6rem
   > li
     display: inline-block
     position: relative
@@ -57,3 +58,6 @@
 
   >li:first-child
     border-left: 1px solid $pale-grey-border
+
+  @include breakpoint(phone)
+    margin-top: 6rem

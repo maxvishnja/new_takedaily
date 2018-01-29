@@ -4,4 +4,8 @@
   @include clearfix;
   width: 100%;
   max-width: $site-desk-design;
+  padding: 0 5rem;
+  @include breakpoint(phone) {
+    padding: 0 1.2rem;
+  }
 }

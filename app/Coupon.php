@@ -32,71 +32,71 @@ use Illuminate\Database\Eloquent\Model;
 class Coupon extends Model
 {
 
-	/**
-	 * The database table for the model
-	 *
-	 * @var string
-	 */
-	protected $table = 'coupons';
+    /**
+     * The database table for the model
+     *
+     * @var string
+     */
+    protected $table = 'coupons';
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
-	 */
-	protected $fillable = [
-		'description',
-		'code',
-		'discount',
-		'applies_to',
-		'discount_type',
-		'currency',
-		'for_second',
-		'length',
-		'automatic',
-		'automatic_id',
-		'uses_left',
-		'valid_from',
-		'valid_to'
-	];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'description',
+        'code',
+        'discount',
+        'applies_to',
+        'discount_type',
+        'currency',
+        'for_second',
+        'length',
+        'automatic',
+        'automatic_id',
+        'uses_left',
+        'valid_from',
+        'valid_to'
+    ];
 
 
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = [];
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = [];
 
-	function usage()
-	{
-		return strtolower( trans( "usage.{$this->applies_to}" ) );
-	}
+    function usage()
+    {
+        return strtolower( trans( "usage.{$this->applies_to}" ) );
+    }
 
-	function isAmount()
-	{
-		return $this->discount_type == 'amount';
-	}
+    function isAmount()
+    {
+        return $this->discount_type == 'amount';
+    }
 
-	function isPercentage()
-	{
-		return $this->discount_type == 'percentage';
-	}
+    function isPercentage()
+    {
+        return $this->discount_type == 'percentage';
+    }
 
-	function isFreeShipping()
-	{
-		return $this->discount_type == 'free_shipping';
-	}
+    function isFreeShipping()
+    {
+        return $this->discount_type == 'free_shipping';
+    }
 
-	function reduceUsagesLeft()
-	{
-		if ( $this->uses_left > 0 )
-		{
-			$this->uses_left --;
-			$this->save();
-		}
-	}
+    function reduceUsagesLeft()
+    {
+        if ( $this->uses_left > 0 )
+        {
+            $this->uses_left --;
+            $this->save();
+        }
+    }
 
     function reduceLength()
     {
@@ -107,20 +107,20 @@ class Coupon extends Model
         }
     }
 
-	public static function newUpsellCoupon($code)
-	{
-		return self::create( [
-			'description'   => 'Upsell discount',
-			'code'          => $code,
-			'currency'      => trans( 'general.currency' ),
-			'discount'      => 50,
-			'applies_to'    => 'order',
-			'discount_type' => 'percentage',
-			'uses_left'     => 1,
-			'valid_from'    => \Jenssegers\Date\Date::now(),
-			'valid_to'      => \Jenssegers\Date\Date::now()->addDay()
-		] );
-	}
+    public static function newUpsellCoupon($code)
+    {
+        return self::create( [
+            'description'   => 'Upsell discount',
+            'code'          => $code,
+            'currency'      => trans( 'general.currency' ),
+            'discount'      => 50,
+            'applies_to'    => 'order',
+            'discount_type' => 'percentage',
+            'uses_left'     => 1,
+            'valid_from'    => \Jenssegers\Date\Date::now(),
+            'valid_to'      => \Jenssegers\Date\Date::now()->addDay()
+        ] );
+    }
 
 
 

@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
+	<div class="header_image">
+		<h1>{{ trans('login.title') }}</h1>
+	</div>
+	<div class="container" style="margin: 200px auto">
 		<form role="form" method="POST" action="{{ url('/dashboard/login') }}">
 			{!! csrf_field() !!}
 

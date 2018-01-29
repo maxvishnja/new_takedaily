@@ -99,7 +99,6 @@
 	{{--</div>--}}
 {{--@endif--}}
 @if(isset($descriptions['no-diet']))
-
 	<div class="new_vitamin_item">
 
 		<div class="pill_section">

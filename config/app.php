@@ -196,7 +196,7 @@ return [
 		Skovmand\Mailchimp\MailchimpServiceProvider::class,
 		Spatie\Backup\BackupServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
-
+        Mbarwick83\Instagram\InstagramServiceProvider::class,
 		/*
 		 * App providers
 		 */
@@ -263,7 +263,6 @@ return [
 		'Debugbar'  =>  Barryvdh\Debugbar\Facade::class,
         'DNS1D'     => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D'     => Milon\Barcode\Facades\DNS2DFacade::class,
-
 
 	],
 
