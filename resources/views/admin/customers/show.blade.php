@@ -105,13 +105,8 @@
 
 						</td>
 					</tr>
-				@else
-					<tr>
-						<td>Canceled date</td>
-						<td>{{  \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('j. M Y') }}
 
-						</td>
-					</tr>
+
 
 				@endif
 				<tr>
