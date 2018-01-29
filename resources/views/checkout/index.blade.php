@@ -209,11 +209,11 @@
 
 								</div>
 
-								<div class="row">
-									@if(App::getLocale() == "nl")
-										<h3 class="require-text">{{ trans('checkout.index.order.info.address.require') }}</h3>
-									@endif
-								</div>
+								{{--<div class="row">--}}
+									{{--@if(App::getLocale() == "nl")--}}
+										{{--<h3 class="require-text">{{ trans('checkout.index.order.info.address.require') }}</h3>--}}
+									{{--@endif--}}
+								{{--</div>--}}
 								<div class="row  m-b-20">
 									<div class="col-md-12" id="locationField">
 										<label class="label label--full checkout--label" for="input_info_address_street">{{ trans('checkout.index.order.info.address.start') }}
