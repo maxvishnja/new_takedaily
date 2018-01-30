@@ -67,7 +67,7 @@ class Customer extends Model
      * @var array
      */
 
-    protected $fillable = ['user_id', 'plan_id', 'balance', 'is_mailflowable', 'order_count', 'accept_newletters', 'locale'];
+    protected $fillable = ['user_id', 'plan_id', 'balance', 'is_mailflowable', 'order_count', 'accept_newletters', 'locale', 'coupon', 'age_group'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -315,6 +315,22 @@ class Customer extends Model
     {
         return $this->order_count;
     }
+
+
+    public function setCoupon($coupon)
+    {
+        $this->coupon = $coupon;
+        $this->save();
+        return true;
+    }
+
+    public function setAgeGroup($age)
+    {
+        $this->age_group = $age;
+        $this->save();
+        return true;
+    }
+
 
 
     public function repeat($amount = null) {
