@@ -220,6 +220,32 @@ class CheckoutCompletion
                 'nutritionist_id'           => $dietolog_ids,
 			] );
 
+            $age = '';
+
+            if($this->getUser()->getCustomer()->getAge() <= 24){
+                $age = 'group_1';
+            }
+            if($this->getUser()->getCustomer()->getAge() > 24 and $this->getUser()->getCustomer()->getAge() < 35){
+                $age = 'group_2';
+            }
+            if($this->getUser()->getCustomer()->getAge() > 34 and $this->getUser()->getCustomer()->getAge() < 45){
+                $age = 'group_3';
+            }
+            if($this->getUser()->getCustomer()->getAge() > 44 and $this->getUser()->getCustomer()->getAge() < 55){
+                $age = 'group_4';
+            }
+
+            if($this->getUser()->getCustomer()->getAge() > 54 and $this->getUser()->getCustomer()->getAge() < 65){
+                $age = 'group_5';
+            }
+
+            if($this->getUser()->getCustomer()->getAge() > 64){
+                $age = 'group_6';
+            }
+
+
+            $this->getUser()->getCustomer()->setAgeGroup($age);
+
 			if ( session( 'vitamins', false ) )
 			{
 				$vitamins = session( 'vitamins' );
