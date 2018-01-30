@@ -46,8 +46,9 @@
 		@endif
 
 		<address>
-			<p style="font-size: 9pt; margin-bottom: 5pt; ">CODE: {{ $order->labelTekst3 }}</p>
-			<div style="margin-bottom: 4pt; font-size:8pt"><strong>{{ $customer->getName() }}</strong>@if($customer->getCustomerAttribute('company') != '') @if($customer->getLocale() == 'da'), C/o @else - @endif {{ $customer->getCustomerAttribute('company') }}@endif</div>
+			<span style="font-size: 8pt; margin-bottom: -2pt; font-weight: 200; ">#{{ $order->getPaddedId() }}</span>
+			<p style="font-size: 8pt; margin-bottom: 1pt; ">CODE: {{ $order->labelTekst3 }}</p>
+			<div style="margin-bottom: 1pt; font-size:8pt"><strong>{{ $customer->getName() }}</strong>@if($customer->getCustomerAttribute('company') != '') @if($customer->getLocale() == 'da'), C/o @else - @endif {{ $customer->getCustomerAttribute('company') }}@endif</div>
 			<p style="font-size:8pt">{{ $customer->getCustomerAttribute('address_line1') }}, {{ $customer->getCustomerAttribute('address_number') }}<br/>
 				@if($customer->getCustomerAttribute('address_line2') != '')
 					{{ $customer->getCustomerAttribute('address_line2') }}<br/>
@@ -56,8 +57,8 @@
 				{{ ucfirst($customer->getCustomerAttribute('address_country')) }}<br/>
 
 			</p>
-			<img style="width: 23px; margin:5pt 0 0 5pt" src="{{ asset('/images/dao.png') }}"/>
-			<p style="font-size: 10pt">{{ $order->udsortering }} | {{ $order->labelTekst1 }} | {{ $order->labelTekst2 }}</p>
+			<img style="width: 20px; margin:1pt 0 0 1pt" src="{{ asset('/images/dao.png') }}"/>
+			<p style="font-size: 8pt">{{ $order->udsortering }} | {{ $order->labelTekst1 }} | {{ $order->labelTekst2 }}</p>
 		</address>
 
 	</div>
