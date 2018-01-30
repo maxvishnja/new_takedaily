@@ -44,10 +44,11 @@
 			<img style="width: 112pt; height: 59pt; position: absolute; top: 0; right: 25pt;" src="{{ asset('/images/logo-postnl@2x.png') }}"/>
 			<span style="position: absolute; top: 26mm; right: 25pt; font-size: 9pt; font-weight: 200; color: #1A8562;">#{{ $order->getPaddedId() }}</span>
 		@endif
-
+			<span style="font-size: 8pt; position: absolute; top: -7mm; left: -5pt; font-weight: 200; ">#{{ $order->getPaddedId() }}</span>
+			<br/>
 		<address>
-			<span style="font-size: 8pt; margin-bottom: -2pt; font-weight: 200; ">#{{ $order->getPaddedId() }}</span>
-			<p style="font-size: 8pt; margin-bottom: 1pt; ">CODE: {{ $order->labelTekst3 }}</p>
+
+			<p style="font-size: 8pt; margin-bottom: 1pt;  ">CODE: {{ $order->labelTekst3 }}</p>
 			<div style="margin-bottom: 1pt; font-size:8pt"><strong>{{ $customer->getName() }}</strong>@if($customer->getCustomerAttribute('company') != '') @if($customer->getLocale() == 'da'), C/o @else - @endif {{ $customer->getCustomerAttribute('company') }}@endif</div>
 			<p style="font-size:8pt">{{ $customer->getCustomerAttribute('address_line1') }}, {{ $customer->getCustomerAttribute('address_number') }}<br/>
 				@if($customer->getCustomerAttribute('address_line2') != '')
