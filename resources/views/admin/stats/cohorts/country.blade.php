@@ -13,13 +13,13 @@
         <td>{{$month}} {{\Date::now()->subYear()->format('Y')}}</td>
         <td>{{ $signup17 = \App\Plan::getSignupsCountry(sprintf('%02d', $key), 2017, $country) }}</td>
         <td class="text-center">{{ $signup17 }}  <br/>(100%)<br/>
-       <b>Rev. </b>  <br/>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017, $country),2) }}
+            <b>Rev. </b>  <br/>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), 2017, $country),2) }}
             <br/>
 
             <b>ARPU</b>
             <br/>
             @if($signup17 != 0)
-            {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017, $country) / $signup17, 2)  }}
+                {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), 2017, $country) / $signup17, 2)  }}
             @else
                 0
             @endif
@@ -54,14 +54,14 @@
         <td>{{$month2}} {{\Date::now()->format('Y')}}</td>
         <td>{{ $signup18 = \App\Plan::getSignupsCountry(sprintf('%02d', $key2), 2018, $country) }}</td>
         <td class="text-center">{{ $signup18 }}  <br/>(100%)
-        <br/>
-            <b>Rev. </b> <br/> {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2018, $country),2) }}
+            <br/>
+            <b>Rev. </b> <br/> {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), 2018, $country),2) }}
             <br/>
             <b>ARPU</b>
             <br/>
             @if($signup18 != 0)
 
-                {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2018, $country) / $signup18, 2)  }}
+                {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), 2018, $country) / $signup18, 2)  }}
             @else
                 0
             @endif
