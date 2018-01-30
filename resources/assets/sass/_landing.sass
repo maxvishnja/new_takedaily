@@ -755,18 +755,25 @@ body.index
 		text-align: center
 		margin: 0
 		position: relative
-		width: 960px
+		width: 980px
 		padding: 0 10px
 
 		video
 			display: inline-block
 			box-shadow: 0 0 40px rgba(0, 0, 0, .2)
+			width: 960px
+			@include breakpoint(phone)
+				width: 360px
 
 	.video-popup-close
 		cursor: pointer
 		float: right
 		margin-bottom: 10px
 
+.vit--landing
+	margin-top: 5rem
+	font-size: 1.2rem
+	line-height: 1.5
 
 .picks
 	width: 340px
@@ -774,6 +781,10 @@ body.index
 
 .picks-not-main
 	width: 280px
+	padding: 14px 30px!important
+
+.picks-not-main2
+	width: 386px
 	padding: 14px 30px!important
 
 @media all and (max-width: 480px)

@@ -41,6 +41,7 @@
 							line-height: 24px
 							background: url(/images/icons/icon-check-flow.png) left top no-repeat
 							background-size: 24px 24px
+							font-size: 1rem
 
 				.ingredients
 					display: none
@@ -63,6 +64,8 @@
 		display: block
 		flex: 1 0 0
 		min-height: 0
+		@include breakpoint(phone)
+			font-size: 1.1rem
 .form
 	&.form--loading
 		position: relative
@@ -264,7 +267,7 @@ label.label--error
 		width: 100%
 
 	&.button--medium
-		padding: 10px 35px
+		padding: 10px 20px
 		font-size: 17px
 		line-height: 1.7
 
@@ -284,6 +287,9 @@ label.label--error
 
 		&.button--small-padding
 			padding: 18px 30px
+
+	&.button--rounded
+		border-radius: 6px
 
 	&:disabled,
 	&.button--disabled
@@ -638,6 +644,8 @@ a
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1)
 	border: solid 1px $lighter-grey
 	padding: 20px
+	@include breakpoint(phone)
+		font-size: 1rem
 
 	&.card--large
 		padding: 40px

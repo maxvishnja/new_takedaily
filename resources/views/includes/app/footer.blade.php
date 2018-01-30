@@ -1,7 +1,6 @@
 <div class="clear"></div>
-
 <footer>
-    <div class="main">
+    <div class="main" style="background: #88E2C4">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 footer_column footer_column--newsletters text-center">

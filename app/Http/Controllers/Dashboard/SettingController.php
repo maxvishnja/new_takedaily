@@ -14,20 +14,20 @@ use App\Http\Controllers\Controller;
 class SettingController extends Controller
 {
 
-	private $repo;
+    private $repo;
 
-	/**
-	 * SettingController constructor.
-	 *
-	 * @param $repo
-	 */
-	public function __construct(SettingsRepository $repo)
-	{
-		$this->repo = $repo;
-	}
+    /**
+     * SettingController constructor.
+     *
+     * @param $repo
+     */
+    public function __construct(SettingsRepository $repo)
+    {
+        $this->repo = $repo;
+    }
 
-	function index()
-	{
+    function index()
+    {
 
 //	    $orders = Order::whereBetween('created_at', ['2017-12-13 00:00:00', '2018-01-03 23:59:00'])->where('state','sent')->get();
 //        $i = 0;
@@ -49,24 +49,24 @@ class SettingController extends Controller
 //
 //        dd();
 
-		return view('admin.settings.home', [
-			'settings' => $this->repo->all()
-		]);
-	}
+        return view('admin.settings.home', [
+            'settings' => $this->repo->all()
+        ]);
+    }
 
-	function update($id, Request $request)
-	{
-		$setting = Setting::find($id);
+    function update($id, Request $request)
+    {
+        $setting = Setting::find($id);
 
-		if( ! $setting )
-		{
-			return \Redirect::back()->withErrors("Setting not found!");
-		}
+        if( ! $setting )
+        {
+            return \Redirect::back()->withErrors("Setting not found!");
+        }
 
-		$data = $request->all();
+        $data = $request->all();
 
-		$setting->update($data);
+        $setting->update($data);
 
-		return \Redirect::action('Dashboard\SettingController@index')->with('success', 'Settings blev opdateret!');
-	}
+        return \Redirect::action('Dashboard\SettingController@index')->with('success', 'Settings blev opdateret!');
+    }
 }

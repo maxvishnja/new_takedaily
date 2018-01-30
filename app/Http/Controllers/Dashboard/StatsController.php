@@ -159,7 +159,7 @@ class StatsController extends Controller
         $stat_count->value = 1;
 
         $stat_count->save();
-        
+
         \Log::info('Click on create All CSV'.$data['lang']);
 
         \Event::fire(new CreateAllCsv($customers, $data['lang']));
@@ -289,7 +289,7 @@ class StatsController extends Controller
                                 $users_array[$month.' 2017'][$y] = Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y),2017)->customers."(".Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y),2017)->cohorts."%)";
                             }
 
-                          }
+                        }
 
                     }
 
@@ -344,7 +344,7 @@ class StatsController extends Controller
                         $users_array3[$month.' 2017']['Month'] = $month.' 2017';
                         if(Plan::getSignups(sprintf('%02d', $key),2017) != 0) {
                             $users_array3[$month.' 2017']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsRevenue(sprintf('%02d', $key), 2017) / Plan::getSignups(sprintf('%02d', $key),2017) , 2);
-                         } else{
+                        } else{
                             $users_array3[$month.' 2017']['ARPU'] = 0;
                         }
                         $users_array3[$month.' 2017']['0'] = '100%';
@@ -370,7 +370,7 @@ class StatsController extends Controller
                         $users_array3[$month2.' 2018']['Month'] = $month2.' 2018';
                         if(Plan::getSignups(sprintf('%02d', $key2),2018) != 0) {
                             $users_array3[$month2.' 2018']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsRevenue(sprintf('%02d', $key2), 2018) / Plan::getSignups(sprintf('%02d', $key2),2018) , 2);
-                         } else{
+                        } else{
                             $users_array3[$month2.' 2018']['ARPU'] = 0;
                         }
                         $users_array3[$month2.' 2018']['0'] = '100%';
@@ -583,7 +583,7 @@ class StatsController extends Controller
 
 
 
-                    //return \Redirect::back()->withErrors("No data!");
+                //return \Redirect::back()->withErrors("No data!");
 
             }
 
@@ -647,50 +647,50 @@ class StatsController extends Controller
     function exportDateCoupon (Request $request){
 
         $data = $request->all();
-         if ($data) {
+        if ($data) {
 
-             if($data['coupon'] == 1){
+            if($data['coupon'] == 1){
 
-                 $orders = Order::where('repeat','=',$data['coupon'])->get();
+                $orders = Order::where('repeat','=',$data['coupon'])->get();
 
-             } else{
-                 $orders = Order::where('coupon','=',$data['coupon'])->get();
-             }
-
-
-
-             if(count($orders) > 0){
-                 $email_array = [];
-                 $i = 0;
-                        foreach ($orders as $order) {
-
-                                    $email_array[$i]['First Name'] = $order->customer->getFirstName();
-                                    $email_array[$i]['Last Name'] = $order->customer->getLastName();
-                                    $email_array[$i]['Email Address'] = $order->customer->getEmail();
-                                    $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $order->customer->created_at)->format('d/m/Y H:i');
-                                    $i++;
+            } else{
+                $orders = Order::where('coupon','=',$data['coupon'])->get();
+            }
 
 
-                        }
+
+            if(count($orders) > 0){
+                $email_array = [];
+                $i = 0;
+                foreach ($orders as $order) {
+
+                    $email_array[$i]['First Name'] = $order->customer->getFirstName();
+                    $email_array[$i]['Last Name'] = $order->customer->getLastName();
+                    $email_array[$i]['Email Address'] = $order->customer->getEmail();
+                    $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $order->customer->created_at)->format('d/m/Y H:i');
+                    $i++;
 
 
-                 \Excel::create('users_coupon', function ($excel) use ($email_array) {
-
-                     $excel->sheet('All users with coupon', function ($sheet) use ($email_array) {
-
-                         $sheet->fromArray($email_array, null, 'A1', true);
-
-                     });
-
-                 })->download('xls');
-                 return \Redirect::back();
+                }
 
 
-             }
+                \Excel::create('users_coupon', function ($excel) use ($email_array) {
 
-             return \Redirect::back()->withErrors("No items!");
+                    $excel->sheet('All users with coupon', function ($sheet) use ($email_array) {
 
-         }
+                        $sheet->fromArray($email_array, null, 'A1', true);
+
+                    });
+
+                })->download('xls');
+                return \Redirect::back();
+
+
+            }
+
+            return \Redirect::back()->withErrors("No items!");
+
+        }
 
         return \Redirect::back()->withErrors("No data!");
 
@@ -748,11 +748,11 @@ class StatsController extends Controller
                     $i = 0;
                     $plans = $this->repo->allNewLocaleTime($currency, $data['start_date'], $data['end_date'] )->get();
                     foreach ($plans as $plan) {
-                            $email_array[$i]['First Name'] = $plan->customer->getFirstName();
-                            $email_array[$i]['Last Name'] = $plan->customer->getLastName();
-                            $email_array[$i]['Phone'] = $plan->customer->getPhone();
-                            $email_array[$i]['Email Address'] = $plan->customer->getEmail();
-                            $i++;
+                        $email_array[$i]['First Name'] = $plan->customer->getFirstName();
+                        $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                        $email_array[$i]['Phone'] = $plan->customer->getPhone();
+                        $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                        $i++;
 
                     }
                     if(isset($email_array)) {
@@ -797,8 +797,8 @@ class StatsController extends Controller
                             if($plan->getVitamiPlan()){
                                 foreach ($plan->getVitamiPlan() as $vitamin){
                                     $email_array[$i]['Supplements'] .= \App\Apricot\Helpers\PillName::get(strtolower($vitamin->code)).", ";
-                                 }
-                             }
+                                }
+                            }
                             $i++;
                         }
                     }
@@ -975,18 +975,18 @@ class StatsController extends Controller
                     $i = 0;
                     foreach ($orders as $order) {
 
-                            $email_array[$i]['First Name'] = $order->getCustomer()->getFirstName();
-                            $email_array[$i]['Last Name'] = $order->getCustomer()->getLastName();
-                            $email_array[$i]['Email Address'] = $order->getCustomer()->getEmail();
-                            $email_array[$i]['Order count'] = $order->count;
+                        $email_array[$i]['First Name'] = $order->getCustomer()->getFirstName();
+                        $email_array[$i]['Last Name'] = $order->getCustomer()->getLastName();
+                        $email_array[$i]['Email Address'] = $order->getCustomer()->getEmail();
+                        $email_array[$i]['Order count'] = $order->count;
 
-                            if($order->getCustomer()->getPlan()->subscription_canceled_at != null){
-                                $email_array[$i]['Status'] = "Not active";
-                            } else{
-                                $email_array[$i]['Status'] = "Active";
-                            }
+                        if($order->getCustomer()->getPlan()->subscription_canceled_at != null){
+                            $email_array[$i]['Status'] = "Not active";
+                        } else{
+                            $email_array[$i]['Status'] = "Active";
+                        }
 
-                            $i++;
+                        $i++;
                     }
 
                     if(isset($email_array)) {
@@ -1052,7 +1052,7 @@ class StatsController extends Controller
             }
             $reasons[6]= ["name" => 'Other reason', "y"=>$all - $count ];
 
-          return $reasons;
+            return $reasons;
 
         }
 

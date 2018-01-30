@@ -1,0 +1,98 @@
+//----- Navigation / style only for header nav
+.c-nav-header {
+  width: 93%;
+  @include vendor-prefixes(transition, .4s);
+  @include breakpoint(phone) {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      background-color: #3BA883;
+      text-align: center;
+      padding-top: 6rem;
+      height: 100%;
+      opacity: 0;
+  }
+  @include breakpoint(custom) {
+    width: 89%;
+  }
+  @include breakpoint(tabletToDesk) {
+    width: 69%;
+    margin: 1rem -1.2rem;
+  }
+  @include breakpoint(overPhone) {
+    display: inline-block;
+  }
+
+  &.active {
+    right: 0;
+    opacity: 1;
+  }
+
+  &__item {
+    @include breakpoint(phone) {
+      padding: 2rem 2%;
+    }
+    @include breakpoint(overPhone) {
+      display: inline-block;
+      margin-right: 3.2rem;
+    }
+    @include breakpoint(tabletToDesk) {
+      margin-right: 1.2rem;
+    }
+
+    &--log {
+      @include breakpoint(overPhone) {
+        position: relative;
+        margin-left: 3rem;
+      }
+      @include breakpoint(tabletToDesk) {
+        margin-left: 1.2rem;
+      }
+      &:before {
+        width: 1px;
+        height: 2.6rem;
+        background-color: #0C182E;
+        position: absolute;
+        left: -3rem;
+        bottom: -.4rem;
+        @include breakpoint(overPhone) {
+          content: '';
+        }
+        @include breakpoint(tabletToDesk) {
+          left: -1.2rem;
+        }
+      }
+    }
+  }
+  &__list {
+    @include breakpoint(phone) {
+      margin: 2rem 0;
+    }
+  }
+  &__link {
+    @include font-size(14px, 14px);
+    @include line-height(18px, 18px);
+    color: #0C182E;
+    @include breakpoint(phone) {
+      text-transform: uppercase;
+      color: $color-white;
+      font-size: 1.8rem !important;
+    }
+  }
+  &__close {
+    @include close(3rem, .3rem, $color-white);
+    @include hide(overPhone);
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+  .dropdown .caret {
+    display: none;
+    @include breakpoint(phone) {
+      display: inline-block;
+      vertical-align: 3px;
+      color: #fff;
+    }
+  }
+}

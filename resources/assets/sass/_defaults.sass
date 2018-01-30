@@ -3,7 +3,7 @@ html
 
 body
 	background: $white
-	font: 400 14px/1 "proxima-nova", "Proxima Nova", "proxima-nova-alt", "Proxima Nova Alt", sans-serif
+	font-family: 'Montserrat', sans-serif
 	//color: $greyish-brown
 	color: $main-green-dark
 	-webkit-font-smoothing: antialiased
@@ -29,14 +29,14 @@ body
 		height: 0
 
 p
-	line-height: 1.5
+	//line-height: 1.5
 
 a
 	color: $dark-grey
 	text-decoration: none
 
 	&:hover
-		text-decoration: underline
+		text-decoration: none
 
 .logo, .icon
 	display: inline-block
@@ -87,7 +87,7 @@ div.logo, div.icon
 
 .header_image
 	max-height: 800px
-	margin: 0
+	margin: 6.4rem 0 0
 	position: relative
 	text-align: center
 	padding: 40px 0
@@ -96,6 +96,8 @@ div.logo, div.icon
 	background-repeat: no-repeat
 	background-size: cover
 	background-position: center center
+	@include breakpoint(phone)
+		margin: 6rem 0 0
 
 	h1
 		font-size: 32px
@@ -108,10 +110,10 @@ body
 	//padding-top: 86px
 
 header
-	background-color: $dark-grey
-	background-repeat: no-repeat
-	background-size: cover
-	background-position: center center
+	//background-color: $dark-grey
+	//background-repeat: no-repeat
+	//background-size: cover
+	//background-position: center center
 
 	.logo
 		display: block
@@ -129,13 +131,17 @@ header
 		background-image: url(/images/header_bg.jpg)
 
 	.header_top
-		padding: 20px 0
+		padding: 13px 0
 
 	.header_top_tb
 		padding: 20px 0
 
+	.white-background
+		background: rgba(255, 255, 255, 1) !important
+
 	.header-nav
-		background: #fff
+		background: rgba(255, 255, 255, 0.4)
+		transition: all 0.1s ease-in-out
 		position: relative
 		z-index: 999
 		top: 0
@@ -166,7 +172,7 @@ header
 						display: block
 
 						a
-							padding: 10px
+							padding: 5px
 							font-size: 13px
 							display: block
 							text-align: center
@@ -183,7 +189,7 @@ header
 
 			&.cta
 				a
-					background: $main-green
+					background: $cta-green
 					color: #fff
 					font-weight: bold
 
@@ -278,7 +284,7 @@ nav[role="navigation"]
 footer
 	.main
 		padding: 40px 0
-		background: $main-green
+		background: $light-grey
 		color: $white
 
 		h3.footer_title
@@ -464,6 +470,74 @@ footer
 
 .dropdown-toggle:focus
 	outline: 0
+
+.dropdown-menu2
+	position: absolute
+	top: 100%
+	left: 0
+	z-index: 1000
+	display: none
+	float: left
+	min-width: 160px
+	padding: 5px 0
+	margin: 2px 0 0
+	list-style: none
+	font-size: 14px
+	text-align: left
+	background-color: #ffffff
+	border: 1px solid #cccccc
+	border: 1px solid rgba(0, 0, 0, 0.15)
+	border-radius: 4px
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175)
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175)
+	-webkit-background-clip: padding-box
+	background-clip: padding-box
+	@include breakpoint(phone)
+		width: 296px
+		text-align: center
+		left: calc(50% - 148px)
+
+	&.pull-right
+		right: 0
+		left: auto
+	.divider
+		height: 1px
+		margin: 9px 0
+		overflow: hidden
+		background-color: #e5e5e5
+	>
+	li > a
+		display: block
+		padding: 3px 20px
+		clear: both
+		font-weight: normal
+		line-height: 1.42857143
+		color: #333333
+		white-space: nowrap
+		&:hover, &:focus
+			text-decoration: none
+			color: #262626
+			background-color: #f5f5f5
+		.active > a
+			color: #ffffff
+			text-decoration: none
+			outline: 0
+			background-color: #337ab7
+			&:hover, &:focus
+				color: #ffffff
+				text-decoration: none
+				outline: 0
+				background-color: #337ab7
+		.disabled > a
+			color: #777777
+			&:hover, &:focus
+				color: #777777
+			&:hover, &:focus
+				text-decoration: none
+				background-color: transparent
+				background-image: none
+				filter: progid:DXImageTransform.Microsoft.gradient(enabled = false)
+				cursor: not-allowed
 
 .dropdown-menu
 	position: absolute
@@ -671,7 +745,7 @@ footer
 @media (min-width: 768px)
 	.nav-tabs.nav-justified >
 	li > a
-		border-bottom: 1px solid #dddddd
+		//border-bottom: 1px solid #dddddd
 		border-radius: 4px 4px 0 0
 		.active > a
 			border-bottom-color: #ffffff
@@ -730,7 +804,7 @@ footer
 @media (min-width: 768px)
 	.nav-tabs-justified >
 	li > a
-		border-bottom: 1px solid #dddddd
+		//border-bottom: 1px solid #dddddd
 		border-radius: 4px 4px 0 0
 		.active > a
 			border-bottom-color: #ffffff

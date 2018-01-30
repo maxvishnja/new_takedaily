@@ -101,19 +101,31 @@ class NutritionistController extends Controller
 
             $file = Input::file('image');
 
+            $crop = $data['imagebase64'];
+
+            list($type, $crop) = explode(';', $crop);
+            list(, $crop)      = explode(',', $crop);
+
+            $crop = base64_decode($crop);
+
             $timestamp = str_replace([' ', ':'], '-', \Carbon\Carbon::now()->toDateTimeString());
-            $data['image'] = $timestamp. '-' .$file->getClientOriginalName();
-            $file->move(public_path().'/images/nutritionist/', $data['image']);
+            $data['image'] = $timestamp . '-' . $file->getClientOriginalName();
+
+//            dd($file);
+
             $path = public_path().'/images/nutritionist/'.'thumb_'.$data['image'];
             $imagePath = public_path() . '/images/nutritionist/' . $data['image'];
-            $image = Image::make($imagePath);
+            $image = file_put_contents($imagePath, $crop);
 
-            $image->resize(175, 175, function ($constraint) {
+            $image = Image::make($imagePath, $data['image']);
+
+            $image->resize(400, 400, function ($constraint) {
                 $constraint->aspectRatio();
             });
 
             $image->save($path);
         }
+//
 
         $nutritionist->update($data);
 

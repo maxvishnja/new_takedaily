@@ -317,18 +317,16 @@
 
                                 <tr>
                                     <td>{{$month}} {{\Date::now()->subYear()->format('Y')}}</td>
-                                    <td>{{ $signup17 = \App\Plan::getSignups(sprintf('%02d', $key), 2017) }}
-
-                                    </td>
+                                    <td>{{ $signup17 = \App\Plan::getSignups(sprintf('%02d', $key), 2017) }}</td>
                                     <td class="text-center">{{ $signup17 }} <br/>(100%)
                                         <br/>
-                                        <b>Rev. </b>  <br/>{{ $rev17 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key),sprintf('%02d', $key), 2017),2) }}
+                                        <b>Rev. </b>  <br/>{{ $rev17 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key), 2017),2) }}
                                     <br/>
 
                                         <b>ARPU</b>
                                         <br/>
                                         @if($signup17 != 0)
-                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017) / $signup17, 2)  }}
+                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key), 2017) / $signup17, 2)  }}
                                         @else
                                         0
                                         @endif
@@ -336,13 +334,11 @@
                                     @foreach(range($key,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y)
                                         <td class="text-center">
                                             @if($y >= $key)
-
                                             {{ $cohorts17 = \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017)->customers}} <br/>
                                                ({{\App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017)->cohorts}}%)
                                                 <br/>
                                                 <b>Rev.</b>
                                                 <br/>
-
                                                 {{ $revc17 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017), 2)}}
                                                 <br/>
                                                 <b>ARPU</b>
@@ -364,12 +360,12 @@
                                 <td>{{$month2}} {{\Date::now()->format('Y')}}</td>
                                 <td>{{ $signup18 = \App\Plan::getSignups(sprintf('%02d', $key2), 2018) }}</td>
                                 <td class="text-center">{{ $signup18 }}<br/> (100%) <br/>
-                                    <b>Rev. </b>  <br/>{{ $rev18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018),2) }}
+                                    <b>Rev. </b>  <br/>{{ $rev18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), 2018),2) }}
                                     <br/>
                                     <b>ARPU</b>
                                     <br/>
                                     @if($signup18 != 0)
-                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018) / $signup18, 2)  }}
+                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), 2018) / $signup18, 2)  }}
                                     @else
                                         0
                                     @endif

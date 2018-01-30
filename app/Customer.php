@@ -352,7 +352,7 @@ class Customer extends Model
         }
 
 
-        $this->getPlan()->rebilled();
+        // $this->getPlan()->rebilled();
 
         return true;
 

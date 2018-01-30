@@ -48,20 +48,20 @@
 						<td>
 
 							@if($customer->plan->getSubscriptionCancelledAt())
-							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}
+								{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('Y/m/d H:i') }}
 							@else
 								No
 							@endif
 						</td>
 						<td>
 							@if($customer->plan->getRebillAt())
-							{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('Y/m/d H:i')}}
+								{{ \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getRebillAt())->format('Y/m/d H:i')}}
 							@endif
 						</td>
 						<td>
 							<div class="btn-group">
 								<a class="btn btn-info" href="{{ URL::action('Dashboard\CustomerController@edit', [ 'id' => $customer->id ]) }}"><i class="icon-pencil"></i>
-									</a>
+								</a>
 
 								<a class="btn btn-default" href="{{ URL::action('Dashboard\CustomerController@show', [ 'id' => $customer->id ]) }}"><i class="icon-eye-open"></i>
 									Vis</a>
@@ -73,7 +73,7 @@
 				</tbody>
 			</table>
 			<div style="text-align: right" id="pagination">
-			{{ $customers->links() }}
+				{{ $customers->links() }}
 			</div>
 		</div>
 	</div><!--/.module-->
@@ -81,34 +81,34 @@
 
 @section('scripts')
 	<script>
-		if ($('.datatable-1').length > 0)
-		{
-			$('.datatable-1').dataTable({
-				stateSave: true,
-               // serverSide: true,
-				"columnDefs": [
-					{
-						"targets": [6],
-						"sortable": false,
-						"searchable": false
-					},
-					{
-						"targets": [3, 4],
-						"searchable": false
-					}
-				],
-				"aaSorting": [[3, 'desc'],[4, 'desc']]
-			});
-			$('.dataTables_paginate').addClass('btn-group datatable-pagination');
-			$('.dataTables_paginate > a').wrapInner('<span />');
-			$('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
-			$('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
-		}
+        if ($('.datatable-1').length > 0)
+        {
+            $('.datatable-1').dataTable({
+                stateSave: true,
+                // serverSide: true,
+                "columnDefs": [
+                    {
+                        "targets": [6],
+                        "sortable": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [3, 4],
+                        "searchable": false
+                    }
+                ],
+                "aaSorting": [[3, 'desc'],[4, 'desc']]
+            });
+            $('.dataTables_paginate').addClass('btn-group datatable-pagination');
+            $('.dataTables_paginate > a').wrapInner('<span />');
+            $('.dataTables_paginate > a:first-child').append('<i class="icon-chevron-left shaded"></i>');
+            $('.dataTables_paginate > a:last-child').append('<i class="icon-chevron-right shaded"></i>');
+        }
 
 
         $('#search-button').on('click', function (e) {
             e.preventDefault();
-			$('#pagination').hide();
+            $('#pagination').hide();
             $.ajax({
                 type: 'POST',
                 data: $('form#search-form').serialize(),
@@ -116,7 +116,7 @@
                 success: function (data) {
                     if(data){
                         $('#results').html(data);
-					}
+                    }
 
                 }
 

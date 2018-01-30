@@ -117,8 +117,6 @@ class StockController extends ApiController
             'email'  => $request->input('item-alarm-email')
         ];
 
-//        dd($data);
-
         if($item->type == 'vitamin') {
             $data['qty'] = $this->repo->calcOrdersVitaminsQty($request->input('item-reqQty'), $item->id);
             $data['status'] = ($data['alert'] * 28 >= $data['qty']) ? 1 : 0;

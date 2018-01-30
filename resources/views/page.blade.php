@@ -7,8 +7,27 @@
 @section('mainClasses', 'm-b-50')
 
 @section('content')
+	<style>
+		h3 {
+			font-size: 1.5rem;
+			line-height: 1.5;
+		}
+
+		.container {
+			font: 400 14px/1 proxima-nova,Proxima Nova,proxima-nova-alt,Proxima Nova Alt,sans-serif;
+			line-height: 1.5;
+		}
+
+		article p {
+			margin: 20px 0;
+		}
+
+		article h3{
+			margin: 10px 0;
+		}
+	</style>
 	@if( $page->layout == 'header' )
-		<div class="header_image">
+		<div class="header_image" style="margin-top: 6.4rem">
 			<div class="container text-center">
 				<h1>{{ $page->title }}</h1>
 				@if( $page->sub_title != '')
@@ -50,12 +69,12 @@
 		<div class="text-center m-t-30">
 			<a href="{{ url()->route('flow') }}"
 			   class="button button--rounded button--huge button--landing button--green">
-				<strong>{!! trans('home.header.button-click-here') !!}</strong>
+				<strong>{!! trans('home2.header.button-flow') !!}</strong>
 			</a>
 			<div class="text-center m-t-20">
 
 				<a href="{{ url()->route('pick-n-mix') }}"
-				   class="button button--rounded button--huge button--landing button--green m-b-10 picks-not-main">
+				   class="button button--rounded button--huge button--landing button--green m-b-10 picks-not-main2">
 					<strong>{!! trans('pick.button-main') !!}</strong>
 				</a>
 			</div>
@@ -81,30 +100,30 @@
 @section('footer_scripts')
 	<script>
 
-			var videoPopup = $("#video_popup");
-			var videoPopupContent = $("#video_popup-content");
-			$("#video-toggle, #video-toggle-two").click(function (e) {
-			videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
-				'<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
-				'<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
-				'<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
-				'<source src="/video/{{ App::getLocale() }}/home.m4v" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
-				'</video>');
-			videoPopup.fadeIn(200);
-			});
+		var videoPopup = $("#video_popup");
+		var videoPopupContent = $("#video_popup-content");
+		$("#video-toggle, #video-toggle-two").click(function (e) {
+		videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
+			'<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
+			'<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
+			'<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
+			'<source src="/video/{{ App::getLocale() }}/home.m4v" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
+			'</video>');
+		videoPopup.fadeIn(200);
+		});
 
-			$("#video_popup_close").click(function () {
-			videoPopupContent.html('');
-			videoPopup.hide();
-			});
+		$("#video_popup_close").click(function () {
+		videoPopupContent.html('');
+		videoPopup.hide();
+		});
 
-			$(".video-popup").click(function () {
-			videoPopupContent.html('');
-			videoPopup.hide();
-			});
+		$(".video-popup").click(function () {
+		videoPopupContent.html('');
+		videoPopup.hide();
+		});
 
-			$(".video-popup_container").click(function (e) {
-			e.stopPropagation();
-			});
-		</script>
+		$(".video-popup_container").click(function (e) {
+		e.stopPropagation();
+		});
+	</script>
 @endsection
