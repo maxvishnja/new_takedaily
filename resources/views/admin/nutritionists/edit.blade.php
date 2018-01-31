@@ -55,15 +55,6 @@
                 </div>
 
                 <div class="control-group">
-                    <label for="page_title" class="control-label">About</label>
-                    <div class="controls">
-                        <input type="text" class="form-control span8" name="desc"
-                               value="{{ Request::old('desc', ($nutritionist->desc) ? $nutritionist->desc : '') }}"
-                               placeholder="About"/>
-                    </div>
-                </div>
-
-                <div class="control-group">
                     <label for="page_title" class="control-label">Photo</label>
                     <input type="hidden" id="imagebase64" name="imagebase64">
                     <div class="controls">
