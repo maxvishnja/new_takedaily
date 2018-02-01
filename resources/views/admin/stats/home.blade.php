@@ -313,6 +313,7 @@
                             @endforeach
 
                         </tr>
+                        
                         @foreach(trans('flow.datepicker.months_long') as $key=>$month)
 
                                 <tr>

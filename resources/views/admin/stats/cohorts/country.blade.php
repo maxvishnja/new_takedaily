@@ -48,6 +48,8 @@
     </tr>
 
 @endforeach
+
+
 @foreach(trans('flow.datepicker.months_long') as $key2=>$month2)
 
     <tr>
