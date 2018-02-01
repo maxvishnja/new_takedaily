@@ -178,6 +178,7 @@
 @endsection
 
 @section('footer_scripts')
+	<script src="https://use.fontawesome.com/a0fbf8c496.js"></script>
 	<script>
 
         $('.readMoreBtn').click(function (e) {

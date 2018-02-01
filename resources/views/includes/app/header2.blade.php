@@ -41,7 +41,6 @@
     <script src="/js/html5shiv.min.js"></script>
     <script src="/js/modernizr-custom.min.js"></script>
     <![endif]-->
-    <script src="https://use.fontawesome.com/a0fbf8c496.js"></script>
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
