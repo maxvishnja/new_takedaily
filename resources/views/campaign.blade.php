@@ -1,318 +1,238 @@
-@extends('layouts.landing')
+@extends('layouts.app')
 
 @section('pageClass', 'index')
 
 @section('content')
-    <style>
-        .container {
-            font: 400 14px/1 proxima-nova,Proxima Nova,proxima-nova-alt,Proxima Nova Alt,sans-serif;
-        }
-        .promo-nav {
-            background: #fff !important;
-        }
-        .container-fluid {
-            margin-top: 1rem !important;
-        }
-        .flex-desktop p {
-            line-height: 1.5;
-            margin: 1.5rem 0;
-        }
-    </style>
-    <header class="header--landing header--front-slide-1" @if(App::getLocale()=='nl') style="background: #fff url(/images/block-two-bg-nl.jpg) no-repeat center center; background-size: cover;
-    background-position: 60%;" @endif>
-        <div class="header-nav promo-nav">
-            <div class="row">
-                <div class="col-md-12 promocode" style="background:#{{$color}};" >
-                    <div class="promo-text">
-                        {!! $text  !!}
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                <div class="header_top">
-                    <div class="row">
-                        <div class="col-md-3 col-xs-9">
-                            <a href="/" class="logo logo-color"></a>
-                        </div>
-
-                        <div class="col-md-9 col-xs-3">
-                            @include('includes.app.nav')
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="header_content">
-            <div class="header_slides_container">
-                <div class="header_slides">
-                    <div class="header_slide" data-slide="2">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <h1>{!! trans('home.header.title-1') !!}</h1>
-                                    <p style="font-size: 18px;"><strong>{{ trans('home.header.subtitle') }}</strong></p>
-
-                                    <div class="m-t-20 pricing_item_header m-t-20 m-b-50">
-                                        <strong>{!! trans('home.header.splash.price') !!}</strong>
-                                        <small class="info">{!! trans('home.header.splash.info') !!}</small>
-                                    </div>
-
-                                    <div class="m-t-10">
-                                        <div class="pull-left">
-                                            <a href="{{ url()->route('flow') }}"
-                                               class="button button--rounded button--huge button--landing button--green m-b-10">
-                                                <strong>
-                                                    @if($button)
-                                                        {{ $button }}
-                                                    @else
-                                                        {!! trans('home.header.button-click-here') !!}
-                                                     @endif
-                                                </strong>
-                                            </a>
-                                        </div>
-
-                                        <div class="clear visible-xs"></div>
-
-                                        <div class="pull-left pull-left-n-mobile">
-                                            <div class="headervideo-block m-l-35">
-                                                <div class="video_circle" id="video-toggle-two">
-                                                    <div class="video_circle_content">
-                                                        <span class="icon icon-play"></span>
-                                                    </div>
-                                                </div>
-                                                <strong>{{ trans('home.header.what-is') }}</strong>
-                                            </div>
-                                        </div>
-                                        <div class="pull-left m-l-15">
-                                            <a href="{{ url()->route('pick-n-mix') }}"
-                                               class="button button--rounded button--huge button--landing button--green m-b-10 picks">
-                                                <strong>{!! trans('pick.button-main') !!}</strong>
-                                            </a>
-
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-
-                                    <div class="clear"></div>
-                                </div>
+    <main style="margin-top: -6rem;">
+        <!-- HP Hero -->
+        <section class="hp-hero">
+            <div class="hp-hero__media"></div>
+            <div class="l">
+                <div class="hp-hero__content @if(App::getLocale() == 'nl') {{ 'm-w-nl' }} @endif">
+                    <h1 class="hp-hero__title">{!! trans('home2.header.title-1') !!}</h1>
+                    <p class="hp-hero__intro">{!! trans('home2.header.intro') !!}</p>
+                    <a href="/flow" class="hp-btn blk-bg">{!! trans('home2.header.button-test') !!}</a>
+                    <div class="hp-hero__play">
+                        <a href="#">
+                            <div class="hp-hero__play__btn" id="video-toggle">
+                                <div class="hp-hero__play__btn__icon"></div>
                             </div>
-
-                            <div class="clear"></div>
-                        </div>
+                        </a>
+                        <span class="hp-hero__play__txt">{!! trans('home2.header.play-text') !!}</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <div class="landing_advantages_placeholder"></div>
+        <!-- Choose -->
+        <section class="hp-choose l">
+            <h2 class="hp-choose__title">{{ trans('home2.choose.title') }}</h2>
+            <section class="hp-choose__list">
+                <article class="hp-choose__item">
+                    <img
+                            src="/images/home/oval.png"
+                            alt=""
+                            class="hp-choose__item__img">
+                    <h4 class="hp-choose__item__title">{{ trans('home2.choose.block1-title') }}</h4>
+                    <p class="hp-choose__item__intro">{{ trans('home2.choose.block1-text') }}</p>
+                </article>
+                <article class="hp-choose__item">
+                    <img
+                            src="/images/home/oval2.png"
+                            alt=""
+                            class="hp-choose__item__img">
+                    <h4 class="hp-choose__item__title">{{ trans('home2.choose.block2-title') }}</h4>
+                    <p class="hp-choose__item__intro">{{ trans('home2.choose.block2-text')  }}</p>
+                </article>
+                <article class="hp-choose__item">
+                    <img
+                            src="/images/home/oval3.png"
+                            alt=""
+                            class="hp-choose__item__img">
+                    <h4 class="hp-choose__item__title">{{ trans('home2.choose.block3-title') }}</h4>
+                    <p class="hp-choose__item__intro">{{ trans('home2.choose.block3-text')  }}</p>
+                </article>
+            </section>
+        </section>
 
-    <div class="landing_advantages">
-        <div class="container-fluid">
+        <!-- Reviews -->
+        <section class="hp-members l">
+            <div class="hp-members__body">
+                <h2 class="hp-members__title">{{ trans('home2.reviews.title') }}</h2>
+                <section class="hp-members__list">
+                    @foreach($reviews as $review)
+                        <article class="hp-members__item">
+                            <div class="hp-members__item__media">
+                                <img src="/images/reviews/smiley.png" alt="">
+                            </div>
+                            <p class="hp-members__item__intro">{{ $review->review }}</p>
+                            <p class="hp-members__item__author">{{ $review->name }} {{ $review->age }}@if(\App::getLocale() == 'da') {{ 'år' }} @else {{ 'jaar' }} @endif</p>
+                        </article>
+                    @endforeach
+                </section>
+            </div>
+        </section>
 
-            <div class="col-md-3 col-sm-6">
-                <div class="home-promo-item-with-icon">
-                    <span class="icon icon-front-scissor"></span>
-                    {{ trans('home.promos.two') }}
+        <!-- Compromises -->
+        <section class="hp-comp l">
+            <h2 class="hp-comp__title">{{ trans('home2.compromises.title') }}</h2>
+            <p class="hp-comp__intro">{{ trans('home2.compromises.subtitle') }}</p>
+            <section class="hp-comp__list">
+                <article class="hp-comp__item">
+                    <img src="/images/icons/plantbased.png" alt="" class="hp-comp__item__img">
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.plantbased') !!}</p>
+                </article>
+                <article class="hp-comp__item">
+                    <img src="/images/icons/ISO.png" alt="" class="hp-comp__item__img">
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.iso') !!}</p>
+                </article>
+                <article class="hp-comp__item">
+                    <img src="/images/icons/nordic.png" alt="" class="hp-comp__item__img">
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.nordic') !!}</p>
+                </article>
+                <article class="hp-comp__item">
+                    <img src="/images/icons/fos.png" alt="" class="hp-comp__item__img">
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.fos') !!}</p>
+                </article>
+                <article class="hp-comp__item">
+                    <img src="/images/icons/glutenfree.png" alt="" class="hp-comp__item__img">
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.glutenfree') !!}</p>
+                </article>
+                <article class="hp-comp__item">
+                    <img src="/images/icons/lactosefree.png" alt="" class="hp-comp__item__img">
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.laktosefri') !!}</p>
+                </article>
+                <article class="hp-comp__item">
+                    <img src="/images/icons/allergyfree.png" alt="" class="hp-comp__item__img">
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.allergifri') !!}</p>
+                </article>
+                <article class="hp-comp__item">
+                    <img src="/images/icons/gmo.png" alt="" class="hp-comp__item__img">
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.gmo') !!}</p>
+                </article>
+            </section>
+        </section>
+
+        <!-- Mosaic -->
+        <section class="hp-mosaic l">
+            <div class="hp-mosaic__wrapper">
+                <article class="hp-mosaic__item">
+                    <div class="hp-mosaic__item__media" id="media1"></div>
+                    <div class="hp-mosaic__item__content">
+                        <h3 class="hp-mosaic__item__title">{{ trans('home2.mosaic.block1_h3') }}</h3>
+                        <p class="hp-mosaic__item__intro">{!!  trans('home2.mosaic.block1_txt') !!}</p>
+                    </div>
+                </article>
+                <article class="hp-mosaic__item">
+                    <div class="hp-mosaic__item__media" id="media2"></div>
+                    <div class="hp-mosaic__item__content">
+                        <h3 class="hp-mosaic__item__title">{{ trans('home2.mosaic.block2_h3') }}</h3>
+                        <p class="hp-mosaic__item__intro">{!!  trans('home2.mosaic.block2_txt') !!}</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Enjoy -->
+        <section class="hp-enjoy l">
+            <div class="hp-enjoy__wrapper">
+                <div class="hp-enjoy__body">
+                    <h2 class="hp-enjoy__title">{{ trans('home2.enjoy.title') }}</h2>
+                    <section class="hp-enjoy__list">
+                        <article class="hp-enjoy__item">
+                            <img src="/images/enjoy/chat.png" alt="" class="hp-enjoy__item__img">
+                            <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p1') !!}</p>
+                        </article>
+                        <article class="hp-enjoy__item">
+                            <img src="/images/enjoy/salad.png" alt="" class="hp-enjoy__item__img">
+                            <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p2') !!}</p>
+                        </article>
+                        <article class="hp-enjoy__item">
+                            <img src="/images/enjoy/factory.png" alt="" class="hp-enjoy__item__img">
+                            <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p3') !!}</p>
+                        </article>
+                        <article class="hp-enjoy__item">
+                            <img src="/images/enjoy/connection-chart.png" alt="" class="hp-enjoy__item__img">
+                            <p class="hp-enjoy__item__intro">{!! trans('home2.enjoy.p4') !!}</p>
+                        </article>
+                    </section>
                 </div>
             </div>
+        </section>
 
-            <div class="col-md-3 col-sm-6">
-                <div class="home-promo-item-with-icon">
-                    <span class="icon icon-front-delivery"></span>
-                    {{ trans('home.promos.four') }}
+        <!-- Packaging -->
+        <section class="hp-packaging">
+            <div class="hp-packaging__body l">
+                <div class="hp-packaging__content">
+                    <h2 class="hp-packaging__title">{{ trans('home2.packaging.title') }}</h2>
+                    <p class="hp-packaging__intro">{{ trans('home2.packaging.intro') }}</p>
+                    <a href="/pick-n-mix" class="hp-btn">{{ trans('home2.packaging.btn') }}</a>
+                </div>
+                <div class="hp-packaging__media">
+                    <img src="/images/home/product.png" alt="">
                 </div>
             </div>
+        </section>
 
-            <div class="col-md-3 col-sm-6">
-                <div class="home-promo-item-with-icon">
-                    <span class="icon icon-front-post"></span>
-                    {{ trans('home.promos.one') }}
-                </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <div class="home-promo-item-with-icon">
-                    <span class="icon icon-front-support"></span>
-                    {{ trans('home.promos.three') }}
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <main>
-        <div class="container">
-            <div class="block block--one text-center">
-                <h2>{{ trans('home.blocks.one.title') }}</h2>
-                <p class="sub_header">{{ trans('home.blocks.one.description') }}</p>
-
-                <div class="row text-center">
-                    <div class="col-sm-4 block_item">
-                        <div class="arrow"></div>
-                        <span class="icon icon-heart"></span>
-                        <h3>{{ trans('home.blocks.one.steps.one.title') }}</h3>
-                        <p>{{ trans('home.blocks.one.steps.one.text') }}</p>
-                    </div>
-
-                    <div class="col-sm-4 block_item">
-                        <div class="arrow"></div>
-                        <span class="icon icon-logo"></span>
-                        <h3>{{ trans('home.blocks.one.steps.two.title') }}</h3>
-                        <p>{{ trans('home.blocks.one.steps.two.text') }}</p>
-                    </div>
-
-                    <div class="col-sm-4 block_item">
-                        <span class="icon icon-box"></span>
-                        <h3>{{ trans('home.blocks.one.steps.three.title') }}</h3>
-                        <p>{{ trans('home.blocks.one.steps.three.text') }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="block block--two">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>{!! trans('home.blocks.two.title') !!}</h2>
-                        {!! trans('home.blocks.two.body') !!}
-                        {!! trans('home.blocks.two.button') !!}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="block block--promises">
-            <div class="container">
-                <h2 class="text-center">{{ trans('home.blocks.promises.title') }}</h2>
-                <div class="promise-container">
-                    <div class="promise-item">
-                        <img src="/images/promises/promise_1.png" alt=""/>
-                    </div>
-
-                    <div class="promise-item">
-                        <p>{!! trans('home.blocks.promises.promise-1') !!}</p>
-                    </div>
-
-                    <div class="promise-item">
-                        <img src="/images/promises/promise_2.png" alt=""/>
-                    </div>
-
-                    <div class="promise-item">
-                        <p>{!! trans('home.blocks.promises.promise-2') !!}</p>
-                    </div>
-
-                    <div class="promise-item">
-                        <p>{!! trans('home.blocks.promises.promise-3') !!}</p>
-                    </div>
-
-                    <div class="promise-item">
-                        <img src="/images/promises/promise_3.png" alt=""/>
-                    </div>
-
-                    <div class="promise-item">
-                        <p>{!! trans('home.blocks.promises.promise-4') !!}</p>
-                    </div>
-
-                    <div class="promise-item">
-                        <img src="/images/promises/promise_4.png" alt=""/>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="new_block">
-            <div class="container">
-                <div class="row">
-                    <div class="flex-desktop">
-                        <div class="col-md-6 col-md-push-6 text-center">
-                            <img src="/images/marie-louise-home.jpg" alt="Marie-Louise" style="border-radius: 10px" width="330"/>
-                            <div class="m-t-20" style="margin-left: -20rem">{!! trans('home.new_blocks.one.below_image') !!}</div>
-                        </div>
-                        <div class="col-md-6 col-md-pull-6">
-                            <h3 style="font-size: 20px;">{{ trans('home.new_blocks.one.title') }}</h3>
-                            {!! trans('home.new_blocks.one.body') !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="new_block">
-            <div class="container">
-                <div class="row">
-                    <div class="flex-desktop">
-                        <div class="col-md-6 text-center">
-                            <img src="/images/new_blocks_two.jpg" width="400" alt="{{ trans('home.new_blocks.two.title') }}" style="border-radius: 10px"/>
-                            <div class="m-t-20">{!! trans('home.new_blocks.two.below_image') !!}</div>
-                        </div>
-                        <div class="col-md-6">
-                            <h3 style="font-size: 20px;">{{ trans('home.new_blocks.two.title') }}</h3>
-                            {!! trans('home.new_blocks.two.body') !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        @if( is_array( trans('home.blocks.six.slides') ) )
-            <div class="block block--six" style="position: relative">
-                <div class="slider_container" id="slider_two">
-                    <div class="icon slider-arrow-left icon-arrow-left"></div>
-                    <div class="icon slider-arrow-right icon-arrow-right"></div>
-
-                    <div class="slider">
-                        <div class="slide_container">
-                            @foreach(trans('home.blocks.six.slides') as $key => $slide)
-                                <div class="slide slide--{{$key}}">
-                                    <div class="container">
-                                        <h2 class="text-center">{{ $slide['title'] }}</h2>
-                                        <p class="text-center">{{ $slide['text'] }}</p>
-                                        <div class="text-center">
-                                            {!! $slide['button'] !!}
-                                            {{--<div class="m-t-20"><a href="{{ url()->route('pick-package') }}">{{ trans('home.header.pick') }}</a></div>--}}
-                                        </div>
-                                    </div>
+        <!-- Nutritionists -->
+        @if($nutritionists)
+            <section class="hp-nutr l">
+                <div class="hp-nutr__wrapper">
+                    <h2 class="hp-nutr__title">{{ trans('home2.nutritionists.title') }}</h2>
+                    <p class="hp-nutr__intro">{{ trans('home2.nutritionists.intro') }}</p>
+                    <section class="hp-nutr__list">
+                        @foreach($nutritionists as $nutri)
+                            <article class="hp-nutr__item">
+                                @if($nutri->image !== '')
+                                    <img src="/images/nutritionist/thumb_{{$nutri->image}}" alt="" class="hp-nutr__item__img">
+                                @else
+                                    <img src="http://via.placeholder.com/180x180/ff66cc/fff" alt="" class="hp-nutr__item__img">
+                                @endif
+                                <div class="hp-nutr__item__content">
+                                    <h4 class="hp-nutr__item__title">{{ $nutri->first_name }}</h4>
+                                    <p class="hp-nutr__item__intro">{{ $nutri->desc }}</p>
                                 </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <div class="slider_two_progress"
-                         style="position: absolute; left: 50%; margin-left: -50px; bottom: 20px; height: 4px; background: rgba(0,0,0,.25); width: 100px">
-                        <div class="bar" style="height: 4px; background: rgba(0,0,0,.25); width: 0"></div>
-                    </div>
+                            </article>
+                        @endforeach
+                    </section>
                 </div>
-            </div>
+            </section>
         @endif
 
-        <div class="block--faq m-t-30 m-b-30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 col-md-push-2">
-                        <h3 style="font-size: 32px" class="text-center">{{ trans('faq.title') }}</h3>
-                        <div class="faqs">
-                            @foreach($faqs as $faq)
-                                <div class="faq">
-                                    <div class="faq_header">
-                                        <strong>{{ $faq->question }}</strong>
-                                        <span class="icon icon-arrow-down"></span>
-
-                                        <div class="clear"></div>
-                                    </div>
-
-                                    <div class="faq_answer">
-                                        {!! $faq->answer !!}
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Instagram -->
+        @if($instaLatestFour)
+            <section class="hp-insta l">
+                <header class="hp-insta__head">
+                    <img src="/images/home/insta.png" alt="" class="hp-insta__logo">
+                    <h2 class="hp-insta__title">#Takedaily</h2>
+                </header>
+                <section class="hp-insta__list">
+                    @foreach($instaLatestFour as $insta)
+                        <article class="hp-insta__item">
+                            <div class="hp-insta__item__media">
+                                <a href="{{ $insta['link'] }}" target="_blank">
+                                    <img srcset="{{ $insta['images']['standard_resolution']['url'] }}"
+                                         width="237px"
+                                         height="237px"
+                                         alt="">
+                                </a>
+                            </div>
+                            <div class="hp-insta__item__content">
+                                <p class="hp-insta__item__intro">{{ $insta['caption']['text'] }}</p>
+                                <span class="hp-insta__item__bottom">
+                            <img src="/images/instagram/like.png" alt="">
+                            <span class="hp-insta__item__bottom__num">{{ $insta['likes']['count'] }}</span>
+                        </span>
+                                <span class="hp-insta__item__bottom">
+                            <img src="/images/instagram/comment.png" alt="">
+                            <span class="hp-insta__item__bottom__num">{{ $insta['comments']['count'] }}</span>
+                        </span>
+                            </div>
+                        </article>
+                    @endforeach
+                </section>
+            </section>
+        @endif
 
         <div class="video-popup" id="video_popup">
             <div class="video_popup_aligner">
@@ -327,37 +247,16 @@
 
 @section('footer_scripts')
     <script>
-        $("#slider_two").slider();
-
-        var auto_slide_progress = $(".slider_two_progress");
-        var auto_slide_progress_bar = auto_slide_progress.find('.bar');
-        var auto_slide_state = 0;
-        var auto_slide_interval = 800;
-
-        setInterval(function () {
-            auto_slide_state++;
-            auto_slide_progress_bar.width((auto_slide_state / 800 * 100) + '%');
-
-            if (auto_slide_state >= auto_slide_interval) {
-                auto_slide_state = 0;
-                $("#slider_two .slider-arrow-right").click();
-            }
-        }, 10);
-
-        $("#slider_two .slider-arrow-left, #slider_two .slider-arrow-right").click(function () {
-            auto_slide_state = 0;
-        });
-
-
         var videoPopup = $("#video_popup");
         var videoPopupContent = $("#video_popup-content");
         $("#video-toggle, #video-toggle-two").click(function (e) {
-            videoPopupContent.html('<video width="960" preload="none" autoplay controls>' +
-                    '<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
-                    '<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
-                    '<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
-                    '<source src="/video/{{ App::getLocale() }}/home.m4v" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
-                    '</video>');
+            e.preventDefault();
+            videoPopupContent.html('<video preload="none" autoplay controls>' +
+                '<source src="/video/{{ App::getLocale() }}/home.mp4" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
+                '<source src="/video/{{ App::getLocale() }}/home.webm" type=\'video/webm; codecs="vp8, vorbis"\' />' +
+                '<source src="/video/{{ App::getLocale() }}/home.ogv" type=\'video/ogg; codecs="theora, vorbis"\' />' +
+                '<source src="/video/{{ App::getLocale() }}/home.m4v" type=\'video/mp4; codecs="avc1.42E01E, mp4a.40.2"\' />' +
+                '</video>');
             videoPopup.fadeIn(200);
         });
 
@@ -374,27 +273,5 @@
         $(".video-popup_container").click(function (e) {
             e.stopPropagation();
         });
-
-        $(".faq").click(function () {
-            var currentFaq = $(".faq.open");
-            var thisFaq = $(this);
-
-            if (currentFaq !== undefined) {
-                currentFaq.find('.faq_answer').stop().slideUp(250); // Sadly, height is dynamic so CSS animations is no option.
-                currentFaq.removeClass('open');
-            }
-
-            if (!thisFaq.is(currentFaq)) {
-                thisFaq.addClass('open');
-                thisFaq.find('.faq_answer').stop().slideDown(250); // Sadly, height is dynamic so CSS animations is no option.
-            }
-        });
     </script>
-
-    <style>
-        .home-promo-item-with-icon {
-            height: 31px;
-            line-height: 31px;
-        }
-    </style>
 @endsection

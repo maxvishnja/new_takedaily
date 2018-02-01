@@ -54,6 +54,15 @@
 
 <body class="@yield('pageClass', 'index')">
 <header class="b-header @if(!Request::is('/')){{ 'active' }}@endif">
+    @if(Request::segment(1) == 'campaign')
+        <div class="row">
+            <div class="col-md-12 promocode" style="background:#{{$color}}; z-index:9999; position: relative;" >
+                <div class="promo-text">
+                    {!! $text !!}
+                </div>
+            </div>
+        </div>
+    @endif
 
     <div class="b-header__body @if(Request::is('checkout')){{ 'no--nav' }}@endif">
 
