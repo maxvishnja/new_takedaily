@@ -105,8 +105,13 @@
 
 						</td>
 					</tr>
+				@else
+					<tr>
+						<td>Canceled date</td>
+						<td>{{  \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $customer->plan->getSubscriptionCancelledAt())->format('j. M Y') }}
 
-
+						</td>
+					</tr>
 
 				@endif
 				<tr>
@@ -135,7 +140,6 @@
 						<th>#</th>
 						<th>Status</th>
 						<th>Total</th>
-						<th>Coupon</th>
 						<th>Oprettet d.</th>
 						<th>Opdateret d.</th>
 					</tr>
@@ -143,18 +147,13 @@
 					<tbody>
 					@foreach($customer->orders as $order)
 						<tr>
-						<td>
-							<a href="{{ URL::action('Dashboard\OrderController@show', [ 'id' => $order->id ]) }}">{{ $order->getPaddedId() }}</a>
-						</td>
-						<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
-						<td>@if($order->repeat == 1)
-								0,00 {{ $order->currency }}
-							@else
-								{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true) }} {{ $order->currency }}
-							@endif </td>
-						<td>{{ $order->getCoupon() }} </td>
-						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
-						<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->updated_at)->format('j. M Y H:i') }}</td>
+							<td>
+								<a href="{{ URL::action('Dashboard\OrderController@show', [ 'id' => $order->id ]) }}">{{ $order->getPaddedId() }}</a>
+							</td>
+							<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
+							<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true) }} kr.</td>
+							<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
+							<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->updated_at)->format('j. M Y H:i') }}</td>
 						</tr>
 					@endforeach
 					</tbody>
@@ -190,51 +189,51 @@
 				</table>
 			@endif
 
-				<div class="clearfix"></div>
+			<div class="clearfix"></div>
+			<br/>
+
+			<div style="display: none" class="add-note">
+				<form method="post" action="{{ URL::action('Dashboard\CustomerController@addNote', [ 'id' => $customer->id ]) }}" class="form-horizontal row-fluid">
+					<div class="control-group">
+						<label for="code" class="control-label">Author </label>
+						<div class="controls">
+							<input type="text" class="form-control span8" name="author" id="code" value="" placeholder="(ex. Marie or Kirsten)"/>
+						</div>
+					</div>
+
+
+					<div class="control-group">
+						<label for="page_title" class="control-label">Date</label>
+						<div class="controls">
+							<input type="text" class="form-control span8 datepicker" name="date" id="birthdate-picker"
+								   value=""
+								   placeholder="Date"/>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label for="description" class="control-label">Note</label>
+						<div class="controls">
+							<textarea name="note" id="note" class="form-control span8" rows="5" placeholder=""></textarea>
+
+
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls clearfix">
+							<button type="submit" class="btn btn-primary btn-large pull-left">Add</button>
+						</div>
+					</div>
+					{{ csrf_field() }}
+				</form>
 				<br/>
-
-				<div style="display: none" class="add-note">
-						<form method="post" action="{{ URL::action('Dashboard\CustomerController@addNote', [ 'id' => $customer->id ]) }}" class="form-horizontal row-fluid">
-							<div class="control-group">
-								<label for="code" class="control-label">Author </label>
-								<div class="controls">
-									<input type="text" class="form-control span8" name="author" id="code" value="" placeholder="(ex. Marie or Kirsten)"/>
-								</div>
-							</div>
+			</div>
 
 
-							<div class="control-group">
-								<label for="page_title" class="control-label">Date</label>
-								<div class="controls">
-									<input type="text" class="form-control span8 datepicker" name="date" id="birthdate-picker"
-										   value=""
-										   placeholder="Date"/>
-								</div>
-							</div>
-
-							<div class="control-group">
-								<label for="description" class="control-label">Note</label>
-								<div class="controls">
-									<textarea name="note" id="note" class="form-control span8" rows="5" placeholder=""></textarea>
-
-
-								</div>
-							</div>
-							<div class="control-group">
-								<div class="controls clearfix">
-									<button type="submit" class="btn btn-primary btn-large pull-left">Add</button>
-								</div>
-							</div>
-							{{ csrf_field() }}
-						</form>
-						<br/>
-				</div>
-
-
-				<div class="text-center" style="text-align: center">
-					<a class="btn btn-info adds" href="#">
-						Show note form</a>
-				</div>
+			<div class="text-center" style="text-align: center">
+				<a class="btn btn-info adds" href="#">
+					Show note form</a>
+			</div>
 
 		</div>
 	</div><!--/.module-->
@@ -246,17 +245,17 @@
 					<h4 class="modal-title">Reason for unsubscribing</h4>
 				</div>
 				<form action="{{ URL::action('Dashboard\CustomerController@cancel') }}" id="form" method="post">
-				<div class="modal-body">
+					<div class="modal-body">
 						<div  id="other_reason" class="m-t-15 m-b-15">
 							<input type="hidden" name="id" value="{{$customer->id }}">
 							<input style="width: 99%; height: 50px;" required type="text" name="reason" placeholder="Text input here" class="input input--regular input--full m-t-10">
 						</div>
 
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="submit" class="btn btn-primary">Unsubcribe</button>
-				</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Unsubcribe</button>
+					</div>
 					{{csrf_field()}}
 				</form>
 			</div><!-- /.modal-content -->
@@ -265,32 +264,32 @@
 @stop
 @section('scripts')
 	<script>
-		$(function() {
+        $(function() {
 
-			$(".opsig").click(function (e) {
-				e.preventDefault();
-				$('.modal').modal('show');
+            $(".opsig").click(function (e) {
+                e.preventDefault();
+                $('.modal').modal('show');
 
-			});
-
-
+            });
 
 
 
 
-			$('.adds').on('click', function(e){
-				e.preventDefault();
-				$('.add-note').toggle(500);
-			});
-			CKEDITOR.replace('note', {
-				height: 300,
-				language: "en",
-				filebrowserImageUploadUrl: '/dashboard/upload/image'
-			});
 
-			$('.datepicker').datepicker({
-				dateFormat: "yy-mm-dd"
-			});
-		});
+
+            $('.adds').on('click', function(e){
+                e.preventDefault();
+                $('.add-note').toggle(500);
+            });
+            CKEDITOR.replace('note', {
+                height: 300,
+                language: "en",
+                filebrowserImageUploadUrl: '/dashboard/upload/image'
+            });
+
+            $('.datepicker').datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        });
 	</script>
 @endsection

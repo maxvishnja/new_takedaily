@@ -281,28 +281,28 @@
                            class="datatable-1 table table-bordered table-striped display" width="100%">
                         <thead>
                         <form action="{{ URL::action('Dashboard\StatsController@cohortsToCsv') }}" method="post">
-                        <tr>
-                            <td>Week/Month</td>
-                            <td>Sign.</td>
-                            <td colspan="11">
-                                <select name="rate" class="change-cohorts">
-                                    <option value="4" >All</option>
-                                    <option value="DKK">Denmark</option>
-                                    <option value="EUR">Netherlands</option>
-                                </select>
-                            </td>
-                            <td>
-                                {{ csrf_field() }}
-                                <button type="submit" style="float:right" class="btn btn-success">CSV</button>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td>Week/Month</td>
+                                <td>Sign.</td>
+                                <td colspan="11">
+                                    <select name="rate" class="change-cohorts">
+                                        <option value="4" >All</option>
+                                        <option value="DKK">Denmark</option>
+                                        <option value="EUR">Netherlands</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    {{ csrf_field() }}
+                                    <button type="submit" style="float:right" class="btn btn-success">CSV</button>
+                                </td>
+                            </tr>
 
                         </form>
 
                         </thead>
-                        </table >
-                        <table cellpadding="0" cellspacing="0" border="0"
-                               class="datatable-1 table table-bordered table-striped display" width="100%">
+                    </table >
+                    <table cellpadding="0" cellspacing="0" border="0"
+                           class="datatable-1 table table-bordered table-striped display" width="100%">
                         <tbody id="4" class="cohorts">
                         <tr>
                             <td></td>
@@ -313,60 +313,64 @@
                             @endforeach
 
                         </tr>
-                        
+
                         @foreach(trans('flow.datepicker.months_long') as $key=>$month)
 
-                                <tr>
-                                    <td>{{$month}} {{\Date::now()->subYear()->format('Y')}}</td>
-                                    <td>{{ $signup17 = \App\Plan::getSignups(sprintf('%02d', $key), 2017) }}</td>
-                                    <td class="text-center">{{ $signup17 }} <br/>(100%)
-                                        <br/>
-                                        <b>Rev. </b>  <br/>{{ $rev17 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key), 2017),2) }}
+                            <tr>
+                                <td>{{$month}} {{\Date::now()->subYear()->format('Y')}}</td>
+                                <td>{{ $signup17 = \App\Plan::getSignups(sprintf('%02d', $key), 2017) }}
+
+                                </td>
+                                <td class="text-center">{{ $signup17 }} <br/>(100%)
+                                    <br/>
+                                    <b>Rev. </b>  <br/>{{ $rev17 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key),sprintf('%02d', $key), 2017),2) }}
                                     <br/>
 
-                                        <b>ARPU</b>
-                                        <br/>
-                                        @if($signup17 != 0)
-                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key), 2017) / $signup17, 2)  }}
-                                        @else
+                                    <b>ARPU</b>
+                                    <br/>
+                                    @if($signup17 != 0)
+                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017) / $signup17, 2)  }}
+                                    @else
                                         0
-                                        @endif
-                                    </td>
-                                    @foreach(range($key,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y)
-                                        <td class="text-center">
-                                            @if($y >= $key)
+                                    @endif
+                                </td>
+                                @foreach(range($key,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y)
+                                    <td class="text-center">
+                                        @if($y >= $key)
+
                                             {{ $cohorts17 = \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017)->customers}} <br/>
-                                               ({{\App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017)->cohorts}}%)
-                                                <br/>
-                                                <b>Rev.</b>
-                                                <br/>
-                                                {{ $revc17 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017), 2)}}
-                                                <br/>
-                                                <b>ARPU</b>
+                                            ({{\App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017)->cohorts}}%)
+                                            <br/>
+                                            <b>Rev.</b>
+                                            <br/>
+
+                                            {{ $revc17 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017), 2)}}
+                                            <br/>
+                                            <b>ARPU</b>
                                             <br/>
                                             @if($cohorts17 == 0)
-                                            0
+                                                0
                                             @else
                                                 {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017) / $cohorts17, 2)  }}
                                             @endif
-                                            @endif
-                                        </td>
-                                    @endforeach
-                                </tr>
+                                        @endif
+                                    </td>
+                                @endforeach
+                            </tr>
 
-                            @endforeach
+                        @endforeach
                         @foreach(trans('flow.datepicker.months_long') as $key2=>$month2)
 
                             <tr>
                                 <td>{{$month2}} {{\Date::now()->format('Y')}}</td>
                                 <td>{{ $signup18 = \App\Plan::getSignups(sprintf('%02d', $key2), 2018) }}</td>
                                 <td class="text-center">{{ $signup18 }}<br/> (100%) <br/>
-                                    <b>Rev. </b>  <br/>{{ $rev18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), 2018),2) }}
+                                    <b>Rev. </b>  <br/>{{ $rev18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018),2) }}
                                     <br/>
                                     <b>ARPU</b>
                                     <br/>
                                     @if($signup18 != 0)
-                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), 2018) / $signup18, 2)  }}
+                                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018) / $signup18, 2)  }}
                                     @else
                                         0
                                     @endif
@@ -398,119 +402,119 @@
 
                         {{--<tbody id="5" class="cohorts hidden">--}}
                         {{--<tr>--}}
-                            {{--<td></td>--}}
-                            {{--<td></td>--}}
-                            {{--@foreach(range(0,date('W')) as $val)--}}
-                            {{--<td>{{$val}}</td>--}}
-                           {{--@endforeach--}}
+                        {{--<td></td>--}}
+                        {{--<td></td>--}}
+                        {{--@foreach(range(0,date('W')) as $val)--}}
+                        {{--<td>{{$val}}</td>--}}
+                        {{--@endforeach--}}
                         {{--</tr>--}}
 
                         {{--@foreach(range(0,date('W')-1) as $week)--}}
-                            {{--<tr>--}}
-                                {{--<td>Week {{$week+1}}</td>--}}
-                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>--}}
-                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>--}}
-                                {{--@foreach(range(01,date('W')) as $y)--}}
-                                    {{--<td class="text-center">--}}
+                        {{--<tr>--}}
+                        {{--<td>Week {{$week+1}}</td>--}}
+                        {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>--}}
+                        {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>--}}
+                        {{--@foreach(range(01,date('W')) as $y)--}}
+                        {{--<td class="text-center">--}}
 
-                                        {{--@if(date('W')-$week >= $y)--}}
-                                          {{--{{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}--}}
-                                        {{--@endif--}}
-                                    {{--</td>--}}
-                                {{--@endforeach--}}
-                            {{--</tr>--}}
+                        {{--@if(date('W')-$week >= $y)--}}
+                        {{--{{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}--}}
+                        {{--@endif--}}
+                        {{--</td>--}}
+                        {{--@endforeach--}}
+                        {{--</tr>--}}
                         {{--@endforeach--}}
                         {{--</tbody>--}}
 
-                            <tbody id="6" class="cohorts hidden">
+                        <tbody id="6" class="cohorts hidden">
 
-                            </tbody>
+                        </tbody>
 
 
-                        </table>
+                    </table>
 
                 </div>
             </div>
 
             {{--<div role="tabpanel" class="tab-pane" id="cohorts-coupon">--}}
-                {{--<div class="module-body table">--}}
-                    {{--<table cellpadding="0" cellspacing="0" border="0"--}}
-                           {{--class="datatable-1 table table-bordered table-striped display" width="100%">--}}
-                        {{--<thead>--}}
-                        {{--<form class="csv-form coupon-form" action="{{ URL::route('coupon-post') }}">--}}
-                            {{--{{ csrf_field() }}--}}
-                        {{--<input  name="coupon_name" type="text" value="">--}}
-                        {{--<button class="btn btn-success stats-coupon" style="float:right">Create Table</button>--}}
-                        {{--</form>--}}
+            {{--<div class="module-body table">--}}
+            {{--<table cellpadding="0" cellspacing="0" border="0"--}}
+            {{--class="datatable-1 table table-bordered table-striped display" width="100%">--}}
+            {{--<thead>--}}
+            {{--<form class="csv-form coupon-form" action="{{ URL::route('coupon-post') }}">--}}
+            {{--{{ csrf_field() }}--}}
+            {{--<input  name="coupon_name" type="text" value="">--}}
+            {{--<button class="btn btn-success stats-coupon" style="float:right">Create Table</button>--}}
+            {{--</form>--}}
 
-                        {{--</thead>--}}
-                        {{--<tbody id="4" class="cohorts">--}}
-                        {{--<tr>--}}
-                            {{--<td></td>--}}
-                            {{--<td></td>--}}
+            {{--</thead>--}}
+            {{--<tbody id="4" class="cohorts">--}}
+            {{--<tr>--}}
+            {{--<td></td>--}}
+            {{--<td></td>--}}
 
-                            {{--<td>0</td>--}}
-                            {{--<td>1</td>--}}
-                            {{--<td>2</td>--}}
-                            {{--<td>3</td>--}}
-                            {{--<td>4</td>--}}
-                            {{--<td>5</td>--}}
-                            {{--<td>6</td>--}}
-                            {{--<td>7</td>--}}
-                            {{--<td>8</td>--}}
-                            {{--<td>9</td>--}}
-                            {{--<td>10</td>--}}
-                            {{--<td>11</td>--}}
-                            {{--<td>12</td>--}}
-                        {{--</tr>--}}
-                        {{--@foreach(trans('flow.datepicker.months_long') as $key=>$month)--}}
+            {{--<td>0</td>--}}
+            {{--<td>1</td>--}}
+            {{--<td>2</td>--}}
+            {{--<td>3</td>--}}
+            {{--<td>4</td>--}}
+            {{--<td>5</td>--}}
+            {{--<td>6</td>--}}
+            {{--<td>7</td>--}}
+            {{--<td>8</td>--}}
+            {{--<td>9</td>--}}
+            {{--<td>10</td>--}}
+            {{--<td>11</td>--}}
+            {{--<td>12</td>--}}
+            {{--</tr>--}}
+            {{--@foreach(trans('flow.datepicker.months_long') as $key=>$month)--}}
 
-                            {{--<tr>--}}
-                                {{--<td>{{$month}} {{date('Y')}}</td>--}}
-                                {{--<td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>--}}
-                                {{--<td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>--}}
-                                {{--@foreach(range($key,12) as $y)--}}
-                                    {{--<td class="text-center">--}}
-                                        {{--@if($y >= $key and $y <= (int)date('m') )--}}
-                                            {{--{{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}--}}
+            {{--<tr>--}}
+            {{--<td>{{$month}} {{date('Y')}}</td>--}}
+            {{--<td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }}</td>--}}
+            {{--<td>{{ \App\Plan::getSignups(sprintf('%02d', $key)) }} (100%)</td>--}}
+            {{--@foreach(range($key,12) as $y)--}}
+            {{--<td class="text-center">--}}
+            {{--@if($y >= $key and $y <= (int)date('m') )--}}
+            {{--{{ \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y))}}--}}
 
-                                        {{--@endif--}}
-                                    {{--</td>--}}
-                                {{--@endforeach--}}
-                            {{--</tr>--}}
+            {{--@endif--}}
+            {{--</td>--}}
+            {{--@endforeach--}}
+            {{--</tr>--}}
 
-                        {{--@endforeach--}}
-                        {{--</tbody>--}}
+            {{--@endforeach--}}
+            {{--</tbody>--}}
 
-                        {{--<tbody id="5" class="cohorts hidden">--}}
-                        {{--<tr>--}}
-                            {{--<td></td>--}}
-                            {{--<td></td>--}}
-                            {{--@foreach(range(0,date('W')) as $val)--}}
-                                {{--<td>{{$val}}</td>--}}
-                            {{--@endforeach--}}
-                        {{--</tr>--}}
+            {{--<tbody id="5" class="cohorts hidden">--}}
+            {{--<tr>--}}
+            {{--<td></td>--}}
+            {{--<td></td>--}}
+            {{--@foreach(range(0,date('W')) as $val)--}}
+            {{--<td>{{$val}}</td>--}}
+            {{--@endforeach--}}
+            {{--</tr>--}}
 
-                        {{--@foreach(range(0,date('W')-1) as $week)--}}
-                            {{--<tr>--}}
-                                {{--<td>Week {{$week+1}}</td>--}}
-                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>--}}
-                                {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>--}}
-                                {{--@foreach(range(01,date('W')) as $y)--}}
-                                    {{--<td class="text-center">--}}
+            {{--@foreach(range(0,date('W')-1) as $week)--}}
+            {{--<tr>--}}
+            {{--<td>Week {{$week+1}}</td>--}}
+            {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }}</td>--}}
+            {{--<td>{{ \App\Plan::getSignupsWeek(sprintf('%02d', $week)) }} (100%)</td>--}}
+            {{--@foreach(range(01,date('W')) as $y)--}}
+            {{--<td class="text-center">--}}
 
-                                        {{--@if(date('W')-$week >= $y)--}}
-                                            {{--{{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}--}}
-                                        {{--@endif--}}
-                                    {{--</td>--}}
-                                {{--@endforeach--}}
-                            {{--</tr>--}}
-                        {{--@endforeach--}}
-                        {{--</tbody>--}}
+            {{--@if(date('W')-$week >= $y)--}}
+            {{--{{\App\Plan::getCohortsWeek(sprintf('%02d', $week),$week+$y)}}--}}
+            {{--@endif--}}
+            {{--</td>--}}
+            {{--@endforeach--}}
+            {{--</tr>--}}
+            {{--@endforeach--}}
+            {{--</tbody>--}}
 
-                    {{--</table>--}}
+            {{--</table>--}}
 
-                {{--</div>--}}
+            {{--</div>--}}
             {{--</div>--}}
 
         </div>
@@ -521,21 +525,17 @@
 
 @section('scripts')
     <script>
-
-
         {{--$('.stats-ok').on('click', function (e) {--}}
-            {{--e.preventDefault();--}}
-            {{--$.ajax({--}}
-                {{--type: 'POST',--}}
-                {{--data: $('form.stat-form').serialize(),--}}
-                {{--url: '{{ route("stats-post") }}',--}}
-                {{--success: function (data) {--}}
-                    {{--$('.result').html(data);--}}
-                {{--}--}}
-
-            {{--});--}}
+        {{--e.preventDefault();--}}
+        {{--$.ajax({--}}
+        {{--type: 'POST',--}}
+        {{--data: $('form.stat-form').serialize(),--}}
+        {{--url: '{{ route("stats-post") }}',--}}
+        {{--success: function (data) {--}}
+        {{--$('.result').html(data);--}}
+        {{--}--}}
         {{--});--}}
-
+        {{--});--}}
         $('.stats-coupon').on('click', function (e) {
             e.preventDefault();
             $.ajax({
@@ -545,39 +545,27 @@
                 success: function (data) {
                     $('.result').html(data);
                 }
-
             });
         });
-
-
         {{--$('#post-coupon').on('click', function(){--}}
-            {{--var coupon = ($('#data-coupon').val());--}}
-            {{--console.log(coupon);--}}
-
-            {{--$.ajax({--}}
-                {{--url: '{{  URL::action('Dashboard\StatsController@getStatsCustomersFromCoupon')}}',--}}
-                {{--type: 'POST',--}}
-                {{--data: {coupon: coupon},--}}
-                {{--headers: {--}}
-                    {{--'X-CSRF-TOKEN': $('form.form-coupon').find('[name="_token"]').val()--}}
-                {{--},--}}
-                {{--success: function (response) {--}}
-                    {{--console.log(response);--}}
-
-                {{--},--}}
-                {{--error: function (response) {--}}
-
-                {{--}--}}
-
-            {{--});--}}
-
-
+        {{--var coupon = ($('#data-coupon').val());--}}
+        {{--console.log(coupon);--}}
+        {{--$.ajax({--}}
+        {{--url: '{{  URL::action('Dashboard\StatsController@getStatsCustomersFromCoupon')}}',--}}
+        {{--type: 'POST',--}}
+        {{--data: {coupon: coupon},--}}
+        {{--headers: {--}}
+        {{--'X-CSRF-TOKEN': $('form.form-coupon').find('[name="_token"]').val()--}}
+        {{--},--}}
+        {{--success: function (response) {--}}
+        {{--console.log(response);--}}
+        {{--},--}}
+        {{--error: function (response) {--}}
+        {{--}--}}
         {{--});--}}
-
+        {{--});--}}
         $('.change-cohorts').on('change', function(){
-
             $('.cohorts').addClass('hidden');
-
             if($(this).val() != 4){
                 $('#6').html('<div class="text-center"><img src="/images/loading.gif"</div>');
                 $.ajax({
@@ -590,15 +578,12 @@
                     success: function (response) {
                         $('#6').html(response);
                     }
-
                 });
                 $('#6').removeClass('hidden');
             }else{
                 $('#'+$(this).val()).removeClass('hidden');
             }
-
         });
-
         $('.pie-chart').hide();
         function Charts(reason) {
             Highcharts.chart('piechart', {
@@ -635,13 +620,10 @@
                 }]
             });
         }
-
-
         $(function () {
             $('.datepicker').datepicker({
                 dateFormat: "yy-mm-dd"
             });
-
             $('.pie-reason').on('click', function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -652,12 +634,9 @@
                         console.log(data);
                         $('.pie-chart').show();
                         Charts(data);
-
                     }
-
                 });
             });
-
             $('.stats-ok').on('click', function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -667,27 +646,19 @@
                     success: function (data) {
                         $('.result').html(data);
                     }
-
                 });
             });
-
-
             $('#createCsv').on('click', function(e){
-               e.preventDefault();
+                e.preventDefault();
                 $.ajax({
                     type: 'POST',
                     data: $('form.csv-forms').serialize(),
                     url: '{{  URL::action('Dashboard\StatsController@exportCsv')}}',
                     success: function (data) {
-
                     }
-
                 });
-
                 $(this).prop('disabled', true);
-
             });
-
             $('#createCsv2').on('click', function(e){
                 e.preventDefault();
                 $.ajax({
@@ -695,43 +666,29 @@
                     data: $('form.csv-forms-all').serialize(),
                     url: '{{  URL::action('Dashboard\StatsController@exportCsvAllCustomers')}}',
                     success: function (data) {
-
                     }
-
                 });
-
                 $(this).prop('disabled', true);
-
             });
-
-
             $('.csv-category').on('change', function () {
                 if ($('.csv-category').val() == 7) {
-
                     $('.visib .datepicker').hide();
                     //$('.visib .weeks').show();
-
                 } else {
-
                     $('.visib .datepicker').show();
-                   // $('.visib .weeks').hide();
+                    // $('.visib .weeks').hide();
                 }
             });
-
             checkCsv2($('#input_states2').val());
             checkCsv($('#input_states').val());
-
             setInterval(function() {
                 checkCsv2($('#input_states2').val());
                 checkCsv($('#input_states').val());
             }, 20000);
-
             $('#input_states').on('change', function(){
                 checkCsv($(this).val());
             });
-
             function checkCsv(lang) {
-
                 $.ajax({
                     url: '{{  URL::action('Dashboard\StatsController@checkCsv')}}',
                     type: 'POST',
@@ -747,17 +704,12 @@
                         $('#createCsv').prop('disabled', false);
                         $('#downloadCsv').prop('disabled', true);
                     }
-
                 });
-
             }
-
             $('#input_states2').on('change', function(){
                 checkCsv2($(this).val());
             });
-
             function checkCsv2(lang) {
-
                 $.ajax({
                     url: '{{  URL::action('Dashboard\StatsController@checkCsvAllCustomers')}}',
                     type: 'POST',
@@ -773,13 +725,8 @@
                         $('#createCsv2').prop('disabled', false);
                         $('#downloadCsv2').prop('disabled', true);
                     }
-
                 });
-
             }
-
         });
-
-
     </script>
 @endsection

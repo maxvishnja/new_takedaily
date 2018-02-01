@@ -49,12 +49,17 @@ class RecieptController extends Controller
 
         $file = 'reciept-'.$order->id.'.pdf';
 
-        $pdf = \PDF::loadView( 'emails.receipt', [ 'order' => $order,
-            'layout' => 'layouts.pdf',
-            'locale' => $locale ] )
-            ->setPaper( 'a4', 'portrait' );
+        try {
+            $pdf = \PDF::loadView( 'emails.receipt', [ 'order' => $order,
+                'layout' => 'layouts.pdf',
+                'locale' => $locale ] )
+                ->setPaper( 'a4', 'portrait' );
+            return $pdf->download($file);
 
-        return $pdf->download($file);
+        } catch (\Exception $exception) {
+            \Log::error("PDF receipt error : " . $exception->getMessage() . ' in line ' . $exception->getLine() . " file " . $exception->getFile());
+
+        }
 
     }
 

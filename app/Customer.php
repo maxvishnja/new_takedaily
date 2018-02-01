@@ -67,7 +67,7 @@ class Customer extends Model
      * @var array
      */
 
-    protected $fillable = ['user_id', 'plan_id', 'balance', 'is_mailflowable', 'order_count', 'accept_newletters', 'locale', 'coupon', 'age_group'];
+    protected $fillable = ['user_id', 'plan_id', 'balance', 'is_mailflowable', 'order_count', 'accept_newletters', 'locale'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -317,22 +317,6 @@ class Customer extends Model
     }
 
 
-    public function setCoupon($coupon)
-    {
-        $this->coupon = $coupon;
-        $this->save();
-        return true;
-    }
-
-    public function setAgeGroup($age)
-    {
-        $this->age_group = $age;
-        $this->save();
-        return true;
-    }
-
-
-
     public function repeat($amount = null) {
 
         if (!$this->isSubscribed()) {
@@ -352,7 +336,7 @@ class Customer extends Model
         }
 
 
-        // $this->getPlan()->rebilled();
+        $this->getPlan()->rebilled();
 
         return true;
 
