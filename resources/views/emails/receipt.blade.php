@@ -57,7 +57,7 @@
         <tr>
             <td style="border: 1px solid #ddd; padding: 7px;"><b>{{ trans('account.transaction.table.headers.total') }}</b></td>
             <td style="border: 1px solid #ddd; padding: 7px;"><b>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->total, true) }}
-                {{ $order->currency }}</b>
+                    {{ $order->currency }}</b>
             </td>
         </tr>
         </tbody>
@@ -75,22 +75,22 @@
         </thead>
         <tbody>
 
-            <tr>
-                <td style="border: 1px solid #ddd; padding: 7px;" data-th="#">#{{ $order->getPaddedId() }}</td>
-                <td style="border: 1px solid #ddd; padding: 7px;" data-th="{{ trans('account.transactions.table.date') }}">{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
-                <td style="border: 1px solid #ddd; padding: 7px;" data-th="{{ trans('account.transactions.table.amount') }}">
-                    <strong>{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true), 'currency' => $order->currency]) }}</strong>
-                </td>
-            </tr>
+        <tr>
+            <td style="border: 1px solid #ddd; padding: 7px;" data-th="#">#{{ $order->getPaddedId() }}</td>
+            <td style="border: 1px solid #ddd; padding: 7px;" data-th="{{ trans('account.transactions.table.date') }}">{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
+            <td style="border: 1px solid #ddd; padding: 7px;" data-th="{{ trans('account.transactions.table.amount') }}">
+                <strong>{{ trans('general.money-fixed-currency', ['amount' => \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true), 'currency' => $order->currency]) }}</strong>
+            </td>
+        </tr>
         </tbody>
     </table>
     <br/>
     <h3>{{ trans('account.settings_basic.header') }}</h3>
 
     <p style="text-align:left;color:#000; margin: 0"><b>{{ trans('checkout.index.order.info.email') }}:</b> {{$order->customer->getEmail()}}</p>
-    <p style="text-align:left;color:#000; margin: 0"><b>{{ trans('checkout.index.order.info.phone') }}:</b> {{$order->customer->getPhone()}}</p>
+    <p style="text-align:left;color:#000; margin: 0"><b>{{ trans('checkout.index.order.info.phone-text') }}:</b> {{$order->customer->getPhone()}}</p>
 
-<br/>
+    <br/>
     <p style="text-align:left;color:#000; margin: 0"><b>{{ trans('account.transaction.title-shipping') }}</b></p>
     <p style="text-align:left;color:#000; margin: 0">@if($order->shipping_company != '')
             {{ $order->shipping_company }}<br/>
