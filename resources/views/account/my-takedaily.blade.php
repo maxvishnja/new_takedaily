@@ -17,6 +17,16 @@
 		{{--</div>--}}
 	@endif
 
+	<style>
+		p {
+			font-size: 1.2rem;
+			margin: .5rem 0;
+		}
+		.flow-promise-text {
+			font-size: 1.2rem;
+		}
+	</style>
+
 
 
 	<div class="row">
