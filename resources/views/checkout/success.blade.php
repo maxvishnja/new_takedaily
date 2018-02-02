@@ -115,7 +115,7 @@
                 type: 'sales',
                 campaignID: '26413',
                 productID: '38852',
-                transactionID: '{{$order_id}}',
+                transactionID: '{{$order->id}}',
                 transactionAmount: '1',
                 quantity: '1',
                 email: '',
@@ -125,7 +125,7 @@
             });
         </script>
         <noscript>
-            <img src="//ts.tradetracker.net/?cid=26413&amp;pid=38852&amp;tid={{$order_id}}&amp;tam=1&amp;data=&amp;qty=1&amp;eml=&amp;descrMerchant=&amp;descrAffiliate=&amp;event=sales&amp;currency=EUR" alt="" />
+            <img src="//ts.tradetracker.net/?cid=26413&amp;pid=38852&amp;tid={{$order->id}}&amp;tam=1&amp;data=&amp;qty=1&amp;eml=&amp;descrMerchant=&amp;descrAffiliate=&amp;event=sales&amp;currency=EUR" alt="" />
         </noscript>
         <script type="text/javascript">
             // No editing needed below this line.
@@ -170,13 +170,13 @@
 
             'event': 'orderComplete',
 
-            'orderId': '{{$order_id}}'
+            'orderId': '{{$order->id}}'
 
         });
 
         dataLayer.push({
             'event': 'transCompleted',
-            'transactionId': '{{$order_id}}',
+            'transactionId': '{{$order->id}}',
             'transactionAffiliation': 'TakeDaily',
             'transactionTotal': '{{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }}',
             'transactionTax': '{{ Auth::user()->getCustomer()->getPlan()->getPrice()/100 }}',
@@ -185,7 +185,7 @@
                 'sku': '1',
                 'name': 'Subscription',
                 'category': 'Subscription',
-                'price': '{{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }}',
+                'price': '{{ $order->total/100 }}',
                 'quantity': 1
             }]
         });
@@ -206,7 +206,7 @@
             "ecommerce": {
                 "purchase": {
                     "actionField": {
-                        "id": "{{$order_id}}", //transaction ID
+                        "id": "{{$order->id}}", //transaction ID
                         "affiliation": "Online Store",     //affiliate store
                         "revenue": '{{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }}',                       //revenue
                         "tax": '{{ Auth::user()->getCustomer()->getPlan()->getPrice()/100 }}',                                //tax

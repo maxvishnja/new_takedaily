@@ -23,7 +23,7 @@ class SetLocale
             'co.uk' => 'en',
             'nl'    => 'nl',
             '.dev'    => 'da',
-            'dev'    => 'nl',
+            'loc'    => 'nl',
             'da'    => 'da',
             'wip'   => 'da'
         ];
