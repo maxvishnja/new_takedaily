@@ -29,7 +29,6 @@ class CustomerController extends Controller
 
         $customers = Customer::orderBy('created_at', 'DESC')->paginate(15);
 
-        //$customers = $this->repo->all();
         $customers->load('user');
 
         return view('admin.customers.home', [
@@ -389,15 +388,26 @@ class CustomerController extends Controller
 
             $customers = Customer::where('id','like', '%'. $request->get('find') .'%')->get();
 
+            if(count($users) > 0 or count($customers) > 0){
+                return view('admin.customers.search', [
+                    'users' => $users,
+                    'customers' => $customers
+                ]);
+            } else{
+                return view('admin.customers.search', [
+                    'empty' => 1,
+                ]);
+            }
+
+        } else{
+            $customers = Customer::orderBy('created_at', 'DESC')->paginate(15);
+
+            $customers->load('user');
             return view('admin.customers.search', [
-                'users' => $users,
-                'customers' => $customers
+                'customers' => $customers,
+                'pagination' => 1
             ]);
-
-
         }
-
-        return 0;
 
 
     }

@@ -1,4 +1,4 @@
-@if(count($users) > 0)
+@if(isset($users) and count($users) > 0)
 
 @foreach($users as $user)
 
@@ -40,7 +40,7 @@
 
 @endif
 
-@if(count($customers) > 0)
+@if(isset($customers) and count($customers) > 0)
 
     @foreach($customers as $customer)
 
@@ -78,5 +78,19 @@
         </tr>
 
     @endforeach
+
+    @if(isset($pagination))
+        <script>
+            $('#pagination').show();
+        </script>
+    @endif
+
+@endif
+
+@if(isset($empty))
+
+<tr>
+    <td colspan="7"><h3>Not found!</h3></td>
+</tr>
 
 @endif
