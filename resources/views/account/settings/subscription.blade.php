@@ -5,6 +5,19 @@
 @section('title', trans('account.settings_subscription.title'))
 
 @section('content')
+	<style>
+		p {
+			font-size: 1.2rem;
+			margin: .8rem 0;
+			line-height: 1.2;
+		}
+		.flow-promise-text {
+			font-size: 1.2rem;
+		}
+		thead, tbody {
+			font-size: 1.2rem;
+		}
+	</style>
 	<h1>{!! trans('account.settings_subscription.header', ['status' => trans('account.settings_subscription.plan.' . ( $plan->isActive() ? 'active' : 'cancelled' ) ) ]) !!}</h1>
 
 	@if($customer->getPlan()->getCouponCount() > 0 and ($customer->getPlan()->getDiscountType() == 'month' or $customer->getPlan()->getDiscountType() == '' ) or ($customer->getPlan()->getDiscountCount() > 0 and  $customer->getPlan()->getPriceDiscount() == 0))

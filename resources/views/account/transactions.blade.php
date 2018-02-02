@@ -5,6 +5,19 @@
 @section('title', trans('account.transactions.title'))
 
 @section('content')
+	<style>
+		p {
+			font-size: 1.2rem;
+			margin: .8rem 0;
+			line-height: 1.2;
+		}
+		.card_content {
+			font-size: 1.2rem;
+		}
+		thead, tbody {
+			font-size: 1.2rem;
+		}
+	</style>
 	<h1>{{ trans('account.transactions.header') }}</h1>
 
 	<div class="card m-b-30">

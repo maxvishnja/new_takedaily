@@ -20,9 +20,13 @@
 	<style>
 		p {
 			font-size: 1.2rem;
-			margin: .5rem 0;
+			margin: .8rem 0;
+			line-height: 1.2;
 		}
 		.flow-promise-text {
+			font-size: 1.2rem;
+		}
+		thead, tbody {
 			font-size: 1.2rem;
 		}
 	</style>
@@ -74,7 +78,7 @@
 
 	</div>
 
-	<div class="m-t-10 m-b-10 m-center">
+	<div class="m-t-20 m-b-20 m-center">
 		<a href="/flow" class="button button--green">{{ trans('account.home.button-change') }}</a>
 		<a href="/pick-n-mix" class="button button--green">{{ trans('account.home.button-pick-n-mix') }}</a>
 		<a href="#coupon-field" class="button button--green"
