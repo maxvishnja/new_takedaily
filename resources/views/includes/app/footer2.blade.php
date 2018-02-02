@@ -63,9 +63,15 @@
                         {!! trans('footer2.column2.address') !!}
                     </p>
                     <p class="b-footer__info__txt">
-                        {{ trans('footer2.column2.email') }}
-                        <br>
-                        {{ trans('footer2.column2.phone') }}
+                        @if(App::getLocale() == 'nl')
+                            {{ trans('footer2.column2.kvknumm') }}
+                            <br>
+                            {{ trans('footer2.column2.btwnumm') }}
+                        @else
+                            {{ trans('footer2.column2.email') }}
+                            <br>
+                            {{ trans('footer2.column2.phone') }}
+                        @endif
                     </p>
                 </div>
             </div>
