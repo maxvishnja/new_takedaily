@@ -458,12 +458,10 @@ class CheckoutController extends Controller
         }
 
         $vitamins = \Auth::user()->getCustomer()->getVitaminModels();
-        $plans = \Auth::user()->getCustomer()->getOrders();
+        $order = \Auth::user()->getCustomer()->getOrders()->last();
         $email = \Auth::user()->email;
-        foreach ($plans as $plan) {
-            $order_id = $plan->id;
-        }
-        return view('checkout.success', ['vitamins' => $vitamins, 'order_id' => $order_id, 'user_email' => $email, 'code' => $code]);
+
+        return view('checkout.success', ['vitamins' => $vitamins, 'order' => $order, 'user_email' => $email, 'code' => $code]);
     }
     /**
      * @param                          $token
