@@ -8,7 +8,7 @@
   &__media {
     width: 100%;
     min-height: 60rem;
-    background: url("/images/home/hero.jpg");
+    background: url("/images/home/newbannertest.jpg");
     background-size: cover;
     background-position: 50%;
     @include breakpoint(phone) {
@@ -51,12 +51,14 @@
     max-width: 80rem !important;
   }
   &__title {
+    color: #349E78;
     @include font-size(24px, 38px);
     @include line-height(29px, 47px);
     margin-bottom: .8rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   &__intro {
+    color: #349E78;
     @include font-size(14px, 14px);
     @include line-height(18px, 18px);
     margin-bottom: 1.3rem;
@@ -97,10 +99,10 @@
     vertical-align: middle;
     width: 5.5rem;
     height: 4rem;
-    color: $color-white;
+    color: #349E78;
     background-color: transparentize($color-white, .7);
     @include vendor-prefixes(border-radius, 5px);
-    border: .2rem solid $color-white;
+    border: .2rem solid #349E78;
     margin-right: 1.5rem;
     @include breakpoint(phone) {
       display: inline-block;
@@ -115,6 +117,7 @@
     @include absolute(center);
   }
   &__play__txt {
+    color: #349E78;
     font-size: 1.2rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
     @include breakpoint(overPhone) {

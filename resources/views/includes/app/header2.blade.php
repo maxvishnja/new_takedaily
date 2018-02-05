@@ -70,7 +70,7 @@
         <div class="b-header__logo">
             <a href="/">
                 <img
-                    src="/images/header/takedaily-logo--main.svg"
+                    src="/images/header/takedaily-logo--sec.svg"
                     alt=""
                     class="b-header__logo__main">
                 <img src="/images/header/takedaily-logo--sec.svg"
