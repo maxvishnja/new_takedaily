@@ -114,7 +114,7 @@
                 data: $('form#search-form').serialize(),
                 url: '{{ route("find-customer") }}',
                 success: function (data) {
-                    if(data){
+                    if(data && data != 0){
                         $('#results').html(data);
                     }
 
