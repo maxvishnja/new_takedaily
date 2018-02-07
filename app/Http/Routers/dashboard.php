@@ -49,7 +49,7 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 			->where( 'currency', 'EUR' )
 			->sum( 'total' ) ?: 0;
 
-		$money_today = $money_today_nl + $money_today_dk/7.45;
+		$money_today = $money_today_nl + $money_today_dk/7.50;
 		return view( 'admin.home', [
 			'orders_today'    => $orderRepo->getToday()
 			                               ->count() ?: 0,

@@ -156,7 +156,7 @@ class Plan extends Model
             ->whereMonth('orders.created_at', '=', $date)
             ->whereYear('orders.created_at', '=', $nextyear)
             ->sum('orders.total');
-        $sum = $ordersDk + (7.45 * $ordersNl);
+        $sum = $ordersDk + (7.50 * $ordersNl);
         return $sum;
     }
 
@@ -253,7 +253,7 @@ class Plan extends Model
                 ->whereNull('orders.repeat')
                 ->whereMonth('orders.created_at', '=', $month)
                 ->whereYear('orders.created_at', '=', $nextyear)
-                ->sum('orders.total') * 7.45;
+                ->sum('orders.total') * 7.50;
 
         $ordersDk =  Order::select('orders.total')
             ->join('customers', 'customers.id', '=', 'orders.customer_id')
