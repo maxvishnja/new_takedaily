@@ -140,6 +140,8 @@ class Plan extends Model
             ->whereMonth('plans.created_at', '=', $signDate)
             ->whereYear('plans.created_at', '=', $year)
             ->where('orders.currency', '=', 'EUR')
+            ->where('orders.state','=','sent')
+            ->whereNull('orders.repeat')
             ->whereMonth('orders.created_at', '=', $date)
             ->whereYear('orders.created_at', '=', $nextyear)
             ->sum('orders.total');
@@ -149,12 +151,17 @@ class Plan extends Model
             ->whereMonth('plans.created_at', '=', $signDate)
             ->whereYear('plans.created_at', '=', $year)
             ->where('orders.currency', '=', 'DKK')
+            ->where('orders.state','=','sent')
+            ->whereNull('orders.repeat')
             ->whereMonth('orders.created_at', '=', $date)
             ->whereYear('orders.created_at', '=', $nextyear)
             ->sum('orders.total');
         $sum = $ordersDk + (7.45 * $ordersNl);
         return $sum;
     }
+
+
+
     public static function getSignupsCountry($date, $year, $lang)
     {
         $customers = Plan::whereMonth('created_at', '=', $date)->whereYear('created_at', '=', $year)->where('currency', $lang)->count();
@@ -173,6 +180,8 @@ class Plan extends Model
             ->whereMonth('plans.created_at', '=', $signdate)
             ->whereYear('plans.created_at', '=', $year)
             ->where('orders.currency', '=', $lang)
+            ->where('orders.state','=','sent')
+            ->whereNull('orders.repeat')
             ->whereMonth('orders.created_at', '=', $date)
             ->whereYear('orders.created_at', '=', $nextyear)
             ->sum('orders.total');
@@ -240,9 +249,12 @@ class Plan extends Model
                 ->whereYear('plans.created_at', '=', $year)
                 // ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear."-".$month."-31 00:00:00")
                 ->where('orders.currency', '=', 'EUR')
+                ->where('orders.state','=','sent')
+                ->whereNull('orders.repeat')
                 ->whereMonth('orders.created_at', '=', $month)
                 ->whereYear('orders.created_at', '=', $nextyear)
                 ->sum('orders.total') * 7.45;
+
         $ordersDk =  Order::select('orders.total')
             ->join('customers', 'customers.id', '=', 'orders.customer_id')
             ->join('plans', 'plans.id', '=', 'customers.plan_id')
@@ -250,6 +262,8 @@ class Plan extends Model
             ->whereYear('plans.created_at', '=', $year)
             //->whereDate('plans.subscription_cancelled_at', '<=', $nextyear."-".$month."-31 00:00:00")
             ->where('orders.currency', '=', 'DKK')
+            ->where('orders.state','=','sent')
+            ->whereNull('orders.repeat')
             ->whereMonth('orders.created_at', '=', $month)
             ->whereYear('orders.created_at', '=', $nextyear)
             ->sum('orders.total');
@@ -260,6 +274,43 @@ class Plan extends Model
         }
         return $ordersNl + $ordersDk;
     }
+
+
+
+    public static function getCohortsArpu($signDate,$date, $year){
+
+
+        $rev = Plan::getCohortsRevenue($signDate,$date, $year);
+
+        $nextyear = $year;
+        if($date > 12){
+            $date = sprintf('%02d', $date - 12);
+            $nextyear = 2018;
+        }
+
+        $orders = Order::select('orders.customer_id')
+            ->distinct('orders.customer_id')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->join('plans', 'plans.id', '=', 'customers.plan_id')
+            ->whereMonth('plans.created_at', '=', $signDate)
+            ->whereYear('plans.created_at', '=', $year)
+            ->where('orders.state','=','sent')
+            ->whereNull('orders.repeat')
+            ->whereMonth('orders.created_at', '=', $date)
+            ->whereYear('orders.created_at', '=', $nextyear)
+            ->count();
+
+        if($rev > 0){
+            return $rev / $orders;
+        }
+
+        return 0;
+
+    }
+
+
+
+
     public static function getCohortsCountryRevenue($signDate, $month, $year, $lang)
     {
         $allCustomers = Plan::getSignupsCountryRevenue($signDate, $month, $year, $lang);
@@ -275,6 +326,8 @@ class Plan extends Model
             ->whereYear('plans.created_at', '=', $year)
             // ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear."-".$month."-31")
             ->where('orders.currency', '=', $lang)
+            ->where('orders.state','=','sent')
+            ->whereNull('orders.repeat')
             ->whereMonth('orders.created_at', '=', $month)
             ->whereYear('orders.created_at', '=', $nextyear)
             ->sum('orders.total');
@@ -286,6 +339,42 @@ class Plan extends Model
         }
         return $orders;
     }
+
+    public static function getCohortsCountryArpu($signDate, $month, $year, $lang){
+
+
+        $rev = Plan::getCohortsCountryRevenue($signDate, $month, $year, $lang);
+
+        $nextyear = $year;
+        if($month > 12){
+            $month = sprintf('%02d', $month - 12);
+            $nextyear = 2018;
+        }
+
+        $orders = Order::select('orders.customer_id')
+            ->distinct('orders.customer_id')
+            ->join('customers', 'customers.id', '=', 'orders.customer_id')
+            ->join('plans', 'plans.id', '=', 'customers.plan_id')
+            ->whereMonth('plans.created_at', '=', $signDate)
+            ->whereYear('plans.created_at', '=', $year)
+            ->where('orders.currency', '=', $lang)
+            ->where('orders.state','=','sent')
+            ->whereNull('orders.repeat')
+            ->whereMonth('orders.created_at', '=', $month)
+            ->whereYear('orders.created_at', '=', $nextyear)
+            ->count();
+
+        if($rev > 0){
+            return $rev / $orders;
+        }
+
+        return 0;
+
+    }
+
+
+
+
     public static function getCohortsWeek($week, $signDate)
     {
         $week_number = $week;

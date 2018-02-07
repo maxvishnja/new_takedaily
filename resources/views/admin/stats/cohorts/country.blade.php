@@ -39,7 +39,7 @@
                     @if($cohorts17 == 0)
                         0
                     @else
-                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017,$country) / $cohorts17, 2)  }}
+                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017,$country), 2)  }}
                     @endif
 
                 @endif
@@ -82,7 +82,7 @@
                     @if($cohorts18 == 0)
                         0
                     @else
-                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018,$country) / $cohorts18, 2)  }}
+                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018,$country), 2)  }}
                     @endif
 
                 @endif

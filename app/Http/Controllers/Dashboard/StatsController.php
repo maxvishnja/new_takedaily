@@ -244,7 +244,7 @@ class StatsController extends Controller
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y){
                             if($y >= $key ){
                                 if(Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y),2017)->customers != 0){
-                                    $users_array3[$month.' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y),2017) / Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y),2017)->customers,2);
+                                    $users_array3[$month.' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsArpu(sprintf('%02d', $key),sprintf('%02d', $y),2017),2);
                                 } else{
                                     $users_array3[$month.' 2017'][$y] = 0;
                                 }
@@ -262,7 +262,7 @@ class StatsController extends Controller
                         foreach (range($key2, 12) as $y2){
                             if($y2 >= $key2 and $y2 <= (int)date('m') ){
                                 if(Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2),2018)->customers != 0){
-                                    $users_array3[$month2.' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2),2018) / Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2),2018)->customers,2);
+                                    $users_array3[$month2.' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsArpu(sprintf('%02d', $key2),sprintf('%02d', $y2),2018),2);
                                 } else{
                                     $users_array3[$month2.' 2018'][$y2] = 0;
                                 }
@@ -354,7 +354,7 @@ class StatsController extends Controller
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y){
                             if($y >= $key ){
                                 if(Plan::getCohortsCountry(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate'])->customers != 0){
-                                    $users_array3[$month.' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryRevenue(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate']) / Plan::getCohortsCountry(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate'])->customers,2);
+                                    $users_array3[$month.' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryArpu(sprintf('%02d', $key),sprintf('%02d', $y),2017, $data['rate']),2);
                                 } else{
                                     $users_array3[$month.' 2017'][$y] = 0;
                                 }
@@ -372,7 +372,7 @@ class StatsController extends Controller
                         foreach (range($key2, 12) as $y2){
                             if($y2 >= $key2 and $y2 <= (int)date('m') ){
                                 if(Plan::getCohortsCountry(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate'])->customers != 0){
-                                    $users_array3[$month2.' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate']) / Plan::getCohortsCountry(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate'])->customers,2);
+                                    $users_array3[$month2.' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryArpu(sprintf('%02d', $key2),sprintf('%02d', $y2),2018, $data['rate']),2);
                                 } else{
                                     $users_array3[$month2.' 2018'][$y2] = 0;
                                 }
