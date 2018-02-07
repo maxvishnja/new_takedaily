@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Apricot\Repositories\NutritionistRepository;
-use App\Http\Controllers\Controller;
+use Image;
 use App\Nutritionist;
 use Illuminate\Mail\Message;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
-//use Input;
-use Image;
+use App\Apricot\Interfaces\NutritionistRepositoryInterface;
 
 class NutritionistController extends Controller
 {
-
+    /**
+     * @var NutritionistRepositoryInterface
+     */
     private $repo;
 
-    function __construct(NutritionistRepository $repository)
+    function __construct(NutritionistRepositoryInterface $repository)
     {
         $this->repo = $repository;
     }

@@ -22,7 +22,7 @@
                     <label for="page_title" class="control-label">First Name</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="first_name"
-                               value="{{ Request::old('first_name', ($nutritionist->first_name) ? $nutritionist->first_name : '' ) }}"
+                               value="{{ Request::old('first_name', ($nutritionist->first_name) ? : '' ) }}"
                                placeholder="Sidens undertitel"/>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <label for="page_title" class="control-label">Last Name</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="last_name"
-                               value="{{ Request::old('last_name', ($nutritionist->last_name) ? $nutritionist->last_name : '' ) }}"
+                               value="{{ Request::old('last_name', ($nutritionist->last_name) ? : '' ) }}"
                                placeholder="Sidens undertitel"/>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                     <label for="page_title" class="control-label">Title</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="title"
-                               value="{{ Request::old('last_name', ($nutritionist->title) ? $nutritionist->title : '' ) }}"
+                               value="{{ Request::old('last_name', ($nutritionist->title) ? : '' ) }}"
                                placeholder=""/>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                     <label for="page_title" class="control-label">E-mail</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="email"
-                               value="{{ Request::old('email', ($nutritionist->email) ? $nutritionist->email : '' ) }}"
+                               value="{{ Request::old('email', ($nutritionist->email) ? : '' ) }}"
                                placeholder="E-mail"/>
                     </div>
                 </div>
@@ -58,7 +58,16 @@
                     <label for="page_title" class="control-label">About</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="desc"
-                               value="{{ Request::old('email', ($nutritionist->desc) ? $nutritionist->desc : '' ) }}"
+                               value="{{ Request::old('desc', ($nutritionist->desc) ? : '' ) }}"
+                               placeholder="About"/>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="page_title" class="control-label">About (NL)</label>
+                    <div class="controls">
+                        <input type="text" class="form-control span8" name="desc_nl"
+                               value="{{ Request::old('desc_nl', ($nutritionist->desc_nl) ? : '' ) }}"
                                placeholder="About"/>
                     </div>
                 </div>
