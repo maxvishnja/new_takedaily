@@ -178,7 +178,7 @@
             'event': 'transCompleted',
             'transactionId': '{{$order->id}}',
             'transactionAffiliation': 'TakeDaily',
-            'transactionTotal': '{{ Auth::user()->getCustomer()->getPlan()->getTotal()/100 }}',
+            'transactionTotal': '{{ $order->total/100 }}',
             'transactionTax': '{{ Auth::user()->getCustomer()->getPlan()->getPrice()/100 }}',
             'transactionShipping': '{{ Auth::user()->getCustomer()->getPlan()->getShippingPrice()/100 }}',
             'transactionProducts': [{
