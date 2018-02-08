@@ -288,25 +288,24 @@ class Plan extends Model
             $nextyear = 2018;
         }
 
-        $orders = Order::select('orders.customer_id')
-            ->distinct('orders.customer_id')
+        $orders = Order::whereNull('orders.repeat')
             ->join('customers', 'customers.id', '=', 'orders.customer_id')
             ->join('plans', 'plans.id', '=', 'customers.plan_id')
             ->whereMonth('plans.created_at', '=', $signDate)
             ->whereYear('plans.created_at', '=', $year)
             ->where('orders.state','=','sent')
-            ->whereNull('orders.repeat')
             ->whereMonth('orders.created_at', '=', $date)
             ->whereYear('orders.created_at', '=', $nextyear)
-            ->count();
+            ->groupBy('orders.customer_id')
+            ->get();
 
         $data = new Stat();
 
         if($rev > 0){
 
 
-            $data->rev = $rev / $orders;
-            $data->count = $orders;
+            $data->rev = $rev / count($orders);
+            $data->count = count($orders);
 
             return $data;
         }
@@ -362,7 +361,6 @@ class Plan extends Model
         }
 
         $orders = Order::select('orders.customer_id')
-            ->distinct('orders.customer_id')
             ->join('customers', 'customers.id', '=', 'orders.customer_id')
             ->join('plans', 'plans.id', '=', 'customers.plan_id')
             ->whereMonth('plans.created_at', '=', $signDate)
@@ -372,15 +370,16 @@ class Plan extends Model
             ->whereNull('orders.repeat')
             ->whereMonth('orders.created_at', '=', $month)
             ->whereYear('orders.created_at', '=', $nextyear)
-            ->count();
+            ->groupBy('orders.customer_id')
+            ->get();
 
         $data = new Stat();
 
         if($rev > 0){
 
 
-            $data->rev = $rev / $orders;
-            $data->count = $orders;
+            $data->rev = $rev / count($orders);
+            $data->count = count($orders);
 
             return $data;
         }
