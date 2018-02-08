@@ -15,6 +15,10 @@
         <td class="text-center">{{ $signup17 }}  <br/>(100%)<br/>
             <b>Rev. </b>  <br/>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017, $country),2) }}
             <br/>
+            <b>Users billed</b>
+            <br/>
+            {{$signup17}}
+            <br/>
 
             <b>ARPU</b>
             <br/>
@@ -34,12 +38,16 @@
                     <br/>
                     {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017, $country), 2)}}
                     <br/>
+                    <b>Users billed</b>
+                    <br/>
+                    {{\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017,$country)->count}}
+                    <br/>
                     <b>ARPU</b>
                     <br/>
                     @if($cohorts17 == 0)
                         0
                     @else
-                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017,$country), 2)  }}
+                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017,$country)->rev, 2)  }}
                     @endif
 
                 @endif
@@ -59,6 +67,10 @@
         <br/>
             <b>Rev. </b> <br/> {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsCountryRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018, $country),2) }}
             <br/>
+            <b>Users billed</b>
+            <br/>
+            {{$signup18}}
+            <br/>
             <b>ARPU</b>
             <br/>
             @if($signup18 != 0)
@@ -76,13 +88,17 @@
                     <br/>
                     <b>Rev.</b>
                     <br/>
+                    <b>Users billed</b>
+                    <br/>
+                    {{\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018,$country)->count}}
+                    <br/>
                     {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018, $country),2)}}
                     <b>ARPU</b>
                     <br/>
                     @if($cohorts18 == 0)
                         0
                     @else
-                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018,$country), 2)  }}
+                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018,$country)->rev, 2)  }}
                     @endif
 
                 @endif

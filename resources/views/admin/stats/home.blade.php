@@ -325,7 +325,10 @@
                                     <br/>
                                     <b>Rev. </b>  <br/>{{ $rev17 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key),sprintf('%02d', $key), 2017),2) }}
                                     <br/>
-
+                                    <b>Users billed</b>
+                                    <br/>
+                                    {{$signup17}}
+                                    <br/>
                                     <b>ARPU</b>
                                     <br/>
                                     @if($signup17 != 0)
@@ -346,13 +349,17 @@
 
                                             {{ $revc17 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017), 2)}}
                                             <br/>
+                                            <b>Users billed</b>
+                                            <br/>
+                                            {{\App\Plan::getCohortsArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017)->count}}
+                                            <br/>
                                             <b>ARPU</b>
                                             <br/>
                                             @if($cohorts17 == 0)
                                                 0
                                             @else
 
-                                                {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017), 2)  }}
+                                                {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017)->rev, 2)  }}
                                             @endif
                                         @endif
                                     </td>
@@ -367,6 +374,10 @@
                                 <td>{{ $signup18 = \App\Plan::getSignups(sprintf('%02d', $key2), 2018) }}</td>
                                 <td class="text-center">{{ $signup18 }}<br/> (100%) <br/>
                                     <b>Rev. </b>  <br/>{{ $rev18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getSignupsRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018),2) }}
+                                    <br/>
+                                    <b>Users billed</b>
+                                    <br/>
+                                    {{$signup18}}
                                     <br/>
                                     <b>ARPU</b>
                                     <br/>
@@ -386,12 +397,16 @@
                                             <br/>
                                             {{ $revc18 = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018), 2)}}
                                             <br/>
+                                            <b>Users billed</b>
+                                            <br/>
+                                            {{\App\Plan::getCohortsArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018)->count}}
+                                            <br/>
                                             <b>ARPU</b>
                                             <br/>
                                             @if($cohorts18 == 0)
                                                 0
                                             @else
-                                                {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018), 2)  }}
+                                                {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018)->rev, 2)  }}
                                             @endif
                                         @endif
                                     </td>

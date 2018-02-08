@@ -300,11 +300,21 @@ class Plan extends Model
             ->whereYear('orders.created_at', '=', $nextyear)
             ->count();
 
+        $data = new Stat();
+
         if($rev > 0){
-            return $rev / $orders;
+
+
+            $data->rev = $rev / $orders;
+            $data->count = $orders;
+
+            return $data;
         }
 
-        return 0;
+        $data->rev = 0;
+        $data->count = 0;
+
+        return $data;
 
     }
 
@@ -364,11 +374,21 @@ class Plan extends Model
             ->whereYear('orders.created_at', '=', $nextyear)
             ->count();
 
+        $data = new Stat();
+
         if($rev > 0){
-            return $rev / $orders;
+
+
+            $data->rev = $rev / $orders;
+            $data->count = $orders;
+
+            return $data;
         }
 
-        return 0;
+        $data->rev = 0;
+        $data->count = 0;
+
+        return $data;
 
     }
 
