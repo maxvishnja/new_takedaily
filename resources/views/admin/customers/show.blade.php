@@ -140,6 +140,7 @@
 						<th>#</th>
 						<th>Status</th>
 						<th>Total</th>
+						<th>Coupon</th>
 						<th>Oprettet d.</th>
 						<th>Opdateret d.</th>
 					</tr>
@@ -151,7 +152,12 @@
 								<a href="{{ URL::action('Dashboard\OrderController@show', [ 'id' => $order->id ]) }}">{{ $order->getPaddedId() }}</a>
 							</td>
 							<td><span class="label label-{{ $order->stateToColor()  }}">{{ $order->state }}</span></td>
-							<td>{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true) }} kr.</td>
+							<td>@if($order->repeat == 1)
+									0,00 {{ $order->currency }}
+								@else
+									{{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($order->getTotal(), true) }} {{ $order->currency }}
+								@endif </td>
+							<td>{{ $order->getCoupon() }} </td>
 							<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->created_at)->format('j. M Y H:i') }}</td>
 							<td>{{ \Jenssegers\Date\Date::createFromFormat('Y-m-d H:i:s', $order->updated_at)->format('j. M Y H:i') }}</td>
 						</tr>
@@ -265,18 +271,10 @@
 @section('scripts')
 	<script>
         $(function() {
-
             $(".opsig").click(function (e) {
                 e.preventDefault();
                 $('.modal').modal('show');
-
             });
-
-
-
-
-
-
             $('.adds').on('click', function(e){
                 e.preventDefault();
                 $('.add-note').toggle(500);
@@ -286,7 +284,6 @@
                 language: "en",
                 filebrowserImageUploadUrl: '/dashboard/upload/image'
             });
-
             $('.datepicker').datepicker({
                 dateFormat: "yy-mm-dd"
             });
