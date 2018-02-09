@@ -320,7 +320,7 @@
 
 					<div class="visible-xs">
 						<div class="form-button-submit-holder">
-							<button onsubmit="ga('send', 'event', 'order', 'completed');" class="button button--huge button--green button--full button--rounded" type="submit"
+							<button  class="button button--huge button--green button--full button--rounded" type="submit"
 									id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
 							<div class="clear"></div>
 						</div>
@@ -328,7 +328,7 @@
 
 					<div class="hidden-xs">
 						<div class="form-button-submit-holder">
-							<button onsubmit="ga('send', 'event', 'order', 'completed');" class="button button--huge button--green button--rounded" type="submit"
+							<button  class="button button--huge button--green button--rounded" type="submit"
 									id="button-submit">{{ trans('checkout.index.order.button-submit-text') }}</button>
 
 							<div class="clear"></div>
