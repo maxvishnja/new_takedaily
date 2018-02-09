@@ -79,6 +79,7 @@ class CheckoutController extends Controller
      */
     function postCheckout(CheckoutRequest $request)
     {
+        
         $productName = $request->get('product_name', 'subscription');
         $paymentMethod = $request->get('payment_method');
         $couponCode = $request->get('coupon', '');
