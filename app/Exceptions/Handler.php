@@ -49,10 +49,6 @@ class Handler extends ExceptionHandler
             return parent::render($request, new NotFoundHttpException);
         }
 
-        if ( ! config('app.debug') && ! $this->isHttpException($e)) {
-            return response(null, 500)->view('errors.500');
-        }
-
         return parent::render($request, $e);
     }
 }

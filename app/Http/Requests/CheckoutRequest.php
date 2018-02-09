@@ -45,5 +45,6 @@ class CheckoutRequest extends Request
 			'stripeToken'     => 'required_if:payment_method,stripe',
 			'user_data'       => 'required'
 		];
+
 	}
 }
