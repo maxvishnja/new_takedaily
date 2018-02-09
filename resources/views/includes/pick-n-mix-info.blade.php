@@ -14,6 +14,13 @@
 		</small>
 	@endif
 
+		@if(trans('label-' . strtolower($vitamin) . '.fish_note') != 'label-' . strtolower($vitamin) . '.fish_note')
+			<br/>
+			<small class="m-t-15 grey-text">
+				{!! trans('label-' . strtolower($vitamin) . '.fish_note') !!}
+			</small>
+		@endif
+
 	<div class="m-t-20 m-b-10"><a href="#" class="seeIngredientsBtn">{{ trans('flow-actions.see-ingredients') }}</a></div>
 	<div class="ingredients">@include('flow-includes.views.vitamin_table', ['label' => strtolower($vitamin)])</div>
 </div>

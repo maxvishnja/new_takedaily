@@ -1,5 +1,7 @@
 <?php App::setLocale( $customer->getLocale() ); ?>
+
 <div style="width: 100%; height: 100%;  padding: 5mm 1mm 1mm 1mm;">
+
 	<div style="height: 8mm; position: relative; padding:2mm 0 0 15pt;">
 		<h1 style="margin: 0; font-weight: normal;font-size: 12pt;color: #1A8562;text-align: left;">{{ trans('label-product.produced-for') }}
 			<strong>{{ strlen($customer->getName()) > 25 ? \Illuminate\Support\Str::words($customer->getName(), 1, '') : $customer->getName() }}</strong></h1>

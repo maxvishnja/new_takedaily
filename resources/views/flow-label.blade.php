@@ -50,6 +50,13 @@
 				</small>
 			@endif
 
+			@if(trans('label-' . strtolower($vitamin) . '.fish_note') != 'label-' . strtolower($vitamin) . '.fish_note')
+				<br/>
+				<small class="m-t-30 grey-text">
+					{!! trans('label-' . strtolower($vitamin) . '.fish_note') !!}
+				</small>
+			@endif
+
 			<div class="extra_content">
 				<div class="m-t-30 m-b-10">
 					<a href="#" class="pull-left button button--small button--white button--text-green readMoreBtn">{{ trans('flow-actions.read-more') }}</a>

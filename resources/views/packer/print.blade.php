@@ -127,9 +127,20 @@ $cur = 0;
 	App::setLocale( $printable['locale'] );
 	$cur ++;
 	?>
-	<div class="print" style="left: 0; top: {{ ($cur-1)*100 }}%; width: 173mm; ">
-		<div style="width: 99.8571428571429%; position: relative;  height: 100%;">
-			<div style="width: 99.8571428571429%; position: relative; height: 240mm;  top: 0; left: 0;  overflow: hidden;">
+	<div class="print" style="left: 0; top: {{ ($cur-1)*100 }}%;  ">
+		<div style=" position: relative;  height: 100%;">
+			@if($printable['sticker']->customer->order_count == 1)
+			<div style="position:absolute; left:180mm; top:5mm; border:2px solid red; padding:3mm; text-align: center">
+				@if($printable['locale'] == 'nl')
+					<img src="/images/holland.png" style="height:30px">
+				@else
+					<img src="/images/denmark.gif" style="height:30px">
+				@endif
+
+				<h4 style="color:red; margin-top:2mm">NEW</h4>
+			</div>
+			@endif
+			<div style="width: 173mm;; position: relative; height: 240mm;  top: 0; left: 0;  overflow: hidden;">
 				{!! $printable['sticker'] !!}
 			</div>
 
