@@ -23,6 +23,7 @@ use App\Console\Commands\ClearOldCoupons;
 use App\Console\Commands\UpdateUserMail;
 use App\Console\Commands\UpdatePregnancyWeeks;
 use App\Console\Commands\AddCustomersToApi;
+use App\Console\Commands\CheckDietologs;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -54,6 +55,7 @@ class Kernel extends ConsoleKernel
         ChangeAutomaticCoupon::class,
         AddManualFb::class,
         AddBirthAndCoupon::class,
+        CheckDietologs::class,
     ];
 
     /**

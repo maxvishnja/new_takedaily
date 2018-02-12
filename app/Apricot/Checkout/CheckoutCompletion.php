@@ -161,26 +161,28 @@ class CheckoutCompletion
 				$newDate = \Date::now()->addDays( 27 );
 			}
 
-            $dietologs = Nutritionist::where('locale', \App::getLocale())
+			$locale = $this->user->getCustomer()->getLocale();
+
+            $dietologs = Nutritionist::where('locale', $locale)
                 ->where('order', 0)
                 ->where('active', 1)
                 ->get();
 
-            $dietologs_all_active = Nutritionist::where('locale', \App::getLocale())
+            $dietologs_all_active = Nutritionist::where('locale', $locale)
                 ->where('active', 1)
                 ->get();
 
             if(count($dietologs_all_active)>0) {
 
                 if ($dietologs->isEmpty() and count($dietologs_all_active) > 0) {
-                    $dietologs = Nutritionist::where('locale', \App::getLocale())
+                    $dietologs = Nutritionist::where('locale', $locale)
                         ->where('active', 1)
                         ->get();
                     foreach ($dietologs as $dietolog) {
                         $dietolog->order = 0;
                         $dietolog->save();
                     }
-                    $dietologs = Nutritionist::where('locale', \App::getLocale())
+                    $dietologs = Nutritionist::where('locale', $locale)
                         ->where('order', 0)
                         ->where('active', 1)
                         ->get();
