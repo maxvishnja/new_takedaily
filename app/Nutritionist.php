@@ -24,7 +24,7 @@ class Nutritionist extends Model
      * @var array
      */
     
-    protected $fillable = ['id', 'first_name', 'last_name', 'title', 'image', 'email', 'locale', 'active', 'order', 'desc'];
+    protected $fillable = ['id', 'first_name', 'last_name', 'title', 'image', 'email', 'locale', 'active', 'order', 'desc', 'desc_nl'];
 
     /**
      * The attributes excluded from the model's JSON form.

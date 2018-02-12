@@ -3,9 +3,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Apricot\Repositories\NutritionistRepository;
-use App\Apricot\Repositories\ReviewRepository;
 use Mbarwick83\Instagram\Instagram;
+use App\Apricot\Repositories\ReviewRepository;
+use App\Apricot\Interfaces\NutritionistRepositoryInterface;
 
 
 class HomeController extends Controller
@@ -21,11 +21,15 @@ class HomeController extends Controller
     private $review;
 
     /**
-     * @var NutritionistRepository
+     * @var NutritionistRepositoryInterface
      */
     private $nutritionist;
 
-    public function __construct(Instagram $instagram, ReviewRepository $review, NutritionistRepository $nutritionist)
+    public function __construct(
+        Instagram $instagram,
+        ReviewRepository $review,
+        NutritionistRepositoryInterface $nutritionist
+    )
     {
         $this->instagram = $instagram;
         $this->review = $review;
@@ -56,7 +60,7 @@ class HomeController extends Controller
         $reviews = $this->review->getAllActiveByLocale($locale);
 
         // Nutritionists
-        $nutritionists = $this->nutritionist->allActiveByLocale($locale);
+        $nutritionists = $this->nutritionist->getAllActive($locale);
 
         return view( 'home2', compact( 'instaLatestFour', 'reviews', 'nutritionists' ) );
     }
