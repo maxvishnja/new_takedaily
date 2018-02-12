@@ -52,7 +52,8 @@
 
 			@if(trans('label-' . strtolower($vitamin) . '.fish_note') != 'label-' . strtolower($vitamin) . '.fish_note')
 				<br/>
-				<small class="m-t-30 grey-text">
+				<br/>
+				<small class="m-t-30">
 					{!! trans('label-' . strtolower($vitamin) . '.fish_note') !!}
 				</small>
 			@endif

@@ -61,7 +61,7 @@ class StatsController extends Controller
                     }
                     return $i;
                 case 4:
-                    return Plan::whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start-date'], $data['end-date']])->count();
+                    return Plan::whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->count();
                 case 5:
                     return Order::whereNotNull('repeat')->whereBetween('created_at', [$data['start-date'], $data['end-date']])->count();
                 case 6:
@@ -76,6 +76,14 @@ class StatsController extends Controller
                         ->having('count', '>', 1)
                         ->get();
                     return count($orders);
+
+
+                case 8:
+                    return Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->where('unsubscribe_reason','like','%14 days expired%')->count();
+
+                case 9:
+                    return Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->where('attempt','>',0)->where('attempt','<',14)->count();
+
                 default:
                     return 0;
             }
@@ -700,6 +708,50 @@ class StatsController extends Controller
                         })->download('xls');
                         return \Redirect::back();
                     }
+
+                case 8:
+                    $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->where('unsubscribe_reason','like','%14 days expired%')->get();
+                    $i = 0;
+                    foreach ($plans as $plan) {
+                        $email_array[$i]['First Name'] = $plan->customer->getFirstName();
+                        $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                        $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                        $email_array[$i]['Unsubscribe date'] = $plan->subscription_cancelled_at;
+                        $email_array[$i]['Attempt'] = $plan->attempt;
+
+                        $i++;
+                    }
+                    if(isset($email_array)) {
+                        \Excel::create("unsub_from_".$data['lang'], function ($excel) use ($email_array) {
+                            $excel->sheet('Unsub customer', function ($sheet) use ($email_array) {
+                                $sheet->fromArray($email_array, null, 'A1', true);
+                            });
+                        })->download('xls');
+                        return \Redirect::back();
+                    }
+                case 9:
+                    $plans = Plan::where('currency','like', $currency)->whereNotNull('subscription_cancelled_at')->whereBetween('subscription_cancelled_at', [$data['start_date'], $data['end_date']])->where('attempt','>',0)->where('attempt','<',14)->get();
+
+                    $i = 0;
+                    foreach ($plans as $plan) {
+                        $email_array[$i]['First Name'] = $plan->customer->getFirstName();
+                        $email_array[$i]['Last Name'] = $plan->customer->getLastName();
+                        $email_array[$i]['Email Address'] = $plan->customer->getEmail();
+                        $email_array[$i]['Unsubscribe date'] = $plan->subscription_cancelled_at;
+                        $email_array[$i]['Unsubscribe reason'] = $plan->unsubscribe_reason;
+                        $email_array[$i]['Attempt'] = $plan->attempt;
+
+                        $i++;
+                    }
+                    if(isset($email_array)) {
+                        \Excel::create("unsub_from_".$data['lang'], function ($excel) use ($email_array) {
+                            $excel->sheet('Unsub customer no money', function ($sheet) use ($email_array) {
+                                $sheet->fromArray($email_array, null, 'A1', true);
+                            });
+                        })->download('xls');
+                        return \Redirect::back();
+                    }
+
                 default:
                     return \Redirect::back()->withErrors("No data!");
             }
