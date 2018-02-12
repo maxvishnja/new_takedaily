@@ -3,8 +3,9 @@
 namespace App\Apricot\Repositories;
 
 use App\Nutritionist;
+use app\Apricot\Interfaces\NutritionistRepositoryInterface;
 
-class NutritionistRepository
+class NutritionistRepository implements NutritionistRepositoryInterface
 {
     /**
      * @var \App\Nutritionist
@@ -21,12 +22,12 @@ class NutritionistRepository
         return $this->nutritionist->orderBy('created_at', 'DESC')->get();
     }
 
-    public function allActive()
+    public function getAllActive()
     {
         return $this->nutritionist->where('active', 1)->orderBy('created_at', 'DESC')->get();
     }
 
-    public function allActiveByLocale($locale)
+    public function getAllActiveByLocale($locale)
     {
         return $this->nutritionist->where(['active' => 1, 'locale' => $locale])->orderBy('created_at', 'DESC')->get();
     }

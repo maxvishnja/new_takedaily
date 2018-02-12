@@ -190,7 +190,11 @@
                             @endif
                             <div class="hp-nutr__item__content">
                                 <h4 class="hp-nutr__item__title">{{ $nutri->first_name }}</h4>
-                                <p class="hp-nutr__item__intro">{{ $nutri->desc }}</p>
+                                @if(App::getLocale() == 'da')
+                                    <p class="hp-nutr__item__intro">{{ $nutri->desc }}</p>
+                                @else
+                                    <p class="hp-nutr__item__intro">{{ $nutri->desc_nl }}</p>
+                                @endif
                             </div>
                         </article>
                     @endforeach
