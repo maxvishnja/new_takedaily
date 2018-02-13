@@ -111,7 +111,7 @@
 		<div class="text-center">
 			@if($plan->isCancelable())
 				<a href="{{ URL::action('AccountController@getCancelPage') }}"
-				   class="cancel-button">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
+				   class="button button--regular button--light button--rounded  cancel-button">{{ trans('account.settings_subscription.button-cancel-text') }}</a>
 			@else
 				<span
 						class="button button--regular button--white button--text-grey button--disabled button--rounded"
