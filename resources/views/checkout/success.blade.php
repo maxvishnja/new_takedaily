@@ -100,51 +100,6 @@
         (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://track.adform.net/serving/scripts/trackpoint/async/'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
 
     </script>
-    @if(!isset($giftcardToken))
-        <noscript>
-            <p style="margin:0;padding:0;border:0;">
-                <img src="https://track.adform.net/Serving/TrackPoint/?pm=788995&ADFPageName=Take%20Daily%20conversion&ADFdivider=|" width="1" height="1" alt="" />
-            </p>
-        </noscript>
-
-        <!-- TradeTracker -->
-
-        <script type="text/javascript">
-            var ttConversionOptions = ttConversionOptions || [];
-            ttConversionOptions.push({
-                type: 'sales',
-                campaignID: '26413',
-                productID: '38852',
-                transactionID: '{{$order->id}}',
-                transactionAmount: '1',
-                quantity: '1',
-                email: '',
-                descrMerchant: '',
-                descrAffiliate: '',
-                currency: ''
-            });
-        </script>
-        <noscript>
-            <img src="//ts.tradetracker.net/?cid=26413&amp;pid=38852&amp;tid={{$order->id}}&amp;tam=1&amp;data=&amp;qty=1&amp;eml=&amp;descrMerchant=&amp;descrAffiliate=&amp;event=sales&amp;currency=EUR" alt="" />
-        </noscript>
-        <script type="text/javascript">
-            // No editing needed below this line.
-            (function(ttConversionOptions) {
-                var campaignID = 'campaignID' in ttConversionOptions ? ttConversionOptions.campaignID : ('length' in ttConversionOptions && ttConversionOptions.length ? ttConversionOptions[0].campaignID : null);
-                var tt = document.createElement('script'); tt.type = 'text/javascript'; tt.async = true; tt.src = '//tm.tradetracker.net/conversion?s=' + encodeURIComponent(campaignID) + '&t=m';
-                var s = document.getElementsByTagName('script'); s = s[s.length - 1]; s.parentNode.insertBefore(tt, s);
-            })(ttConversionOptions);
-        </script>
-
-        <!-- /TradeTracker -->
-
-
-        <!-- Adform Tracking Code END -->
-        {{--@if(App::getLocale() == 'nl')--}}
-        {{--<img src="http://oa1.nl/m/5824/19fa5023ff43b6545d455e24a6a475f880acd6a1/?transactie_id={{$user_email}}"--}}
-        {{--style="width: 1px; height: 1px; border: 0px;">--}}
-        {{--@endif--}}
-    @endif
     <script>
         $('.share-icon').on('click', function () {
             $('.social-icons').toggle(500);
