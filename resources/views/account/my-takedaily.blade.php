@@ -192,7 +192,7 @@
 @endsection
 
 @section('footer_scripts')
-	<script src="https://use.fontawesome.com/a0fbf8c496.js"></script>
+
 	<script>
 
         $('.readMoreBtn').click(function (e) {
@@ -263,10 +263,10 @@
         $('#toggle-nutritionist-form').on('click', function (e) {
             e.preventDefault();
             swal({
-                title: "{{ trans('account.nutritionist_form_text')}}",
-                text: "" +
+                title: "",
+                text: "<p style='font-size:18px'>{{ trans('account.nutritionist_form_text')}}</p>" +
                 "<form method=\"post\" id='nutritionist-form' action=\"{{ route("nutritionist-email") }}\">" +
-                "<textarea type=\"text\" name=\"mess\" required class=\"form-control\"  placeholder=\"\" style='border:2px solid #C1C1C1' /></textarea>" +
+                "<textarea type=\"text\" name=\"mess\" required class=\"form-control\"  placeholder=\"\" style='border:2px solid #C1C1C1;height:120px' /></textarea>" +
                 "<input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token() }}\" />" +
                 "</form>",
                 type: "",
