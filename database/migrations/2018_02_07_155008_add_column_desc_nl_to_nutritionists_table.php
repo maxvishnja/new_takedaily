@@ -12,7 +12,7 @@ class AddColumnDescNlToNutritionistsTable extends Migration
      */
     public function up()
     {
-        if (Schema::hasTable('nutritionists')) {
+        if (Schema::hasTable('nutritionists')  and !Schema::hasColumn('nutritionists','desc_nl')) {
             Schema::table('nutritionists', function (Blueprint $table) {
                 $table->string('desc_nl')->after('desc');
             });

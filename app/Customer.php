@@ -258,6 +258,8 @@ class Customer extends Model
     {
         $name = $this->getName();
 
+        $name = trim($name);
+
         $names = explode(' ', $name);
 
         return $names[0];

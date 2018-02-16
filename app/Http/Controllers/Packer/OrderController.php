@@ -237,6 +237,39 @@ class OrderController extends Controller
                 $order->eta = json_decode($res->getBody())->resultat->ETA;
                 $order->save();
                 $barcodes[$order_id] = $response->resultat->stregkode;
+            } else{
+                if($order->attempt == 0){
+
+                    if ($order->getCustomer()->getLocale() == 'nl') {
+                        $fromEmail = 'info@takedaily.nl';
+                        $url = "https://takedaily.nl/account/settings/basic";
+                    } else {
+                        $fromEmail = 'info@takedaily.dk';
+                        $url = "https://takedaily.dk/account/settings/basic";
+                    }
+
+                    \Mail::queue('emails.check_adress', ['locale' => $order->getCustomer()->getLocale(), 'name' => $customer_name, 'link' => $url, ], function (Message $message) use ($customer_name, $customer_email, $fromEmail) {
+                        \Log::info("Check address from " . $customer_name);
+                        $message->from($fromEmail, 'TakeDaily')
+                            ->to($customer_email, $customer_name)
+                            ->subject(trans('mails.check_adress.subject'));
+                    });
+
+
+                } else{
+
+                    $url = "https://takedaily.nl/dashboard/orders/".$order->id;
+
+                    \Mail::queue('emails.check_adress_admin', ['locale' => $order->getCustomer()->getLocale(), 'link' => $url, ], function (Message $message) use ($customer_name, $customer_email) {
+                        \Log::info("Check address for admin from " . $customer_name);
+                        $message->from('info@takedaily.nl', 'TakeDaily')
+                            ->to('info@takedaily.dk', 'TakeDaily')
+                            ->subject(trans('Customer address incorrect'));
+                    });
+                }
+
+                $order->attempt = 1;
+                $order->save();
             }
 
         }
@@ -290,23 +323,41 @@ class OrderController extends Controller
                 ]);
             }else{
 
-                if ($order->getCustomer()->getLocale() == 'nl') {
-                    $fromEmail = 'info@takedaily.nl';
-                    $url = "https://takedaily.nl/account/settings/basic";
-                } else {
-                    $fromEmail = 'info@takedaily.dk';
-                    $url = "https://takedaily.dk/account/settings/basic";
+
+
+                if($order->attempt == 0){
+
+                    if ($order->getCustomer()->getLocale() == 'nl') {
+                        $fromEmail = 'info@takedaily.nl';
+                        $url = "https://takedaily.nl/account/settings/basic";
+                    } else {
+                        $fromEmail = 'info@takedaily.dk';
+                        $url = "https://takedaily.dk/account/settings/basic";
+                    }
+
+                    \Mail::queue('emails.check_adress', ['locale' => $order->getCustomer()->getLocale(), 'name' => $customer_name, 'link' => $url, ], function (Message $message) use ($customer_name, $customer_email, $fromEmail) {
+                        \Log::info("Check address from " . $customer_name);
+                        $message->from($fromEmail, 'TakeDaily')
+                            ->to($customer_email, $customer_name)
+                            ->subject(trans('mails.check_adress.subject'));
+                    });
+
+
+                } else{
+
+                    $url = "https://takedaily.nl/dashboard/orders/".$order->id;
+
+                    \Mail::queue('emails.check_adress_admin', ['locale' => $order->getCustomer()->getLocale(), 'link' => $url, ], function (Message $message) use ($customer_name) {
+                        \Log::info("Check address for admin from " . $customer_name);
+                        $message->from('info@takedaily.nl', 'TakeDaily')
+                            ->to('info@takedaily.dk', 'TakeDaily')
+                            ->subject('Customer address incorrect');
+                    });
                 }
 
-                \Mail::queue('emails.check_adress', ['locale' => $order->getCustomer()->getLocale(), 'name' => $customer_name, 'link' => $url, ], function (Message $message) use ($customer_name, $customer_email, $fromEmail) {
-                    \Log::info("Check address from " . $customer_name);
-                    $message->from($fromEmail, 'TakeDaily')
-                        ->to($customer_email, $customer_name)
-                        ->subject(trans('mails.check_adress.subject'));
-                });
 
-
-
+                $order->attempt = 1;
+                $order->save();
 
                 return \Response::json([
                     'message' => 'Error',
