@@ -614,6 +614,8 @@ class Customer extends Model
             ]);
         }
 
+        Item::calcStockItemsFromCreatedOrder($order->vitamins);
+
         return $order;
     }
 

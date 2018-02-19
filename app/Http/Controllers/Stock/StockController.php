@@ -61,7 +61,8 @@ class StockController extends ApiController
             'reqQty' => $request->input('item-reqQty'),
             'qty'    => $request->input('item-qty'),
             'alert'  => $request->input('item-alarm'),
-            'price'  => $request->input('item-price')
+            'price'  => $request->input('item-price'),
+            'email'  => $request->input('item-alarm-email')
         ];
 
         $item = $this->repo->create($data);
@@ -102,10 +103,8 @@ class StockController extends ApiController
      */
     public function update(Request $request)
     {
-        // get item
         $item = $this->repo->getItem($request->input('item-id'));
 
-        // prepare
         $data = [
             'name'   => $request->input('item-name'),
             'number' => $request->input('item-number'),
@@ -125,7 +124,6 @@ class StockController extends ApiController
             $data['status'] = ($data['qty'] <= $data['alert']) ? 1 : 0;
         }
 
-        // update item
         $item = $this->repo->update($item->id, $data);
 
         if($item->email != '' && $item->status == 1)

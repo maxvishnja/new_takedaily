@@ -25,6 +25,13 @@
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-name" id="item-name" placeholder="Item Name"/>
                     </div>
+                    <label for="item-type" class="control-label">Type</label>
+                    <div class="controls">
+                        <select name="item-type" id="item-type">
+                            <option value="vitamin">Vitamin</option>
+                            <option value="material">Material</option>
+                        </select>
+                    </div>
                     <label for="item-number" class="control-label">Number</label>
                     <div class="controls">
                         <input type="text" class="form-control span8" name="item-number" id="item-number" placeholder="Item Number"/>
