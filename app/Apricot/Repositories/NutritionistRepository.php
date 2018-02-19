@@ -3,7 +3,7 @@
 namespace App\Apricot\Repositories;
 
 use App\Nutritionist;
-use app\Apricot\Interfaces\NutritionistRepositoryInterface;
+use App\Apricot\Interfaces\NutritionistRepositoryInterface;
 
 class NutritionistRepository implements NutritionistRepositoryInterface
 {

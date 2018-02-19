@@ -60,7 +60,7 @@ class HomeController extends Controller
         $reviews = $this->review->getAllActiveByLocale($locale);
 
         // Nutritionists
-        $nutritionists = $this->nutritionist->getAllActive($locale);
+        $nutritionists = $this->nutritionist->getAllActive();
 
         return view( 'home2', compact( 'instaLatestFour', 'reviews', 'nutritionists' ) );
     }
