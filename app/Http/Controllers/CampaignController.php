@@ -74,7 +74,7 @@ class CampaignController extends Controller
         $reviews = $this->review->getAllActiveByLocale($locale);
 
         // Nutritionists
-        $nutritionists = $this->nutritionist->allActiveByLocale($locale);
+        $nutritionists = $this->nutritionist->getAllActive();
 
         \Cookie::queue('campaign', $code, 60);
 

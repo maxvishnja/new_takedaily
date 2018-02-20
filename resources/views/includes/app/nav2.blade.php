@@ -18,11 +18,11 @@
         <li class="c-nav-header__item">
             <a href="/page/a-zink" class="c-nav-header__link">{{ trans('nav2.vitamins') }}</a>
         </li>
-        {{--@if(App::getLocale() == 'da')--}}
-            {{--<li class="c-nav-header__item">--}}
-                {{--<a href="https://takedaily.dk/blog" class="c-nav-header__link">Blog</a>--}}
-            {{--</li>--}}
-        {{--@endif--}}
+        @if(App::getLocale() == 'da')
+            <li class="c-nav-header__item">
+                <a href="https://takedaily.dk/blog" class="c-nav-header__link">Blog</a>
+            </li>
+        @endif
         <li class="c-nav-header__item c-nav-header__item--log">
             @if(Auth::user() && Auth::user()->isAdmin())
                 <a href="/dashboard" class="c-nav-header__link">Dashboard </a>
