@@ -176,11 +176,6 @@
 
 @section('tracking-scripts')
 
-    <noscript>
-
-        <img src="//dk.cpdelivery.com/sad/m/takedaily_track_2017_01/track.php" width="1" height="1" border="0" alt=""/>
-
-    </noscript>
 
 
 @endsection
