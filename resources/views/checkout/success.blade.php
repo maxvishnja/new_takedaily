@@ -89,17 +89,7 @@
 
 @endsection
 @section('footer_scripts')
-    <!-- Adform Tracking Code BEGIN -->
-    <script type="text/javascript">
-        window._adftrack = Array.isArray(window._adftrack) ? window._adftrack : (window._adftrack ? [window._adftrack] : []);
-        window._adftrack.push({
-            pm: 788995,
-            divider: encodeURIComponent('|'),
-            pagename: encodeURIComponent('Take Daily conversion')
-        });
-        (function () { var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://track.adform.net/serving/scripts/trackpoint/async/'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x); })();
 
-    </script>
     <script>
         $('.share-icon').on('click', function () {
             $('.social-icons').toggle(500);
