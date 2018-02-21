@@ -166,6 +166,8 @@ class CustomerRepository
 
 
 
+
+
     public function getAlmostCustomer()
     {
         return \DB::select('select * from almost_customers where email not in (select users.email from users inner join almost_customers on almost_customers.email=users.email)');
@@ -174,5 +176,14 @@ class CustomerRepository
     public function getAlmostCustomerNotSend()
     {
         return \DB::select('select * from almost_customers where email not in (select users.email from users inner join almost_customers on almost_customers.email=users.email) and sent = 0');
+    }
+
+
+
+
+    public function getDuplicate(){
+
+        return \DB::select("SELECT * FROM customer_attributes WHERE identifier = 'address_line1'  and `value` IN (SELECT `value` FROM customer_attributes GROUP BY `value`)");
+
     }
 }

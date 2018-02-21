@@ -4,6 +4,10 @@
 	<div class="module">
 		<div class="module-head">
 			<h3>Kunder</h3>
+			<div class="pull-right" style="margin-top: -25px;">
+				<a class="btn btn-success" href="{{ URL::action('Dashboard\CustomerController@getDuplicate') }}"><i class="icon-edit"></i>
+					Get Duplicate</a>
+			</div>
 		</div>
 
 		<div class="module-body table">

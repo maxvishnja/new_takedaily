@@ -412,4 +412,54 @@ class CustomerController extends Controller
 
     }
 
+
+
+    public function getDuplicate(){
+
+        $customers = $this->repo->getDuplicate();
+
+        $email_array = [];
+        $i = 0;
+
+        foreach ($customers as $user) {
+
+
+
+            $customer = Customer::find($user->customer_id);
+            if($customer){
+                $email_array[$i]['Name'] = $customer->getName();
+                $email_array[$i]['E-mail'] = $customer->getEmail();
+                $email_array[$i]['Duplicate address'] = $user->value;
+                if ($customer->getLocale() == 'nl') {
+                    $email_array[$i]['Country'] = 'Netherlands';
+                } else {
+                    $email_array[$i]['Country'] = 'Denmark';
+                }
+
+
+                $email_array[$i]['Created'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y H:i');
+
+
+                $i++;
+            }
+
+
+
+        }
+
+        \Excel::create('duplicate_customer', function ($excel) use ($email_array) {
+
+            $excel->sheet('Duplicate users', function ($sheet) use ($email_array) {
+
+                $sheet->fromArray($email_array, null, 'A1', true);
+
+            });
+
+        })->download('xls');
+
+        return \Redirect::back();
+
+    }
+
+
 }

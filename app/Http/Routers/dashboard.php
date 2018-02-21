@@ -78,12 +78,13 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get( 'customers/newpass/{id}', 'Dashboard\CustomerController@newPass' );
 	Route::get( 'customers/bill/{id}', 'Dashboard\CustomerController@bill' );
 	Route::get( 'customers/repeat/{id}', 'Dashboard\CustomerController@repeat' );
+
 	Route::post( 'customers/cancel', 'Dashboard\CustomerController@cancel' );
 	Route::get( 'customers/delete/{id}', 'Dashboard\CustomerController@destroy' );
 	Route::post( 'customers/addnote/{id}', 'Dashboard\CustomerController@addNote' );
 
 	Route::post( 'customers/find', ['as' => 'find-customer', 'uses' => 'Dashboard\CustomerController@findData'] );
-
+    Route::get( 'customer/duplicate', 'Dashboard\CustomerController@getDuplicate' );
 	Route::resource( 'calls', 'Dashboard\CallController' );
 	Route::get( 'calls/mark-done/{id}', 'Dashboard\CallController@markDone' );
 

@@ -22,6 +22,7 @@ class AlmostCustomersController extends Controller
 
     function index()
     {
+
         $almosts = $this->repo->getAlmostCustomer();
 
         return view('admin.almost.home', [
