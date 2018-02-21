@@ -10,6 +10,7 @@ use App\Console\Commands\ClearSnoozing;
 use App\Console\Commands\ClearOldSavedFlows;
 use App\Console\Commands\DebugCommand;
 use App\Console\Commands\GenerateSitemapCommand;
+use App\Console\Commands\GetDuplicateUser;
 use App\Console\Commands\MailFlowSender;
 use App\Console\Commands\NotifyPendingRebills;
 use App\Console\Commands\SendHealthMail;
@@ -56,6 +57,7 @@ class Kernel extends ConsoleKernel
         AddManualFb::class,
         AddBirthAndCoupon::class,
         CheckDietologs::class,
+        GetDuplicateUser::class,
     ];
 
     /**

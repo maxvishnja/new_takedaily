@@ -691,11 +691,11 @@ class Customer extends Model
         if ($amount > 0) {
 
             if($this->getLocale() == 'da'){
-                if($amount == 14900 or $amount == 12800 or $amount == 17400) {
+                if($amount == 14900 or $amount == 12900 or $amount == 17400) {
                     $this->getPlan()->clearTrial();
                 }
             } else{
-                if($amount == 1595 and $amount == 1895) {
+                if($amount == 1595 or $amount == 1895) {
                     $this->getPlan()->clearTrial();
                 }
             }

@@ -455,7 +455,7 @@ class CustomerController extends Controller
 
             });
 
-        })->download('xls');
+        })->store('xls', storage_path('excel/exports'));
 
         return \Redirect::back();
 
