@@ -77,6 +77,9 @@ class Kernel extends ConsoleKernel
         $schedule->command('currencies:update')
             ->hourly();
 
+        $schedule->command('get:duplicate')
+            ->dailyAt('01:00');
+
         $schedule->command('almost:send')
             ->weekly()->wednesdays()->at('09:00')
             ->withoutOverlapping();
