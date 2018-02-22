@@ -183,7 +183,7 @@ class CustomerRepository
 
     public function getDuplicate(){
 
-        return \DB::select("SELECT * FROM customer_attributes WHERE identifier = 'address_line1' and `value` IN (SELECT `value` FROM customer_attributes WHERE identifier = 'address_line1' GROUP BY `value` HAVING count(`value`) > 2)");
+        return \DB::select("SELECT * FROM customer_attributes WHERE identifier = 'address_line1' and `value` IN (SELECT `value` FROM customer_attributes WHERE identifier = 'address_line1' GROUP BY `value` HAVING count(`value`) > 2) ORDER BY `value` ASC ");
 
     }
 }
