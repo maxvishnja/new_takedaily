@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\AddAlmostToEm;
 use App\Console\Commands\AddBirthAndCoupon;
 use App\Console\Commands\AddManualFb;
 use App\Console\Commands\ChangeAutomaticCoupon;
@@ -58,6 +59,7 @@ class Kernel extends ConsoleKernel
         AddBirthAndCoupon::class,
         CheckDietologs::class,
         GetDuplicateUser::class,
+        AddAlmostToEm::class,
     ];
 
     /**
@@ -77,8 +79,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('currencies:update')
             ->hourly();
 
-        $schedule->command('get:duplicate')
-            ->dailyAt('01:00');
+//        $schedule->command('get:duplicate')
+//            ->dailyAt('01:00');
 
         $schedule->command('almost:send')
             ->weekly()->wednesdays()->at('09:00')
@@ -91,6 +93,10 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('api:add')
             ->dailyAt('02:00');
+
+
+        $schedule->command('api:add_almost')
+            ->dailyAt('04:00');
 
         $schedule->command('check:ambassador')
             ->dailyAt('09:00');
