@@ -2,6 +2,7 @@
 
 use App\Apricot\Helpers\FacebookApiHelper;
 use App\Customer;
+use App\CustomerAttribute;
 use App\Events\CustomerWasBilled;
 use App\Giftcard;
 use App\MailStat;
@@ -149,6 +150,76 @@ class CheckoutCompletion
 
 		return $this;
 	}
+
+	public function checkFraud($city, $street, $number, $phone){
+
+	    $cus_city = CustomerAttribute::where('identifier','address_line1')
+                    ->where('value', $street)
+                    ->get();
+
+        $cus_street = CustomerAttribute::where('identifier','address_city')
+            ->where('value', $city)
+            ->get();
+
+
+
+        $cus_number = CustomerAttribute::where('identifier','address_number')
+            ->where('value', $number)
+            ->get();
+
+
+          $union_array = array_intersect(
+                $cus_city->pluck('customer_id')->all(),
+                $cus_street->pluck('customer_id')->all(),
+                $cus_number->pluck('customer_id')->all()
+            );
+
+        $duplicate = $this->user->getCustomer();
+
+	    if(count($union_array) > 1){
+
+
+                $data['customer_id'] = $duplicate->getId();
+                $data['reason'] = "Adress ".$city." ".$street." ".$number;
+                $data['name'] = $duplicate->getName();
+
+
+                \Mail::send( 'emails.anti-fraud', $data, function ( $message )
+                {
+                    $message->from( 'info@takedaily.com', 'TakeDaily' );
+                    $message->to( 'maxadm8@gmail.com', 'TakeDaily' );
+                    $message->subject( 'Detected duplicate customer');
+                } );
+
+        }
+
+
+
+        $customer = CustomerAttribute::where('identifier','phone')
+            ->where('value', $phone)
+            ->first();
+
+        if($customer){
+
+            $data['customer_id'] = $duplicate->getId();
+            $data['reason'] = "Phone ".$phone;
+            $data['name'] = $duplicate->getName();
+
+
+            \Mail::send( 'emails.anti-fraud', $data, function ( $message )
+            {
+                $message->from( 'info@takedaily.com', 'TakeDaily' );
+                $message->to( 'maxadm8@gmail.com', 'TakeDaily' );
+                $message->subject( 'Detected duplicate customer');
+            } );
+        }
+
+
+        return $this;
+
+    }
+
+
 
 	public function updateCustomerPlan($newvitamin=null)
 	{

@@ -331,6 +331,10 @@ class CheckoutController extends Controller
                 $gift = null;
             }
             try {
+
+
+
+
                 $checkoutCompletion->setCustomerAttributes([
                     'address_city' => $request->session()->get('address_city'),
                     'address_line1' => $request->session()->get('address_street'),
@@ -342,6 +346,7 @@ class CheckoutController extends Controller
                     'phone' => $request->session()->get('phone'),
                 ])
                     ->setPlanPayment($request->session()->get('payment_customer_id'), $method)
+                    ->checkFraud($request->session()->get('address_city'), $request->session()->get('address_street'), $request->session()->get('address_number'), $request->session()->get('phone'))
                     ->setUserData(json_encode($userData))
                     ->updateCustomerPlan();
 
