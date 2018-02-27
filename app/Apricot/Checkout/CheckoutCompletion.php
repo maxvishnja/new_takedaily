@@ -187,7 +187,7 @@ class CheckoutCompletion
                 \Mail::send( 'emails.anti-fraud', $data, function ( $message )
                 {
                     $message->from( 'info@takedaily.com', 'TakeDaily' );
-                    $message->to( 'maxadm8@gmail.com', 'TakeDaily' );
+                    $message->to( 'mikael@takedaily.com', 'TakeDaily' );
                     $message->subject( 'Detected duplicate customer');
                 } );
 
@@ -209,7 +209,7 @@ class CheckoutCompletion
             \Mail::send( 'emails.anti-fraud', $data, function ( $message )
             {
                 $message->from( 'info@takedaily.com', 'TakeDaily' );
-                $message->to( 'maxadm8@gmail.com', 'TakeDaily' );
+                $message->to( 'mikael@takedaily.com', 'TakeDaily' );
                 $message->subject( 'Detected duplicate customer');
             } );
         }
