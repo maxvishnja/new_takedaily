@@ -15,6 +15,7 @@
 			<li><a href="/dashboard/forecast"><i class="menu-icon icon-exchange"></i>Prod Forecast</a></li>
 			<li><a href="/dashboard/payments-error"><i class="menu-icon icon-cog"></i>Payments Error @if($sidebar_payErrors > 0)<b class="label green pull-right">{{ $sidebar_payErrors }}</b>@endif</a></li>
 			<li><a href="/dashboard/stats"><i class="menu-icon icon-bar-chart"></i>Stats</a></li>
+			<li><a href="/dashboard/stats/cohorts"><i class="menu-icon icon-group"></i>Cohorts</a></li>
 			<li><a href="/dashboard/sent-mails"><i class="menu-icon icon-bar-chart"></i>Sent mails</a></li>
 			<li><a href="/dashboard/pages"><i class="menu-icon icon-edit"></i>CMS</a></li>
 			<li><a href="/dashboard/faq"><i class="menu-icon icon-question-sign"></i>FAQ</a></li>

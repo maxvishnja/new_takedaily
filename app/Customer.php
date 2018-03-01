@@ -378,7 +378,7 @@ class Customer extends Model
 
             }elseif( $this->getSubscriptionPrice() == 14900){
 
-                $this->setSubscriptionPrice(12900);
+                $this->setSubscriptionPrice(12400);
             }
         }
 
@@ -691,7 +691,7 @@ class Customer extends Model
         if ($amount > 0) {
 
             if($this->getLocale() == 'da'){
-                if($amount == 14900 or $amount == 12900 or $amount == 17400) {
+                if($amount == 14900 or $amount == 12900 or $amount == 17400 or $amount == 12400) {
                     $this->getPlan()->clearTrial();
                 }
             } else{

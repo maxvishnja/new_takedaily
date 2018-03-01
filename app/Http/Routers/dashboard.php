@@ -144,6 +144,12 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::post('stats/reason', ['as' => 'reason', 'uses' => 'Dashboard\StatsController@getUnsubscribeReason']);
 	Route::post('stats/wrong', ['as' => 'wrong', 'uses' => 'Dashboard\StatsController@getWrongSb']);
 	Route::post('stats/cohorts-country', ['as' => 'cohortsCountry', 'uses' => 'Dashboard\StatsController@getCohortsCountry']);
+	Route::get('stats/cohorts', ['as' => 'cohortsCountry', 'uses' => 'Dashboard\StatsController@getCohortsIndex']);
+
+
+	Route::post('stats/cohorts/get-csv', ['as' => 'cohortsAge', 'uses' => 'Dashboard\StatsController@getCohortsAgeCsv']);
+
+
 	Route::resource( 'feedback', 'Dashboard\FeedbackController' );
 	Route::get( 'feedback/delete/{id}', 'Dashboard\FeedbackController@destroy' );
 	Route::resource( 'faq-translations', 'Dashboard\FaqTranslationController' );
