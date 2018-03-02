@@ -465,7 +465,7 @@ class StatsController extends Controller
         $stat_count = Setting::where('identifier', '=', 'month_stat_' . $data['lang'])->first();
         $stat_count->value = 1;
         $stat_count->save();
-        \Log::info('Click on create month CSV' . $data['lang']);
+        \Log::info('Click on create month CSV ' . $data['lang']);
         \Event::fire(new CreateCsv($customers, $data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']));
         return \Response::json([
             'message' => 'Csv start create'
@@ -484,7 +484,7 @@ class StatsController extends Controller
         $stat_count->value = 1;
         $stat_count->save();
 
-        \Log::info('Click on create All CSV' . $data['lang']);
+        \Log::info('Click on create All CSV ' . $data['lang']);
         \Event::fire(new CreateAllCsv($customers, $data['lang']));
         return \Response::json([
             'message' => 'Csv start create for all customers ' . $data['lang']

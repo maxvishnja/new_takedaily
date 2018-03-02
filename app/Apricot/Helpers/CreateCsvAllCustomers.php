@@ -16,6 +16,8 @@ class CreateCsvAllCustomers
     public static function storeAllCustomerToCsv($customers, $lang)
     {
 
+        \Log::info('Start in function create CSV '.$lang);
+
         $stat_count = Setting::where('identifier','=','stat_'.$lang)->first();
         $stat_count->value = 0;
 

@@ -6,10 +6,10 @@ use App\Setting;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class CreateCsvAllCustomers implements ShouldQueue
+class CreateCsvAllCustomers //implements ShouldQueue
 {
 
-    use InteractsWithQueue;
+    //use InteractsWithQueue;
 
     /**
      * Create the event listener.
