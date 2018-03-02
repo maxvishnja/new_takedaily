@@ -352,11 +352,11 @@ class Plan extends Model
         return $data;
     }
 
-    public static function getCohortsAge($signDate, $month, $year, $age)
+    public static function getCohortsAge($signDate, $month, $year, $age, $all)
     {
 
        
-        $allCustomers = Plan::getSignupsAge($signDate, $year, $age);
+        $allCustomers = $all;
         $nextyear = $year;
         if($month > 12){
             $month = sprintf('%02d', $month - 12);
@@ -396,9 +396,9 @@ class Plan extends Model
 
 
 
-    public static function getCohortsAgeCountry($signDate, $month, $year, $lang, $age)
+    public static function getCohortsAgeCountry($signDate, $month, $year, $lang, $age, $all)
     {
-        $allCustomers = Plan::getSignupsAgeCountry($signDate, $year, $lang, $age);
+        $allCustomers = $all;
         $nextyear = $year;
         if($month > 12){
             $month = sprintf('%02d', $month - 12);
