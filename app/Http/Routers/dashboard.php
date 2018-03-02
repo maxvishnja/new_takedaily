@@ -147,7 +147,9 @@ Route::group( [ 'prefix' => 'dashboard', 'middleware' => 'admin' ], function ()
 	Route::get('stats/cohorts', ['as' => 'cohortsCountry', 'uses' => 'Dashboard\StatsController@getCohortsIndex']);
 
 
-	Route::post('stats/cohorts/get-csv', ['as' => 'cohortsAge', 'uses' => 'Dashboard\StatsController@getCohortsAgeCsv']);
+	Route::post('stats/cohorts/get-cohorts', ['as' => 'cohortsAge', 'uses' => 'Dashboard\StatsController@getCohortsAgeCsv']);
+	Route::post('stats/cohorts/get-revenue', ['as' => 'cohortsAge', 'uses' => 'Dashboard\StatsController@getRevenueAgeCsv']);
+	Route::post('stats/cohorts/get-arpu', ['as' => 'cohortsAge', 'uses' => 'Dashboard\StatsController@getArpuAgeCsv']);
 
 
 	Route::resource( 'feedback', 'Dashboard\FeedbackController' );

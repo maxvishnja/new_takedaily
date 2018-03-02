@@ -133,21 +133,31 @@ class Plan extends Model
     public static function getSignupsAge($date, $year, $age)
     {
 
-        if($age == 50){
-            $date_start = "1930-01-01";
-        } else{
-            $date_start = (string)(2000 - $age)."-01-01";
-        }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
+        if($age != 'pick'){
+            if($age == 50){
+                $date_start = "1930-01-01";
+            } else{
+                $date_start = (string)(2000 - $age)."-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age)."-01-01";
 
-        $customers = Plan::select('plans.id')
-            ->join('customers', 'customers.plan_id', '=', 'plans.id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $date)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->count();
+            $customers = Plan::select('plans.id')
+                ->join('customers', 'customers.plan_id', '=', 'plans.id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $date)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                ->whereBetween('customer_attributes.value',[$date_start, $date_end])
+                ->count();
+        } else{
+
+            $customers = Plan::select('plans.id')
+                ->whereMonth('plans.created_at', '=', $date)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.is_custom', '=', 1)
+                ->count();
+        }
+
 
 
         return $customers;
@@ -162,43 +172,77 @@ class Plan extends Model
             $nextyear = 2018;
         }
 
-        if($age == 50){
-            $date_start = "1930-01-01";
+        if($age != 'pick') {
+
+            if ($age == 50) {
+                $date_start = "1930-01-01";
+            } else {
+                $date_start = (string)(2000 - $age) . "-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age) . "-01-01";
+
+
+            $ordersNl = Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                ->whereBetween('customer_attributes.value', [$date_start, $date_end])
+                ->where('orders.currency', '=', 'EUR')
+                ->where('orders.state', '=', 'sent')
+                ->whereNull('orders.repeat')
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->sum('orders.total');
+
+            $ordersDk = Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                ->whereBetween('customer_attributes.value', [$date_start, $date_end])
+                ->where('orders.currency', '=', 'DKK')
+                ->where('orders.state', '=', 'sent')
+                ->whereNull('orders.repeat')
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->sum('orders.total');
+
         } else{
-            $date_start = (string)(2000 - $age)."-01-01";
+
+            $ordersNl = Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.is_custom', '=', 1)
+                ->where('orders.currency', '=', 'EUR')
+                ->where('orders.state', '=', 'sent')
+                ->whereNull('orders.repeat')
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->sum('orders.total');
+
+            $ordersDk = Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.is_custom', '=', 1)
+                ->where('orders.currency', '=', 'DKK')
+                ->where('orders.state', '=', 'sent')
+                ->whereNull('orders.repeat')
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->sum('orders.total');
         }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
 
 
-        $ordersNl =  Order::select('orders.total')
-            ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->join('plans', 'plans.id', '=', 'customers.plan_id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $signDate)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->where('orders.currency', '=', 'EUR')
-            ->where('orders.state','=','sent')
-            ->whereNull('orders.repeat')
-            ->whereMonth('orders.created_at', '=', $date)
-            ->whereYear('orders.created_at', '=', $nextyear)
-            ->sum('orders.total');
 
-        $ordersDk =  Order::select('orders.total')
-            ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->join('plans', 'plans.id', '=', 'customers.plan_id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $signDate)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->where('orders.currency', '=', 'DKK')
-            ->where('orders.state','=','sent')
-            ->whereNull('orders.repeat')
-            ->whereMonth('orders.created_at', '=', $date)
-            ->whereYear('orders.created_at', '=', $nextyear)
-            ->sum('orders.total');
         $sum = $ordersDk + (7.50 * $ordersNl);
         return $sum;
     }
@@ -248,23 +292,33 @@ class Plan extends Model
 
     public static function getSignupsAgeCountry($date, $year, $lang, $age)
     {
-        if($age == 50){
-            $date_start = "1930-01-01";
-        } else{
-            $date_start = (string)(2000 - $age)."-01-01";
+
+        if($age !='pick'){
+
+            if($age == 50){
+                $date_start = "1930-01-01";
+            } else{
+                $date_start = (string)(2000 - $age)."-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age)."-01-01";
+
+            $customers = Plan::select('plans.id')
+                ->join('customers', 'customers.plan_id', '=', 'plans.id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $date)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.currency', '=', $lang)
+                ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                ->whereBetween('customer_attributes.value',[$date_start, $date_end])
+                ->count();
+        }else{
+            $customers = Plan::select('plans.id')
+                ->whereMonth('plans.created_at', '=', $date)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.currency', '=', $lang)
+                ->where('plans.is_custom', '=', 1)
+                ->count();
         }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
-
-        $customers = Plan::select('plans.id')
-            ->join('customers', 'customers.plan_id', '=', 'plans.id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $date)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('plans.currency', '=', $lang)
-            ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->count();
-
         return $customers;
     }
 
@@ -299,27 +353,43 @@ class Plan extends Model
             $nextyear = 2018;
         }
 
-        if($age == 50){
-            $date_start = "1930-01-01";
-        } else{
-            $date_start = (string)(2000 - $age)."-01-01";
-        }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
+        if($age !='pick') {
 
-        $revenues =  Order::select('orders.total')
-            ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->join('plans', 'plans.id', '=', 'customers.plan_id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $signdate)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('customer_attributes.identifier', '=','user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->where('orders.currency', '=', $lang)
-            ->where('orders.state','=','sent')
-            ->whereNull('orders.repeat')
-            ->whereMonth('orders.created_at', '=', $date)
-            ->whereYear('orders.created_at', '=', $nextyear)
-            ->sum('orders.total');
+            if ($age == 50) {
+                $date_start = "1930-01-01";
+            } else {
+                $date_start = (string)(2000 - $age) . "-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age) . "-01-01";
+
+            $revenues = Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $signdate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                ->whereBetween('customer_attributes.value', [$date_start, $date_end])
+                ->where('orders.currency', '=', $lang)
+                ->where('orders.state', '=', 'sent')
+                ->whereNull('orders.repeat')
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->sum('orders.total');
+        } else{
+            $revenues = Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->whereMonth('plans.created_at', '=', $signdate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.is_custom', '=', 1)
+                ->where('orders.currency', '=', $lang)
+                ->where('orders.state', '=', 'sent')
+                ->whereNull('orders.repeat')
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->sum('orders.total');
+        }
         return $revenues;
     }
 
@@ -363,23 +433,32 @@ class Plan extends Model
             $nextyear = 2018;
         }
 
-        if($age == 50){
-            $date_start = "1930-01-01";
-        } else{
-            $date_start = (string)(2000 - $age)."-01-01";
+        if($age != 'pick') {
+
+            if ($age == 50) {
+                $date_start = "1930-01-01";
+            } else {
+                $date_start = (string)(2000 - $age) . "-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age) . "-01-01";
+
+            $subs = Plan::select('plans.id')
+                ->join('customers', 'customers.plan_id', '=', 'plans.id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear . "-" . $month . "-31")
+                ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                ->whereBetween('customer_attributes.value', [$date_start, $date_end])
+                ->count();
+        }else{
+            $subs = Plan::select('plans.id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->whereYear('plans.is_custom', '=', 1)
+                ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear . "-" . $month . "-31")
+                ->count();
         }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
-
-        $subs = Plan::select('plans.id')
-            ->join('customers', 'customers.plan_id', '=', 'plans.id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $signDate)
-            ->whereYear('plans.created_at', '=', $year)
-            ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear."-".$month."-31")
-            ->where('customer_attributes.identifier', '=','user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->count();
-
 
         $customers = $allCustomers - $subs;
         if ($allCustomers == 0) {
@@ -404,25 +483,33 @@ class Plan extends Model
             $month = sprintf('%02d', $month - 12);
             $nextyear = 2018;
         }
+        if($age != 'pick') {
+            if ($age == 50) {
+                $date_start = "1930-01-01";
+            } else {
+                $date_start = (string)(2000 - $age) . "-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age) . "-01-01";
 
-        if($age == 50){
-            $date_start = "1930-01-01";
+            $subs = Plan::select('plans.id')
+                ->join('customers', 'customers.plan_id', '=', 'plans.id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.currency', '=', $lang)
+                ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear . "-" . $month . "-31")
+                ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                ->whereBetween('customer_attributes.value', [$date_start, $date_end])
+                ->count();
         } else{
-            $date_start = (string)(2000 - $age)."-01-01";
+            $subs = Plan::select('plans.id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.currency', '=', $lang)
+                ->where('plans.is_custom', '=', 1)
+                ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear . "-" . $month . "-31")
+                ->count();
         }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
-
-        $subs = Plan::select('plans.id')
-            ->join('customers', 'customers.plan_id', '=', 'plans.id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $signDate)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('plans.currency', '=', $lang)
-            ->whereDate('plans.subscription_cancelled_at', '<=', $nextyear."-".$month."-31")
-            ->where('customer_attributes.identifier', '=','user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->count();
-
         $customers = $allCustomers - $subs;
         if ($allCustomers == 0) {
             $cohorts = 100;
@@ -508,42 +595,70 @@ class Plan extends Model
             $nextyear = 2018;
         }
 
-        if($age == 50){
-            $date_start = "1930-01-01";
-        } else{
-            $date_start = (string)(2000 - $age)."-01-01";
-        }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
+        if($age != 'pick') {
+            if ($age == 50) {
+                $date_start = "1930-01-01";
+            } else {
+                $date_start = (string)(2000 - $age) . "-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age) . "-01-01";
 
-        $ordersNl =  Order::select('orders.total')
+            $ordersNl = Order::select('orders.total')
+                    ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                    ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                    ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                    ->whereMonth('plans.created_at', '=', $signDate)
+                    ->whereYear('plans.created_at', '=', $year)
+                    ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                    ->whereBetween('customer_attributes.value', [$date_start, $date_end])
+                    ->where('orders.currency', '=', 'EUR')
+                    ->where('orders.state', '=', 'sent')
+                    ->whereNull('orders.repeat')
+                    ->whereMonth('orders.created_at', '=', $month)
+                    ->whereYear('orders.created_at', '=', $nextyear)
+                    ->sum('orders.total') * 7.50;
+
+            $ordersDk = Order::select('orders.total')
                 ->join('customers', 'customers.id', '=', 'orders.customer_id')
                 ->join('plans', 'plans.id', '=', 'customers.plan_id')
                 ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
                 ->whereMonth('plans.created_at', '=', $signDate)
                 ->whereYear('plans.created_at', '=', $year)
-                ->where('customer_attributes.identifier', '=','user_data.birthdate')
-                ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-                ->where('orders.currency', '=', 'EUR')
-                ->where('orders.state','=','sent')
+                ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                ->whereBetween('customer_attributes.value', [$date_start, $date_end])
+                ->where('orders.currency', '=', 'DKK')
+                ->where('orders.state', '=', 'sent')
                 ->whereNull('orders.repeat')
                 ->whereMonth('orders.created_at', '=', $month)
                 ->whereYear('orders.created_at', '=', $nextyear)
-                ->sum('orders.total') * 7.50;
+                ->sum('orders.total');
+        }else{
+            $ordersNl = Order::select('orders.total')
+                    ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                    ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                    ->whereMonth('plans.created_at', '=', $signDate)
+                    ->whereYear('plans.created_at', '=', $year)
+                    ->where('plans.is_custom', '=', 1)
+                    ->where('orders.currency', '=', 'EUR')
+                    ->where('orders.state', '=', 'sent')
+                    ->whereNull('orders.repeat')
+                    ->whereMonth('orders.created_at', '=', $month)
+                    ->whereYear('orders.created_at', '=', $nextyear)
+                    ->sum('orders.total') * 7.50;
 
-        $ordersDk =  Order::select('orders.total')
-            ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->join('plans', 'plans.id', '=', 'customers.plan_id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $signDate)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('customer_attributes.identifier', '=','user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->where('orders.currency', '=', 'DKK')
-            ->where('orders.state','=','sent')
-            ->whereNull('orders.repeat')
-            ->whereMonth('orders.created_at', '=', $month)
-            ->whereYear('orders.created_at', '=', $nextyear)
-            ->sum('orders.total');
+            $ordersDk = Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.is_custom', '=', 1)
+                ->where('orders.currency', '=', 'DKK')
+                ->where('orders.state', '=', 'sent')
+                ->whereNull('orders.repeat')
+                ->whereMonth('orders.created_at', '=', $month)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->sum('orders.total');
+        }
 
         return $ordersNl + $ordersDk;
     }
@@ -590,28 +705,43 @@ class Plan extends Model
             $nextyear = 2018;
         }
 
-        if($age == 50){
-            $date_start = "1930-01-01";
-        } else{
-            $date_start = (string)(2000 - $age)."-01-01";
+        if($age != 'pick'){
+
+            if($age == 50){
+                $date_start = "1930-01-01";
+            } else{
+                $date_start = (string)(2000 - $age)."-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age)."-01-01";
+
+            $orders =  Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('customer_attributes.identifier', '=','user_data.birthdate')
+                ->whereBetween('customer_attributes.value',[$date_start, $date_end])
+                ->where('orders.currency', '=', $lang)
+                ->where('orders.state','=','sent')
+                ->whereNull('orders.repeat')
+                ->whereMonth('orders.created_at', '=', $month)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->sum('orders.total');
+        }else{
+            $orders =  Order::select('orders.total')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.is_custom', '=', 1)
+                ->where('orders.currency', '=', $lang)
+                ->where('orders.state','=','sent')
+                ->whereNull('orders.repeat')
+                ->whereMonth('orders.created_at', '=', $month)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->sum('orders.total');
         }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
-
-        $orders =  Order::select('orders.total')
-            ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->join('plans', 'plans.id', '=', 'customers.plan_id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $signDate)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('customer_attributes.identifier', '=','user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->where('orders.currency', '=', $lang)
-            ->where('orders.state','=','sent')
-            ->whereNull('orders.repeat')
-            ->whereMonth('orders.created_at', '=', $month)
-            ->whereYear('orders.created_at', '=', $nextyear)
-            ->sum('orders.total');
-
         return $orders;
     }
 
@@ -673,28 +803,41 @@ class Plan extends Model
             $nextyear = 2018;
         }
 
-        if($age == 50){
-            $date_start = "1930-01-01";
-        } else{
-            $date_start = (string)(2000 - $age)."-01-01";
+        if($age != 'pick') {
+            if ($age == 50) {
+                $date_start = "1930-01-01";
+            } else {
+                $date_start = (string)(2000 - $age) . "-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age) . "-01-01";
+
+
+            $orders = Order::whereNull('orders.repeat')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('customer_attributes.identifier', '=', 'user_data.birthdate')
+                ->whereBetween('customer_attributes.value', [$date_start, $date_end])
+                ->where('orders.state', '=', 'sent')
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->groupBy('orders.customer_id')
+                ->get();
+        }else{
+            $orders = Order::whereNull('orders.repeat')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.is_custom', '=', 1)
+                ->where('orders.state', '=', 'sent')
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->groupBy('orders.customer_id')
+                ->get();
         }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
-
-
-        $orders = Order::whereNull('orders.repeat')
-            ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->join('plans', 'plans.id', '=', 'customers.plan_id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $signDate)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('customer_attributes.identifier', '=','user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->where('orders.state','=','sent')
-            ->whereMonth('orders.created_at', '=', $date)
-            ->whereYear('orders.created_at', '=', $nextyear)
-            ->groupBy('orders.customer_id')
-            ->get();
-
         $data = new Stat();
 
         if($rev > 0){
@@ -727,28 +870,45 @@ class Plan extends Model
             $nextyear = 2018;
         }
 
-        if($age == 50){
-            $date_start = "1930-01-01";
-        } else{
-            $date_start = (string)(2000 - $age)."-01-01";
+        if($age != 'pick'){
+
+            if($age == 50){
+                $date_start = "1930-01-01";
+            } else{
+                $date_start = (string)(2000 - $age)."-01-01";
+            }
+            $date_end = (string)(2000 + 10 - $age)."-01-01";
+
+
+            $orders = Order::whereNull('orders.repeat')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('customer_attributes.identifier', '=','user_data.birthdate')
+                ->whereBetween('customer_attributes.value',[$date_start, $date_end])
+                ->where('orders.state','=','sent')
+                ->where('orders.currency', '=', $lang)
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->groupBy('orders.customer_id')
+                ->get();
+
+        }else{
+            $orders = Order::whereNull('orders.repeat')
+                ->join('customers', 'customers.id', '=', 'orders.customer_id')
+                ->join('plans', 'plans.id', '=', 'customers.plan_id')
+                ->whereMonth('plans.created_at', '=', $signDate)
+                ->whereYear('plans.created_at', '=', $year)
+                ->where('plans.is_custom', '=', 1)
+                ->where('orders.state','=','sent')
+                ->where('orders.currency', '=', $lang)
+                ->whereMonth('orders.created_at', '=', $date)
+                ->whereYear('orders.created_at', '=', $nextyear)
+                ->groupBy('orders.customer_id')
+                ->get();
         }
-        $date_end = (string)(2000 + 10 - $age)."-01-01";
-
-
-        $orders = Order::whereNull('orders.repeat')
-            ->join('customers', 'customers.id', '=', 'orders.customer_id')
-            ->join('plans', 'plans.id', '=', 'customers.plan_id')
-            ->join('customer_attributes', 'customer_attributes.customer_id', '=', 'customers.id')
-            ->whereMonth('plans.created_at', '=', $signDate)
-            ->whereYear('plans.created_at', '=', $year)
-            ->where('customer_attributes.identifier', '=','user_data.birthdate')
-            ->whereBetween('customer_attributes.value',[$date_start, $date_end])
-            ->where('orders.state','=','sent')
-            ->where('orders.currency', '=', $lang)
-            ->whereMonth('orders.created_at', '=', $date)
-            ->whereYear('orders.created_at', '=', $nextyear)
-            ->groupBy('orders.customer_id')
-            ->get();
 
         $data = new Stat();
 

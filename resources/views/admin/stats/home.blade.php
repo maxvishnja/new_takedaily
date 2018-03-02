@@ -297,7 +297,7 @@
                         </thead>
 <tbody>
 <tr>
-    <form action="{{ URL::action('Dashboard\StatsController@getCohortsAgeCsv') }}" method="post">
+    <form action="{{ URL::action('Dashboard\StatsController@getCohortsAgeCsv') }}" id="age-form" method="post">
         <td class="text-center">
             <select name="age" class="">
                 <option value="0">2000 - now</option>
@@ -306,7 +306,7 @@
                 <option value="30">1979-1970</option>
                 <option value="40">1969-1960</option>
                 <option value="50">1959-</option>
-                {{--<option value="50">PicknMix</option>--}}
+                <option value="pick">PicknMix</option>
             </select>
         </td>
         <td class="text-center">
@@ -319,7 +319,9 @@
         </td>
         <td>
             {{ csrf_field() }}
-            <button type="submit"  class="btn btn-success">Download CSV</button>
+            <button type="submit"  class="btn btn-success down-cohorts">Download Cohorts</button><br/><br/>
+            <button type="submit"  class="btn btn-success down-revenue">Download Revenue</button><br/><br/>
+            <button type="submit"  class="btn btn-success down-arpu">Download ARPU</button>
         </td>
         </form>
 
@@ -342,17 +344,24 @@
 
 @section('scripts')
     <script>
-        {{--$('.stats-ok').on('click', function (e) {--}}
-        {{--e.preventDefault();--}}
-        {{--$.ajax({--}}
-        {{--type: 'POST',--}}
-        {{--data: $('form.stat-form').serialize(),--}}
-        {{--url: '{{ route("stats-post") }}',--}}
-        {{--success: function (data) {--}}
-        {{--$('.result').html(data);--}}
-        {{--}--}}
-        {{--});--}}
-        {{--});--}}
+
+        $('.down-cohorts').on('click', function(e){
+           e.preventDefault();
+          $('#age-form').attr('action','{{  URL::action('Dashboard\StatsController@getCohortsAgeCsv')}}').submit();
+        });
+
+        $('.down-revenue').on('click', function(e){
+            e.preventDefault();
+            $('#age-form').attr('action','{{  URL::action('Dashboard\StatsController@getRevenueAgeCsv')}}').submit();
+        });
+
+        $('.down-arpu').on('click', function(e){
+            e.preventDefault();
+            $('#age-form').attr('action','{{  URL::action('Dashboard\StatsController@getArpuAgeCsv')}}').submit();
+        });
+
+
+
         $('.stats-coupon').on('click', function (e) {
             e.preventDefault();
             $.ajax({
@@ -364,23 +373,7 @@
                 }
             });
         });
-        {{--$('#post-coupon').on('click', function(){--}}
-        {{--var coupon = ($('#data-coupon').val());--}}
-        {{--console.log(coupon);--}}
-        {{--$.ajax({--}}
-        {{--url: '{{  URL::action('Dashboard\StatsController@getStatsCustomersFromCoupon')}}',--}}
-        {{--type: 'POST',--}}
-        {{--data: {coupon: coupon},--}}
-        {{--headers: {--}}
-        {{--'X-CSRF-TOKEN': $('form.form-coupon').find('[name="_token"]').val()--}}
-        {{--},--}}
-        {{--success: function (response) {--}}
-        {{--console.log(response);--}}
-        {{--},--}}
-        {{--error: function (response) {--}}
-        {{--}--}}
-        {{--});--}}
-        {{--});--}}
+
         $('.change-cohorts').on('change', function () {
             $('.cohorts').addClass('hidden');
             if ($(this).val() != 4) {

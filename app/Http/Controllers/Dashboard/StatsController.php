@@ -82,78 +82,13 @@ class StatsController extends Controller
 
                     }
 
-                    $users_array2 = [];
-                    foreach (trans('flow.datepicker.months_long') as $key => $month) {
-                        $users_array2[$month . ' 2017']['Month'] = $month . ' 2017';
-                        $users_array2[$month . ' 2017']['Revenues'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsAgeRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017, $data['age']), 2);
-                        $users_array2[$month . ' 2017']['0'] = '100%';
-                       foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
-                            if ($y >= $key) {
-                                $users_array2[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsAgeRevenue(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age']), 2);
-                            }
-                        }
-                    }
-                    foreach (trans('flow.datepicker.months_long') as $key2 => $month2) {
-                        $users_array2[$month2 . ' 2018']['Month'] = $month2 . ' 2018';
-                        $users_array2[$month2 . ' 2018']['Revenues'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsAgeRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018, $data['age']), 2);
-                        $users_array2[$month2 . ' 2018']['0'] = '100%';
-                        foreach (range($key2, 12) as $y2) {
-                            if ($y2 >= $key2 and $y2 <= (int)date('m')) {
-                               $users_array2[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsAgeRevenue(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age']), 2);
-                            }
-                        }
-                    }
 
-
-                    $users_array3 = [];
-                    foreach (trans('flow.datepicker.months_long') as $key => $month) {
-                        $users_array3[$month . ' 2017']['Month'] = $month . ' 2017';
-                        $cus = Plan::getSignupsAge(sprintf('%02d', $key), 2017, $data['age']);
-                        if ($cus != 0) {
-                            $users_array3[$month . ' 2017']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsAgeRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017, $data['age']) / $cus, 2) . " (" . $cus . ")";
-                        } else {
-                            $users_array3[$month . ' 2017']['ARPU'] = 0;
-                        }
-                        $users_array3[$month . ' 2017']['0'] = '100%';
-                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
-                            if ($y >= $key) {
-                                    $arpu = Plan::getCohortsAgeArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age']);
-                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu->rev, 2) . " (" . $arpu->count . ")";
-
-                            }
-                        }
-                    }
-                    foreach (trans('flow.datepicker.months_long') as $key2 => $month2) {
-                        $users_array3[$month2 . ' 2018']['Month'] = $month2 . ' 2018';
-                        $cus2 = Plan::getSignupsAge(sprintf('%02d', $key2), 2018, $data['age']);
-                        if ($cus2 != 0) {
-                            $users_array3[$month2 . ' 2018']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsAgeRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018, $data['age']) / $cus2, 2) . " (" . $cus2 . ")";
-                        } else {
-                            $users_array3[$month2 . ' 2018']['ARPU'] = 0;
-                        }
-                        $users_array3[$month2 . ' 2018']['0'] = '100%';
-                        foreach (range($key2, 12) as $y2) {
-                            if ($y2 >= $key2 and $y2 <= (int)date('m')) {
-                                    $arpu2 = Plan::getCohortsAgeArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age']);
-                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2->rev, 2) . " (" . $arpu2->count . ")";
-
-                            }
-                        }
-                    }
-
-
-
-                    \Excel::create('cohorts_month', function ($excel) use ($users_array, $users_array2, $users_array3) {
+                    \Excel::create('cohorts_month', function ($excel) use ($users_array) {
 
                         $excel->sheet('All users', function ($sheet) use ($users_array) {
                             $sheet->fromArray($users_array, null, 'A1', true);
                         });
-                        $excel->sheet('Revenues', function ($sheet) use ($users_array2) {
-                            $sheet->fromArray($users_array2, null, 'A1', true);
-                        });
-                        $excel->sheet('ARPU', function ($sheet) use ($users_array3) {
-                            $sheet->fromArray($users_array3, null, 'A1', true);
-                        });
+
 
                     })->download('xls');
 
@@ -186,6 +121,85 @@ class StatsController extends Controller
 
                     }
 
+
+
+                    \Excel::create('cohorts_month', function ($excel) use ($users_array) {
+
+                        $excel->sheet('All users', function ($sheet) use ($users_array) {
+                            $sheet->fromArray($users_array, null, 'A1', true);
+                        });
+
+
+                    })->download('xls');
+                    return \Redirect::back();
+            }
+
+
+
+        }
+
+
+        return \Redirect::back()->withErrors("No data!");
+
+
+    }
+
+
+    function getRevenueAgeCsv(Request $request)
+    {
+
+        $data = $request->all();
+
+
+        if ($data) {
+
+
+
+
+            switch ($data['lang']) {
+
+                case '0':
+
+
+
+                    $users_array2 = [];
+                    foreach (trans('flow.datepicker.months_long') as $key => $month) {
+                        $users_array2[$month . ' 2017']['Month'] = $month . ' 2017';
+                        $users_array2[$month . ' 2017']['Revenues'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsAgeRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017, $data['age']), 2);
+                        $users_array2[$month . ' 2017']['0'] = '100%';
+                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
+                            if ($y >= $key) {
+                                $users_array2[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsAgeRevenue(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age']), 2);
+                            }
+                        }
+                    }
+                    foreach (trans('flow.datepicker.months_long') as $key2 => $month2) {
+                        $users_array2[$month2 . ' 2018']['Month'] = $month2 . ' 2018';
+                        $users_array2[$month2 . ' 2018']['Revenues'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsAgeRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018, $data['age']), 2);
+                        $users_array2[$month2 . ' 2018']['0'] = '100%';
+                        foreach (range($key2, 12) as $y2) {
+                            if ($y2 >= $key2 and $y2 <= (int)date('m')) {
+                                $users_array2[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsAgeRevenue(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age']), 2);
+                            }
+                        }
+                    }
+
+
+                    \Excel::create('revenue_month', function ($excel) use ($users_array2) {
+
+
+                        $excel->sheet('Revenues', function ($sheet) use ($users_array2) {
+                            $sheet->fromArray($users_array2, null, 'A1', true);
+                        });
+
+                    })->download('xls');
+
+                    return \Redirect::back();
+
+
+                default:
+
+
                     $users_array2 = [];
                     foreach (trans('flow.datepicker.months_long') as $key => $month) {
                         $users_array2[$month . ' 2017']['Month'] = $month . ' 2017';
@@ -209,6 +223,97 @@ class StatsController extends Controller
                     }
 
 
+                    \Excel::create('revenue_month', function ($excel) use ($users_array2) {
+
+
+                        $excel->sheet('Revenues', function ($sheet) use ($users_array2) {
+                            $sheet->fromArray($users_array2, null, 'A1', true);
+                        });
+
+
+
+                    })->download('xls');
+                    return \Redirect::back();
+            }
+
+
+
+        }
+
+
+        return \Redirect::back()->withErrors("No data!");
+
+
+    }
+
+
+    function getArpuAgeCsv(Request $request)
+    {
+
+        $data = $request->all();
+
+
+        if ($data) {
+
+
+
+
+            switch ($data['lang']) {
+
+                case '0':
+
+
+                    $users_array3 = [];
+                    foreach (trans('flow.datepicker.months_long') as $key => $month) {
+                        $users_array3[$month . ' 2017']['Month'] = $month . ' 2017';
+                        $cus = Plan::getSignupsAge(sprintf('%02d', $key), 2017, $data['age']);
+                        if ($cus != 0) {
+                            $users_array3[$month . ' 2017']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsAgeRevenue(sprintf('%02d', $key), sprintf('%02d', $key), 2017, $data['age']) / $cus, 2) . " (" . $cus . ")";
+                        } else {
+                            $users_array3[$month . ' 2017']['ARPU'] = 0;
+                        }
+                        $users_array3[$month . ' 2017']['0'] = '100%';
+                        foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
+                            if ($y >= $key) {
+                                $arpu = Plan::getCohortsAgeArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age']);
+                                $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu->rev, 2) . " (" . $arpu->count . ")";
+
+                            }
+                        }
+                    }
+                    foreach (trans('flow.datepicker.months_long') as $key2 => $month2) {
+                        $users_array3[$month2 . ' 2018']['Month'] = $month2 . ' 2018';
+                        $cus2 = Plan::getSignupsAge(sprintf('%02d', $key2), 2018, $data['age']);
+                        if ($cus2 != 0) {
+                            $users_array3[$month2 . ' 2018']['ARPU'] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getSignupsAgeRevenue(sprintf('%02d', $key2), sprintf('%02d', $key2), 2018, $data['age']) / $cus2, 2) . " (" . $cus2 . ")";
+                        } else {
+                            $users_array3[$month2 . ' 2018']['ARPU'] = 0;
+                        }
+                        $users_array3[$month2 . ' 2018']['0'] = '100%';
+                        foreach (range($key2, 12) as $y2) {
+                            if ($y2 >= $key2 and $y2 <= (int)date('m')) {
+                                $arpu2 = Plan::getCohortsAgeArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age']);
+                                $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2->rev, 2) . " (" . $arpu2->count . ")";
+
+                            }
+                        }
+                    }
+
+
+
+                    \Excel::create('arpu_month', function ($excel) use ($users_array3) {
+
+
+                        $excel->sheet('ARPU', function ($sheet) use ($users_array3) {
+                            $sheet->fromArray($users_array3, null, 'A1', true);
+                        });
+
+                    })->download('xls');
+
+                    return \Redirect::back();
+
+
+                default:
 
                     $users_array3 = [];
                     foreach (trans('flow.datepicker.months_long') as $key => $month) {
@@ -223,8 +328,8 @@ class StatsController extends Controller
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
                             if ($y >= $key) {
 
-                                    $arpu = Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age'], $data['lang']);
-                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu->rev, 2) . " (" . $arpu->count . ")";
+                                $arpu = Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age'], $data['lang']);
+                                $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu->rev, 2) . " (" . $arpu->count . ")";
 
                             }
                         }
@@ -240,8 +345,8 @@ class StatsController extends Controller
                         $users_array3[$month2 . ' 2018']['0'] = '100%';
                         foreach (range($key2, 12) as $y2) {
                             if ($y2 >= $key2 and $y2 <= (int)date('m')) {
-                                    $arpu2 = Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age'], $data['lang']);
-                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2->rev, 2) . " (" . $arpu2->count . ")";
+                                $arpu2 = Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age'], $data['lang']);
+                                $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2->rev, 2) . " (" . $arpu2->count . ")";
 
                             }
                         }
@@ -250,14 +355,9 @@ class StatsController extends Controller
 
 
 
-                    \Excel::create('cohorts_month', function ($excel) use ($users_array, $users_array2, $users_array3) {
+                    \Excel::create('arpu_month', function ($excel) use ($users_array3) {
 
-                        $excel->sheet('All users', function ($sheet) use ($users_array) {
-                            $sheet->fromArray($users_array, null, 'A1', true);
-                        });
-                        $excel->sheet('Revenues', function ($sheet) use ($users_array2) {
-                            $sheet->fromArray($users_array2, null, 'A1', true);
-                        });
+
                         $excel->sheet('ARPU', function ($sheet) use ($users_array3) {
                             $sheet->fromArray($users_array3, null, 'A1', true);
                         });
