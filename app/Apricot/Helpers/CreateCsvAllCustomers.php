@@ -30,56 +30,56 @@ class CreateCsvAllCustomers
 
                 $email_array[$i]['Firstname'] = $customer->getFirstName();
 
-                $email_array[$i]['Email'] = $customer->getEmail();
-
-                $email_array[$i]['Phone'] = $customer->getPhone();
-
-                if ($customer->getGender() == 1) {
-                    $email_array[$i]['Gender'] = 'male';
-                } else {
-                    $email_array[$i]['Gender'] = 'female';
-                }
-
-                $email_array[$i]['Birth'] = $customer->getBirthday();
-
-                if ($customer->isSubscribed()) {
-                    $email_array[$i]['Active'] = "Active";
-                } else {
-                    $email_array[$i]['Active'] = "Not active";
-                }
-
-                if ($customer->plan->is_custom == 1) {
-                    $email_array[$i]['Subscription type'] = 'PicknMix';
-                } else {
-                    $email_array[$i]['Subscription type'] = 'Test';
-                }
-
-
-                $email_array[$i]['Signupdate'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
-
-
-                if ($customer->plan->subscription_rebill_at != null) {
-                    $email_array[$i]['Nextpayment'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d-m-Y');
-
-                } else {
-
-                    $email_array[$i]['Nextpayment'] = '';
-
-                }
-
-                $email_array[$i]['Last PaymentDate'] = '';
-
-                if ($customer->plan->last_rebill_date != null) {
-                    $email_array[$i]['Last PaymentDate'] = $customer->plan->last_rebill_date;
-                }
-
-                $email_array[$i]['Unsubscribe date'] = '';
-
-                if ($customer->plan->subscription_cancelled_at != null) {
-                    $email_array[$i]['Unsubscribe date'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_cancelled_at)->format('d-m-Y');
-                }
-
-
+//                $email_array[$i]['Email'] = $customer->getEmail();
+//
+//                $email_array[$i]['Phone'] = $customer->getPhone();
+//
+//                if ($customer->getGender() == 1) {
+//                    $email_array[$i]['Gender'] = 'male';
+//                } else {
+//                    $email_array[$i]['Gender'] = 'female';
+//                }
+//
+//                $email_array[$i]['Birth'] = $customer->getBirthday();
+//
+//                if ($customer->isSubscribed()) {
+//                    $email_array[$i]['Active'] = "Active";
+//                } else {
+//                    $email_array[$i]['Active'] = "Not active";
+//                }
+//
+//                if ($customer->plan->is_custom == 1) {
+//                    $email_array[$i]['Subscription type'] = 'PicknMix';
+//                } else {
+//                    $email_array[$i]['Subscription type'] = 'Test';
+//                }
+//
+//
+//                $email_array[$i]['Signupdate'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->created_at)->format('d-m-Y');
+//
+//
+//                if ($customer->plan->subscription_rebill_at != null) {
+//                    $email_array[$i]['Nextpayment'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_rebill_at)->format('d-m-Y');
+//
+//                } else {
+//
+//                    $email_array[$i]['Nextpayment'] = '';
+//
+//                }
+//
+//                $email_array[$i]['Last PaymentDate'] = '';
+//
+//                if ($customer->plan->last_rebill_date != null) {
+//                    $email_array[$i]['Last PaymentDate'] = $customer->plan->last_rebill_date;
+//                }
+//
+//                $email_array[$i]['Unsubscribe date'] = '';
+//
+//                if ($customer->plan->subscription_cancelled_at != null) {
+//                    $email_array[$i]['Unsubscribe date'] = \Date::createFromFormat('Y-m-d H:i:s', $customer->plan->subscription_cancelled_at)->format('d-m-Y');
+//                }
+//
+//
 //                $email_array[$i]['Unsubscribe reason'] = '';
 //
 //                if ($customer->plan->unsubscribe_reason != '') {
