@@ -176,8 +176,8 @@
                                             <option value="da">Denmark</option>
                                         </select><br/>
 
-                                        <button class="btn btn-info" id="createCsv2">Create CSV</button>
-                                        <button class="btn btn-success" id="downloadCsv2">Download CSV</button>
+                                        <button class="btn btn-info" id="createCsv2">Create ZIP</button>
+                                        <button class="btn btn-success" id="downloadCsv2">Download ZIP</button>
                                     </form>
                                 </div>
                             </td>

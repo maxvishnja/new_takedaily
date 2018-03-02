@@ -705,7 +705,7 @@ class Customer extends Model
 
             } catch (\Exception $exception) {
                 \Log::critical($exception->getMessage());
-                \Bugsnag::notifyException($exception);
+
 
                 return false;
             }

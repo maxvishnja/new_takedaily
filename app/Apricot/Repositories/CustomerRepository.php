@@ -14,7 +14,7 @@ class CustomerRepository
 
     public function allLocale($locale)
     {
-        return Customer::where('locale','like', $locale)->orderBy('created_at', 'DESC')->get();
+        return Customer::where('locale','=', $locale)->orderBy('created_at', 'DESC')->get();
     }
 
     public function allLocaleTime($locale, $start_date, $end_date)

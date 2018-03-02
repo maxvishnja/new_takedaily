@@ -494,7 +494,7 @@ class StatsController extends Controller
     function downloadCsv(Request $request)
     {
         $data = $request->all();
-        $filename = storage_path('excel/exports/all_active_mails_months_' . $data['lang'] . '.xls');
+        $filename = storage_path('excel/exports/all_users_' . $data['lang'] . '.xls');
         if (file_exists($filename)) {
             $stat_count = Setting::where('identifier', '=', 'month_stat_' . $data['lang'])->first();
             $stat_count->value = 0;
@@ -508,7 +508,7 @@ class StatsController extends Controller
     function downloadCsvAllCustomers(Request $request)
     {
         $data = $request->all();
-        $filename = storage_path('excel/exports/all_active_mails_' . $data['lang'] . '.xls');
+        $filename = storage_path('excel/exports/all_users_' . $data['lang'] . '.zip');
         if (file_exists($filename)) {
             $stat_count = Setting::where('identifier', '=', 'stat_' . $data['lang'])->first();
             $stat_count->value = 0;
@@ -522,7 +522,7 @@ class StatsController extends Controller
     function checkCsv(Request $request)
     {
         $data = $request->all();
-        $filename = storage_path('excel/exports/all_active_mails_months_' . $data['lang'] . '.xls');
+        $filename = storage_path('excel/exports/all_users_' . $data['lang'] . '.xls');
         if (file_exists($filename)) {
             return \Response::json([
                 'message' => 'Success'
@@ -537,7 +537,7 @@ class StatsController extends Controller
     function checkCsvAllCustomers(Request $request)
     {
         $data = $request->all();
-        $filename = storage_path('excel/exports/all_active_mails_' . $data['lang'] . '.xls');
+        $filename = storage_path('excel/exports/all_users_' . $data['lang'] . '.zip');
         if (file_exists($filename)) {
             return \Response::json([
                 'message' => 'Success'

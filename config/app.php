@@ -191,10 +191,10 @@ return [
 		Barryvdh\DomPDF\ServiceProvider::class,
 		\Jenssegers\Date\DateServiceProvider::class,
 		Mollie\Laravel\MollieServiceProvider::class,
-		Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
+		//Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
 		Barryvdh\TranslationManager\ManagerServiceProvider::class,
 		Skovmand\Mailchimp\MailchimpServiceProvider::class,
-		Spatie\Backup\BackupServiceProvider::class,
+		//Spatie\Backup\BackupServiceProvider::class,
 		Maatwebsite\Excel\ExcelServiceProvider::class,
         Mbarwick83\Instagram\InstagramServiceProvider::class,
 		/*
@@ -210,6 +210,7 @@ return [
         \App\Providers\NutritionistServiceProvider::class,
 
         Milon\Barcode\BarcodeServiceProvider::class,
+        Chumper\Zipper\ZipperServiceProvider::class,
 	],
 
 	/*
@@ -259,11 +260,12 @@ return [
 		'PDF'       => Barryvdh\DomPDF\Facade::class,
 		'Date'      => Jenssegers\Date\Date::class,
 		'Mollie'    => Mollie\Laravel\Facades\Mollie::class,
-		'Bugsnag'   => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
+		//'Bugsnag'   => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
 		'Excel' 	=> Maatwebsite\Excel\Facades\Excel::class,
 		'Debugbar'  =>  Barryvdh\Debugbar\Facade::class,
         'DNS1D'     => Milon\Barcode\Facades\DNS1DFacade::class,
         'DNS2D'     => Milon\Barcode\Facades\DNS2DFacade::class,
+        'Zipper'     => Chumper\Zipper\Zipper::class,
 
 	],
 
