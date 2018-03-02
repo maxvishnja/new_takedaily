@@ -161,7 +161,27 @@ class CreateCsvAllCustomers
                 } catch (\Exception $exception) {
                     \Log::error("Foods " . $exception->getFile() . " on line " . $exception->getLine());
                 }
+
                 $i++;
+
+                if($i%1000 == 0){
+
+                    \Excel::create('all_users_' . $lang . "_" . $i, function ($excel) use ($email_array) {
+
+                        $excel->sheet('All users', function ($sheet) use ($email_array) {
+
+                            $sheet->fromArray($email_array, null, 'A1', true);
+
+                        });
+
+
+                    })->store('xls', storage_path('excel/exports/' . $lang));
+
+                    unset($email_array);
+
+                }
+
+
 
             } catch (\Exception $exception) {
                 \Log::error($exception->getFile() . " on line " . $exception->getLine());
@@ -177,20 +197,20 @@ class CreateCsvAllCustomers
         $stat_count->save();
 
 
-        $newArray = array_chunk($email_array, 1000);
+       // $newArray = array_chunk($email_array, 1000);
 
-        \Log::info('Make ' . count($newArray));
+        //\Log::info('Make ' . count($newArray));
 
 
         try {
 
-            foreach ($newArray as $key => $arr) {
+            if (!empty($email_array)) {
 
-                \Excel::create('all_users_' . $lang . "_" . $key, function ($excel) use ($arr) {
+                \Excel::create('all_users_' . $lang . "_last", function ($excel) use ($email_array) {
 
-                    $excel->sheet('All users', function ($sheet) use ($arr) {
+                    $excel->sheet('All users', function ($sheet) use ($email_array) {
 
-                        $sheet->fromArray($arr, null, 'A1', true);
+                        $sheet->fromArray($email_array, null, 'A1', true);
 
                     });
 
