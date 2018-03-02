@@ -117,45 +117,45 @@ class CreateCsvAllCustomers
                     }
                 }
 
-                $email_array[$i]['Hvilken hudfarve matcher din bedst?'] = $customer->getCustomerAttribute('user_data.skin');
-
-                $email_array[$i]['Er du udenfor i dagslys hver dag i mindst 15-30 minutter?'] = $customer->getCustomerAttribute('user_data.outside');
-
-                $email_array[$i]['Er du gravid, eller drømmer du om at blive det?'] = $customer->getCustomerAttribute('user_data.pregnant');
-
-                $email_array[$i]['Er du på slankekur?'] = $customer->getCustomerAttribute('user_data.diet');
-
-                $email_array[$i]['Hvor meget og hvor ofte motionerer du?'] = $customer->getCustomerAttribute('user_data.sports');
-
-                $email_array[$i]['Føler du dig stresset?'] = $customer->getCustomerAttribute('user_data.stressed');
-
-                $email_array[$i]['Føler du dig træt og mangler du energi?'] = $customer->getCustomerAttribute('user_data.lacks_energy');
-
-                $email_array[$i]['Hvordan fungerer dit immunforsvar i øjeblikket?'] = $customer->getCustomerAttribute('user_data.immune_system');
-
-                $email_array[$i]['Ryger du?'] = $customer->getCustomerAttribute('user_data.smokes');
-
-                $email_array[$i]['Hvor langt er du, eller ønsker du at blive gravid?'] = $customer->getCustomerAttribute('pregnancy.week');
-
-                $email_array[$i]['Er du vegetar/veganer?'] = $customer->getCustomerAttribute('user_data.vegetarian');
-
-                $email_array[$i]['Har du ømme muskler eller ondt i dine led?'] = $customer->getCustomerAttribute('user_data.joints');
-
-                $email_array[$i]['Hvor mange grøntsager spiser du om dagen?'] = $customer->getCustomerAttribute('user_data.foods.vegetables');
-
-                $email_array[$i]['Hvor meget frugt spiser du om dagen?'] = $customer->getCustomerAttribute('user_data.foods.fruits');
-
-                $email_array[$i]['Hvor mange skiver brød spiser du om dagen?'] = $customer->getCustomerAttribute('user_data.foods.bread');
-
-                $email_array[$i]['Kommer du smør eller margarine på brødet eller bruger du det i din daglige madlavning?'] = $customer->getCustomerAttribute('user_data.foods.butter');
-
-                $email_array[$i]['Hvor mange kartofler, ris, pasta eller lignede spiser du om dagen?'] = $customer->getCustomerAttribute('user_data.foods.wheat');
-
-                $email_array[$i]['Hvor ofte spiser du kød og kødprodukter?'] = $customer->getCustomerAttribute('user_data.foods.meat');
-
-                $email_array[$i]['Hvor ofte spiser du fed fisk om ugen?'] = $customer->getCustomerAttribute('user_data.foods.fish');
-
-                $email_array[$i]['Hvor mange mejeriprodukter får du dagligt?'] = $customer->getCustomerAttribute('user_data.foods.dairy');
+//                $email_array[$i]['Hvilken hudfarve matcher din bedst?'] = $customer->getCustomerAttribute('user_data.skin');
+//
+//                $email_array[$i]['Er du udenfor i dagslys hver dag i mindst 15-30 minutter?'] = $customer->getCustomerAttribute('user_data.outside');
+//
+//                $email_array[$i]['Er du gravid, eller drømmer du om at blive det?'] = $customer->getCustomerAttribute('user_data.pregnant');
+//
+//                $email_array[$i]['Er du på slankekur?'] = $customer->getCustomerAttribute('user_data.diet');
+//
+//                $email_array[$i]['Hvor meget og hvor ofte motionerer du?'] = $customer->getCustomerAttribute('user_data.sports');
+//
+//                $email_array[$i]['Føler du dig stresset?'] = $customer->getCustomerAttribute('user_data.stressed');
+//
+//                $email_array[$i]['Føler du dig træt og mangler du energi?'] = $customer->getCustomerAttribute('user_data.lacks_energy');
+//
+//                $email_array[$i]['Hvordan fungerer dit immunforsvar i øjeblikket?'] = $customer->getCustomerAttribute('user_data.immune_system');
+//
+//                $email_array[$i]['Ryger du?'] = $customer->getCustomerAttribute('user_data.smokes');
+//
+//                $email_array[$i]['Hvor langt er du, eller ønsker du at blive gravid?'] = $customer->getCustomerAttribute('pregnancy.week');
+//
+//                $email_array[$i]['Er du vegetar/veganer?'] = $customer->getCustomerAttribute('user_data.vegetarian');
+//
+//                $email_array[$i]['Har du ømme muskler eller ondt i dine led?'] = $customer->getCustomerAttribute('user_data.joints');
+//
+//                $email_array[$i]['Hvor mange grøntsager spiser du om dagen?'] = $customer->getCustomerAttribute('user_data.foods.vegetables');
+//
+//                $email_array[$i]['Hvor meget frugt spiser du om dagen?'] = $customer->getCustomerAttribute('user_data.foods.fruits');
+//
+//                $email_array[$i]['Hvor mange skiver brød spiser du om dagen?'] = $customer->getCustomerAttribute('user_data.foods.bread');
+//
+//                $email_array[$i]['Kommer du smør eller margarine på brødet eller bruger du det i din daglige madlavning?'] = $customer->getCustomerAttribute('user_data.foods.butter');
+//
+//                $email_array[$i]['Hvor mange kartofler, ris, pasta eller lignede spiser du om dagen?'] = $customer->getCustomerAttribute('user_data.foods.wheat');
+//
+//                $email_array[$i]['Hvor ofte spiser du kød og kødprodukter?'] = $customer->getCustomerAttribute('user_data.foods.meat');
+//
+//                $email_array[$i]['Hvor ofte spiser du fed fisk om ugen?'] = $customer->getCustomerAttribute('user_data.foods.fish');
+//
+//                $email_array[$i]['Hvor mange mejeriprodukter får du dagligt?'] = $customer->getCustomerAttribute('user_data.foods.dairy');
 
                 $i++;
 
