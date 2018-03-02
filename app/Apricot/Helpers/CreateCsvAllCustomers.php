@@ -158,6 +158,8 @@ class CreateCsvAllCustomers
             $i++;
 
 
+            \Log::info('Make ' . $customer->id);
+
         }
 
 
