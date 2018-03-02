@@ -23,6 +23,9 @@ class CreateCsvAllCustomers
 
         foreach ($customers as $customer) {
             try {
+
+                \Log::info('Make ' . $customer->id);
+
                 \App::setLocale($customer->getLocale());
 
                 $email_array[$i]['Firstname'] = $customer->getFirstName();
@@ -160,7 +163,7 @@ class CreateCsvAllCustomers
                 \Log::error($exception->getFile() . " on line " . $exception->getLine());
             }
 
-            \Log::info('Make ' . $customer->id);
+
 
         }
 
