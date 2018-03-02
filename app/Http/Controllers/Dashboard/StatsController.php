@@ -26,6 +26,8 @@ class StatsController extends Controller
 
     function index()
     {
+
+        phpinfo();
         $active_user = $this->repo->allActive();
         $active_coupon = Coupon::orderBy('code', 'ASC')->where('valid_to', '>=', date('Y-m-d'))->where('description', '!=', 'Upsell discount')->get();
         $inactive_coupon = Coupon::orderBy('code', 'ASC')->where('valid_to', '<', date('Y-m-d'))->where('description', '!=', 'Upsell discount')->get();
