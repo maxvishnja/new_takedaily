@@ -118,7 +118,8 @@ class StatsController extends Controller
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
                             if ($y >= $key) {
                                 if (Plan::getCohortsAge(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age'])->customers != 0) {
-                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsAgeArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age'])->rev, 2) . " (" . Plan::getCohortsAgeArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age'])->count . ")";
+                                    $arpu = Plan::getCohortsAgeArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age']);
+                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu->rev, 2) . " (" . $arpu->count . ")";
                                 } else {
                                     $users_array3[$month . ' 2017'][$y] = 0;
                                 }
@@ -137,7 +138,8 @@ class StatsController extends Controller
                         foreach (range($key2, 12) as $y2) {
                             if ($y2 >= $key2 and $y2 <= (int)date('m')) {
                                 if (Plan::getCohortsAge(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age'])->customers != 0) {
-                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsAgeArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age'])->rev, 2) . " (" . Plan::getCohortsAgeArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age'])->count . ")";
+                                    $arpu2 = Plan::getCohortsAgeArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age']);
+                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2->rev, 2) . " (" . $arpu2->count . ")";
                                 } else {
                                     $users_array3[$month2 . ' 2018'][$y2] = 0;
                                 }
@@ -227,7 +229,8 @@ class StatsController extends Controller
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
                             if ($y >= $key) {
                                 if (Plan::getCohortsAgeCountry(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['lang'], $data['age'])->customers != 0) {
-                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age'], $data['lang'])->rev, 2) . " (" . Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age'], $data['lang'])->count . ")";
+                                    $arpu = Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['age'], $data['lang']);
+                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu->rev, 2) . " (" . $arpu->count . ")";
                                 } else {
                                     $users_array3[$month . ' 2017'][$y] = 0;
                                 }
@@ -246,7 +249,8 @@ class StatsController extends Controller
                         foreach (range($key2, 12) as $y2) {
                             if ($y2 >= $key2 and $y2 <= (int)date('m')) {
                                 if (Plan::getCohortsAgeCountry(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['lang'],$data['age'])->customers != 0) {
-                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age'], $data['lang'])->rev, 2) . " (" . Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age'], $data['lang'])->count . ")";
+                                    $arpu2 = Plan::getCohortsAgeCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['age'], $data['lang']);
+                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2->rev, 2) . " (" . $arpu2->count . ")";
                                 } else {
                                     $users_array3[$month2 . ' 2018'][$y2] = 0;
                                 }
