@@ -7,10 +7,10 @@ use App\Setting;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class CreateCsvCustomers implements ShouldQueue
+class CreateCsvCustomers
 {
 
-    use InteractsWithQueue;
+    //use InteractsWithQueue;
 
     /**
      * Create the event listener.
@@ -25,26 +25,27 @@ class CreateCsvCustomers implements ShouldQueue
     /**
      * Handle the event.
      *
-     * @param  CreateCsv  $event
+     * @param  CreateCsv $event
      * @return void
      */
     public function handle(CreateCsv $event)
     {
-
+        \Log::info('Enter to month listener '.$event->lang);
 
         try {
+            $stat_count = Setting::where('identifier', '=', 'month_stat_' . $event->lang)->first();
 
-            $stat_count = Setting::where('identifier','=','month_stat_'.$event->lang)->first();
+            if ($stat_count->value == 1) {
 
-            if ($stat_count->value == 1){
-
-                \Log::info('Start');
+                \Log::info('Start month ' . $event->lang);
 
                 $customers = $event->customers;
+
                 $lang = $event->lang;
 
-                \App\Apricot\Helpers\CreateCsvMonths::storeAllCustomerMonthsToCsv($customers,$lang);
+                $offset = $event->offset;
 
+                \App\Apricot\Helpers\CreateCsvMonths::storeAllCustomerToCsv($offset, $customers, $lang);
             }
 
 
@@ -55,7 +56,6 @@ class CreateCsvCustomers implements ShouldQueue
             \Log::error($exception->getTraceAsString());
 
         }
-
 
 
     }

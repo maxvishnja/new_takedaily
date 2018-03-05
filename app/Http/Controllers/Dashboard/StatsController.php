@@ -462,12 +462,32 @@ class StatsController extends Controller
     {
         $data = $request->all();
         //$customers = $this->repo->allLocaleTime($data['lang']);
-        $customers = $this->repo->allLocaleTime($data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']);
+
         $stat_count = Setting::where('identifier', '=', 'month_stat_' . $data['lang'])->first();
         $stat_count->value = 1;
         $stat_count->save();
+
+        $customers = $this->repo->allLocaleTime($data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']);
+
+        $customers->load([ 'user', 'customerAttributes', 'plan', 'marketing']);
+
+        $count = ceil(count($customers) /1000);
+
+        \Cache::put('csv_total_month', $count, 10);
+        \Cache::put('csv_current_index_month', 0, 10);
+
+
+
         \Log::info('Click on create month CSV ' . $data['lang']);
-        \Event::fire(new CreateCsv($customers, $data['lang'], $data['start_date_all_customers'], $data['end_date_all_customers']));
+        \Log::info('Count customer ' . $count);
+        \Log::info('Start cache of month index' . \Cache::get('csv_current_index_month'));
+
+        for($i=0; $i< $count; $i++){
+
+            $slice = $customers->slice($i*1000, 1000);
+
+            \Event::fire(new CreateCsv($i, $slice->all(), $data['lang']));
+        }
         return \Response::json([
             'message' => 'Csv start create'
         ], 200);
@@ -517,7 +537,7 @@ class StatsController extends Controller
     function downloadCsv(Request $request)
     {
         $data = $request->all();
-        $filename = storage_path('excel/exports/all_users_' . $data['lang'] . '.xls');
+        $filename = storage_path('excel/exports/all_users_month_' . $data['lang'] . '.zip');
         if (file_exists($filename)) {
             $stat_count = Setting::where('identifier', '=', 'month_stat_' . $data['lang'])->first();
             $stat_count->value = 0;
@@ -545,7 +565,7 @@ class StatsController extends Controller
     function checkCsv(Request $request)
     {
         $data = $request->all();
-        $filename = storage_path('excel/exports/all_users_' . $data['lang'] . '.xls');
+        $filename = storage_path('excel/exports/all_users_month_' . $data['lang'] . '.zip');
         if (file_exists($filename)) {
             return \Response::json([
                 'message' => 'Success'
