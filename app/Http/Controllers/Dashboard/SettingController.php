@@ -29,6 +29,8 @@ class SettingController extends Controller
     function index()
     {
 
+        phpinfo();
+
 //	    $orders = Order::whereBetween('created_at', ['2017-12-13 00:00:00', '2018-01-03 23:59:00'])->where('state','sent')->get();
 //        $i = 0;
 //	    foreach ($orders as $order){
