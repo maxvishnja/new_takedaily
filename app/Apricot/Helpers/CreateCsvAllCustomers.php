@@ -14,15 +14,14 @@ class CreateCsvAllCustomers
     public static function storeAllCustomerToCsv($offset, $lang)
     {
 
-        //$newCustomers = Customer::where('locale','=', $lang)->skip($offset)->take(2000)->orderBy('created_at', 'DESC')->get();
-        $newCustomers = Customer::where('locale','=', $lang)->orderBy('created_at', 'DESC')->get();
+        $newCustomers = Customer::where('locale','=', $lang)->skip($offset)->take(2000)->orderBy('created_at', 'DESC')->get();
 
         $newCustomers->load([ 'user', 'customerAttributes', 'plan', 'marketing']);
 
        // $slice = $customers->slice($offset, 1000);
         //$newCustomers = $slice->all();
 
-       // if (count($newCustomers) > 0) {
+        if (count($newCustomers) > 0) {
 
             \Log::info('Start in function create CSV ' . $lang);
             $email_array = [];
@@ -127,9 +126,7 @@ class CreateCsvAllCustomers
             }
 
 
-            \Log::info('Customers done');
-
-            //$offset = $offset + 1000;
+            $offset = $offset + 1000;
 
             \Excel::create('all_users_' . $lang . "_" . $offset, function ($excel) use ($email_array) {
                 $excel->sheet('All users', function ($sheet) use ($email_array) {
@@ -138,9 +135,9 @@ class CreateCsvAllCustomers
             })->store('xls', storage_path('excel/exports/' . $lang));
 
 
-          //  \Event::fire(new CreateAllCsv($offset, $lang));
+            \Event::fire(new CreateAllCsv($offset, $lang));
 
-       // } else {
+        } else {
             $stat_count = Setting::where('identifier', '=', 'stat_' . $lang)->first();
             $stat_count->value = 0;
             $stat_count->save();
@@ -162,6 +159,6 @@ class CreateCsvAllCustomers
 
         }
 
-  //  }
+    }
 
 }
