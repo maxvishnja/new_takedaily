@@ -17,6 +17,13 @@ class CustomerRepository
         return Customer::where('locale','=', $locale)->orderBy('created_at', 'DESC')->get();
     }
 
+
+    public function allLocaleCsv($locale)
+    {
+        return Plan::where('currency','=', $locale)->orderBy('created_at', 'DESC')->get();
+    }
+
+
     public function allLocaleTime($locale, $start_date, $end_date)
     {
         return Customer::where('locale','like', $locale)

@@ -480,7 +480,12 @@ class StatsController extends Controller
     function exportCsvAllCustomers(Request $request)
     {
         $data = $request->all();
-        $customers = $this->repo->allLocale($data['lang']);
+        if($data['lang'] == 'nl'){
+            $lang = 'EUR';
+        } else{
+            $lang = 'DKK';
+        }
+        $customers = $this->repo->allLocaleCsv($lang);
         $stat_count = Setting::where('identifier', '=', 'stat_' . $data['lang'])->first();
         $stat_count->value = 1;
         $stat_count->save();
