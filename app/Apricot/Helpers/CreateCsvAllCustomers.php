@@ -14,7 +14,7 @@ class CreateCsvAllCustomers
     public static function storeAllCustomerToCsv($offset, $lang)
     {
 
-        $newCustomers = Customer::where('locale','=', $lang)->skip($offset)->take(1000)->orderBy('created_at', 'DESC')->get();
+        $newCustomers = Customer::where('locale','=', $lang)->skip($offset)->take(2000)->orderBy('created_at', 'DESC')->get();
 
         $newCustomers->load([ 'user', 'customerAttributes', 'plan', 'marketing']);
 
