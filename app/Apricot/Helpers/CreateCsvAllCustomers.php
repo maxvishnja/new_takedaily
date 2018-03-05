@@ -177,7 +177,7 @@ class CreateCsvAllCustomers
 
                     })->store('xls', storage_path('excel/exports/' . $lang));
 
-                   // $email_array = [];
+                    $email_array = [];
                 }
 
 

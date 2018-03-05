@@ -26,6 +26,7 @@
 		"watson/rememberable": "^1.0",
 		"doctrine/dbal": "^2.5",
 		"skovmand/mailchimp-laravel": "^1.0",
+		"bugsnag/bugsnag-laravel": "^2.0",
 		"pda/Pheanstalk": "^3.1",
 		"maatwebsite/excel": "^2.1.0",
 		"vinkla/instagram": "^7.0",
