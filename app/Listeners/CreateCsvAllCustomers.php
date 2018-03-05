@@ -40,13 +40,13 @@ class CreateCsvAllCustomers //implements ShouldQueue
 
                 \Log::info('Start all '.$event->lang);
 
-               // $customers = $event->customers;
+                $customers = $event->customers;
 
                 $lang = $event->lang;
 
                 $offset = $event->offset;
 
-                \App\Apricot\Helpers\CreateCsvAllCustomers::storeAllCustomerToCsv($offset,$lang);
+                \App\Apricot\Helpers\CreateCsvAllCustomers::storeAllCustomerToCsv($offset, $customers, $lang);
             }
 
 

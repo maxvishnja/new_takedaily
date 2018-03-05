@@ -11,24 +11,21 @@ use App\Setting;
 
 class CreateCsvAllCustomers
 {
-    public static function storeAllCustomerToCsv($offset, $lang)
+    public static function storeAllCustomerToCsv($index,$customers, $lang)
     {
 
-        $newCustomers = Customer::where('locale','=', $lang)->skip($offset)->take(2000)->orderBy('created_at', 'DESC')->get();
 
-        $newCustomers->load([ 'user', 'customerAttributes', 'plan', 'marketing']);
 
        // $slice = $customers->slice($offset, 1000);
         //$newCustomers = $slice->all();
 
-        if (count($newCustomers) > 0) {
 
             \Log::info('Start in function create CSV ' . $lang);
             $email_array = [];
             $i = 0;
-            foreach ($newCustomers as $customer) {
+            foreach ($customers as $customer) {
                 try {
-                    \Log::info('Make ' . $customer->id);
+                   // \Log::info('Make ' . $customer->id);
 
                     \App::setLocale($customer->getLocale());
 
@@ -126,38 +123,43 @@ class CreateCsvAllCustomers
             }
 
 
-            $offset = $offset + 2000;
 
-            \Excel::create('all_users_' . $lang . "_" . $offset, function ($excel) use ($email_array) {
+
+            \Excel::create('all_users_' . $lang . "_" . $index, function ($excel) use ($email_array) {
                 $excel->sheet('All users', function ($sheet) use ($email_array) {
                     $sheet->fromArray($email_array, null, 'A1', true);
                 });
             })->store('xls', storage_path('excel/exports/' . $lang));
 
+            $cache = \Cache::get('csv_current_index');
 
-            \Event::fire(new CreateAllCsv($offset, $lang));
+             \Cache::put('csv_current_index', $cache+1, 10);
 
-        } else {
-            $stat_count = Setting::where('identifier', '=', 'stat_' . $lang)->first();
-            $stat_count->value = 0;
-            $stat_count->save();
+             \Log::info('Cahce ' . \Cache::get('csv_current_index'));
+            if(\Cache::get('csv_current_index') == \Cache::get('csv_total')){
+
+                $stat_count = Setting::where('identifier', '=', 'stat_' . $lang)->first();
+                $stat_count->value = 0;
+                $stat_count->save();
 
 
-            \Log::info('End ');
+                \Log::info('End ');
 
-            try {
+                try {
 
-                $files = glob(storage_path('excel/exports/' . $lang . '/*'));
-                \Zipper::make(storage_path('excel/exports/all_users_' . $lang . '.zip'))->add($files)->close();
-                \File::deleteDirectory(storage_path('excel/exports/' . $lang));
-                \Log::info('Succes create CSV ' . $lang);
+                    $files = glob(storage_path('excel/exports/' . $lang . '/*'));
+                    \Zipper::make(storage_path('excel/exports/all_users_' . $lang . '.zip'))->add($files)->close();
+                    \File::deleteDirectory(storage_path('excel/exports/' . $lang));
 
-            } catch (\Exception $exception) {
-                \Log::error($exception->getFile() . " on line " . $exception->getLine());
+                    \Cache::put('csv_current_index',0);
+                    \Log::info('Succes create CSV ' . $lang);
+
+                } catch (\Exception $exception) {
+                    \Log::error($exception->getFile() . " on line " . $exception->getLine());
+                }
+
             }
 
-
-        }
 
     }
 

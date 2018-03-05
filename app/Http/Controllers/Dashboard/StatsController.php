@@ -482,13 +482,33 @@ class StatsController extends Controller
         $data = $request->all();
 
 
-
         $stat_count = Setting::where('identifier', '=', 'stat_' . $data['lang'])->first();
         $stat_count->value = 1;
         $stat_count->save();
 
+        $customers = $this->repo->allLocale($data['lang']);
+
+        $customers->load([ 'user', 'customerAttributes', 'plan', 'marketing']);
+
+        $count = ceil(count($customers) /1000);
+
+        \Cache::put('csv_total', $count, 10);
+        \Cache::put('csv_current_index', 0, 10);
+
+
+
         \Log::info('Click on create All CSV ' . $data['lang']);
-        \Event::fire(new CreateAllCsv(0, $data['lang']));
+        \Log::info('Start cache index' . \Cache::get('csv_current_index'));
+
+        for($i=0; $i< $count; $i++){
+
+            $slice = $customers->slice($i*1000, 1000);
+
+            \Event::fire(new CreateAllCsv($i, $slice->all(), $data['lang']));
+        }
+
+
+
         return \Response::json([
             'message' => 'Csv start create for all customers ' . $data['lang']
         ], 200);
