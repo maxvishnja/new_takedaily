@@ -126,7 +126,7 @@ class CreateCsvAllCustomers
             }
 
 
-            $offset = $offset + 1000;
+            $offset = $offset + 2000;
 
             \Excel::create('all_users_' . $lang . "_" . $offset, function ($excel) use ($email_array) {
                 $excel->sheet('All users', function ($sheet) use ($email_array) {
