@@ -175,10 +175,9 @@ class CreateCsvAllCustomers
                         });
 
 
-                    })->store('csv', storage_path('excel/exports/' . $lang));
+                    })->store('xls', storage_path('excel/exports/' . $lang));
 
-                    unset($email_array);
-
+                   // $email_array = [];
                 }
 
 
@@ -215,7 +214,7 @@ class CreateCsvAllCustomers
                     });
 
 
-                })->store('csv', storage_path('excel/exports/' . $lang));
+                })->store('xls', storage_path('excel/exports/' . $lang));
 
             }
 
