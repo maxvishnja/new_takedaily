@@ -85,26 +85,26 @@ class CreateCsvAllCustomers
                     }
                 }
                 try {
-                    $email_array[$i]['Hvilken hudfarve matcher din bedst?'] = $plan->customer->getCustomerAttribute('user_data.skin');
-                    $email_array[$i]['Er du udenfor i dagslys hver dag i mindst 15-30 minutter?'] = $plan->customer->getCustomerAttribute('user_data.outside');
-                    $email_array[$i]['Er du gravid, eller drømmer du om at blive det?'] = $plan->customer->getCustomerAttribute('user_data.pregnant');
-                    $email_array[$i]['Er du på slankekur?'] = $plan->customer->getCustomerAttribute('user_data.diet');
-                    $email_array[$i]['Hvor meget og hvor ofte motionerer du?'] = $plan->customer->getCustomerAttribute('user_data.sports');
-                    $email_array[$i]['Føler du dig stresset?'] = $plan->customer->getCustomerAttribute('user_data.stressed');
-                    $email_array[$i]['Føler du dig træt og mangler du energi?'] = $plan->customer->getCustomerAttribute('user_data.lacks_energy');
-                    $email_array[$i]['Hvordan fungerer dit immunforsvar i øjeblikket?'] = $plan->customer->getCustomerAttribute('user_data.immune_system');
-                    $email_array[$i]['Ryger du?'] = $plan->customer->getCustomerAttribute('user_data.smokes');
-                    $email_array[$i]['Hvor langt er du, eller ønsker du at blive gravid?'] = $plan->customer->getCustomerAttribute('pregnancy.week');
-                    $email_array[$i]['Er du vegetar/veganer?'] = $plan->customer->getCustomerAttribute('user_data.vegetarian');
-                    $email_array[$i]['Har du ømme muskler eller ondt i dine led?'] = $plan->customer->getCustomerAttribute('user_data.joints');
-                    $email_array[$i]['Hvor mange grøntsager spiser du om dagen?'] = $plan->customer->getCustomerAttribute('user_data.foods.vegetables');
-                    $email_array[$i]['Hvor meget frugt spiser du om dagen?'] = $plan->customer->getCustomerAttribute('user_data.foods.fruits');
-                    $email_array[$i]['Hvor mange skiver brød spiser du om dagen?'] = $plan->customer->getCustomerAttribute('user_data.foods.bread');
-                    $email_array[$i]['Kommer du smør eller margarine på brødet eller bruger du det i din daglige madlavning?'] = $plan->customer->getCustomerAttribute('user_data.foods.butter');
-                    $email_array[$i]['Hvor mange kartofler, ris, pasta eller lignede spiser du om dagen?'] = $plan->customer->getCustomerAttribute('user_data.foods.wheat');
-                    $email_array[$i]['Hvor ofte spiser du kød og kødprodukter?'] = $plan->customer->getCustomerAttribute('user_data.foods.meat');
-                    $email_array[$i]['Hvor ofte spiser du fed fisk om ugen?'] = $plan->customer->getCustomerAttribute('user_data.foods.fish');
-                    $email_array[$i]['Hvor mange mejeriprodukter får du dagligt?'] = $plan->customer->getCustomerAttribute('user_data.foods.dairy');
+//                    $email_array[$i]['Hvilken hudfarve matcher din bedst?'] = $plan->customer->getCustomerAttribute('user_data.skin');
+//                    $email_array[$i]['Er du udenfor i dagslys hver dag i mindst 15-30 minutter?'] = $plan->customer->getCustomerAttribute('user_data.outside');
+//                    $email_array[$i]['Er du gravid, eller drømmer du om at blive det?'] = $plan->customer->getCustomerAttribute('user_data.pregnant');
+//                    $email_array[$i]['Er du på slankekur?'] = $plan->customer->getCustomerAttribute('user_data.diet');
+//                    $email_array[$i]['Hvor meget og hvor ofte motionerer du?'] = $plan->customer->getCustomerAttribute('user_data.sports');
+//                    $email_array[$i]['Føler du dig stresset?'] = $plan->customer->getCustomerAttribute('user_data.stressed');
+//                    $email_array[$i]['Føler du dig træt og mangler du energi?'] = $plan->customer->getCustomerAttribute('user_data.lacks_energy');
+//                    $email_array[$i]['Hvordan fungerer dit immunforsvar i øjeblikket?'] = $plan->customer->getCustomerAttribute('user_data.immune_system');
+//                    $email_array[$i]['Ryger du?'] = $plan->customer->getCustomerAttribute('user_data.smokes');
+//                    $email_array[$i]['Hvor langt er du, eller ønsker du at blive gravid?'] = $plan->customer->getCustomerAttribute('pregnancy.week');
+//                    $email_array[$i]['Er du vegetar/veganer?'] = $plan->customer->getCustomerAttribute('user_data.vegetarian');
+//                    $email_array[$i]['Har du ømme muskler eller ondt i dine led?'] = $plan->customer->getCustomerAttribute('user_data.joints');
+//                    $email_array[$i]['Hvor mange grøntsager spiser du om dagen?'] = $plan->customer->getCustomerAttribute('user_data.foods.vegetables');
+//                    $email_array[$i]['Hvor meget frugt spiser du om dagen?'] = $plan->customer->getCustomerAttribute('user_data.foods.fruits');
+//                    $email_array[$i]['Hvor mange skiver brød spiser du om dagen?'] = $plan->customer->getCustomerAttribute('user_data.foods.bread');
+//                    $email_array[$i]['Kommer du smør eller margarine på brødet eller bruger du det i din daglige madlavning?'] = $plan->customer->getCustomerAttribute('user_data.foods.butter');
+//                    $email_array[$i]['Hvor mange kartofler, ris, pasta eller lignede spiser du om dagen?'] = $plan->customer->getCustomerAttribute('user_data.foods.wheat');
+//                    $email_array[$i]['Hvor ofte spiser du kød og kødprodukter?'] = $plan->customer->getCustomerAttribute('user_data.foods.meat');
+//                    $email_array[$i]['Hvor ofte spiser du fed fisk om ugen?'] = $plan->customer->getCustomerAttribute('user_data.foods.fish');
+//                    $email_array[$i]['Hvor mange mejeriprodukter får du dagligt?'] = $plan->customer->getCustomerAttribute('user_data.foods.dairy');
                 } catch (\Exception $exception) {
                     \Log::error("Foods " . $exception->getFile() . " on line " . $exception->getLine());
                 }
