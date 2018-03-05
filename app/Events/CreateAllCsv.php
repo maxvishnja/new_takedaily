@@ -20,9 +20,9 @@ class CreateAllCsv extends Event
      *
      * @return void
      */
-    public function __construct($offset,$customers, $lang)
+    public function __construct($offset, $lang)
     {
-        $this->customers = $customers;
+        //$this->customers = $customers;
         $this->lang = $lang;
         $this->offset = $offset;
     }
