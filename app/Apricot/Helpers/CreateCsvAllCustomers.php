@@ -118,7 +118,7 @@ class CreateCsvAllCustomers
                 }
 
                 try {
-                    /*$email_array[$i]['Hvilken hudfarve matcher din bedst?'] = $customer->getCustomerAttribute('user_data.skin');
+                    $email_array[$i]['Hvilken hudfarve matcher din bedst?'] = $customer->getCustomerAttribute('user_data.skin');
 
                     $email_array[$i]['Er du udenfor i dagslys hver dag i mindst 15-30 minutter?'] = $customer->getCustomerAttribute('user_data.outside');
 
@@ -156,7 +156,7 @@ class CreateCsvAllCustomers
 
                     $email_array[$i]['Hvor ofte spiser du fed fisk om ugen?'] = $customer->getCustomerAttribute('user_data.foods.fish');
 
-                    $email_array[$i]['Hvor mange mejeriprodukter får du dagligt?'] = $customer->getCustomerAttribute('user_data.foods.dairy'); */
+                    $email_array[$i]['Hvor mange mejeriprodukter får du dagligt?'] = $customer->getCustomerAttribute('user_data.foods.dairy');
 
                 } catch (\Exception $exception) {
                     \Log::error("Foods " . $exception->getFile() . " on line " . $exception->getLine());
@@ -175,7 +175,7 @@ class CreateCsvAllCustomers
                         });
 
 
-                    })->store('xls', storage_path('excel/exports/' . $lang));
+                    })->store('csv', storage_path('excel/exports/' . $lang));
 
                     unset($email_array);
 
@@ -215,7 +215,7 @@ class CreateCsvAllCustomers
                     });
 
 
-                })->store('xls', storage_path('excel/exports/' . $lang));
+                })->store('csv', storage_path('excel/exports/' . $lang));
 
             }
 
