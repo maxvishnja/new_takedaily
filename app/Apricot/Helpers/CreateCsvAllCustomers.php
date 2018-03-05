@@ -125,11 +125,11 @@ class CreateCsvAllCustomers
 
 
 
-            \Excel::create('all_users_' . $lang . "_" . $index, function ($excel) use ($email_array) {
-                $excel->sheet('All users', function ($sheet) use ($email_array) {
-                    $sheet->fromArray($email_array, null, 'A1', true);
-                });
-            })->store('xls', storage_path('excel/exports/' . $lang));
+//            \Excel::create('all_users_' . $lang . "_" . $index, function ($excel) use ($email_array) {
+//                $excel->sheet('All users', function ($sheet) use ($email_array) {
+//                    $sheet->fromArray($email_array, null, 'A1', true);
+//                });
+//            })->store('xls', storage_path('excel/exports/' . $lang));
 
             $cache = \Cache::get('csv_current_index');
 
@@ -147,9 +147,9 @@ class CreateCsvAllCustomers
 
                 try {
 
-                    $files = glob(storage_path('excel/exports/' . $lang . '/*'));
-                    \Zipper::make(storage_path('excel/exports/all_users_' . $lang . '.zip'))->add($files)->close();
-                    \File::deleteDirectory(storage_path('excel/exports/' . $lang));
+//                    $files = glob(storage_path('excel/exports/' . $lang . '/*'));
+//                    \Zipper::make(storage_path('excel/exports/all_users_' . $lang . '.zip'))->add($files)->close();
+//                    \File::deleteDirectory(storage_path('excel/exports/' . $lang));
 
                     \Cache::put('csv_current_index',0);
                     \Log::info('Succes create CSV ' . $lang);
