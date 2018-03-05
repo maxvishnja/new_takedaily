@@ -12,7 +12,7 @@ class CreateCsvAllCustomers
     public static function storeAllCustomerToCsv($customers, $lang)
     {
 
-        $customers->load([ 'user', 'customerAttributes', 'plan']);
+        $customers->load([ 'user', 'customerAttributes', 'plan', 'marketing']);
 
         \Log::info('Start in function create CSV ' . $lang);
         $email_array = [];
@@ -75,12 +75,12 @@ class CreateCsvAllCustomers
                     }
                 }
                 $email_array[$i]['Voucher'] = $customer->plan->getLastCoupon();
-                $email_array[$i]['Amount'] = $customer->plan->customer->order_count;
+                $email_array[$i]['Amount'] = $customer->order_count;
                 $email_array[$i]['Source'] = '';
                 $email_array[$i]['Medium'] = '';
                 $email_array[$i]['Campaign'] = '';
-                if (count($customer->plan->customer->getMarketing()) > 0) {
-                    foreach ($customer->plan->customer->getMarketing() as $market) {
+                if (count($customer->getMarketing()) > 0) {
+                    foreach ($customer->getMarketing() as $market) {
                         $email_array[$i]['Source'] = $market->source;
                         $email_array[$i]['Medium'] = $market->medium;
                         $email_array[$i]['Campaign'] = $market->campaign;
