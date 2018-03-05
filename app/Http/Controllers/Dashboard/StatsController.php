@@ -486,9 +486,9 @@ class StatsController extends Controller
         $stat_count = Setting::where('identifier', '=', 'stat_' . $data['lang'])->first();
         $stat_count->value = 1;
         $stat_count->save();
-
+        $customers->load([ 'user', 'customerAttributes', 'plan', 'marketing']);
         \Log::info('Click on create All CSV ' . $data['lang']);
-        \Event::fire(new CreateAllCsv($customers, $data['lang']));
+        \Event::fire(new CreateAllCsv(0,$customers, $data['lang']));
         return \Response::json([
             'message' => 'Csv start create for all customers ' . $data['lang']
         ], 200);
