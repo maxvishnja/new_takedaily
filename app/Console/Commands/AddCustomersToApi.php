@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Apricot\Repositories\CustomerRepository;
 use App\Apricot\Helpers\EmailPlatformApi;
+use App\Coupon;
 use App\Customer;
 use Illuminate\Console\Command;
 
@@ -82,6 +83,7 @@ class AddCustomersToApi extends Command
             $medium = '';
             $campaign = '';
 
+
             if (count($customer->getMarketing()) > 0) {
                 try{
                     foreach ($customer->getMarketing() as $market) {
@@ -126,6 +128,30 @@ class AddCustomersToApi extends Command
             }
 
             $unsubscribe = '';
+            $discount100 = '';
+            $discount50 = '';
+            $discount20 = '';
+
+            $coupon100 = Coupon::where('currency',$customer->plan->currency)->where('automatic_id','100first')->first();
+
+            if($coupon100){
+                $discount100 = $coupon100->code;
+            }
+
+            $coupon50 = Coupon::where('currency',$customer->plan->currency)->where('automatic_id','50first')->first();
+
+            if($coupon50){
+                $discount50 = $coupon50->code;
+            }
+
+            $coupon20 = Coupon::where('currency',$customer->plan->currency)->where('automatic_id','20sub')->first();
+
+            if($coupon20){
+                $discount20 = $coupon20->code;
+            }
+
+
+
 
 
 
@@ -378,6 +404,15 @@ class AddCustomersToApi extends Command
                     array (
                         'fieldid'  => 2692,
                         'value'  =>  $choice),
+                    array (
+                        'fieldid'  => 5036,
+                        'value'  =>  $discount50),
+                    array (
+                        'fieldid'  => 5037,
+                        'value'  =>  $discount100),
+                    array (
+                        'fieldid'  => 5038,
+                        'value'  =>  $discount20),
                     array (
                         'fieldid'  => 2825,
                         'value'  =>  $customer->id),
