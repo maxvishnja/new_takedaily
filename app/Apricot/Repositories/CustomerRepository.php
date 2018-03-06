@@ -165,14 +165,21 @@ class CustomerRepository
     public static function getFutureOrders($date){
 
 
-        $plan = Plan::whereNull('subscription_cancelled_at')->whereDate('subscription_rebill_at','like','%'.$date.'%')->count();
+        $plan = Plan::whereNull('subscription_cancelled_at')->whereDate('subscription_rebill_at','like','%'.$date.'%')->where('attempt', 0) ->count();
 
         return $plan;
 
     }
 
 
+    public static function getFutureOrdersDelay($date){
 
+
+        $plan = Plan::whereNull('subscription_cancelled_at')->whereDate('subscription_rebill_at','like','%'.$date.'%')->where('attempt', '!=', 0) ->count();
+
+        return $plan;
+
+    }
 
 
     public function getAlmostCustomer()

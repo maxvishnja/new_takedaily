@@ -1,4 +1,4 @@
-@extends('layouts.packer')
+@extends('layouts.admin')
 
 @section('content')
     <div class="module">
@@ -16,86 +16,80 @@
 @stop
 
 @section('scripts')
+
+
     <script>
-        var d10 = [
-                @foreach(range(0,date('t')-1) as $i)
-            [ {{  $i+1 }} , {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrders(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
-            @endforeach
-        ];
 
-        var plot = $.plot($('#placeholder10'),
-            [
-                {
-                    data: d10,
-                    label: 'Future orders'
+        Highcharts.chart('placeholder10', {
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: [
+                        @for($i = 0; $i <= date('t'); $i++)
+                    ["{{ \Jenssegers\Date\Date::now()->addDays($i)->format('d M') }}"],
+                    @endfor
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total sent mails'
+                },
+                stackLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    }
                 }
-
-            ],
-            {
-                xaxis: {ticks:
-                    [
-                            @for($i = 0; $i <= date('t'); $i++)
-                        [{{  $i+1 }}, "{{ \Jenssegers\Date\Date::now()->addDays($i)->format('d M') }}"],
-                        @endfor
-                    ]
-                },
-                lines: {
-                    show: true,
-                    fill: true, /*SWITCHED*/
-                    lineWidth: 2
-                },
-                points: {
-                    show: true,
-                    lineWidth: 5
-                },
-                grid: {
-                    clickable: true,
-                    hoverable: true,
-                    autoHighlight: true,
-                    mouseActiveRadius: 10,
-                    aboveData: true,
-                    backgroundColor: '#fff',
-                    borderWidth: 0,
-                    minBorderMargin: 25
-                },
-                colors: ['#55f3c0', '#0db37e', '#b4fae3', '#e0d1cb'],
-                shadowSize: 0
-            });
-
-        function showTooltip(x, y, contents)
-        {
-            $('<div id="gridtip">' + contents + '</div>').css({
-                position: 'absolute',
-                display: 'none',
-                top: y + 5,
-                left: x + 5
-            }).appendTo('body').fadeIn(300);
-        }
-
-        var previousPoint = null;
-        $('#placeholder10').bind('plothover', function (event, pos, item)
-        {
-            $('#x').text(pos.x.toFixed(2));
-            $('#y').text(pos.y.toFixed(2));
-
-            if (item)
-            {
-                if (previousPoint != item.dataIndex)
-                {
-                    previousPoint = item.dataIndex;
-
-                    $('#gridtip').remove();
-                    var x = item.datapoint[0].toFixed(0),
-                        y = item.datapoint[1].toFixed(0);
-
-                    showTooltip(item.pageX, item.pageY, y);
+            },
+            legend: {
+                align: 'right',
+                x: -30,
+                verticalAlign: 'top',
+                y: 0,
+                floating: false,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                borderColor: '#CCC',
+                borderWidth: 1,
+                shadow: false
+            },
+            tooltip: {
+                headerFormat: '<b>{point.x}</b><br/>',
+                pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    dataLabels: {
+                        enabled: true,
+                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                    }
                 }
+            },
+            series: [{
+                name: 'First rebills order',
+                data: [
+                        @foreach(range(0,date('t')-1) as $i)
+                    [ {{  $i+1 }} , {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrders(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
+                    @endforeach
+                ]
+            },{
+                name: 'Failed rebills order',
+                data: [
+                        @foreach(range(0,date('t')-1) as $i)
+                    [ {{  $i+1 }} , {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrdersDelay(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
+                    @endforeach
+                ],
+                color: 'red'
             }
-            else
-            {
-                $('#gridtip').remove();
-                previousPoint = null;
-            }
+
+
+            ]
         });
 
 
