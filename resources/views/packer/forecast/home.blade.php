@@ -76,19 +76,19 @@
                     name: 'Failed rebills order',
                     data: [
                             @foreach(range(0,date('t')-1) as $i)
-                        [ {{  $i+1 }} , {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrdersDelay(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
+                        [ {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrdersDelay(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
                         @endforeach
                     ],
                     color: 'red'
                 },
                 {
-                name: 'First rebills order',
-                data: [
-                        @foreach(range(0,date('t')-1) as $i)
-                    [ {{  $i+1 }} , {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrders(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
-                    @endforeach
-                ]
-            }
+                    name: 'First rebills order',
+                    data: [
+                            @foreach(range(0,date('t')-1) as $i)
+                        [ {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrders(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
+                        @endforeach
+                    ]
+                }
 
 
             ]
