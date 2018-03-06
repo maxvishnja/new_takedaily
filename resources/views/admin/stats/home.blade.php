@@ -126,26 +126,27 @@
                            class="datatable-1 table table-bordered table-striped	display" width="100%">
                         <tbody>
                         <tr>
-                            <td rowspan="2" style="width:10%;">
+                            <td  style="width:10%;">
                                 <h5>All customers</h5>
                             </td>
 
-                            <td rowspan="2" style="width:10%; text-align: center">
+                            <td  style="width:10%; text-align: center">
                                 {{ $active_user  }}
                             </td>
                             <td style="width:25%;">
                                 <div class="text-center">
+                                   <p> Data can be downloaded for the time period up to 2 months</p>
                                     <form style="float: right" class="csv-forms"
                                           action="{{ URL::action('Dashboard\StatsController@downloadCsv') }}"
                                           method="POST">
                                         {{ csrf_field() }}
 
-                                        <input type="text" class="form-control datepicker" style="width:120px"
+                                        <input type="text" class="form-control datepicker2" style="width:120px"
                                                name="start_date_all_customers" id="start_picker_all_customers"
                                                placeholder="Start date"
                                                value="{{\Date::now()->subDays(30)->format('Y-m-d')}}"/>
 
-                                        <input type="text" style="width:120px" class="form-control datepicker"
+                                        <input type="text" style="width:120px" class="form-control datepicker2"
                                                name="end_date_all_customers" id="end_picker_all_customers"
                                                placeholder="End date" value="{{\Date::now()->format('Y-m-d')}}"/>
 
@@ -157,31 +158,13 @@
                                             <option value="da">Denmark</option>
                                         </select>
 
-                                        <button class="btn btn-info" id="createCsv">Create CSV</button>
-                                        <button class="btn btn-success" id="downloadCsv">Download CSV</button>
+                                        <button class="btn btn-info" id="createCsv">Create ZIP</button>
+                                        <button class="btn btn-success" id="downloadCsv">Download ZIP</button>
                                     </form>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td style="width:25%;">
-                                <div class="text-center">
-                                    <form class="csv-forms-all"
-                                          action="{{ URL::action('Dashboard\StatsController@downloadCsvAllCustomers') }}"
-                                          method="POST">
-                                        {{ csrf_field() }}
 
-                                        <select name="lang" id="input_states2" style="width: 100px; margin-right:20px">
-                                            <option value="nl" selected="selected">Dutch</option>
-                                            <option value="da">Denmark</option>
-                                        </select><br/>
-
-                                        <button class="btn btn-info" id="createCsv2">Create ZIP</button>
-                                        <button class="btn btn-success" id="downloadCsv2">Download ZIP</button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
 
@@ -432,10 +415,41 @@
             });
         }
 
+
+        jQuery(function(){
+            jQuery('#start_picker_all_customers').datetimepicker({
+                format:"Y-m-d",
+                onShow:function( ct ){
+                    var d = moment(jQuery('#end_picker_all_customers').val(), "YYYY-MM-DD");
+                    this.setOptions({
+                        maxDate:jQuery('#end_picker_all_customers').val()?jQuery('#end_picker_all_customers').val():false,
+                        minDate:  d.add(-2, 'month').format("YYYY-MM-DD")
+                    })
+                },
+                timepicker:false
+            });
+            jQuery('#end_picker_all_customers').datetimepicker({
+                format:"Y-m-d",
+                onShow:function( ct ){
+                    var d = moment(jQuery('#start_picker_all_customers').val(), "YYYY-MM-DD");
+                    this.setOptions({
+                        minDate:  jQuery('#start_picker_all_customers').val()?jQuery('#start_picker_all_customers').val():false,
+                        maxDate:  d.add(2, 'month').format("YYYY-MM-DD")
+
+                    })
+                },
+                timepicker:false
+            });
+        });
+
         $(function () {
             $('.datepicker').datepicker({
                 dateFormat: "yy-mm-dd"
             });
+
+
+
+
             $('.pie-reason').on('click', function (e) {
                 e.preventDefault();
                 $.ajax({

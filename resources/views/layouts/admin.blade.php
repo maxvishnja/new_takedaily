@@ -10,6 +10,7 @@
 	{{--<link type="text/css" href="/admin/bootstrap/css/bootstrap-datepicker.css" rel="stylesheet">--}}
 	<link type="text/css" href="/admin/css/theme.css" rel="stylesheet">
 	<link type="text/css" href="/admin/css/colorpicker.css" rel="stylesheet">
+	<link type="text/css" href="/admin/css/jquery.datetimepicker.css" rel="stylesheet">
 	<link type="text/css" href="/admin/images/icons/css/font-awesome.css" rel="stylesheet">
 	<link type="text/css" href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
 		  rel='stylesheet'>
@@ -58,6 +59,9 @@
 <script src="/admin/js/ckeditor/ckeditor.js" type="text/javascript"></script>
 <script src="/admin/js/common.js" type="text/javascript"></script>
 <script src="/admin/js/colorpicker.js" type="text/javascript"></script>
+<script src="/admin/js/jquery.datepicker.extension.range.min.js" type="text/javascript"></script>
+<script src="/admin/js/jquery.datetimepicker.full.min.js" type="text/javascript"></script>
+<script src="/admin/js/moment.min.js" type="text/javascript"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
