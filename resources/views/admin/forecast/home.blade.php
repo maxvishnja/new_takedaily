@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="module">
-    <div class="module-head">
-        <h3>
-            Orders within a month</h3>
-    </div>
-    <div class="module-body">
-        <div class="chart inline-legend grid">
-            <div id="placeholder10" class="graph" style="height: 300px">
+    <div class="module">
+        <div class="module-head">
+            <h3>
+                Orders within a month</h3>
+        </div>
+        <div class="module-body">
+            <div class="chart inline-legend grid">
+                <div id="placeholder10" class="graph" style="height: 300px">
+                </div>
             </div>
         </div>
     </div>
-</div>
 @stop
 
 @section('scripts')
@@ -71,22 +71,24 @@
                     }
                 }
             },
-            series: [{
-                name: 'First rebills order',
-                data: [
-                        @foreach(range(0,date('t')-1) as $i)
-                    [ {{  $i+1 }} , {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrders(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
-                    @endforeach
-                ]
-            },{
-                name: 'Failed rebills order',
-                data: [
-                        @foreach(range(0,date('t')-1) as $i)
-                    [ {{  $i+1 }} , {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrdersDelay(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
-                    @endforeach
-                ],
-                color: 'red'
-            }
+            series: [
+                {
+                    name: 'Failed rebills order',
+                    data: [
+                            @foreach(range(0,date('t')-1) as $i)
+                        [ {{  $i+1 }} , {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrdersDelay(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
+                        @endforeach
+                    ],
+                    color: 'red'
+                },
+                {
+                    name: 'First rebills order',
+                    data: [
+                            @foreach(range(0,date('t')-1) as $i)
+                        [ {{  $i+1 }} , {{ \App\Apricot\Repositories\CustomerRepository::getFutureOrders(\Jenssegers\Date\Date::now()->addDays($i+1)->format('Y-m-d') ) }} ],
+                        @endforeach
+                    ]
+                }
 
 
             ]
