@@ -37,7 +37,7 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Total sent mails'
+                    text: 'Forecast order'
                 },
                 stackLabels: {
                     enabled: true,
