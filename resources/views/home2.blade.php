@@ -95,6 +95,10 @@
                     <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.fos') !!}</p>
                 </article>
                 <article class="hp-comp__item">
+                    <img src="/images/icons/ifosfishoil.png" alt="" class="hp-comp__item__img">
+                    <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.ifos') !!}</p>
+                </article>
+                <article class="hp-comp__item">
                     <img src="/images/icons/glutenfree.png" alt="" class="hp-comp__item__img">
                     <p class="hp-comp__item__title">{!! trans('home2.compromises.icons.glutenfree') !!}</p>
                 </article>
