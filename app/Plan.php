@@ -750,10 +750,10 @@ class Plan extends Model
 
 
 
-    public static function getCohortsArpu($signDate,$date, $year){
+    public static function getCohortsArpu($signDate,$date, $year, $all){
 
 
-        $rev = Plan::getCohortsRevenue($signDate,$date, $year);
+        $rev = $all;
 
         $nextyear = $year;
         if($date > 12){
@@ -930,10 +930,10 @@ class Plan extends Model
     }
 
 
-    public static function getCohortsCountryArpu($signDate, $month, $year, $lang){
+    public static function getCohortsCountryArpu($signDate, $month, $year, $lang, $all){
 
 
-        $rev = Plan::getCohortsCountryRevenue($signDate, $month, $year, $lang);
+        $rev = $all;
 
         $nextyear = $year;
         if($month > 12){

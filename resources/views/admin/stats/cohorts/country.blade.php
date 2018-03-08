@@ -31,23 +31,32 @@
         @foreach(range($key,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y)
             <td class="text-center">
                 @if($y >= $key)
-                    {{ $cohorts17 = \App\Plan::getCohortsCountry(sprintf('%02d', $key),sprintf('%02d', $y), 2017, $country, $signup17)->customers}}<br/>
-                    ({{\App\Plan::getCohortsCountry(sprintf('%02d', $key),sprintf('%02d', $y), 2017, $country, $signup17)->cohorts}}%)
+                    <?php
+                    $cohorts17 = \App\Plan::getCohortsCountry(sprintf('%02d', $key),sprintf('%02d', $y), 2017, $country, $signup17);
+                    ?>
+                    {{ $cohorts17->customers}}<br/>
+                    ({{$cohorts17->cohorts}}%)
                     <br/>
                     <b>Rev.</b>
                     <br/>
-                    {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017, $country), 2)}}
+                    <?php
+                    $revc2017 = \App\Plan::getCohortsCountryRevenue(sprintf('%02d', $key),sprintf('%02d', $y), 2017, $country);
+                    ?>
+                    {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($revc2017, 2)}}
                     <br/>
                     <b>Users billed</b>
                     <br/>
-                    {{\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017,$country)->count}}
+                    <?php
+                    $arpu = \App\Plan::getCohortsCountryArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017,$country, $revc2017);
+                    ?>
+                    {{$arpu->count}}
                     <br/>
                     <b>ARPU</b>
                     <br/>
-                    @if($cohorts17 == 0)
+                    @if($cohorts17->customers == 0)
                         0
                     @else
-                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key),sprintf('%02d', $y), 2017,$country)->rev, 2)  }}
+                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu->rev, 2)  }}
                     @endif
 
                 @endif
@@ -83,22 +92,31 @@
         @foreach(range($key2,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y2)
             <td class="text-center">
                 @if($y2 >= $key2 and $y2 <= (int)date('m') )
-                    {{ $cohorts18 = \App\Plan::getCohortsCountry(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018, $country, $signup18)->customers}}
-                    ({{\App\Plan::getCohortsCountry(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018, $country, $signup18)->cohorts}}%)
+                    <?php
+                    $cohorts18 = \App\Plan::getCohortsCountry(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018, $country, $signup18);
+                    ?>
+                    {{ $cohorts18->customers}}
+                    ({{$cohorts18->cohorts}}%)
                     <br/>
                     <b>Rev.</b>
                     <br/>
+                        <?php
+                        $revc2018 = \App\Plan::getCohortsCountryRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018, $country);
+                        ?>
                     <b>Users billed</b>
                     <br/>
-                    {{\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018,$country)->count}}
+                    <?php
+                    $arpu2018 = \App\Plan::getCohortsCountryArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018,$country,$revc2018);
+                    ?>
+                    {{$arpu2018->count}}
                     <br/>
-                    {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryRevenue(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018, $country),2)}}
+                    {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($revc2018,2)}}
                     <b>ARPU</b>
                     <br/>
-                    @if($cohorts18 == 0)
+                    @if($cohorts18->customers == 0)
                         0
                     @else
-                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(\App\Plan::getCohortsCountryArpu(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018,$country)->rev, 2)  }}
+                        {{ \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2018->rev, 2)  }}
                     @endif
 
                 @endif

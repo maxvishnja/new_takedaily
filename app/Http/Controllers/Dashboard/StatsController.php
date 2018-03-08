@@ -653,8 +653,8 @@ class StatsController extends Controller
                         $users_array3[$month . ' 2017']['0'] = '100%';
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
                             if ($y >= $key) {
-
-                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017)->rev, 2) . " (" . Plan::getCohortsArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017)->count . ")";
+                                    $arpu2017 = Plan::getCohortsArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017,Plan::getCohortsRevenue(sprintf('%02d', $key), sprintf('%02d', $y), 2017));
+                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2017->rev, 2) . " (" . $arpu2017->count . ")";
                             }
                         }
                     }
@@ -668,7 +668,8 @@ class StatsController extends Controller
                         $users_array3[$month2 . ' 2018']['0'] = '100%';
                         foreach (range($key2, 12) as $y2) {
                             if ($y2 >= $key2 and $y2 <= (int)date('m')) {
-                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018)->rev, 2) . " (" . Plan::getCohortsArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018)->count . ")";
+                                $arpu2018 = Plan::getCohortsArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, Plan::getCohortsRevenue(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018));
+                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2018->rev, 2) . " (" . $arpu2018->count . ")";
 
                             }
                         }
@@ -759,8 +760,8 @@ class StatsController extends Controller
                         $users_array3[$month . ' 2017']['0'] = '100%';
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
                             if ($y >= $key) {
-
-                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate'])->rev, 2) . " (" . Plan::getCohortsCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate'])->count . ")";
+                                    $arpu2017 = Plan::getCohortsCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate'], Plan::getCohortsCountryRevenue(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate']));
+                                    $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2017->rev, 2) . " (" . $arpu2017->count . ")";
 
                             }
                         }
@@ -776,7 +777,8 @@ class StatsController extends Controller
                         foreach (range($key2, 12) as $y2) {
                             if ($y2 >= $key2 and $y2 <= (int)date('m')) {
 
-                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate'])->rev, 2) . " (" . Plan::getCohortsCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate'])->count . ")";
+                                    $arpu2018 = Plan::getCohortsCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate'], Plan::getCohortsCountryRevenue(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate']));
+                                    $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat($arpu2018->rev, 2) . " (" . $arpu2018->count . ")";
                                
                             }
                         }
