@@ -226,7 +226,7 @@
                         </a>
                     </div>
                     <div class="hp-insta__item__content">
-                        <p class="hp-insta__item__intro">{{ $insta['caption']['text'] }}</p>
+                        <p class="hp-insta__item__intro">{{ mb_substr($insta['caption']['text'],0,100) }}...</p>
                         <span class="hp-insta__item__bottom">
                             <img src="/images/instagram/like.png" alt="">
                             <span class="hp-insta__item__bottom__num">{{ $insta['likes']['count'] }}</span>

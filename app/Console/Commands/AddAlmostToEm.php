@@ -57,11 +57,10 @@ class AddAlmostToEm extends Command
 
         $parser = new EmailPlatformApi();
 
+        $i = 0;
 
         foreach($almosts as $almost){
 
-
-            echo $almost->id." - ";
 
             $emailaddress = $almost->email;
             $mobile = '';
@@ -107,6 +106,12 @@ class AddAlmostToEm extends Command
                 $link = '';
             }
 
+            if($i%10 == 0){
+                $testgroup = 1;
+            }else{
+                $testgroup = 0;
+            }
+
             $customfields  =  array (
                 array (
                     'fieldid'  => 2,
@@ -138,6 +143,9 @@ class AddAlmostToEm extends Command
                 array (
                     'fieldid'  => 2669,
                     'value'  =>  'Almost'),
+                array (
+                    'fieldid'  => 3737,
+                    'value'  =>  $testgroup),
 
             );
 

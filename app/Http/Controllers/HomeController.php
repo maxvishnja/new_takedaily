@@ -62,6 +62,9 @@ class HomeController extends Controller
         // Nutritionists
         $nutritionists = $this->nutritionist->getAllActive();
 
+
+        
+
         return view( 'home2', compact( 'instaLatestFour', 'reviews', 'nutritionists' ) );
     }
 }

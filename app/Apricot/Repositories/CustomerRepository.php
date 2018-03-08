@@ -12,6 +12,12 @@ class CustomerRepository
         return Customer::orderBy('created_at', 'DESC')->get();
     }
 
+
+    public function allEm()
+    {
+        return Customer::orderBy('created_at', 'ASC')->get();
+    }
+
     public function allLocale($locale)
     {
         return Customer::where('locale','=', $locale)->orderBy('created_at', 'DESC')->get();

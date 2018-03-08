@@ -44,7 +44,7 @@ class AddCustomersToApi extends Command
     {
         $repo = new CustomerRepository();
 
-        $customers = $repo->all();
+        $customers = $repo->allEm();
 
         echo "All - ".count($customers)." - ";
 
@@ -55,6 +55,8 @@ class AddCustomersToApi extends Command
         $skip_listcheck = true;
 
         $parser = new EmailPlatformApi();
+
+        $i =0;
 
         foreach($customers as $customer){
 
@@ -284,6 +286,12 @@ class AddCustomersToApi extends Command
             }
 
 
+            if($i%10 == 0){
+                $testgroup = 1;
+            }else{
+                $testgroup = 0;
+            }
+
             try {
                 $customfields  =  array (
                     array (
@@ -411,6 +419,9 @@ class AddCustomersToApi extends Command
                         'fieldid'  => 5037,
                         'value'  =>  $discount100),
                     array (
+                        'fieldid'  => 3737,
+                        'value'  =>  $testgroup),
+                    array (
                         'fieldid'  => 5038,
                         'value'  =>  $discount20),
                     array (
@@ -443,6 +454,7 @@ class AddCustomersToApi extends Command
 
             }
 
+            $i++;
 
         }
 
