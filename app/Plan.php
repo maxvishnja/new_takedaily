@@ -402,9 +402,10 @@ class Plan extends Model
         $customers = Plan::whereBetween('created_at', [$first_day, $last_day])->count();
         return $customers;
     }
-    public static function getCohorts($signDate, $month, $year)
+    public static function getCohorts($signDate, $month, $year, $all)
     {
-        $allCustomers = Plan::getSignups($signDate, $year);
+        //$allCustomers = Plan::getSignups($signDate, $year);
+        $allCustomers = $all;
         $nextyear = $year;
         if($month > 12){
             $month = sprintf('%02d', $month - 12);
@@ -524,9 +525,9 @@ class Plan extends Model
     }
 
 
-    public static function getCohortsCountry($signDate, $month, $year, $lang)
+    public static function getCohortsCountry($signDate, $month, $year, $lang, $all)
     {
-        $allCustomers = Plan::getSignupsCountry($signDate, $year, $lang);
+        $allCustomers =$all;
         $nextyear = $year;
         if($month > 12){
             $month = sprintf('%02d', $month - 12);

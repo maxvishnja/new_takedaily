@@ -77,9 +77,9 @@
                                     <td class="text-center">
                                         @if($y >= $key)
 
-                                            {{ $cohorts17 = \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017)->customers}}
+                                            {{ $cohorts17 = \App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017, $signup17)->customers}}
                                             <br/>
-                                            ({{\App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017)->cohorts}}
+                                            ({{\App\Plan::getCohorts(sprintf('%02d', $key),sprintf('%02d', $y), 2017, $signup17)->cohorts}}
                                             %)
                                             <br/>
                                             <b>Rev.</b>
@@ -129,9 +129,9 @@
                                 @foreach(range($key2,\Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01' ))) as $y2)
                                     <td class="text-center">
                                         @if($y2 >= $key2 and $y2 <= (int)date('m') )
-                                            {{ $cohorts18 = \App\Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018)->customers}}
+                                            {{ $cohorts18 = \App\Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018, $signup18)->customers}}
                                             <br/>
-                                            ({{\App\Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018)->cohorts}}
+                                            ({{\App\Plan::getCohorts(sprintf('%02d', $key2),sprintf('%02d', $y2), 2018, $signup18)->cohorts}}
                                             %)
                                             <br/>
                                             <b>Rev.</b>

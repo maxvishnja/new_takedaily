@@ -605,7 +605,8 @@ class StatsController extends Controller
                         $users_array[$month . ' 2017']['0'] = '100%';
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
                             if ($y >= $key) {
-                                $users_array[$month . ' 2017'][$y] = Plan::getCohorts(sprintf('%02d', $key), sprintf('%02d', $y), 2017)->customers . "(" . Plan::getCohorts(sprintf('%02d', $key), sprintf('%02d', $y), 2017)->cohorts . "%)";
+                                $coh = Plan::getCohorts(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $users_array[$month . ' 2017']['Signups']);
+                                $users_array[$month . ' 2017'][$y] = $coh->customers . "(" . $coh->cohorts . "%)";
                             }
                         }
                     }
@@ -615,7 +616,8 @@ class StatsController extends Controller
                         $users_array[$month2 . ' 2018']['0'] = '100%';
                         foreach (range($key2, 12) as $y2) {
                             if ($y2 >= $key2 and $y2 <= (int)date('m')) {
-                                $users_array[$month2 . ' 2018'][$y2] = Plan::getCohorts(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018)->customers . "(" . Plan::getCohorts(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018)->cohorts . "%)";
+                                $coh2018 = Plan::getCohorts(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $users_array[$month2 . ' 2018']['Signups']);
+                                $users_array[$month2 . ' 2018'][$y2] = $coh2018->customers . "(" . $coh2018->cohorts . "%)";
                             }
                         }
                     }
@@ -651,11 +653,8 @@ class StatsController extends Controller
                         $users_array3[$month . ' 2017']['0'] = '100%';
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
                             if ($y >= $key) {
-                                if (Plan::getCohorts(sprintf('%02d', $key), sprintf('%02d', $y), 2017)->customers != 0) {
+
                                     $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017)->rev, 2) . " (" . Plan::getCohortsArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017)->count . ")";
-                                } else {
-                                    $users_array3[$month . ' 2017'][$y] = 0;
-                                }
                             }
                         }
                     }
@@ -669,11 +668,8 @@ class StatsController extends Controller
                         $users_array3[$month2 . ' 2018']['0'] = '100%';
                         foreach (range($key2, 12) as $y2) {
                             if ($y2 >= $key2 and $y2 <= (int)date('m')) {
-                                if (Plan::getCohorts(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018)->customers != 0) {
                                     $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018)->rev, 2) . " (" . Plan::getCohortsArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018)->count . ")";
-                                } else {
-                                    $users_array3[$month2 . ' 2018'][$y2] = 0;
-                                }
+
                             }
                         }
                     }
@@ -715,7 +711,8 @@ class StatsController extends Controller
                         $users_array[$month . ' 2017']['0'] = '100%';
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
                             if ($y >= $key) {
-                                $users_array[$month . ' 2017'][$y] = Plan::getCohortsCountry(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate'])->customers . "(" . Plan::getCohortsCountry(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate'])->cohorts . "%)";
+                                $coh= Plan::getCohortsCountry(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate'], $users_array[$month . ' 2017']['Signups']);
+                                $users_array[$month . ' 2017'][$y] = $coh->customers . "(" . $coh->cohorts . "%)";
                             }
                         }
                     }
@@ -725,7 +722,8 @@ class StatsController extends Controller
                         $users_array[$month2 . ' 2018']['0'] = '100%';
                         foreach (range($key2, 12) as $y2) {
                             if ($y2 >= $key2 and $y2 <= (int)date('m')) {
-                                $users_array[$month2 . ' 2018'][$y2] = Plan::getCohortsCountry(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate'])->customers . "(" . Plan::getCohortsCountry(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate'])->cohorts . "%)";
+                                $coh2018 = Plan::getCohortsCountry(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate'], $users_array[$month2 . ' 2018']['Signups']);
+                                $users_array[$month2 . ' 2018'][$y2] = $coh2018->customers . "(" . $coh2018->cohorts . "%)";
                             }
                         }
                     }
@@ -761,11 +759,9 @@ class StatsController extends Controller
                         $users_array3[$month . ' 2017']['0'] = '100%';
                         foreach (range($key, \Date::now()->diffInMonths(\Date::createFromFormat('Y-m-d', '2016-12-01'))) as $y) {
                             if ($y >= $key) {
-                                if (Plan::getCohortsCountry(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate'])->customers != 0) {
+
                                     $users_array3[$month . ' 2017'][$y] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate'])->rev, 2) . " (" . Plan::getCohortsCountryArpu(sprintf('%02d', $key), sprintf('%02d', $y), 2017, $data['rate'])->count . ")";
-                                } else {
-                                    $users_array3[$month . ' 2017'][$y] = 0;
-                                }
+
                             }
                         }
                     }
@@ -779,11 +775,9 @@ class StatsController extends Controller
                         $users_array3[$month2 . ' 2018']['0'] = '100%';
                         foreach (range($key2, 12) as $y2) {
                             if ($y2 >= $key2 and $y2 <= (int)date('m')) {
-                                if (Plan::getCohortsCountry(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate'])->customers != 0) {
+
                                     $users_array3[$month2 . ' 2018'][$y2] = \App\Apricot\Libraries\MoneyLibrary::toMoneyFormat(Plan::getCohortsCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate'])->rev, 2) . " (" . Plan::getCohortsCountryArpu(sprintf('%02d', $key2), sprintf('%02d', $y2), 2018, $data['rate'])->count . ")";
-                                } else {
-                                    $users_array3[$month2 . ' 2018'][$y2] = 0;
-                                }
+                               
                             }
                         }
                     }
