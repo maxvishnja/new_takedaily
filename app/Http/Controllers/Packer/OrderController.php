@@ -89,10 +89,6 @@ class OrderController extends Controller
         $orders = $orders_dk->merge($orders_nl);
 
 
-//		$printableOrders = $this->repo->getPaid()->orderBy( 'created_at', 'DESC' )->shippable()->select('id')->get();
-
-//		return $this->downloadMultiple( array_flatten($printableOrders->toArray()) );
-
         return $this->downloadMultiple( $orders );
     }
 

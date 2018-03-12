@@ -201,17 +201,8 @@ class CheckoutController extends Controller
             if($method == 'mollie' and strpos($request->session()->get('charge_id'), 'tr_') !== 0){
 
                 \Log::error("Mollie error create user : " . $id);
-//
-//                $refund = $checkout->getPaymentHandler()->refundPayment($id);
-//
-//                if($refund){
-//                    \Log::info("Payment refunded to : " . $id);
-//                }
 
                 $checkoutData = Checkouts::where('charge_id','=',$id)->get();
-
-                \Log::info("Cehckout data:");
-                \Log::info($checkoutData);
 
                 if(count($checkoutData) == 0){
 
@@ -242,7 +233,6 @@ class CheckoutController extends Controller
 
                     \Log::info("Redirect to home user : " . $id);
 
-                    //return \Redirect::route('home');
                 } else{
 
                     Checkouts::find($checkoutDatas[0]->id)->delete();
